@@ -28,7 +28,7 @@ unsafe impl ::windows::runtime::Abi for HSWDEVICE {
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPAddressFamilyControl(::windows::runtime::IUnknown);
+pub struct IUPnPAddressFamilyControl(pub ::windows::runtime::IUnknown);
 impl IUPnPAddressFamilyControl {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn SetAddressFamily(&self, dwflags: i32) -> ::windows::runtime::Result<()> {
@@ -46,22 +46,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPAddressFamilyControl {
 }
 impl ::std::convert::From<IUPnPAddressFamilyControl> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPAddressFamilyControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPAddressFamilyControl> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPAddressFamilyControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPAddressFamilyControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPAddressFamilyControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPAddressFamilyControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -76,7 +76,7 @@ pub struct IUPnPAddressFamilyControl_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPAsyncResult(::windows::runtime::IUnknown);
+pub struct IUPnPAsyncResult(pub ::windows::runtime::IUnknown);
 impl IUPnPAsyncResult {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn AsyncOperationComplete(&self, ullrequestid: u64) -> ::windows::runtime::Result<()> {
@@ -89,22 +89,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPAsyncResult {
 }
 impl ::std::convert::From<IUPnPAsyncResult> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPAsyncResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPAsyncResult> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPAsyncResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPAsyncResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPAsyncResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPAsyncResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -118,7 +118,7 @@ pub struct IUPnPAsyncResult_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDescriptionDocument(::windows::runtime::IUnknown);
+pub struct IUPnPDescriptionDocument(pub ::windows::runtime::IUnknown);
 impl IUPnPDescriptionDocument {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn ReadyState(&self) -> ::windows::runtime::Result<i32> {
@@ -162,22 +162,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDescriptionDocument {
 }
 impl ::std::convert::From<IUPnPDescriptionDocument> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDescriptionDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDescriptionDocument> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDescriptionDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDescriptionDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDescriptionDocument {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDescriptionDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -232,7 +232,7 @@ pub struct IUPnPDescriptionDocument_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDescriptionDocumentCallback(::windows::runtime::IUnknown);
+pub struct IUPnPDescriptionDocumentCallback(pub ::windows::runtime::IUnknown);
 impl IUPnPDescriptionDocumentCallback {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn LoadComplete(&self, hrloadresult: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -245,22 +245,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDescriptionDocumentCallback {
 }
 impl ::std::convert::From<IUPnPDescriptionDocumentCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDescriptionDocumentCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDescriptionDocumentCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDescriptionDocumentCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDescriptionDocumentCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDescriptionDocumentCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDescriptionDocumentCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -274,7 +274,7 @@ pub struct IUPnPDescriptionDocumentCallback_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDevice(::windows::runtime::IUnknown);
+pub struct IUPnPDevice(pub ::windows::runtime::IUnknown);
 impl IUPnPDevice {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn IsRootDevice(&self) -> ::windows::runtime::Result<i16> {
@@ -391,22 +391,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDevice {
 }
 impl ::std::convert::From<IUPnPDevice> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -483,7 +483,7 @@ pub struct IUPnPDevice_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceControl(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceControl(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -503,22 +503,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceControl {
 }
 impl ::std::convert::From<IUPnPDeviceControl> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceControl> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -535,7 +535,7 @@ pub struct IUPnPDeviceControl_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceControlHttpHeaders(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceControlHttpHeaders(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceControlHttpHeaders {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -550,22 +550,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceControlHttpHeaders {
 }
 impl ::std::convert::From<IUPnPDeviceControlHttpHeaders> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceControlHttpHeaders) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceControlHttpHeaders> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceControlHttpHeaders) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceControlHttpHeaders {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceControlHttpHeaders {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceControlHttpHeaders {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -580,7 +580,7 @@ pub struct IUPnPDeviceControlHttpHeaders_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceDocumentAccess(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceDocumentAccess(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceDocumentAccess {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -595,22 +595,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceDocumentAccess {
 }
 impl ::std::convert::From<IUPnPDeviceDocumentAccess> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceDocumentAccess) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceDocumentAccess> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceDocumentAccess) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceDocumentAccess {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceDocumentAccess {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceDocumentAccess {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -625,7 +625,7 @@ pub struct IUPnPDeviceDocumentAccess_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceDocumentAccessEx(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceDocumentAccessEx(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceDocumentAccessEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -640,22 +640,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceDocumentAccessEx {
 }
 impl ::std::convert::From<IUPnPDeviceDocumentAccessEx> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceDocumentAccessEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceDocumentAccessEx> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceDocumentAccessEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceDocumentAccessEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceDocumentAccessEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceDocumentAccessEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -670,7 +670,7 @@ pub struct IUPnPDeviceDocumentAccessEx_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceFinder(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceFinder(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceFinder {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -705,22 +705,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceFinder {
 }
 impl ::std::convert::From<IUPnPDeviceFinder> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceFinder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceFinder> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceFinder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceFinder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceFinder {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceFinder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -773,7 +773,7 @@ pub struct IUPnPDeviceFinder_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceFinderAddCallbackWithInterface(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceFinderAddCallbackWithInterface(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceFinderAddCallbackWithInterface {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn DeviceAddedWithInterface<'a, Param1: ::windows::runtime::IntoParam<'a, IUPnPDevice>>(&self, lfinddata: i32, pdevice: Param1, pguidinterface: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -786,22 +786,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceFinderAddCallbackWithIn
 }
 impl ::std::convert::From<IUPnPDeviceFinderAddCallbackWithInterface> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceFinderAddCallbackWithInterface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceFinderAddCallbackWithInterface> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceFinderAddCallbackWithInterface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceFinderAddCallbackWithInterface {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceFinderAddCallbackWithInterface {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceFinderAddCallbackWithInterface {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -815,7 +815,7 @@ pub struct IUPnPDeviceFinderAddCallbackWithInterface_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceFinderCallback(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceFinderCallback(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceFinderCallback {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn DeviceAdded<'a, Param1: ::windows::runtime::IntoParam<'a, IUPnPDevice>>(&self, lfinddata: i32, pdevice: Param1) -> ::windows::runtime::Result<()> {
@@ -837,22 +837,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceFinderCallback {
 }
 impl ::std::convert::From<IUPnPDeviceFinderCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceFinderCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceFinderCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceFinderCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceFinderCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceFinderCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceFinderCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -869,7 +869,7 @@ pub struct IUPnPDeviceFinderCallback_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDeviceProvider(::windows::runtime::IUnknown);
+pub struct IUPnPDeviceProvider(pub ::windows::runtime::IUnknown);
 impl IUPnPDeviceProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -887,22 +887,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDeviceProvider {
 }
 impl ::std::convert::From<IUPnPDeviceProvider> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDeviceProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDeviceProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDeviceProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDeviceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDeviceProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDeviceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -918,7 +918,7 @@ pub struct IUPnPDeviceProvider_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPDevices(::windows::runtime::IUnknown);
+pub struct IUPnPDevices(pub ::windows::runtime::IUnknown);
 impl IUPnPDevices {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -943,22 +943,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPDevices {
 }
 impl ::std::convert::From<IUPnPDevices> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPDevices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPDevices> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPDevices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPDevices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1007,7 +1007,7 @@ pub struct IUPnPDevices_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPEventSink(::windows::runtime::IUnknown);
+pub struct IUPnPEventSink(pub ::windows::runtime::IUnknown);
 impl IUPnPEventSink {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn OnStateChanged(&self, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::runtime::Result<()> {
@@ -1025,22 +1025,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPEventSink {
 }
 impl ::std::convert::From<IUPnPEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPEventSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPEventSink> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPEventSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPEventSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1056,7 +1056,7 @@ pub struct IUPnPEventSink_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPEventSource(::windows::runtime::IUnknown);
+pub struct IUPnPEventSource(pub ::windows::runtime::IUnknown);
 impl IUPnPEventSource {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::runtime::IntoParam<'a, IUPnPEventSink>>(&self, pessubscriber: Param0) -> ::windows::runtime::Result<()> {
@@ -1073,22 +1073,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPEventSource {
 }
 impl ::std::convert::From<IUPnPEventSource> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPEventSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPEventSource> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPEventSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPEventSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1103,7 +1103,7 @@ pub struct IUPnPEventSource_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPHttpHeaderControl(::windows::runtime::IUnknown);
+pub struct IUPnPHttpHeaderControl(pub ::windows::runtime::IUnknown);
 impl IUPnPHttpHeaderControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -1117,22 +1117,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPHttpHeaderControl {
 }
 impl ::std::convert::From<IUPnPHttpHeaderControl> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPHttpHeaderControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPHttpHeaderControl> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPHttpHeaderControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPHttpHeaderControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPHttpHeaderControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPHttpHeaderControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1147,7 +1147,7 @@ pub struct IUPnPHttpHeaderControl_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPRegistrar(::windows::runtime::IUnknown);
+pub struct IUPnPRegistrar(pub ::windows::runtime::IUnknown);
 impl IUPnPRegistrar {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -1210,22 +1210,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPRegistrar {
 }
 impl ::std::convert::From<IUPnPRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPRegistrar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPRegistrar> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPRegistrar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPRegistrar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPRegistrar {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPRegistrar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1261,7 +1261,7 @@ pub struct IUPnPRegistrar_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPRemoteEndpointInfo(::windows::runtime::IUnknown);
+pub struct IUPnPRemoteEndpointInfo(pub ::windows::runtime::IUnknown);
 impl IUPnPRemoteEndpointInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -1288,22 +1288,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPRemoteEndpointInfo {
 }
 impl ::std::convert::From<IUPnPRemoteEndpointInfo> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPRemoteEndpointInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPRemoteEndpointInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPRemoteEndpointInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPRemoteEndpointInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPRemoteEndpointInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPRemoteEndpointInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1322,7 +1322,7 @@ pub struct IUPnPRemoteEndpointInfo_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPReregistrar(::windows::runtime::IUnknown);
+pub struct IUPnPReregistrar(pub ::windows::runtime::IUnknown);
 impl IUPnPReregistrar {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -1366,22 +1366,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPReregistrar {
 }
 impl ::std::convert::From<IUPnPReregistrar> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPReregistrar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPReregistrar> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPReregistrar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPReregistrar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPReregistrar {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPReregistrar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1409,7 +1409,7 @@ pub struct IUPnPReregistrar_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPService(::windows::runtime::IUnknown);
+pub struct IUPnPService(pub ::windows::runtime::IUnknown);
 impl IUPnPService {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1450,22 +1450,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPService {
 }
 impl ::std::convert::From<IUPnPService> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPService> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1521,7 +1521,7 @@ pub struct IUPnPService_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPServiceAsync(::windows::runtime::IUnknown);
+pub struct IUPnPServiceAsync(pub ::windows::runtime::IUnknown);
 impl IUPnPServiceAsync {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1576,22 +1576,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPServiceAsync {
 }
 impl ::std::convert::From<IUPnPServiceAsync> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceAsync) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPServiceAsync> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPServiceAsync) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPServiceAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPServiceAsync {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPServiceAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1618,7 +1618,7 @@ pub struct IUPnPServiceAsync_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPServiceCallback(::windows::runtime::IUnknown);
+pub struct IUPnPServiceCallback(pub ::windows::runtime::IUnknown);
 impl IUPnPServiceCallback {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1636,22 +1636,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPServiceCallback {
 }
 impl ::std::convert::From<IUPnPServiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPServiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPServiceCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPServiceCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPServiceCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPServiceCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1667,7 +1667,7 @@ pub struct IUPnPServiceCallback_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPServiceDocumentAccess(::windows::runtime::IUnknown);
+pub struct IUPnPServiceDocumentAccess(pub ::windows::runtime::IUnknown);
 impl IUPnPServiceDocumentAccess {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
@@ -1688,22 +1688,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPServiceDocumentAccess {
 }
 impl ::std::convert::From<IUPnPServiceDocumentAccess> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceDocumentAccess) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPServiceDocumentAccess> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPServiceDocumentAccess) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPServiceDocumentAccess {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPServiceDocumentAccess {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPServiceDocumentAccess {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1720,7 +1720,7 @@ pub struct IUPnPServiceDocumentAccess_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPServiceEnumProperty(::windows::runtime::IUnknown);
+pub struct IUPnPServiceEnumProperty(pub ::windows::runtime::IUnknown);
 impl IUPnPServiceEnumProperty {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn SetServiceEnumProperty(&self, dwmask: u32) -> ::windows::runtime::Result<()> {
@@ -1733,22 +1733,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPServiceEnumProperty {
 }
 impl ::std::convert::From<IUPnPServiceEnumProperty> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServiceEnumProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPServiceEnumProperty> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPServiceEnumProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPServiceEnumProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPServiceEnumProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPServiceEnumProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1762,7 +1762,7 @@ pub struct IUPnPServiceEnumProperty_abi(
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUPnPServices(::windows::runtime::IUnknown);
+pub struct IUPnPServices(pub ::windows::runtime::IUnknown);
 impl IUPnPServices {
     #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -1787,22 +1787,22 @@ unsafe impl ::windows::runtime::Interface for IUPnPServices {
 }
 impl ::std::convert::From<IUPnPServices> for ::windows::runtime::IUnknown {
     fn from(value: IUPnPServices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUPnPServices> for ::windows::runtime::IUnknown {
     fn from(value: &IUPnPServices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPServices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUPnPServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

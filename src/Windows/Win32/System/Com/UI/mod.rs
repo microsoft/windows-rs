@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_System_Com_UI`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDummyHICONIncluder(::windows::runtime::IUnknown);
+pub struct IDummyHICONIncluder(pub ::windows::runtime::IUnknown);
 impl IDummyHICONIncluder {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     #[doc = "*Required features: `Win32_System_Com_UI`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
@@ -16,22 +16,22 @@ unsafe impl ::windows::runtime::Interface for IDummyHICONIncluder {
 }
 impl ::std::convert::From<IDummyHICONIncluder> for ::windows::runtime::IUnknown {
     fn from(value: IDummyHICONIncluder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDummyHICONIncluder> for ::windows::runtime::IUnknown {
     fn from(value: &IDummyHICONIncluder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDummyHICONIncluder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDummyHICONIncluder {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDummyHICONIncluder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -46,7 +46,7 @@ pub struct IDummyHICONIncluder_abi(
 #[doc = "*Required features: `Win32_System_Com_UI`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IThumbnailExtractor(::windows::runtime::IUnknown);
+pub struct IThumbnailExtractor(pub ::windows::runtime::IUnknown);
 impl IThumbnailExtractor {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_System_Com_UI`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`*"]
@@ -65,22 +65,22 @@ unsafe impl ::windows::runtime::Interface for IThumbnailExtractor {
 }
 impl ::std::convert::From<IThumbnailExtractor> for ::windows::runtime::IUnknown {
     fn from(value: IThumbnailExtractor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IThumbnailExtractor> for ::windows::runtime::IUnknown {
     fn from(value: &IThumbnailExtractor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IThumbnailExtractor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IThumbnailExtractor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IThumbnailExtractor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

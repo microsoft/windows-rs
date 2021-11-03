@@ -4,7 +4,7 @@ pub mod Custom;
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Accelerometer(::windows::runtime::IInspectable);
+pub struct Accelerometer(pub ::windows::runtime::IInspectable);
 impl Accelerometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<AccelerometerReading> {
@@ -179,22 +179,22 @@ impl ::windows::runtime::RuntimeName for Accelerometer {
 }
 impl ::std::convert::From<Accelerometer> for ::windows::runtime::IUnknown {
     fn from(value: Accelerometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Accelerometer> for ::windows::runtime::IUnknown {
     fn from(value: &Accelerometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Accelerometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Accelerometer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Accelerometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Accelerometer> for ::windows::runtime::IInspectable {
@@ -222,7 +222,7 @@ unsafe impl ::std::marker::Sync for Accelerometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AccelerometerDataThreshold(::windows::runtime::IInspectable);
+pub struct AccelerometerDataThreshold(pub ::windows::runtime::IInspectable);
 impl AccelerometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn XAxisInGForce(&self) -> ::windows::runtime::Result<f64> {
@@ -276,22 +276,22 @@ impl ::windows::runtime::RuntimeName for AccelerometerDataThreshold {
 }
 impl ::std::convert::From<AccelerometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: AccelerometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AccelerometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &AccelerometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AccelerometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AccelerometerDataThreshold> for ::windows::runtime::IInspectable {
@@ -319,7 +319,7 @@ unsafe impl ::std::marker::Sync for AccelerometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AccelerometerReading(::windows::runtime::IInspectable);
+pub struct AccelerometerReading(pub ::windows::runtime::IInspectable);
 impl AccelerometerReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -385,22 +385,22 @@ impl ::windows::runtime::RuntimeName for AccelerometerReading {
 }
 impl ::std::convert::From<AccelerometerReading> for ::windows::runtime::IUnknown {
     fn from(value: AccelerometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AccelerometerReading> for ::windows::runtime::IUnknown {
     fn from(value: &AccelerometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AccelerometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AccelerometerReading> for ::windows::runtime::IInspectable {
@@ -428,7 +428,7 @@ unsafe impl ::std::marker::Sync for AccelerometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AccelerometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct AccelerometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AccelerometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<AccelerometerReading> {
@@ -451,22 +451,22 @@ impl ::windows::runtime::RuntimeName for AccelerometerReadingChangedEventArgs {
 }
 impl ::std::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AccelerometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -517,7 +517,7 @@ impl ::windows::runtime::DefaultType for AccelerometerReadingType {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AccelerometerShakenEventArgs(::windows::runtime::IInspectable);
+pub struct AccelerometerShakenEventArgs(pub ::windows::runtime::IInspectable);
 impl AccelerometerShakenEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -541,22 +541,22 @@ impl ::windows::runtime::RuntimeName for AccelerometerShakenEventArgs {
 }
 impl ::std::convert::From<AccelerometerShakenEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AccelerometerShakenEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerShakenEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerShakenEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AccelerometerShakenEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AccelerometerShakenEventArgs> for ::windows::runtime::IInspectable {
@@ -584,7 +584,7 @@ unsafe impl ::std::marker::Sync for AccelerometerShakenEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivitySensor(::windows::runtime::IInspectable);
+pub struct ActivitySensor(pub ::windows::runtime::IInspectable);
 impl ActivitySensor {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -708,22 +708,22 @@ impl ::windows::runtime::RuntimeName for ActivitySensor {
 }
 impl ::std::convert::From<ActivitySensor> for ::windows::runtime::IUnknown {
     fn from(value: ActivitySensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivitySensor> for ::windows::runtime::IUnknown {
     fn from(value: &ActivitySensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivitySensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivitySensor> for ::windows::runtime::IInspectable {
@@ -751,7 +751,7 @@ unsafe impl ::std::marker::Sync for ActivitySensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivitySensorReading(::windows::runtime::IInspectable);
+pub struct ActivitySensorReading(pub ::windows::runtime::IInspectable);
 impl ActivitySensorReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -791,22 +791,22 @@ impl ::windows::runtime::RuntimeName for ActivitySensorReading {
 }
 impl ::std::convert::From<ActivitySensorReading> for ::windows::runtime::IUnknown {
     fn from(value: ActivitySensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivitySensorReading> for ::windows::runtime::IUnknown {
     fn from(value: &ActivitySensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivitySensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivitySensorReading> for ::windows::runtime::IInspectable {
@@ -834,7 +834,7 @@ unsafe impl ::std::marker::Sync for ActivitySensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivitySensorReadingChangeReport(::windows::runtime::IInspectable);
+pub struct ActivitySensorReadingChangeReport(pub ::windows::runtime::IInspectable);
 impl ActivitySensorReadingChangeReport {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<ActivitySensorReading> {
@@ -857,22 +857,22 @@ impl ::windows::runtime::RuntimeName for ActivitySensorReadingChangeReport {
 }
 impl ::std::convert::From<ActivitySensorReadingChangeReport> for ::windows::runtime::IUnknown {
     fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivitySensorReadingChangeReport> for ::windows::runtime::IUnknown {
     fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorReadingChangeReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorReadingChangeReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivitySensorReadingChangeReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivitySensorReadingChangeReport> for ::windows::runtime::IInspectable {
@@ -900,7 +900,7 @@ unsafe impl ::std::marker::Sync for ActivitySensorReadingChangeReport {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivitySensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ActivitySensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl ActivitySensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<ActivitySensorReading> {
@@ -923,22 +923,22 @@ impl ::windows::runtime::RuntimeName for ActivitySensorReadingChangedEventArgs {
 }
 impl ::std::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -988,7 +988,7 @@ impl ::windows::runtime::DefaultType for ActivitySensorReadingConfidence {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivitySensorTriggerDetails(::windows::runtime::IInspectable);
+pub struct ActivitySensorTriggerDetails(pub ::windows::runtime::IInspectable);
 impl ActivitySensorTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation_Collections`*"]
@@ -1012,22 +1012,22 @@ impl ::windows::runtime::RuntimeName for ActivitySensorTriggerDetails {
 }
 impl ::std::convert::From<ActivitySensorTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivitySensorTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivitySensorTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivitySensorTriggerDetails> for ::windows::runtime::IInspectable {
@@ -1083,7 +1083,7 @@ impl ::windows::runtime::DefaultType for ActivityType {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Altimeter(::windows::runtime::IInspectable);
+pub struct Altimeter(pub ::windows::runtime::IInspectable);
 impl Altimeter {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<AltimeterReading> {
@@ -1182,22 +1182,22 @@ impl ::windows::runtime::RuntimeName for Altimeter {
 }
 impl ::std::convert::From<Altimeter> for ::windows::runtime::IUnknown {
     fn from(value: Altimeter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Altimeter> for ::windows::runtime::IUnknown {
     fn from(value: &Altimeter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Altimeter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Altimeter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Altimeter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Altimeter> for ::windows::runtime::IInspectable {
@@ -1225,7 +1225,7 @@ unsafe impl ::std::marker::Sync for Altimeter {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AltimeterReading(::windows::runtime::IInspectable);
+pub struct AltimeterReading(pub ::windows::runtime::IInspectable);
 impl AltimeterReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -1275,22 +1275,22 @@ impl ::windows::runtime::RuntimeName for AltimeterReading {
 }
 impl ::std::convert::From<AltimeterReading> for ::windows::runtime::IUnknown {
     fn from(value: AltimeterReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AltimeterReading> for ::windows::runtime::IUnknown {
     fn from(value: &AltimeterReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AltimeterReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AltimeterReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AltimeterReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AltimeterReading> for ::windows::runtime::IInspectable {
@@ -1318,7 +1318,7 @@ unsafe impl ::std::marker::Sync for AltimeterReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AltimeterReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct AltimeterReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AltimeterReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<AltimeterReading> {
@@ -1341,22 +1341,22 @@ impl ::windows::runtime::RuntimeName for AltimeterReadingChangedEventArgs {
 }
 impl ::std::convert::From<AltimeterReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AltimeterReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AltimeterReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AltimeterReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AltimeterReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -1384,7 +1384,7 @@ unsafe impl ::std::marker::Sync for AltimeterReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Barometer(::windows::runtime::IInspectable);
+pub struct Barometer(pub ::windows::runtime::IInspectable);
 impl Barometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<BarometerReading> {
@@ -1510,22 +1510,22 @@ impl ::windows::runtime::RuntimeName for Barometer {
 }
 impl ::std::convert::From<Barometer> for ::windows::runtime::IUnknown {
     fn from(value: Barometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Barometer> for ::windows::runtime::IUnknown {
     fn from(value: &Barometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Barometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Barometer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Barometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Barometer> for ::windows::runtime::IInspectable {
@@ -1553,7 +1553,7 @@ unsafe impl ::std::marker::Sync for Barometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarometerDataThreshold(::windows::runtime::IInspectable);
+pub struct BarometerDataThreshold(pub ::windows::runtime::IInspectable);
 impl BarometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Hectopascals(&self) -> ::windows::runtime::Result<f64> {
@@ -1581,22 +1581,22 @@ impl ::windows::runtime::RuntimeName for BarometerDataThreshold {
 }
 impl ::std::convert::From<BarometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: BarometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &BarometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarometerDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarometerDataThreshold> for ::windows::runtime::IInspectable {
@@ -1624,7 +1624,7 @@ unsafe impl ::std::marker::Sync for BarometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarometerReading(::windows::runtime::IInspectable);
+pub struct BarometerReading(pub ::windows::runtime::IInspectable);
 impl BarometerReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -1674,22 +1674,22 @@ impl ::windows::runtime::RuntimeName for BarometerReading {
 }
 impl ::std::convert::From<BarometerReading> for ::windows::runtime::IUnknown {
     fn from(value: BarometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarometerReading> for ::windows::runtime::IUnknown {
     fn from(value: &BarometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarometerReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarometerReading> for ::windows::runtime::IInspectable {
@@ -1717,7 +1717,7 @@ unsafe impl ::std::marker::Sync for BarometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct BarometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl BarometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<BarometerReading> {
@@ -1740,22 +1740,22 @@ impl ::windows::runtime::RuntimeName for BarometerReadingChangedEventArgs {
 }
 impl ::std::convert::From<BarometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarometerReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -1783,7 +1783,7 @@ unsafe impl ::std::marker::Sync for BarometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Compass(::windows::runtime::IInspectable);
+pub struct Compass(pub ::windows::runtime::IInspectable);
 impl Compass {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<CompassReading> {
@@ -1924,22 +1924,22 @@ impl ::windows::runtime::RuntimeName for Compass {
 }
 impl ::std::convert::From<Compass> for ::windows::runtime::IUnknown {
     fn from(value: Compass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Compass> for ::windows::runtime::IUnknown {
     fn from(value: &Compass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Compass {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Compass {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Compass {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Compass> for ::windows::runtime::IInspectable {
@@ -1967,7 +1967,7 @@ unsafe impl ::std::marker::Sync for Compass {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CompassDataThreshold(::windows::runtime::IInspectable);
+pub struct CompassDataThreshold(pub ::windows::runtime::IInspectable);
 impl CompassDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Degrees(&self) -> ::windows::runtime::Result<f64> {
@@ -1995,22 +1995,22 @@ impl ::windows::runtime::RuntimeName for CompassDataThreshold {
 }
 impl ::std::convert::From<CompassDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: CompassDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CompassDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &CompassDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompassDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompassDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompassDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CompassDataThreshold> for ::windows::runtime::IInspectable {
@@ -2038,7 +2038,7 @@ unsafe impl ::std::marker::Sync for CompassDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CompassReading(::windows::runtime::IInspectable);
+pub struct CompassReading(pub ::windows::runtime::IInspectable);
 impl CompassReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -2105,22 +2105,22 @@ impl ::windows::runtime::RuntimeName for CompassReading {
 }
 impl ::std::convert::From<CompassReading> for ::windows::runtime::IUnknown {
     fn from(value: CompassReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CompassReading> for ::windows::runtime::IUnknown {
     fn from(value: &CompassReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompassReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompassReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompassReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CompassReading> for ::windows::runtime::IInspectable {
@@ -2148,7 +2148,7 @@ unsafe impl ::std::marker::Sync for CompassReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CompassReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct CompassReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl CompassReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<CompassReading> {
@@ -2171,22 +2171,22 @@ impl ::windows::runtime::RuntimeName for CompassReadingChangedEventArgs {
 }
 impl ::std::convert::From<CompassReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CompassReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompassReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompassReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompassReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CompassReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -2214,7 +2214,7 @@ unsafe impl ::std::marker::Sync for CompassReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Gyrometer(::windows::runtime::IInspectable);
+pub struct Gyrometer(pub ::windows::runtime::IInspectable);
 impl Gyrometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<GyrometerReading> {
@@ -2355,22 +2355,22 @@ impl ::windows::runtime::RuntimeName for Gyrometer {
 }
 impl ::std::convert::From<Gyrometer> for ::windows::runtime::IUnknown {
     fn from(value: Gyrometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Gyrometer> for ::windows::runtime::IUnknown {
     fn from(value: &Gyrometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Gyrometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Gyrometer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Gyrometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Gyrometer> for ::windows::runtime::IInspectable {
@@ -2398,7 +2398,7 @@ unsafe impl ::std::marker::Sync for Gyrometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GyrometerDataThreshold(::windows::runtime::IInspectable);
+pub struct GyrometerDataThreshold(pub ::windows::runtime::IInspectable);
 impl GyrometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn XAxisInDegreesPerSecond(&self) -> ::windows::runtime::Result<f64> {
@@ -2452,22 +2452,22 @@ impl ::windows::runtime::RuntimeName for GyrometerDataThreshold {
 }
 impl ::std::convert::From<GyrometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: GyrometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GyrometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &GyrometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GyrometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GyrometerDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GyrometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GyrometerDataThreshold> for ::windows::runtime::IInspectable {
@@ -2495,7 +2495,7 @@ unsafe impl ::std::marker::Sync for GyrometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GyrometerReading(::windows::runtime::IInspectable);
+pub struct GyrometerReading(pub ::windows::runtime::IInspectable);
 impl GyrometerReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -2561,22 +2561,22 @@ impl ::windows::runtime::RuntimeName for GyrometerReading {
 }
 impl ::std::convert::From<GyrometerReading> for ::windows::runtime::IUnknown {
     fn from(value: GyrometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GyrometerReading> for ::windows::runtime::IUnknown {
     fn from(value: &GyrometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GyrometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GyrometerReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GyrometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GyrometerReading> for ::windows::runtime::IInspectable {
@@ -2604,7 +2604,7 @@ unsafe impl ::std::marker::Sync for GyrometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GyrometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct GyrometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl GyrometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<GyrometerReading> {
@@ -2627,22 +2627,22 @@ impl ::windows::runtime::RuntimeName for GyrometerReadingChangedEventArgs {
 }
 impl ::std::convert::From<GyrometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GyrometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GyrometerReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GyrometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GyrometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -2670,7 +2670,7 @@ unsafe impl ::std::marker::Sync for GyrometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HingeAngleReading(::windows::runtime::IInspectable);
+pub struct HingeAngleReading(pub ::windows::runtime::IInspectable);
 impl HingeAngleReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -2711,22 +2711,22 @@ impl ::windows::runtime::RuntimeName for HingeAngleReading {
 }
 impl ::std::convert::From<HingeAngleReading> for ::windows::runtime::IUnknown {
     fn from(value: HingeAngleReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HingeAngleReading> for ::windows::runtime::IUnknown {
     fn from(value: &HingeAngleReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HingeAngleReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HingeAngleReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HingeAngleReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HingeAngleReading> for ::windows::runtime::IInspectable {
@@ -2754,7 +2754,7 @@ unsafe impl ::std::marker::Sync for HingeAngleReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HingeAngleSensor(::windows::runtime::IInspectable);
+pub struct HingeAngleSensor(pub ::windows::runtime::IInspectable);
 impl HingeAngleSensor {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -2857,22 +2857,22 @@ impl ::windows::runtime::RuntimeName for HingeAngleSensor {
 }
 impl ::std::convert::From<HingeAngleSensor> for ::windows::runtime::IUnknown {
     fn from(value: HingeAngleSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HingeAngleSensor> for ::windows::runtime::IUnknown {
     fn from(value: &HingeAngleSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HingeAngleSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HingeAngleSensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HingeAngleSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HingeAngleSensor> for ::windows::runtime::IInspectable {
@@ -2900,7 +2900,7 @@ unsafe impl ::std::marker::Sync for HingeAngleSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HingeAngleSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct HingeAngleSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl HingeAngleSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<HingeAngleReading> {
@@ -2923,22 +2923,22 @@ impl ::windows::runtime::RuntimeName for HingeAngleSensorReadingChangedEventArgs
 }
 impl ::std::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HingeAngleSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HingeAngleSensorReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HingeAngleSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -2965,7 +2965,7 @@ unsafe impl ::std::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometer(::windows::runtime::IInspectable);
+pub struct IAccelerometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer {
     type Vtable = IAccelerometer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742909768, 10001, 19879, [128, 152, 75, 130, 32, 93, 60, 125]);
@@ -2994,7 +2994,7 @@ pub struct IAccelerometer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometer2(::windows::runtime::IInspectable);
+pub struct IAccelerometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer2 {
     type Vtable = IAccelerometer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908080366, 18788, 16410, [182, 2, 34, 13, 113, 83, 198, 10]);
@@ -3015,7 +3015,7 @@ pub struct IAccelerometer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometer3(::windows::runtime::IInspectable);
+pub struct IAccelerometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer3 {
     type Vtable = IAccelerometer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2279604778, 60800, 18923, [191, 138, 164, 234, 49, 229, 205, 132]);
@@ -3035,7 +3035,7 @@ pub struct IAccelerometer3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometer4(::windows::runtime::IInspectable);
+pub struct IAccelerometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer4 {
     type Vtable = IAccelerometer4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(490159183, 17107, 17842, [129, 68, 171, 127, 182, 101, 235, 89]);
@@ -3053,7 +3053,7 @@ pub struct IAccelerometer4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometer5(::windows::runtime::IInspectable);
+pub struct IAccelerometer5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometer5 {
     type Vtable = IAccelerometer5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122215457, 57076, 21414, [175, 67, 128, 111, 213, 56, 237, 246]);
@@ -3071,7 +3071,7 @@ pub struct IAccelerometer5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerDataThreshold(::windows::runtime::IInspectable);
+pub struct IAccelerometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180417384, 25376, 21879, [135, 158, 153, 66, 98, 28, 61, 217]);
@@ -3094,7 +3094,7 @@ pub struct IAccelerometerDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerDeviceId(::windows::runtime::IInspectable);
+pub struct IAccelerometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerDeviceId {
     type Vtable = IAccelerometerDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125227177, 38869, 17517, [171, 90, 145, 125, 249, 185, 106, 44]);
@@ -3112,7 +3112,7 @@ pub struct IAccelerometerDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerReading(::windows::runtime::IInspectable);
+pub struct IAccelerometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerReading {
     type Vtable = IAccelerometerReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3120462539, 54097, 16559, [139, 182, 122, 169, 174, 100, 31, 183]);
@@ -3134,7 +3134,7 @@ pub struct IAccelerometerReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerReading2(::windows::runtime::IInspectable);
+pub struct IAccelerometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerReading2 {
     type Vtable = IAccelerometerReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176573090, 5550, 19008, [190, 85, 219, 88, 215, 222, 115, 137]);
@@ -3155,7 +3155,7 @@ pub struct IAccelerometerReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IAccelerometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9815643, 46764, 18266, [159, 68, 139, 50, 211, 90, 63, 37]);
@@ -3173,7 +3173,7 @@ pub struct IAccelerometerReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerShakenEventArgs(::windows::runtime::IInspectable);
+pub struct IAccelerometerShakenEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516517329, 18984, 20277, [152, 232, 129, 120, 170, 228, 8, 74]);
@@ -3192,7 +3192,7 @@ pub struct IAccelerometerShakenEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerStatics(::windows::runtime::IInspectable);
+pub struct IAccelerometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerStatics {
     type Vtable = IAccelerometerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2783087476, 23175, 18989, [190, 204, 15, 144, 110, 160, 97, 221]);
@@ -3210,7 +3210,7 @@ pub struct IAccelerometerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerStatics2(::windows::runtime::IInspectable);
+pub struct IAccelerometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerStatics2 {
     type Vtable = IAccelerometerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3301213231, 55403, 18053, [178, 215, 51, 150, 247, 152, 213, 123]);
@@ -3228,7 +3228,7 @@ pub struct IAccelerometerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccelerometerStatics3(::windows::runtime::IInspectable);
+pub struct IAccelerometerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccelerometerStatics3 {
     type Vtable = IAccelerometerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2648840399, 17757, 19699, [130, 0, 112, 225, 65, 3, 64, 248]);
@@ -3248,7 +3248,7 @@ pub struct IAccelerometerStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensor(::windows::runtime::IInspectable);
+pub struct IActivitySensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensor {
     type Vtable = IActivitySensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447350028, 64351, 18667, [176, 155, 162, 112, 141, 28, 97, 239]);
@@ -3278,7 +3278,7 @@ pub struct IActivitySensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorReading(::windows::runtime::IInspectable);
+pub struct IActivitySensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorReading {
     type Vtable = IActivitySensorReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232572566, 5234, 16546, [178, 174, 225, 239, 41, 34, 108, 120]);
@@ -3299,7 +3299,7 @@ pub struct IActivitySensorReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorReadingChangeReport(::windows::runtime::IInspectable);
+pub struct IActivitySensorReadingChangeReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1329342741, 55611, 18365, [150, 10, 242, 15, 178, 243, 34, 185]);
@@ -3317,7 +3317,7 @@ pub struct IActivitySensorReadingChangeReport_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IActivitySensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3728238359, 44726, 20167, [148, 106, 217, 204, 25, 185, 81, 236]);
@@ -3335,7 +3335,7 @@ pub struct IActivitySensorReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorStatics(::windows::runtime::IInspectable);
+pub struct IActivitySensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorStatics {
     type Vtable = IActivitySensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803764893, 61067, 17873, [178, 91, 8, 204, 13, 249, 42, 182]);
@@ -3361,7 +3361,7 @@ pub struct IActivitySensorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorTriggerDetails(::windows::runtime::IInspectable);
+pub struct IActivitySensorTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(748578322, 47562, 18039, [178, 99, 36, 50, 151, 247, 157, 58]);
@@ -3380,7 +3380,7 @@ pub struct IActivitySensorTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAltimeter(::windows::runtime::IInspectable);
+pub struct IAltimeter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeter {
     type Vtable = IAltimeter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928353789, 36612, 18929, [180, 167, 244, 227, 99, 183, 1, 162]);
@@ -3406,7 +3406,7 @@ pub struct IAltimeter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAltimeter2(::windows::runtime::IInspectable);
+pub struct IAltimeter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeter2 {
     type Vtable = IAltimeter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376880633, 10973, 18677, [159, 8, 61, 12, 118, 96, 217, 56]);
@@ -3426,7 +3426,7 @@ pub struct IAltimeter2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAltimeterReading(::windows::runtime::IInspectable);
+pub struct IAltimeterReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterReading {
     type Vtable = IAltimeterReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4226346867, 32606, 18632, [170, 26, 241, 243, 190, 252, 17, 68]);
@@ -3446,7 +3446,7 @@ pub struct IAltimeterReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAltimeterReading2(::windows::runtime::IInspectable);
+pub struct IAltimeterReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterReading2 {
     type Vtable = IAltimeterReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1413094361, 27915, 17074, [189, 105, 188, 143, 174, 15, 120, 44]);
@@ -3467,7 +3467,7 @@ pub struct IAltimeterReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAltimeterReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IAltimeterReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885982839, 17517, 18423, [153, 140, 235, 194, 59, 69, 228, 162]);
@@ -3485,7 +3485,7 @@ pub struct IAltimeterReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAltimeterStatics(::windows::runtime::IInspectable);
+pub struct IAltimeterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAltimeterStatics {
     type Vtable = IAltimeterStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2662651843, 58796, 18382, [142, 239, 211, 113, 129, 104, 192, 31]);
@@ -3503,7 +3503,7 @@ pub struct IAltimeterStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometer(::windows::runtime::IInspectable);
+pub struct IBarometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometer {
     type Vtable = IBarometer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2470737320, 30911, 17711, [176, 23, 240, 32, 156, 230, 218, 180]);
@@ -3529,7 +3529,7 @@ pub struct IBarometer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometer2(::windows::runtime::IInspectable);
+pub struct IBarometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometer2 {
     type Vtable = IBarometer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(851231768, 16107, 19716, [149, 116, 118, 51, 168, 120, 31, 159]);
@@ -3549,7 +3549,7 @@ pub struct IBarometer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometer3(::windows::runtime::IInspectable);
+pub struct IBarometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometer3 {
     type Vtable = IBarometer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238416106, 693, 23044, [176, 61, 130, 32, 132, 134, 58, 84]);
@@ -3567,7 +3567,7 @@ pub struct IBarometer3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometerDataThreshold(::windows::runtime::IInspectable);
+pub struct IBarometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124491052, 52066, 23184, [160, 209, 248, 94, 74, 147, 99, 148]);
@@ -3586,7 +3586,7 @@ pub struct IBarometerDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometerReading(::windows::runtime::IInspectable);
+pub struct IBarometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerReading {
     type Vtable = IBarometerReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122596070, 7670, 18970, [167, 173, 50, 29, 79, 93, 178, 71]);
@@ -3606,7 +3606,7 @@ pub struct IBarometerReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometerReading2(::windows::runtime::IInspectable);
+pub struct IBarometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerReading2 {
     type Vtable = IBarometerReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242004203, 37061, 18549, [137, 28, 56, 101, 180, 195, 87, 231]);
@@ -3627,7 +3627,7 @@ pub struct IBarometerReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IBarometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1032098911, 891, 16463, [155, 187, 98, 50, 214, 149, 67, 195]);
@@ -3645,7 +3645,7 @@ pub struct IBarometerReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometerStatics(::windows::runtime::IInspectable);
+pub struct IBarometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerStatics {
     type Vtable = IBarometerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(678110986, 739, 20358, [132, 252, 253, 216, 146, 181, 148, 15]);
@@ -3663,7 +3663,7 @@ pub struct IBarometerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarometerStatics2(::windows::runtime::IInspectable);
+pub struct IBarometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarometerStatics2 {
     type Vtable = IBarometerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412163559, 38399, 17580, [135, 142, 214, 92, 131, 8, 195, 76]);
@@ -3683,7 +3683,7 @@ pub struct IBarometerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompass(::windows::runtime::IInspectable);
+pub struct ICompass(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass {
     type Vtable = ICompass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691010196, 6981, 16444, [186, 6, 177, 6, 219, 166, 154, 100]);
@@ -3708,7 +3708,7 @@ pub struct ICompass_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompass2(::windows::runtime::IInspectable);
+pub struct ICompass2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass2 {
     type Vtable = ICompass2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(921857289, 51159, 17231, [180, 97, 151, 157, 223, 194, 50, 47]);
@@ -3729,7 +3729,7 @@ pub struct ICompass2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompass3(::windows::runtime::IInspectable);
+pub struct ICompass3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass3 {
     type Vtable = ICompass3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753855515, 50666, 19781, [160, 236, 75, 121, 31, 4, 26, 137]);
@@ -3749,7 +3749,7 @@ pub struct ICompass3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompass4(::windows::runtime::IInspectable);
+pub struct ICompass4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompass4 {
     type Vtable = ICompass4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(689864465, 60466, 24012, [191, 203, 11, 179, 158, 186, 87, 116]);
@@ -3767,7 +3767,7 @@ pub struct ICompass4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassDataThreshold(::windows::runtime::IInspectable);
+pub struct ICompassDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassDataThreshold {
     type Vtable = ICompassDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512423091, 54173, 24264, [178, 228, 241, 147, 230, 171, 52, 237]);
@@ -3786,7 +3786,7 @@ pub struct ICompassDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassDeviceId(::windows::runtime::IInspectable);
+pub struct ICompassDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassDeviceId {
     type Vtable = ICompassDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3514944041, 45189, 19229, [135, 10, 79, 245, 123, 167, 79, 212]);
@@ -3804,7 +3804,7 @@ pub struct ICompassDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassReading(::windows::runtime::IInspectable);
+pub struct ICompassReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReading {
     type Vtable = ICompassReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190545192, 20797, 19913, [183, 129, 94, 237, 251, 240, 45, 12]);
@@ -3826,7 +3826,7 @@ pub struct ICompassReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassReading2(::windows::runtime::IInspectable);
+pub struct ICompassReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReading2 {
     type Vtable = ICompassReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973394462, 20923, 18962, [190, 221, 173, 71, 255, 135, 210, 232]);
@@ -3847,7 +3847,7 @@ pub struct ICompassReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ICompassReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400537008, 59580, 19582, [176, 9, 78, 65, 223, 19, 112, 114]);
@@ -3865,7 +3865,7 @@ pub struct ICompassReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassReadingHeadingAccuracy(::windows::runtime::IInspectable);
+pub struct ICompassReadingHeadingAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassReadingHeadingAccuracy {
     type Vtable = ICompassReadingHeadingAccuracy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881907534, 35089, 16631, [158, 22, 110, 204, 125, 174, 197, 222]);
@@ -3883,7 +3883,7 @@ pub struct ICompassReadingHeadingAccuracy_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassStatics(::windows::runtime::IInspectable);
+pub struct ICompassStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassStatics {
     type Vtable = ICompassStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2596050911, 22252, 19493, [181, 77, 64, 166, 139, 181, 178, 105]);
@@ -3901,7 +3901,7 @@ pub struct ICompassStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompassStatics2(::windows::runtime::IInspectable);
+pub struct ICompassStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompassStatics2 {
     type Vtable = ICompassStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(181276333, 15274, 18832, [156, 228, 190, 9, 19, 117, 78, 210]);
@@ -3921,7 +3921,7 @@ pub struct ICompassStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometer(::windows::runtime::IInspectable);
+pub struct IGyrometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer {
     type Vtable = IGyrometer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4256803268, 33969, 19618, [151, 99, 155, 88, 149, 6, 199, 12]);
@@ -3946,7 +3946,7 @@ pub struct IGyrometer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometer2(::windows::runtime::IInspectable);
+pub struct IGyrometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer2 {
     type Vtable = IGyrometer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675568195, 36072, 16835, [172, 68, 134, 152, 129, 11, 85, 127]);
@@ -3967,7 +3967,7 @@ pub struct IGyrometer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometer3(::windows::runtime::IInspectable);
+pub struct IGyrometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer3 {
     type Vtable = IGyrometer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1567590613, 36796, 17540, [145, 75, 82, 138, 223, 217, 71, 177]);
@@ -3987,7 +3987,7 @@ pub struct IGyrometer3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometer4(::windows::runtime::IInspectable);
+pub struct IGyrometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometer4 {
     type Vtable = IGyrometer4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103327244, 19531, 20630, [148, 230, 195, 86, 223, 104, 190, 247]);
@@ -4005,7 +4005,7 @@ pub struct IGyrometer4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerDataThreshold(::windows::runtime::IInspectable);
+pub struct IGyrometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252911390, 28242, 21081, [187, 173, 36, 42, 105, 220, 56, 200]);
@@ -4028,7 +4028,7 @@ pub struct IGyrometerDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerDeviceId(::windows::runtime::IInspectable);
+pub struct IGyrometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerDeviceId {
     type Vtable = IGyrometerDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518383992, 35234, 17013, [158, 149, 113, 38, 244, 112, 135, 96]);
@@ -4046,7 +4046,7 @@ pub struct IGyrometerDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerReading(::windows::runtime::IInspectable);
+pub struct IGyrometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerReading {
     type Vtable = IGyrometerReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017203292, 7908, 17775, [157, 231, 226, 73, 59, 92, 142, 3]);
@@ -4068,7 +4068,7 @@ pub struct IGyrometerReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerReading2(::windows::runtime::IInspectable);
+pub struct IGyrometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerReading2 {
     type Vtable = IGyrometerReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(380625212, 11145, 17595, [130, 43, 209, 225, 85, 111, 240, 155]);
@@ -4089,7 +4089,7 @@ pub struct IGyrometerReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IGyrometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266279061, 28574, 17102, [141, 88, 56, 140, 10, 184, 53, 109]);
@@ -4107,7 +4107,7 @@ pub struct IGyrometerReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerStatics(::windows::runtime::IInspectable);
+pub struct IGyrometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerStatics {
     type Vtable = IGyrometerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2209802185, 58525, 19257, [134, 230, 205, 85, 75, 228, 197, 193]);
@@ -4125,7 +4125,7 @@ pub struct IGyrometerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGyrometerStatics2(::windows::runtime::IInspectable);
+pub struct IGyrometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGyrometerStatics2 {
     type Vtable = IGyrometerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4018403233, 55040, 16900, [150, 19, 121, 198, 177, 97, 223, 78]);
@@ -4145,7 +4145,7 @@ pub struct IGyrometerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHingeAngleReading(::windows::runtime::IInspectable);
+pub struct IHingeAngleReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleReading {
     type Vtable = IHingeAngleReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748138937, 7153, 20325, [167, 4, 226, 218, 4, 241, 130, 192]);
@@ -4167,7 +4167,7 @@ pub struct IHingeAngleReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHingeAngleSensor(::windows::runtime::IInspectable);
+pub struct IHingeAngleSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleSensor {
     type Vtable = IHingeAngleSensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3922968066, 49119, 17279, [140, 41, 136, 199, 115, 147, 211, 9]);
@@ -4194,7 +4194,7 @@ pub struct IHingeAngleSensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHingeAngleSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IHingeAngleSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618222987, 64208, 17080, [168, 84, 120, 146, 48, 73, 161, 186]);
@@ -4212,7 +4212,7 @@ pub struct IHingeAngleSensorReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHingeAngleSensorStatics(::windows::runtime::IInspectable);
+pub struct IHingeAngleSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHingeAngleSensorStatics {
     type Vtable = IHingeAngleSensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3082172688, 64433, 16675, [137, 206, 78, 163, 78, 176, 223, 202]);
@@ -4236,7 +4236,7 @@ pub struct IHingeAngleSensorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometer(::windows::runtime::IInspectable);
+pub struct IInclinometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer {
     type Vtable = IInclinometer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(642304623, 8838, 16495, [145, 97, 240, 196, 189, 128, 110, 191]);
@@ -4261,7 +4261,7 @@ pub struct IInclinometer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometer2(::windows::runtime::IInspectable);
+pub struct IInclinometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer2 {
     type Vtable = IInclinometer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(43987859, 10418, 17912, [187, 22, 97, 232, 106, 127, 174, 110]);
@@ -4283,7 +4283,7 @@ pub struct IInclinometer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometer3(::windows::runtime::IInspectable);
+pub struct IInclinometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer3 {
     type Vtable = IInclinometer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973688836, 55141, 17284, [163, 215, 2, 131, 243, 171, 230, 174]);
@@ -4303,7 +4303,7 @@ pub struct IInclinometer3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometer4(::windows::runtime::IInspectable);
+pub struct IInclinometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometer4 {
     type Vtable = IInclinometer4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132799512, 36810, 21646, [187, 245, 92, 80, 65, 43, 106, 164]);
@@ -4321,7 +4321,7 @@ pub struct IInclinometer4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerDataThreshold(::windows::runtime::IInspectable);
+pub struct IInclinometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4161423235, 31742, 21598, [187, 96, 160, 235, 196, 123, 210, 251]);
@@ -4344,7 +4344,7 @@ pub struct IInclinometerDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerDeviceId(::windows::runtime::IInspectable);
+pub struct IInclinometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerDeviceId {
     type Vtable = IInclinometerDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32053634, 16895, 17414, [174, 131, 98, 33, 15, 241, 111, 227]);
@@ -4362,7 +4362,7 @@ pub struct IInclinometerDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerReading(::windows::runtime::IInspectable);
+pub struct IInclinometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReading {
     type Vtable = IInclinometerReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672095317, 46838, 18815, [177, 39, 26, 119, 94, 80, 20, 88]);
@@ -4384,7 +4384,7 @@ pub struct IInclinometerReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerReading2(::windows::runtime::IInspectable);
+pub struct IInclinometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReading2 {
     type Vtable = IInclinometerReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1326860161, 59659, 18008, [137, 21, 1, 3, 224, 138, 128, 90]);
@@ -4405,7 +4405,7 @@ pub struct IInclinometerReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IInclinometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256791489, 59371, 18744, [133, 17, 174, 13, 107, 68, 4, 56]);
@@ -4423,7 +4423,7 @@ pub struct IInclinometerReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerReadingYawAccuracy(::windows::runtime::IInspectable);
+pub struct IInclinometerReadingYawAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerReadingYawAccuracy {
     type Vtable = IInclinometerReadingYawAccuracy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025397888, 8163, 18822, [162, 87, 230, 236, 226, 114, 57, 73]);
@@ -4441,7 +4441,7 @@ pub struct IInclinometerReadingYawAccuracy_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerStatics(::windows::runtime::IInspectable);
+pub struct IInclinometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics {
     type Vtable = IInclinometerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4063151441, 39984, 17722, [139, 73, 60, 62, 235, 51, 203, 97]);
@@ -4459,7 +4459,7 @@ pub struct IInclinometerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerStatics2(::windows::runtime::IInspectable);
+pub struct IInclinometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics2 {
     type Vtable = IInclinometerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(71276405, 27166, 18844, [134, 224, 99, 140, 26, 134, 75, 0]);
@@ -4477,7 +4477,7 @@ pub struct IInclinometerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerStatics3(::windows::runtime::IInspectable);
+pub struct IInclinometerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics3 {
     type Vtable = IInclinometerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3181003392, 47386, 18473, [147, 146, 171, 192, 182, 189, 242, 180]);
@@ -4495,7 +4495,7 @@ pub struct IInclinometerStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInclinometerStatics4(::windows::runtime::IInspectable);
+pub struct IInclinometerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInclinometerStatics4 {
     type Vtable = IInclinometerStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904542457, 28293, 19075, [174, 208, 215, 205, 204, 152, 86, 200]);
@@ -4515,7 +4515,7 @@ pub struct IInclinometerStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensor(::windows::runtime::IInspectable);
+pub struct ILightSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensor {
     type Vtable = ILightSensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4165732120, 3156, 18350, [146, 46, 120, 159, 87, 251, 3, 160]);
@@ -4540,7 +4540,7 @@ pub struct ILightSensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensor2(::windows::runtime::IInspectable);
+pub struct ILightSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensor2 {
     type Vtable = ILightSensor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214981352, 43340, 16528, [143, 72, 9, 247, 130, 169, 247, 213]);
@@ -4560,7 +4560,7 @@ pub struct ILightSensor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensor3(::windows::runtime::IInspectable);
+pub struct ILightSensor3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensor3 {
     type Vtable = ILightSensor3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1215746303, 40780, 24434, [173, 189, 163, 71, 27, 6, 60, 0]);
@@ -4578,7 +4578,7 @@ pub struct ILightSensor3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorDataThreshold(::windows::runtime::IInspectable);
+pub struct ILightSensorDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975903697, 34703, 21650, [159, 44, 51, 220, 58, 229, 132, 163]);
@@ -4599,7 +4599,7 @@ pub struct ILightSensorDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorDeviceId(::windows::runtime::IInspectable);
+pub struct ILightSensorDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorDeviceId {
     type Vtable = ILightSensorDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2146322936, 2811, 20305, [135, 240, 108, 38, 55, 92, 233, 79]);
@@ -4617,7 +4617,7 @@ pub struct ILightSensorDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorReading(::windows::runtime::IInspectable);
+pub struct ILightSensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorReading {
     type Vtable = ILightSensorReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4292829952, 8828, 19755, [179, 2, 252, 1, 66, 72, 92, 104]);
@@ -4637,7 +4637,7 @@ pub struct ILightSensorReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorReading2(::windows::runtime::IInspectable);
+pub struct ILightSensorReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorReading2 {
     type Vtable = ILightSensorReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075547525, 17571, 17609, [129, 144, 158, 246, 222, 10, 138, 116]);
@@ -4658,7 +4658,7 @@ pub struct ILightSensorReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ILightSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745365711, 9611, 16908, [184, 171, 142, 221, 96, 30, 207, 80]);
@@ -4676,7 +4676,7 @@ pub struct ILightSensorReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorStatics(::windows::runtime::IInspectable);
+pub struct ILightSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorStatics {
     type Vtable = ILightSensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1172016260, 50088, 18206, [154, 83, 100, 87, 250, 216, 124, 14]);
@@ -4694,7 +4694,7 @@ pub struct ILightSensorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILightSensorStatics2(::windows::runtime::IInspectable);
+pub struct ILightSensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILightSensorStatics2 {
     type Vtable = ILightSensorStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(247506512, 56774, 16555, [172, 227, 236, 51, 89, 212, 44, 81]);
@@ -4714,7 +4714,7 @@ pub struct ILightSensorStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometer(::windows::runtime::IInspectable);
+pub struct IMagnetometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer {
     type Vtable = IMagnetometer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1213162094, 54217, 16657, [179, 246, 44, 241, 250, 164, 24, 213]);
@@ -4739,7 +4739,7 @@ pub struct IMagnetometer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometer2(::windows::runtime::IInspectable);
+pub struct IMagnetometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer2 {
     type Vtable = IMagnetometer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026545797, 9974, 17483, [169, 226, 162, 63, 150, 108, 211, 104]);
@@ -4760,7 +4760,7 @@ pub struct IMagnetometer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometer3(::windows::runtime::IInspectable);
+pub struct IMagnetometer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer3 {
     type Vtable = IMagnetometer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197361020, 42533, 18671, [172, 247, 250, 193, 4, 131, 38, 113]);
@@ -4780,7 +4780,7 @@ pub struct IMagnetometer3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometer4(::windows::runtime::IInspectable);
+pub struct IMagnetometer4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometer4 {
     type Vtable = IMagnetometer4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3752950017, 15887, 20623, [178, 75, 242, 187, 117, 1, 95, 64]);
@@ -4798,7 +4798,7 @@ pub struct IMagnetometer4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerDataThreshold(::windows::runtime::IInspectable);
+pub struct IMagnetometerDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3514288897, 36963, 24485, [181, 150, 180, 69, 233, 220, 52, 1]);
@@ -4821,7 +4821,7 @@ pub struct IMagnetometerDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerDeviceId(::windows::runtime::IInspectable);
+pub struct IMagnetometerDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerDeviceId {
     type Vtable = IMagnetometerDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1488230594, 32331, 16460, [159, 197, 93, 232, 180, 14, 186, 227]);
@@ -4839,7 +4839,7 @@ pub struct IMagnetometerDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerReading(::windows::runtime::IInspectable);
+pub struct IMagnetometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerReading {
     type Vtable = IMagnetometerReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(204260365, 60413, 20060, [187, 17, 175, 194, 155, 60, 174, 97]);
@@ -4862,7 +4862,7 @@ pub struct IMagnetometerReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerReading2(::windows::runtime::IInspectable);
+pub struct IMagnetometerReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerReading2 {
     type Vtable = IMagnetometerReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569966177, 25049, 16459, [163, 40, 6, 111, 23, 122, 20, 9]);
@@ -4883,7 +4883,7 @@ pub struct IMagnetometerReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMagnetometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(401270898, 11961, 20199, [138, 208, 49, 39, 83, 125, 148, 155]);
@@ -4901,7 +4901,7 @@ pub struct IMagnetometerReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerStatics(::windows::runtime::IInspectable);
+pub struct IMagnetometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerStatics {
     type Vtable = IMagnetometerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2235327692, 1688, 19930, [166, 223, 156, 185, 204, 74, 180, 10]);
@@ -4919,7 +4919,7 @@ pub struct IMagnetometerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagnetometerStatics2(::windows::runtime::IInspectable);
+pub struct IMagnetometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagnetometerStatics2 {
     type Vtable = IMagnetometerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738728432, 65478, 20361, [160, 111, 24, 250, 16, 121, 41, 51]);
@@ -4939,7 +4939,7 @@ pub struct IMagnetometerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensor(::windows::runtime::IInspectable);
+pub struct IOrientationSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensor {
     type Vtable = IOrientationSensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580549685, 53099, 19555, [171, 216, 16, 37, 43, 11, 246, 236]);
@@ -4964,7 +4964,7 @@ pub struct IOrientationSensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensor2(::windows::runtime::IInspectable);
+pub struct IOrientationSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensor2 {
     type Vtable = IOrientationSensor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(227691769, 12063, 18889, [128, 66, 74, 24, 19, 214, 119, 96]);
@@ -4986,7 +4986,7 @@ pub struct IOrientationSensor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensor3(::windows::runtime::IInspectable);
+pub struct IOrientationSensor3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensor3 {
     type Vtable = IOrientationSensor3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(751720333, 25707, 18629, [183, 238, 68, 253, 196, 198, 170, 253]);
@@ -5006,7 +5006,7 @@ pub struct IOrientationSensor3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorDeviceId(::windows::runtime::IInspectable);
+pub struct IOrientationSensorDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorDeviceId {
     type Vtable = IOrientationSensorDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516877384, 19497, 18924, [178, 143, 234, 29, 17, 123, 102, 240]);
@@ -5024,7 +5024,7 @@ pub struct IOrientationSensorDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorReading(::windows::runtime::IInspectable);
+pub struct IOrientationSensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReading {
     type Vtable = IOrientationSensorReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196870035, 26005, 18583, [188, 198, 213, 55, 238, 117, 117, 100]);
@@ -5045,7 +5045,7 @@ pub struct IOrientationSensorReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorReading2(::windows::runtime::IInspectable);
+pub struct IOrientationSensorReading2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReading2 {
     type Vtable = IOrientationSensorReading2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5729887, 18936, 19461, [158, 7, 36, 250, 199, 148, 8, 195]);
@@ -5066,7 +5066,7 @@ pub struct IOrientationSensorReading2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IOrientationSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19665286, 50106, 18108, [174, 101, 122, 152, 153, 108, 191, 184]);
@@ -5084,7 +5084,7 @@ pub struct IOrientationSensorReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorReadingYawAccuracy(::windows::runtime::IInspectable);
+pub struct IOrientationSensorReadingYawAccuracy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorReadingYawAccuracy {
     type Vtable = IOrientationSensorReadingYawAccuracy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3517749284, 16218, 18850, [188, 123, 17, 128, 188, 56, 205, 43]);
@@ -5102,7 +5102,7 @@ pub struct IOrientationSensorReadingYawAccuracy_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorStatics(::windows::runtime::IInspectable);
+pub struct IOrientationSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics {
     type Vtable = IOrientationSensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284133138, 64332, 17034, [137, 139, 39, 101, 228, 9, 230, 105]);
@@ -5120,7 +5120,7 @@ pub struct IOrientationSensorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorStatics2(::windows::runtime::IInspectable);
+pub struct IOrientationSensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics2 {
     type Vtable = IOrientationSensorStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1507462411, 54282, 19569, [146, 118, 138, 39, 42, 10, 102, 25]);
@@ -5138,7 +5138,7 @@ pub struct IOrientationSensorStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorStatics3(::windows::runtime::IInspectable);
+pub struct IOrientationSensorStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics3 {
     type Vtable = IOrientationSensorStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3626821920, 10103, 16639, [159, 89, 214, 84, 176, 133, 241, 47]);
@@ -5157,7 +5157,7 @@ pub struct IOrientationSensorStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOrientationSensorStatics4(::windows::runtime::IInspectable);
+pub struct IOrientationSensorStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOrientationSensorStatics4 {
     type Vtable = IOrientationSensorStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2793401173, 11397, 19240, [160, 254, 88, 196, 178, 4, 149, 245]);
@@ -5178,7 +5178,7 @@ pub struct IOrientationSensorStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometer(::windows::runtime::IInspectable);
+pub struct IPedometer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometer {
     type Vtable = IPedometer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585657661, 15768, 17912, [137, 32, 142, 78, 202, 202, 95, 151]);
@@ -5204,7 +5204,7 @@ pub struct IPedometer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometer2(::windows::runtime::IInspectable);
+pub struct IPedometer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometer2 {
     type Vtable = IPedometer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3852732127, 11137, 19165, [178, 255, 119, 171, 108, 152, 186, 25]);
@@ -5223,7 +5223,7 @@ pub struct IPedometer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometerDataThresholdFactory(::windows::runtime::IInspectable);
+pub struct IPedometerDataThresholdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerDataThresholdFactory {
     type Vtable = IPedometerDataThresholdFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3417149264, 31316, 18027, [144, 16, 119, 161, 98, 252, 165, 215]);
@@ -5241,7 +5241,7 @@ pub struct IPedometerDataThresholdFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometerReading(::windows::runtime::IInspectable);
+pub struct IPedometerReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerReading {
     type Vtable = IPedometerReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575003892, 43233, 17199, [137, 106, 190, 13, 217, 176, 45, 36]);
@@ -5264,7 +5264,7 @@ pub struct IPedometerReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IPedometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166378622, 43964, 17494, [134, 168, 37, 207, 43, 51, 55, 66]);
@@ -5282,7 +5282,7 @@ pub struct IPedometerReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometerStatics(::windows::runtime::IInspectable);
+pub struct IPedometerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerStatics {
     type Vtable = IPedometerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191002159, 16515, 19963, [180, 17, 147, 142, 160, 244, 185, 70]);
@@ -5308,7 +5308,7 @@ pub struct IPedometerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPedometerStatics2(::windows::runtime::IInspectable);
+pub struct IPedometerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPedometerStatics2 {
     type Vtable = IPedometerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046150331, 52750, 16691, [180, 126, 134, 39, 234, 114, 246, 119]);
@@ -5327,7 +5327,7 @@ pub struct IPedometerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProximitySensor(::windows::runtime::IInspectable);
+pub struct IProximitySensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensor {
     type Vtable = IProximitySensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1421899448, 60667, 18756, [185, 40, 116, 252, 80, 77, 71, 238]);
@@ -5356,7 +5356,7 @@ pub struct IProximitySensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProximitySensorDataThresholdFactory(::windows::runtime::IInspectable);
+pub struct IProximitySensorDataThresholdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorDataThresholdFactory {
     type Vtable = IProximitySensorDataThresholdFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421866785, 27943, 19155, [157, 181, 100, 103, 242, 165, 173, 157]);
@@ -5374,7 +5374,7 @@ pub struct IProximitySensorDataThresholdFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProximitySensorReading(::windows::runtime::IInspectable);
+pub struct IProximitySensorReading(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorReading {
     type Vtable = IProximitySensorReading_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898089817, 4909, 19807, [143, 249, 47, 13, 184, 117, 28, 237]);
@@ -5396,7 +5396,7 @@ pub struct IProximitySensorReading_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProximitySensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IProximitySensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3485660006, 50152, 16637, [140, 195, 103, 226, 137, 0, 73, 56]);
@@ -5414,7 +5414,7 @@ pub struct IProximitySensorReadingChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProximitySensorStatics(::windows::runtime::IInspectable);
+pub struct IProximitySensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorStatics {
     type Vtable = IProximitySensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(689464905, 25193, 20055, [165, 173, 130, 190, 128, 129, 51, 146]);
@@ -5433,7 +5433,7 @@ pub struct IProximitySensorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProximitySensorStatics2(::windows::runtime::IInspectable);
+pub struct IProximitySensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximitySensorStatics2 {
     type Vtable = IProximitySensorStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3421795246, 59850, 16943, [173, 103, 76, 61, 37, 223, 53, 12]);
@@ -5453,7 +5453,7 @@ pub struct IProximitySensorStatics2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Sensors`*"]
-pub struct ISensorDataThreshold(::windows::runtime::IInspectable);
+pub struct ISensorDataThreshold(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThreshold {
     type Vtable = ISensorDataThreshold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423633505, 65099, 19975, [178, 96, 58, 76, 223, 190, 57, 110]);
@@ -5464,22 +5464,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISensorDataThreshold {
 }
 impl ::std::convert::From<ISensorDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: ISensorDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISensorDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &ISensorDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISensorDataThreshold> for ::windows::runtime::IInspectable {
@@ -5514,7 +5514,7 @@ pub struct ISensorDataThreshold_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISensorDataThresholdTriggerDetails(::windows::runtime::IInspectable);
+pub struct ISensorDataThresholdTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2433151415, 59533, 18609, [188, 144, 97, 156, 123, 52, 147, 145]);
@@ -5533,7 +5533,7 @@ pub struct ISensorDataThresholdTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISensorQuaternion(::windows::runtime::IInspectable);
+pub struct ISensorQuaternion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorQuaternion {
     type Vtable = ISensorQuaternion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3385182247, 50972, 18151, [157, 163, 54, 161, 147, 178, 50, 188]);
@@ -5554,7 +5554,7 @@ pub struct ISensorQuaternion_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISensorRotationMatrix(::windows::runtime::IInspectable);
+pub struct ISensorRotationMatrix(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(171792999, 8948, 17298, [149, 56, 101, 208, 189, 6, 74, 166]);
@@ -5580,7 +5580,7 @@ pub struct ISensorRotationMatrix_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISimpleOrientationSensor(::windows::runtime::IInspectable);
+pub struct ISimpleOrientationSensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1609906262, 8522, 19950, [163, 249, 97, 111, 26, 176, 111, 253]);
@@ -5602,7 +5602,7 @@ pub struct ISimpleOrientationSensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISimpleOrientationSensor2(::windows::runtime::IInspectable);
+pub struct ISimpleOrientationSensor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensor2 {
     type Vtable = ISimpleOrientationSensor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2725750680, 34928, 17726, [139, 214, 184, 245, 216, 215, 148, 27]);
@@ -5623,7 +5623,7 @@ pub struct ISimpleOrientationSensor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISimpleOrientationSensorDeviceId(::windows::runtime::IInspectable);
+pub struct ISimpleOrientationSensorDeviceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorDeviceId {
     type Vtable = ISimpleOrientationSensorDeviceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223666891, 15222, 16886, [128, 145, 48, 239, 230, 70, 211, 207]);
@@ -5641,7 +5641,7 @@ pub struct ISimpleOrientationSensorDeviceId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISimpleOrientationSensorOrientationChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ISimpleOrientationSensorOrientationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168126560, 9172, 19276, [162, 46, 186, 129, 173, 224, 198, 1]);
@@ -5661,7 +5661,7 @@ pub struct ISimpleOrientationSensorOrientationChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISimpleOrientationSensorStatics(::windows::runtime::IInspectable);
+pub struct ISimpleOrientationSensorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorStatics {
     type Vtable = ISimpleOrientationSensorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1928136303, 28842, 16582, [155, 27, 52, 51, 247, 69, 155, 78]);
@@ -5679,7 +5679,7 @@ pub struct ISimpleOrientationSensorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISimpleOrientationSensorStatics2(::windows::runtime::IInspectable);
+pub struct ISimpleOrientationSensorStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISimpleOrientationSensorStatics2 {
     type Vtable = ISimpleOrientationSensorStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2224004223, 45368, 19985, [137, 16, 162, 162, 163, 181, 109, 131]);
@@ -5700,7 +5700,7 @@ pub struct ISimpleOrientationSensorStatics2_abi(
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Inclinometer(::windows::runtime::IInspectable);
+pub struct Inclinometer(pub ::windows::runtime::IInspectable);
 impl Inclinometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<InclinometerReading> {
@@ -5871,22 +5871,22 @@ impl ::windows::runtime::RuntimeName for Inclinometer {
 }
 impl ::std::convert::From<Inclinometer> for ::windows::runtime::IUnknown {
     fn from(value: Inclinometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Inclinometer> for ::windows::runtime::IUnknown {
     fn from(value: &Inclinometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Inclinometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Inclinometer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Inclinometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Inclinometer> for ::windows::runtime::IInspectable {
@@ -5914,7 +5914,7 @@ unsafe impl ::std::marker::Sync for Inclinometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InclinometerDataThreshold(::windows::runtime::IInspectable);
+pub struct InclinometerDataThreshold(pub ::windows::runtime::IInspectable);
 impl InclinometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn PitchInDegrees(&self) -> ::windows::runtime::Result<f32> {
@@ -5968,22 +5968,22 @@ impl ::windows::runtime::RuntimeName for InclinometerDataThreshold {
 }
 impl ::std::convert::From<InclinometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: InclinometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InclinometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &InclinometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InclinometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InclinometerDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InclinometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InclinometerDataThreshold> for ::windows::runtime::IInspectable {
@@ -6011,7 +6011,7 @@ unsafe impl ::std::marker::Sync for InclinometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InclinometerReading(::windows::runtime::IInspectable);
+pub struct InclinometerReading(pub ::windows::runtime::IInspectable);
 impl InclinometerReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -6085,22 +6085,22 @@ impl ::windows::runtime::RuntimeName for InclinometerReading {
 }
 impl ::std::convert::From<InclinometerReading> for ::windows::runtime::IUnknown {
     fn from(value: InclinometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InclinometerReading> for ::windows::runtime::IUnknown {
     fn from(value: &InclinometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InclinometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InclinometerReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InclinometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InclinometerReading> for ::windows::runtime::IInspectable {
@@ -6128,7 +6128,7 @@ unsafe impl ::std::marker::Sync for InclinometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InclinometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct InclinometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl InclinometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<InclinometerReading> {
@@ -6151,22 +6151,22 @@ impl ::windows::runtime::RuntimeName for InclinometerReadingChangedEventArgs {
 }
 impl ::std::convert::From<InclinometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: InclinometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InclinometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InclinometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InclinometerReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InclinometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InclinometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -6194,7 +6194,7 @@ unsafe impl ::std::marker::Sync for InclinometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LightSensor(::windows::runtime::IInspectable);
+pub struct LightSensor(pub ::windows::runtime::IInspectable);
 impl LightSensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<LightSensorReading> {
@@ -6320,22 +6320,22 @@ impl ::windows::runtime::RuntimeName for LightSensor {
 }
 impl ::std::convert::From<LightSensor> for ::windows::runtime::IUnknown {
     fn from(value: LightSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LightSensor> for ::windows::runtime::IUnknown {
     fn from(value: &LightSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LightSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LightSensor> for ::windows::runtime::IInspectable {
@@ -6363,7 +6363,7 @@ unsafe impl ::std::marker::Sync for LightSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LightSensorDataThreshold(::windows::runtime::IInspectable);
+pub struct LightSensorDataThreshold(pub ::windows::runtime::IInspectable);
 impl LightSensorDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn LuxPercentage(&self) -> ::windows::runtime::Result<f32> {
@@ -6404,22 +6404,22 @@ impl ::windows::runtime::RuntimeName for LightSensorDataThreshold {
 }
 impl ::std::convert::From<LightSensorDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: LightSensorDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LightSensorDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &LightSensorDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensorDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LightSensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LightSensorDataThreshold> for ::windows::runtime::IInspectable {
@@ -6447,7 +6447,7 @@ unsafe impl ::std::marker::Sync for LightSensorDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LightSensorReading(::windows::runtime::IInspectable);
+pub struct LightSensorReading(pub ::windows::runtime::IInspectable);
 impl LightSensorReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -6497,22 +6497,22 @@ impl ::windows::runtime::RuntimeName for LightSensorReading {
 }
 impl ::std::convert::From<LightSensorReading> for ::windows::runtime::IUnknown {
     fn from(value: LightSensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LightSensorReading> for ::windows::runtime::IUnknown {
     fn from(value: &LightSensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensorReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LightSensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LightSensorReading> for ::windows::runtime::IInspectable {
@@ -6540,7 +6540,7 @@ unsafe impl ::std::marker::Sync for LightSensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LightSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct LightSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl LightSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<LightSensorReading> {
@@ -6563,22 +6563,22 @@ impl ::windows::runtime::RuntimeName for LightSensorReadingChangedEventArgs {
 }
 impl ::std::convert::From<LightSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: LightSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LightSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensorReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LightSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LightSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -6606,7 +6606,7 @@ unsafe impl ::std::marker::Sync for LightSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Magnetometer(::windows::runtime::IInspectable);
+pub struct Magnetometer(pub ::windows::runtime::IInspectable);
 impl Magnetometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<MagnetometerReading> {
@@ -6747,22 +6747,22 @@ impl ::windows::runtime::RuntimeName for Magnetometer {
 }
 impl ::std::convert::From<Magnetometer> for ::windows::runtime::IUnknown {
     fn from(value: Magnetometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Magnetometer> for ::windows::runtime::IUnknown {
     fn from(value: &Magnetometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Magnetometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Magnetometer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Magnetometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Magnetometer> for ::windows::runtime::IInspectable {
@@ -6814,7 +6814,7 @@ impl ::windows::runtime::DefaultType for MagnetometerAccuracy {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagnetometerDataThreshold(::windows::runtime::IInspectable);
+pub struct MagnetometerDataThreshold(pub ::windows::runtime::IInspectable);
 impl MagnetometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn XAxisMicroteslas(&self) -> ::windows::runtime::Result<f32> {
@@ -6868,22 +6868,22 @@ impl ::windows::runtime::RuntimeName for MagnetometerDataThreshold {
 }
 impl ::std::convert::From<MagnetometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: MagnetometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagnetometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &MagnetometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagnetometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagnetometerDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagnetometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagnetometerDataThreshold> for ::windows::runtime::IInspectable {
@@ -6911,7 +6911,7 @@ unsafe impl ::std::marker::Sync for MagnetometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagnetometerReading(::windows::runtime::IInspectable);
+pub struct MagnetometerReading(pub ::windows::runtime::IInspectable);
 impl MagnetometerReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -6985,22 +6985,22 @@ impl ::windows::runtime::RuntimeName for MagnetometerReading {
 }
 impl ::std::convert::From<MagnetometerReading> for ::windows::runtime::IUnknown {
     fn from(value: MagnetometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagnetometerReading> for ::windows::runtime::IUnknown {
     fn from(value: &MagnetometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagnetometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagnetometerReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagnetometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagnetometerReading> for ::windows::runtime::IInspectable {
@@ -7028,7 +7028,7 @@ unsafe impl ::std::marker::Sync for MagnetometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagnetometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct MagnetometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MagnetometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<MagnetometerReading> {
@@ -7051,22 +7051,22 @@ impl ::windows::runtime::RuntimeName for MagnetometerReadingChangedEventArgs {
 }
 impl ::std::convert::From<MagnetometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MagnetometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagnetometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagnetometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagnetometerReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagnetometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagnetometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -7094,7 +7094,7 @@ unsafe impl ::std::marker::Sync for MagnetometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OrientationSensor(::windows::runtime::IInspectable);
+pub struct OrientationSensor(pub ::windows::runtime::IInspectable);
 impl OrientationSensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<OrientationSensorReading> {
@@ -7271,22 +7271,22 @@ impl ::windows::runtime::RuntimeName for OrientationSensor {
 }
 impl ::std::convert::From<OrientationSensor> for ::windows::runtime::IUnknown {
     fn from(value: OrientationSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&OrientationSensor> for ::windows::runtime::IUnknown {
     fn from(value: &OrientationSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OrientationSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OrientationSensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OrientationSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<OrientationSensor> for ::windows::runtime::IInspectable {
@@ -7314,7 +7314,7 @@ unsafe impl ::std::marker::Sync for OrientationSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OrientationSensorReading(::windows::runtime::IInspectable);
+pub struct OrientationSensorReading(pub ::windows::runtime::IInspectable);
 impl OrientationSensorReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -7380,22 +7380,22 @@ impl ::windows::runtime::RuntimeName for OrientationSensorReading {
 }
 impl ::std::convert::From<OrientationSensorReading> for ::windows::runtime::IUnknown {
     fn from(value: OrientationSensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&OrientationSensorReading> for ::windows::runtime::IUnknown {
     fn from(value: &OrientationSensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OrientationSensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OrientationSensorReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OrientationSensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<OrientationSensorReading> for ::windows::runtime::IInspectable {
@@ -7423,7 +7423,7 @@ unsafe impl ::std::marker::Sync for OrientationSensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OrientationSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct OrientationSensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl OrientationSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<OrientationSensorReading> {
@@ -7446,22 +7446,22 @@ impl ::windows::runtime::RuntimeName for OrientationSensorReadingChangedEventArg
 }
 impl ::std::convert::From<OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: OrientationSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OrientationSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OrientationSensorReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OrientationSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -7489,7 +7489,7 @@ unsafe impl ::std::marker::Sync for OrientationSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Pedometer(::windows::runtime::IInspectable);
+pub struct Pedometer(pub ::windows::runtime::IInspectable);
 impl Pedometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -7620,22 +7620,22 @@ impl ::windows::runtime::RuntimeName for Pedometer {
 }
 impl ::std::convert::From<Pedometer> for ::windows::runtime::IUnknown {
     fn from(value: Pedometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Pedometer> for ::windows::runtime::IUnknown {
     fn from(value: &Pedometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Pedometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Pedometer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Pedometer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Pedometer> for ::windows::runtime::IInspectable {
@@ -7663,7 +7663,7 @@ unsafe impl ::std::marker::Sync for Pedometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PedometerDataThreshold(::windows::runtime::IInspectable);
+pub struct PedometerDataThreshold(pub ::windows::runtime::IInspectable);
 impl PedometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, Pedometer>>(sensor: Param0, stepgoal: i32) -> ::windows::runtime::Result<PedometerDataThreshold> {
@@ -7689,22 +7689,22 @@ impl ::windows::runtime::RuntimeName for PedometerDataThreshold {
 }
 impl ::std::convert::From<PedometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: PedometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PedometerDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &PedometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PedometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PedometerDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PedometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PedometerDataThreshold> for ::windows::runtime::IInspectable {
@@ -7752,7 +7752,7 @@ unsafe impl ::std::marker::Sync for PedometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PedometerReading(::windows::runtime::IInspectable);
+pub struct PedometerReading(pub ::windows::runtime::IInspectable);
 impl PedometerReading {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn StepKind(&self) -> ::windows::runtime::Result<PedometerStepKind> {
@@ -7801,22 +7801,22 @@ impl ::windows::runtime::RuntimeName for PedometerReading {
 }
 impl ::std::convert::From<PedometerReading> for ::windows::runtime::IUnknown {
     fn from(value: PedometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PedometerReading> for ::windows::runtime::IUnknown {
     fn from(value: &PedometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PedometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PedometerReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PedometerReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PedometerReading> for ::windows::runtime::IInspectable {
@@ -7844,7 +7844,7 @@ unsafe impl ::std::marker::Sync for PedometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PedometerReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct PedometerReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl PedometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<PedometerReading> {
@@ -7867,22 +7867,22 @@ impl ::windows::runtime::RuntimeName for PedometerReadingChangedEventArgs {
 }
 impl ::std::convert::From<PedometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PedometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PedometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PedometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PedometerReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PedometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PedometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -7933,7 +7933,7 @@ impl ::windows::runtime::DefaultType for PedometerStepKind {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ProximitySensor(::windows::runtime::IInspectable);
+pub struct ProximitySensor(pub ::windows::runtime::IInspectable);
 impl ProximitySensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -8036,22 +8036,22 @@ impl ::windows::runtime::RuntimeName for ProximitySensor {
 }
 impl ::std::convert::From<ProximitySensor> for ::windows::runtime::IUnknown {
     fn from(value: ProximitySensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ProximitySensor> for ::windows::runtime::IUnknown {
     fn from(value: &ProximitySensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProximitySensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ProximitySensor> for ::windows::runtime::IInspectable {
@@ -8079,7 +8079,7 @@ unsafe impl ::std::marker::Sync for ProximitySensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ProximitySensorDataThreshold(::windows::runtime::IInspectable);
+pub struct ProximitySensorDataThreshold(pub ::windows::runtime::IInspectable);
 impl ProximitySensorDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ProximitySensor>>(sensor: Param0) -> ::windows::runtime::Result<ProximitySensorDataThreshold> {
@@ -8105,22 +8105,22 @@ impl ::windows::runtime::RuntimeName for ProximitySensorDataThreshold {
 }
 impl ::std::convert::From<ProximitySensorDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: ProximitySensorDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ProximitySensorDataThreshold> for ::windows::runtime::IUnknown {
     fn from(value: &ProximitySensorDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorDataThreshold {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProximitySensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ProximitySensorDataThreshold> for ::windows::runtime::IInspectable {
@@ -8169,7 +8169,7 @@ unsafe impl ::std::marker::Sync for ProximitySensorDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ProximitySensorDisplayOnOffController(::windows::runtime::IInspectable);
+pub struct ProximitySensorDisplayOnOffController(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ProximitySensorDisplayOnOffController {
     #[cfg(feature = "Foundation")]
@@ -8195,25 +8195,25 @@ impl ::windows::runtime::RuntimeName for ProximitySensorDisplayOnOffController {
 #[cfg(feature = "Foundation")]
 impl ::std::convert::From<ProximitySensorDisplayOnOffController> for ::windows::runtime::IUnknown {
     fn from(value: ProximitySensorDisplayOnOffController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::From<&ProximitySensorDisplayOnOffController> for ::windows::runtime::IUnknown {
     fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorDisplayOnOffController {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -8271,7 +8271,7 @@ unsafe impl ::std::marker::Sync for ProximitySensorDisplayOnOffController {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ProximitySensorReading(::windows::runtime::IInspectable);
+pub struct ProximitySensorReading(pub ::windows::runtime::IInspectable);
 impl ProximitySensorReading {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -8312,22 +8312,22 @@ impl ::windows::runtime::RuntimeName for ProximitySensorReading {
 }
 impl ::std::convert::From<ProximitySensorReading> for ::windows::runtime::IUnknown {
     fn from(value: ProximitySensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ProximitySensorReading> for ::windows::runtime::IUnknown {
     fn from(value: &ProximitySensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorReading {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProximitySensorReading {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ProximitySensorReading> for ::windows::runtime::IInspectable {
@@ -8355,7 +8355,7 @@ unsafe impl ::std::marker::Sync for ProximitySensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ProximitySensorReadingChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ProximitySensorReadingChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl ProximitySensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<ProximitySensorReading> {
@@ -8378,22 +8378,22 @@ impl ::windows::runtime::RuntimeName for ProximitySensorReadingChangedEventArgs 
 }
 impl ::std::convert::From<ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ProximitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorReadingChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProximitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -8421,7 +8421,7 @@ unsafe impl ::std::marker::Sync for ProximitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SensorDataThresholdTriggerDetails(::windows::runtime::IInspectable);
+pub struct SensorDataThresholdTriggerDetails(pub ::windows::runtime::IInspectable);
 impl SensorDataThresholdTriggerDetails {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -8452,22 +8452,22 @@ impl ::windows::runtime::RuntimeName for SensorDataThresholdTriggerDetails {
 }
 impl ::std::convert::From<SensorDataThresholdTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: SensorDataThresholdTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SensorDataThresholdTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorDataThresholdTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorDataThresholdTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SensorDataThresholdTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SensorDataThresholdTriggerDetails> for ::windows::runtime::IInspectable {
@@ -8517,7 +8517,7 @@ impl ::windows::runtime::DefaultType for SensorOptimizationGoal {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SensorQuaternion(::windows::runtime::IInspectable);
+pub struct SensorQuaternion(pub ::windows::runtime::IInspectable);
 impl SensorQuaternion {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn W(&self) -> ::windows::runtime::Result<f32> {
@@ -8564,22 +8564,22 @@ impl ::windows::runtime::RuntimeName for SensorQuaternion {
 }
 impl ::std::convert::From<SensorQuaternion> for ::windows::runtime::IUnknown {
     fn from(value: SensorQuaternion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SensorQuaternion> for ::windows::runtime::IUnknown {
     fn from(value: &SensorQuaternion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorQuaternion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorQuaternion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SensorQuaternion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SensorQuaternion> for ::windows::runtime::IInspectable {
@@ -8629,7 +8629,7 @@ impl ::windows::runtime::DefaultType for SensorReadingType {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SensorRotationMatrix(::windows::runtime::IInspectable);
+pub struct SensorRotationMatrix(pub ::windows::runtime::IInspectable);
 impl SensorRotationMatrix {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn M11(&self) -> ::windows::runtime::Result<f32> {
@@ -8716,22 +8716,22 @@ impl ::windows::runtime::RuntimeName for SensorRotationMatrix {
 }
 impl ::std::convert::From<SensorRotationMatrix> for ::windows::runtime::IUnknown {
     fn from(value: SensorRotationMatrix) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SensorRotationMatrix> for ::windows::runtime::IUnknown {
     fn from(value: &SensorRotationMatrix) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorRotationMatrix {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorRotationMatrix {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SensorRotationMatrix {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SensorRotationMatrix> for ::windows::runtime::IInspectable {
@@ -8819,7 +8819,7 @@ impl ::windows::runtime::DefaultType for SimpleOrientation {
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SimpleOrientationSensor(::windows::runtime::IInspectable);
+pub struct SimpleOrientationSensor(pub ::windows::runtime::IInspectable);
 impl SimpleOrientationSensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
     pub fn GetCurrentOrientation(&self) -> ::windows::runtime::Result<SimpleOrientation> {
@@ -8910,22 +8910,22 @@ impl ::windows::runtime::RuntimeName for SimpleOrientationSensor {
 }
 impl ::std::convert::From<SimpleOrientationSensor> for ::windows::runtime::IUnknown {
     fn from(value: SimpleOrientationSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SimpleOrientationSensor> for ::windows::runtime::IUnknown {
     fn from(value: &SimpleOrientationSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SimpleOrientationSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SimpleOrientationSensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SimpleOrientationSensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SimpleOrientationSensor> for ::windows::runtime::IInspectable {
@@ -8953,7 +8953,7 @@ unsafe impl ::std::marker::Sync for SimpleOrientationSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SimpleOrientationSensorOrientationChangedEventArgs(::windows::runtime::IInspectable);
+pub struct SimpleOrientationSensorOrientationChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl SimpleOrientationSensorOrientationChangedEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
@@ -8985,22 +8985,22 @@ impl ::windows::runtime::RuntimeName for SimpleOrientationSensorOrientationChang
 }
 impl ::std::convert::From<SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SimpleOrientationSensorOrientationChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SimpleOrientationSensorOrientationChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SimpleOrientationSensorOrientationChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IInspectable {

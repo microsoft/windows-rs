@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteTextConnection(::windows::runtime::IInspectable);
+pub struct IRemoteTextConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteTextConnection {
     type Vtable = IRemoteTextConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1316728874, 6206, 24166, [181, 228, 62, 110, 92, 87, 12, 241]);
@@ -23,7 +23,7 @@ pub struct IRemoteTextConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteTextConnectionFactory(::windows::runtime::IInspectable);
+pub struct IRemoteTextConnectionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteTextConnectionFactory {
     type Vtable = IRemoteTextConnectionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2296411586, 3246, 22892, [133, 15, 120, 211, 69, 205, 114, 139]);
@@ -42,7 +42,7 @@ pub struct IRemoteTextConnectionFactory_abi(
 #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteTextConnection(::windows::runtime::IInspectable);
+pub struct RemoteTextConnection(pub ::windows::runtime::IInspectable);
 impl RemoteTextConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_RemoteDesktop_Input`, `Foundation`*"]
@@ -102,22 +102,22 @@ impl ::windows::runtime::RuntimeName for RemoteTextConnection {
 }
 impl ::std::convert::From<RemoteTextConnection> for ::windows::runtime::IUnknown {
     fn from(value: RemoteTextConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteTextConnection> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteTextConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteTextConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteTextConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteTextConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteTextConnection> for ::windows::runtime::IInspectable {

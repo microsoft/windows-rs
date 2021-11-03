@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Devices_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeviceServicingDetails(::windows::runtime::IInspectable);
+pub struct DeviceServicingDetails(pub ::windows::runtime::IInspectable);
 impl DeviceServicingDetails {
     #[doc = "*Required features: `Devices_Background`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -42,22 +42,22 @@ impl ::windows::runtime::RuntimeName for DeviceServicingDetails {
 }
 impl ::std::convert::From<DeviceServicingDetails> for ::windows::runtime::IUnknown {
     fn from(value: DeviceServicingDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeviceServicingDetails> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceServicingDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceServicingDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceServicingDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeviceServicingDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeviceServicingDetails> for ::windows::runtime::IInspectable {
@@ -85,7 +85,7 @@ unsafe impl ::std::marker::Sync for DeviceServicingDetails {}
 #[doc = "*Required features: `Devices_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeviceUseDetails(::windows::runtime::IInspectable);
+pub struct DeviceUseDetails(pub ::windows::runtime::IInspectable);
 impl DeviceUseDetails {
     #[doc = "*Required features: `Devices_Background`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -116,22 +116,22 @@ impl ::windows::runtime::RuntimeName for DeviceUseDetails {
 }
 impl ::std::convert::From<DeviceUseDetails> for ::windows::runtime::IUnknown {
     fn from(value: DeviceUseDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeviceUseDetails> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceUseDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceUseDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceUseDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeviceUseDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeviceUseDetails> for ::windows::runtime::IInspectable {
@@ -158,7 +158,7 @@ unsafe impl ::std::marker::Send for DeviceUseDetails {}
 unsafe impl ::std::marker::Sync for DeviceUseDetails {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceServicingDetails(::windows::runtime::IInspectable);
+pub struct IDeviceServicingDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1252781609, 9028, 19140, [133, 39, 74, 142, 246, 144, 86, 69]);
@@ -179,7 +179,7 @@ pub struct IDeviceServicingDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceUseDetails(::windows::runtime::IInspectable);
+pub struct IDeviceUseDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceUseDetails {
     type Vtable = IDeviceUseDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102808897, 21886, 16724, [185, 148, 228, 247, 161, 31, 179, 35]);

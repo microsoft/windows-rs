@@ -30,7 +30,7 @@ impl ::windows::runtime::DefaultType for AudioRoutingEndpoint {
 #[doc = "*Required features: `Phone_Media_Devices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioRoutingManager(::windows::runtime::IInspectable);
+pub struct AudioRoutingManager(pub ::windows::runtime::IInspectable);
 impl AudioRoutingManager {
     #[doc = "*Required features: `Phone_Media_Devices`*"]
     pub fn GetAudioEndpoint(&self) -> ::windows::runtime::Result<AudioRoutingEndpoint> {
@@ -92,22 +92,22 @@ impl ::windows::runtime::RuntimeName for AudioRoutingManager {
 }
 impl ::std::convert::From<AudioRoutingManager> for ::windows::runtime::IUnknown {
     fn from(value: AudioRoutingManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioRoutingManager> for ::windows::runtime::IUnknown {
     fn from(value: &AudioRoutingManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioRoutingManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioRoutingManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioRoutingManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioRoutingManager> for ::windows::runtime::IInspectable {
@@ -186,7 +186,7 @@ impl ::std::ops::Not for AvailableAudioRoutingEndpoints {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioRoutingManager(::windows::runtime::IInspectable);
+pub struct IAudioRoutingManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManager {
     type Vtable = IAudioRoutingManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2033454368, 29132, 17702, [159, 41, 252, 141, 36, 134, 65, 139]);
@@ -210,7 +210,7 @@ pub struct IAudioRoutingManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioRoutingManagerStatics(::windows::runtime::IInspectable);
+pub struct IAudioRoutingManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManagerStatics {
     type Vtable = IAudioRoutingManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541728420, 21904, 19055, [173, 222, 106, 61, 10, 213, 130, 80]);

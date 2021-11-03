@@ -244,7 +244,7 @@ impl ::windows::runtime::RuntimeName for ForegroundEnergyManager {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundEnergyManagerStatics(::windows::runtime::IInspectable);
+pub struct IBackgroundEnergyManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundEnergyManagerStatics {
     type Vtable = IBackgroundEnergyManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3004571029, 4480, 17270, [150, 225, 64, 149, 86, 129, 71, 206]);
@@ -277,7 +277,7 @@ pub struct IBackgroundEnergyManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IForegroundEnergyManagerStatics(::windows::runtime::IInspectable);
+pub struct IForegroundEnergyManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForegroundEnergyManagerStatics {
     type Vtable = IForegroundEnergyManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683857010, 58999, 18452, [154, 32, 83, 55, 202, 115, 43, 152]);
@@ -308,7 +308,7 @@ pub struct IForegroundEnergyManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPowerManagerStatics(::windows::runtime::IInspectable);
+pub struct IPowerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(328499805, 25294, 17252, [152, 213, 170, 40, 199, 251, 209, 91]);

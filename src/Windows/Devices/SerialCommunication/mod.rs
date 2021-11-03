@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ErrorReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct ErrorReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl ErrorReceivedEventArgs {
     #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<SerialError> {
@@ -25,22 +25,22 @@ impl ::windows::runtime::RuntimeName for ErrorReceivedEventArgs {
 }
 impl ::std::convert::From<ErrorReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ErrorReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ErrorReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ErrorReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ErrorReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ErrorReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ErrorReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ErrorReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -67,7 +67,7 @@ unsafe impl ::std::marker::Send for ErrorReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IErrorReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IErrorReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240883545, 4739, 19850, [191, 223, 86, 107, 51, 221, 178, 143]);
@@ -85,7 +85,7 @@ pub struct IErrorReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPinChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IPinChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2730433968, 64668, 17927, [147, 208, 250, 94, 131, 67, 238, 34]);
@@ -103,7 +103,7 @@ pub struct IPinChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISerialDevice(::windows::runtime::IInspectable);
+pub struct ISerialDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISerialDevice {
     type Vtable = ISerialDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3783773382, 8720, 16719, [182, 90, 245, 85, 58, 3, 55, 42]);
@@ -163,7 +163,7 @@ pub struct ISerialDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISerialDeviceStatics(::windows::runtime::IInspectable);
+pub struct ISerialDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISerialDeviceStatics {
     type Vtable = ISerialDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93080176, 2102, 18835, [174, 26, 182, 26, 227, 190, 5, 107]);
@@ -186,7 +186,7 @@ pub struct ISerialDeviceStatics_abi(
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PinChangedEventArgs(::windows::runtime::IInspectable);
+pub struct PinChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl PinChangedEventArgs {
     #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn PinChange(&self) -> ::windows::runtime::Result<SerialPinChange> {
@@ -209,22 +209,22 @@ impl ::windows::runtime::RuntimeName for PinChangedEventArgs {
 }
 impl ::std::convert::From<PinChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PinChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PinChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PinChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PinChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PinChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PinChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PinChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -252,7 +252,7 @@ unsafe impl ::std::marker::Sync for PinChangedEventArgs {}
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SerialDevice(::windows::runtime::IInspectable);
+pub struct SerialDevice(pub ::windows::runtime::IInspectable);
 impl SerialDevice {
     #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn BaudRate(&self) -> ::windows::runtime::Result<u32> {
@@ -544,22 +544,22 @@ impl ::windows::runtime::RuntimeName for SerialDevice {
 }
 impl ::std::convert::From<SerialDevice> for ::windows::runtime::IUnknown {
     fn from(value: SerialDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SerialDevice> for ::windows::runtime::IUnknown {
     fn from(value: &SerialDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SerialDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SerialDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SerialDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SerialDevice> for ::windows::runtime::IInspectable {

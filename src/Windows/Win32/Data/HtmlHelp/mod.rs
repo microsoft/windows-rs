@@ -1073,7 +1073,7 @@ pub const IDTB_ZOOM: u32 = 222u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IITDatabase(::windows::runtime::IUnknown);
+pub struct IITDatabase(pub ::windows::runtime::IUnknown);
 impl IITDatabase {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
@@ -1104,22 +1104,22 @@ unsafe impl ::windows::runtime::Interface for IITDatabase {
 }
 impl ::std::convert::From<IITDatabase> for ::windows::runtime::IUnknown {
     fn from(value: IITDatabase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IITDatabase> for ::windows::runtime::IUnknown {
     fn from(value: &IITDatabase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITDatabase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITDatabase {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IITDatabase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1142,7 +1142,7 @@ pub struct IITGroup(pub u8);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IITPropList(::windows::runtime::IUnknown);
+pub struct IITPropList(pub ::windows::runtime::IUnknown);
 impl IITPropList {
     #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -1259,22 +1259,22 @@ unsafe impl ::windows::runtime::Interface for IITPropList {
 }
 impl ::std::convert::From<IITPropList> for ::windows::runtime::IUnknown {
     fn from(value: IITPropList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IITPropList> for ::windows::runtime::IUnknown {
     fn from(value: &IITPropList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITPropList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -1372,7 +1372,7 @@ pub struct IITQuery(pub u8);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IITResultSet(::windows::runtime::IUnknown);
+pub struct IITResultSet(pub ::windows::runtime::IUnknown);
 impl IITResultSet {
     #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::runtime::Result<()> {
@@ -1505,22 +1505,22 @@ unsafe impl ::windows::runtime::Interface for IITResultSet {
 }
 impl ::std::convert::From<IITResultSet> for ::windows::runtime::IUnknown {
     fn from(value: IITResultSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IITResultSet> for ::windows::runtime::IUnknown {
     fn from(value: &IITResultSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITResultSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITResultSet {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IITResultSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1574,7 +1574,7 @@ pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IITWordWheel(::windows::runtime::IUnknown);
+pub struct IITWordWheel(pub ::windows::runtime::IUnknown);
 impl IITWordWheel {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
@@ -1637,22 +1637,22 @@ unsafe impl ::windows::runtime::Interface for IITWordWheel {
 }
 impl ::std::convert::From<IITWordWheel> for ::windows::runtime::IUnknown {
     fn from(value: IITWordWheel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IITWordWheel> for ::windows::runtime::IUnknown {
     fn from(value: &IITWordWheel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITWordWheel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITWordWheel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IITWordWheel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1680,7 +1680,7 @@ pub struct IITWordWheel_abi(
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStemSink(::windows::runtime::IUnknown);
+pub struct IStemSink(pub ::windows::runtime::IUnknown);
 impl IStemSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
@@ -1699,22 +1699,22 @@ unsafe impl ::windows::runtime::Interface for IStemSink {
 }
 impl ::std::convert::From<IStemSink> for ::windows::runtime::IUnknown {
     fn from(value: IStemSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStemSink> for ::windows::runtime::IUnknown {
     fn from(value: &IStemSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStemSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStemSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStemSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1731,7 +1731,7 @@ pub struct IStemSink_abi(
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStemmerConfig(::windows::runtime::IUnknown);
+pub struct IStemmerConfig(pub ::windows::runtime::IUnknown);
 impl IStemmerConfig {
     #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::Result<()> {
@@ -1761,22 +1761,22 @@ unsafe impl ::windows::runtime::Interface for IStemmerConfig {
 }
 impl ::std::convert::From<IStemmerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IStemmerConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStemmerConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IStemmerConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStemmerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStemmerConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStemmerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1805,7 +1805,7 @@ pub const IT_INCLUSIVE: i32 = 0i32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWordBreakerConfig(::windows::runtime::IUnknown);
+pub struct IWordBreakerConfig(pub ::windows::runtime::IUnknown);
 impl IWordBreakerConfig {
     #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::Result<()> {
@@ -1854,22 +1854,22 @@ unsafe impl ::windows::runtime::Interface for IWordBreakerConfig {
 }
 impl ::std::convert::From<IWordBreakerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWordBreakerConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWordBreakerConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IWordBreakerConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWordBreakerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWordBreakerConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWordBreakerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

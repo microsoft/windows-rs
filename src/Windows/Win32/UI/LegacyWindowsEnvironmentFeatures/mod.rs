@@ -22,7 +22,7 @@ pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IADesktopP2(::windows::runtime::IUnknown);
+pub struct IADesktopP2(pub ::windows::runtime::IUnknown);
 impl IADesktopP2 {
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn ReReadWallpaper(&self) -> ::windows::runtime::Result<()> {
@@ -48,22 +48,22 @@ unsafe impl ::windows::runtime::Interface for IADesktopP2 {
 }
 impl ::std::convert::From<IADesktopP2> for ::windows::runtime::IUnknown {
     fn from(value: IADesktopP2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IADesktopP2> for ::windows::runtime::IUnknown {
     fn from(value: &IADesktopP2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADesktopP2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADesktopP2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IADesktopP2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -81,7 +81,7 @@ pub struct IADesktopP2_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IActiveDesktopP(::windows::runtime::IUnknown);
+pub struct IActiveDesktopP(pub ::windows::runtime::IUnknown);
 impl IActiveDesktopP {
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -108,22 +108,22 @@ unsafe impl ::windows::runtime::Interface for IActiveDesktopP {
 }
 impl ::std::convert::From<IActiveDesktopP> for ::windows::runtime::IUnknown {
     fn from(value: IActiveDesktopP) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IActiveDesktopP> for ::windows::runtime::IUnknown {
     fn from(value: &IActiveDesktopP) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IActiveDesktopP {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IActiveDesktopP {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IActiveDesktopP {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -142,7 +142,7 @@ pub struct IActiveDesktopP_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBriefcaseInitiator(::windows::runtime::IUnknown);
+pub struct IBriefcaseInitiator(pub ::windows::runtime::IUnknown);
 impl IBriefcaseInitiator {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_System_Com`*"]
@@ -156,22 +156,22 @@ unsafe impl ::windows::runtime::Interface for IBriefcaseInitiator {
 }
 impl ::std::convert::From<IBriefcaseInitiator> for ::windows::runtime::IUnknown {
     fn from(value: IBriefcaseInitiator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBriefcaseInitiator> for ::windows::runtime::IUnknown {
     fn from(value: &IBriefcaseInitiator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBriefcaseInitiator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBriefcaseInitiator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBriefcaseInitiator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -186,7 +186,7 @@ pub struct IBriefcaseInitiator_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEmptyVolumeCache(::windows::runtime::IUnknown);
+pub struct IEmptyVolumeCache(pub ::windows::runtime::IUnknown);
 impl IEmptyVolumeCache {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Registry`*"]
@@ -218,22 +218,22 @@ unsafe impl ::windows::runtime::Interface for IEmptyVolumeCache {
 }
 impl ::std::convert::From<IEmptyVolumeCache> for ::windows::runtime::IUnknown {
     fn from(value: IEmptyVolumeCache) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEmptyVolumeCache> for ::windows::runtime::IUnknown {
     fn from(value: &IEmptyVolumeCache) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEmptyVolumeCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEmptyVolumeCache {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEmptyVolumeCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -253,7 +253,7 @@ pub struct IEmptyVolumeCache_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEmptyVolumeCache2(::windows::runtime::IUnknown);
+pub struct IEmptyVolumeCache2(pub ::windows::runtime::IUnknown);
 impl IEmptyVolumeCache2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Registry`*"]
@@ -299,22 +299,22 @@ unsafe impl ::windows::runtime::Interface for IEmptyVolumeCache2 {
 }
 impl ::std::convert::From<IEmptyVolumeCache2> for ::windows::runtime::IUnknown {
     fn from(value: IEmptyVolumeCache2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEmptyVolumeCache2> for ::windows::runtime::IUnknown {
     fn from(value: &IEmptyVolumeCache2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEmptyVolumeCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEmptyVolumeCache2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEmptyVolumeCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IEmptyVolumeCache2> for IEmptyVolumeCache {
@@ -356,7 +356,7 @@ pub struct IEmptyVolumeCache2_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEmptyVolumeCacheCallBack(::windows::runtime::IUnknown);
+pub struct IEmptyVolumeCacheCallBack(pub ::windows::runtime::IUnknown);
 impl IEmptyVolumeCacheCallBack {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
@@ -375,22 +375,22 @@ unsafe impl ::windows::runtime::Interface for IEmptyVolumeCacheCallBack {
 }
 impl ::std::convert::From<IEmptyVolumeCacheCallBack> for ::windows::runtime::IUnknown {
     fn from(value: IEmptyVolumeCacheCallBack) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEmptyVolumeCacheCallBack> for ::windows::runtime::IUnknown {
     fn from(value: &IEmptyVolumeCacheCallBack) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEmptyVolumeCacheCallBack {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEmptyVolumeCacheCallBack {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEmptyVolumeCacheCallBack {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -407,7 +407,7 @@ pub struct IEmptyVolumeCacheCallBack_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IReconcilableObject(::windows::runtime::IUnknown);
+pub struct IReconcilableObject(pub ::windows::runtime::IUnknown);
 impl IReconcilableObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
@@ -449,22 +449,22 @@ unsafe impl ::windows::runtime::Interface for IReconcilableObject {
 }
 impl ::std::convert::From<IReconcilableObject> for ::windows::runtime::IUnknown {
     fn from(value: IReconcilableObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IReconcilableObject> for ::windows::runtime::IUnknown {
     fn from(value: &IReconcilableObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IReconcilableObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IReconcilableObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IReconcilableObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -481,7 +481,7 @@ pub struct IReconcilableObject_abi(
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IReconcileInitiator(::windows::runtime::IUnknown);
+pub struct IReconcileInitiator(pub ::windows::runtime::IUnknown);
 impl IReconcileInitiator {
     #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn SetAbortCallback<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkforabort: Param0) -> ::windows::runtime::Result<()> {
@@ -498,22 +498,22 @@ unsafe impl ::windows::runtime::Interface for IReconcileInitiator {
 }
 impl ::std::convert::From<IReconcileInitiator> for ::windows::runtime::IUnknown {
     fn from(value: IReconcileInitiator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IReconcileInitiator> for ::windows::runtime::IUnknown {
     fn from(value: &IReconcileInitiator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IReconcileInitiator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IReconcileInitiator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IReconcileInitiator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

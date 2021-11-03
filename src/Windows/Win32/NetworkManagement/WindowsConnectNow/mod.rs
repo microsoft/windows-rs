@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWCNConnectNotify(::windows::runtime::IUnknown);
+pub struct IWCNConnectNotify(pub ::windows::runtime::IUnknown);
 impl IWCNConnectNotify {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::runtime::Result<()> {
@@ -19,22 +19,22 @@ unsafe impl ::windows::runtime::Interface for IWCNConnectNotify {
 }
 impl ::std::convert::From<IWCNConnectNotify> for ::windows::runtime::IUnknown {
     fn from(value: IWCNConnectNotify) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWCNConnectNotify> for ::windows::runtime::IUnknown {
     fn from(value: &IWCNConnectNotify) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCNConnectNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWCNConnectNotify {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCNConnectNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -49,7 +49,7 @@ pub struct IWCNConnectNotify_abi(
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWCNDevice(::windows::runtime::IUnknown);
+pub struct IWCNDevice(pub ::windows::runtime::IUnknown);
 impl IWCNDevice {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::runtime::Result<()> {
@@ -117,22 +117,22 @@ unsafe impl ::windows::runtime::Interface for IWCNDevice {
 }
 impl ::std::convert::From<IWCNDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWCNDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWCNDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IWCNDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCNDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWCNDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCNDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -1359,7 +1359,7 @@ pub unsafe fn GetStagedPackagePathByFullName2<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBlockMapBlock(::windows::runtime::IUnknown);
+pub struct IAppxBlockMapBlock(pub ::windows::runtime::IUnknown);
 impl IAppxBlockMapBlock {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
@@ -1377,22 +1377,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBlockMapBlock {
 }
 impl ::std::convert::From<IAppxBlockMapBlock> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapBlock) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBlockMapBlock> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBlockMapBlock) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBlockMapBlock {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1407,7 +1407,7 @@ pub struct IAppxBlockMapBlock_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBlockMapBlocksEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxBlockMapBlocksEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxBlockMapBlocksEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBlockMapBlock> {
@@ -1433,22 +1433,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBlockMapBlocksEnumerator {
 }
 impl ::std::convert::From<IAppxBlockMapBlocksEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapBlocksEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBlockMapBlocksEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBlockMapBlocksEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapBlocksEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBlockMapBlocksEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapBlocksEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1466,7 +1466,7 @@ pub struct IAppxBlockMapBlocksEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBlockMapFile(::windows::runtime::IUnknown);
+pub struct IAppxBlockMapFile(pub ::windows::runtime::IUnknown);
 impl IAppxBlockMapFile {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetBlocks(&self) -> ::windows::runtime::Result<IAppxBlockMapBlocksEnumerator> {
@@ -1502,22 +1502,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBlockMapFile {
 }
 impl ::std::convert::From<IAppxBlockMapFile> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBlockMapFile> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBlockMapFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBlockMapFile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1537,7 +1537,7 @@ pub struct IAppxBlockMapFile_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBlockMapFilesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxBlockMapFilesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxBlockMapFilesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBlockMapFile> {
@@ -1563,22 +1563,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBlockMapFilesEnumerator {
 }
 impl ::std::convert::From<IAppxBlockMapFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapFilesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBlockMapFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBlockMapFilesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapFilesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBlockMapFilesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapFilesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1596,7 +1596,7 @@ pub struct IAppxBlockMapFilesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBlockMapReader(::windows::runtime::IUnknown);
+pub struct IAppxBlockMapReader(pub ::windows::runtime::IUnknown);
 impl IAppxBlockMapReader {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -1628,22 +1628,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBlockMapReader {
 }
 impl ::std::convert::From<IAppxBlockMapReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBlockMapReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBlockMapReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBlockMapReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBlockMapReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBlockMapReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBlockMapReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1663,7 +1663,7 @@ pub struct IAppxBlockMapReader_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleFactory(::windows::runtime::IUnknown);
+pub struct IAppxBundleFactory(pub ::windows::runtime::IUnknown);
 impl IAppxBundleFactory {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
@@ -1690,22 +1690,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleFactory {
 }
 impl ::std::convert::From<IAppxBundleFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1724,7 +1724,7 @@ pub struct IAppxBundleFactory_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestOptionalBundleInfo(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestOptionalBundleInfo(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfo {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
@@ -1749,22 +1749,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestOptionalBundleI
 }
 impl ::std::convert::From<IAppxBundleManifestOptionalBundleInfo> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestOptionalBundleInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestOptionalBundleInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestOptionalBundleInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestOptionalBundleInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestOptionalBundleInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestOptionalBundleInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1781,7 +1781,7 @@ pub struct IAppxBundleManifestOptionalBundleInfo_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBundleManifestOptionalBundleInfo> {
@@ -1807,22 +1807,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestOptionalBundleI
 }
 impl ::std::convert::From<IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestOptionalBundleInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestOptionalBundleInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestOptionalBundleInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1840,7 +1840,7 @@ pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestPackageInfo {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageType(&self) -> ::windows::runtime::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE> {
@@ -1880,22 +1880,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo {
 }
 impl ::std::convert::From<IAppxBundleManifestPackageInfo> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestPackageInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestPackageInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1915,7 +1915,7 @@ pub struct IAppxBundleManifestPackageInfo_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo2(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo2(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestPackageInfo2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -1942,22 +1942,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo2 {
 }
 impl ::std::convert::From<IAppxBundleManifestPackageInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestPackageInfo2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestPackageInfo2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1976,7 +1976,7 @@ pub struct IAppxBundleManifestPackageInfo2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo3(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo3(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestPackageInfo3 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::runtime::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
@@ -1990,22 +1990,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo3 {
 }
 impl ::std::convert::From<IAppxBundleManifestPackageInfo3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestPackageInfo3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestPackageInfo3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2019,7 +2019,7 @@ pub struct IAppxBundleManifestPackageInfo3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfo4(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfo4(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestPackageInfo4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -2034,22 +2034,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfo4 {
 }
 impl ::std::convert::From<IAppxBundleManifestPackageInfo4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfo4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestPackageInfo4> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfo4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfo4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestPackageInfo4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfo4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2064,7 +2064,7 @@ pub struct IAppxBundleManifestPackageInfo4_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestPackageInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestPackageInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestPackageInfoEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxBundleManifestPackageInfo> {
@@ -2090,22 +2090,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestPackageInfoEnum
 }
 impl ::std::convert::From<IAppxBundleManifestPackageInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestPackageInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestPackageInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestPackageInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestPackageInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestPackageInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestPackageInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2123,7 +2123,7 @@ pub struct IAppxBundleManifestPackageInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestReader(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestReader(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
@@ -2148,22 +2148,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader {
 }
 impl ::std::convert::From<IAppxBundleManifestReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2180,7 +2180,7 @@ pub struct IAppxBundleManifestReader_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleManifestReader2(::windows::runtime::IUnknown);
+pub struct IAppxBundleManifestReader2(pub ::windows::runtime::IUnknown);
 impl IAppxBundleManifestReader2 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetOptionalBundles(&self) -> ::windows::runtime::Result<IAppxBundleManifestOptionalBundleInfoEnumerator> {
@@ -2194,22 +2194,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader2 {
 }
 impl ::std::convert::From<IAppxBundleManifestReader2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleManifestReader2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleManifestReader2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleManifestReader2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleManifestReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleManifestReader2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleManifestReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2223,7 +2223,7 @@ pub struct IAppxBundleManifestReader2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleReader(::windows::runtime::IUnknown);
+pub struct IAppxBundleReader(pub ::windows::runtime::IUnknown);
 impl IAppxBundleReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::runtime::Result<IAppxFile> {
@@ -2258,22 +2258,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleReader {
 }
 impl ::std::convert::From<IAppxBundleReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2292,7 +2292,7 @@ pub struct IAppxBundleReader_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleWriter(::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter(pub ::windows::runtime::IUnknown);
 impl IAppxBundleWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2310,22 +2310,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleWriter {
 }
 impl ::std::convert::From<IAppxBundleWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2341,7 +2341,7 @@ pub struct IAppxBundleWriter_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleWriter2(::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter2(pub ::windows::runtime::IUnknown);
 impl IAppxBundleWriter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2355,22 +2355,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleWriter2 {
 }
 impl ::std::convert::From<IAppxBundleWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleWriter2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleWriter2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleWriter2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2385,7 +2385,7 @@ pub struct IAppxBundleWriter2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleWriter3(::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter3(pub ::windows::runtime::IUnknown);
 impl IAppxBundleWriter3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2404,22 +2404,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleWriter3 {
 }
 impl ::std::convert::From<IAppxBundleWriter3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleWriter3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleWriter3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleWriter3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2436,7 +2436,7 @@ pub struct IAppxBundleWriter3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxBundleWriter4(::windows::runtime::IUnknown);
+pub struct IAppxBundleWriter4(pub ::windows::runtime::IUnknown);
 impl IAppxBundleWriter4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2460,22 +2460,22 @@ unsafe impl ::windows::runtime::Interface for IAppxBundleWriter4 {
 }
 impl ::std::convert::From<IAppxBundleWriter4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxBundleWriter4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxBundleWriter4> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxBundleWriter4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxBundleWriter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxBundleWriter4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxBundleWriter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2494,7 +2494,7 @@ pub struct IAppxBundleWriter4_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxContentGroup(::windows::runtime::IUnknown);
+pub struct IAppxContentGroup(pub ::windows::runtime::IUnknown);
 impl IAppxContentGroup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -2514,22 +2514,22 @@ unsafe impl ::windows::runtime::Interface for IAppxContentGroup {
 }
 impl ::std::convert::From<IAppxContentGroup> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxContentGroup> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxContentGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxContentGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2545,7 +2545,7 @@ pub struct IAppxContentGroup_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxContentGroupFilesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxContentGroupFilesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxContentGroupFilesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -2572,22 +2572,22 @@ unsafe impl ::windows::runtime::Interface for IAppxContentGroupFilesEnumerator {
 }
 impl ::std::convert::From<IAppxContentGroupFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupFilesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxContentGroupFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxContentGroupFilesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupFilesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxContentGroupFilesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupFilesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2606,7 +2606,7 @@ pub struct IAppxContentGroupFilesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxContentGroupMapReader(::windows::runtime::IUnknown);
+pub struct IAppxContentGroupMapReader(pub ::windows::runtime::IUnknown);
 impl IAppxContentGroupMapReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetRequiredGroup(&self) -> ::windows::runtime::Result<IAppxContentGroup> {
@@ -2625,22 +2625,22 @@ unsafe impl ::windows::runtime::Interface for IAppxContentGroupMapReader {
 }
 impl ::std::convert::From<IAppxContentGroupMapReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupMapReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxContentGroupMapReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxContentGroupMapReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupMapReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxContentGroupMapReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupMapReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2655,7 +2655,7 @@ pub struct IAppxContentGroupMapReader_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxContentGroupMapWriter(::windows::runtime::IUnknown);
+pub struct IAppxContentGroupMapWriter(pub ::windows::runtime::IUnknown);
 impl IAppxContentGroupMapWriter {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -2678,22 +2678,22 @@ unsafe impl ::windows::runtime::Interface for IAppxContentGroupMapWriter {
 }
 impl ::std::convert::From<IAppxContentGroupMapWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupMapWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxContentGroupMapWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxContentGroupMapWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupMapWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxContentGroupMapWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupMapWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2711,7 +2711,7 @@ pub struct IAppxContentGroupMapWriter_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxContentGroupsEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxContentGroupsEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxContentGroupsEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxContentGroup> {
@@ -2737,22 +2737,22 @@ unsafe impl ::windows::runtime::Interface for IAppxContentGroupsEnumerator {
 }
 impl ::std::convert::From<IAppxContentGroupsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxContentGroupsEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxContentGroupsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxContentGroupsEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxContentGroupsEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxContentGroupsEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxContentGroupsEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2770,7 +2770,7 @@ pub struct IAppxContentGroupsEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptedBundleWriter(::windows::runtime::IUnknown);
+pub struct IAppxEncryptedBundleWriter(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2788,22 +2788,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter {
 }
 impl ::std::convert::From<IAppxEncryptedBundleWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptedBundleWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptedBundleWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedBundleWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptedBundleWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedBundleWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2819,7 +2819,7 @@ pub struct IAppxEncryptedBundleWriter_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptedBundleWriter2(::windows::runtime::IUnknown);
+pub struct IAppxEncryptedBundleWriter2(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2833,22 +2833,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter2 {
 }
 impl ::std::convert::From<IAppxEncryptedBundleWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptedBundleWriter2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptedBundleWriter2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedBundleWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptedBundleWriter2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedBundleWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2863,7 +2863,7 @@ pub struct IAppxEncryptedBundleWriter2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptedBundleWriter3(::windows::runtime::IUnknown);
+pub struct IAppxEncryptedBundleWriter3(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2882,22 +2882,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptedBundleWriter3 {
 }
 impl ::std::convert::From<IAppxEncryptedBundleWriter3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedBundleWriter3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptedBundleWriter3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptedBundleWriter3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedBundleWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptedBundleWriter3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedBundleWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2914,7 +2914,7 @@ pub struct IAppxEncryptedBundleWriter3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptedPackageWriter(::windows::runtime::IUnknown);
+pub struct IAppxEncryptedPackageWriter(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptedPackageWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2932,22 +2932,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptedPackageWriter {
 }
 impl ::std::convert::From<IAppxEncryptedPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedPackageWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptedPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptedPackageWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedPackageWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptedPackageWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedPackageWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2963,7 +2963,7 @@ pub struct IAppxEncryptedPackageWriter_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptedPackageWriter2(::windows::runtime::IUnknown);
+pub struct IAppxEncryptedPackageWriter2(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2977,22 +2977,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptedPackageWriter2 {
 }
 impl ::std::convert::From<IAppxEncryptedPackageWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptedPackageWriter2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptedPackageWriter2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptedPackageWriter2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptedPackageWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptedPackageWriter2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptedPackageWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3007,7 +3007,7 @@ pub struct IAppxEncryptedPackageWriter2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory(::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -3060,22 +3060,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory {
 }
 impl ::std::convert::From<IAppxEncryptionFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptionFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptionFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptionFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3104,7 +3104,7 @@ pub struct IAppxEncryptionFactory_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory2(::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory2(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -3127,22 +3127,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory2 {
 }
 impl ::std::convert::From<IAppxEncryptionFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptionFactory2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptionFactory2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptionFactory2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3158,7 +3158,7 @@ pub struct IAppxEncryptionFactory2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory3(::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory3(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -3197,22 +3197,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory3 {
 }
 impl ::std::convert::From<IAppxEncryptionFactory3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptionFactory3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptionFactory3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptionFactory3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3234,7 +3234,7 @@ pub struct IAppxEncryptionFactory3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxEncryptionFactory4(::windows::runtime::IUnknown);
+pub struct IAppxEncryptionFactory4(pub ::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -3248,22 +3248,22 @@ unsafe impl ::windows::runtime::Interface for IAppxEncryptionFactory4 {
 }
 impl ::std::convert::From<IAppxEncryptionFactory4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxEncryptionFactory4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxEncryptionFactory4> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxEncryptionFactory4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxEncryptionFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxEncryptionFactory4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxEncryptionFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3278,7 +3278,7 @@ pub struct IAppxEncryptionFactory4_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxFactory(::windows::runtime::IUnknown);
+pub struct IAppxFactory(pub ::windows::runtime::IUnknown);
 impl IAppxFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -3317,22 +3317,22 @@ unsafe impl ::windows::runtime::Interface for IAppxFactory {
 }
 impl ::std::convert::From<IAppxFactory> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3355,7 +3355,7 @@ pub struct IAppxFactory_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxFactory2(::windows::runtime::IUnknown);
+pub struct IAppxFactory2(pub ::windows::runtime::IUnknown);
 impl IAppxFactory2 {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
@@ -3382,22 +3382,22 @@ unsafe impl ::windows::runtime::Interface for IAppxFactory2 {
 }
 impl ::std::convert::From<IAppxFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFactory2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxFactory2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxFactory2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxFactory2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3416,7 +3416,7 @@ pub struct IAppxFactory2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxFile(::windows::runtime::IUnknown);
+pub struct IAppxFile(pub ::windows::runtime::IUnknown);
 impl IAppxFile {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCompressionOption(&self) -> ::windows::runtime::Result<APPX_COMPRESSION_OPTION> {
@@ -3453,22 +3453,22 @@ unsafe impl ::windows::runtime::Interface for IAppxFile {
 }
 impl ::std::convert::From<IAppxFile> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxFile> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxFile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3489,7 +3489,7 @@ pub struct IAppxFile_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxFilesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxFilesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxFilesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxFile> {
@@ -3515,22 +3515,22 @@ unsafe impl ::windows::runtime::Interface for IAppxFilesEnumerator {
 }
 impl ::std::convert::From<IAppxFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxFilesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxFilesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxFilesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxFilesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxFilesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxFilesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3548,7 +3548,7 @@ pub struct IAppxFilesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestApplication(::windows::runtime::IUnknown);
+pub struct IAppxManifestApplication(pub ::windows::runtime::IUnknown);
 impl IAppxManifestApplication {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -3569,22 +3569,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestApplication {
 }
 impl ::std::convert::From<IAppxManifestApplication> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestApplication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestApplication> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestApplication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestApplication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3601,7 +3601,7 @@ pub struct IAppxManifestApplication_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestApplicationsEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestApplicationsEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestApplicationsEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestApplication> {
@@ -3627,22 +3627,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestApplicationsEnumerato
 }
 impl ::std::convert::From<IAppxManifestApplicationsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestApplicationsEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestApplicationsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestApplicationsEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestApplicationsEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestApplicationsEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestApplicationsEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3660,7 +3660,7 @@ pub struct IAppxManifestApplicationsEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestCapabilitiesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestCapabilitiesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestCapabilitiesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -3687,22 +3687,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestCapabilitiesEnumerato
 }
 impl ::std::convert::From<IAppxManifestCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestCapabilitiesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestCapabilitiesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestCapabilitiesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestCapabilitiesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestCapabilitiesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3721,7 +3721,7 @@ pub struct IAppxManifestCapabilitiesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestDeviceCapabilitiesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestDeviceCapabilitiesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestDeviceCapabilitiesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -3748,22 +3748,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestDeviceCapabilitiesEnu
 }
 impl ::std::convert::From<IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDeviceCapabilitiesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestDeviceCapabilitiesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDeviceCapabilitiesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3782,7 +3782,7 @@ pub struct IAppxManifestDeviceCapabilitiesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestDriverConstraint(::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverConstraint(pub ::windows::runtime::IUnknown);
 impl IAppxManifestDriverConstraint {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -3808,22 +3808,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestDriverConstraint {
 }
 impl ::std::convert::From<IAppxManifestDriverConstraint> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverConstraint) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestDriverConstraint> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestDriverConstraint) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverConstraint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestDriverConstraint {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverConstraint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3841,7 +3841,7 @@ pub struct IAppxManifestDriverConstraint_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestDriverConstraintsEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverConstraintsEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestDriverConstraintsEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestDriverConstraint> {
@@ -3867,22 +3867,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestDriverConstraintsEnum
 }
 impl ::std::convert::From<IAppxManifestDriverConstraintsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverConstraintsEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestDriverConstraintsEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestDriverConstraintsEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverConstraintsEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestDriverConstraintsEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverConstraintsEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3900,7 +3900,7 @@ pub struct IAppxManifestDriverConstraintsEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestDriverDependenciesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverDependenciesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestDriverDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestDriverDependency> {
@@ -3926,22 +3926,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestDriverDependenciesEnu
 }
 impl ::std::convert::From<IAppxManifestDriverDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverDependenciesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestDriverDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestDriverDependenciesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestDriverDependenciesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3959,7 +3959,7 @@ pub struct IAppxManifestDriverDependenciesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestDriverDependency(::windows::runtime::IUnknown);
+pub struct IAppxManifestDriverDependency(pub ::windows::runtime::IUnknown);
 impl IAppxManifestDriverDependency {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetDriverConstraints(&self) -> ::windows::runtime::Result<IAppxManifestDriverConstraintsEnumerator> {
@@ -3973,22 +3973,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestDriverDependency {
 }
 impl ::std::convert::From<IAppxManifestDriverDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestDriverDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestDriverDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestDriverDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestDriverDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestDriverDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestDriverDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4002,7 +4002,7 @@ pub struct IAppxManifestDriverDependency_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestHostRuntimeDependenciesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestHostRuntimeDependenciesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestHostRuntimeDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestHostRuntimeDependency> {
@@ -4028,22 +4028,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependenci
 }
 impl ::std::convert::From<IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestHostRuntimeDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestHostRuntimeDependenciesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestHostRuntimeDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4061,7 +4061,7 @@ pub struct IAppxManifestHostRuntimeDependenciesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestHostRuntimeDependency(::windows::runtime::IUnknown);
+pub struct IAppxManifestHostRuntimeDependency(pub ::windows::runtime::IUnknown);
 impl IAppxManifestHostRuntimeDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4087,22 +4087,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependency
 }
 impl ::std::convert::From<IAppxManifestHostRuntimeDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestHostRuntimeDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestHostRuntimeDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestHostRuntimeDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestHostRuntimeDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestHostRuntimeDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4120,7 +4120,7 @@ pub struct IAppxManifestHostRuntimeDependency_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestHostRuntimeDependency2(::windows::runtime::IUnknown);
+pub struct IAppxManifestHostRuntimeDependency2(pub ::windows::runtime::IUnknown);
 impl IAppxManifestHostRuntimeDependency2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4135,22 +4135,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestHostRuntimeDependency
 }
 impl ::std::convert::From<IAppxManifestHostRuntimeDependency2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestHostRuntimeDependency2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestHostRuntimeDependency2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestHostRuntimeDependency2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestHostRuntimeDependency2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestHostRuntimeDependency2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestHostRuntimeDependency2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4165,7 +4165,7 @@ pub struct IAppxManifestHostRuntimeDependency2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestMainPackageDependenciesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestMainPackageDependenciesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestMainPackageDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestMainPackageDependency> {
@@ -4191,22 +4191,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestMainPackageDependenci
 }
 impl ::std::convert::From<IAppxManifestMainPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestMainPackageDependenciesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestMainPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestMainPackageDependenciesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestMainPackageDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestMainPackageDependenciesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestMainPackageDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4224,7 +4224,7 @@ pub struct IAppxManifestMainPackageDependenciesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestMainPackageDependency(::windows::runtime::IUnknown);
+pub struct IAppxManifestMainPackageDependency(pub ::windows::runtime::IUnknown);
 impl IAppxManifestMainPackageDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4251,22 +4251,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestMainPackageDependency
 }
 impl ::std::convert::From<IAppxManifestMainPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestMainPackageDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestMainPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestMainPackageDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestMainPackageDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestMainPackageDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestMainPackageDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4285,7 +4285,7 @@ pub struct IAppxManifestMainPackageDependency_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestOSPackageDependenciesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestOSPackageDependenciesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestOSPackageDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestOSPackageDependency> {
@@ -4311,22 +4311,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestOSPackageDependencies
 }
 impl ::std::convert::From<IAppxManifestOSPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestOSPackageDependenciesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestOSPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestOSPackageDependenciesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestOSPackageDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestOSPackageDependenciesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestOSPackageDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4344,7 +4344,7 @@ pub struct IAppxManifestOSPackageDependenciesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestOSPackageDependency(::windows::runtime::IUnknown);
+pub struct IAppxManifestOSPackageDependency(pub ::windows::runtime::IUnknown);
 impl IAppxManifestOSPackageDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4364,22 +4364,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestOSPackageDependency {
 }
 impl ::std::convert::From<IAppxManifestOSPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestOSPackageDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestOSPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestOSPackageDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestOSPackageDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestOSPackageDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestOSPackageDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4395,7 +4395,7 @@ pub struct IAppxManifestOSPackageDependency_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestOptionalPackageInfo(::windows::runtime::IUnknown);
+pub struct IAppxManifestOptionalPackageInfo(pub ::windows::runtime::IUnknown);
 impl IAppxManifestOptionalPackageInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4416,22 +4416,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestOptionalPackageInfo {
 }
 impl ::std::convert::From<IAppxManifestOptionalPackageInfo> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestOptionalPackageInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestOptionalPackageInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestOptionalPackageInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestOptionalPackageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestOptionalPackageInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestOptionalPackageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4448,7 +4448,7 @@ pub struct IAppxManifestOptionalPackageInfo_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependenciesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependenciesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestPackageDependenciesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestPackageDependency> {
@@ -4474,22 +4474,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependenciesEn
 }
 impl ::std::convert::From<IAppxManifestPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependenciesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestPackageDependenciesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestPackageDependenciesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestPackageDependenciesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependenciesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4507,7 +4507,7 @@ pub struct IAppxManifestPackageDependenciesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependency(::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependency(pub ::windows::runtime::IUnknown);
 impl IAppxManifestPackageDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4533,22 +4533,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency {
 }
 impl ::std::convert::From<IAppxManifestPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestPackageDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestPackageDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestPackageDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4566,7 +4566,7 @@ pub struct IAppxManifestPackageDependency_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependency2(::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependency2(pub ::windows::runtime::IUnknown);
 impl IAppxManifestPackageDependency2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4597,22 +4597,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency2 {
 }
 impl ::std::convert::From<IAppxManifestPackageDependency2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependency2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestPackageDependency2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestPackageDependency2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependency2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestPackageDependency2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependency2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAppxManifestPackageDependency2> for IAppxManifestPackageDependency {
@@ -4651,7 +4651,7 @@ pub struct IAppxManifestPackageDependency2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestPackageDependency3(::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageDependency3(pub ::windows::runtime::IUnknown);
 impl IAppxManifestPackageDependency3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4666,22 +4666,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestPackageDependency3 {
 }
 impl ::std::convert::From<IAppxManifestPackageDependency3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageDependency3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestPackageDependency3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestPackageDependency3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageDependency3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestPackageDependency3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageDependency3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4696,7 +4696,7 @@ pub struct IAppxManifestPackageDependency3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestPackageId(::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageId(pub ::windows::runtime::IUnknown);
 impl IAppxManifestPackageId {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4751,22 +4751,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestPackageId {
 }
 impl ::std::convert::From<IAppxManifestPackageId> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestPackageId> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestPackageId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestPackageId {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4793,7 +4793,7 @@ pub struct IAppxManifestPackageId_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestPackageId2(::windows::runtime::IUnknown);
+pub struct IAppxManifestPackageId2(pub ::windows::runtime::IUnknown);
 impl IAppxManifestPackageId2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4853,22 +4853,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestPackageId2 {
 }
 impl ::std::convert::From<IAppxManifestPackageId2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestPackageId2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestPackageId2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestPackageId2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestPackageId2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestPackageId2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestPackageId2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAppxManifestPackageId2> for IAppxManifestPackageId {
@@ -4916,7 +4916,7 @@ pub struct IAppxManifestPackageId2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestProperties(::windows::runtime::IUnknown);
+pub struct IAppxManifestProperties(pub ::windows::runtime::IUnknown);
 impl IAppxManifestProperties {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4937,22 +4937,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestProperties {
 }
 impl ::std::convert::From<IAppxManifestProperties> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4969,7 +4969,7 @@ pub struct IAppxManifestProperties_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestQualifiedResource(::windows::runtime::IUnknown);
+pub struct IAppxManifestQualifiedResource(pub ::windows::runtime::IUnknown);
 impl IAppxManifestQualifiedResource {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -4994,22 +4994,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestQualifiedResource {
 }
 impl ::std::convert::From<IAppxManifestQualifiedResource> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestQualifiedResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestQualifiedResource> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestQualifiedResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestQualifiedResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestQualifiedResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestQualifiedResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5026,7 +5026,7 @@ pub struct IAppxManifestQualifiedResource_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestQualifiedResourcesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestQualifiedResourcesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestQualifiedResourcesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestQualifiedResource> {
@@ -5052,22 +5052,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestQualifiedResourcesEnu
 }
 impl ::std::convert::From<IAppxManifestQualifiedResourcesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestQualifiedResourcesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestQualifiedResourcesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestQualifiedResourcesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestQualifiedResourcesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestQualifiedResourcesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestQualifiedResourcesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5085,7 +5085,7 @@ pub struct IAppxManifestQualifiedResourcesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
@@ -5141,22 +5141,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader {
 }
 impl ::std::convert::From<IAppxManifestReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5180,7 +5180,7 @@ pub struct IAppxManifestReader_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader2(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader2(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader2 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
@@ -5241,22 +5241,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader2 {
 }
 impl ::std::convert::From<IAppxManifestReader2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAppxManifestReader2> for IAppxManifestReader {
@@ -5301,7 +5301,7 @@ pub struct IAppxManifestReader2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader3(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader3(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader3 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
@@ -5372,22 +5372,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader3 {
 }
 impl ::std::convert::From<IAppxManifestReader3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAppxManifestReader3> for IAppxManifestReader2 {
@@ -5454,7 +5454,7 @@ pub struct IAppxManifestReader3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader4(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader4(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader4 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetPackageId(&self) -> ::windows::runtime::Result<IAppxManifestPackageId> {
@@ -5530,22 +5530,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader4 {
 }
 impl ::std::convert::From<IAppxManifestReader4> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader4> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAppxManifestReader4> for IAppxManifestReader3 {
@@ -5633,7 +5633,7 @@ pub struct IAppxManifestReader4_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader5(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader5(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader5 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetMainPackageDependencies(&self) -> ::windows::runtime::Result<IAppxManifestMainPackageDependenciesEnumerator> {
@@ -5647,22 +5647,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader5 {
 }
 impl ::std::convert::From<IAppxManifestReader5> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader5> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5676,7 +5676,7 @@ pub struct IAppxManifestReader5_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader6(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader6(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader6 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -5691,22 +5691,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader6 {
 }
 impl ::std::convert::From<IAppxManifestReader6> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader6) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader6> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader6) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader6 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5721,7 +5721,7 @@ pub struct IAppxManifestReader6_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestReader7(::windows::runtime::IUnknown);
+pub struct IAppxManifestReader7(pub ::windows::runtime::IUnknown);
 impl IAppxManifestReader7 {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetDriverDependencies(&self) -> ::windows::runtime::Result<IAppxManifestDriverDependenciesEnumerator> {
@@ -5745,22 +5745,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestReader7 {
 }
 impl ::std::convert::From<IAppxManifestReader7> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestReader7) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestReader7> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestReader7) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestReader7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestReader7 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestReader7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5776,7 +5776,7 @@ pub struct IAppxManifestReader7_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestResourcesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestResourcesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestResourcesEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -5803,22 +5803,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestResourcesEnumerator {
 }
 impl ::std::convert::From<IAppxManifestResourcesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestResourcesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestResourcesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestResourcesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestResourcesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestResourcesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestResourcesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5837,7 +5837,7 @@ pub struct IAppxManifestResourcesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestTargetDeviceFamiliesEnumerator(::windows::runtime::IUnknown);
+pub struct IAppxManifestTargetDeviceFamiliesEnumerator(pub ::windows::runtime::IUnknown);
 impl IAppxManifestTargetDeviceFamiliesEnumerator {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<IAppxManifestTargetDeviceFamily> {
@@ -5863,22 +5863,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestTargetDeviceFamiliesE
 }
 impl ::std::convert::From<IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestTargetDeviceFamiliesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestTargetDeviceFamiliesEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestTargetDeviceFamiliesEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5896,7 +5896,7 @@ pub struct IAppxManifestTargetDeviceFamiliesEnumerator_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxManifestTargetDeviceFamily(::windows::runtime::IUnknown);
+pub struct IAppxManifestTargetDeviceFamily(pub ::windows::runtime::IUnknown);
 impl IAppxManifestTargetDeviceFamily {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -5921,22 +5921,22 @@ unsafe impl ::windows::runtime::Interface for IAppxManifestTargetDeviceFamily {
 }
 impl ::std::convert::From<IAppxManifestTargetDeviceFamily> for ::windows::runtime::IUnknown {
     fn from(value: IAppxManifestTargetDeviceFamily) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxManifestTargetDeviceFamily> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxManifestTargetDeviceFamily) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxManifestTargetDeviceFamily {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxManifestTargetDeviceFamily {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxManifestTargetDeviceFamily {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5953,7 +5953,7 @@ pub struct IAppxManifestTargetDeviceFamily_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackageEditor(::windows::runtime::IUnknown);
+pub struct IAppxPackageEditor(pub ::windows::runtime::IUnknown);
 impl IAppxPackageEditor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -5998,22 +5998,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackageEditor {
 }
 impl ::std::convert::From<IAppxPackageEditor> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageEditor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackageEditor> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackageEditor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageEditor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackageEditor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageEditor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6038,7 +6038,7 @@ pub struct IAppxPackageEditor_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackageReader(::windows::runtime::IUnknown);
+pub struct IAppxPackageReader(pub ::windows::runtime::IUnknown);
 impl IAppxPackageReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetBlockMap(&self) -> ::windows::runtime::Result<IAppxBlockMapReader> {
@@ -6073,22 +6073,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackageReader {
 }
 impl ::std::convert::From<IAppxPackageReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackageReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackageReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackageReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6107,7 +6107,7 @@ pub struct IAppxPackageReader_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackageWriter(::windows::runtime::IUnknown);
+pub struct IAppxPackageWriter(pub ::windows::runtime::IUnknown);
 impl IAppxPackageWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -6126,22 +6126,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackageWriter {
 }
 impl ::std::convert::From<IAppxPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackageWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackageWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6158,7 +6158,7 @@ pub struct IAppxPackageWriter_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackageWriter2(::windows::runtime::IUnknown);
+pub struct IAppxPackageWriter2(pub ::windows::runtime::IUnknown);
 impl IAppxPackageWriter2 {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_System_Com`*"]
@@ -6172,22 +6172,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackageWriter2 {
 }
 impl ::std::convert::From<IAppxPackageWriter2> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageWriter2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackageWriter2> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackageWriter2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackageWriter2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6202,7 +6202,7 @@ pub struct IAppxPackageWriter2_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackageWriter3(::windows::runtime::IUnknown);
+pub struct IAppxPackageWriter3(pub ::windows::runtime::IUnknown);
 impl IAppxPackageWriter3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -6216,22 +6216,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackageWriter3 {
 }
 impl ::std::convert::From<IAppxPackageWriter3> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackageWriter3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackageWriter3> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackageWriter3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackageWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackageWriter3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackageWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6246,7 +6246,7 @@ pub struct IAppxPackageWriter3_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackagingDiagnosticEventSink(::windows::runtime::IUnknown);
+pub struct IAppxPackagingDiagnosticEventSink(pub ::windows::runtime::IUnknown);
 impl IAppxPackagingDiagnosticEventSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -6265,22 +6265,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackagingDiagnosticEventSink 
 }
 impl ::std::convert::From<IAppxPackagingDiagnosticEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackagingDiagnosticEventSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackagingDiagnosticEventSink> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackagingDiagnosticEventSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackagingDiagnosticEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackagingDiagnosticEventSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackagingDiagnosticEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6297,7 +6297,7 @@ pub struct IAppxPackagingDiagnosticEventSink_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxPackagingDiagnosticEventSinkManager(::windows::runtime::IUnknown);
+pub struct IAppxPackagingDiagnosticEventSinkManager(pub ::windows::runtime::IUnknown);
 impl IAppxPackagingDiagnosticEventSinkManager {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn SetSinkForProcess<'a, Param0: ::windows::runtime::IntoParam<'a, IAppxPackagingDiagnosticEventSink>>(&self, sink: Param0) -> ::windows::runtime::Result<()> {
@@ -6310,22 +6310,22 @@ unsafe impl ::windows::runtime::Interface for IAppxPackagingDiagnosticEventSinkM
 }
 impl ::std::convert::From<IAppxPackagingDiagnosticEventSinkManager> for ::windows::runtime::IUnknown {
     fn from(value: IAppxPackagingDiagnosticEventSinkManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxPackagingDiagnosticEventSinkManager> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxPackagingDiagnosticEventSinkManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxPackagingDiagnosticEventSinkManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxPackagingDiagnosticEventSinkManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxPackagingDiagnosticEventSinkManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6339,7 +6339,7 @@ pub struct IAppxPackagingDiagnosticEventSinkManager_abi(
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAppxSourceContentGroupMapReader(::windows::runtime::IUnknown);
+pub struct IAppxSourceContentGroupMapReader(pub ::windows::runtime::IUnknown);
 impl IAppxSourceContentGroupMapReader {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
     pub unsafe fn GetRequiredGroup(&self) -> ::windows::runtime::Result<IAppxContentGroup> {
@@ -6358,22 +6358,22 @@ unsafe impl ::windows::runtime::Interface for IAppxSourceContentGroupMapReader {
 }
 impl ::std::convert::From<IAppxSourceContentGroupMapReader> for ::windows::runtime::IUnknown {
     fn from(value: IAppxSourceContentGroupMapReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAppxSourceContentGroupMapReader> for ::windows::runtime::IUnknown {
     fn from(value: &IAppxSourceContentGroupMapReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAppxSourceContentGroupMapReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAppxSourceContentGroupMapReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAppxSourceContentGroupMapReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIBackgroundCopyCallback(::windows::runtime::IUnknown);
+pub struct AsyncIBackgroundCopyCallback(pub ::windows::runtime::IUnknown);
 impl AsyncIBackgroundCopyCallback {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Begin_JobTransferred<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::runtime::Result<()> {
@@ -35,22 +35,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIBackgroundCopyCallback {
 }
 impl ::std::convert::From<AsyncIBackgroundCopyCallback> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIBackgroundCopyCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIBackgroundCopyCallback> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIBackgroundCopyCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIBackgroundCopyCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIBackgroundCopyCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIBackgroundCopyCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1072,7 +1072,7 @@ unsafe impl ::windows::runtime::Abi for GROUPPROP {
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBITSExtensionSetup(::windows::runtime::IUnknown);
+pub struct IBITSExtensionSetup(pub ::windows::runtime::IUnknown);
 impl IBITSExtensionSetup {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn EnableBITSUploads(&self) -> ::windows::runtime::Result<()> {
@@ -1100,22 +1100,22 @@ unsafe impl ::windows::runtime::Interface for IBITSExtensionSetup {
 }
 impl ::std::convert::From<IBITSExtensionSetup> for ::windows::runtime::IUnknown {
     fn from(value: IBITSExtensionSetup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBITSExtensionSetup> for ::windows::runtime::IUnknown {
     fn from(value: &IBITSExtensionSetup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBITSExtensionSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBITSExtensionSetup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBITSExtensionSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1165,7 +1165,7 @@ pub struct IBITSExtensionSetup_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBITSExtensionSetupFactory(::windows::runtime::IUnknown);
+pub struct IBITSExtensionSetupFactory(pub ::windows::runtime::IUnknown);
 impl IBITSExtensionSetupFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -1180,22 +1180,22 @@ unsafe impl ::windows::runtime::Interface for IBITSExtensionSetupFactory {
 }
 impl ::std::convert::From<IBITSExtensionSetupFactory> for ::windows::runtime::IUnknown {
     fn from(value: IBITSExtensionSetupFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBITSExtensionSetupFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IBITSExtensionSetupFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBITSExtensionSetupFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1242,7 +1242,7 @@ pub struct IBITSExtensionSetupFactory_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyCallback(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyCallback(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyCallback {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn JobTransferred<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::runtime::Result<()> {
@@ -1263,22 +1263,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback {
 }
 impl ::std::convert::From<IBackgroundCopyCallback> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1294,7 +1294,7 @@ pub struct IBackgroundCopyCallback_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyCallback1(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyCallback1(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyCallback1 {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn OnStatus<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundCopyGroup>, Param1: ::windows::runtime::IntoParam<'a, IBackgroundCopyJob1>>(&self, pgroup: Param0, pjob: Param1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::runtime::Result<()> {
@@ -1315,22 +1315,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback1 {
 }
 impl ::std::convert::From<IBackgroundCopyCallback1> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyCallback1> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyCallback1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyCallback1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyCallback1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyCallback1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1346,7 +1346,7 @@ pub struct IBackgroundCopyCallback1_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyCallback2(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyCallback2(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyCallback2 {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn JobTransferred<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::runtime::Result<()> {
@@ -1371,22 +1371,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback2 {
 }
 impl ::std::convert::From<IBackgroundCopyCallback2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyCallback2> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyCallback2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyCallback2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyCallback2> for IBackgroundCopyCallback {
@@ -1423,7 +1423,7 @@ pub struct IBackgroundCopyCallback2_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyCallback3(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyCallback3(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyCallback3 {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn JobTransferred<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::runtime::Result<()> {
@@ -1452,22 +1452,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyCallback3 {
 }
 impl ::std::convert::From<IBackgroundCopyCallback3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyCallback3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyCallback3> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyCallback3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyCallback3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyCallback3> for IBackgroundCopyCallback2 {
@@ -1525,7 +1525,7 @@ pub struct IBackgroundCopyCallback3_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyError(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyError(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyError {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -1561,22 +1561,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyError {
 }
 impl ::std::convert::From<IBackgroundCopyError> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyError> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyError {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1597,7 +1597,7 @@ pub struct IBackgroundCopyError_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyFile(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyFile(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyFile {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -1624,22 +1624,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile {
 }
 impl ::std::convert::From<IBackgroundCopyFile> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyFile> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyFile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1658,7 +1658,7 @@ pub struct IBackgroundCopyFile_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyFile2(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyFile2(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyFile2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -1694,22 +1694,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile2 {
 }
 impl ::std::convert::From<IBackgroundCopyFile2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyFile2> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyFile2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyFile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyFile2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyFile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile2> for IBackgroundCopyFile {
@@ -1751,7 +1751,7 @@ pub struct IBackgroundCopyFile2_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyFile3(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyFile3(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyFile3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -1810,22 +1810,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile3 {
 }
 impl ::std::convert::From<IBackgroundCopyFile3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyFile3> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyFile3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyFile3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile3> for IBackgroundCopyFile2 {
@@ -1895,7 +1895,7 @@ pub struct IBackgroundCopyFile3_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyFile4(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyFile4(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyFile4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -1958,22 +1958,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile4 {
 }
 impl ::std::convert::From<IBackgroundCopyFile4> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyFile4> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyFile4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyFile4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile3 {
@@ -2064,7 +2064,7 @@ pub struct IBackgroundCopyFile4_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyFile5(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyFile5(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyFile5 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -2138,22 +2138,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile5 {
 }
 impl ::std::convert::From<IBackgroundCopyFile5> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyFile5> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyFile5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyFile5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile4 {
@@ -2268,7 +2268,7 @@ pub struct IBackgroundCopyFile5_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyFile6(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyFile6(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyFile6 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -2354,22 +2354,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyFile6 {
 }
 impl ::std::convert::From<IBackgroundCopyFile6> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyFile6> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile5 {
@@ -2507,7 +2507,7 @@ pub struct IBackgroundCopyFile6_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyGroup(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyGroup(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyGroup {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2586,22 +2586,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyGroup {
 }
 impl ::std::convert::From<IBackgroundCopyGroup> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyGroup> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2631,7 +2631,7 @@ pub struct IBackgroundCopyGroup_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJob(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJob(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJob {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -2794,22 +2794,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob {
 }
 impl ::std::convert::From<IBackgroundCopyJob> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJob> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2864,7 +2864,7 @@ pub struct IBackgroundCopyJob_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJob1(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJob1(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJob1 {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn CancelJob(&self) -> ::windows::runtime::Result<()> {
@@ -2911,22 +2911,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob1 {
 }
 impl ::std::convert::From<IBackgroundCopyJob1> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJob1> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJob1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJob1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJob1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJob1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2949,7 +2949,7 @@ pub struct IBackgroundCopyJob1_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJob2(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJob2(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJob2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -3150,22 +3150,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob2 {
 }
 impl ::std::convert::From<IBackgroundCopyJob2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJob2> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJob2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJob2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob2> for IBackgroundCopyJob {
@@ -3253,7 +3253,7 @@ pub struct IBackgroundCopyJob2_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJob3(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJob3(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJob3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -3473,22 +3473,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob3 {
 }
 impl ::std::convert::From<IBackgroundCopyJob3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJob3> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJob3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJob3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob3> for IBackgroundCopyJob2 {
@@ -3602,7 +3602,7 @@ pub struct IBackgroundCopyJob3_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJob4(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJob4(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJob4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -3851,22 +3851,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob4 {
 }
 impl ::std::convert::From<IBackgroundCopyJob4> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJob4> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJob4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJob4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob3 {
@@ -4007,7 +4007,7 @@ pub struct IBackgroundCopyJob4_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJob5(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJob5(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJob5 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -4267,22 +4267,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJob5 {
 }
 impl ::std::convert::From<IBackgroundCopyJob5> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJob5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJob5> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJob5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJob5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob4 {
@@ -4447,7 +4447,7 @@ pub struct IBackgroundCopyJob5_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJobHttpOptions(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJobHttpOptions(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -4495,22 +4495,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJobHttpOptions {
 }
 impl ::std::convert::From<IBackgroundCopyJobHttpOptions> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJobHttpOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJobHttpOptions> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJobHttpOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJobHttpOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJobHttpOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJobHttpOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4536,7 +4536,7 @@ pub struct IBackgroundCopyJobHttpOptions_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJobHttpOptions2(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJobHttpOptions2(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJobHttpOptions2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -4595,22 +4595,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJobHttpOptions2 {
 }
 impl ::std::convert::From<IBackgroundCopyJobHttpOptions2> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJobHttpOptions2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJobHttpOptions2> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJobHttpOptions2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJobHttpOptions2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJobHttpOptions2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJobHttpOptions2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions {
@@ -4660,7 +4660,7 @@ pub struct IBackgroundCopyJobHttpOptions2_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyJobHttpOptions3(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyJobHttpOptions3(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyJobHttpOptions3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -4727,22 +4727,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyJobHttpOptions3 {
 }
 impl ::std::convert::From<IBackgroundCopyJobHttpOptions3> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyJobHttpOptions3> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyJobHttpOptions3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyJobHttpOptions3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions2 {
@@ -4814,7 +4814,7 @@ pub struct IBackgroundCopyJobHttpOptions3_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyManager(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyManager(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -4844,22 +4844,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyManager {
 }
 impl ::std::convert::From<IBackgroundCopyManager> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyManager> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4878,7 +4878,7 @@ pub struct IBackgroundCopyManager_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyQMgr(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyQMgr(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyQMgr {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn CreateGroup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidgroupid: Param0) -> ::windows::runtime::Result<IBackgroundCopyGroup> {
@@ -4902,22 +4902,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyQMgr {
 }
 impl ::std::convert::From<IBackgroundCopyQMgr> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyQMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyQMgr> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyQMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyQMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyQMgr {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyQMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4933,7 +4933,7 @@ pub struct IBackgroundCopyQMgr_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBackgroundCopyServerCertificateValidationCallback(::windows::runtime::IUnknown);
+pub struct IBackgroundCopyServerCertificateValidationCallback(pub ::windows::runtime::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn ValidateServerCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::runtime::IntoParam<'a, IBackgroundCopyFile>>(&self, job: Param0, file: Param1, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows::runtime::Result<()> {
@@ -4946,22 +4946,22 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCopyServerCertificateVa
 }
 impl ::std::convert::From<IBackgroundCopyServerCertificateValidationCallback> for ::windows::runtime::IUnknown {
     fn from(value: IBackgroundCopyServerCertificateValidationCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBackgroundCopyServerCertificateValidationCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IBackgroundCopyServerCertificateValidationCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCopyServerCertificateValidationCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCopyServerCertificateValidationCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBackgroundCopyServerCertificateValidationCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4975,7 +4975,7 @@ pub struct IBackgroundCopyServerCertificateValidationCallback_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBitsPeer(::windows::runtime::IUnknown);
+pub struct IBitsPeer(pub ::windows::runtime::IUnknown);
 impl IBitsPeer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`, `Win32_Foundation`*"]
@@ -5002,22 +5002,22 @@ unsafe impl ::windows::runtime::Interface for IBitsPeer {
 }
 impl ::std::convert::From<IBitsPeer> for ::windows::runtime::IUnknown {
     fn from(value: IBitsPeer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBitsPeer> for ::windows::runtime::IUnknown {
     fn from(value: &IBitsPeer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitsPeer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitsPeer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBitsPeer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5036,7 +5036,7 @@ pub struct IBitsPeer_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBitsPeerCacheAdministration(::windows::runtime::IUnknown);
+pub struct IBitsPeerCacheAdministration(pub ::windows::runtime::IUnknown);
 impl IBitsPeerCacheAdministration {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn GetMaximumCacheSize(&self) -> ::windows::runtime::Result<u32> {
@@ -5108,22 +5108,22 @@ unsafe impl ::windows::runtime::Interface for IBitsPeerCacheAdministration {
 }
 impl ::std::convert::From<IBitsPeerCacheAdministration> for ::windows::runtime::IUnknown {
     fn from(value: IBitsPeerCacheAdministration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBitsPeerCacheAdministration> for ::windows::runtime::IUnknown {
     fn from(value: &IBitsPeerCacheAdministration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitsPeerCacheAdministration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitsPeerCacheAdministration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBitsPeerCacheAdministration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5151,7 +5151,7 @@ pub struct IBitsPeerCacheAdministration_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBitsPeerCacheRecord(::windows::runtime::IUnknown);
+pub struct IBitsPeerCacheRecord(pub ::windows::runtime::IUnknown);
 impl IBitsPeerCacheRecord {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn GetId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5196,22 +5196,22 @@ unsafe impl ::windows::runtime::Interface for IBitsPeerCacheRecord {
 }
 impl ::std::convert::From<IBitsPeerCacheRecord> for ::windows::runtime::IUnknown {
     fn from(value: IBitsPeerCacheRecord) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBitsPeerCacheRecord> for ::windows::runtime::IUnknown {
     fn from(value: &IBitsPeerCacheRecord) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitsPeerCacheRecord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitsPeerCacheRecord {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBitsPeerCacheRecord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5234,7 +5234,7 @@ pub struct IBitsPeerCacheRecord_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBitsTokenOptions(::windows::runtime::IUnknown);
+pub struct IBitsTokenOptions(pub ::windows::runtime::IUnknown);
 impl IBitsTokenOptions {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> ::windows::runtime::Result<()> {
@@ -5266,22 +5266,22 @@ unsafe impl ::windows::runtime::Interface for IBitsTokenOptions {
 }
 impl ::std::convert::From<IBitsTokenOptions> for ::windows::runtime::IUnknown {
     fn from(value: IBitsTokenOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBitsTokenOptions> for ::windows::runtime::IUnknown {
     fn from(value: &IBitsTokenOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitsTokenOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitsTokenOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBitsTokenOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5300,7 +5300,7 @@ pub struct IBitsTokenOptions_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumBackgroundCopyFiles(::windows::runtime::IUnknown);
+pub struct IEnumBackgroundCopyFiles(pub ::windows::runtime::IUnknown);
 impl IEnumBackgroundCopyFiles {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -5331,22 +5331,22 @@ unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyFiles {
 }
 impl ::std::convert::From<IEnumBackgroundCopyFiles> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyFiles) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumBackgroundCopyFiles> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumBackgroundCopyFiles) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBackgroundCopyFiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBackgroundCopyFiles {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumBackgroundCopyFiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5364,7 +5364,7 @@ pub struct IEnumBackgroundCopyFiles_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumBackgroundCopyGroups(::windows::runtime::IUnknown);
+pub struct IEnumBackgroundCopyGroups(pub ::windows::runtime::IUnknown);
 impl IEnumBackgroundCopyGroups {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::windows::runtime::GUID, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -5395,22 +5395,22 @@ unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyGroups {
 }
 impl ::std::convert::From<IEnumBackgroundCopyGroups> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyGroups) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumBackgroundCopyGroups> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumBackgroundCopyGroups) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBackgroundCopyGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBackgroundCopyGroups {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumBackgroundCopyGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5428,7 +5428,7 @@ pub struct IEnumBackgroundCopyGroups_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumBackgroundCopyJobs(::windows::runtime::IUnknown);
+pub struct IEnumBackgroundCopyJobs(pub ::windows::runtime::IUnknown);
 impl IEnumBackgroundCopyJobs {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -5459,22 +5459,22 @@ unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyJobs {
 }
 impl ::std::convert::From<IEnumBackgroundCopyJobs> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyJobs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumBackgroundCopyJobs> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumBackgroundCopyJobs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBackgroundCopyJobs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBackgroundCopyJobs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumBackgroundCopyJobs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5492,7 +5492,7 @@ pub struct IEnumBackgroundCopyJobs_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumBackgroundCopyJobs1(::windows::runtime::IUnknown);
+pub struct IEnumBackgroundCopyJobs1(pub ::windows::runtime::IUnknown);
 impl IEnumBackgroundCopyJobs1 {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::windows::runtime::GUID, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -5523,22 +5523,22 @@ unsafe impl ::windows::runtime::Interface for IEnumBackgroundCopyJobs1 {
 }
 impl ::std::convert::From<IEnumBackgroundCopyJobs1> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBackgroundCopyJobs1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumBackgroundCopyJobs1> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumBackgroundCopyJobs1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBackgroundCopyJobs1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBackgroundCopyJobs1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumBackgroundCopyJobs1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5556,7 +5556,7 @@ pub struct IEnumBackgroundCopyJobs1_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumBitsPeerCacheRecords(::windows::runtime::IUnknown);
+pub struct IEnumBitsPeerCacheRecords(pub ::windows::runtime::IUnknown);
 impl IEnumBitsPeerCacheRecords {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -5587,22 +5587,22 @@ unsafe impl ::windows::runtime::Interface for IEnumBitsPeerCacheRecords {
 }
 impl ::std::convert::From<IEnumBitsPeerCacheRecords> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBitsPeerCacheRecords) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumBitsPeerCacheRecords> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumBitsPeerCacheRecords) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBitsPeerCacheRecords {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBitsPeerCacheRecords {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumBitsPeerCacheRecords {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5620,7 +5620,7 @@ pub struct IEnumBitsPeerCacheRecords_abi(
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumBitsPeers(::windows::runtime::IUnknown);
+pub struct IEnumBitsPeers(pub ::windows::runtime::IUnknown);
 impl IEnumBitsPeers {
     #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IBitsPeer>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -5651,22 +5651,22 @@ unsafe impl ::windows::runtime::Interface for IEnumBitsPeers {
 }
 impl ::std::convert::From<IEnumBitsPeers> for ::windows::runtime::IUnknown {
     fn from(value: IEnumBitsPeers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumBitsPeers> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumBitsPeers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBitsPeers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBitsPeers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumBitsPeers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

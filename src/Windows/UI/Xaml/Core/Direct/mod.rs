@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlDirect(::windows::runtime::IInspectable);
+pub struct IXamlDirect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirect {
     type Vtable = IXamlDirect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1610224277, 44498, 22799, [160, 81, 112, 152, 155, 134, 106, 222]);
@@ -87,7 +87,7 @@ pub struct IXamlDirect_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Core_Direct`*"]
-pub struct IXamlDirectObject(::windows::runtime::IInspectable);
+pub struct IXamlDirectObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectObject {
     type Vtable = IXamlDirectObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(274811522, 52964, 17989, [186, 37, 208, 113, 206, 119, 131, 85]);
@@ -98,22 +98,22 @@ unsafe impl ::windows::runtime::RuntimeType for IXamlDirectObject {
 }
 impl ::std::convert::From<IXamlDirectObject> for ::windows::runtime::IUnknown {
     fn from(value: IXamlDirectObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IXamlDirectObject> for ::windows::runtime::IUnknown {
     fn from(value: &IXamlDirectObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlDirectObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXamlDirectObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXamlDirectObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IXamlDirectObject> for ::windows::runtime::IInspectable {
@@ -148,7 +148,7 @@ pub struct IXamlDirectObject_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlDirectStatics(::windows::runtime::IInspectable);
+pub struct IXamlDirectStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectStatics {
     type Vtable = IXamlDirectStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(840468428, 5348, 23663, [135, 141, 251, 182, 4, 173, 125, 23]);
@@ -167,7 +167,7 @@ pub struct IXamlDirectStatics_abi(
 #[doc = "*Required features: `UI_Xaml_Core_Direct`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XamlDirect(::windows::runtime::IInspectable);
+pub struct XamlDirect(pub ::windows::runtime::IInspectable);
 impl XamlDirect {
     #[doc = "*Required features: `UI_Xaml_Core_Direct`*"]
     pub fn GetObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
@@ -544,22 +544,22 @@ impl ::windows::runtime::RuntimeName for XamlDirect {
 }
 impl ::std::convert::From<XamlDirect> for ::windows::runtime::IUnknown {
     fn from(value: XamlDirect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XamlDirect> for ::windows::runtime::IUnknown {
     fn from(value: &XamlDirect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlDirect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XamlDirect {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XamlDirect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XamlDirect> for ::windows::runtime::IInspectable {

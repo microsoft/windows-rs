@@ -6,7 +6,7 @@ pub const ComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICatalog(::windows::runtime::IUnknown);
+pub struct ICatalog(pub ::windows::runtime::IUnknown);
 impl ICatalog {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -35,22 +35,22 @@ unsafe impl ::windows::runtime::Interface for ICatalog {
 }
 impl ::std::convert::From<ICatalog> for ::windows::runtime::IUnknown {
     fn from(value: ICatalog) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICatalog> for ::windows::runtime::IUnknown {
     fn from(value: &ICatalog) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICatalog {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICatalog {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICatalog {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -101,7 +101,7 @@ pub struct ICatalog_abi(
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IComponentUtil(::windows::runtime::IUnknown);
+pub struct IComponentUtil(pub ::windows::runtime::IUnknown);
 impl IComponentUtil {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
@@ -130,22 +130,22 @@ unsafe impl ::windows::runtime::Interface for IComponentUtil {
 }
 impl ::std::convert::From<IComponentUtil> for ::windows::runtime::IUnknown {
     fn from(value: IComponentUtil) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IComponentUtil> for ::windows::runtime::IUnknown {
     fn from(value: &IComponentUtil) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IComponentUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IComponentUtil {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IComponentUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -198,7 +198,7 @@ pub struct IComponentUtil_abi(
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPackageUtil(::windows::runtime::IUnknown);
+pub struct IPackageUtil(pub ::windows::runtime::IUnknown);
 impl IPackageUtil {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
@@ -222,22 +222,22 @@ unsafe impl ::windows::runtime::Interface for IPackageUtil {
 }
 impl ::std::convert::From<IPackageUtil> for ::windows::runtime::IUnknown {
     fn from(value: IPackageUtil) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPackageUtil> for ::windows::runtime::IUnknown {
     fn from(value: &IPackageUtil) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPackageUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPackageUtil {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPackageUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -288,7 +288,7 @@ pub struct IPackageUtil_abi(
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRemoteComponentUtil(::windows::runtime::IUnknown);
+pub struct IRemoteComponentUtil(pub ::windows::runtime::IUnknown);
 impl IRemoteComponentUtil {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
@@ -307,22 +307,22 @@ unsafe impl ::windows::runtime::Interface for IRemoteComponentUtil {
 }
 impl ::std::convert::From<IRemoteComponentUtil> for ::windows::runtime::IUnknown {
     fn from(value: IRemoteComponentUtil) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRemoteComponentUtil> for ::windows::runtime::IUnknown {
     fn from(value: &IRemoteComponentUtil) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteComponentUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRemoteComponentUtil {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteComponentUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -371,7 +371,7 @@ pub struct IRemoteComponentUtil_abi(
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRoleAssociationUtil(::windows::runtime::IUnknown);
+pub struct IRoleAssociationUtil(pub ::windows::runtime::IUnknown);
 impl IRoleAssociationUtil {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
@@ -390,22 +390,22 @@ unsafe impl ::windows::runtime::Interface for IRoleAssociationUtil {
 }
 impl ::std::convert::From<IRoleAssociationUtil> for ::windows::runtime::IUnknown {
     fn from(value: IRoleAssociationUtil) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRoleAssociationUtil> for ::windows::runtime::IUnknown {
     fn from(value: &IRoleAssociationUtil) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRoleAssociationUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRoleAssociationUtil {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRoleAssociationUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

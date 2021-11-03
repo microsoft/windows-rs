@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IQuickLink(::windows::runtime::IInspectable);
+pub struct IQuickLink(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuickLink {
     type Vtable = IQuickLink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614693128, 61630, 19164, [172, 201, 139, 39, 171, 156, 245, 86]);
@@ -30,7 +30,7 @@ pub struct IQuickLink_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareOperation(::windows::runtime::IInspectable);
+pub struct IShareOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation {
     type Vtable = IShareOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575060664, 53496, 16833, [168, 42, 65, 55, 219, 101, 4, 251]);
@@ -56,7 +56,7 @@ pub struct IShareOperation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareOperation2(::windows::runtime::IInspectable);
+pub struct IShareOperation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation2 {
     type Vtable = IShareOperation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268146625, 38776, 18953, [142, 91, 203, 94, 72, 45, 5, 85]);
@@ -74,7 +74,7 @@ pub struct IShareOperation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareOperation3(::windows::runtime::IInspectable);
+pub struct IShareOperation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation3 {
     type Vtable = IShareOperation3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593226114, 47015, 17777, [162, 166, 153, 74, 3, 73, 136, 178]);
@@ -94,7 +94,7 @@ pub struct IShareOperation3_abi(
 #[doc = "*Required features: `ApplicationModel_DataTransfer_ShareTarget`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct QuickLink(::windows::runtime::IInspectable);
+pub struct QuickLink(pub ::windows::runtime::IInspectable);
 impl QuickLink {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -175,22 +175,22 @@ impl ::windows::runtime::RuntimeName for QuickLink {
 }
 impl ::std::convert::From<QuickLink> for ::windows::runtime::IUnknown {
     fn from(value: QuickLink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&QuickLink> for ::windows::runtime::IUnknown {
     fn from(value: &QuickLink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for QuickLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &QuickLink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a QuickLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<QuickLink> for ::windows::runtime::IInspectable {
@@ -216,7 +216,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `ApplicationModel_DataTransfer_ShareTarget`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareOperation(::windows::runtime::IInspectable);
+pub struct ShareOperation(pub ::windows::runtime::IInspectable);
 impl ShareOperation {
     #[doc = "*Required features: `ApplicationModel_DataTransfer_ShareTarget`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<super::DataPackageView> {
@@ -296,22 +296,22 @@ impl ::windows::runtime::RuntimeName for ShareOperation {
 }
 impl ::std::convert::From<ShareOperation> for ::windows::runtime::IUnknown {
     fn from(value: ShareOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareOperation> for ::windows::runtime::IUnknown {
     fn from(value: &ShareOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareOperation> for ::windows::runtime::IInspectable {

@@ -61,7 +61,7 @@ pub const EventObjectChange2: ::windows::runtime::GUID = ::windows::runtime::GUI
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDontSupportEventSubscription(::windows::runtime::IUnknown);
+pub struct IDontSupportEventSubscription(pub ::windows::runtime::IUnknown);
 impl IDontSupportEventSubscription {}
 unsafe impl ::windows::runtime::Interface for IDontSupportEventSubscription {
     type Vtable = IDontSupportEventSubscription_abi;
@@ -69,22 +69,22 @@ unsafe impl ::windows::runtime::Interface for IDontSupportEventSubscription {
 }
 impl ::std::convert::From<IDontSupportEventSubscription> for ::windows::runtime::IUnknown {
     fn from(value: IDontSupportEventSubscription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDontSupportEventSubscription> for ::windows::runtime::IUnknown {
     fn from(value: &IDontSupportEventSubscription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDontSupportEventSubscription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDontSupportEventSubscription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDontSupportEventSubscription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -97,7 +97,7 @@ pub struct IDontSupportEventSubscription_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumEventObject(::windows::runtime::IUnknown);
+pub struct IEnumEventObject(pub ::windows::runtime::IUnknown);
 impl IEnumEventObject {
     #[doc = "*Required features: `Win32_System_Com_Events`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumEventObject> {
@@ -123,22 +123,22 @@ unsafe impl ::windows::runtime::Interface for IEnumEventObject {
 }
 impl ::std::convert::From<IEnumEventObject> for ::windows::runtime::IUnknown {
     fn from(value: IEnumEventObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumEventObject> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumEventObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumEventObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumEventObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumEventObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -155,7 +155,7 @@ pub struct IEnumEventObject_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventClass(::windows::runtime::IUnknown);
+pub struct IEventClass(pub ::windows::runtime::IUnknown);
 impl IEventClass {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -241,22 +241,22 @@ unsafe impl ::windows::runtime::Interface for IEventClass {
 }
 impl ::std::convert::From<IEventClass> for ::windows::runtime::IUnknown {
     fn from(value: IEventClass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventClass> for ::windows::runtime::IUnknown {
     fn from(value: &IEventClass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventClass {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -328,7 +328,7 @@ pub struct IEventClass_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventClass2(::windows::runtime::IUnknown);
+pub struct IEventClass2(pub ::windows::runtime::IUnknown);
 impl IEventClass2 {
     #[doc = "*Required features: `Win32_System_Com_Events`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -479,22 +479,22 @@ unsafe impl ::windows::runtime::Interface for IEventClass2 {
 }
 impl ::std::convert::From<IEventClass2> for ::windows::runtime::IUnknown {
     fn from(value: IEventClass2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventClass2> for ::windows::runtime::IUnknown {
     fn from(value: &IEventClass2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventClass2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventClass2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventClass2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IEventClass2> for IEventClass {
@@ -602,7 +602,7 @@ pub struct IEventClass2_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventControl(::windows::runtime::IUnknown);
+pub struct IEventControl(pub ::windows::runtime::IUnknown);
 impl IEventControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -639,22 +639,22 @@ unsafe impl ::windows::runtime::Interface for IEventControl {
 }
 impl ::std::convert::From<IEventControl> for ::windows::runtime::IUnknown {
     fn from(value: IEventControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventControl> for ::windows::runtime::IUnknown {
     fn from(value: &IEventControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -708,7 +708,7 @@ pub struct IEventControl_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventObjectChange(::windows::runtime::IUnknown);
+pub struct IEventObjectChange(pub ::windows::runtime::IUnknown);
 impl IEventObjectChange {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -732,22 +732,22 @@ unsafe impl ::windows::runtime::Interface for IEventObjectChange {
 }
 impl ::std::convert::From<IEventObjectChange> for ::windows::runtime::IUnknown {
     fn from(value: IEventObjectChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventObjectChange> for ::windows::runtime::IUnknown {
     fn from(value: &IEventObjectChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventObjectChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventObjectChange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventObjectChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -766,7 +766,7 @@ pub struct IEventObjectChange_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventObjectChange2(::windows::runtime::IUnknown);
+pub struct IEventObjectChange2(pub ::windows::runtime::IUnknown);
 impl IEventObjectChange2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -785,22 +785,22 @@ unsafe impl ::windows::runtime::Interface for IEventObjectChange2 {
 }
 impl ::std::convert::From<IEventObjectChange2> for ::windows::runtime::IUnknown {
     fn from(value: IEventObjectChange2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventObjectChange2> for ::windows::runtime::IUnknown {
     fn from(value: &IEventObjectChange2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventObjectChange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventObjectChange2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventObjectChange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -817,7 +817,7 @@ pub struct IEventObjectChange2_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventObjectCollection(::windows::runtime::IUnknown);
+pub struct IEventObjectCollection(pub ::windows::runtime::IUnknown);
 impl IEventObjectCollection {
     #[doc = "*Required features: `Win32_System_Com_Events`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -857,22 +857,22 @@ unsafe impl ::windows::runtime::Interface for IEventObjectCollection {
 }
 impl ::std::convert::From<IEventObjectCollection> for ::windows::runtime::IUnknown {
     fn from(value: IEventObjectCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventObjectCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IEventObjectCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventObjectCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -925,7 +925,7 @@ pub struct IEventObjectCollection_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventProperty(::windows::runtime::IUnknown);
+pub struct IEventProperty(pub ::windows::runtime::IUnknown);
 impl IEventProperty {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -956,22 +956,22 @@ unsafe impl ::windows::runtime::Interface for IEventProperty {
 }
 impl ::std::convert::From<IEventProperty> for ::windows::runtime::IUnknown {
     fn from(value: IEventProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventProperty> for ::windows::runtime::IUnknown {
     fn from(value: &IEventProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1023,7 +1023,7 @@ pub struct IEventProperty_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventPublisher(::windows::runtime::IUnknown);
+pub struct IEventPublisher(pub ::windows::runtime::IUnknown);
 impl IEventPublisher {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -1108,22 +1108,22 @@ unsafe impl ::windows::runtime::Interface for IEventPublisher {
 }
 impl ::std::convert::From<IEventPublisher> for ::windows::runtime::IUnknown {
     fn from(value: IEventPublisher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventPublisher> for ::windows::runtime::IUnknown {
     fn from(value: &IEventPublisher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventPublisher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventPublisher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventPublisher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1194,7 +1194,7 @@ pub struct IEventPublisher_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventSubscription(::windows::runtime::IUnknown);
+pub struct IEventSubscription(pub ::windows::runtime::IUnknown);
 impl IEventSubscription {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -1386,22 +1386,22 @@ unsafe impl ::windows::runtime::Interface for IEventSubscription {
 }
 impl ::std::convert::From<IEventSubscription> for ::windows::runtime::IUnknown {
     fn from(value: IEventSubscription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventSubscription> for ::windows::runtime::IUnknown {
     fn from(value: &IEventSubscription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventSubscription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventSubscription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventSubscription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1509,7 +1509,7 @@ pub struct IEventSubscription_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEventSystem(::windows::runtime::IUnknown);
+pub struct IEventSystem(pub ::windows::runtime::IUnknown);
 impl IEventSystem {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`*"]
@@ -1551,22 +1551,22 @@ unsafe impl ::windows::runtime::Interface for IEventSystem {
 }
 impl ::std::convert::From<IEventSystem> for ::windows::runtime::IUnknown {
     fn from(value: IEventSystem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEventSystem> for ::windows::runtime::IUnknown {
     fn from(value: &IEventSystem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventSystem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEventSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1622,7 +1622,7 @@ pub struct IEventSystem_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IFiringControl(::windows::runtime::IUnknown);
+pub struct IFiringControl(pub ::windows::runtime::IUnknown);
 impl IFiringControl {
     #[doc = "*Required features: `Win32_System_Com_Events`*"]
     pub unsafe fn FireSubscription<'a, Param0: ::windows::runtime::IntoParam<'a, IEventSubscription>>(&self, subscription: Param0) -> ::windows::runtime::Result<()> {
@@ -1635,22 +1635,22 @@ unsafe impl ::windows::runtime::Interface for IFiringControl {
 }
 impl ::std::convert::From<IFiringControl> for ::windows::runtime::IUnknown {
     fn from(value: IFiringControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IFiringControl> for ::windows::runtime::IUnknown {
     fn from(value: &IFiringControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFiringControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFiringControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFiringControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1695,7 +1695,7 @@ pub struct IFiringControl_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMultiInterfaceEventControl(::windows::runtime::IUnknown);
+pub struct IMultiInterfaceEventControl(pub ::windows::runtime::IUnknown);
 impl IMultiInterfaceEventControl {
     #[doc = "*Required features: `Win32_System_Com_Events`*"]
     pub unsafe fn SetMultiInterfacePublisherFilter<'a, Param0: ::windows::runtime::IntoParam<'a, IMultiInterfacePublisherFilter>>(&self, classfilter: Param0) -> ::windows::runtime::Result<()> {
@@ -1742,22 +1742,22 @@ unsafe impl ::windows::runtime::Interface for IMultiInterfaceEventControl {
 }
 impl ::std::convert::From<IMultiInterfaceEventControl> for ::windows::runtime::IUnknown {
     fn from(value: IMultiInterfaceEventControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMultiInterfaceEventControl> for ::windows::runtime::IUnknown {
     fn from(value: &IMultiInterfaceEventControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultiInterfaceEventControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultiInterfaceEventControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMultiInterfaceEventControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1783,7 +1783,7 @@ pub struct IMultiInterfaceEventControl_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMultiInterfacePublisherFilter(::windows::runtime::IUnknown);
+pub struct IMultiInterfacePublisherFilter(pub ::windows::runtime::IUnknown);
 impl IMultiInterfacePublisherFilter {
     #[doc = "*Required features: `Win32_System_Com_Events`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IMultiInterfaceEventControl>>(&self, peic: Param0) -> ::windows::runtime::Result<()> {
@@ -1801,22 +1801,22 @@ unsafe impl ::windows::runtime::Interface for IMultiInterfacePublisherFilter {
 }
 impl ::std::convert::From<IMultiInterfacePublisherFilter> for ::windows::runtime::IUnknown {
     fn from(value: IMultiInterfacePublisherFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMultiInterfacePublisherFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IMultiInterfacePublisherFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultiInterfacePublisherFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultiInterfacePublisherFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMultiInterfacePublisherFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1832,7 +1832,7 @@ pub struct IMultiInterfacePublisherFilter_abi(
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPublisherFilter(::windows::runtime::IUnknown);
+pub struct IPublisherFilter(pub ::windows::runtime::IUnknown);
 impl IPublisherFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Com_Events`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -1851,22 +1851,22 @@ unsafe impl ::windows::runtime::Interface for IPublisherFilter {
 }
 impl ::std::convert::From<IPublisherFilter> for ::windows::runtime::IUnknown {
     fn from(value: IPublisherFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPublisherFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IPublisherFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPublisherFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPublisherFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPublisherFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

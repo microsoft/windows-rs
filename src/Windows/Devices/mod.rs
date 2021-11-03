@@ -67,7 +67,7 @@ pub struct DevicesLowLevelContract(pub u8);
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices`*"]
-pub struct ILowLevelDevicesAggregateProvider(::windows::runtime::IInspectable);
+pub struct ILowLevelDevicesAggregateProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2805880348, 43713, 20167, [168, 82, 71, 159, 112, 96, 208, 31]);
@@ -124,22 +124,22 @@ unsafe impl ::windows::runtime::RuntimeType for ILowLevelDevicesAggregateProvide
 }
 impl ::std::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: ILowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILowLevelDevicesAggregateProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
@@ -184,7 +184,7 @@ pub struct ILowLevelDevicesAggregateProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesAggregateProviderFactory(::windows::runtime::IInspectable);
+pub struct ILowLevelDevicesAggregateProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesAggregateProviderFactory {
     type Vtable = ILowLevelDevicesAggregateProviderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2596580086, 13427, 18014, [150, 213, 54, 40, 26, 44, 87, 175]);
@@ -203,7 +203,7 @@ pub struct ILowLevelDevicesAggregateProviderFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesController(::windows::runtime::IInspectable);
+pub struct ILowLevelDevicesController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesController {
     type Vtable = ILowLevelDevicesController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784481748, 6043, 17886, [155, 57, 58, 224, 37, 39, 222, 82]);
@@ -220,7 +220,7 @@ pub struct ILowLevelDevicesController_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesControllerStatics(::windows::runtime::IInspectable);
+pub struct ILowLevelDevicesControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesControllerStatics {
     type Vtable = ILowLevelDevicesControllerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155095658, 64715, 17300, [166, 151, 25, 222, 99, 124, 45, 179]);
@@ -240,7 +240,7 @@ pub struct ILowLevelDevicesControllerStatics_abi(
 #[doc = "*Required features: `Devices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LowLevelDevicesAggregateProvider(::windows::runtime::IInspectable);
+pub struct LowLevelDevicesAggregateProvider(pub ::windows::runtime::IInspectable);
 impl LowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
     #[doc = "*Required features: `Devices`, `Devices_Adc_Provider`*"]
@@ -318,22 +318,22 @@ impl ::windows::runtime::RuntimeName for LowLevelDevicesAggregateProvider {
 }
 impl ::std::convert::From<LowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: LowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LowLevelDevicesAggregateProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
@@ -381,7 +381,7 @@ unsafe impl ::std::marker::Sync for LowLevelDevicesAggregateProvider {}
 #[doc = "*Required features: `Devices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LowLevelDevicesController(::windows::runtime::IInspectable);
+pub struct LowLevelDevicesController(pub ::windows::runtime::IInspectable);
 impl LowLevelDevicesController {
     #[doc = "*Required features: `Devices`*"]
     pub fn DefaultProvider() -> ::windows::runtime::Result<ILowLevelDevicesAggregateProvider> {
@@ -411,22 +411,22 @@ impl ::windows::runtime::RuntimeName for LowLevelDevicesController {
 }
 impl ::std::convert::From<LowLevelDevicesController> for ::windows::runtime::IUnknown {
     fn from(value: LowLevelDevicesController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LowLevelDevicesController> for ::windows::runtime::IUnknown {
     fn from(value: &LowLevelDevicesController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LowLevelDevicesController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LowLevelDevicesController {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LowLevelDevicesController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LowLevelDevicesController> for ::windows::runtime::IInspectable {

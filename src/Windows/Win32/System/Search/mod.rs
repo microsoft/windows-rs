@@ -4438,7 +4438,7 @@ pub const DataLinks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataSource(::windows::runtime::IUnknown);
+pub struct DataSource(pub ::windows::runtime::IUnknown);
 impl DataSource {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn getDataMember(&self, bstrdm: *const u16, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -4470,22 +4470,22 @@ unsafe impl ::windows::runtime::Interface for DataSource {
 }
 impl ::std::convert::From<DataSource> for ::windows::runtime::IUnknown {
     fn from(value: DataSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&DataSource> for ::windows::runtime::IUnknown {
     fn from(value: &DataSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4503,7 +4503,7 @@ pub struct DataSource_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataSourceListener(::windows::runtime::IUnknown);
+pub struct DataSourceListener(pub ::windows::runtime::IUnknown);
 impl DataSourceListener {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn dataMemberChanged(&self, bstrdm: *const u16) -> ::windows::runtime::Result<()> {
@@ -4524,22 +4524,22 @@ unsafe impl ::windows::runtime::Interface for DataSourceListener {
 }
 impl ::std::convert::From<DataSourceListener> for ::windows::runtime::IUnknown {
     fn from(value: DataSourceListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&DataSourceListener> for ::windows::runtime::IUnknown {
     fn from(value: &DataSourceListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataSourceListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataSourceListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataSourceListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4555,7 +4555,7 @@ pub struct DataSourceListener_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataSourceObject(::windows::runtime::IUnknown);
+pub struct DataSourceObject(pub ::windows::runtime::IUnknown);
 impl DataSourceObject {}
 unsafe impl ::windows::runtime::Interface for DataSourceObject {
     type Vtable = DataSourceObject_abi;
@@ -4563,22 +4563,22 @@ unsafe impl ::windows::runtime::Interface for DataSourceObject {
 }
 impl ::std::convert::From<DataSourceObject> for ::windows::runtime::IUnknown {
     fn from(value: DataSourceObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&DataSourceObject> for ::windows::runtime::IUnknown {
     fn from(value: &DataSourceObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataSourceObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataSourceObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataSourceObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5672,7 +5672,7 @@ unsafe impl ::windows::runtime::Abi for HITRANGE {
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAccessor(::windows::runtime::IUnknown);
+pub struct IAccessor(pub ::windows::runtime::IUnknown);
 impl IAccessor {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn AddRefAccessor(&self, haccessor: usize) -> ::windows::runtime::Result<u32> {
@@ -5701,22 +5701,22 @@ unsafe impl ::windows::runtime::Interface for IAccessor {
 }
 impl ::std::convert::From<IAccessor> for ::windows::runtime::IUnknown {
     fn from(value: IAccessor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAccessor> for ::windows::runtime::IUnknown {
     fn from(value: &IAccessor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAccessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5735,7 +5735,7 @@ pub struct IAccessor_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAlterIndex(::windows::runtime::IUnknown);
+pub struct IAlterIndex(pub ::windows::runtime::IUnknown);
 impl IAlterIndex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -5749,22 +5749,22 @@ unsafe impl ::windows::runtime::Interface for IAlterIndex {
 }
 impl ::std::convert::From<IAlterIndex> for ::windows::runtime::IUnknown {
     fn from(value: IAlterIndex) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAlterIndex> for ::windows::runtime::IUnknown {
     fn from(value: &IAlterIndex) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAlterIndex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAlterIndex {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAlterIndex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5779,7 +5779,7 @@ pub struct IAlterIndex_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAlterTable(::windows::runtime::IUnknown);
+pub struct IAlterTable(pub ::windows::runtime::IUnknown);
 impl IAlterTable {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -5798,22 +5798,22 @@ unsafe impl ::windows::runtime::Interface for IAlterTable {
 }
 impl ::std::convert::From<IAlterTable> for ::windows::runtime::IUnknown {
     fn from(value: IAlterTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAlterTable> for ::windows::runtime::IUnknown {
     fn from(value: &IAlterTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAlterTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAlterTable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAlterTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5830,7 +5830,7 @@ pub struct IAlterTable_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IBindResource(::windows::runtime::IUnknown);
+pub struct IBindResource(pub ::windows::runtime::IUnknown);
 impl IBindResource {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com_Urlmon`*"]
@@ -5867,22 +5867,22 @@ unsafe impl ::windows::runtime::Interface for IBindResource {
 }
 impl ::std::convert::From<IBindResource> for ::windows::runtime::IUnknown {
     fn from(value: IBindResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IBindResource> for ::windows::runtime::IUnknown {
     fn from(value: &IBindResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBindResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5898,7 +5898,7 @@ pub struct IBindResource_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IChapteredRowset(::windows::runtime::IUnknown);
+pub struct IChapteredRowset(pub ::windows::runtime::IUnknown);
 impl IChapteredRowset {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn AddRefChapter(&self, hchapter: usize) -> ::windows::runtime::Result<u32> {
@@ -5917,22 +5917,22 @@ unsafe impl ::windows::runtime::Interface for IChapteredRowset {
 }
 impl ::std::convert::From<IChapteredRowset> for ::windows::runtime::IUnknown {
     fn from(value: IChapteredRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IChapteredRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IChapteredRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IChapteredRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IChapteredRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IChapteredRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5947,7 +5947,7 @@ pub struct IChapteredRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IColumnMapper(::windows::runtime::IUnknown);
+pub struct IColumnMapper(pub ::windows::runtime::IUnknown);
 impl IColumnMapper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -5975,22 +5975,22 @@ unsafe impl ::windows::runtime::Interface for IColumnMapper {
 }
 impl ::std::convert::From<IColumnMapper> for ::windows::runtime::IUnknown {
     fn from(value: IColumnMapper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IColumnMapper> for ::windows::runtime::IUnknown {
     fn from(value: &IColumnMapper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IColumnMapper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IColumnMapper {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IColumnMapper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6010,7 +6010,7 @@ pub struct IColumnMapper_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IColumnMapperCreator(::windows::runtime::IUnknown);
+pub struct IColumnMapperCreator(pub ::windows::runtime::IUnknown);
 impl IColumnMapperCreator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -6025,22 +6025,22 @@ unsafe impl ::windows::runtime::Interface for IColumnMapperCreator {
 }
 impl ::std::convert::From<IColumnMapperCreator> for ::windows::runtime::IUnknown {
     fn from(value: IColumnMapperCreator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IColumnMapperCreator> for ::windows::runtime::IUnknown {
     fn from(value: &IColumnMapperCreator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IColumnMapperCreator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IColumnMapperCreator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IColumnMapperCreator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6055,7 +6055,7 @@ pub struct IColumnMapperCreator_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IColumnsInfo(::windows::runtime::IUnknown);
+pub struct IColumnsInfo(pub ::windows::runtime::IUnknown);
 impl IColumnsInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Ole_Automation`*"]
@@ -6074,22 +6074,22 @@ unsafe impl ::windows::runtime::Interface for IColumnsInfo {
 }
 impl ::std::convert::From<IColumnsInfo> for ::windows::runtime::IUnknown {
     fn from(value: IColumnsInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IColumnsInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IColumnsInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IColumnsInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IColumnsInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IColumnsInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6106,7 +6106,7 @@ pub struct IColumnsInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IColumnsInfo2(::windows::runtime::IUnknown);
+pub struct IColumnsInfo2(pub ::windows::runtime::IUnknown);
 impl IColumnsInfo2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Ole_Automation`*"]
@@ -6130,22 +6130,22 @@ unsafe impl ::windows::runtime::Interface for IColumnsInfo2 {
 }
 impl ::std::convert::From<IColumnsInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IColumnsInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IColumnsInfo2> for ::windows::runtime::IUnknown {
     fn from(value: &IColumnsInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IColumnsInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IColumnsInfo2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IColumnsInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IColumnsInfo2> for IColumnsInfo {
@@ -6184,7 +6184,7 @@ pub struct IColumnsInfo2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IColumnsRowset(::windows::runtime::IUnknown);
+pub struct IColumnsRowset(pub ::windows::runtime::IUnknown);
 impl IColumnsRowset {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -6203,22 +6203,22 @@ unsafe impl ::windows::runtime::Interface for IColumnsRowset {
 }
 impl ::std::convert::From<IColumnsRowset> for ::windows::runtime::IUnknown {
     fn from(value: IColumnsRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IColumnsRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IColumnsRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IColumnsRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IColumnsRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IColumnsRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6236,7 +6236,7 @@ pub struct IColumnsRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommand(::windows::runtime::IUnknown);
+pub struct ICommand(pub ::windows::runtime::IUnknown);
 impl ICommand {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -6258,22 +6258,22 @@ unsafe impl ::windows::runtime::Interface for ICommand {
 }
 impl ::std::convert::From<ICommand> for ::windows::runtime::IUnknown {
     fn from(value: ICommand) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommand> for ::windows::runtime::IUnknown {
     fn from(value: &ICommand) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommand {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6289,7 +6289,7 @@ pub struct ICommand_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandCost(::windows::runtime::IUnknown);
+pub struct ICommandCost(pub ::windows::runtime::IUnknown);
 impl ICommandCost {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -6328,22 +6328,22 @@ unsafe impl ::windows::runtime::Interface for ICommandCost {
 }
 impl ::std::convert::From<ICommandCost> for ::windows::runtime::IUnknown {
     fn from(value: ICommandCost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandCost> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandCost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandCost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandCost {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandCost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6368,7 +6368,7 @@ pub struct ICommandCost_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandPersist(::windows::runtime::IUnknown);
+pub struct ICommandPersist(pub ::windows::runtime::IUnknown);
 impl ICommandPersist {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -6397,22 +6397,22 @@ unsafe impl ::windows::runtime::Interface for ICommandPersist {
 }
 impl ::std::convert::From<ICommandPersist> for ::windows::runtime::IUnknown {
     fn from(value: ICommandPersist) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandPersist> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandPersist) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandPersist {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandPersist {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandPersist {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6433,7 +6433,7 @@ pub struct ICommandPersist_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandPrepare(::windows::runtime::IUnknown);
+pub struct ICommandPrepare(pub ::windows::runtime::IUnknown);
 impl ICommandPrepare {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Prepare(&self, cexpectedruns: u32) -> ::windows::runtime::Result<()> {
@@ -6450,22 +6450,22 @@ unsafe impl ::windows::runtime::Interface for ICommandPrepare {
 }
 impl ::std::convert::From<ICommandPrepare> for ::windows::runtime::IUnknown {
     fn from(value: ICommandPrepare) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandPrepare> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandPrepare) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandPrepare {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandPrepare {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandPrepare {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6480,7 +6480,7 @@ pub struct ICommandPrepare_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandProperties(::windows::runtime::IUnknown);
+pub struct ICommandProperties(pub ::windows::runtime::IUnknown);
 impl ICommandProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6499,22 +6499,22 @@ unsafe impl ::windows::runtime::Interface for ICommandProperties {
 }
 impl ::std::convert::From<ICommandProperties> for ::windows::runtime::IUnknown {
     fn from(value: ICommandProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandProperties> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6531,7 +6531,7 @@ pub struct ICommandProperties_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandStream(::windows::runtime::IUnknown);
+pub struct ICommandStream(pub ::windows::runtime::IUnknown);
 impl ICommandStream {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetCommandStream(&self, piid: *mut ::windows::runtime::GUID, pguiddialect: *mut ::windows::runtime::GUID, ppcommandstream: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
@@ -6548,22 +6548,22 @@ unsafe impl ::windows::runtime::Interface for ICommandStream {
 }
 impl ::std::convert::From<ICommandStream> for ::windows::runtime::IUnknown {
     fn from(value: ICommandStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandStream> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandStream {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6578,7 +6578,7 @@ pub struct ICommandStream_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandText(::windows::runtime::IUnknown);
+pub struct ICommandText(pub ::windows::runtime::IUnknown);
 impl ICommandText {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -6610,22 +6610,22 @@ unsafe impl ::windows::runtime::Interface for ICommandText {
 }
 impl ::std::convert::From<ICommandText> for ::windows::runtime::IUnknown {
     fn from(value: ICommandText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandText> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandText {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ICommandText> for ICommand {
@@ -6665,7 +6665,7 @@ pub struct ICommandText_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandValidate(::windows::runtime::IUnknown);
+pub struct ICommandValidate(pub ::windows::runtime::IUnknown);
 impl ICommandValidate {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn ValidateCompletely(&self) -> ::windows::runtime::Result<()> {
@@ -6682,22 +6682,22 @@ unsafe impl ::windows::runtime::Interface for ICommandValidate {
 }
 impl ::std::convert::From<ICommandValidate> for ::windows::runtime::IUnknown {
     fn from(value: ICommandValidate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandValidate> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandValidate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandValidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandValidate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandValidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6712,7 +6712,7 @@ pub struct ICommandValidate_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICommandWithParameters(::windows::runtime::IUnknown);
+pub struct ICommandWithParameters(pub ::windows::runtime::IUnknown);
 impl ICommandWithParameters {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -6736,22 +6736,22 @@ unsafe impl ::windows::runtime::Interface for ICommandWithParameters {
 }
 impl ::std::convert::From<ICommandWithParameters> for ::windows::runtime::IUnknown {
     fn from(value: ICommandWithParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICommandWithParameters> for ::windows::runtime::IUnknown {
     fn from(value: &ICommandWithParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommandWithParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommandWithParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommandWithParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6770,7 +6770,7 @@ pub struct ICommandWithParameters_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICondition(::windows::runtime::IUnknown);
+pub struct ICondition(pub ::windows::runtime::IUnknown);
 impl ICondition {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -6839,22 +6839,22 @@ unsafe impl ::windows::runtime::Interface for ICondition {
 }
 impl ::std::convert::From<ICondition> for ::windows::runtime::IUnknown {
     fn from(value: ICondition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICondition> for ::windows::runtime::IUnknown {
     fn from(value: &ICondition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICondition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6932,7 +6932,7 @@ pub struct ICondition_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICondition2(::windows::runtime::IUnknown);
+pub struct ICondition2(pub ::windows::runtime::IUnknown);
 impl ICondition2 {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -7012,22 +7012,22 @@ unsafe impl ::windows::runtime::Interface for ICondition2 {
 }
 impl ::std::convert::From<ICondition2> for ::windows::runtime::IUnknown {
     fn from(value: ICondition2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICondition2> for ::windows::runtime::IUnknown {
     fn from(value: &ICondition2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICondition2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICondition2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICondition2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ICondition2> for ICondition {
@@ -7129,7 +7129,7 @@ pub struct ICondition2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConditionFactory(::windows::runtime::IUnknown);
+pub struct IConditionFactory(pub ::windows::runtime::IUnknown);
 impl IConditionFactory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -7184,22 +7184,22 @@ unsafe impl ::windows::runtime::Interface for IConditionFactory {
 }
 impl ::std::convert::From<IConditionFactory> for ::windows::runtime::IUnknown {
     fn from(value: IConditionFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConditionFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IConditionFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConditionFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConditionFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConditionFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7232,7 +7232,7 @@ pub struct IConditionFactory_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConditionFactory2(::windows::runtime::IUnknown);
+pub struct IConditionFactory2(pub ::windows::runtime::IUnknown);
 impl IConditionFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -7364,22 +7364,22 @@ unsafe impl ::windows::runtime::Interface for IConditionFactory2 {
 }
 impl ::std::convert::From<IConditionFactory2> for ::windows::runtime::IUnknown {
     fn from(value: IConditionFactory2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConditionFactory2> for ::windows::runtime::IUnknown {
     fn from(value: &IConditionFactory2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConditionFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConditionFactory2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConditionFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IConditionFactory2> for IConditionFactory {
@@ -7462,7 +7462,7 @@ pub struct IConditionFactory2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConditionGenerator(::windows::runtime::IUnknown);
+pub struct IConditionGenerator(pub ::windows::runtime::IUnknown);
 impl IConditionGenerator {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ISchemaProvider>>(&self, pschemaprovider: Param0) -> ::windows::runtime::Result<()> {
@@ -7531,22 +7531,22 @@ unsafe impl ::windows::runtime::Interface for IConditionGenerator {
 }
 impl ::std::convert::From<IConditionGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IConditionGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConditionGenerator> for ::windows::runtime::IUnknown {
     fn from(value: &IConditionGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConditionGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConditionGenerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConditionGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7581,7 +7581,7 @@ pub struct IConditionGenerator_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConvertType(::windows::runtime::IUnknown);
+pub struct IConvertType(pub ::windows::runtime::IUnknown);
 impl IConvertType {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn CanConvert(&self, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows::runtime::Result<()> {
@@ -7594,22 +7594,22 @@ unsafe impl ::windows::runtime::Interface for IConvertType {
 }
 impl ::std::convert::From<IConvertType> for ::windows::runtime::IUnknown {
     fn from(value: IConvertType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConvertType> for ::windows::runtime::IUnknown {
     fn from(value: &IConvertType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConvertType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConvertType {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConvertType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7623,7 +7623,7 @@ pub struct IConvertType_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICreateRow(::windows::runtime::IUnknown);
+pub struct ICreateRow(pub ::windows::runtime::IUnknown);
 impl ICreateRow {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com_Urlmon`*"]
@@ -7662,22 +7662,22 @@ unsafe impl ::windows::runtime::Interface for ICreateRow {
 }
 impl ::std::convert::From<ICreateRow> for ::windows::runtime::IUnknown {
     fn from(value: ICreateRow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICreateRow> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateRow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICreateRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICreateRow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICreateRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7705,7 +7705,7 @@ pub struct ICreateRow_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBAsynchNotify(::windows::runtime::IUnknown);
+pub struct IDBAsynchNotify(pub ::windows::runtime::IUnknown);
 impl IDBAsynchNotify {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn OnLowResource(&self, dwreserved: usize) -> ::windows::runtime::Result<()> {
@@ -7728,22 +7728,22 @@ unsafe impl ::windows::runtime::Interface for IDBAsynchNotify {
 }
 impl ::std::convert::From<IDBAsynchNotify> for ::windows::runtime::IUnknown {
     fn from(value: IDBAsynchNotify) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBAsynchNotify> for ::windows::runtime::IUnknown {
     fn from(value: &IDBAsynchNotify) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBAsynchNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBAsynchNotify {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBAsynchNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7761,7 +7761,7 @@ pub struct IDBAsynchNotify_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBAsynchStatus(::windows::runtime::IUnknown);
+pub struct IDBAsynchStatus(pub ::windows::runtime::IUnknown);
 impl IDBAsynchStatus {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Abort(&self, hchapter: usize, eoperation: u32) -> ::windows::runtime::Result<()> {
@@ -7779,22 +7779,22 @@ unsafe impl ::windows::runtime::Interface for IDBAsynchStatus {
 }
 impl ::std::convert::From<IDBAsynchStatus> for ::windows::runtime::IUnknown {
     fn from(value: IDBAsynchStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBAsynchStatus> for ::windows::runtime::IUnknown {
     fn from(value: &IDBAsynchStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBAsynchStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBAsynchStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBAsynchStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7810,7 +7810,7 @@ pub struct IDBAsynchStatus_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBBinderProperties(::windows::runtime::IUnknown);
+pub struct IDBBinderProperties(pub ::windows::runtime::IUnknown);
 impl IDBBinderProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -7838,22 +7838,22 @@ unsafe impl ::windows::runtime::Interface for IDBBinderProperties {
 }
 impl ::std::convert::From<IDBBinderProperties> for ::windows::runtime::IUnknown {
     fn from(value: IDBBinderProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBBinderProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IDBBinderProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBBinderProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBBinderProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBBinderProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDBBinderProperties> for IDBProperties {
@@ -7893,7 +7893,7 @@ pub struct IDBBinderProperties_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBCreateCommand(::windows::runtime::IUnknown);
+pub struct IDBCreateCommand(pub ::windows::runtime::IUnknown);
 impl IDBCreateCommand {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn CreateCommand<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7907,22 +7907,22 @@ unsafe impl ::windows::runtime::Interface for IDBCreateCommand {
 }
 impl ::std::convert::From<IDBCreateCommand> for ::windows::runtime::IUnknown {
     fn from(value: IDBCreateCommand) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBCreateCommand> for ::windows::runtime::IUnknown {
     fn from(value: &IDBCreateCommand) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBCreateCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBCreateCommand {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBCreateCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7936,7 +7936,7 @@ pub struct IDBCreateCommand_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBCreateSession(::windows::runtime::IUnknown);
+pub struct IDBCreateSession(pub ::windows::runtime::IUnknown);
 impl IDBCreateSession {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn CreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7950,22 +7950,22 @@ unsafe impl ::windows::runtime::Interface for IDBCreateSession {
 }
 impl ::std::convert::From<IDBCreateSession> for ::windows::runtime::IUnknown {
     fn from(value: IDBCreateSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBCreateSession> for ::windows::runtime::IUnknown {
     fn from(value: &IDBCreateSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBCreateSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBCreateSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBCreateSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7979,7 +7979,7 @@ pub struct IDBCreateSession_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBDataSourceAdmin(::windows::runtime::IUnknown);
+pub struct IDBDataSourceAdmin(pub ::windows::runtime::IUnknown);
 impl IDBDataSourceAdmin {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8007,22 +8007,22 @@ unsafe impl ::windows::runtime::Interface for IDBDataSourceAdmin {
 }
 impl ::std::convert::From<IDBDataSourceAdmin> for ::windows::runtime::IUnknown {
     fn from(value: IDBDataSourceAdmin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBDataSourceAdmin> for ::windows::runtime::IUnknown {
     fn from(value: &IDBDataSourceAdmin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBDataSourceAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBDataSourceAdmin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBDataSourceAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8042,7 +8042,7 @@ pub struct IDBDataSourceAdmin_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBInfo(::windows::runtime::IUnknown);
+pub struct IDBInfo(pub ::windows::runtime::IUnknown);
 impl IDBInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -8062,22 +8062,22 @@ unsafe impl ::windows::runtime::Interface for IDBInfo {
 }
 impl ::std::convert::From<IDBInfo> for ::windows::runtime::IUnknown {
     fn from(value: IDBInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IDBInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8094,7 +8094,7 @@ pub struct IDBInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBInitialize(::windows::runtime::IUnknown);
+pub struct IDBInitialize(pub ::windows::runtime::IUnknown);
 impl IDBInitialize {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
@@ -8111,22 +8111,22 @@ unsafe impl ::windows::runtime::Interface for IDBInitialize {
 }
 impl ::std::convert::From<IDBInitialize> for ::windows::runtime::IUnknown {
     fn from(value: IDBInitialize) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBInitialize> for ::windows::runtime::IUnknown {
     fn from(value: &IDBInitialize) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBInitialize {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8141,7 +8141,7 @@ pub struct IDBInitialize_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBPromptInitialize(::windows::runtime::IUnknown);
+pub struct IDBPromptInitialize(pub ::windows::runtime::IUnknown);
 impl IDBPromptInitialize {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -8182,22 +8182,22 @@ unsafe impl ::windows::runtime::Interface for IDBPromptInitialize {
 }
 impl ::std::convert::From<IDBPromptInitialize> for ::windows::runtime::IUnknown {
     fn from(value: IDBPromptInitialize) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBPromptInitialize> for ::windows::runtime::IUnknown {
     fn from(value: &IDBPromptInitialize) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBPromptInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBPromptInitialize {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBPromptInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8214,7 +8214,7 @@ pub struct IDBPromptInitialize_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBProperties(::windows::runtime::IUnknown);
+pub struct IDBProperties(pub ::windows::runtime::IUnknown);
 impl IDBProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8238,22 +8238,22 @@ unsafe impl ::windows::runtime::Interface for IDBProperties {
 }
 impl ::std::convert::From<IDBProperties> for ::windows::runtime::IUnknown {
     fn from(value: IDBProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IDBProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8272,7 +8272,7 @@ pub struct IDBProperties_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBSchemaCommand(::windows::runtime::IUnknown);
+pub struct IDBSchemaCommand(pub ::windows::runtime::IUnknown);
 impl IDBSchemaCommand {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetCommand<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, rguidschema: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ICommand> {
@@ -8290,22 +8290,22 @@ unsafe impl ::windows::runtime::Interface for IDBSchemaCommand {
 }
 impl ::std::convert::From<IDBSchemaCommand> for ::windows::runtime::IUnknown {
     fn from(value: IDBSchemaCommand) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBSchemaCommand> for ::windows::runtime::IUnknown {
     fn from(value: &IDBSchemaCommand) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBSchemaCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBSchemaCommand {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBSchemaCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8320,7 +8320,7 @@ pub struct IDBSchemaCommand_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDBSchemaRowset(::windows::runtime::IUnknown);
+pub struct IDBSchemaRowset(pub ::windows::runtime::IUnknown);
 impl IDBSchemaRowset {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8349,22 +8349,22 @@ unsafe impl ::windows::runtime::Interface for IDBSchemaRowset {
 }
 impl ::std::convert::From<IDBSchemaRowset> for ::windows::runtime::IUnknown {
     fn from(value: IDBSchemaRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDBSchemaRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IDBSchemaRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDBSchemaRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDBSchemaRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDBSchemaRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8381,7 +8381,7 @@ pub struct IDBSchemaRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDCInfo(::windows::runtime::IUnknown);
+pub struct IDCInfo(pub ::windows::runtime::IUnknown);
 impl IDCInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8400,22 +8400,22 @@ unsafe impl ::windows::runtime::Interface for IDCInfo {
 }
 impl ::std::convert::From<IDCInfo> for ::windows::runtime::IUnknown {
     fn from(value: IDCInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDCInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IDCInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDCInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDCInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDCInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8548,7 +8548,7 @@ pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDataConvert(::windows::runtime::IUnknown);
+pub struct IDataConvert(pub ::windows::runtime::IUnknown);
 impl IDataConvert {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: *mut usize, psrc: *const ::std::ffi::c_void, pdst: *mut ::std::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: *mut u32, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -8584,22 +8584,22 @@ unsafe impl ::windows::runtime::Interface for IDataConvert {
 }
 impl ::std::convert::From<IDataConvert> for ::windows::runtime::IUnknown {
     fn from(value: IDataConvert) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDataConvert> for ::windows::runtime::IUnknown {
     fn from(value: &IDataConvert) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataConvert {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDataConvert {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataConvert {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8615,7 +8615,7 @@ pub struct IDataConvert_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDataInitialize(::windows::runtime::IUnknown);
+pub struct IDataInitialize(pub ::windows::runtime::IUnknown);
 impl IDataInitialize {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -8657,22 +8657,22 @@ unsafe impl ::windows::runtime::Interface for IDataInitialize {
 }
 impl ::std::convert::From<IDataInitialize> for ::windows::runtime::IUnknown {
     fn from(value: IDataInitialize) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDataInitialize> for ::windows::runtime::IUnknown {
     fn from(value: &IDataInitialize) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDataInitialize {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8697,7 +8697,7 @@ pub struct IDataInitialize_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDataSourceLocator(::windows::runtime::IUnknown);
+pub struct IDataSourceLocator(pub ::windows::runtime::IUnknown);
 impl IDataSourceLocator {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn hWnd(&self) -> ::windows::runtime::Result<i64> {
@@ -8726,22 +8726,22 @@ unsafe impl ::windows::runtime::Interface for IDataSourceLocator {
 }
 impl ::std::convert::From<IDataSourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: IDataSourceLocator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDataSourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: &IDataSourceLocator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataSourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDataSourceLocator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDataSourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8792,7 +8792,7 @@ pub struct IDataSourceLocator_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEntity(::windows::runtime::IUnknown);
+pub struct IEntity(pub ::windows::runtime::IUnknown);
 impl IEntity {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -8845,22 +8845,22 @@ unsafe impl ::windows::runtime::Interface for IEntity {
 }
 impl ::std::convert::From<IEntity> for ::windows::runtime::IUnknown {
     fn from(value: IEntity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEntity> for ::windows::runtime::IUnknown {
     fn from(value: &IEntity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEntity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEntity {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEntity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8885,7 +8885,7 @@ pub struct IEntity_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumItemProperties(::windows::runtime::IUnknown);
+pub struct IEnumItemProperties(pub ::windows::runtime::IUnknown);
 impl IEnumItemProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8917,22 +8917,22 @@ unsafe impl ::windows::runtime::Interface for IEnumItemProperties {
 }
 impl ::std::convert::From<IEnumItemProperties> for ::windows::runtime::IUnknown {
     fn from(value: IEnumItemProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumItemProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumItemProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumItemProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumItemProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumItemProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8951,7 +8951,7 @@ pub struct IEnumItemProperties_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumSearchRoots(::windows::runtime::IUnknown);
+pub struct IEnumSearchRoots(pub ::windows::runtime::IUnknown);
 impl IEnumSearchRoots {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<ISearchRoot>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -8977,22 +8977,22 @@ unsafe impl ::windows::runtime::Interface for IEnumSearchRoots {
 }
 impl ::std::convert::From<IEnumSearchRoots> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSearchRoots) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumSearchRoots> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumSearchRoots) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSearchRoots {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSearchRoots {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumSearchRoots {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9009,7 +9009,7 @@ pub struct IEnumSearchRoots_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumSearchScopeRules(::windows::runtime::IUnknown);
+pub struct IEnumSearchScopeRules(pub ::windows::runtime::IUnknown);
 impl IEnumSearchScopeRules {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Next(&self, celt: u32, pprgelt: *mut ::std::option::Option<ISearchScopeRule>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -9035,22 +9035,22 @@ unsafe impl ::windows::runtime::Interface for IEnumSearchScopeRules {
 }
 impl ::std::convert::From<IEnumSearchScopeRules> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSearchScopeRules) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumSearchScopeRules> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumSearchScopeRules) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSearchScopeRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSearchScopeRules {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumSearchScopeRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9067,7 +9067,7 @@ pub struct IEnumSearchScopeRules_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumSubscription(::windows::runtime::IUnknown);
+pub struct IEnumSubscription(pub ::windows::runtime::IUnknown);
 impl IEnumSubscription {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::windows::runtime::GUID, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -9098,22 +9098,22 @@ unsafe impl ::windows::runtime::Interface for IEnumSubscription {
 }
 impl ::std::convert::From<IEnumSubscription> for ::windows::runtime::IUnknown {
     fn from(value: IEnumSubscription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumSubscription> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumSubscription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSubscription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSubscription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumSubscription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9131,7 +9131,7 @@ pub struct IEnumSubscription_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IErrorLookup(::windows::runtime::IUnknown);
+pub struct IErrorLookup(pub ::windows::runtime::IUnknown);
 impl IErrorLookup {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9154,22 +9154,22 @@ unsafe impl ::windows::runtime::Interface for IErrorLookup {
 }
 impl ::std::convert::From<IErrorLookup> for ::windows::runtime::IUnknown {
     fn from(value: IErrorLookup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IErrorLookup> for ::windows::runtime::IUnknown {
     fn from(value: &IErrorLookup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorLookup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IErrorLookup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IErrorLookup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9187,7 +9187,7 @@ pub struct IErrorLookup_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IErrorRecords(::windows::runtime::IUnknown);
+pub struct IErrorRecords(pub ::windows::runtime::IUnknown);
 impl IErrorRecords {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9228,22 +9228,22 @@ unsafe impl ::windows::runtime::Interface for IErrorRecords {
 }
 impl ::std::convert::From<IErrorRecords> for ::windows::runtime::IUnknown {
     fn from(value: IErrorRecords) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IErrorRecords> for ::windows::runtime::IUnknown {
     fn from(value: &IErrorRecords) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorRecords {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IErrorRecords {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IErrorRecords {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9265,7 +9265,7 @@ pub struct IErrorRecords_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetDataSource(::windows::runtime::IUnknown);
+pub struct IGetDataSource(pub ::windows::runtime::IUnknown);
 impl IGetDataSource {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetDataSource(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9279,22 +9279,22 @@ unsafe impl ::windows::runtime::Interface for IGetDataSource {
 }
 impl ::std::convert::From<IGetDataSource> for ::windows::runtime::IUnknown {
     fn from(value: IGetDataSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetDataSource> for ::windows::runtime::IUnknown {
     fn from(value: &IGetDataSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetDataSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9308,7 +9308,7 @@ pub struct IGetDataSource_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetRow(::windows::runtime::IUnknown);
+pub struct IGetRow(pub ::windows::runtime::IUnknown);
 impl IGetRow {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetRowFromHROW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, hrow: usize, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9328,22 +9328,22 @@ unsafe impl ::windows::runtime::Interface for IGetRow {
 }
 impl ::std::convert::From<IGetRow> for ::windows::runtime::IUnknown {
     fn from(value: IGetRow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetRow> for ::windows::runtime::IUnknown {
     fn from(value: &IGetRow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetRow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9359,7 +9359,7 @@ pub struct IGetRow_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetSession(::windows::runtime::IUnknown);
+pub struct IGetSession(pub ::windows::runtime::IUnknown);
 impl IGetSession {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetSession(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9373,22 +9373,22 @@ unsafe impl ::windows::runtime::Interface for IGetSession {
 }
 impl ::std::convert::From<IGetSession> for ::windows::runtime::IUnknown {
     fn from(value: IGetSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetSession> for ::windows::runtime::IUnknown {
     fn from(value: &IGetSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9402,7 +9402,7 @@ pub struct IGetSession_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetSourceRow(::windows::runtime::IUnknown);
+pub struct IGetSourceRow(pub ::windows::runtime::IUnknown);
 impl IGetSourceRow {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetSourceRow(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9416,22 +9416,22 @@ unsafe impl ::windows::runtime::Interface for IGetSourceRow {
 }
 impl ::std::convert::From<IGetSourceRow> for ::windows::runtime::IUnknown {
     fn from(value: IGetSourceRow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetSourceRow> for ::windows::runtime::IUnknown {
     fn from(value: &IGetSourceRow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetSourceRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetSourceRow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetSourceRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9445,7 +9445,7 @@ pub struct IGetSourceRow_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIndexDefinition(::windows::runtime::IUnknown);
+pub struct IIndexDefinition(pub ::windows::runtime::IUnknown);
 impl IIndexDefinition {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9464,22 +9464,22 @@ unsafe impl ::windows::runtime::Interface for IIndexDefinition {
 }
 impl ::std::convert::From<IIndexDefinition> for ::windows::runtime::IUnknown {
     fn from(value: IIndexDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIndexDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &IIndexDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIndexDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIndexDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIndexDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9497,7 +9497,7 @@ pub struct IIndexDefinition_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInterval(::windows::runtime::IUnknown);
+pub struct IInterval(pub ::windows::runtime::IUnknown);
 impl IInterval {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -9511,22 +9511,22 @@ unsafe impl ::windows::runtime::Interface for IInterval {
 }
 impl ::std::convert::From<IInterval> for ::windows::runtime::IUnknown {
     fn from(value: IInterval) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInterval> for ::windows::runtime::IUnknown {
     fn from(value: &IInterval) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInterval {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInterval {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInterval {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9542,7 +9542,7 @@ pub struct IInterval_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ILoadFilter(::windows::runtime::IUnknown);
+pub struct ILoadFilter(pub ::windows::runtime::IUnknown);
 impl ILoadFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -9618,22 +9618,22 @@ unsafe impl ::windows::runtime::Interface for ILoadFilter {
 }
 impl ::std::convert::From<ILoadFilter> for ::windows::runtime::IUnknown {
     fn from(value: ILoadFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ILoadFilter> for ::windows::runtime::IUnknown {
     fn from(value: &ILoadFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoadFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILoadFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILoadFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9654,7 +9654,7 @@ pub struct ILoadFilter_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ILoadFilterWithPrivateComActivation(::windows::runtime::IUnknown);
+pub struct ILoadFilterWithPrivateComActivation(pub ::windows::runtime::IUnknown);
 impl ILoadFilterWithPrivateComActivation {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -9735,22 +9735,22 @@ unsafe impl ::windows::runtime::Interface for ILoadFilterWithPrivateComActivatio
 }
 impl ::std::convert::From<ILoadFilterWithPrivateComActivation> for ::windows::runtime::IUnknown {
     fn from(value: ILoadFilterWithPrivateComActivation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ILoadFilterWithPrivateComActivation> for ::windows::runtime::IUnknown {
     fn from(value: &ILoadFilterWithPrivateComActivation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoadFilterWithPrivateComActivation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILoadFilterWithPrivateComActivation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILoadFilterWithPrivateComActivation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ILoadFilterWithPrivateComActivation> for ILoadFilter {
@@ -9793,7 +9793,7 @@ pub struct ILoadFilterWithPrivateComActivation_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMDDataset(::windows::runtime::IUnknown);
+pub struct IMDDataset(pub ::windows::runtime::IUnknown);
 impl IMDDataset {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -9826,22 +9826,22 @@ unsafe impl ::windows::runtime::Interface for IMDDataset {
 }
 impl ::std::convert::From<IMDDataset> for ::windows::runtime::IUnknown {
     fn from(value: IMDDataset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMDDataset> for ::windows::runtime::IUnknown {
     fn from(value: &IMDDataset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDDataset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDDataset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMDDataset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9862,7 +9862,7 @@ pub struct IMDDataset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMDFind(::windows::runtime::IUnknown);
+pub struct IMDFind(pub ::windows::runtime::IUnknown);
 impl IMDFind {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -9881,22 +9881,22 @@ unsafe impl ::windows::runtime::Interface for IMDFind {
 }
 impl ::std::convert::From<IMDFind> for ::windows::runtime::IUnknown {
     fn from(value: IMDFind) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMDFind> for ::windows::runtime::IUnknown {
     fn from(value: &IMDFind) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDFind {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDFind {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMDFind {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9913,7 +9913,7 @@ pub struct IMDFind_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMDRangeRowset(::windows::runtime::IUnknown);
+pub struct IMDRangeRowset(pub ::windows::runtime::IUnknown);
 impl IMDRangeRowset {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9927,22 +9927,22 @@ unsafe impl ::windows::runtime::Interface for IMDRangeRowset {
 }
 impl ::std::convert::From<IMDRangeRowset> for ::windows::runtime::IUnknown {
     fn from(value: IMDRangeRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMDRangeRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IMDRangeRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDRangeRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDRangeRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMDRangeRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9957,7 +9957,7 @@ pub struct IMDRangeRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMetaData(::windows::runtime::IUnknown);
+pub struct IMetaData(pub ::windows::runtime::IUnknown);
 impl IMetaData {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -9971,22 +9971,22 @@ unsafe impl ::windows::runtime::Interface for IMetaData {
 }
 impl ::std::convert::From<IMetaData> for ::windows::runtime::IUnknown {
     fn from(value: IMetaData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMetaData> for ::windows::runtime::IUnknown {
     fn from(value: &IMetaData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMetaData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMetaData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMetaData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10001,7 +10001,7 @@ pub struct IMetaData_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMultipleResults(::windows::runtime::IUnknown);
+pub struct IMultipleResults(pub ::windows::runtime::IUnknown);
 impl IMultipleResults {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetResult<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, lresultflag: isize, riid: *const ::windows::runtime::GUID, pcrowsaffected: *mut isize, pprowset: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
@@ -10014,22 +10014,22 @@ unsafe impl ::windows::runtime::Interface for IMultipleResults {
 }
 impl ::std::convert::From<IMultipleResults> for ::windows::runtime::IUnknown {
     fn from(value: IMultipleResults) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMultipleResults> for ::windows::runtime::IUnknown {
     fn from(value: &IMultipleResults) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultipleResults {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultipleResults {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMultipleResults {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10113,7 +10113,7 @@ unsafe impl ::windows::runtime::Abi for INTERVAL_LIMIT_KIND {
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INamedEntity(::windows::runtime::IUnknown);
+pub struct INamedEntity(pub ::windows::runtime::IUnknown);
 impl INamedEntity {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10134,22 +10134,22 @@ unsafe impl ::windows::runtime::Interface for INamedEntity {
 }
 impl ::std::convert::From<INamedEntity> for ::windows::runtime::IUnknown {
     fn from(value: INamedEntity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INamedEntity> for ::windows::runtime::IUnknown {
     fn from(value: &INamedEntity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INamedEntity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INamedEntity {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INamedEntity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10166,7 +10166,7 @@ pub struct INamedEntity_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INamedEntityCollector(::windows::runtime::IUnknown);
+pub struct INamedEntityCollector(pub ::windows::runtime::IUnknown);
 impl INamedEntityCollector {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10180,22 +10180,22 @@ unsafe impl ::windows::runtime::Interface for INamedEntityCollector {
 }
 impl ::std::convert::From<INamedEntityCollector> for ::windows::runtime::IUnknown {
     fn from(value: INamedEntityCollector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INamedEntityCollector> for ::windows::runtime::IUnknown {
     fn from(value: &INamedEntityCollector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INamedEntityCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INamedEntityCollector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INamedEntityCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10210,7 +10210,7 @@ pub struct INamedEntityCollector_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IObjectAccessControl(::windows::runtime::IUnknown);
+pub struct IObjectAccessControl(pub ::windows::runtime::IUnknown);
 impl IObjectAccessControl {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Security`, `Win32_Security_Authorization`, `Win32_Storage_IndexServer`*"]
@@ -10244,22 +10244,22 @@ unsafe impl ::windows::runtime::Interface for IObjectAccessControl {
 }
 impl ::std::convert::From<IObjectAccessControl> for ::windows::runtime::IUnknown {
     fn from(value: IObjectAccessControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IObjectAccessControl> for ::windows::runtime::IUnknown {
     fn from(value: &IObjectAccessControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IObjectAccessControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IObjectAccessControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IObjectAccessControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10282,7 +10282,7 @@ pub struct IObjectAccessControl_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOpLockStatus(::windows::runtime::IUnknown);
+pub struct IOpLockStatus(pub ::windows::runtime::IUnknown);
 impl IOpLockStatus {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10309,22 +10309,22 @@ unsafe impl ::windows::runtime::Interface for IOpLockStatus {
 }
 impl ::std::convert::From<IOpLockStatus> for ::windows::runtime::IUnknown {
     fn from(value: IOpLockStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOpLockStatus> for ::windows::runtime::IUnknown {
     fn from(value: &IOpLockStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpLockStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpLockStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOpLockStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10343,7 +10343,7 @@ pub struct IOpLockStatus_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOpenRowset(::windows::runtime::IUnknown);
+pub struct IOpenRowset(pub ::windows::runtime::IUnknown);
 impl IOpenRowset {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -10357,22 +10357,22 @@ unsafe impl ::windows::runtime::Interface for IOpenRowset {
 }
 impl ::std::convert::From<IOpenRowset> for ::windows::runtime::IUnknown {
     fn from(value: IOpenRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOpenRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IOpenRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpenRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpenRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOpenRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10388,7 +10388,7 @@ pub struct IOpenRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IParentRowset(::windows::runtime::IUnknown);
+pub struct IParentRowset(pub ::windows::runtime::IUnknown);
 impl IParentRowset {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetChildRowset<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, iordinal: usize, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -10402,22 +10402,22 @@ unsafe impl ::windows::runtime::Interface for IParentRowset {
 }
 impl ::std::convert::From<IParentRowset> for ::windows::runtime::IUnknown {
     fn from(value: IParentRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IParentRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IParentRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IParentRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IParentRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IParentRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10431,7 +10431,7 @@ pub struct IParentRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProtocolHandlerSite(::windows::runtime::IUnknown);
+pub struct IProtocolHandlerSite(pub ::windows::runtime::IUnknown);
 impl IProtocolHandlerSite {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -10445,22 +10445,22 @@ unsafe impl ::windows::runtime::Interface for IProtocolHandlerSite {
 }
 impl ::std::convert::From<IProtocolHandlerSite> for ::windows::runtime::IUnknown {
     fn from(value: IProtocolHandlerSite) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProtocolHandlerSite> for ::windows::runtime::IUnknown {
     fn from(value: &IProtocolHandlerSite) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtocolHandlerSite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtocolHandlerSite {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProtocolHandlerSite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10475,7 +10475,7 @@ pub struct IProtocolHandlerSite_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProvideMoniker(::windows::runtime::IUnknown);
+pub struct IProvideMoniker(pub ::windows::runtime::IUnknown);
 impl IProvideMoniker {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_System_Com`*"]
@@ -10490,22 +10490,22 @@ unsafe impl ::windows::runtime::Interface for IProvideMoniker {
 }
 impl ::std::convert::From<IProvideMoniker> for ::windows::runtime::IUnknown {
     fn from(value: IProvideMoniker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProvideMoniker> for ::windows::runtime::IUnknown {
     fn from(value: &IProvideMoniker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvideMoniker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProvideMoniker {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvideMoniker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10520,7 +10520,7 @@ pub struct IProvideMoniker_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IQueryParser(::windows::runtime::IUnknown);
+pub struct IQueryParser(pub ::windows::runtime::IUnknown);
 impl IQueryParser {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -10573,22 +10573,22 @@ unsafe impl ::windows::runtime::Interface for IQueryParser {
 }
 impl ::std::convert::From<IQueryParser> for ::windows::runtime::IUnknown {
     fn from(value: IQueryParser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IQueryParser> for ::windows::runtime::IUnknown {
     fn from(value: &IQueryParser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryParser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQueryParser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQueryParser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10616,7 +10616,7 @@ pub struct IQueryParser_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IQueryParserManager(::windows::runtime::IUnknown);
+pub struct IQueryParserManager(pub ::windows::runtime::IUnknown);
 impl IQueryParserManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10641,22 +10641,22 @@ unsafe impl ::windows::runtime::Interface for IQueryParserManager {
 }
 impl ::std::convert::From<IQueryParserManager> for ::windows::runtime::IUnknown {
     fn from(value: IQueryParserManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IQueryParserManager> for ::windows::runtime::IUnknown {
     fn from(value: &IQueryParserManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryParserManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQueryParserManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQueryParserManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10675,7 +10675,7 @@ pub struct IQueryParserManager_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IQuerySolution(::windows::runtime::IUnknown);
+pub struct IQuerySolution(pub ::windows::runtime::IUnknown);
 impl IQuerySolution {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10744,22 +10744,22 @@ unsafe impl ::windows::runtime::Interface for IQuerySolution {
 }
 impl ::std::convert::From<IQuerySolution> for ::windows::runtime::IUnknown {
     fn from(value: IQuerySolution) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IQuerySolution> for ::windows::runtime::IUnknown {
     fn from(value: &IQuerySolution) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQuerySolution {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQuerySolution {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQuerySolution {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IQuerySolution> for IConditionFactory {
@@ -10816,7 +10816,7 @@ pub struct IQuerySolution_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IReadData(::windows::runtime::IUnknown);
+pub struct IReadData(pub ::windows::runtime::IUnknown);
 impl IReadData {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn ReadData(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::runtime::Result<()> {
@@ -10846,22 +10846,22 @@ unsafe impl ::windows::runtime::Interface for IReadData {
 }
 impl ::std::convert::From<IReadData> for ::windows::runtime::IUnknown {
     fn from(value: IReadData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IReadData> for ::windows::runtime::IUnknown {
     fn from(value: &IReadData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IReadData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IReadData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IReadData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10876,7 +10876,7 @@ pub struct IReadData_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRegisterProvider(::windows::runtime::IUnknown);
+pub struct IRegisterProvider(pub ::windows::runtime::IUnknown);
 impl IRegisterProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10901,22 +10901,22 @@ unsafe impl ::windows::runtime::Interface for IRegisterProvider {
 }
 impl ::std::convert::From<IRegisterProvider> for ::windows::runtime::IUnknown {
     fn from(value: IRegisterProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRegisterProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IRegisterProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRegisterProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRegisterProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRegisterProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10935,7 +10935,7 @@ pub struct IRegisterProvider_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRelationship(::windows::runtime::IUnknown);
+pub struct IRelationship(pub ::windows::runtime::IUnknown);
 impl IRelationship {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -10972,22 +10972,22 @@ unsafe impl ::windows::runtime::Interface for IRelationship {
 }
 impl ::std::convert::From<IRelationship> for ::windows::runtime::IUnknown {
     fn from(value: IRelationship) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRelationship> for ::windows::runtime::IUnknown {
     fn from(value: &IRelationship) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRelationship {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRelationship {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRelationship {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11008,7 +11008,7 @@ pub struct IRelationship_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRichChunk(::windows::runtime::IUnknown);
+pub struct IRichChunk(pub ::windows::runtime::IUnknown);
 impl IRichChunk {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -11022,22 +11022,22 @@ unsafe impl ::windows::runtime::Interface for IRichChunk {
 }
 impl ::std::convert::From<IRichChunk> for ::windows::runtime::IUnknown {
     fn from(value: IRichChunk) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRichChunk> for ::windows::runtime::IUnknown {
     fn from(value: &IRichChunk) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRichChunk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRichChunk {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRichChunk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11052,7 +11052,7 @@ pub struct IRichChunk_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRow(::windows::runtime::IUnknown);
+pub struct IRow(pub ::windows::runtime::IUnknown);
 impl IRow {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -11076,22 +11076,22 @@ unsafe impl ::windows::runtime::Interface for IRow {
 }
 impl ::std::convert::From<IRow> for ::windows::runtime::IUnknown {
     fn from(value: IRow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRow> for ::windows::runtime::IUnknown {
     fn from(value: &IRow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11109,7 +11109,7 @@ pub struct IRow_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowChange(::windows::runtime::IUnknown);
+pub struct IRowChange(pub ::windows::runtime::IUnknown);
 impl IRowChange {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -11123,22 +11123,22 @@ unsafe impl ::windows::runtime::Interface for IRowChange {
 }
 impl ::std::convert::From<IRowChange> for ::windows::runtime::IUnknown {
     fn from(value: IRowChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowChange> for ::windows::runtime::IUnknown {
     fn from(value: &IRowChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowChange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11153,7 +11153,7 @@ pub struct IRowChange_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowPosition(::windows::runtime::IUnknown);
+pub struct IRowPosition(pub ::windows::runtime::IUnknown);
 impl IRowPosition {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn ClearRowPosition(&self) -> ::windows::runtime::Result<()> {
@@ -11183,22 +11183,22 @@ unsafe impl ::windows::runtime::Interface for IRowPosition {
 }
 impl ::std::convert::From<IRowPosition> for ::windows::runtime::IUnknown {
     fn from(value: IRowPosition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowPosition> for ::windows::runtime::IUnknown {
     fn from(value: &IRowPosition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowPosition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowPosition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowPosition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11216,7 +11216,7 @@ pub struct IRowPosition_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowPositionChange(::windows::runtime::IUnknown);
+pub struct IRowPositionChange(pub ::windows::runtime::IUnknown);
 impl IRowPositionChange {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -11230,22 +11230,22 @@ unsafe impl ::windows::runtime::Interface for IRowPositionChange {
 }
 impl ::std::convert::From<IRowPositionChange> for ::windows::runtime::IUnknown {
     fn from(value: IRowPositionChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowPositionChange> for ::windows::runtime::IUnknown {
     fn from(value: &IRowPositionChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowPositionChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowPositionChange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowPositionChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11260,7 +11260,7 @@ pub struct IRowPositionChange_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowSchemaChange(::windows::runtime::IUnknown);
+pub struct IRowSchemaChange(pub ::windows::runtime::IUnknown);
 impl IRowSchemaChange {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -11284,22 +11284,22 @@ unsafe impl ::windows::runtime::Interface for IRowSchemaChange {
 }
 impl ::std::convert::From<IRowSchemaChange> for ::windows::runtime::IUnknown {
     fn from(value: IRowSchemaChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowSchemaChange> for ::windows::runtime::IUnknown {
     fn from(value: &IRowSchemaChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowSchemaChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowSchemaChange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowSchemaChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRowSchemaChange> for IRowChange {
@@ -11338,7 +11338,7 @@ pub struct IRowSchemaChange_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowset(::windows::runtime::IUnknown);
+pub struct IRowset(pub ::windows::runtime::IUnknown);
 impl IRowset {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::runtime::Result<()> {
@@ -11367,22 +11367,22 @@ unsafe impl ::windows::runtime::Interface for IRowset {
 }
 impl ::std::convert::From<IRowset> for ::windows::runtime::IUnknown {
     fn from(value: IRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11400,7 +11400,7 @@ pub struct IRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetAsynch(::windows::runtime::IUnknown);
+pub struct IRowsetAsynch(pub ::windows::runtime::IUnknown);
 impl IRowsetAsynch {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -11418,22 +11418,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetAsynch {
 }
 impl ::std::convert::From<IRowsetAsynch> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetAsynch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetAsynch> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetAsynch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetAsynch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetAsynch {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetAsynch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11449,7 +11449,7 @@ pub struct IRowsetAsynch_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetBookmark(::windows::runtime::IUnknown);
+pub struct IRowsetBookmark(pub ::windows::runtime::IUnknown);
 impl IRowsetBookmark {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn PositionOnBookmark(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows::runtime::Result<()> {
@@ -11462,22 +11462,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetBookmark {
 }
 impl ::std::convert::From<IRowsetBookmark> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetBookmark) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetBookmark> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetBookmark) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetBookmark {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetBookmark {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetBookmark {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11491,7 +11491,7 @@ pub struct IRowsetBookmark_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetChange(::windows::runtime::IUnknown);
+pub struct IRowsetChange(pub ::windows::runtime::IUnknown);
 impl IRowsetChange {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::runtime::Result<()> {
@@ -11512,22 +11512,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetChange {
 }
 impl ::std::convert::From<IRowsetChange> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetChange> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetChange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11543,7 +11543,7 @@ pub struct IRowsetChange_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetChangeExtInfo(::windows::runtime::IUnknown);
+pub struct IRowsetChangeExtInfo(pub ::windows::runtime::IUnknown);
 impl IRowsetChangeExtInfo {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetOriginalRow(&self, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows::runtime::Result<()> {
@@ -11560,22 +11560,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetChangeExtInfo {
 }
 impl ::std::convert::From<IRowsetChangeExtInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetChangeExtInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetChangeExtInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetChangeExtInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetChangeExtInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetChangeExtInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetChangeExtInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11590,7 +11590,7 @@ pub struct IRowsetChangeExtInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetChapterMember(::windows::runtime::IUnknown);
+pub struct IRowsetChapterMember(pub ::windows::runtime::IUnknown);
 impl IRowsetChapterMember {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn IsRowInChapter(&self, hchapter: usize, hrow: usize) -> ::windows::runtime::Result<()> {
@@ -11603,22 +11603,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetChapterMember {
 }
 impl ::std::convert::From<IRowsetChapterMember> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetChapterMember) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetChapterMember> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetChapterMember) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetChapterMember {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetChapterMember {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetChapterMember {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11632,7 +11632,7 @@ pub struct IRowsetChapterMember_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetCopyRows(::windows::runtime::IUnknown);
+pub struct IRowsetCopyRows(pub ::windows::runtime::IUnknown);
 impl IRowsetCopyRows {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn CloseSource(&self, hsourceid: u16) -> ::windows::runtime::Result<()> {
@@ -11657,22 +11657,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetCopyRows {
 }
 impl ::std::convert::From<IRowsetCopyRows> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetCopyRows) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetCopyRows> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetCopyRows) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetCopyRows {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetCopyRows {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetCopyRows {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11689,7 +11689,7 @@ pub struct IRowsetCopyRows_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetCurrentIndex(::windows::runtime::IUnknown);
+pub struct IRowsetCurrentIndex(pub ::windows::runtime::IUnknown);
 impl IRowsetCurrentIndex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -11721,22 +11721,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetCurrentIndex {
 }
 impl ::std::convert::From<IRowsetCurrentIndex> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetCurrentIndex) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetCurrentIndex> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetCurrentIndex) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetCurrentIndex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetCurrentIndex {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetCurrentIndex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRowsetCurrentIndex> for IRowsetIndex {
@@ -11777,7 +11777,7 @@ pub struct IRowsetCurrentIndex_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetEvents(::windows::runtime::IUnknown);
+pub struct IRowsetEvents(pub ::windows::runtime::IUnknown);
 impl IRowsetEvents {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -11806,22 +11806,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetEvents {
 }
 impl ::std::convert::From<IRowsetEvents> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetEvents> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11845,7 +11845,7 @@ pub struct IRowsetExactScroll(pub u8);
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetFastLoad(::windows::runtime::IUnknown);
+pub struct IRowsetFastLoad(pub ::windows::runtime::IUnknown);
 impl IRowsetFastLoad {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn InsertRow(&self, haccessor: usize, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -11863,22 +11863,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetFastLoad {
 }
 impl ::std::convert::From<IRowsetFastLoad> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetFastLoad) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetFastLoad> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetFastLoad) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetFastLoad {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetFastLoad {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetFastLoad {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11894,7 +11894,7 @@ pub struct IRowsetFastLoad_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetFind(::windows::runtime::IUnknown);
+pub struct IRowsetFind(pub ::windows::runtime::IUnknown);
 impl IRowsetFind {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn FindNextRow(&self, hchapter: usize, haccessor: usize, pfindvalue: *mut ::std::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::runtime::Result<()> {
@@ -11920,22 +11920,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetFind {
 }
 impl ::std::convert::From<IRowsetFind> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetFind) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetFind> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetFind) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetFind {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetFind {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetFind {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11949,7 +11949,7 @@ pub struct IRowsetFind_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetIdentity(::windows::runtime::IUnknown);
+pub struct IRowsetIdentity(pub ::windows::runtime::IUnknown);
 impl IRowsetIdentity {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn IsSameRow(&self, hthisrow: usize, hthatrow: usize) -> ::windows::runtime::Result<()> {
@@ -11962,22 +11962,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetIdentity {
 }
 impl ::std::convert::From<IRowsetIdentity> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetIdentity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetIdentity> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetIdentity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetIdentity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetIdentity {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetIdentity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11991,7 +11991,7 @@ pub struct IRowsetIdentity_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetIndex(::windows::runtime::IUnknown);
+pub struct IRowsetIndex(pub ::windows::runtime::IUnknown);
 impl IRowsetIndex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -12013,22 +12013,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetIndex {
 }
 impl ::std::convert::From<IRowsetIndex> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetIndex) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetIndex> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetIndex) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetIndex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetIndex {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetIndex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12045,7 +12045,7 @@ pub struct IRowsetIndex_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetInfo(::windows::runtime::IUnknown);
+pub struct IRowsetInfo(pub ::windows::runtime::IUnknown);
 impl IRowsetInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -12069,22 +12069,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetInfo {
 }
 impl ::std::convert::From<IRowsetInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12101,7 +12101,7 @@ pub struct IRowsetInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetKeys(::windows::runtime::IUnknown);
+pub struct IRowsetKeys(pub ::windows::runtime::IUnknown);
 impl IRowsetKeys {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn ListKeys(&self, pccolumns: *mut usize, prgcolumns: *mut *mut usize) -> ::windows::runtime::Result<()> {
@@ -12114,22 +12114,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetKeys {
 }
 impl ::std::convert::From<IRowsetKeys> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetKeys) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetKeys> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetKeys) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetKeys {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12143,7 +12143,7 @@ pub struct IRowsetKeys_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetLocate(::windows::runtime::IUnknown);
+pub struct IRowsetLocate(pub ::windows::runtime::IUnknown);
 impl IRowsetLocate {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::runtime::Result<()> {
@@ -12199,22 +12199,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetLocate {
 }
 impl ::std::convert::From<IRowsetLocate> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetLocate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetLocate> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetLocate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetLocate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetLocate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetLocate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRowsetLocate> for IRowset {
@@ -12256,7 +12256,7 @@ pub struct IRowsetLocate_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetNewRowAfter(::windows::runtime::IUnknown);
+pub struct IRowsetNewRowAfter(pub ::windows::runtime::IUnknown);
 impl IRowsetNewRowAfter {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn SetNewDataAfter(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::runtime::Result<()> {
@@ -12269,22 +12269,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetNewRowAfter {
 }
 impl ::std::convert::From<IRowsetNewRowAfter> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetNewRowAfter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetNewRowAfter> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetNewRowAfter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetNewRowAfter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetNewRowAfter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetNewRowAfter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12298,7 +12298,7 @@ pub struct IRowsetNewRowAfter_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetNextRowset(::windows::runtime::IUnknown);
+pub struct IRowsetNextRowset(pub ::windows::runtime::IUnknown);
 impl IRowsetNextRowset {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetNextRowset<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -12312,22 +12312,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetNextRowset {
 }
 impl ::std::convert::From<IRowsetNextRowset> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetNextRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetNextRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetNextRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetNextRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetNextRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetNextRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12341,7 +12341,7 @@ pub struct IRowsetNextRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetNotify(::windows::runtime::IUnknown);
+pub struct IRowsetNotify(pub ::windows::runtime::IUnknown);
 impl IRowsetNotify {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -12365,22 +12365,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetNotify {
 }
 impl ::std::convert::From<IRowsetNotify> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetNotify) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetNotify> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetNotify) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetNotify {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12399,7 +12399,7 @@ pub struct IRowsetNotify_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetPrioritization(::windows::runtime::IUnknown);
+pub struct IRowsetPrioritization(pub ::windows::runtime::IUnknown);
 impl IRowsetPrioritization {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopestatisticseventfrequency: u32) -> ::windows::runtime::Result<()> {
@@ -12420,22 +12420,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetPrioritization {
 }
 impl ::std::convert::From<IRowsetPrioritization> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetPrioritization) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetPrioritization> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetPrioritization) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetPrioritization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetPrioritization {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetPrioritization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12451,7 +12451,7 @@ pub struct IRowsetPrioritization_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetQueryStatus(::windows::runtime::IUnknown);
+pub struct IRowsetQueryStatus(pub ::windows::runtime::IUnknown);
 impl IRowsetQueryStatus {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetStatus(&self, pdwstatus: *mut u32) -> ::windows::runtime::Result<()> {
@@ -12480,22 +12480,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetQueryStatus {
 }
 impl ::std::convert::From<IRowsetQueryStatus> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetQueryStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetQueryStatus> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetQueryStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetQueryStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetQueryStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetQueryStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12510,7 +12510,7 @@ pub struct IRowsetQueryStatus_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetRefresh(::windows::runtime::IUnknown);
+pub struct IRowsetRefresh(pub ::windows::runtime::IUnknown);
 impl IRowsetRefresh {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -12528,22 +12528,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetRefresh {
 }
 impl ::std::convert::From<IRowsetRefresh> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetRefresh) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetRefresh> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetRefresh) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetRefresh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetRefresh {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetRefresh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12559,7 +12559,7 @@ pub struct IRowsetRefresh_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetResynch(::windows::runtime::IUnknown);
+pub struct IRowsetResynch(pub ::windows::runtime::IUnknown);
 impl IRowsetResynch {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -12576,22 +12576,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetResynch {
 }
 impl ::std::convert::From<IRowsetResynch> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetResynch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetResynch> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetResynch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetResynch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetResynch {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetResynch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12606,7 +12606,7 @@ pub struct IRowsetResynch_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetScroll(::windows::runtime::IUnknown);
+pub struct IRowsetScroll(pub ::windows::runtime::IUnknown);
 impl IRowsetScroll {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::runtime::Result<()> {
@@ -12670,22 +12670,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetScroll {
 }
 impl ::std::convert::From<IRowsetScroll> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetScroll) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetScroll> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetScroll) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetScroll {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetScroll {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetScroll {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRowsetScroll> for IRowsetLocate {
@@ -12749,7 +12749,7 @@ pub struct IRowsetScroll_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetUpdate(::windows::runtime::IUnknown);
+pub struct IRowsetUpdate(pub ::windows::runtime::IUnknown);
 impl IRowsetUpdate {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::runtime::Result<()> {
@@ -12790,22 +12790,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetUpdate {
 }
 impl ::std::convert::From<IRowsetUpdate> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetUpdate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetUpdate> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetUpdate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetUpdate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetUpdate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetUpdate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRowsetUpdate> for IRowsetChange {
@@ -12846,7 +12846,7 @@ pub struct IRowsetUpdate_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetView(::windows::runtime::IUnknown);
+pub struct IRowsetView(pub ::windows::runtime::IUnknown);
 impl IRowsetView {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn CreateView<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkouter: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -12864,22 +12864,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetView {
 }
 impl ::std::convert::From<IRowsetView> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetView> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12894,7 +12894,7 @@ pub struct IRowsetView_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetWatchAll(::windows::runtime::IUnknown);
+pub struct IRowsetWatchAll(pub ::windows::runtime::IUnknown);
 impl IRowsetWatchAll {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Acknowledge(&self) -> ::windows::runtime::Result<()> {
@@ -12915,22 +12915,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetWatchAll {
 }
 impl ::std::convert::From<IRowsetWatchAll> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetWatchAll) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetWatchAll> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetWatchAll) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetWatchAll {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetWatchAll {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetWatchAll {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12946,7 +12946,7 @@ pub struct IRowsetWatchAll_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetWatchNotify(::windows::runtime::IUnknown);
+pub struct IRowsetWatchNotify(pub ::windows::runtime::IUnknown);
 impl IRowsetWatchNotify {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn OnChange<'a, Param0: ::windows::runtime::IntoParam<'a, IRowset>>(&self, prowset: Param0, echangereason: u32) -> ::windows::runtime::Result<()> {
@@ -12959,22 +12959,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetWatchNotify {
 }
 impl ::std::convert::From<IRowsetWatchNotify> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetWatchNotify) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetWatchNotify> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetWatchNotify) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetWatchNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetWatchNotify {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetWatchNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12988,7 +12988,7 @@ pub struct IRowsetWatchNotify_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetWatchRegion(::windows::runtime::IUnknown);
+pub struct IRowsetWatchRegion(pub ::windows::runtime::IUnknown);
 impl IRowsetWatchRegion {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Acknowledge(&self) -> ::windows::runtime::Result<()> {
@@ -13033,22 +13033,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetWatchRegion {
 }
 impl ::std::convert::From<IRowsetWatchRegion> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetWatchRegion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetWatchRegion> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetWatchRegion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetWatchRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetWatchRegion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetWatchRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRowsetWatchRegion> for IRowsetWatchAll {
@@ -13090,7 +13090,7 @@ pub struct IRowsetWatchRegion_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRowsetWithParameters(::windows::runtime::IUnknown);
+pub struct IRowsetWithParameters(pub ::windows::runtime::IUnknown);
 impl IRowsetWithParameters {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -13108,22 +13108,22 @@ unsafe impl ::windows::runtime::Interface for IRowsetWithParameters {
 }
 impl ::std::convert::From<IRowsetWithParameters> for ::windows::runtime::IUnknown {
     fn from(value: IRowsetWithParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRowsetWithParameters> for ::windows::runtime::IUnknown {
     fn from(value: &IRowsetWithParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRowsetWithParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRowsetWithParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRowsetWithParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13139,7 +13139,7 @@ pub struct IRowsetWithParameters_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISQLErrorInfo(::windows::runtime::IUnknown);
+pub struct ISQLErrorInfo(pub ::windows::runtime::IUnknown);
 impl ISQLErrorInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -13153,22 +13153,22 @@ unsafe impl ::windows::runtime::Interface for ISQLErrorInfo {
 }
 impl ::std::convert::From<ISQLErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISQLErrorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISQLErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ISQLErrorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISQLErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISQLErrorInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISQLErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13183,7 +13183,7 @@ pub struct ISQLErrorInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISQLGetDiagField(::windows::runtime::IUnknown);
+pub struct ISQLGetDiagField(pub ::windows::runtime::IUnknown);
 impl ISQLGetDiagField {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -13197,22 +13197,22 @@ unsafe impl ::windows::runtime::Interface for ISQLGetDiagField {
 }
 impl ::std::convert::From<ISQLGetDiagField> for ::windows::runtime::IUnknown {
     fn from(value: ISQLGetDiagField) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISQLGetDiagField> for ::windows::runtime::IUnknown {
     fn from(value: &ISQLGetDiagField) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISQLGetDiagField {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISQLGetDiagField {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISQLGetDiagField {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13227,7 +13227,7 @@ pub struct ISQLGetDiagField_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISQLRequestDiagFields(::windows::runtime::IUnknown);
+pub struct ISQLRequestDiagFields(pub ::windows::runtime::IUnknown);
 impl ISQLRequestDiagFields {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn RequestDiagFields(&self, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::runtime::Result<()> {
@@ -13240,22 +13240,22 @@ unsafe impl ::windows::runtime::Interface for ISQLRequestDiagFields {
 }
 impl ::std::convert::From<ISQLRequestDiagFields> for ::windows::runtime::IUnknown {
     fn from(value: ISQLRequestDiagFields) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISQLRequestDiagFields> for ::windows::runtime::IUnknown {
     fn from(value: &ISQLRequestDiagFields) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISQLRequestDiagFields {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISQLRequestDiagFields {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISQLRequestDiagFields {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13269,7 +13269,7 @@ pub struct ISQLRequestDiagFields_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISQLServerErrorInfo(::windows::runtime::IUnknown);
+pub struct ISQLServerErrorInfo(pub ::windows::runtime::IUnknown);
 impl ISQLServerErrorInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -13283,22 +13283,22 @@ unsafe impl ::windows::runtime::Interface for ISQLServerErrorInfo {
 }
 impl ::std::convert::From<ISQLServerErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISQLServerErrorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISQLServerErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ISQLServerErrorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISQLServerErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISQLServerErrorInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISQLServerErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13313,7 +13313,7 @@ pub struct ISQLServerErrorInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISchemaLocalizerSupport(::windows::runtime::IUnknown);
+pub struct ISchemaLocalizerSupport(pub ::windows::runtime::IUnknown);
 impl ISchemaLocalizerSupport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -13328,22 +13328,22 @@ unsafe impl ::windows::runtime::Interface for ISchemaLocalizerSupport {
 }
 impl ::std::convert::From<ISchemaLocalizerSupport> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaLocalizerSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISchemaLocalizerSupport> for ::windows::runtime::IUnknown {
     fn from(value: &ISchemaLocalizerSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaLocalizerSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaLocalizerSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISchemaLocalizerSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13358,7 +13358,7 @@ pub struct ISchemaLocalizerSupport_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISchemaLock(::windows::runtime::IUnknown);
+pub struct ISchemaLock(pub ::windows::runtime::IUnknown);
 impl ISchemaLock {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -13377,22 +13377,22 @@ unsafe impl ::windows::runtime::Interface for ISchemaLock {
 }
 impl ::std::convert::From<ISchemaLock> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaLock) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISchemaLock> for ::windows::runtime::IUnknown {
     fn from(value: &ISchemaLock) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaLock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaLock {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISchemaLock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13409,7 +13409,7 @@ pub struct ISchemaLock_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISchemaProvider(::windows::runtime::IUnknown);
+pub struct ISchemaProvider(pub ::windows::runtime::IUnknown);
 impl ISchemaProvider {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Entities<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
@@ -13453,22 +13453,22 @@ unsafe impl ::windows::runtime::Interface for ISchemaProvider {
 }
 impl ::std::convert::From<ISchemaProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISchemaProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISchemaProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISchemaProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISchemaProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13491,7 +13491,7 @@ pub struct ISchemaProvider_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IScopedOperations(::windows::runtime::IUnknown);
+pub struct IScopedOperations(pub ::windows::runtime::IUnknown);
 impl IScopedOperations {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com_Urlmon`*"]
@@ -13570,22 +13570,22 @@ unsafe impl ::windows::runtime::Interface for IScopedOperations {
 }
 impl ::std::convert::From<IScopedOperations> for ::windows::runtime::IUnknown {
     fn from(value: IScopedOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IScopedOperations> for ::windows::runtime::IUnknown {
     fn from(value: &IScopedOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScopedOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IScopedOperations {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IScopedOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IScopedOperations> for IBindResource {
@@ -13630,7 +13630,7 @@ pub struct IScopedOperations_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchCatalogManager(::windows::runtime::IUnknown);
+pub struct ISearchCatalogManager(pub ::windows::runtime::IUnknown);
 impl ISearchCatalogManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -13768,22 +13768,22 @@ unsafe impl ::windows::runtime::Interface for ISearchCatalogManager {
 }
 impl ::std::convert::From<ISearchCatalogManager> for ::windows::runtime::IUnknown {
     fn from(value: ISearchCatalogManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchCatalogManager> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchCatalogManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchCatalogManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchCatalogManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchCatalogManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13834,7 +13834,7 @@ pub struct ISearchCatalogManager_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchCatalogManager2(::windows::runtime::IUnknown);
+pub struct ISearchCatalogManager2(pub ::windows::runtime::IUnknown);
 impl ISearchCatalogManager2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -13977,22 +13977,22 @@ unsafe impl ::windows::runtime::Interface for ISearchCatalogManager2 {
 }
 impl ::std::convert::From<ISearchCatalogManager2> for ::windows::runtime::IUnknown {
     fn from(value: ISearchCatalogManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchCatalogManager2> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchCatalogManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchCatalogManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchCatalogManager2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchCatalogManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISearchCatalogManager2> for ISearchCatalogManager {
@@ -14065,7 +14065,7 @@ pub struct ISearchCatalogManager2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchCrawlScopeManager(::windows::runtime::IUnknown);
+pub struct ISearchCrawlScopeManager(pub ::windows::runtime::IUnknown);
 impl ISearchCrawlScopeManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14155,22 +14155,22 @@ unsafe impl ::windows::runtime::Interface for ISearchCrawlScopeManager {
 }
 impl ::std::convert::From<ISearchCrawlScopeManager> for ::windows::runtime::IUnknown {
     fn from(value: ISearchCrawlScopeManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchCrawlScopeManager> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchCrawlScopeManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchCrawlScopeManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchCrawlScopeManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchCrawlScopeManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14210,7 +14210,7 @@ pub struct ISearchCrawlScopeManager_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchCrawlScopeManager2(::windows::runtime::IUnknown);
+pub struct ISearchCrawlScopeManager2(pub ::windows::runtime::IUnknown);
 impl ISearchCrawlScopeManager2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14305,22 +14305,22 @@ unsafe impl ::windows::runtime::Interface for ISearchCrawlScopeManager2 {
 }
 impl ::std::convert::From<ISearchCrawlScopeManager2> for ::windows::runtime::IUnknown {
     fn from(value: ISearchCrawlScopeManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchCrawlScopeManager2> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchCrawlScopeManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchCrawlScopeManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchCrawlScopeManager2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchCrawlScopeManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISearchCrawlScopeManager2> for ISearchCrawlScopeManager {
@@ -14382,7 +14382,7 @@ pub struct ISearchCrawlScopeManager2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchItemsChangedSink(::windows::runtime::IUnknown);
+pub struct ISearchItemsChangedSink(pub ::windows::runtime::IUnknown);
 impl ISearchItemsChangedSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14406,22 +14406,22 @@ unsafe impl ::windows::runtime::Interface for ISearchItemsChangedSink {
 }
 impl ::std::convert::From<ISearchItemsChangedSink> for ::windows::runtime::IUnknown {
     fn from(value: ISearchItemsChangedSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchItemsChangedSink> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchItemsChangedSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchItemsChangedSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchItemsChangedSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchItemsChangedSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14440,7 +14440,7 @@ pub struct ISearchItemsChangedSink_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchLanguageSupport(::windows::runtime::IUnknown);
+pub struct ISearchLanguageSupport(pub ::windows::runtime::IUnknown);
 impl ISearchLanguageSupport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14474,22 +14474,22 @@ unsafe impl ::windows::runtime::Interface for ISearchLanguageSupport {
 }
 impl ::std::convert::From<ISearchLanguageSupport> for ::windows::runtime::IUnknown {
     fn from(value: ISearchLanguageSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchLanguageSupport> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchLanguageSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchLanguageSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchLanguageSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchLanguageSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14510,7 +14510,7 @@ pub struct ISearchLanguageSupport_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchManager(::windows::runtime::IUnknown);
+pub struct ISearchManager(pub ::windows::runtime::IUnknown);
 impl ISearchManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14590,22 +14590,22 @@ unsafe impl ::windows::runtime::Interface for ISearchManager {
 }
 impl ::std::convert::From<ISearchManager> for ::windows::runtime::IUnknown {
     fn from(value: ISearchManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchManager> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14641,7 +14641,7 @@ pub struct ISearchManager_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchManager2(::windows::runtime::IUnknown);
+pub struct ISearchManager2(pub ::windows::runtime::IUnknown);
 impl ISearchManager2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14732,22 +14732,22 @@ unsafe impl ::windows::runtime::Interface for ISearchManager2 {
 }
 impl ::std::convert::From<ISearchManager2> for ::windows::runtime::IUnknown {
     fn from(value: ISearchManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchManager2> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchManager2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISearchManager2> for ISearchManager {
@@ -14807,7 +14807,7 @@ pub struct ISearchManager2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchNotifyInlineSite(::windows::runtime::IUnknown);
+pub struct ISearchNotifyInlineSite(pub ::windows::runtime::IUnknown);
 impl ISearchNotifyInlineSite {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn OnItemIndexedStatusChange(&self, sipstatus: SEARCH_INDEXING_PHASE, dwnumentries: u32, rgitemstatusentries: *const SEARCH_ITEM_INDEXING_STATUS) -> ::windows::runtime::Result<()> {
@@ -14824,22 +14824,22 @@ unsafe impl ::windows::runtime::Interface for ISearchNotifyInlineSite {
 }
 impl ::std::convert::From<ISearchNotifyInlineSite> for ::windows::runtime::IUnknown {
     fn from(value: ISearchNotifyInlineSite) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchNotifyInlineSite> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchNotifyInlineSite) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchNotifyInlineSite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchNotifyInlineSite {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchNotifyInlineSite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14854,7 +14854,7 @@ pub struct ISearchNotifyInlineSite_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchPersistentItemsChangedSink(::windows::runtime::IUnknown);
+pub struct ISearchPersistentItemsChangedSink(pub ::windows::runtime::IUnknown);
 impl ISearchPersistentItemsChangedSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14878,22 +14878,22 @@ unsafe impl ::windows::runtime::Interface for ISearchPersistentItemsChangedSink 
 }
 impl ::std::convert::From<ISearchPersistentItemsChangedSink> for ::windows::runtime::IUnknown {
     fn from(value: ISearchPersistentItemsChangedSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchPersistentItemsChangedSink> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchPersistentItemsChangedSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchPersistentItemsChangedSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchPersistentItemsChangedSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchPersistentItemsChangedSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14912,7 +14912,7 @@ pub struct ISearchPersistentItemsChangedSink_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchProtocol(::windows::runtime::IUnknown);
+pub struct ISearchProtocol(pub ::windows::runtime::IUnknown);
 impl ISearchProtocol {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -14939,22 +14939,22 @@ unsafe impl ::windows::runtime::Interface for ISearchProtocol {
 }
 impl ::std::convert::From<ISearchProtocol> for ::windows::runtime::IUnknown {
     fn from(value: ISearchProtocol) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchProtocol> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchProtocol) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchProtocol {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchProtocol {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchProtocol {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14973,7 +14973,7 @@ pub struct ISearchProtocol_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchProtocol2(::windows::runtime::IUnknown);
+pub struct ISearchProtocol2(pub ::windows::runtime::IUnknown);
 impl ISearchProtocol2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -15005,22 +15005,22 @@ unsafe impl ::windows::runtime::Interface for ISearchProtocol2 {
 }
 impl ::std::convert::From<ISearchProtocol2> for ::windows::runtime::IUnknown {
     fn from(value: ISearchProtocol2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchProtocol2> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchProtocol2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchProtocol2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchProtocol2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchProtocol2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISearchProtocol2> for ISearchProtocol {
@@ -15061,7 +15061,7 @@ pub struct ISearchProtocol2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchProtocolThreadContext(::windows::runtime::IUnknown);
+pub struct ISearchProtocolThreadContext(pub ::windows::runtime::IUnknown);
 impl ISearchProtocolThreadContext {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn ThreadInit(&self) -> ::windows::runtime::Result<()> {
@@ -15082,22 +15082,22 @@ unsafe impl ::windows::runtime::Interface for ISearchProtocolThreadContext {
 }
 impl ::std::convert::From<ISearchProtocolThreadContext> for ::windows::runtime::IUnknown {
     fn from(value: ISearchProtocolThreadContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchProtocolThreadContext> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchProtocolThreadContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchProtocolThreadContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchProtocolThreadContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchProtocolThreadContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15113,7 +15113,7 @@ pub struct ISearchProtocolThreadContext_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchQueryHelper(::windows::runtime::IUnknown);
+pub struct ISearchQueryHelper(pub ::windows::runtime::IUnknown);
 impl ISearchQueryHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -15228,22 +15228,22 @@ unsafe impl ::windows::runtime::Interface for ISearchQueryHelper {
 }
 impl ::std::convert::From<ISearchQueryHelper> for ::windows::runtime::IUnknown {
     fn from(value: ISearchQueryHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchQueryHelper> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchQueryHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchQueryHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchQueryHelper {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchQueryHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15289,7 +15289,7 @@ pub struct ISearchQueryHelper_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchQueryHits(::windows::runtime::IUnknown);
+pub struct ISearchQueryHits(pub ::windows::runtime::IUnknown);
 impl ISearchQueryHits {
     #[cfg(feature = "Win32_Storage_IndexServer")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Storage_IndexServer`*"]
@@ -15313,22 +15313,22 @@ unsafe impl ::windows::runtime::Interface for ISearchQueryHits {
 }
 impl ::std::convert::From<ISearchQueryHits> for ::windows::runtime::IUnknown {
     fn from(value: ISearchQueryHits) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchQueryHits> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchQueryHits) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchQueryHits {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchQueryHits {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchQueryHits {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15347,7 +15347,7 @@ pub struct ISearchQueryHits_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchRoot(::windows::runtime::IUnknown);
+pub struct ISearchRoot(pub ::windows::runtime::IUnknown);
 impl ISearchRoot {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -15471,22 +15471,22 @@ unsafe impl ::windows::runtime::Interface for ISearchRoot {
 }
 impl ::std::convert::From<ISearchRoot> for ::windows::runtime::IUnknown {
     fn from(value: ISearchRoot) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchRoot> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchRoot) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchRoot {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchRoot {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchRoot {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15537,7 +15537,7 @@ pub struct ISearchRoot_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchScopeRule(::windows::runtime::IUnknown);
+pub struct ISearchScopeRule(pub ::windows::runtime::IUnknown);
 impl ISearchScopeRule {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -15569,22 +15569,22 @@ unsafe impl ::windows::runtime::Interface for ISearchScopeRule {
 }
 impl ::std::convert::From<ISearchScopeRule> for ::windows::runtime::IUnknown {
     fn from(value: ISearchScopeRule) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchScopeRule> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchScopeRule) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchScopeRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchScopeRule {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchScopeRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15604,7 +15604,7 @@ pub struct ISearchScopeRule_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISearchViewChangedSink(::windows::runtime::IUnknown);
+pub struct ISearchViewChangedSink(pub ::windows::runtime::IUnknown);
 impl ISearchViewChangedSink {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -15618,22 +15618,22 @@ unsafe impl ::windows::runtime::Interface for ISearchViewChangedSink {
 }
 impl ::std::convert::From<ISearchViewChangedSink> for ::windows::runtime::IUnknown {
     fn from(value: ISearchViewChangedSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISearchViewChangedSink> for ::windows::runtime::IUnknown {
     fn from(value: &ISearchViewChangedSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISearchViewChangedSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISearchViewChangedSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISearchViewChangedSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15648,7 +15648,7 @@ pub struct ISearchViewChangedSink_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISecurityInfo(::windows::runtime::IUnknown);
+pub struct ISecurityInfo(pub ::windows::runtime::IUnknown);
 impl ISecurityInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
@@ -15670,22 +15670,22 @@ unsafe impl ::windows::runtime::Interface for ISecurityInfo {
 }
 impl ::std::convert::From<ISecurityInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISecurityInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISecurityInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ISecurityInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISecurityInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15702,7 +15702,7 @@ pub struct ISecurityInfo_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IService(::windows::runtime::IUnknown);
+pub struct IService(pub ::windows::runtime::IUnknown);
 impl IService {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn InvokeService<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkinner: Param0) -> ::windows::runtime::Result<()> {
@@ -15715,22 +15715,22 @@ unsafe impl ::windows::runtime::Interface for IService {
 }
 impl ::std::convert::From<IService> for ::windows::runtime::IUnknown {
     fn from(value: IService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IService> for ::windows::runtime::IUnknown {
     fn from(value: &IService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15744,7 +15744,7 @@ pub struct IService_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISessionProperties(::windows::runtime::IUnknown);
+pub struct ISessionProperties(pub ::windows::runtime::IUnknown);
 impl ISessionProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -15763,22 +15763,22 @@ unsafe impl ::windows::runtime::Interface for ISessionProperties {
 }
 impl ::std::convert::From<ISessionProperties> for ::windows::runtime::IUnknown {
     fn from(value: ISessionProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISessionProperties> for ::windows::runtime::IUnknown {
     fn from(value: &ISessionProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISessionProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISessionProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISessionProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15795,7 +15795,7 @@ pub struct ISessionProperties_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimpleCommandCreator(::windows::runtime::IUnknown);
+pub struct ISimpleCommandCreator(pub ::windows::runtime::IUnknown);
 impl ISimpleCommandCreator {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn CreateICommand<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, ppiunknown: *mut ::std::option::Option<::windows::runtime::IUnknown>, pouterunk: Param1) -> ::windows::runtime::Result<()> {
@@ -15818,22 +15818,22 @@ unsafe impl ::windows::runtime::Interface for ISimpleCommandCreator {
 }
 impl ::std::convert::From<ISimpleCommandCreator> for ::windows::runtime::IUnknown {
     fn from(value: ISimpleCommandCreator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimpleCommandCreator> for ::windows::runtime::IUnknown {
     fn from(value: &ISimpleCommandCreator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimpleCommandCreator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimpleCommandCreator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimpleCommandCreator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15851,7 +15851,7 @@ pub struct ISimpleCommandCreator_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISourcesRowset(::windows::runtime::IUnknown);
+pub struct ISourcesRowset(pub ::windows::runtime::IUnknown);
 impl ISourcesRowset {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -15865,22 +15865,22 @@ unsafe impl ::windows::runtime::Interface for ISourcesRowset {
 }
 impl ::std::convert::From<ISourcesRowset> for ::windows::runtime::IUnknown {
     fn from(value: ISourcesRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISourcesRowset> for ::windows::runtime::IUnknown {
     fn from(value: &ISourcesRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISourcesRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISourcesRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISourcesRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15895,7 +15895,7 @@ pub struct ISourcesRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStemmer(::windows::runtime::IUnknown);
+pub struct IStemmer(pub ::windows::runtime::IUnknown);
 impl IStemmer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -15918,22 +15918,22 @@ unsafe impl ::windows::runtime::Interface for IStemmer {
 }
 impl ::std::convert::From<IStemmer> for ::windows::runtime::IUnknown {
     fn from(value: IStemmer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStemmer> for ::windows::runtime::IUnknown {
     fn from(value: &IStemmer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStemmer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStemmer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStemmer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -15951,7 +15951,7 @@ pub struct IStemmer_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISubscriptionItem(::windows::runtime::IUnknown);
+pub struct ISubscriptionItem(pub ::windows::runtime::IUnknown);
 impl ISubscriptionItem {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetCookie(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -15993,22 +15993,22 @@ unsafe impl ::windows::runtime::Interface for ISubscriptionItem {
 }
 impl ::std::convert::From<ISubscriptionItem> for ::windows::runtime::IUnknown {
     fn from(value: ISubscriptionItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISubscriptionItem> for ::windows::runtime::IUnknown {
     fn from(value: &ISubscriptionItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISubscriptionItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISubscriptionItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISubscriptionItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16030,7 +16030,7 @@ pub struct ISubscriptionItem_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISubscriptionMgr(::windows::runtime::IUnknown);
+pub struct ISubscriptionMgr(pub ::windows::runtime::IUnknown);
 impl ISubscriptionMgr {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -16081,22 +16081,22 @@ unsafe impl ::windows::runtime::Interface for ISubscriptionMgr {
 }
 impl ::std::convert::From<ISubscriptionMgr> for ::windows::runtime::IUnknown {
     fn from(value: ISubscriptionMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISubscriptionMgr> for ::windows::runtime::IUnknown {
     fn from(value: &ISubscriptionMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISubscriptionMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISubscriptionMgr {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISubscriptionMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16124,7 +16124,7 @@ pub struct ISubscriptionMgr_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISubscriptionMgr2(::windows::runtime::IUnknown);
+pub struct ISubscriptionMgr2(pub ::windows::runtime::IUnknown);
 impl ISubscriptionMgr2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -16207,22 +16207,22 @@ unsafe impl ::windows::runtime::Interface for ISubscriptionMgr2 {
 }
 impl ::std::convert::From<ISubscriptionMgr2> for ::windows::runtime::IUnknown {
     fn from(value: ISubscriptionMgr2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISubscriptionMgr2> for ::windows::runtime::IUnknown {
     fn from(value: &ISubscriptionMgr2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISubscriptionMgr2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISubscriptionMgr2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISubscriptionMgr2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISubscriptionMgr2> for ISubscriptionMgr {
@@ -16348,7 +16348,7 @@ unsafe impl ::windows::runtime::Abi for ITEM_INFO {
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITableCreation(::windows::runtime::IUnknown);
+pub struct ITableCreation(pub ::windows::runtime::IUnknown);
 impl ITableCreation {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -16417,22 +16417,22 @@ unsafe impl ::windows::runtime::Interface for ITableCreation {
 }
 impl ::std::convert::From<ITableCreation> for ::windows::runtime::IUnknown {
     fn from(value: ITableCreation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITableCreation> for ::windows::runtime::IUnknown {
     fn from(value: &ITableCreation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableCreation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableCreation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableCreation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITableCreation> for ITableDefinition {
@@ -16477,7 +16477,7 @@ pub struct ITableCreation_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITableDefinition(::windows::runtime::IUnknown);
+pub struct ITableDefinition(pub ::windows::runtime::IUnknown);
 impl ITableDefinition {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -16530,22 +16530,22 @@ unsafe impl ::windows::runtime::Interface for ITableDefinition {
 }
 impl ::std::convert::From<ITableDefinition> for ::windows::runtime::IUnknown {
     fn from(value: ITableDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITableDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &ITableDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16567,7 +16567,7 @@ pub struct ITableDefinition_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITableDefinitionWithConstraints(::windows::runtime::IUnknown);
+pub struct ITableDefinitionWithConstraints(pub ::windows::runtime::IUnknown);
 impl ITableDefinitionWithConstraints {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -16678,22 +16678,22 @@ unsafe impl ::windows::runtime::Interface for ITableDefinitionWithConstraints {
 }
 impl ::std::convert::From<ITableDefinitionWithConstraints> for ::windows::runtime::IUnknown {
     fn from(value: ITableDefinitionWithConstraints) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITableDefinitionWithConstraints> for ::windows::runtime::IUnknown {
     fn from(value: &ITableDefinitionWithConstraints) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableDefinitionWithConstraints {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableDefinitionWithConstraints {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableDefinitionWithConstraints {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITableDefinitionWithConstraints> for ITableCreation {
@@ -16778,7 +16778,7 @@ pub struct ITableDefinitionWithConstraints_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITableRename(::windows::runtime::IUnknown);
+pub struct ITableRename(pub ::windows::runtime::IUnknown);
 impl ITableRename {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
@@ -16797,22 +16797,22 @@ unsafe impl ::windows::runtime::Interface for ITableRename {
 }
 impl ::std::convert::From<ITableRename> for ::windows::runtime::IUnknown {
     fn from(value: ITableRename) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITableRename> for ::windows::runtime::IUnknown {
     fn from(value: &ITableRename) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableRename {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableRename {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableRename {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16829,7 +16829,7 @@ pub struct ITableRename_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITokenCollection(::windows::runtime::IUnknown);
+pub struct ITokenCollection(pub ::windows::runtime::IUnknown);
 impl ITokenCollection {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn NumberOfTokens(&self, pcount: *const u32) -> ::windows::runtime::Result<()> {
@@ -16847,22 +16847,22 @@ unsafe impl ::windows::runtime::Interface for ITokenCollection {
 }
 impl ::std::convert::From<ITokenCollection> for ::windows::runtime::IUnknown {
     fn from(value: ITokenCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITokenCollection> for ::windows::runtime::IUnknown {
     fn from(value: &ITokenCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITokenCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITokenCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITokenCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16878,7 +16878,7 @@ pub struct ITokenCollection_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITransactionJoin(::windows::runtime::IUnknown);
+pub struct ITransactionJoin(pub ::windows::runtime::IUnknown);
 impl ITransactionJoin {
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_System_DistributedTransactionCoordinator`*"]
@@ -16898,22 +16898,22 @@ unsafe impl ::windows::runtime::Interface for ITransactionJoin {
 }
 impl ::std::convert::From<ITransactionJoin> for ::windows::runtime::IUnknown {
     fn from(value: ITransactionJoin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITransactionJoin> for ::windows::runtime::IUnknown {
     fn from(value: &ITransactionJoin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransactionJoin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransactionJoin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITransactionJoin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16930,7 +16930,7 @@ pub struct ITransactionJoin_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITransactionLocal(::windows::runtime::IUnknown);
+pub struct ITransactionLocal(pub ::windows::runtime::IUnknown);
 impl ITransactionLocal {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -16967,22 +16967,22 @@ unsafe impl ::windows::runtime::Interface for ITransactionLocal {
 }
 impl ::std::convert::From<ITransactionLocal> for ::windows::runtime::IUnknown {
     fn from(value: ITransactionLocal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITransactionLocal> for ::windows::runtime::IUnknown {
     fn from(value: &ITransactionLocal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransactionLocal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransactionLocal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITransactionLocal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -17029,7 +17029,7 @@ pub struct ITransactionLocal_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITransactionObject(::windows::runtime::IUnknown);
+pub struct ITransactionObject(pub ::windows::runtime::IUnknown);
 impl ITransactionObject {
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_System_DistributedTransactionCoordinator`*"]
@@ -17044,22 +17044,22 @@ unsafe impl ::windows::runtime::Interface for ITransactionObject {
 }
 impl ::std::convert::From<ITransactionObject> for ::windows::runtime::IUnknown {
     fn from(value: ITransactionObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITransactionObject> for ::windows::runtime::IUnknown {
     fn from(value: &ITransactionObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransactionObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransactionObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITransactionObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -17074,7 +17074,7 @@ pub struct ITransactionObject_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITrusteeAdmin(::windows::runtime::IUnknown);
+pub struct ITrusteeAdmin(pub ::windows::runtime::IUnknown);
 impl ITrusteeAdmin {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
@@ -17108,22 +17108,22 @@ unsafe impl ::windows::runtime::Interface for ITrusteeAdmin {
 }
 impl ::std::convert::From<ITrusteeAdmin> for ::windows::runtime::IUnknown {
     fn from(value: ITrusteeAdmin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITrusteeAdmin> for ::windows::runtime::IUnknown {
     fn from(value: &ITrusteeAdmin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITrusteeAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITrusteeAdmin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITrusteeAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -17146,7 +17146,7 @@ pub struct ITrusteeAdmin_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITrusteeGroupAdmin(::windows::runtime::IUnknown);
+pub struct ITrusteeGroupAdmin(pub ::windows::runtime::IUnknown);
 impl ITrusteeGroupAdmin {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
@@ -17180,22 +17180,22 @@ unsafe impl ::windows::runtime::Interface for ITrusteeGroupAdmin {
 }
 impl ::std::convert::From<ITrusteeGroupAdmin> for ::windows::runtime::IUnknown {
     fn from(value: ITrusteeGroupAdmin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITrusteeGroupAdmin> for ::windows::runtime::IUnknown {
     fn from(value: &ITrusteeGroupAdmin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITrusteeGroupAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITrusteeGroupAdmin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITrusteeGroupAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -17218,7 +17218,7 @@ pub struct ITrusteeGroupAdmin_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUMS(::windows::runtime::IUnknown);
+pub struct IUMS(pub ::windows::runtime::IUnknown);
 impl IUMS {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
@@ -17248,22 +17248,22 @@ unsafe impl ::windows::runtime::Interface for IUMS {
 }
 impl ::std::convert::From<IUMS> for ::windows::runtime::IUnknown {
     fn from(value: IUMS) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUMS> for ::windows::runtime::IUnknown {
     fn from(value: &IUMS) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUMS {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUMS {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUMS {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -17282,7 +17282,7 @@ pub struct IUMS_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUMSInitialize(::windows::runtime::IUnknown);
+pub struct IUMSInitialize(pub ::windows::runtime::IUnknown);
 impl IUMSInitialize {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn Initialize(&self, pums: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -17295,22 +17295,22 @@ unsafe impl ::windows::runtime::Interface for IUMSInitialize {
 }
 impl ::std::convert::From<IUMSInitialize> for ::windows::runtime::IUnknown {
     fn from(value: IUMSInitialize) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUMSInitialize> for ::windows::runtime::IUnknown {
     fn from(value: &IUMSInitialize) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUMSInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUMSInitialize {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUMSInitialize {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -17324,7 +17324,7 @@ pub struct IUMSInitialize_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUrlAccessor(::windows::runtime::IUnknown);
+pub struct IUrlAccessor(pub ::windows::runtime::IUnknown);
 impl IUrlAccessor {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -17399,22 +17399,22 @@ unsafe impl ::windows::runtime::Interface for IUrlAccessor {
 }
 impl ::std::convert::From<IUrlAccessor> for ::windows::runtime::IUnknown {
     fn from(value: IUrlAccessor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUrlAccessor> for ::windows::runtime::IUnknown {
     fn from(value: &IUrlAccessor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUrlAccessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUrlAccessor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUrlAccessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -17448,7 +17448,7 @@ pub struct IUrlAccessor_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUrlAccessor2(::windows::runtime::IUnknown);
+pub struct IUrlAccessor2(pub ::windows::runtime::IUnknown);
 impl IUrlAccessor2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -17537,22 +17537,22 @@ unsafe impl ::windows::runtime::Interface for IUrlAccessor2 {
 }
 impl ::std::convert::From<IUrlAccessor2> for ::windows::runtime::IUnknown {
     fn from(value: IUrlAccessor2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUrlAccessor2> for ::windows::runtime::IUnknown {
     fn from(value: &IUrlAccessor2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUrlAccessor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUrlAccessor2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUrlAccessor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IUrlAccessor2> for IUrlAccessor {
@@ -17611,7 +17611,7 @@ pub struct IUrlAccessor2_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUrlAccessor3(::windows::runtime::IUnknown);
+pub struct IUrlAccessor3(pub ::windows::runtime::IUnknown);
 impl IUrlAccessor3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -17705,22 +17705,22 @@ unsafe impl ::windows::runtime::Interface for IUrlAccessor3 {
 }
 impl ::std::convert::From<IUrlAccessor3> for ::windows::runtime::IUnknown {
     fn from(value: IUrlAccessor3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUrlAccessor3> for ::windows::runtime::IUnknown {
     fn from(value: &IUrlAccessor3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUrlAccessor3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUrlAccessor3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUrlAccessor3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IUrlAccessor3> for IUrlAccessor2 {
@@ -17801,7 +17801,7 @@ pub struct IUrlAccessor3_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IUrlAccessor4(::windows::runtime::IUnknown);
+pub struct IUrlAccessor4(pub ::windows::runtime::IUnknown);
 impl IUrlAccessor4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -17907,22 +17907,22 @@ unsafe impl ::windows::runtime::Interface for IUrlAccessor4 {
 }
 impl ::std::convert::From<IUrlAccessor4> for ::windows::runtime::IUnknown {
     fn from(value: IUrlAccessor4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IUrlAccessor4> for ::windows::runtime::IUnknown {
     fn from(value: &IUrlAccessor4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUrlAccessor4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUrlAccessor4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUrlAccessor4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IUrlAccessor4> for IUrlAccessor3 {
@@ -18027,7 +18027,7 @@ pub struct IUrlAccessor4_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IViewChapter(::windows::runtime::IUnknown);
+pub struct IViewChapter(pub ::windows::runtime::IUnknown);
 impl IViewChapter {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetSpecification(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -18046,22 +18046,22 @@ unsafe impl ::windows::runtime::Interface for IViewChapter {
 }
 impl ::std::convert::From<IViewChapter> for ::windows::runtime::IUnknown {
     fn from(value: IViewChapter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IViewChapter> for ::windows::runtime::IUnknown {
     fn from(value: &IViewChapter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewChapter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IViewChapter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IViewChapter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -18076,7 +18076,7 @@ pub struct IViewChapter_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IViewFilter(::windows::runtime::IUnknown);
+pub struct IViewFilter(pub ::windows::runtime::IUnknown);
 impl IViewFilter {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetFilter(&self, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -18098,22 +18098,22 @@ unsafe impl ::windows::runtime::Interface for IViewFilter {
 }
 impl ::std::convert::From<IViewFilter> for ::windows::runtime::IUnknown {
     fn from(value: IViewFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IViewFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IViewFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IViewFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IViewFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -18130,7 +18130,7 @@ pub struct IViewFilter_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IViewRowset(::windows::runtime::IUnknown);
+pub struct IViewRowset(pub ::windows::runtime::IUnknown);
 impl IViewRowset {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetSpecification(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -18149,22 +18149,22 @@ unsafe impl ::windows::runtime::Interface for IViewRowset {
 }
 impl ::std::convert::From<IViewRowset> for ::windows::runtime::IUnknown {
     fn from(value: IViewRowset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IViewRowset> for ::windows::runtime::IUnknown {
     fn from(value: &IViewRowset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IViewRowset {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IViewRowset {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -18179,7 +18179,7 @@ pub struct IViewRowset_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IViewSort(::windows::runtime::IUnknown);
+pub struct IViewSort(pub ::windows::runtime::IUnknown);
 impl IViewSort {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn GetSortOrder(&self, pcvalues: *mut usize, prgcolumns: *mut *mut usize, prgorders: *mut *mut u32) -> ::windows::runtime::Result<()> {
@@ -18196,22 +18196,22 @@ unsafe impl ::windows::runtime::Interface for IViewSort {
 }
 impl ::std::convert::From<IViewSort> for ::windows::runtime::IUnknown {
     fn from(value: IViewSort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IViewSort> for ::windows::runtime::IUnknown {
     fn from(value: &IViewSort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewSort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IViewSort {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IViewSort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -18226,7 +18226,7 @@ pub struct IViewSort_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWordBreaker(::windows::runtime::IUnknown);
+pub struct IWordBreaker(pub ::windows::runtime::IUnknown);
 impl IWordBreaker {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -18254,22 +18254,22 @@ unsafe impl ::windows::runtime::Interface for IWordBreaker {
 }
 impl ::std::convert::From<IWordBreaker> for ::windows::runtime::IUnknown {
     fn from(value: IWordBreaker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWordBreaker> for ::windows::runtime::IUnknown {
     fn from(value: &IWordBreaker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWordBreaker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWordBreaker {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWordBreaker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -18289,7 +18289,7 @@ pub struct IWordBreaker_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWordFormSink(::windows::runtime::IUnknown);
+pub struct IWordFormSink(pub ::windows::runtime::IUnknown);
 impl IWordFormSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -18308,22 +18308,22 @@ unsafe impl ::windows::runtime::Interface for IWordFormSink {
 }
 impl ::std::convert::From<IWordFormSink> for ::windows::runtime::IUnknown {
     fn from(value: IWordFormSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWordFormSink> for ::windows::runtime::IUnknown {
     fn from(value: &IWordFormSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWordFormSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWordFormSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWordFormSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -18340,7 +18340,7 @@ pub struct IWordFormSink_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWordSink(::windows::runtime::IUnknown);
+pub struct IWordSink(pub ::windows::runtime::IUnknown);
 impl IWordSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -18372,22 +18372,22 @@ unsafe impl ::windows::runtime::Interface for IWordSink {
 }
 impl ::std::convert::From<IWordSink> for ::windows::runtime::IUnknown {
     fn from(value: IWordSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWordSink> for ::windows::runtime::IUnknown {
     fn from(value: &IWordSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWordSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWordSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWordSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -19401,7 +19401,7 @@ pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OLEDBSimpleProvider(::windows::runtime::IUnknown);
+pub struct OLEDBSimpleProvider(pub ::windows::runtime::IUnknown);
 impl OLEDBSimpleProvider {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn getRowCount(&self) -> ::windows::runtime::Result<isize> {
@@ -19481,22 +19481,22 @@ unsafe impl ::windows::runtime::Interface for OLEDBSimpleProvider {
 }
 impl ::std::convert::From<OLEDBSimpleProvider> for ::windows::runtime::IUnknown {
     fn from(value: OLEDBSimpleProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&OLEDBSimpleProvider> for ::windows::runtime::IUnknown {
     fn from(value: &OLEDBSimpleProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OLEDBSimpleProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OLEDBSimpleProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OLEDBSimpleProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -19528,7 +19528,7 @@ pub struct OLEDBSimpleProvider_abi(
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OLEDBSimpleProviderListener(::windows::runtime::IUnknown);
+pub struct OLEDBSimpleProviderListener(pub ::windows::runtime::IUnknown);
 impl OLEDBSimpleProviderListener {
     #[doc = "*Required features: `Win32_System_Search`*"]
     pub unsafe fn aboutToChangeCell(&self, irow: isize, icolumn: isize) -> ::windows::runtime::Result<()> {
@@ -19569,22 +19569,22 @@ unsafe impl ::windows::runtime::Interface for OLEDBSimpleProviderListener {
 }
 impl ::std::convert::From<OLEDBSimpleProviderListener> for ::windows::runtime::IUnknown {
     fn from(value: OLEDBSimpleProviderListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&OLEDBSimpleProviderListener> for ::windows::runtime::IUnknown {
     fn from(value: &OLEDBSimpleProviderListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OLEDBSimpleProviderListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OLEDBSimpleProviderListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OLEDBSimpleProviderListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

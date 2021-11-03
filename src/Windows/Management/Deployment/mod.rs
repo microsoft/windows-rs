@@ -57,7 +57,7 @@ impl ::std::ops::Not for AddPackageByAppInstallerOptions {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AddPackageOptions(::windows::runtime::IInspectable);
+pub struct AddPackageOptions(pub ::windows::runtime::IInspectable);
 impl AddPackageOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -286,22 +286,22 @@ impl ::windows::runtime::RuntimeName for AddPackageOptions {
 }
 impl ::std::convert::From<AddPackageOptions> for ::windows::runtime::IUnknown {
     fn from(value: AddPackageOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AddPackageOptions> for ::windows::runtime::IUnknown {
     fn from(value: &AddPackageOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AddPackageOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AddPackageOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AddPackageOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AddPackageOptions> for ::windows::runtime::IInspectable {
@@ -329,7 +329,7 @@ unsafe impl ::std::marker::Sync for AddPackageOptions {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppInstallerManager(::windows::runtime::IInspectable);
+pub struct AppInstallerManager(pub ::windows::runtime::IInspectable);
 impl AppInstallerManager {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAutoUpdateSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, AutoUpdateSettingsOptions>>(&self, packagefamilyname: Param0, appinstallerinfo: Param1) -> ::windows::runtime::Result<()> {
@@ -378,22 +378,22 @@ impl ::windows::runtime::RuntimeName for AppInstallerManager {
 }
 impl ::std::convert::From<AppInstallerManager> for ::windows::runtime::IUnknown {
     fn from(value: AppInstallerManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppInstallerManager> for ::windows::runtime::IUnknown {
     fn from(value: &AppInstallerManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallerManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallerManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppInstallerManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppInstallerManager> for ::windows::runtime::IInspectable {
@@ -421,7 +421,7 @@ unsafe impl ::std::marker::Sync for AppInstallerManager {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AutoUpdateSettingsOptions(::windows::runtime::IInspectable);
+pub struct AutoUpdateSettingsOptions(pub ::windows::runtime::IInspectable);
 impl AutoUpdateSettingsOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -612,22 +612,22 @@ impl ::windows::runtime::RuntimeName for AutoUpdateSettingsOptions {
 }
 impl ::std::convert::From<AutoUpdateSettingsOptions> for ::windows::runtime::IUnknown {
     fn from(value: AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AutoUpdateSettingsOptions> for ::windows::runtime::IUnknown {
     fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutoUpdateSettingsOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutoUpdateSettingsOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AutoUpdateSettingsOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AutoUpdateSettingsOptions> for ::windows::runtime::IInspectable {
@@ -655,7 +655,7 @@ unsafe impl ::std::marker::Sync for AutoUpdateSettingsOptions {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct CreateSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 impl CreateSharedPackageContainerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -712,22 +712,22 @@ impl ::windows::runtime::RuntimeName for CreateSharedPackageContainerOptions {
 }
 impl ::std::convert::From<CreateSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateSharedPackageContainerOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateSharedPackageContainerOptions> for ::windows::runtime::IInspectable {
@@ -755,7 +755,7 @@ unsafe impl ::std::marker::Sync for CreateSharedPackageContainerOptions {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateSharedPackageContainerResult(::windows::runtime::IInspectable);
+pub struct CreateSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 impl CreateSharedPackageContainerResult {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Container(&self) -> ::windows::runtime::Result<SharedPackageContainer> {
@@ -794,22 +794,22 @@ impl ::windows::runtime::RuntimeName for CreateSharedPackageContainerResult {
 }
 impl ::std::convert::From<CreateSharedPackageContainerResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateSharedPackageContainerResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateSharedPackageContainerResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateSharedPackageContainerResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateSharedPackageContainerResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateSharedPackageContainerResult> for ::windows::runtime::IInspectable {
@@ -837,7 +837,7 @@ unsafe impl ::std::marker::Sync for CreateSharedPackageContainerResult {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeleteSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct DeleteSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 impl DeleteSharedPackageContainerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -885,22 +885,22 @@ impl ::windows::runtime::RuntimeName for DeleteSharedPackageContainerOptions {
 }
 impl ::std::convert::From<DeleteSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeleteSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeleteSharedPackageContainerOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeleteSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeleteSharedPackageContainerOptions> for ::windows::runtime::IInspectable {
@@ -928,7 +928,7 @@ unsafe impl ::std::marker::Sync for DeleteSharedPackageContainerOptions {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeleteSharedPackageContainerResult(::windows::runtime::IInspectable);
+pub struct DeleteSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 impl DeleteSharedPackageContainerResult {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SharedPackageContainerOperationStatus> {
@@ -959,22 +959,22 @@ impl ::windows::runtime::RuntimeName for DeleteSharedPackageContainerResult {
 }
 impl ::std::convert::From<DeleteSharedPackageContainerResult> for ::windows::runtime::IUnknown {
     fn from(value: DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeleteSharedPackageContainerResult> for ::windows::runtime::IUnknown {
     fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeleteSharedPackageContainerResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeleteSharedPackageContainerResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeleteSharedPackageContainerResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeleteSharedPackageContainerResult> for ::windows::runtime::IInspectable {
@@ -1114,7 +1114,7 @@ impl ::windows::runtime::DefaultType for DeploymentProgressState {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeploymentResult(::windows::runtime::IInspectable);
+pub struct DeploymentResult(pub ::windows::runtime::IInspectable);
 impl DeploymentResult {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1161,22 +1161,22 @@ impl ::windows::runtime::RuntimeName for DeploymentResult {
 }
 impl ::std::convert::From<DeploymentResult> for ::windows::runtime::IUnknown {
     fn from(value: DeploymentResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeploymentResult> for ::windows::runtime::IUnknown {
     fn from(value: &DeploymentResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeploymentResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeploymentResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeploymentResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeploymentResult> for ::windows::runtime::IInspectable {
@@ -1204,7 +1204,7 @@ unsafe impl ::std::marker::Sync for DeploymentResult {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FindSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct FindSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 impl FindSharedPackageContainerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1252,22 +1252,22 @@ impl ::windows::runtime::RuntimeName for FindSharedPackageContainerOptions {
 }
 impl ::std::convert::From<FindSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FindSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FindSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FindSharedPackageContainerOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FindSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FindSharedPackageContainerOptions> for ::windows::runtime::IInspectable {
@@ -1294,7 +1294,7 @@ unsafe impl ::std::marker::Send for FindSharedPackageContainerOptions {}
 unsafe impl ::std::marker::Sync for FindSharedPackageContainerOptions {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAddPackageOptions(::windows::runtime::IInspectable);
+pub struct IAddPackageOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddPackageOptions {
     type Vtable = IAddPackageOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(97443864, 63119, 16939, [149, 164, 102, 103, 158, 199, 127, 192]);
@@ -1347,7 +1347,7 @@ pub struct IAddPackageOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInstallerManager(::windows::runtime::IInspectable);
+pub struct IAppInstallerManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerManager {
     type Vtable = IAppInstallerManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3891143107, 8451, 21486, [155, 24, 104, 175, 234, 176, 3, 61]);
@@ -1368,7 +1368,7 @@ pub struct IAppInstallerManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInstallerManagerStatics(::windows::runtime::IInspectable);
+pub struct IAppInstallerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerManagerStatics {
     type Vtable = IAppInstallerManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378147029, 64601, 21302, [155, 46, 43, 7, 197, 230, 20, 52]);
@@ -1387,7 +1387,7 @@ pub struct IAppInstallerManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutoUpdateSettingsOptions(::windows::runtime::IInspectable);
+pub struct IAutoUpdateSettingsOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoUpdateSettingsOptions {
     type Vtable = IAutoUpdateSettingsOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732844935, 13793, 20778, [137, 104, 26, 232, 141, 27, 230, 211]);
@@ -1434,7 +1434,7 @@ pub struct IAutoUpdateSettingsOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutoUpdateSettingsOptionsStatics(::windows::runtime::IInspectable);
+pub struct IAutoUpdateSettingsOptionsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoUpdateSettingsOptionsStatics {
     type Vtable = IAutoUpdateSettingsOptionsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289775485, 3077, 21712, [189, 73, 59, 183, 162, 192, 132, 203]);
@@ -1453,7 +1453,7 @@ pub struct IAutoUpdateSettingsOptionsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct ICreateSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateSharedPackageContainerOptions {
     type Vtable = ICreateSharedPackageContainerOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266014926, 63076, 23694, [164, 179, 42, 51, 39, 109, 61, 222]);
@@ -1476,7 +1476,7 @@ pub struct ICreateSharedPackageContainerOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateSharedPackageContainerResult(::windows::runtime::IInspectable);
+pub struct ICreateSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateSharedPackageContainerResult {
     type Vtable = ICreateSharedPackageContainerResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465023679, 5404, 22279, [185, 54, 73, 126, 86, 74, 252, 122]);
@@ -1496,7 +1496,7 @@ pub struct ICreateSharedPackageContainerResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeleteSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct IDeleteSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeleteSharedPackageContainerOptions {
     type Vtable = IDeleteSharedPackageContainerOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2642511455, 39022, 20792, [139, 93, 56, 77, 142, 102, 237, 108]);
@@ -1517,7 +1517,7 @@ pub struct IDeleteSharedPackageContainerOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeleteSharedPackageContainerResult(::windows::runtime::IInspectable);
+pub struct IDeleteSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeleteSharedPackageContainerResult {
     type Vtable = IDeleteSharedPackageContainerResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892962948, 22326, 20859, [133, 188, 229, 152, 200, 26, 178, 132]);
@@ -1536,7 +1536,7 @@ pub struct IDeleteSharedPackageContainerResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeploymentResult(::windows::runtime::IInspectable);
+pub struct IDeploymentResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeploymentResult {
     type Vtable = IDeploymentResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627292590, 46973, 19487, [138, 123, 32, 230, 173, 81, 94, 243]);
@@ -1556,7 +1556,7 @@ pub struct IDeploymentResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeploymentResult2(::windows::runtime::IInspectable);
+pub struct IDeploymentResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeploymentResult2 {
     type Vtable = IDeploymentResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228804956, 23041, 19415, [188, 241, 56, 28, 140, 130, 224, 74]);
@@ -1574,7 +1574,7 @@ pub struct IDeploymentResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFindSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct IFindSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFindSharedPackageContainerOptions {
     type Vtable = IFindSharedPackageContainerOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020933374, 33668, 21708, [129, 125, 174, 9, 211, 182, 166, 6]);
@@ -1595,7 +1595,7 @@ pub struct IFindSharedPackageContainerOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageAllUserProvisioningOptions(::windows::runtime::IInspectable);
+pub struct IPackageAllUserProvisioningOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageAllUserProvisioningOptions {
     type Vtable = IPackageAllUserProvisioningOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660950050, 7648, 23870, [153, 255, 210, 79, 49, 24, 191, 94]);
@@ -1616,7 +1616,7 @@ pub struct IPackageAllUserProvisioningOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager(::windows::runtime::IInspectable);
+pub struct IPackageManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager {
     type Vtable = IPackageManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591902565, 24207, 20423, [162, 229, 127, 105, 37, 203, 139, 83]);
@@ -1664,7 +1664,7 @@ pub struct IPackageManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager10(::windows::runtime::IInspectable);
+pub struct IPackageManager10(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager10 {
     type Vtable = IPackageManager10_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815938686, 11878, 16531, [174, 213, 224, 147, 237, 135, 179, 187]);
@@ -1683,7 +1683,7 @@ pub struct IPackageManager10_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager2(::windows::runtime::IInspectable);
+pub struct IPackageManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager2 {
     type Vtable = IPackageManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4155166861, 2112, 18162, [181, 216, 202, 212, 118, 147, 160, 149]);
@@ -1720,7 +1720,7 @@ pub struct IPackageManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager3(::windows::runtime::IInspectable);
+pub struct IPackageManager3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager3 {
     type Vtable = IPackageManager3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668810056, 14065, 16807, [145, 136, 188, 38, 62, 13, 203, 114]);
@@ -1762,7 +1762,7 @@ pub struct IPackageManager3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager4(::windows::runtime::IInspectable);
+pub struct IPackageManager4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager4 {
     type Vtable = IPackageManager4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014077795, 47798, 18111, [143, 247, 218, 71, 25, 35, 10, 230]);
@@ -1781,7 +1781,7 @@ pub struct IPackageManager4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager5(::windows::runtime::IInspectable);
+pub struct IPackageManager5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager5 {
     type Vtable = IPackageManager5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1897869591, 6909, 17171, [151, 140, 155, 182, 225, 184, 100, 167]);
@@ -1805,7 +1805,7 @@ pub struct IPackageManager5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager6(::windows::runtime::IInspectable);
+pub struct IPackageManager6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager6 {
     type Vtable = IPackageManager6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138930441, 21453, 20047, [131, 46, 87, 209, 128, 246, 228, 71]);
@@ -1836,7 +1836,7 @@ pub struct IPackageManager6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager7(::windows::runtime::IInspectable);
+pub struct IPackageManager7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager7 {
     type Vtable = IPackageManager7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068889844, 11175, 19328, [136, 214, 190, 21, 249, 162, 63, 186]);
@@ -1856,7 +1856,7 @@ pub struct IPackageManager7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager8(::windows::runtime::IInspectable);
+pub struct IPackageManager8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager8 {
     type Vtable = IPackageManager8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092730672, 4760, 20194, [128, 238, 127, 101, 156, 93, 39, 130]);
@@ -1875,7 +1875,7 @@ pub struct IPackageManager8_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManager9(::windows::runtime::IInspectable);
+pub struct IPackageManager9(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager9 {
     type Vtable = IPackageManager9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(447189045, 52337, 19246, [128, 166, 199, 4, 29, 133, 121, 167]);
@@ -1904,7 +1904,7 @@ pub struct IPackageManager9_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageManagerDebugSettings(::windows::runtime::IInspectable);
+pub struct IPackageManagerDebugSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManagerDebugSettings {
     type Vtable = IPackageManagerDebugSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442570371, 43400, 20431, [143, 15, 206, 23, 88, 152, 232, 235]);
@@ -1925,7 +1925,7 @@ pub struct IPackageManagerDebugSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageUserInformation(::windows::runtime::IInspectable);
+pub struct IPackageUserInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageUserInformation {
     type Vtable = IPackageUserInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4130878499, 64009, 19644, [144, 85, 21, 202, 39, 94, 46, 126]);
@@ -1944,7 +1944,7 @@ pub struct IPackageUserInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageVolume(::windows::runtime::IInspectable);
+pub struct IPackageVolume(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageVolume {
     type Vtable = IPackageVolume_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475403459, 6720, 17488, [151, 57, 42, 206, 46, 137, 136, 83]);
@@ -1995,7 +1995,7 @@ pub struct IPackageVolume_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageVolume2(::windows::runtime::IInspectable);
+pub struct IPackageVolume2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageVolume2 {
     type Vtable = IPackageVolume2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185664814, 40404, 18338, [171, 140, 198, 64, 131, 73, 188, 216]);
@@ -2016,7 +2016,7 @@ pub struct IPackageVolume2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRegisterPackageOptions(::windows::runtime::IInspectable);
+pub struct IRegisterPackageOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegisterPackageOptions {
     type Vtable = IRegisterPackageOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735463591, 20692, 18796, [132, 21, 6, 2, 180, 198, 211, 191]);
@@ -2059,7 +2059,7 @@ pub struct IRegisterPackageOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISharedPackageContainer(::windows::runtime::IInspectable);
+pub struct ISharedPackageContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainer {
     type Vtable = ISharedPackageContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(394205865, 5406, 24311, [177, 217, 47, 186, 11, 75, 13, 23]);
@@ -2082,7 +2082,7 @@ pub struct ISharedPackageContainer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerManager(::windows::runtime::IInspectable);
+pub struct ISharedPackageContainerManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerManager {
     type Vtable = ISharedPackageContainerManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3191156840, 7927, 23240, [171, 63, 11, 159, 97, 47, 2, 116]);
@@ -2106,7 +2106,7 @@ pub struct ISharedPackageContainerManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerManagerStatics(::windows::runtime::IInspectable);
+pub struct ISharedPackageContainerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerManagerStatics {
     type Vtable = ISharedPackageContainerManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(787833672, 33674, 24405, [168, 158, 17, 152, 162, 198, 39, 230]);
@@ -2126,7 +2126,7 @@ pub struct ISharedPackageContainerManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerMember(::windows::runtime::IInspectable);
+pub struct ISharedPackageContainerMember(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerMember {
     type Vtable = ISharedPackageContainerMember_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262265912, 17353, 21542, [184, 156, 247, 155, 248, 93, 223, 244]);
@@ -2144,7 +2144,7 @@ pub struct ISharedPackageContainerMember_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerMemberFactory(::windows::runtime::IInspectable);
+pub struct ISharedPackageContainerMemberFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerMemberFactory {
     type Vtable = ISharedPackageContainerMemberFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236324075, 18831, 23138, [183, 56, 179, 202, 13, 67, 103, 4]);
@@ -2162,7 +2162,7 @@ pub struct ISharedPackageContainerMemberFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStagePackageOptions(::windows::runtime::IInspectable);
+pub struct IStagePackageOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStagePackageOptions {
     type Vtable = IStagePackageOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(185666716, 47453, 19542, [189, 54, 109, 101, 104, 0, 208, 107]);
@@ -2207,7 +2207,7 @@ pub struct IStagePackageOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUpdateSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct IUpdateSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUpdateSharedPackageContainerOptions {
     type Vtable = IUpdateSharedPackageContainerOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2154245763, 29076, 23033, [181, 185, 218, 165, 55, 95, 19, 10]);
@@ -2228,7 +2228,7 @@ pub struct IUpdateSharedPackageContainerOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUpdateSharedPackageContainerResult(::windows::runtime::IInspectable);
+pub struct IUpdateSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUpdateSharedPackageContainerResult {
     type Vtable = IUpdateSharedPackageContainerResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2856353271, 50989, 21592, [174, 163, 70, 69, 182, 168, 238, 153]);
@@ -2248,7 +2248,7 @@ pub struct IUpdateSharedPackageContainerResult_abi(
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageAllUserProvisioningOptions(::windows::runtime::IInspectable);
+pub struct PackageAllUserProvisioningOptions(pub ::windows::runtime::IInspectable);
 impl PackageAllUserProvisioningOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2288,22 +2288,22 @@ impl ::windows::runtime::RuntimeName for PackageAllUserProvisioningOptions {
 }
 impl ::std::convert::From<PackageAllUserProvisioningOptions> for ::windows::runtime::IUnknown {
     fn from(value: PackageAllUserProvisioningOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageAllUserProvisioningOptions> for ::windows::runtime::IUnknown {
     fn from(value: &PackageAllUserProvisioningOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageAllUserProvisioningOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageAllUserProvisioningOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageAllUserProvisioningOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageAllUserProvisioningOptions> for ::windows::runtime::IInspectable {
@@ -2355,7 +2355,7 @@ impl ::windows::runtime::DefaultType for PackageInstallState {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageManager(::windows::runtime::IInspectable);
+pub struct PackageManager(pub ::windows::runtime::IInspectable);
 impl PackageManager {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3038,22 +3038,22 @@ impl ::windows::runtime::RuntimeName for PackageManager {
 }
 impl ::std::convert::From<PackageManager> for ::windows::runtime::IUnknown {
     fn from(value: PackageManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageManager> for ::windows::runtime::IUnknown {
     fn from(value: &PackageManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageManager> for ::windows::runtime::IInspectable {
@@ -3081,7 +3081,7 @@ unsafe impl ::std::marker::Sync for PackageManager {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageManagerDebugSettings(::windows::runtime::IInspectable);
+pub struct PackageManagerDebugSettings(pub ::windows::runtime::IInspectable);
 impl PackageManagerDebugSettings {
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation`*"]
@@ -3114,22 +3114,22 @@ impl ::windows::runtime::RuntimeName for PackageManagerDebugSettings {
 }
 impl ::std::convert::From<PackageManagerDebugSettings> for ::windows::runtime::IUnknown {
     fn from(value: PackageManagerDebugSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageManagerDebugSettings> for ::windows::runtime::IUnknown {
     fn from(value: &PackageManagerDebugSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageManagerDebugSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageManagerDebugSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageManagerDebugSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageManagerDebugSettings> for ::windows::runtime::IInspectable {
@@ -3312,7 +3312,7 @@ impl ::std::ops::Not for PackageTypes {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageUserInformation(::windows::runtime::IInspectable);
+pub struct PackageUserInformation(pub ::windows::runtime::IInspectable);
 impl PackageUserInformation {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn UserSecurityId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3343,22 +3343,22 @@ impl ::windows::runtime::RuntimeName for PackageUserInformation {
 }
 impl ::std::convert::From<PackageUserInformation> for ::windows::runtime::IUnknown {
     fn from(value: PackageUserInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageUserInformation> for ::windows::runtime::IUnknown {
     fn from(value: &PackageUserInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageUserInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageUserInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageUserInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageUserInformation> for ::windows::runtime::IInspectable {
@@ -3386,7 +3386,7 @@ unsafe impl ::std::marker::Sync for PackageUserInformation {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageVolume(::windows::runtime::IInspectable);
+pub struct PackageVolume(pub ::windows::runtime::IInspectable);
 impl PackageVolume {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsOffline(&self) -> ::windows::runtime::Result<bool> {
@@ -3606,22 +3606,22 @@ impl ::windows::runtime::RuntimeName for PackageVolume {
 }
 impl ::std::convert::From<PackageVolume> for ::windows::runtime::IUnknown {
     fn from(value: PackageVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageVolume> for ::windows::runtime::IUnknown {
     fn from(value: &PackageVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageVolume> for ::windows::runtime::IInspectable {
@@ -3649,7 +3649,7 @@ unsafe impl ::std::marker::Sync for PackageVolume {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RegisterPackageOptions(::windows::runtime::IInspectable);
+pub struct RegisterPackageOptions(pub ::windows::runtime::IInspectable);
 impl RegisterPackageOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3821,22 +3821,22 @@ impl ::windows::runtime::RuntimeName for RegisterPackageOptions {
 }
 impl ::std::convert::From<RegisterPackageOptions> for ::windows::runtime::IUnknown {
     fn from(value: RegisterPackageOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RegisterPackageOptions> for ::windows::runtime::IUnknown {
     fn from(value: &RegisterPackageOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RegisterPackageOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RegisterPackageOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RegisterPackageOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RegisterPackageOptions> for ::windows::runtime::IInspectable {
@@ -3916,7 +3916,7 @@ impl ::std::ops::Not for RemovalOptions {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SharedPackageContainer(::windows::runtime::IInspectable);
+pub struct SharedPackageContainer(pub ::windows::runtime::IInspectable);
 impl SharedPackageContainer {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3972,22 +3972,22 @@ impl ::windows::runtime::RuntimeName for SharedPackageContainer {
 }
 impl ::std::convert::From<SharedPackageContainer> for ::windows::runtime::IUnknown {
     fn from(value: SharedPackageContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SharedPackageContainer> for ::windows::runtime::IUnknown {
     fn from(value: &SharedPackageContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SharedPackageContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SharedPackageContainer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SharedPackageContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SharedPackageContainer> for ::windows::runtime::IInspectable {
@@ -4041,7 +4041,7 @@ impl ::windows::runtime::DefaultType for SharedPackageContainerCreationCollision
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SharedPackageContainerManager(::windows::runtime::IInspectable);
+pub struct SharedPackageContainerManager(pub ::windows::runtime::IInspectable);
 impl SharedPackageContainerManager {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn CreateContainer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, CreateSharedPackageContainerOptions>>(&self, name: Param0, options: Param1) -> ::windows::runtime::Result<CreateSharedPackageContainerResult> {
@@ -4123,22 +4123,22 @@ impl ::windows::runtime::RuntimeName for SharedPackageContainerManager {
 }
 impl ::std::convert::From<SharedPackageContainerManager> for ::windows::runtime::IUnknown {
     fn from(value: SharedPackageContainerManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SharedPackageContainerManager> for ::windows::runtime::IUnknown {
     fn from(value: &SharedPackageContainerManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SharedPackageContainerManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SharedPackageContainerManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SharedPackageContainerManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SharedPackageContainerManager> for ::windows::runtime::IInspectable {
@@ -4166,7 +4166,7 @@ unsafe impl ::std::marker::Sync for SharedPackageContainerManager {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SharedPackageContainerMember(::windows::runtime::IInspectable);
+pub struct SharedPackageContainerMember(pub ::windows::runtime::IInspectable);
 impl SharedPackageContainerMember {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4200,22 +4200,22 @@ impl ::windows::runtime::RuntimeName for SharedPackageContainerMember {
 }
 impl ::std::convert::From<SharedPackageContainerMember> for ::windows::runtime::IUnknown {
     fn from(value: SharedPackageContainerMember) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SharedPackageContainerMember> for ::windows::runtime::IUnknown {
     fn from(value: &SharedPackageContainerMember) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SharedPackageContainerMember {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SharedPackageContainerMember {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SharedPackageContainerMember {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SharedPackageContainerMember> for ::windows::runtime::IInspectable {
@@ -4269,7 +4269,7 @@ impl ::windows::runtime::DefaultType for SharedPackageContainerOperationStatus {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StagePackageOptions(::windows::runtime::IInspectable);
+pub struct StagePackageOptions(pub ::windows::runtime::IInspectable);
 impl StagePackageOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4446,22 +4446,22 @@ impl ::windows::runtime::RuntimeName for StagePackageOptions {
 }
 impl ::std::convert::From<StagePackageOptions> for ::windows::runtime::IUnknown {
     fn from(value: StagePackageOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StagePackageOptions> for ::windows::runtime::IUnknown {
     fn from(value: &StagePackageOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StagePackageOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StagePackageOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StagePackageOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StagePackageOptions> for ::windows::runtime::IInspectable {
@@ -4513,7 +4513,7 @@ impl ::windows::runtime::DefaultType for StubPackageOption {
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UpdateSharedPackageContainerOptions(::windows::runtime::IInspectable);
+pub struct UpdateSharedPackageContainerOptions(pub ::windows::runtime::IInspectable);
 impl UpdateSharedPackageContainerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4561,22 +4561,22 @@ impl ::windows::runtime::RuntimeName for UpdateSharedPackageContainerOptions {
 }
 impl ::std::convert::From<UpdateSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: UpdateSharedPackageContainerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UpdateSharedPackageContainerOptions> for ::windows::runtime::IUnknown {
     fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UpdateSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UpdateSharedPackageContainerOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UpdateSharedPackageContainerOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UpdateSharedPackageContainerOptions> for ::windows::runtime::IInspectable {
@@ -4604,7 +4604,7 @@ unsafe impl ::std::marker::Sync for UpdateSharedPackageContainerOptions {}
 #[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UpdateSharedPackageContainerResult(::windows::runtime::IInspectable);
+pub struct UpdateSharedPackageContainerResult(pub ::windows::runtime::IInspectable);
 impl UpdateSharedPackageContainerResult {
     #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SharedPackageContainerOperationStatus> {
@@ -4635,22 +4635,22 @@ impl ::windows::runtime::RuntimeName for UpdateSharedPackageContainerResult {
 }
 impl ::std::convert::From<UpdateSharedPackageContainerResult> for ::windows::runtime::IUnknown {
     fn from(value: UpdateSharedPackageContainerResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UpdateSharedPackageContainerResult> for ::windows::runtime::IUnknown {
     fn from(value: &UpdateSharedPackageContainerResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UpdateSharedPackageContainerResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UpdateSharedPackageContainerResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UpdateSharedPackageContainerResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UpdateSharedPackageContainerResult> for ::windows::runtime::IInspectable {

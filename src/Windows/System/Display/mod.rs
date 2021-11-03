@@ -2,7 +2,7 @@
 #[doc = "*Required features: `System_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DisplayRequest(::windows::runtime::IInspectable);
+pub struct DisplayRequest(pub ::windows::runtime::IInspectable);
 impl DisplayRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -34,22 +34,22 @@ impl ::windows::runtime::RuntimeName for DisplayRequest {
 }
 impl ::std::convert::From<DisplayRequest> for ::windows::runtime::IUnknown {
     fn from(value: DisplayRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DisplayRequest> for ::windows::runtime::IUnknown {
     fn from(value: &DisplayRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DisplayRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DisplayRequest> for ::windows::runtime::IInspectable {
@@ -74,7 +74,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDisplayRequest(::windows::runtime::IInspectable);
+pub struct IDisplayRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRequest {
     type Vtable = IDisplayRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849527364, 62623, 19296, [141, 212, 94, 126, 58, 99, 42, 192]);

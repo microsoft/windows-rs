@@ -106,7 +106,7 @@ impl ::windows::runtime::DefaultType for GameServiceGameOutcome {
 #[doc = "*Required features: `Phone_System_UserProfile_GameServices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameServicePropertyCollection(::windows::runtime::IInspectable);
+pub struct GameServicePropertyCollection(pub ::windows::runtime::IInspectable);
 impl GameServicePropertyCollection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_System_UserProfile_GameServices_Core`, `Foundation`*"]
@@ -130,22 +130,22 @@ impl ::windows::runtime::RuntimeName for GameServicePropertyCollection {
 }
 impl ::std::convert::From<GameServicePropertyCollection> for ::windows::runtime::IUnknown {
     fn from(value: GameServicePropertyCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameServicePropertyCollection> for ::windows::runtime::IUnknown {
     fn from(value: &GameServicePropertyCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameServicePropertyCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameServicePropertyCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameServicePropertyCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameServicePropertyCollection> for ::windows::runtime::IInspectable {
@@ -194,7 +194,7 @@ impl ::windows::runtime::DefaultType for GameServiceScoreKind {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameService(::windows::runtime::IInspectable);
+pub struct IGameService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameService {
     type Vtable = IGameService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(774721688, 18601, 20220, [175, 214, 142, 109, 160, 144, 3, 251]);
@@ -225,7 +225,7 @@ pub struct IGameService_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameService2(::windows::runtime::IInspectable);
+pub struct IGameService2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameService2 {
     type Vtable = IGameService2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3526774518, 59927, 19429, [141, 138, 200, 96, 136, 94, 5, 31]);
@@ -245,7 +245,7 @@ pub struct IGameService2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameServicePropertyCollection(::windows::runtime::IInspectable);
+pub struct IGameServicePropertyCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132480968, 57019, 17929, [156, 200, 82, 157, 22, 188, 43, 217]);

@@ -2,7 +2,7 @@
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Pwm_Provider`*"]
-pub struct IPwmControllerProvider(::windows::runtime::IInspectable);
+pub struct IPwmControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmControllerProvider {
     type Vtable = IPwmControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(318789947, 58083, 16548, [183, 217, 72, 223, 240, 55, 122, 82]);
@@ -79,22 +79,22 @@ unsafe impl ::windows::runtime::RuntimeType for IPwmControllerProvider {
 }
 impl ::std::convert::From<IPwmControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: IPwmControllerProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IPwmControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IPwmControllerProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPwmControllerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPwmControllerProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPwmControllerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IPwmControllerProvider> for ::windows::runtime::IInspectable {
@@ -140,7 +140,7 @@ pub struct IPwmControllerProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Pwm_Provider`*"]
-pub struct IPwmProvider(::windows::runtime::IInspectable);
+pub struct IPwmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmProvider {
     type Vtable = IPwmProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2737836584, 21233, 18352, [147, 73, 102, 186, 67, 210, 89, 2]);
@@ -161,22 +161,22 @@ unsafe impl ::windows::runtime::RuntimeType for IPwmProvider {
 }
 impl ::std::convert::From<IPwmProvider> for ::windows::runtime::IUnknown {
     fn from(value: IPwmProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IPwmProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IPwmProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPwmProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPwmProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPwmProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IPwmProvider> for ::windows::runtime::IInspectable {

@@ -511,7 +511,7 @@ unsafe impl ::windows::runtime::Abi for HrtfPosition {
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAPO(::windows::runtime::IUnknown);
+pub struct IXAPO(pub ::windows::runtime::IUnknown);
 impl IXAPO {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows::runtime::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
@@ -574,22 +574,22 @@ unsafe impl ::windows::runtime::Interface for IXAPO {
 }
 impl ::std::convert::From<IXAPO> for ::windows::runtime::IUnknown {
     fn from(value: IXAPO) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAPO> for ::windows::runtime::IUnknown {
     fn from(value: &IXAPO) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAPO {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAPO {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAPO {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -616,7 +616,7 @@ pub struct IXAPO_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAPOHrtfParameters(::windows::runtime::IUnknown);
+pub struct IXAPOHrtfParameters(pub ::windows::runtime::IUnknown);
 impl IXAPOHrtfParameters {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> ::windows::runtime::Result<()> {
@@ -641,22 +641,22 @@ unsafe impl ::windows::runtime::Interface for IXAPOHrtfParameters {
 }
 impl ::std::convert::From<IXAPOHrtfParameters> for ::windows::runtime::IUnknown {
     fn from(value: IXAPOHrtfParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAPOHrtfParameters> for ::windows::runtime::IUnknown {
     fn from(value: &IXAPOHrtfParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAPOHrtfParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAPOHrtfParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAPOHrtfParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -673,7 +673,7 @@ pub struct IXAPOHrtfParameters_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAPOParameters(::windows::runtime::IUnknown);
+pub struct IXAPOParameters(pub ::windows::runtime::IUnknown);
 impl IXAPOParameters {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn SetParameters(&self, pparameters: *const ::std::ffi::c_void, parameterbytesize: u32) {
@@ -690,22 +690,22 @@ unsafe impl ::windows::runtime::Interface for IXAPOParameters {
 }
 impl ::std::convert::From<IXAPOParameters> for ::windows::runtime::IUnknown {
     fn from(value: IXAPOParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAPOParameters> for ::windows::runtime::IUnknown {
     fn from(value: &IXAPOParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAPOParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAPOParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAPOParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -720,7 +720,7 @@ pub struct IXAPOParameters_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2(::windows::runtime::IUnknown);
+pub struct IXAudio2(pub ::windows::runtime::IUnknown);
 impl IXAudio2 {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn RegisterForCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, IXAudio2EngineCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -773,22 +773,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2 {
 }
 impl ::std::convert::From<IXAudio2> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -815,7 +815,7 @@ pub struct IXAudio2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2EngineCallback(::windows::runtime::IUnknown);
+pub struct IXAudio2EngineCallback(pub ::windows::runtime::IUnknown);
 impl IXAudio2EngineCallback {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn OnProcessingPassStart(&self) {
@@ -836,22 +836,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2EngineCallback {
 }
 impl ::std::convert::From<IXAudio2EngineCallback> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2EngineCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2EngineCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2EngineCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2EngineCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2EngineCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2EngineCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -867,7 +867,7 @@ pub struct IXAudio2EngineCallback_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2Extension(::windows::runtime::IUnknown);
+pub struct IXAudio2Extension(pub ::windows::runtime::IUnknown);
 impl IXAudio2Extension {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
@@ -884,22 +884,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2Extension {
 }
 impl ::std::convert::From<IXAudio2Extension> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2Extension) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2Extension> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2Extension) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2Extension {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2Extension {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2Extension {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -914,7 +914,7 @@ pub struct IXAudio2Extension_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2MasteringVoice(::windows::runtime::IUnknown);
+pub struct IXAudio2MasteringVoice(pub ::windows::runtime::IUnknown);
 impl IXAudio2MasteringVoice {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
@@ -1006,22 +1006,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2MasteringVoice {
 }
 impl ::std::convert::From<IXAudio2MasteringVoice> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2MasteringVoice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2MasteringVoice> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2MasteringVoice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2MasteringVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2MasteringVoice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2MasteringVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXAudio2MasteringVoice> for IXAudio2Voice {
@@ -1076,7 +1076,7 @@ pub struct IXAudio2MasteringVoice_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2SourceVoice(::windows::runtime::IUnknown);
+pub struct IXAudio2SourceVoice(pub ::windows::runtime::IUnknown);
 impl IXAudio2SourceVoice {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
@@ -1203,22 +1203,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2SourceVoice {
 }
 impl ::std::convert::From<IXAudio2SourceVoice> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2SourceVoice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2SourceVoice> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2SourceVoice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2SourceVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2SourceVoice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2SourceVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXAudio2SourceVoice> for IXAudio2Voice {
@@ -1282,7 +1282,7 @@ pub struct IXAudio2SourceVoice_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2SubmixVoice(::windows::runtime::IUnknown);
+pub struct IXAudio2SubmixVoice(pub ::windows::runtime::IUnknown);
 impl IXAudio2SubmixVoice {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
@@ -1369,22 +1369,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2SubmixVoice {
 }
 impl ::std::convert::From<IXAudio2SubmixVoice> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2SubmixVoice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2SubmixVoice> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2SubmixVoice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2SubmixVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2SubmixVoice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2SubmixVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXAudio2SubmixVoice> for IXAudio2Voice {
@@ -1438,7 +1438,7 @@ pub struct IXAudio2SubmixVoice_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2Voice(::windows::runtime::IUnknown);
+pub struct IXAudio2Voice(pub ::windows::runtime::IUnknown);
 impl IXAudio2Voice {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
@@ -1525,22 +1525,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2Voice {
 }
 impl ::std::convert::From<IXAudio2Voice> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2Voice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2Voice> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2Voice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2Voice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2Voice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2Voice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1574,7 +1574,7 @@ pub struct IXAudio2Voice_abi(
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXAudio2VoiceCallback(::windows::runtime::IUnknown);
+pub struct IXAudio2VoiceCallback(pub ::windows::runtime::IUnknown);
 impl IXAudio2VoiceCallback {
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn OnVoiceProcessingPassStart(&self, bytesrequired: u32) {
@@ -1611,22 +1611,22 @@ unsafe impl ::windows::runtime::Interface for IXAudio2VoiceCallback {
 }
 impl ::std::convert::From<IXAudio2VoiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: IXAudio2VoiceCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXAudio2VoiceCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IXAudio2VoiceCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXAudio2VoiceCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXAudio2VoiceCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXAudio2VoiceCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarCancelMeetingRequest(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarCancelMeetingRequest(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarCancelMeetingRequest {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -84,22 +84,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarCancelMeetingRequest
 }
 impl ::std::convert::From<AppointmentCalendarCancelMeetingRequest> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarCancelMeetingRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarCancelMeetingRequest> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarCancelMeetingRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarCancelMeetingRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarCancelMeetingRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarCancelMeetingRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarCancelMeetingRequest> for ::windows::runtime::IInspectable {
@@ -127,7 +127,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarCancelMeetingRequest {}
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarCancelMeetingRequestEventArgs(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarCancelMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarCancelMeetingRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppointmentCalendarCancelMeetingRequest> {
@@ -159,22 +159,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarCancelMeetingRequest
 }
 impl ::std::convert::From<AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarCancelMeetingRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarCancelMeetingRequestEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarCancelMeetingRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::runtime::IInspectable {
@@ -202,7 +202,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarCancelMeetingRequestEvent
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -268,22 +268,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarCreateOrUpdateAppoin
 }
 impl ::std::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarCreateOrUpdateAppointmentRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarCreateOrUpdateAppointmentRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::runtime::IInspectable {
@@ -311,7 +311,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarCreateOrUpdateAppointment
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest> {
@@ -343,22 +343,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarCreateOrUpdateAppoin
 }
 impl ::std::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::runtime::IInspectable {
@@ -386,7 +386,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarCreateOrUpdateAppointment
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarForwardMeetingRequest(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarForwardMeetingRequest(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarForwardMeetingRequest {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -477,22 +477,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarForwardMeetingReques
 }
 impl ::std::convert::From<AppointmentCalendarForwardMeetingRequest> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarForwardMeetingRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarForwardMeetingRequest> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarForwardMeetingRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarForwardMeetingRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarForwardMeetingRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarForwardMeetingRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarForwardMeetingRequest> for ::windows::runtime::IInspectable {
@@ -520,7 +520,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarForwardMeetingRequest {}
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarForwardMeetingRequestEventArgs(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarForwardMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarForwardMeetingRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppointmentCalendarForwardMeetingRequest> {
@@ -552,22 +552,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarForwardMeetingReques
 }
 impl ::std::convert::From<AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarForwardMeetingRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarForwardMeetingRequestEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarForwardMeetingRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::runtime::IInspectable {
@@ -595,7 +595,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarForwardMeetingRequestEven
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequest {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -687,22 +687,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarProposeNewTimeForMee
 }
 impl ::std::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarProposeNewTimeForMeetingRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarProposeNewTimeForMeetingRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarProposeNewTimeForMeetingRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::runtime::IInspectable {
@@ -730,7 +730,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingR
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppointmentCalendarProposeNewTimeForMeetingRequest> {
@@ -762,22 +762,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarProposeNewTimeForMee
 }
 impl ::std::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::runtime::IInspectable {
@@ -805,7 +805,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingR
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarSyncManagerSyncRequest(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequest {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -846,22 +846,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarSyncManagerSyncReque
 }
 impl ::std::convert::From<AppointmentCalendarSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarSyncManagerSyncRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarSyncManagerSyncRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarSyncManagerSyncRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
@@ -889,7 +889,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarSyncManagerSyncRequest {}
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppointmentCalendarSyncManagerSyncRequest> {
@@ -921,22 +921,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarSyncManagerSyncReque
 }
 impl ::std::convert::From<AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarSyncManagerSyncRequestEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarSyncManagerSyncRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
@@ -964,7 +964,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarSyncManagerSyncRequestEve
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarUpdateMeetingResponseRequest(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarUpdateMeetingResponseRequest(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequest {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1054,22 +1054,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarUpdateMeetingRespons
 }
 impl ::std::convert::From<AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarUpdateMeetingResponseRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarUpdateMeetingResponseRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarUpdateMeetingResponseRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::runtime::IInspectable {
@@ -1097,7 +1097,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequ
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::runtime::IInspectable);
+pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppointmentCalendarUpdateMeetingResponseRequest> {
@@ -1129,22 +1129,22 @@ impl ::windows::runtime::RuntimeName for AppointmentCalendarUpdateMeetingRespons
 }
 impl ::std::convert::From<AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::runtime::IInspectable {
@@ -1172,7 +1172,7 @@ unsafe impl ::std::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequ
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentDataProviderConnection(::windows::runtime::IInspectable);
+pub struct AppointmentDataProviderConnection(pub ::windows::runtime::IInspectable);
 impl AppointmentDataProviderConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`, `Foundation`*"]
@@ -1282,22 +1282,22 @@ impl ::windows::runtime::RuntimeName for AppointmentDataProviderConnection {
 }
 impl ::std::convert::From<AppointmentDataProviderConnection> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentDataProviderConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentDataProviderConnection> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentDataProviderConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentDataProviderConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentDataProviderConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentDataProviderConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentDataProviderConnection> for ::windows::runtime::IInspectable {
@@ -1325,7 +1325,7 @@ unsafe impl ::std::marker::Sync for AppointmentDataProviderConnection {}
 #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppointmentDataProviderTriggerDetails(::windows::runtime::IInspectable);
+pub struct AppointmentDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 impl AppointmentDataProviderTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Appointments_DataProvider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<AppointmentDataProviderConnection> {
@@ -1348,22 +1348,22 @@ impl ::windows::runtime::RuntimeName for AppointmentDataProviderTriggerDetails {
 }
 impl ::std::convert::From<AppointmentDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: AppointmentDataProviderTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppointmentDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &AppointmentDataProviderTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentDataProviderTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentDataProviderTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppointmentDataProviderTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppointmentDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
@@ -1390,7 +1390,7 @@ unsafe impl ::std::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for AppointmentDataProviderTriggerDetails {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCancelMeetingRequest(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarCancelMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCancelMeetingRequest {
     type Vtable = IAppointmentCalendarCancelMeetingRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229328269, 25652, 16599, [173, 70, 98, 151, 65, 147, 20, 209]);
@@ -1418,7 +1418,7 @@ pub struct IAppointmentCalendarCancelMeetingRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(444186134, 32560, 20021, [190, 239, 157, 44, 123, 109, 202, 225]);
@@ -1438,7 +1438,7 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778236594, 51862, 18604, [145, 36, 64, 107, 25, 254, 250, 112]);
@@ -1464,7 +1464,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482185000, 46, 19447, [142, 157, 94, 32, 212, 154, 163, 186]);
@@ -1484,7 +1484,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarForwardMeetingRequest(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarForwardMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2196106838, 9910, 16979, [138, 143, 108, 245, 242, 255, 120, 132]);
@@ -1514,7 +1514,7 @@ pub struct IAppointmentCalendarForwardMeetingRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822678810, 9122, 17149, [156, 130, 201, 166, 13, 89, 248, 168]);
@@ -1534,7 +1534,7 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457967093, 60918, 17347, [130, 183, 190, 107, 54, 140, 105, 0]);
@@ -1565,7 +1565,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537336280, 65233, 17024, [163, 186, 46, 31, 71, 96, 154, 162]);
@@ -1585,7 +1585,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarSyncManagerSyncRequest(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(313210923, 29027, 19030, [154, 78, 114, 35, 168, 74, 223, 70]);
@@ -1607,7 +1607,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390555895, 644, 20189, [135, 186, 77, 143, 105, 220, 245, 192]);
@@ -1627,7 +1627,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarUpdateMeetingResponseRequest(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarUpdateMeetingResponseRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741854348, 49821, 19348, [176, 134, 126, 159, 247, 189, 132, 160]);
@@ -1656,7 +1656,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289408131, 38847, 18333, [174, 213, 11, 232, 206, 86, 125, 30]);
@@ -1676,7 +1676,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentDataProviderConnection(::windows::runtime::IInspectable);
+pub struct IAppointmentDataProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4091387267, 12884, 18015, [171, 219, 146, 128, 70, 85, 44, 244]);
@@ -1718,7 +1718,7 @@ pub struct IAppointmentDataProviderConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentDataProviderTriggerDetails(::windows::runtime::IInspectable);
+pub struct IAppointmentDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentDataProviderTriggerDetails {
     type Vtable = IAppointmentDataProviderTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005758465, 32274, 20062, [177, 239, 116, 251, 104, 172, 111, 42]);

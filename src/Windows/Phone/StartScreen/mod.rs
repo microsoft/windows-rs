@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Phone_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DualSimTile(::windows::runtime::IInspectable);
+pub struct DualSimTile(pub ::windows::runtime::IInspectable);
 impl DualSimTile {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -139,22 +139,22 @@ impl ::windows::runtime::RuntimeName for DualSimTile {
 }
 impl ::std::convert::From<DualSimTile> for ::windows::runtime::IUnknown {
     fn from(value: DualSimTile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DualSimTile> for ::windows::runtime::IUnknown {
     fn from(value: &DualSimTile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DualSimTile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DualSimTile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DualSimTile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DualSimTile> for ::windows::runtime::IInspectable {
@@ -182,7 +182,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct DualSimTileContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDualSimTile(::windows::runtime::IInspectable);
+pub struct IDualSimTile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDualSimTile {
     type Vtable = IDualSimTile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339390995, 53343, 16449, [161, 140, 62, 63, 203, 117, 180, 30]);
@@ -208,7 +208,7 @@ pub struct IDualSimTile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDualSimTileStatics(::windows::runtime::IInspectable);
+pub struct IDualSimTileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDualSimTileStatics {
     type Vtable = IDualSimTileStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347845278, 50575, 19913, [182, 232, 250, 103, 119, 238, 235, 55]);
@@ -241,7 +241,7 @@ pub struct IDualSimTileStatics_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Phone_StartScreen`*"]
-pub struct IToastNotificationManagerStatics3(::windows::runtime::IInspectable);
+pub struct IToastNotificationManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(655881547, 20703, 17493, [142, 110, 65, 224, 252, 142, 19, 206]);
@@ -262,22 +262,22 @@ unsafe impl ::windows::runtime::RuntimeType for IToastNotificationManagerStatics
 }
 impl ::std::convert::From<IToastNotificationManagerStatics3> for ::windows::runtime::IUnknown {
     fn from(value: IToastNotificationManagerStatics3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IToastNotificationManagerStatics3> for ::windows::runtime::IUnknown {
     fn from(value: &IToastNotificationManagerStatics3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IToastNotificationManagerStatics3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IToastNotificationManagerStatics3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IToastNotificationManagerStatics3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IToastNotificationManagerStatics3> for ::windows::runtime::IInspectable {

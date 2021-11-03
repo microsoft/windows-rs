@@ -142,7 +142,7 @@ impl ::windows::runtime::RuntimeName for Clipboard {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClipboardContentOptions(::windows::runtime::IInspectable);
+pub struct ClipboardContentOptions(pub ::windows::runtime::IInspectable);
 impl ClipboardContentOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -208,22 +208,22 @@ impl ::windows::runtime::RuntimeName for ClipboardContentOptions {
 }
 impl ::std::convert::From<ClipboardContentOptions> for ::windows::runtime::IUnknown {
     fn from(value: ClipboardContentOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClipboardContentOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ClipboardContentOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardContentOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardContentOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClipboardContentOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClipboardContentOptions> for ::windows::runtime::IInspectable {
@@ -251,7 +251,7 @@ unsafe impl ::std::marker::Sync for ClipboardContentOptions {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClipboardHistoryChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ClipboardHistoryChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl ClipboardHistoryChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClipboardHistoryChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs;{c0be453f-8ea2-53ce-9aba-8d2212573452})");
@@ -265,22 +265,22 @@ impl ::windows::runtime::RuntimeName for ClipboardHistoryChangedEventArgs {
 }
 impl ::std::convert::From<ClipboardHistoryChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ClipboardHistoryChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClipboardHistoryChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ClipboardHistoryChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardHistoryChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardHistoryChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClipboardHistoryChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClipboardHistoryChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -308,7 +308,7 @@ unsafe impl ::std::marker::Sync for ClipboardHistoryChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClipboardHistoryItem(::windows::runtime::IInspectable);
+pub struct ClipboardHistoryItem(pub ::windows::runtime::IInspectable);
 impl ClipboardHistoryItem {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -348,22 +348,22 @@ impl ::windows::runtime::RuntimeName for ClipboardHistoryItem {
 }
 impl ::std::convert::From<ClipboardHistoryItem> for ::windows::runtime::IUnknown {
     fn from(value: ClipboardHistoryItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClipboardHistoryItem> for ::windows::runtime::IUnknown {
     fn from(value: &ClipboardHistoryItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardHistoryItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardHistoryItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClipboardHistoryItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClipboardHistoryItem> for ::windows::runtime::IInspectable {
@@ -391,7 +391,7 @@ unsafe impl ::std::marker::Sync for ClipboardHistoryItem {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClipboardHistoryItemsResult(::windows::runtime::IInspectable);
+pub struct ClipboardHistoryItemsResult(pub ::windows::runtime::IInspectable);
 impl ClipboardHistoryItemsResult {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ClipboardHistoryItemsResultStatus> {
@@ -423,22 +423,22 @@ impl ::windows::runtime::RuntimeName for ClipboardHistoryItemsResult {
 }
 impl ::std::convert::From<ClipboardHistoryItemsResult> for ::windows::runtime::IUnknown {
     fn from(value: ClipboardHistoryItemsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClipboardHistoryItemsResult> for ::windows::runtime::IUnknown {
     fn from(value: &ClipboardHistoryItemsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardHistoryItemsResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardHistoryItemsResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClipboardHistoryItemsResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClipboardHistoryItemsResult> for ::windows::runtime::IInspectable {
@@ -489,7 +489,7 @@ impl ::windows::runtime::DefaultType for ClipboardHistoryItemsResultStatus {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataPackage(::windows::runtime::IInspectable);
+pub struct DataPackage(pub ::windows::runtime::IInspectable);
 impl DataPackage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -671,22 +671,22 @@ impl ::windows::runtime::RuntimeName for DataPackage {
 }
 impl ::std::convert::From<DataPackage> for ::windows::runtime::IUnknown {
     fn from(value: DataPackage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataPackage> for ::windows::runtime::IUnknown {
     fn from(value: &DataPackage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataPackage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataPackage> for ::windows::runtime::IInspectable {
@@ -766,7 +766,7 @@ impl ::std::ops::Not for DataPackageOperation {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataPackagePropertySet(::windows::runtime::IInspectable);
+pub struct DataPackagePropertySet(pub ::windows::runtime::IInspectable);
 impl DataPackagePropertySet {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1024,22 +1024,22 @@ impl ::windows::runtime::RuntimeName for DataPackagePropertySet {
 }
 impl ::std::convert::From<DataPackagePropertySet> for ::windows::runtime::IUnknown {
     fn from(value: DataPackagePropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataPackagePropertySet> for ::windows::runtime::IUnknown {
     fn from(value: &DataPackagePropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackagePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackagePropertySet {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataPackagePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataPackagePropertySet> for ::windows::runtime::IInspectable {
@@ -1135,7 +1135,7 @@ impl ::std::iter::IntoIterator for &DataPackagePropertySet {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataPackagePropertySetView(::windows::runtime::IInspectable);
+pub struct DataPackagePropertySetView(pub ::windows::runtime::IInspectable);
 impl DataPackagePropertySetView {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1311,22 +1311,22 @@ impl ::windows::runtime::RuntimeName for DataPackagePropertySetView {
 }
 impl ::std::convert::From<DataPackagePropertySetView> for ::windows::runtime::IUnknown {
     fn from(value: DataPackagePropertySetView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataPackagePropertySetView> for ::windows::runtime::IUnknown {
     fn from(value: &DataPackagePropertySetView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackagePropertySetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackagePropertySetView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataPackagePropertySetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataPackagePropertySetView> for ::windows::runtime::IInspectable {
@@ -1422,7 +1422,7 @@ impl ::std::iter::IntoIterator for &DataPackagePropertySetView {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataPackageView(::windows::runtime::IInspectable);
+pub struct DataPackageView(pub ::windows::runtime::IInspectable);
 impl DataPackageView {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<DataPackagePropertySetView> {
@@ -1607,22 +1607,22 @@ impl ::windows::runtime::RuntimeName for DataPackageView {
 }
 impl ::std::convert::From<DataPackageView> for ::windows::runtime::IUnknown {
     fn from(value: DataPackageView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataPackageView> for ::windows::runtime::IUnknown {
     fn from(value: &DataPackageView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackageView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackageView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataPackageView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataPackageView> for ::windows::runtime::IInspectable {
@@ -1650,7 +1650,7 @@ unsafe impl ::std::marker::Sync for DataPackageView {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataProviderDeferral(::windows::runtime::IInspectable);
+pub struct DataProviderDeferral(pub ::windows::runtime::IInspectable);
 impl DataProviderDeferral {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -1670,22 +1670,22 @@ impl ::windows::runtime::RuntimeName for DataProviderDeferral {
 }
 impl ::std::convert::From<DataProviderDeferral> for ::windows::runtime::IUnknown {
     fn from(value: DataProviderDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataProviderDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &DataProviderDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataProviderDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataProviderDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataProviderDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataProviderDeferral> for ::windows::runtime::IInspectable {
@@ -1786,7 +1786,7 @@ impl<F: FnMut(&::std::option::Option<DataProviderRequest>) -> ::windows::runtime
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataProviderRequest(::windows::runtime::IInspectable);
+pub struct DataProviderRequest(pub ::windows::runtime::IInspectable);
 impl DataProviderRequest {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn FormatId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1831,22 +1831,22 @@ impl ::windows::runtime::RuntimeName for DataProviderRequest {
 }
 impl ::std::convert::From<DataProviderRequest> for ::windows::runtime::IUnknown {
     fn from(value: DataProviderRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataProviderRequest> for ::windows::runtime::IUnknown {
     fn from(value: &DataProviderRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataProviderRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataProviderRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataProviderRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataProviderRequest> for ::windows::runtime::IInspectable {
@@ -1874,7 +1874,7 @@ unsafe impl ::std::marker::Sync for DataProviderRequest {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataRequest(::windows::runtime::IInspectable);
+pub struct DataRequest(pub ::windows::runtime::IInspectable);
 impl DataRequest {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<DataPackage> {
@@ -1924,22 +1924,22 @@ impl ::windows::runtime::RuntimeName for DataRequest {
 }
 impl ::std::convert::From<DataRequest> for ::windows::runtime::IUnknown {
     fn from(value: DataRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataRequest> for ::windows::runtime::IUnknown {
     fn from(value: &DataRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataRequest> for ::windows::runtime::IInspectable {
@@ -1967,7 +1967,7 @@ unsafe impl ::std::marker::Sync for DataRequest {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataRequestDeferral(::windows::runtime::IInspectable);
+pub struct DataRequestDeferral(pub ::windows::runtime::IInspectable);
 impl DataRequestDeferral {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -1987,22 +1987,22 @@ impl ::windows::runtime::RuntimeName for DataRequestDeferral {
 }
 impl ::std::convert::From<DataRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: DataRequestDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &DataRequestDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataRequestDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataRequestDeferral> for ::windows::runtime::IInspectable {
@@ -2030,7 +2030,7 @@ unsafe impl ::std::marker::Sync for DataRequestDeferral {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct DataRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl DataRequestedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<DataRequest> {
@@ -2053,22 +2053,22 @@ impl ::windows::runtime::RuntimeName for DataRequestedEventArgs {
 }
 impl ::std::convert::From<DataRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DataRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DataRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -2096,7 +2096,7 @@ unsafe impl ::std::marker::Sync for DataRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataTransferManager(::windows::runtime::IInspectable);
+pub struct DataTransferManager(pub ::windows::runtime::IInspectable);
 impl DataTransferManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_DataTransfer`, `Foundation`*"]
@@ -2190,22 +2190,22 @@ impl ::windows::runtime::RuntimeName for DataTransferManager {
 }
 impl ::std::convert::From<DataTransferManager> for ::windows::runtime::IUnknown {
     fn from(value: DataTransferManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataTransferManager> for ::windows::runtime::IUnknown {
     fn from(value: &DataTransferManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataTransferManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataTransferManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataTransferManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataTransferManager> for ::windows::runtime::IInspectable {
@@ -2255,7 +2255,7 @@ impl ::windows::runtime::RuntimeName for HtmlFormatHelper {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClipboardContentOptions(::windows::runtime::IInspectable);
+pub struct IClipboardContentOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardContentOptions {
     type Vtable = IClipboardContentOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901270412, 44363, 21575, [160, 86, 171, 53, 86, 39, 109, 43]);
@@ -2280,7 +2280,7 @@ pub struct IClipboardContentOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClipboardHistoryChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IClipboardHistoryChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardHistoryChangedEventArgs {
     type Vtable = IClipboardHistoryChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233695039, 36514, 21454, [154, 186, 141, 34, 18, 87, 52, 82]);
@@ -2297,7 +2297,7 @@ pub struct IClipboardHistoryChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClipboardHistoryItem(::windows::runtime::IInspectable);
+pub struct IClipboardHistoryItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardHistoryItem {
     type Vtable = IClipboardHistoryItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(24362378, 45055, 23632, [171, 146, 61, 25, 244, 129, 236, 88]);
@@ -2318,7 +2318,7 @@ pub struct IClipboardHistoryItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClipboardHistoryItemsResult(::windows::runtime::IInspectable);
+pub struct IClipboardHistoryItemsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardHistoryItemsResult {
     type Vtable = IClipboardHistoryItemsResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873431270, 3810, 21219, [133, 43, 242, 149, 219, 101, 147, 154]);
@@ -2338,7 +2338,7 @@ pub struct IClipboardHistoryItemsResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClipboardStatics(::windows::runtime::IInspectable);
+pub struct IClipboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardStatics {
     type Vtable = IClipboardStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3324502673, 13538, 18787, [142, 237, 147, 203, 176, 234, 61, 112]);
@@ -2363,7 +2363,7 @@ pub struct IClipboardStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClipboardStatics2(::windows::runtime::IInspectable);
+pub struct IClipboardStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardStatics2 {
     type Vtable = IClipboardStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534494570, 53919, 21835, [179, 3, 240, 69, 35, 69, 254, 2]);
@@ -2400,7 +2400,7 @@ pub struct IClipboardStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackage(::windows::runtime::IInspectable);
+pub struct IDataPackage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage {
     type Vtable = IDataPackage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642853831, 61418, 17222, [149, 84, 152, 29, 126, 25, 143, 254]);
@@ -2444,7 +2444,7 @@ pub struct IDataPackage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackage2(::windows::runtime::IInspectable);
+pub struct IDataPackage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage2 {
     type Vtable = IDataPackage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(68952041, 9225, 17889, [165, 56, 76, 83, 238, 238, 4, 167]);
@@ -2465,7 +2465,7 @@ pub struct IDataPackage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackage3(::windows::runtime::IInspectable);
+pub struct IDataPackage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage3 {
     type Vtable = IDataPackage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297634653, 30843, 19762, [150, 90, 169, 131, 129, 5, 160, 86]);
@@ -2486,7 +2486,7 @@ pub struct IDataPackage3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackage4(::windows::runtime::IInspectable);
+pub struct IDataPackage4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage4 {
     type Vtable = IDataPackage4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(329404104, 37762, 21359, [133, 42, 48, 69, 225, 178, 154, 59]);
@@ -2507,7 +2507,7 @@ pub struct IDataPackage4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySet(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet {
     type Vtable = IDataPackagePropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441202155, 19532, 17466, [168, 211, 245, 194, 65, 233, 22, 137]);
@@ -2540,7 +2540,7 @@ pub struct IDataPackagePropertySet_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySet2(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySet2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet2 {
     type Vtable = IDataPackagePropertySet2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3947912522, 38912, 18090, [177, 129, 123, 111, 15, 43, 145, 154]);
@@ -2575,7 +2575,7 @@ pub struct IDataPackagePropertySet2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySet3(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySet3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet3 {
     type Vtable = IDataPackagePropertySet3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2659712411, 20997, 16411, [135, 74, 69, 86, 83, 189, 57, 232]);
@@ -2594,7 +2594,7 @@ pub struct IDataPackagePropertySet3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySet4(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySet4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet4 {
     type Vtable = IDataPackagePropertySet4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670441973, 5945, 19572, [178, 47, 134, 95, 171, 94, 133, 69]);
@@ -2613,7 +2613,7 @@ pub struct IDataPackagePropertySet4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySetView(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySetView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView {
     type Vtable = IDataPackagePropertySetView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108826113, 3098, 19543, [190, 85, 117, 208, 18, 137, 115, 93]);
@@ -2639,7 +2639,7 @@ pub struct IDataPackagePropertySetView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySetView2(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySetView2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView2 {
     type Vtable = IDataPackagePropertySetView2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1616138395, 36542, 20459, [156, 30, 117, 230, 157, 229, 75, 132]);
@@ -2665,7 +2665,7 @@ pub struct IDataPackagePropertySetView2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySetView3(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySetView3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView3 {
     type Vtable = IDataPackagePropertySetView3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3681963237, 53620, 18780, [132, 252, 26, 81, 246, 171, 69, 215]);
@@ -2683,7 +2683,7 @@ pub struct IDataPackagePropertySetView3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySetView4(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySetView4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView4 {
     type Vtable = IDataPackagePropertySetView4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148504077, 53615, 16558, [149, 128, 111, 133, 98, 185, 66, 53]);
@@ -2701,7 +2701,7 @@ pub struct IDataPackagePropertySetView4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackagePropertySetView5(::windows::runtime::IInspectable);
+pub struct IDataPackagePropertySetView5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView5 {
     type Vtable = IDataPackagePropertySetView5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1862964293, 14176, 20667, [133, 35, 196, 32, 45, 237, 125, 120]);
@@ -2719,7 +2719,7 @@ pub struct IDataPackagePropertySetView5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackageView(::windows::runtime::IInspectable);
+pub struct IDataPackageView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView {
     type Vtable = IDataPackageView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2072249457, 22784, 19845, [169, 11, 16, 203, 133, 254, 53, 82]);
@@ -2760,7 +2760,7 @@ pub struct IDataPackageView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackageView2(::windows::runtime::IInspectable);
+pub struct IDataPackageView2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView2 {
     type Vtable = IDataPackageView2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1089256085, 9296, 19485, [182, 180, 237, 69, 70, 61, 238, 156]);
@@ -2781,7 +2781,7 @@ pub struct IDataPackageView2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackageView3(::windows::runtime::IInspectable);
+pub struct IDataPackageView3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView3 {
     type Vtable = IDataPackageView3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3547820456, 56749, 17032, [132, 40, 209, 202, 227, 148, 18, 139]);
@@ -2804,7 +2804,7 @@ pub struct IDataPackageView3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataPackageView4(::windows::runtime::IInspectable);
+pub struct IDataPackageView4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView4 {
     type Vtable = IDataPackageView4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3756617503, 57410, 17459, [160, 159, 38, 214, 255, 218, 139, 133]);
@@ -2822,7 +2822,7 @@ pub struct IDataPackageView4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataProviderDeferral(::windows::runtime::IInspectable);
+pub struct IDataProviderDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProviderDeferral {
     type Vtable = IDataProviderDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3268354931, 11558, 17369, [182, 157, 220, 184, 109, 3, 246, 218]);
@@ -2840,7 +2840,7 @@ pub struct IDataProviderDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataProviderRequest(::windows::runtime::IInspectable);
+pub struct IDataProviderRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProviderRequest {
     type Vtable = IDataProviderRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3954995543, 54216, 18394, [172, 222, 248, 35, 136, 213, 247, 22]);
@@ -2862,7 +2862,7 @@ pub struct IDataProviderRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataRequest(::windows::runtime::IInspectable);
+pub struct IDataRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataRequest {
     type Vtable = IDataRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128377915, 64530, 20051, [140, 2, 172, 113, 76, 65, 90, 39]);
@@ -2885,7 +2885,7 @@ pub struct IDataRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataRequestDeferral(::windows::runtime::IInspectable);
+pub struct IDataRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataRequestDeferral {
     type Vtable = IDataRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841608863, 902, 16995, [135, 193, 237, 125, 206, 48, 137, 14]);
@@ -2903,7 +2903,7 @@ pub struct IDataRequestDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IDataRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataRequestedEventArgs {
     type Vtable = IDataRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414927367, 27333, 17353, [138, 197, 155, 162, 50, 22, 49, 130]);
@@ -2921,7 +2921,7 @@ pub struct IDataRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataTransferManager(::windows::runtime::IInspectable);
+pub struct IDataTransferManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManager {
     type Vtable = IDataTransferManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2781539995, 34568, 18897, [141, 54, 103, 210, 90, 141, 160, 12]);
@@ -2946,7 +2946,7 @@ pub struct IDataTransferManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataTransferManager2(::windows::runtime::IInspectable);
+pub struct IDataTransferManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManager2 {
     type Vtable = IDataTransferManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(816741745, 35752, 19458, [142, 63, 221, 178, 59, 56, 135, 21]);
@@ -2967,7 +2967,7 @@ pub struct IDataTransferManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataTransferManagerStatics(::windows::runtime::IInspectable);
+pub struct IDataTransferManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManagerStatics {
     type Vtable = IDataTransferManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849636778, 57358, 19710, [170, 68, 45, 217, 50, 220, 163, 216]);
@@ -2986,7 +2986,7 @@ pub struct IDataTransferManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataTransferManagerStatics2(::windows::runtime::IInspectable);
+pub struct IDataTransferManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManagerStatics2 {
     type Vtable = IDataTransferManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3310273260, 40855, 19811, [152, 104, 57, 94, 39, 26, 216, 245]);
@@ -3004,7 +3004,7 @@ pub struct IDataTransferManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataTransferManagerStatics3(::windows::runtime::IInspectable);
+pub struct IDataTransferManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManagerStatics3 {
     type Vtable = IDataTransferManagerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92558451, 27778, 20316, [172, 35, 98, 228, 88, 54, 31, 172]);
@@ -3022,7 +3022,7 @@ pub struct IDataTransferManagerStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHtmlFormatHelperStatics(::windows::runtime::IInspectable);
+pub struct IHtmlFormatHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlFormatHelperStatics {
     type Vtable = IHtmlFormatHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3794696009, 56688, 17519, [174, 252, 97, 206, 229, 159, 101, 94]);
@@ -3041,7 +3041,7 @@ pub struct IHtmlFormatHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOperationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IOperationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOperationCompletedEventArgs {
     type Vtable = IOperationCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3887018653, 1309, 20395, [177, 169, 71, 253, 119, 247, 10, 65]);
@@ -3059,7 +3059,7 @@ pub struct IOperationCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOperationCompletedEventArgs2(::windows::runtime::IInspectable);
+pub struct IOperationCompletedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOperationCompletedEventArgs2 {
     type Vtable = IOperationCompletedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240782451, 7705, 16645, [178, 247, 200, 71, 136, 8, 213, 98]);
@@ -3077,7 +3077,7 @@ pub struct IOperationCompletedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IShareCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareCompletedEventArgs {
     type Vtable = IShareCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1165280322, 63763, 20320, [157, 247, 204, 64, 96, 171, 25, 22]);
@@ -3095,7 +3095,7 @@ pub struct IShareCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareProvider(::windows::runtime::IInspectable);
+pub struct IShareProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProvider {
     type Vtable = IShareProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799793190, 17470, 19674, [175, 37, 141, 129, 7, 14, 253, 128]);
@@ -3119,7 +3119,7 @@ pub struct IShareProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareProviderFactory(::windows::runtime::IInspectable);
+pub struct IShareProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProviderFactory {
     type Vtable = IShareProviderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(388634444, 59294, 20333, [176, 125, 18, 143, 70, 158, 2, 150]);
@@ -3138,7 +3138,7 @@ pub struct IShareProviderFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareProviderOperation(::windows::runtime::IInspectable);
+pub struct IShareProviderOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProviderOperation {
     type Vtable = IShareProviderOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(432994615, 54325, 16761, [182, 175, 20, 224, 73, 43, 105, 246]);
@@ -3158,7 +3158,7 @@ pub struct IShareProviderOperation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareProvidersRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IShareProvidersRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProvidersRequestedEventArgs {
     type Vtable = IShareProvidersRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169724758, 41976, 20430, [133, 228, 136, 38, 230, 59, 231, 153]);
@@ -3180,7 +3180,7 @@ pub struct IShareProvidersRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareTargetInfo(::windows::runtime::IInspectable);
+pub struct IShareTargetInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareTargetInfo {
     type Vtable = IShareTargetInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945546759, 50920, 16660, [178, 148, 40, 243, 187, 111, 153, 4]);
@@ -3199,7 +3199,7 @@ pub struct IShareTargetInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShareUIOptions(::windows::runtime::IInspectable);
+pub struct IShareUIOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareUIOptions {
     type Vtable = IShareUIOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1929022080, 13359, 19856, [149, 81, 42, 224, 78, 55, 104, 12]);
@@ -3222,7 +3222,7 @@ pub struct IShareUIOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISharedStorageAccessManagerStatics(::windows::runtime::IInspectable);
+pub struct ISharedStorageAccessManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedStorageAccessManagerStatics {
     type Vtable = ISharedStorageAccessManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323144922, 13489, 18505, [189, 95, 208, 159, 238, 49, 88, 197]);
@@ -3244,7 +3244,7 @@ pub struct ISharedStorageAccessManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStandardDataFormatsStatics(::windows::runtime::IInspectable);
+pub struct IStandardDataFormatsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardDataFormatsStatics {
     type Vtable = IStandardDataFormatsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2127987105, 43136, 16585, [180, 237, 11, 238, 30, 21, 245, 73]);
@@ -3267,7 +3267,7 @@ pub struct IStandardDataFormatsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStandardDataFormatsStatics2(::windows::runtime::IInspectable);
+pub struct IStandardDataFormatsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardDataFormatsStatics2 {
     type Vtable = IStandardDataFormatsStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1117934836, 40310, 17128, [134, 27, 71, 194, 93, 208, 207, 113]);
@@ -3286,7 +3286,7 @@ pub struct IStandardDataFormatsStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStandardDataFormatsStatics3(::windows::runtime::IInspectable);
+pub struct IStandardDataFormatsStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardDataFormatsStatics3 {
     type Vtable = IStandardDataFormatsStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995602537, 468, 18252, [139, 95, 188, 142, 39, 243, 139, 33]);
@@ -3304,7 +3304,7 @@ pub struct IStandardDataFormatsStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITargetApplicationChosenEventArgs(::windows::runtime::IInspectable);
+pub struct ITargetApplicationChosenEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetApplicationChosenEventArgs {
     type Vtable = ITargetApplicationChosenEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396319404, 10631, 20195, [156, 84, 216, 175, 188, 184, 108, 29]);
@@ -3323,7 +3323,7 @@ pub struct ITargetApplicationChosenEventArgs_abi(
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OperationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct OperationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl OperationCompletedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Operation(&self) -> ::windows::runtime::Result<DataPackageOperation> {
@@ -3354,22 +3354,22 @@ impl ::windows::runtime::RuntimeName for OperationCompletedEventArgs {
 }
 impl ::std::convert::From<OperationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: OperationCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&OperationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &OperationCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OperationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OperationCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OperationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<OperationCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -3420,7 +3420,7 @@ impl ::windows::runtime::DefaultType for SetHistoryItemAsContentStatus {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct ShareCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl ShareCompletedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn ShareTarget(&self) -> ::windows::runtime::Result<ShareTargetInfo> {
@@ -3443,22 +3443,22 @@ impl ::windows::runtime::RuntimeName for ShareCompletedEventArgs {
 }
 impl ::std::convert::From<ShareCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ShareCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ShareCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -3486,7 +3486,7 @@ unsafe impl ::std::marker::Sync for ShareCompletedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareProvider(::windows::runtime::IInspectable);
+pub struct ShareProvider(pub ::windows::runtime::IInspectable);
 impl ShareProvider {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3552,22 +3552,22 @@ impl ::windows::runtime::RuntimeName for ShareProvider {
 }
 impl ::std::convert::From<ShareProvider> for ::windows::runtime::IUnknown {
     fn from(value: ShareProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ShareProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareProvider> for ::windows::runtime::IInspectable {
@@ -3668,7 +3668,7 @@ impl<F: FnMut(&::std::option::Option<ShareProviderOperation>) -> ::windows::runt
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareProviderOperation(::windows::runtime::IInspectable);
+pub struct ShareProviderOperation(pub ::windows::runtime::IInspectable);
 impl ShareProviderOperation {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<DataPackageView> {
@@ -3704,22 +3704,22 @@ impl ::windows::runtime::RuntimeName for ShareProviderOperation {
 }
 impl ::std::convert::From<ShareProviderOperation> for ::windows::runtime::IUnknown {
     fn from(value: ShareProviderOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareProviderOperation> for ::windows::runtime::IUnknown {
     fn from(value: &ShareProviderOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareProviderOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareProviderOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareProviderOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareProviderOperation> for ::windows::runtime::IInspectable {
@@ -3747,7 +3747,7 @@ unsafe impl ::std::marker::Sync for ShareProviderOperation {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareProvidersRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ShareProvidersRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl ShareProvidersRequestedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_DataTransfer`, `Foundation_Collections`*"]
@@ -3788,22 +3788,22 @@ impl ::windows::runtime::RuntimeName for ShareProvidersRequestedEventArgs {
 }
 impl ::std::convert::From<ShareProvidersRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ShareProvidersRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareProvidersRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ShareProvidersRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareProvidersRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareProvidersRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareProvidersRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareProvidersRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -3831,7 +3831,7 @@ unsafe impl ::std::marker::Sync for ShareProvidersRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareTargetInfo(::windows::runtime::IInspectable);
+pub struct ShareTargetInfo(pub ::windows::runtime::IInspectable);
 impl ShareTargetInfo {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn AppUserModelId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3862,22 +3862,22 @@ impl ::windows::runtime::RuntimeName for ShareTargetInfo {
 }
 impl ::std::convert::From<ShareTargetInfo> for ::windows::runtime::IUnknown {
     fn from(value: ShareTargetInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareTargetInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ShareTargetInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareTargetInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareTargetInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareTargetInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareTargetInfo> for ::windows::runtime::IInspectable {
@@ -3905,7 +3905,7 @@ unsafe impl ::std::marker::Sync for ShareTargetInfo {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ShareUIOptions(::windows::runtime::IInspectable);
+pub struct ShareUIOptions(pub ::windows::runtime::IInspectable);
 impl ShareUIOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3955,22 +3955,22 @@ impl ::windows::runtime::RuntimeName for ShareUIOptions {
 }
 impl ::std::convert::From<ShareUIOptions> for ::windows::runtime::IUnknown {
     fn from(value: ShareUIOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ShareUIOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ShareUIOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareUIOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareUIOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ShareUIOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ShareUIOptions> for ::windows::runtime::IInspectable {
@@ -4135,7 +4135,7 @@ impl ::windows::runtime::RuntimeName for StandardDataFormats {
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TargetApplicationChosenEventArgs(::windows::runtime::IInspectable);
+pub struct TargetApplicationChosenEventArgs(pub ::windows::runtime::IInspectable);
 impl TargetApplicationChosenEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn ApplicationName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4158,22 +4158,22 @@ impl ::windows::runtime::RuntimeName for TargetApplicationChosenEventArgs {
 }
 impl ::std::convert::From<TargetApplicationChosenEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TargetApplicationChosenEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TargetApplicationChosenEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TargetApplicationChosenEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetApplicationChosenEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetApplicationChosenEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TargetApplicationChosenEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TargetApplicationChosenEventArgs> for ::windows::runtime::IInspectable {

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivationSignalDetectionConfiguration(::windows::runtime::IInspectable);
+pub struct ActivationSignalDetectionConfiguration(pub ::windows::runtime::IInspectable);
 impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
@@ -255,22 +255,22 @@ impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfiguration 
 }
 impl ::std::convert::From<ActivationSignalDetectionConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: ActivationSignalDetectionConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetectionConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivationSignalDetectionConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationSignalDetectionConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivationSignalDetectionConfiguration> for ::windows::runtime::IInspectable {
@@ -324,7 +324,7 @@ unsafe impl ::std::marker::Sync for ActivationSignalDetectionConfiguration {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivationSignalDetectionConfigurationCreationResult(::windows::runtime::IInspectable);
+pub struct ActivationSignalDetectionConfigurationCreationResult(pub ::windows::runtime::IInspectable);
 impl ActivationSignalDetectionConfigurationCreationResult {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ActivationSignalDetectionConfigurationCreationStatus> {
@@ -355,22 +355,22 @@ impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfigurationC
 }
 impl ::std::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetectionConfigurationCreationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivationSignalDetectionConfigurationCreationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationSignalDetectionConfigurationCreationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IInspectable {
@@ -532,7 +532,7 @@ impl ::windows::runtime::DefaultType for ActivationSignalDetectionTrainingDataFo
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ActivationSignalDetector(::windows::runtime::IInspectable);
+pub struct ActivationSignalDetector(pub ::windows::runtime::IInspectable);
 impl ActivationSignalDetector {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
     pub fn ProviderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -739,22 +739,22 @@ impl ::windows::runtime::RuntimeName for ActivationSignalDetector {
 }
 impl ::std::convert::From<ActivationSignalDetector> for ::windows::runtime::IUnknown {
     fn from(value: ActivationSignalDetector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ActivationSignalDetector> for ::windows::runtime::IUnknown {
     fn from(value: &ActivationSignalDetector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivationSignalDetector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationSignalDetector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ActivationSignalDetector> for ::windows::runtime::IInspectable {
@@ -874,7 +874,7 @@ impl ::windows::runtime::DefaultType for ConversationalAgentActivationResult {
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ConversationalAgentDetectorManager(::windows::runtime::IInspectable);
+pub struct ConversationalAgentDetectorManager(pub ::windows::runtime::IInspectable);
 impl ConversationalAgentDetectorManager {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation_Collections`*"]
@@ -953,22 +953,22 @@ impl ::windows::runtime::RuntimeName for ConversationalAgentDetectorManager {
 }
 impl ::std::convert::From<ConversationalAgentDetectorManager> for ::windows::runtime::IUnknown {
     fn from(value: ConversationalAgentDetectorManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ConversationalAgentDetectorManager> for ::windows::runtime::IUnknown {
     fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentDetectorManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentDetectorManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentDetectorManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ConversationalAgentDetectorManager> for ::windows::runtime::IInspectable {
@@ -996,7 +996,7 @@ unsafe impl ::std::marker::Sync for ConversationalAgentDetectorManager {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ConversationalAgentSession(::windows::runtime::IInspectable);
+pub struct ConversationalAgentSession(pub ::windows::runtime::IInspectable);
 impl ConversationalAgentSession {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`, `Foundation`*"]
@@ -1366,22 +1366,22 @@ impl ::windows::runtime::RuntimeName for ConversationalAgentSession {
 }
 impl ::std::convert::From<ConversationalAgentSession> for ::windows::runtime::IUnknown {
     fn from(value: ConversationalAgentSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ConversationalAgentSession> for ::windows::runtime::IUnknown {
     fn from(value: &ConversationalAgentSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ConversationalAgentSession> for ::windows::runtime::IInspectable {
@@ -1435,7 +1435,7 @@ unsafe impl ::std::marker::Sync for ConversationalAgentSession {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ConversationalAgentSessionInterruptedEventArgs(::windows::runtime::IInspectable);
+pub struct ConversationalAgentSessionInterruptedEventArgs(pub ::windows::runtime::IInspectable);
 impl ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
@@ -1449,22 +1449,22 @@ impl ::windows::runtime::RuntimeName for ConversationalAgentSessionInterruptedEv
 }
 impl ::std::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSessionInterruptedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSessionInterruptedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSessionInterruptedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IInspectable {
@@ -1514,7 +1514,7 @@ impl ::windows::runtime::DefaultType for ConversationalAgentSessionUpdateRespons
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ConversationalAgentSignal(::windows::runtime::IInspectable);
+pub struct ConversationalAgentSignal(pub ::windows::runtime::IInspectable);
 impl ConversationalAgentSignal {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
     pub fn IsSignalVerificationRequired(&self) -> ::windows::runtime::Result<bool> {
@@ -1627,22 +1627,22 @@ impl ::windows::runtime::RuntimeName for ConversationalAgentSignal {
 }
 impl ::std::convert::From<ConversationalAgentSignal> for ::windows::runtime::IUnknown {
     fn from(value: ConversationalAgentSignal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ConversationalAgentSignal> for ::windows::runtime::IUnknown {
     fn from(value: &ConversationalAgentSignal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSignal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSignal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSignal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ConversationalAgentSignal> for ::windows::runtime::IInspectable {
@@ -1670,7 +1670,7 @@ unsafe impl ::std::marker::Sync for ConversationalAgentSignal {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ConversationalAgentSignalDetectedEventArgs(::windows::runtime::IInspectable);
+pub struct ConversationalAgentSignalDetectedEventArgs(pub ::windows::runtime::IInspectable);
 impl ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
@@ -1684,22 +1684,22 @@ impl ::windows::runtime::RuntimeName for ConversationalAgentSignalDetectedEventA
 }
 impl ::std::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSignalDetectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSignalDetectedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSignalDetectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IInspectable {
@@ -1777,7 +1777,7 @@ impl ::windows::runtime::DefaultType for ConversationalAgentSystemStateChangeTyp
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ConversationalAgentSystemStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ConversationalAgentSystemStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl ConversationalAgentSystemStateChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
     pub fn SystemStateChangeType(&self) -> ::windows::runtime::Result<ConversationalAgentSystemStateChangeType> {
@@ -1800,22 +1800,22 @@ impl ::windows::runtime::RuntimeName for ConversationalAgentSystemStateChangedEv
 }
 impl ::std::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSystemStateChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSystemStateChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ConversationalAgentSystemStateChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -1892,7 +1892,7 @@ impl ::windows::runtime::DefaultType for DetectionConfigurationAvailabilityChang
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DetectionConfigurationAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
+pub struct DetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<DetectionConfigurationAvailabilityChangeKind> {
@@ -1915,22 +1915,22 @@ impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityChang
 }
 impl ::std::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectionConfigurationAvailabilityChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DetectionConfigurationAvailabilityChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -1958,7 +1958,7 @@ unsafe impl ::std::marker::Sync for DetectionConfigurationAvailabilityChangedEve
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DetectionConfigurationAvailabilityInfo(::windows::runtime::IInspectable);
+pub struct DetectionConfigurationAvailabilityInfo(pub ::windows::runtime::IInspectable);
 impl DetectionConfigurationAvailabilityInfo {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -2014,22 +2014,22 @@ impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityInfo 
 }
 impl ::std::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IUnknown {
     fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IUnknown {
     fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectionConfigurationAvailabilityInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DetectionConfigurationAvailabilityInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DetectionConfigurationAvailabilityInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IInspectable {
@@ -2086,7 +2086,7 @@ impl ::windows::runtime::DefaultType for DetectionConfigurationTrainingStatus {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetectionConfiguration(::windows::runtime::IInspectable);
+pub struct IActivationSignalDetectionConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087946262, 21015, 22556, [154, 178, 206, 155, 47, 46, 142, 0]);
@@ -2139,7 +2139,7 @@ pub struct IActivationSignalDetectionConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetectionConfiguration2(::windows::runtime::IInspectable);
+pub struct IActivationSignalDetectionConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration2 {
     type Vtable = IActivationSignalDetectionConfiguration2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1910091810, 22060, 22478, [167, 139, 139, 79, 240, 20, 91, 171]);
@@ -2164,7 +2164,7 @@ pub struct IActivationSignalDetectionConfiguration2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetectionConfigurationCreationResult(::windows::runtime::IInspectable);
+pub struct IActivationSignalDetectionConfigurationCreationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284095003, 36114, 24136, [167, 28, 127, 107, 193, 205, 102, 224]);
@@ -2183,7 +2183,7 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetector(::windows::runtime::IInspectable);
+pub struct IActivationSignalDetector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector {
     type Vtable = IActivationSignalDetector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3049206879, 42192, 23339, [142, 101, 179, 197, 94, 231, 86, 255]);
@@ -2226,7 +2226,7 @@ pub struct IActivationSignalDetector_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationSignalDetector2(::windows::runtime::IInspectable);
+pub struct IActivationSignalDetector2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector2 {
     type Vtable = IActivationSignalDetector2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3353495818, 47781, 22994, [133, 209, 186, 66, 247, 207, 120, 201]);
@@ -2254,7 +2254,7 @@ pub struct IActivationSignalDetector2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentDetectorManager(::windows::runtime::IInspectable);
+pub struct IConversationalAgentDetectorManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3734305712, 22906, 24056, [140, 251, 157, 187, 88, 59, 163, 255]);
@@ -2279,7 +2279,7 @@ pub struct IConversationalAgentDetectorManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentDetectorManager2(::windows::runtime::IInspectable);
+pub struct IConversationalAgentDetectorManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager2 {
     type Vtable = IConversationalAgentDetectorManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220953393, 55283, 21246, [147, 17, 201, 235, 78, 62, 179, 10]);
@@ -2299,7 +2299,7 @@ pub struct IConversationalAgentDetectorManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentDetectorManagerStatics(::windows::runtime::IInspectable);
+pub struct IConversationalAgentDetectorManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManagerStatics {
     type Vtable = IConversationalAgentDetectorManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(917033603, 64014, 22163, [132, 137, 15, 178, 240, 171, 64, 211]);
@@ -2317,7 +2317,7 @@ pub struct IConversationalAgentDetectorManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSession(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession {
     type Vtable = IConversationalAgentSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668631706, 47034, 22501, [173, 19, 223, 82, 15, 155, 111, 167]);
@@ -2386,7 +2386,7 @@ pub struct IConversationalAgentSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSession2(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession2 {
     type Vtable = IConversationalAgentSession2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812935161, 44152, 22527, [149, 150, 172, 199, 161, 201, 166, 7]);
@@ -2413,7 +2413,7 @@ pub struct IConversationalAgentSession2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSessionInterruptedEventArgs(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSessionInterruptedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540067103, 63037, 23870, [155, 242, 189, 7, 96, 85, 38, 134]);
@@ -2430,7 +2430,7 @@ pub struct IConversationalAgentSessionInterruptedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSessionStatics(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionStatics {
     type Vtable = IConversationalAgentSessionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2684687982, 59732, 22382, [190, 4, 17, 184, 237, 16, 243, 123]);
@@ -2450,7 +2450,7 @@ pub struct IConversationalAgentSessionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSignal(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSignal(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(552412663, 45344, 20978, [134, 3, 38, 93, 106, 71, 242, 50]);
@@ -2483,7 +2483,7 @@ pub struct IConversationalAgentSignal_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSignal2(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSignal2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal2 {
     type Vtable = IConversationalAgentSignal2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503061929, 39547, 23604, [136, 14, 182, 20, 108, 144, 78, 203]);
@@ -2502,7 +2502,7 @@ pub struct IConversationalAgentSignal2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSignalDetectedEventArgs(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSignalDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297607567, 63626, 22939, [145, 211, 214, 4, 135, 103, 8, 188]);
@@ -2519,7 +2519,7 @@ pub struct IConversationalAgentSignalDetectedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IConversationalAgentSystemStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IConversationalAgentSystemStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472673854, 10117, 22951, [142, 113, 56, 173, 238, 247, 153, 40]);
@@ -2537,7 +2537,7 @@ pub struct IConversationalAgentSystemStateChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IDetectionConfigurationAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1361693179, 19432, 24340, [175, 43, 136, 214, 43, 27, 68, 98]);
@@ -2555,7 +2555,7 @@ pub struct IDetectionConfigurationAvailabilityChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityInfo(::windows::runtime::IInspectable);
+pub struct IDetectionConfigurationAvailabilityInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048210096, 16624, 21400, [184, 56, 145, 151, 156, 44, 98, 8]);
@@ -2576,7 +2576,7 @@ pub struct IDetectionConfigurationAvailabilityInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityInfo2(::windows::runtime::IInspectable);
+pub struct IDetectionConfigurationAvailabilityInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo2 {
     type Vtable = IDetectionConfigurationAvailabilityInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(820012083, 14515, 23627, [132, 195, 98, 182, 230, 133, 178, 255]);

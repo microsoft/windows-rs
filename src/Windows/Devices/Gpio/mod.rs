@@ -46,7 +46,7 @@ impl ::windows::runtime::DefaultType for GpioChangeCount {
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GpioChangeCounter(::windows::runtime::IInspectable);
+pub struct GpioChangeCounter(pub ::windows::runtime::IInspectable);
 impl GpioChangeCounter {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
@@ -127,22 +127,22 @@ impl ::windows::runtime::RuntimeName for GpioChangeCounter {
 }
 impl ::std::convert::From<GpioChangeCounter> for ::windows::runtime::IUnknown {
     fn from(value: GpioChangeCounter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GpioChangeCounter> for ::windows::runtime::IUnknown {
     fn from(value: &GpioChangeCounter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GpioChangeCounter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GpioChangeCounter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GpioChangeCounter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GpioChangeCounter> for ::windows::runtime::IInspectable {
@@ -219,7 +219,7 @@ impl ::windows::runtime::DefaultType for GpioChangePolarity {
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GpioChangeReader(::windows::runtime::IInspectable);
+pub struct GpioChangeReader(pub ::windows::runtime::IInspectable);
 impl GpioChangeReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
@@ -362,22 +362,22 @@ impl ::windows::runtime::RuntimeName for GpioChangeReader {
 }
 impl ::std::convert::From<GpioChangeReader> for ::windows::runtime::IUnknown {
     fn from(value: GpioChangeReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GpioChangeReader> for ::windows::runtime::IUnknown {
     fn from(value: &GpioChangeReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GpioChangeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GpioChangeReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GpioChangeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GpioChangeReader> for ::windows::runtime::IInspectable {
@@ -473,7 +473,7 @@ impl ::windows::runtime::DefaultType for GpioChangeRecord {
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GpioController(::windows::runtime::IInspectable);
+pub struct GpioController(pub ::windows::runtime::IInspectable);
 impl GpioController {
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn PinCount(&self) -> ::windows::runtime::Result<i32> {
@@ -551,22 +551,22 @@ impl ::windows::runtime::RuntimeName for GpioController {
 }
 impl ::std::convert::From<GpioController> for ::windows::runtime::IUnknown {
     fn from(value: GpioController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GpioController> for ::windows::runtime::IUnknown {
     fn from(value: &GpioController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GpioController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GpioController {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GpioController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GpioController> for ::windows::runtime::IInspectable {
@@ -619,7 +619,7 @@ impl ::windows::runtime::DefaultType for GpioOpenStatus {
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GpioPin(::windows::runtime::IInspectable);
+pub struct GpioPin(pub ::windows::runtime::IInspectable);
 impl GpioPin {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
@@ -720,22 +720,22 @@ impl ::windows::runtime::RuntimeName for GpioPin {
 }
 impl ::std::convert::From<GpioPin> for ::windows::runtime::IUnknown {
     fn from(value: GpioPin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GpioPin> for ::windows::runtime::IUnknown {
     fn from(value: &GpioPin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GpioPin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GpioPin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GpioPin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GpioPin> for ::windows::runtime::IInspectable {
@@ -861,7 +861,7 @@ impl ::windows::runtime::DefaultType for GpioPinValue {
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GpioPinValueChangedEventArgs(::windows::runtime::IInspectable);
+pub struct GpioPinValueChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl GpioPinValueChangedEventArgs {
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Edge(&self) -> ::windows::runtime::Result<GpioPinEdge> {
@@ -884,22 +884,22 @@ impl ::windows::runtime::RuntimeName for GpioPinValueChangedEventArgs {
 }
 impl ::std::convert::From<GpioPinValueChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GpioPinValueChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GpioPinValueChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GpioPinValueChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GpioPinValueChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GpioPinValueChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GpioPinValueChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GpioPinValueChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -948,7 +948,7 @@ impl ::windows::runtime::DefaultType for GpioSharingMode {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioChangeCounter(::windows::runtime::IInspectable);
+pub struct IGpioChangeCounter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounter {
     type Vtable = IGpioChangeCounter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411984606, 26625, 17407, [128, 61, 69, 118, 98, 138, 139, 38]);
@@ -974,7 +974,7 @@ pub struct IGpioChangeCounter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioChangeCounterFactory(::windows::runtime::IInspectable);
+pub struct IGpioChangeCounterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounterFactory {
     type Vtable = IGpioChangeCounterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(343774390, 2718, 16652, [180, 250, 248, 159, 64, 82, 8, 77]);
@@ -992,7 +992,7 @@ pub struct IGpioChangeCounterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioChangeReader(::windows::runtime::IInspectable);
+pub struct IGpioChangeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReader {
     type Vtable = IGpioChangeReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180127839, 57393, 18664, [133, 144, 112, 222, 120, 54, 60, 109]);
@@ -1027,7 +1027,7 @@ pub struct IGpioChangeReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioChangeReaderFactory(::windows::runtime::IInspectable);
+pub struct IGpioChangeReaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReaderFactory {
     type Vtable = IGpioChangeReaderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2841218803, 14606, 17434, [157, 28, 232, 222, 11, 45, 240, 223]);
@@ -1046,7 +1046,7 @@ pub struct IGpioChangeReaderFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioController(::windows::runtime::IInspectable);
+pub struct IGpioController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioController {
     type Vtable = IGpioController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675287779, 29793, 18076, [168, 188, 97, 214, 157, 8, 165, 60]);
@@ -1067,7 +1067,7 @@ pub struct IGpioController_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioControllerStatics(::windows::runtime::IInspectable);
+pub struct IGpioControllerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics {
     type Vtable = IGpioControllerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785839150, 31479, 16662, [149, 51, 196, 61, 153, 161, 251, 100]);
@@ -1085,7 +1085,7 @@ pub struct IGpioControllerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioControllerStatics2(::windows::runtime::IInspectable);
+pub struct IGpioControllerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics2 {
     type Vtable = IGpioControllerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2435546400, 27812, 16646, [163, 115, 255, 253, 52, 107, 14, 91]);
@@ -1106,7 +1106,7 @@ pub struct IGpioControllerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioPin(::windows::runtime::IInspectable);
+pub struct IGpioPin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPin {
     type Vtable = IGpioPin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299479175, 44974, 18320, [158, 233, 224, 234, 201, 66, 210, 1]);
@@ -1138,7 +1138,7 @@ pub struct IGpioPin_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGpioPinValueChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IGpioPinValueChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825731809, 28733, 16473, [189, 36, 181, 178, 93, 255, 184, 78]);

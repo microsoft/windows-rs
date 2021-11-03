@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AtomPubClient(::windows::runtime::IInspectable);
+pub struct AtomPubClient(pub ::windows::runtime::IInspectable);
 impl AtomPubClient {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -227,22 +227,22 @@ impl ::windows::runtime::RuntimeName for AtomPubClient {
 }
 impl ::std::convert::From<AtomPubClient> for ::windows::runtime::IUnknown {
     fn from(value: AtomPubClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AtomPubClient> for ::windows::runtime::IUnknown {
     fn from(value: &AtomPubClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AtomPubClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AtomPubClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AtomPubClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AtomPubClient> for ::windows::runtime::IInspectable {
@@ -295,7 +295,7 @@ unsafe impl ::std::marker::Send for AtomPubClient {}
 unsafe impl ::std::marker::Sync for AtomPubClient {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAtomPubClient(::windows::runtime::IInspectable);
+pub struct IAtomPubClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAtomPubClient {
     type Vtable = IAtomPubClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892939320, 52717, 19788, [150, 55, 5, 241, 92, 28, 148, 6]);
@@ -333,7 +333,7 @@ pub struct IAtomPubClient_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAtomPubClientFactory(::windows::runtime::IInspectable);
+pub struct IAtomPubClientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAtomPubClientFactory {
     type Vtable = IAtomPubClientFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238716434, 22475, 19422, [171, 159, 38, 16, 177, 114, 119, 123]);
@@ -352,7 +352,7 @@ pub struct IAtomPubClientFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceCollection(::windows::runtime::IInspectable);
+pub struct IResourceCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCollection {
     type Vtable = IResourceCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136987145, 48264, 16852, [136, 250, 61, 230, 112, 77, 66, 142]);
@@ -377,7 +377,7 @@ pub struct IResourceCollection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IServiceDocument(::windows::runtime::IInspectable);
+pub struct IServiceDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceDocument {
     type Vtable = IServiceDocument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340341617, 10931, 19902, [139, 204, 119, 143, 146, 183, 94, 81]);
@@ -396,7 +396,7 @@ pub struct IServiceDocument_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWorkspace(::windows::runtime::IInspectable);
+pub struct IWorkspace(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkspace {
     type Vtable = IWorkspace_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3021841979, 42168, 16438, [137, 197, 131, 195, 18, 102, 186, 73]);
@@ -418,7 +418,7 @@ pub struct IWorkspace_abi(
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceCollection(::windows::runtime::IInspectable);
+pub struct ResourceCollection(pub ::windows::runtime::IInspectable);
 impl ResourceCollection {
     #[cfg(feature = "Web_Syndication")]
     #[doc = "*Required features: `Web_AtomPub`, `Web_Syndication`*"]
@@ -571,22 +571,22 @@ impl ::windows::runtime::RuntimeName for ResourceCollection {
 }
 impl ::std::convert::From<ResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: ResourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceCollection> for ::windows::runtime::IInspectable {
@@ -640,7 +640,7 @@ unsafe impl ::std::marker::Sync for ResourceCollection {}
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ServiceDocument(::windows::runtime::IInspectable);
+pub struct ServiceDocument(pub ::windows::runtime::IInspectable);
 impl ServiceDocument {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Web_AtomPub`, `Foundation_Collections`*"]
@@ -766,22 +766,22 @@ impl ::windows::runtime::RuntimeName for ServiceDocument {
 }
 impl ::std::convert::From<ServiceDocument> for ::windows::runtime::IUnknown {
     fn from(value: ServiceDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ServiceDocument> for ::windows::runtime::IUnknown {
     fn from(value: &ServiceDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServiceDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServiceDocument {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ServiceDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ServiceDocument> for ::windows::runtime::IInspectable {
@@ -835,7 +835,7 @@ unsafe impl ::std::marker::Sync for ServiceDocument {}
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Workspace(::windows::runtime::IInspectable);
+pub struct Workspace(pub ::windows::runtime::IInspectable);
 impl Workspace {
     #[cfg(feature = "Web_Syndication")]
     #[doc = "*Required features: `Web_AtomPub`, `Web_Syndication`*"]
@@ -970,22 +970,22 @@ impl ::windows::runtime::RuntimeName for Workspace {
 }
 impl ::std::convert::From<Workspace> for ::windows::runtime::IUnknown {
     fn from(value: Workspace) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Workspace> for ::windows::runtime::IUnknown {
     fn from(value: &Workspace) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Workspace {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Workspace {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Workspace {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Workspace> for ::windows::runtime::IInspectable {

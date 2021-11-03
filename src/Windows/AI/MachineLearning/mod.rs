@@ -3,7 +3,7 @@
 pub mod Preview;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct IImageFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911574437, 5914, 18986, [152, 95, 38, 81, 89, 211, 137, 90]);
@@ -26,7 +26,7 @@ pub struct IImageFeatureDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageFeatureDescriptor2(::windows::runtime::IInspectable);
+pub struct IImageFeatureDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor2 {
     type Vtable = IImageFeatureDescriptor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(724028583, 54579, 22626, [187, 152, 22, 17, 177, 85, 176, 225]);
@@ -44,7 +44,7 @@ pub struct IImageFeatureDescriptor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageFeatureValue(::windows::runtime::IInspectable);
+pub struct IImageFeatureValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValue {
     type Vtable = IImageFeatureValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4030812121, 51626, 17413, [183, 251, 148, 248, 124, 138, 48, 55]);
@@ -63,7 +63,7 @@ pub struct IImageFeatureValue_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageFeatureValueStatics(::windows::runtime::IInspectable);
+pub struct IImageFeatureValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValueStatics {
     type Vtable = IImageFeatureValueStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(465770493, 9163, 17936, [176, 133, 200, 225, 200, 126, 186, 160]);
@@ -82,7 +82,7 @@ pub struct IImageFeatureValueStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModel(::windows::runtime::IInspectable);
+pub struct ILearningModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModel {
     type Vtable = ILearningModel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1536051488, 18591, 20102, [145, 40, 38, 90, 50, 123, 120, 250]);
@@ -110,7 +110,7 @@ pub struct ILearningModel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelBinding(::windows::runtime::IInspectable);
+pub struct ILearningModelBinding(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBinding {
     type Vtable = ILearningModelBinding_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929091872, 5775, 20364, [148, 254, 46, 122, 195, 27, 74, 168]);
@@ -131,7 +131,7 @@ pub struct ILearningModelBinding_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelBindingFactory(::windows::runtime::IInspectable);
+pub struct ILearningModelBindingFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingFactory {
     type Vtable = ILearningModelBindingFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378477690, 59272, 18270, [137, 23, 35, 170, 56, 31, 175, 11]);
@@ -149,7 +149,7 @@ pub struct ILearningModelBindingFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelDevice(::windows::runtime::IInspectable);
+pub struct ILearningModelDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDevice {
     type Vtable = ILearningModelDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123183358, 16214, 19084, [172, 95, 253, 185, 45, 139, 130, 82]);
@@ -170,7 +170,7 @@ pub struct ILearningModelDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelDeviceFactory(::windows::runtime::IInspectable);
+pub struct ILearningModelDeviceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceFactory {
     type Vtable = ILearningModelDeviceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634012493, 45541, 20256, [128, 173, 10, 86, 105, 13, 176, 107]);
@@ -188,7 +188,7 @@ pub struct ILearningModelDeviceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelDeviceStatics(::windows::runtime::IInspectable);
+pub struct ILearningModelDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceStatics {
     type Vtable = ILearningModelDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240670471, 43199, 17083, [146, 199, 16, 177, 45, 197, 210, 31]);
@@ -207,7 +207,7 @@ pub struct ILearningModelDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelEvaluationResult(::windows::runtime::IInspectable);
+pub struct ILearningModelEvaluationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002712013, 38414, 18880, [133, 147, 235, 25, 10, 227, 238, 226]);
@@ -230,7 +230,7 @@ pub struct ILearningModelEvaluationResult_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
-pub struct ILearningModelFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct ILearningModelFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154694012, 28368, 16388, [151, 186, 185, 162, 238, 205, 43, 79]);
@@ -274,22 +274,22 @@ unsafe impl ::windows::runtime::RuntimeType for ILearningModelFeatureDescriptor 
 }
 impl ::std::convert::From<ILearningModelFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: ILearningModelFeatureDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ILearningModelFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &ILearningModelFeatureDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelFeatureDescriptor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILearningModelFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ILearningModelFeatureDescriptor> for ::windows::runtime::IInspectable {
@@ -329,7 +329,7 @@ pub struct ILearningModelFeatureDescriptor_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
-pub struct ILearningModelFeatureValue(::windows::runtime::IInspectable);
+pub struct ILearningModelFeatureValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111467995, 16517, 19966, [159, 237, 149, 235, 12, 12, 247, 92]);
@@ -349,22 +349,22 @@ unsafe impl ::windows::runtime::RuntimeType for ILearningModelFeatureValue {
 }
 impl ::std::convert::From<ILearningModelFeatureValue> for ::windows::runtime::IUnknown {
     fn from(value: ILearningModelFeatureValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ILearningModelFeatureValue> for ::windows::runtime::IUnknown {
     fn from(value: &ILearningModelFeatureValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelFeatureValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelFeatureValue {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILearningModelFeatureValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ILearningModelFeatureValue> for ::windows::runtime::IInspectable {
@@ -401,7 +401,7 @@ pub struct ILearningModelFeatureValue_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
-pub struct ILearningModelOperatorProvider(::windows::runtime::IInspectable);
+pub struct ILearningModelOperatorProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706883165, 44977, 18413, [191, 173, 181, 179, 164, 89, 236, 4]);
@@ -412,22 +412,22 @@ unsafe impl ::windows::runtime::RuntimeType for ILearningModelOperatorProvider {
 }
 impl ::std::convert::From<ILearningModelOperatorProvider> for ::windows::runtime::IUnknown {
     fn from(value: ILearningModelOperatorProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ILearningModelOperatorProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ILearningModelOperatorProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelOperatorProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelOperatorProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILearningModelOperatorProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ILearningModelOperatorProvider> for ::windows::runtime::IInspectable {
@@ -462,7 +462,7 @@ pub struct ILearningModelOperatorProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelSession(::windows::runtime::IInspectable);
+pub struct ILearningModelSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSession {
     type Vtable = ILearningModelSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388195574, 46983, 19473, [144, 240, 113, 41, 174, 202, 116, 169]);
@@ -490,7 +490,7 @@ pub struct ILearningModelSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelSessionFactory(::windows::runtime::IInspectable);
+pub struct ILearningModelSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory {
     type Vtable = ILearningModelSessionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258705437, 7323, 18358, [191, 224, 241, 207, 98, 166, 117, 121]);
@@ -509,7 +509,7 @@ pub struct ILearningModelSessionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelSessionFactory2(::windows::runtime::IInspectable);
+pub struct ILearningModelSessionFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory2 {
     type Vtable = ILearningModelSessionFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314687167, 2591, 24556, [173, 224, 47, 217, 30, 78, 242, 155]);
@@ -527,7 +527,7 @@ pub struct ILearningModelSessionFactory2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelSessionOptions(::windows::runtime::IInspectable);
+pub struct ILearningModelSessionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3103145889, 4941, 20787, [140, 255, 58, 92, 60, 38, 59, 235]);
@@ -546,7 +546,7 @@ pub struct ILearningModelSessionOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelSessionOptions2(::windows::runtime::IInspectable);
+pub struct ILearningModelSessionOptions2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions2 {
     type Vtable = ILearningModelSessionOptions2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1875713476, 5983, 23506, [141, 229, 47, 32, 6, 162, 90, 223]);
@@ -565,7 +565,7 @@ pub struct ILearningModelSessionOptions2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelSessionOptions3(::windows::runtime::IInspectable);
+pub struct ILearningModelSessionOptions3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions3 {
     type Vtable = ILearningModelSessionOptions3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491164398, 55490, 22268, [146, 232, 118, 215, 81, 8, 16, 134]);
@@ -583,7 +583,7 @@ pub struct ILearningModelSessionOptions3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelStatics(::windows::runtime::IInspectable);
+pub struct ILearningModelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelStatics {
     type Vtable = ILearningModelStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820582888, 26962, 20039, [142, 244, 31, 127, 7, 137, 124, 109]);
@@ -614,7 +614,7 @@ pub struct ILearningModelStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct IMapFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392780477, 41559, 17261, [158, 96, 194, 152, 31, 124, 197, 196]);
@@ -633,7 +633,7 @@ pub struct IMapFeatureDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISequenceFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct ISequenceFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2230752346, 22059, 19810, [168, 81, 115, 154, 206, 217, 102, 104]);
@@ -652,7 +652,7 @@ pub struct ISequenceFeatureDescriptor_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
-pub struct ITensor(::windows::runtime::IInspectable);
+pub struct ITensor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensor {
     type Vtable = ITensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(88642963, 41733, 18981, [173, 9, 68, 1, 25, 180, 183, 246]);
@@ -689,22 +689,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITensor {
 }
 impl ::std::convert::From<ITensor> for ::windows::runtime::IUnknown {
     fn from(value: ITensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITensor> for ::windows::runtime::IUnknown {
     fn from(value: &ITensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITensor> for ::windows::runtime::IInspectable {
@@ -764,7 +764,7 @@ pub struct ITensor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorBoolean(::windows::runtime::IInspectable);
+pub struct ITensorBoolean(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBoolean {
     type Vtable = ITensorBoolean_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1358107117, 10729, 19036, [164, 77, 143, 197, 18, 88, 78, 237]);
@@ -783,7 +783,7 @@ pub struct ITensorBoolean_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorBooleanStatics(::windows::runtime::IInspectable);
+pub struct ITensorBooleanStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics {
     type Vtable = ITensorBooleanStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664176172, 9047, 18855, [180, 118, 208, 170, 61, 254, 104, 102]);
@@ -807,7 +807,7 @@ pub struct ITensorBooleanStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorBooleanStatics2(::windows::runtime::IInspectable);
+pub struct ITensorBooleanStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics2 {
     type Vtable = ITensorBooleanStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745476353, 27181, 21207, [176, 75, 196, 53, 186, 238, 1, 21]);
@@ -827,7 +827,7 @@ pub struct ITensorBooleanStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorDouble(::windows::runtime::IInspectable);
+pub struct ITensorDouble(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDouble {
     type Vtable = ITensorDouble_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447643218, 31375, 20238, [162, 143, 150, 55, 255, 200, 163, 208]);
@@ -846,7 +846,7 @@ pub struct ITensorDouble_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorDoubleStatics(::windows::runtime::IInspectable);
+pub struct ITensorDoubleStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics {
     type Vtable = ITensorDoubleStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825294789, 38200, 17639, [163, 202, 93, 243, 116, 165, 167, 12]);
@@ -870,7 +870,7 @@ pub struct ITensorDoubleStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorDoubleStatics2(::windows::runtime::IInspectable);
+pub struct ITensorDoubleStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics2 {
     type Vtable = ITensorDoubleStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2477093086, 24218, 20628, [133, 200, 89, 44, 101, 94, 104, 172]);
@@ -890,7 +890,7 @@ pub struct ITensorDoubleStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct ITensorFeatureDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950702720, 37994, 17168, [161, 156, 238, 10, 240, 40, 252, 228]);
@@ -910,7 +910,7 @@ pub struct ITensorFeatureDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFloat(::windows::runtime::IInspectable);
+pub struct ITensorFloat(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat {
     type Vtable = ITensorFloat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4062719362, 43522, 17096, [160, 200, 223, 30, 252, 150, 118, 225]);
@@ -929,7 +929,7 @@ pub struct ITensorFloat_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFloat16Bit(::windows::runtime::IInspectable);
+pub struct ITensorFloat16Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179934460, 23433, 19516, [181, 228, 82, 130, 165, 49, 108, 10]);
@@ -948,7 +948,7 @@ pub struct ITensorFloat16Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFloat16BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorFloat16BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics {
     type Vtable = ITensorFloat16BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2771236597, 12682, 17620, [130, 11, 12, 220, 112, 84, 168, 74]);
@@ -972,7 +972,7 @@ pub struct ITensorFloat16BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFloat16BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorFloat16BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics2 {
     type Vtable = ITensorFloat16BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750357798, 11719, 20927, [180, 112, 11, 52, 76, 194, 161, 188]);
@@ -992,7 +992,7 @@ pub struct ITensorFloat16BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFloatStatics(::windows::runtime::IInspectable);
+pub struct ITensorFloatStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics {
     type Vtable = ITensorFloatStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687659867, 15267, 17711, [177, 13, 60, 19, 94, 87, 63, 169]);
@@ -1016,7 +1016,7 @@ pub struct ITensorFloatStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorFloatStatics2(::windows::runtime::IInspectable);
+pub struct ITensorFloatStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics2 {
     type Vtable = ITensorFloatStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610339777, 24132, 22291, [178, 129, 143, 74, 212, 213, 85, 232]);
@@ -1036,7 +1036,7 @@ pub struct ITensorFloatStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt16Bit(::windows::runtime::IInspectable);
+pub struct ITensorInt16Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16Bit {
     type Vtable = ITensorInt16Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2560830777, 59094, 17583, [138, 250, 186, 235, 196, 77, 192, 32]);
@@ -1055,7 +1055,7 @@ pub struct ITensorInt16Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt16BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorInt16BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics {
     type Vtable = ITensorInt16BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2556715667, 9838, 19226, [130, 31, 230, 13, 112, 137, 139, 145]);
@@ -1079,7 +1079,7 @@ pub struct ITensorInt16BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt16BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorInt16BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics2 {
     type Vtable = ITensorInt16BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215420148, 26988, 24159, [149, 216, 94, 191, 150, 112, 20, 139]);
@@ -1099,7 +1099,7 @@ pub struct ITensorInt16BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt32Bit(::windows::runtime::IInspectable);
+pub struct ITensorInt32Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32Bit {
     type Vtable = ITensorInt32Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738994387, 8316, 17542, [167, 210, 136, 69, 34, 197, 229, 137]);
@@ -1118,7 +1118,7 @@ pub struct ITensorInt32Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt32BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorInt32BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics {
     type Vtable = ITensorInt32BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698268747, 21242, 20021, [144, 124, 131, 76, 172, 65, 123, 80]);
@@ -1142,7 +1142,7 @@ pub struct ITensorInt32BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt32BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorInt32BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics2 {
     type Vtable = ITensorInt32BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2085291930, 59734, 23776, [163, 189, 21, 125, 157, 121, 181, 236]);
@@ -1162,7 +1162,7 @@ pub struct ITensorInt32BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt64Bit(::windows::runtime::IInspectable);
+pub struct ITensorInt64Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64Bit {
     type Vtable = ITensorInt64Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1234593210, 8098, 17837, [175, 37, 160, 189, 155, 218, 76, 135]);
@@ -1181,7 +1181,7 @@ pub struct ITensorInt64Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt64BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorInt64BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics {
     type Vtable = ITensorInt64BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2521345437, 4504, 19828, [149, 23, 120, 58, 182, 43, 156, 194]);
@@ -1205,7 +1205,7 @@ pub struct ITensorInt64BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt64BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorInt64BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics2 {
     type Vtable = ITensorInt64BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832754635, 65344, 24258, [137, 254, 8, 78, 43, 107, 198, 219]);
@@ -1225,7 +1225,7 @@ pub struct ITensorInt64BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt8Bit(::windows::runtime::IInspectable);
+pub struct ITensorInt8Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8Bit {
     type Vtable = ITensorInt8Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453851589, 65496, 20463, [174, 251, 48, 225, 164, 133, 178, 238]);
@@ -1244,7 +1244,7 @@ pub struct ITensorInt8Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt8BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorInt8BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics {
     type Vtable = ITensorInt8BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980127364, 2396, 19574, [166, 97, 172, 76, 238, 31, 62, 139]);
@@ -1268,7 +1268,7 @@ pub struct ITensorInt8BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorInt8BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorInt8BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics2 {
     type Vtable = ITensorInt8BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3235223095, 50280, 22267, [149, 53, 192, 82, 189, 185, 61, 192]);
@@ -1288,7 +1288,7 @@ pub struct ITensorInt8BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorString(::windows::runtime::IInspectable);
+pub struct ITensorString(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorString {
     type Vtable = ITensorString_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1478702536, 48561, 17936, [188, 117, 53, 233, 203, 240, 9, 183]);
@@ -1307,7 +1307,7 @@ pub struct ITensorString_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorStringStatics(::windows::runtime::IInspectable);
+pub struct ITensorStringStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics {
     type Vtable = ITensorStringStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2204250916, 53030, 20247, [162, 212, 32, 239, 141, 9, 125, 83]);
@@ -1331,7 +1331,7 @@ pub struct ITensorStringStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorStringStatics2(::windows::runtime::IInspectable);
+pub struct ITensorStringStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics2 {
     type Vtable = ITensorStringStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2654297808, 51426, 21076, [145, 55, 1, 147, 163, 102, 143, 216]);
@@ -1349,7 +1349,7 @@ pub struct ITensorStringStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt16Bit(::windows::runtime::IInspectable);
+pub struct ITensorUInt16Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746145099, 9152, 17139, [129, 246, 168, 145, 192, 17, 188, 63]);
@@ -1368,7 +1368,7 @@ pub struct ITensorUInt16Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt16BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorUInt16BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics {
     type Vtable = ITensorUInt16BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576486365, 650, 18458, [162, 124, 199, 230, 67, 94, 82, 221]);
@@ -1392,7 +1392,7 @@ pub struct ITensorUInt16BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt16BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorUInt16BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics2 {
     type Vtable = ITensorUInt16BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2331249764, 54943, 21269, [147, 72, 73, 8, 119, 187, 214, 66]);
@@ -1412,7 +1412,7 @@ pub struct ITensorUInt16BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt32Bit(::windows::runtime::IInspectable);
+pub struct ITensorUInt32Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637101311, 29969, 17827, [191, 172, 195, 143, 55, 13, 34, 55]);
@@ -1431,7 +1431,7 @@ pub struct ITensorUInt32Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt32BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorUInt32BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics {
     type Vtable = ITensorUInt32BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1098659895, 59251, 17272, [142, 127, 12, 195, 61, 190, 166, 151]);
@@ -1455,7 +1455,7 @@ pub struct ITensorUInt32BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt32BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorUInt32BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics2 {
     type Vtable = ITensorUInt32BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011466524, 12622, 22173, [180, 150, 92, 132, 71, 210, 12, 210]);
@@ -1475,7 +1475,7 @@ pub struct ITensorUInt32BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt64Bit(::windows::runtime::IInspectable);
+pub struct ITensorUInt64Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(779157421, 1215, 18469, [131, 154, 130, 186, 239, 140, 120, 134]);
@@ -1494,7 +1494,7 @@ pub struct ITensorUInt64Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt64BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorUInt64BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics {
     type Vtable = ITensorUInt64BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2055086315, 9263, 18379, [169, 198, 246, 2, 236, 251, 254, 228]);
@@ -1518,7 +1518,7 @@ pub struct ITensorUInt64BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt64BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorUInt64BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics2 {
     type Vtable = ITensorUInt64BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140142717, 26593, 23326, [178, 50, 79, 171, 233, 202, 32, 179]);
@@ -1538,7 +1538,7 @@ pub struct ITensorUInt64BitStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt8Bit(::windows::runtime::IInspectable);
+pub struct ITensorUInt8Bit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491185191, 25131, 18659, [190, 34, 216, 103, 174, 209, 218, 172]);
@@ -1557,7 +1557,7 @@ pub struct ITensorUInt8Bit_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt8BitStatics(::windows::runtime::IInspectable);
+pub struct ITensorUInt8BitStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics {
     type Vtable = ITensorUInt8BitStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100038019, 48164, 16928, [138, 65, 45, 205, 140, 94, 211, 60]);
@@ -1581,7 +1581,7 @@ pub struct ITensorUInt8BitStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorUInt8BitStatics2(::windows::runtime::IInspectable);
+pub struct ITensorUInt8BitStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics2 {
     type Vtable = ITensorUInt8BitStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(731923158, 14142, 23098, [162, 252, 166, 196, 27, 213, 39, 137]);
@@ -1602,7 +1602,7 @@ pub struct ITensorUInt8BitStatics2_abi(
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct ImageFeatureDescriptor(pub ::windows::runtime::IInspectable);
 impl ImageFeatureDescriptor {
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `AI_MachineLearning`, `Graphics_Imaging`*"]
@@ -1691,22 +1691,22 @@ impl ::windows::runtime::RuntimeName for ImageFeatureDescriptor {
 }
 impl ::std::convert::From<ImageFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: ImageFeatureDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &ImageFeatureDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageFeatureDescriptor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageFeatureDescriptor> for ::windows::runtime::IInspectable {
@@ -1756,7 +1756,7 @@ unsafe impl ::std::marker::Sync for ImageFeatureDescriptor {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageFeatureValue(::windows::runtime::IInspectable);
+pub struct ImageFeatureValue(pub ::windows::runtime::IInspectable);
 impl ImageFeatureValue {
     #[cfg(feature = "Media")]
     #[doc = "*Required features: `AI_MachineLearning`, `Media`*"]
@@ -1800,22 +1800,22 @@ impl ::windows::runtime::RuntimeName for ImageFeatureValue {
 }
 impl ::std::convert::From<ImageFeatureValue> for ::windows::runtime::IUnknown {
     fn from(value: ImageFeatureValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageFeatureValue> for ::windows::runtime::IUnknown {
     fn from(value: &ImageFeatureValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageFeatureValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageFeatureValue {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageFeatureValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageFeatureValue> for ::windows::runtime::IInspectable {
@@ -1865,7 +1865,7 @@ unsafe impl ::std::marker::Sync for ImageFeatureValue {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LearningModel(::windows::runtime::IInspectable);
+pub struct LearningModel(pub ::windows::runtime::IInspectable);
 impl LearningModel {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Author(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2019,22 +2019,22 @@ impl ::windows::runtime::RuntimeName for LearningModel {
 }
 impl ::std::convert::From<LearningModel> for ::windows::runtime::IUnknown {
     fn from(value: LearningModel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LearningModel> for ::windows::runtime::IUnknown {
     fn from(value: &LearningModel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LearningModel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LearningModel> for ::windows::runtime::IInspectable {
@@ -2088,7 +2088,7 @@ unsafe impl ::std::marker::Sync for LearningModel {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LearningModelBinding(::windows::runtime::IInspectable);
+pub struct LearningModelBinding(pub ::windows::runtime::IInspectable);
 impl LearningModelBinding {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Bind<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
@@ -2172,22 +2172,22 @@ impl ::windows::runtime::RuntimeName for LearningModelBinding {
 }
 impl ::std::convert::From<LearningModelBinding> for ::windows::runtime::IUnknown {
     fn from(value: LearningModelBinding) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LearningModelBinding> for ::windows::runtime::IUnknown {
     fn from(value: &LearningModelBinding) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelBinding {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LearningModelBinding {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelBinding {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LearningModelBinding> for ::windows::runtime::IInspectable {
@@ -2283,7 +2283,7 @@ impl ::std::iter::IntoIterator for &LearningModelBinding {
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LearningModelDevice(::windows::runtime::IInspectable);
+pub struct LearningModelDevice(pub ::windows::runtime::IInspectable);
 impl LearningModelDevice {
     #[cfg(feature = "Graphics")]
     #[doc = "*Required features: `AI_MachineLearning`, `Graphics`*"]
@@ -2339,22 +2339,22 @@ impl ::windows::runtime::RuntimeName for LearningModelDevice {
 }
 impl ::std::convert::From<LearningModelDevice> for ::windows::runtime::IUnknown {
     fn from(value: LearningModelDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LearningModelDevice> for ::windows::runtime::IUnknown {
     fn from(value: &LearningModelDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LearningModelDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LearningModelDevice> for ::windows::runtime::IInspectable {
@@ -2407,7 +2407,7 @@ impl ::windows::runtime::DefaultType for LearningModelDeviceKind {
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LearningModelEvaluationResult(::windows::runtime::IInspectable);
+pub struct LearningModelEvaluationResult(pub ::windows::runtime::IInspectable);
 impl LearningModelEvaluationResult {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CorrelationId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2455,22 +2455,22 @@ impl ::windows::runtime::RuntimeName for LearningModelEvaluationResult {
 }
 impl ::std::convert::From<LearningModelEvaluationResult> for ::windows::runtime::IUnknown {
     fn from(value: LearningModelEvaluationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LearningModelEvaluationResult> for ::windows::runtime::IUnknown {
     fn from(value: &LearningModelEvaluationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelEvaluationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LearningModelEvaluationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelEvaluationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LearningModelEvaluationResult> for ::windows::runtime::IInspectable {
@@ -2545,7 +2545,7 @@ impl ::windows::runtime::DefaultType for LearningModelPixelRange {
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LearningModelSession(::windows::runtime::IInspectable);
+pub struct LearningModelSession(pub ::windows::runtime::IInspectable);
 impl LearningModelSession {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Model(&self) -> ::windows::runtime::Result<LearningModel> {
@@ -2655,22 +2655,22 @@ impl ::windows::runtime::RuntimeName for LearningModelSession {
 }
 impl ::std::convert::From<LearningModelSession> for ::windows::runtime::IUnknown {
     fn from(value: LearningModelSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LearningModelSession> for ::windows::runtime::IUnknown {
     fn from(value: &LearningModelSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LearningModelSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LearningModelSession> for ::windows::runtime::IInspectable {
@@ -2724,7 +2724,7 @@ unsafe impl ::std::marker::Sync for LearningModelSession {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LearningModelSessionOptions(::windows::runtime::IInspectable);
+pub struct LearningModelSessionOptions(pub ::windows::runtime::IInspectable);
 impl LearningModelSessionOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2777,22 +2777,22 @@ impl ::windows::runtime::RuntimeName for LearningModelSessionOptions {
 }
 impl ::std::convert::From<LearningModelSessionOptions> for ::windows::runtime::IUnknown {
     fn from(value: LearningModelSessionOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LearningModelSessionOptions> for ::windows::runtime::IUnknown {
     fn from(value: &LearningModelSessionOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LearningModelSessionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LearningModelSessionOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LearningModelSessionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LearningModelSessionOptions> for ::windows::runtime::IInspectable {
@@ -2823,7 +2823,7 @@ pub struct MachineLearningContract(pub u8);
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct MapFeatureDescriptor(pub ::windows::runtime::IInspectable);
 impl MapFeatureDescriptor {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn KeyKind(&self) -> ::windows::runtime::Result<TensorKind> {
@@ -2886,22 +2886,22 @@ impl ::windows::runtime::RuntimeName for MapFeatureDescriptor {
 }
 impl ::std::convert::From<MapFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: MapFeatureDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &MapFeatureDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapFeatureDescriptor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapFeatureDescriptor> for ::windows::runtime::IInspectable {
@@ -2951,7 +2951,7 @@ unsafe impl ::std::marker::Sync for MapFeatureDescriptor {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SequenceFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct SequenceFeatureDescriptor(pub ::windows::runtime::IInspectable);
 impl SequenceFeatureDescriptor {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn ElementDescriptor(&self) -> ::windows::runtime::Result<ILearningModelFeatureDescriptor> {
@@ -3006,22 +3006,22 @@ impl ::windows::runtime::RuntimeName for SequenceFeatureDescriptor {
 }
 impl ::std::convert::From<SequenceFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: SequenceFeatureDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SequenceFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &SequenceFeatureDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SequenceFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SequenceFeatureDescriptor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SequenceFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SequenceFeatureDescriptor> for ::windows::runtime::IInspectable {
@@ -3071,7 +3071,7 @@ unsafe impl ::std::marker::Sync for SequenceFeatureDescriptor {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorBoolean(::windows::runtime::IInspectable);
+pub struct TensorBoolean(pub ::windows::runtime::IInspectable);
 impl TensorBoolean {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -3189,22 +3189,22 @@ impl ::windows::runtime::RuntimeName for TensorBoolean {
 }
 impl ::std::convert::From<TensorBoolean> for ::windows::runtime::IUnknown {
     fn from(value: TensorBoolean) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorBoolean> for ::windows::runtime::IUnknown {
     fn from(value: &TensorBoolean) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorBoolean {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorBoolean {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorBoolean {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorBoolean> for ::windows::runtime::IInspectable {
@@ -3328,7 +3328,7 @@ unsafe impl ::std::marker::Sync for TensorBoolean {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorDouble(::windows::runtime::IInspectable);
+pub struct TensorDouble(pub ::windows::runtime::IInspectable);
 impl TensorDouble {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -3446,22 +3446,22 @@ impl ::windows::runtime::RuntimeName for TensorDouble {
 }
 impl ::std::convert::From<TensorDouble> for ::windows::runtime::IUnknown {
     fn from(value: TensorDouble) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorDouble> for ::windows::runtime::IUnknown {
     fn from(value: &TensorDouble) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorDouble {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorDouble {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorDouble {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorDouble> for ::windows::runtime::IInspectable {
@@ -3585,7 +3585,7 @@ unsafe impl ::std::marker::Sync for TensorDouble {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorFeatureDescriptor(::windows::runtime::IInspectable);
+pub struct TensorFeatureDescriptor(pub ::windows::runtime::IInspectable);
 impl TensorFeatureDescriptor {
     #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::runtime::Result<TensorKind> {
@@ -3649,22 +3649,22 @@ impl ::windows::runtime::RuntimeName for TensorFeatureDescriptor {
 }
 impl ::std::convert::From<TensorFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: TensorFeatureDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorFeatureDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &TensorFeatureDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorFeatureDescriptor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorFeatureDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorFeatureDescriptor> for ::windows::runtime::IInspectable {
@@ -3714,7 +3714,7 @@ unsafe impl ::std::marker::Sync for TensorFeatureDescriptor {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorFloat(::windows::runtime::IInspectable);
+pub struct TensorFloat(pub ::windows::runtime::IInspectable);
 impl TensorFloat {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -3832,22 +3832,22 @@ impl ::windows::runtime::RuntimeName for TensorFloat {
 }
 impl ::std::convert::From<TensorFloat> for ::windows::runtime::IUnknown {
     fn from(value: TensorFloat) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorFloat> for ::windows::runtime::IUnknown {
     fn from(value: &TensorFloat) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorFloat {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorFloat {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorFloat {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorFloat> for ::windows::runtime::IInspectable {
@@ -3971,7 +3971,7 @@ unsafe impl ::std::marker::Sync for TensorFloat {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorFloat16Bit(::windows::runtime::IInspectable);
+pub struct TensorFloat16Bit(pub ::windows::runtime::IInspectable);
 impl TensorFloat16Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -4089,22 +4089,22 @@ impl ::windows::runtime::RuntimeName for TensorFloat16Bit {
 }
 impl ::std::convert::From<TensorFloat16Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorFloat16Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorFloat16Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorFloat16Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorFloat16Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorFloat16Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorFloat16Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorFloat16Bit> for ::windows::runtime::IInspectable {
@@ -4228,7 +4228,7 @@ unsafe impl ::std::marker::Sync for TensorFloat16Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorInt16Bit(::windows::runtime::IInspectable);
+pub struct TensorInt16Bit(pub ::windows::runtime::IInspectable);
 impl TensorInt16Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -4346,22 +4346,22 @@ impl ::windows::runtime::RuntimeName for TensorInt16Bit {
 }
 impl ::std::convert::From<TensorInt16Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorInt16Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorInt16Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorInt16Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorInt16Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorInt16Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorInt16Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorInt16Bit> for ::windows::runtime::IInspectable {
@@ -4485,7 +4485,7 @@ unsafe impl ::std::marker::Sync for TensorInt16Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorInt32Bit(::windows::runtime::IInspectable);
+pub struct TensorInt32Bit(pub ::windows::runtime::IInspectable);
 impl TensorInt32Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -4603,22 +4603,22 @@ impl ::windows::runtime::RuntimeName for TensorInt32Bit {
 }
 impl ::std::convert::From<TensorInt32Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorInt32Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorInt32Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorInt32Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorInt32Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorInt32Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorInt32Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorInt32Bit> for ::windows::runtime::IInspectable {
@@ -4742,7 +4742,7 @@ unsafe impl ::std::marker::Sync for TensorInt32Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorInt64Bit(::windows::runtime::IInspectable);
+pub struct TensorInt64Bit(pub ::windows::runtime::IInspectable);
 impl TensorInt64Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -4860,22 +4860,22 @@ impl ::windows::runtime::RuntimeName for TensorInt64Bit {
 }
 impl ::std::convert::From<TensorInt64Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorInt64Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorInt64Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorInt64Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorInt64Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorInt64Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorInt64Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorInt64Bit> for ::windows::runtime::IInspectable {
@@ -4999,7 +4999,7 @@ unsafe impl ::std::marker::Sync for TensorInt64Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorInt8Bit(::windows::runtime::IInspectable);
+pub struct TensorInt8Bit(pub ::windows::runtime::IInspectable);
 impl TensorInt8Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -5117,22 +5117,22 @@ impl ::windows::runtime::RuntimeName for TensorInt8Bit {
 }
 impl ::std::convert::From<TensorInt8Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorInt8Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorInt8Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorInt8Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorInt8Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorInt8Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorInt8Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorInt8Bit> for ::windows::runtime::IInspectable {
@@ -5292,7 +5292,7 @@ impl ::windows::runtime::DefaultType for TensorKind {
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorString(::windows::runtime::IInspectable);
+pub struct TensorString(pub ::windows::runtime::IInspectable);
 impl TensorString {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -5402,22 +5402,22 @@ impl ::windows::runtime::RuntimeName for TensorString {
 }
 impl ::std::convert::From<TensorString> for ::windows::runtime::IUnknown {
     fn from(value: TensorString) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorString> for ::windows::runtime::IUnknown {
     fn from(value: &TensorString) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorString {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorString {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorString {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorString> for ::windows::runtime::IInspectable {
@@ -5541,7 +5541,7 @@ unsafe impl ::std::marker::Sync for TensorString {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorUInt16Bit(::windows::runtime::IInspectable);
+pub struct TensorUInt16Bit(pub ::windows::runtime::IInspectable);
 impl TensorUInt16Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -5659,22 +5659,22 @@ impl ::windows::runtime::RuntimeName for TensorUInt16Bit {
 }
 impl ::std::convert::From<TensorUInt16Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorUInt16Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorUInt16Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorUInt16Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorUInt16Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorUInt16Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorUInt16Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorUInt16Bit> for ::windows::runtime::IInspectable {
@@ -5798,7 +5798,7 @@ unsafe impl ::std::marker::Sync for TensorUInt16Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorUInt32Bit(::windows::runtime::IInspectable);
+pub struct TensorUInt32Bit(pub ::windows::runtime::IInspectable);
 impl TensorUInt32Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -5916,22 +5916,22 @@ impl ::windows::runtime::RuntimeName for TensorUInt32Bit {
 }
 impl ::std::convert::From<TensorUInt32Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorUInt32Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorUInt32Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorUInt32Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorUInt32Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorUInt32Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorUInt32Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorUInt32Bit> for ::windows::runtime::IInspectable {
@@ -6055,7 +6055,7 @@ unsafe impl ::std::marker::Sync for TensorUInt32Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorUInt64Bit(::windows::runtime::IInspectable);
+pub struct TensorUInt64Bit(pub ::windows::runtime::IInspectable);
 impl TensorUInt64Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -6173,22 +6173,22 @@ impl ::windows::runtime::RuntimeName for TensorUInt64Bit {
 }
 impl ::std::convert::From<TensorUInt64Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorUInt64Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorUInt64Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorUInt64Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorUInt64Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorUInt64Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorUInt64Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorUInt64Bit> for ::windows::runtime::IInspectable {
@@ -6312,7 +6312,7 @@ unsafe impl ::std::marker::Sync for TensorUInt64Bit {}
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TensorUInt8Bit(::windows::runtime::IInspectable);
+pub struct TensorUInt8Bit(pub ::windows::runtime::IInspectable);
 impl TensorUInt8Bit {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
@@ -6430,22 +6430,22 @@ impl ::windows::runtime::RuntimeName for TensorUInt8Bit {
 }
 impl ::std::convert::From<TensorUInt8Bit> for ::windows::runtime::IUnknown {
     fn from(value: TensorUInt8Bit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TensorUInt8Bit> for ::windows::runtime::IUnknown {
     fn from(value: &TensorUInt8Bit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TensorUInt8Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TensorUInt8Bit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TensorUInt8Bit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TensorUInt8Bit> for ::windows::runtime::IInspectable {

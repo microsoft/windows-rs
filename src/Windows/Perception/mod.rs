@@ -7,7 +7,7 @@ pub mod People;
 pub mod Spatial;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPerceptionTimestamp(::windows::runtime::IInspectable);
+pub struct IPerceptionTimestamp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2277656580, 41518, 19163, [186, 38, 215, 142, 246, 57, 188, 244]);
@@ -28,7 +28,7 @@ pub struct IPerceptionTimestamp_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPerceptionTimestamp2(::windows::runtime::IInspectable);
+pub struct IPerceptionTimestamp2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestamp2 {
     type Vtable = IPerceptionTimestamp2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813980141, 11217, 16823, [158, 208, 116, 161, 92, 53, 69, 55]);
@@ -47,7 +47,7 @@ pub struct IPerceptionTimestamp2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPerceptionTimestampHelperStatics(::windows::runtime::IInspectable);
+pub struct IPerceptionTimestampHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestampHelperStatics {
     type Vtable = IPerceptionTimestampHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1202065876, 43487, 20188, [133, 93, 244, 211, 57, 217, 103, 172]);
@@ -66,7 +66,7 @@ pub struct IPerceptionTimestampHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPerceptionTimestampHelperStatics2(::windows::runtime::IInspectable);
+pub struct IPerceptionTimestampHelperStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestampHelperStatics2 {
     type Vtable = IPerceptionTimestampHelperStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943119870, 16313, 17777, [135, 212, 60, 146, 10, 94, 134, 235]);
@@ -86,7 +86,7 @@ pub struct IPerceptionTimestampHelperStatics2_abi(
 #[doc = "*Required features: `Perception`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PerceptionTimestamp(::windows::runtime::IInspectable);
+pub struct PerceptionTimestamp(pub ::windows::runtime::IInspectable);
 impl PerceptionTimestamp {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Perception`, `Foundation`*"]
@@ -128,22 +128,22 @@ impl ::windows::runtime::RuntimeName for PerceptionTimestamp {
 }
 impl ::std::convert::From<PerceptionTimestamp> for ::windows::runtime::IUnknown {
     fn from(value: PerceptionTimestamp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PerceptionTimestamp> for ::windows::runtime::IUnknown {
     fn from(value: &PerceptionTimestamp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionTimestamp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionTimestamp {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PerceptionTimestamp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PerceptionTimestamp> for ::windows::runtime::IInspectable {

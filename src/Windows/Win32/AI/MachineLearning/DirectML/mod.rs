@@ -6250,7 +6250,7 @@ unsafe impl ::windows::runtime::Abi for DML_VALUE_SCALE_2D_OPERATOR_DESC {
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLBindingTable(::windows::runtime::IUnknown);
+pub struct IDMLBindingTable(pub ::windows::runtime::IUnknown);
 impl IDMLBindingTable {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6302,22 +6302,22 @@ unsafe impl ::windows::runtime::Interface for IDMLBindingTable {
 }
 impl ::std::convert::From<IDMLBindingTable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLBindingTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLBindingTable> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLBindingTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLBindingTable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLBindingTable> for IDMLDeviceChild {
@@ -6382,7 +6382,7 @@ pub struct IDMLBindingTable_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLCommandRecorder(::windows::runtime::IUnknown);
+pub struct IDMLCommandRecorder(pub ::windows::runtime::IUnknown);
 impl IDMLCommandRecorder {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6418,22 +6418,22 @@ unsafe impl ::windows::runtime::Interface for IDMLCommandRecorder {
 }
 impl ::std::convert::From<IDMLCommandRecorder> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCommandRecorder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLCommandRecorder> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLCommandRecorder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLCommandRecorder {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
@@ -6494,7 +6494,7 @@ pub struct IDMLCommandRecorder_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLCompiledOperator(::windows::runtime::IUnknown);
+pub struct IDMLCompiledOperator(pub ::windows::runtime::IUnknown);
 impl IDMLCompiledOperator {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6531,22 +6531,22 @@ unsafe impl ::windows::runtime::Interface for IDMLCompiledOperator {
 }
 impl ::std::convert::From<IDMLCompiledOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLCompiledOperator> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLCompiledOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLCompiledOperator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
@@ -6646,7 +6646,7 @@ pub struct IDMLCompiledOperator_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLDebugDevice(::windows::runtime::IUnknown);
+pub struct IDMLDebugDevice(pub ::windows::runtime::IUnknown);
 impl IDMLDebugDevice {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -6660,22 +6660,22 @@ unsafe impl ::windows::runtime::Interface for IDMLDebugDevice {
 }
 impl ::std::convert::From<IDMLDebugDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDebugDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLDebugDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDebugDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDebugDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDebugDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLDebugDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6690,7 +6690,7 @@ pub struct IDMLDebugDevice_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLDevice(::windows::runtime::IUnknown);
+pub struct IDMLDevice(pub ::windows::runtime::IUnknown);
 impl IDMLDevice {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6761,22 +6761,22 @@ unsafe impl ::windows::runtime::Interface for IDMLDevice {
 }
 impl ::std::convert::From<IDMLDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLDevice> for IDMLObject {
@@ -6825,7 +6825,7 @@ pub struct IDMLDevice_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLDevice1(::windows::runtime::IUnknown);
+pub struct IDMLDevice1(pub ::windows::runtime::IUnknown);
 impl IDMLDevice1 {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -6900,22 +6900,22 @@ unsafe impl ::windows::runtime::Interface for IDMLDevice1 {
 }
 impl ::std::convert::From<IDMLDevice1> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLDevice1> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDevice1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDevice1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLDevice1> for IDMLDevice {
@@ -6985,7 +6985,7 @@ pub struct IDMLDevice1_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLDeviceChild(::windows::runtime::IUnknown);
+pub struct IDMLDeviceChild(pub ::windows::runtime::IUnknown);
 impl IDMLDeviceChild {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7016,22 +7016,22 @@ unsafe impl ::windows::runtime::Interface for IDMLDeviceChild {
 }
 impl ::std::convert::From<IDMLDeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDeviceChild) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLDeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDeviceChild) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDeviceChild {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLDeviceChild> for IDMLObject {
@@ -7070,7 +7070,7 @@ pub struct IDMLDeviceChild_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLDispatchable(::windows::runtime::IUnknown);
+pub struct IDMLDispatchable(pub ::windows::runtime::IUnknown);
 impl IDMLDispatchable {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7107,22 +7107,22 @@ unsafe impl ::windows::runtime::Interface for IDMLDispatchable {
 }
 impl ::std::convert::From<IDMLDispatchable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLDispatchable> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDispatchable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDispatchable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLDispatchable> for IDMLPageable {
@@ -7202,7 +7202,7 @@ pub struct IDMLDispatchable_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLObject(::windows::runtime::IUnknown);
+pub struct IDMLObject(pub ::windows::runtime::IUnknown);
 impl IDMLObject {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7228,22 +7228,22 @@ unsafe impl ::windows::runtime::Interface for IDMLObject {
 }
 impl ::std::convert::From<IDMLObject> for ::windows::runtime::IUnknown {
     fn from(value: IDMLObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLObject> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7261,7 +7261,7 @@ pub struct IDMLObject_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLOperator(::windows::runtime::IUnknown);
+pub struct IDMLOperator(pub ::windows::runtime::IUnknown);
 impl IDMLOperator {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7292,22 +7292,22 @@ unsafe impl ::windows::runtime::Interface for IDMLOperator {
 }
 impl ::std::convert::From<IDMLOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLOperator> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLOperator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLOperator> for IDMLDeviceChild {
@@ -7366,7 +7366,7 @@ pub struct IDMLOperator_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLOperatorInitializer(::windows::runtime::IUnknown);
+pub struct IDMLOperatorInitializer(pub ::windows::runtime::IUnknown);
 impl IDMLOperatorInitializer {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7407,22 +7407,22 @@ unsafe impl ::windows::runtime::Interface for IDMLOperatorInitializer {
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLOperatorInitializer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
@@ -7523,7 +7523,7 @@ pub struct IDMLOperatorInitializer_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDMLPageable(::windows::runtime::IUnknown);
+pub struct IDMLPageable(pub ::windows::runtime::IUnknown);
 impl IDMLPageable {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -7554,22 +7554,22 @@ unsafe impl ::windows::runtime::Interface for IDMLPageable {
 }
 impl ::std::convert::From<IDMLPageable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLPageable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDMLPageable> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLPageable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLPageable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDMLPageable> for IDMLDeviceChild {

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Security_Cryptography_DataProtection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DataProtectionProvider(::windows::runtime::IInspectable);
+pub struct DataProtectionProvider(pub ::windows::runtime::IInspectable);
 impl DataProtectionProvider {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -71,22 +71,22 @@ impl ::windows::runtime::RuntimeName for DataProtectionProvider {
 }
 impl ::std::convert::From<DataProtectionProvider> for ::windows::runtime::IUnknown {
     fn from(value: DataProtectionProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DataProtectionProvider> for ::windows::runtime::IUnknown {
     fn from(value: &DataProtectionProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataProtectionProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataProtectionProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DataProtectionProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DataProtectionProvider> for ::windows::runtime::IInspectable {
@@ -113,7 +113,7 @@ unsafe impl ::std::marker::Send for DataProtectionProvider {}
 unsafe impl ::std::marker::Sync for DataProtectionProvider {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataProtectionProvider(::windows::runtime::IInspectable);
+pub struct IDataProtectionProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionProvider {
     type Vtable = IDataProtectionProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(157522248, 60706, 17008, [189, 28, 109, 114, 192, 15, 135, 135]);
@@ -138,7 +138,7 @@ pub struct IDataProtectionProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDataProtectionProviderFactory(::windows::runtime::IInspectable);
+pub struct IDataProtectionProviderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionProviderFactory {
     type Vtable = IDataProtectionProviderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2918399404, 18738, 19679, [172, 65, 114, 20, 51, 53, 20, 202]);

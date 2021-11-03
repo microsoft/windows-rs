@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthentication(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorAuthentication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthentication {
     type Vtable = ISecondaryAuthenticationFactorAuthentication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(34215653, 27173, 16547, [140, 0, 80, 160, 35, 246, 25, 209]);
@@ -30,7 +30,7 @@ pub struct ISecondaryAuthenticationFactorAuthentication_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthenticationResult(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorAuthenticationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationResult {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629523847, 61293, 19394, [191, 73, 70, 23, 81, 90, 15, 154]);
@@ -49,7 +49,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567644246, 29329, 16499, [188, 31, 204, 184, 245, 175, 223, 150]);
@@ -67,7 +67,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageInfo {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459536523, 59562, 19471, [142, 76, 165, 89, 231, 58, 221, 136]);
@@ -87,7 +87,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthenticationStatics(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorAuthenticationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStatics {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062741590, 10488, 19983, [174, 140, 88, 152, 185, 174, 36, 105]);
@@ -114,7 +114,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
     type Vtable = ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420742681, 32498, 17699, [149, 28, 164, 23, 162, 74, 207, 147]);
@@ -148,7 +148,7 @@ pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationSta
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorInfo(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo {
     type Vtable = ISecondaryAuthenticationFactorInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506177633, 34099, 20430, [131, 155, 236, 183, 36, 16, 172, 20]);
@@ -170,7 +170,7 @@ pub struct ISecondaryAuthenticationFactorInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorInfo2(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo2 {
     type Vtable = ISecondaryAuthenticationFactorInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(349798819, 64550, 20471, [171, 195, 72, 232, 42, 81, 42, 10]);
@@ -191,7 +191,7 @@ pub struct ISecondaryAuthenticationFactorInfo2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorRegistration(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistration {
     type Vtable = ISecondaryAuthenticationFactorRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672606132, 36026, 18608, [132, 13, 219, 178, 42, 84, 198, 120]);
@@ -212,7 +212,7 @@ pub struct ISecondaryAuthenticationFactorRegistration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorRegistrationResult(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationResult {
     type Vtable = ISecondaryAuthenticationFactorRegistrationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768123376, 44515, 18817, [175, 107, 236, 25, 89, 33, 104, 42]);
@@ -231,7 +231,7 @@ pub struct ISecondaryAuthenticationFactorRegistrationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorRegistrationStatics(::windows::runtime::IInspectable);
+pub struct ISecondaryAuthenticationFactorRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationStatics {
     type Vtable = ISecondaryAuthenticationFactorRegistrationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450826085, 58295, 16725, [153, 127, 183, 86, 239, 101, 190, 186]);
@@ -267,7 +267,7 @@ pub struct ISecondaryAuthenticationFactorRegistrationStatics_abi(
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorAuthentication(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorAuthentication(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthentication {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage_Streams")]
@@ -388,22 +388,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthentica
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthentication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorAuthentication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorAuthentication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorAuthentication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IInspectable {
@@ -480,7 +480,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthentica
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorAuthenticationResult(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorAuthenticationResult(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationResult {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
@@ -513,22 +513,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthentica
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorAuthenticationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorAuthenticationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorAuthenticationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IInspectable {
@@ -607,7 +607,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthentica
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
@@ -631,22 +631,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthentica
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -674,7 +674,7 @@ unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorAuthenticationS
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationStageInfo {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
@@ -716,22 +716,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthentica
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorAuthenticationStageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorAuthenticationStageInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorAuthenticationStageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IInspectable {
@@ -953,7 +953,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorFinishAuth
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorInfo(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorInfo(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorInfo {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
@@ -1033,22 +1033,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorInfo {
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::runtime::IInspectable {
@@ -1076,7 +1076,7 @@ unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorRegistration(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorRegistration(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorRegistration {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -1204,22 +1204,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorRegistrati
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorRegistration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorRegistration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IInspectable {
@@ -1247,7 +1247,7 @@ unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorRegistration {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorRegistrationResult(::windows::runtime::IInspectable);
+pub struct SecondaryAuthenticationFactorRegistrationResult(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorRegistrationResult {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
@@ -1280,22 +1280,22 @@ impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorRegistrati
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorRegistrationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorRegistrationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryAuthenticationFactorRegistrationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IInspectable {

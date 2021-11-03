@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveBlobGetResult(::windows::runtime::IInspectable);
+pub struct GameSaveBlobGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
@@ -34,22 +34,22 @@ impl ::windows::runtime::RuntimeName for GameSaveBlobGetResult {
 }
 impl ::std::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobGetResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveBlobGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
@@ -77,7 +77,7 @@ unsafe impl ::std::marker::Sync for GameSaveBlobGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveBlobInfo(::windows::runtime::IInspectable);
+pub struct GameSaveBlobInfo(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobInfo {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -108,22 +108,22 @@ impl ::windows::runtime::RuntimeName for GameSaveBlobInfo {
 }
 impl ::std::convert::From<GameSaveBlobInfo> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveBlobInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveBlobInfo> for ::windows::runtime::IInspectable {
@@ -151,7 +151,7 @@ unsafe impl ::std::marker::Sync for GameSaveBlobInfo {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveBlobInfoGetResult(::windows::runtime::IInspectable);
+pub struct GameSaveBlobInfoGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobInfoGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
@@ -183,22 +183,22 @@ impl ::windows::runtime::RuntimeName for GameSaveBlobInfoGetResult {
 }
 impl ::std::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobInfoGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobInfoGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobInfoGetResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveBlobInfoGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
@@ -226,7 +226,7 @@ unsafe impl ::std::marker::Sync for GameSaveBlobInfoGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveBlobInfoQuery(::windows::runtime::IInspectable);
+pub struct GameSaveBlobInfoQuery(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobInfoQuery {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_XboxLive_Storage`, `Foundation`*"]
@@ -268,22 +268,22 @@ impl ::windows::runtime::RuntimeName for GameSaveBlobInfoQuery {
 }
 impl ::std::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobInfoQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobInfoQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobInfoQuery {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveBlobInfoQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
@@ -311,7 +311,7 @@ unsafe impl ::std::marker::Sync for GameSaveBlobInfoQuery {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveContainer(::windows::runtime::IInspectable);
+pub struct GameSaveContainer(pub ::windows::runtime::IInspectable);
 impl GameSaveContainer {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -396,22 +396,22 @@ impl ::windows::runtime::RuntimeName for GameSaveContainer {
 }
 impl ::std::convert::From<GameSaveContainer> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveContainer> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveContainer> for ::windows::runtime::IInspectable {
@@ -439,7 +439,7 @@ unsafe impl ::std::marker::Sync for GameSaveContainer {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveContainerInfo(::windows::runtime::IInspectable);
+pub struct GameSaveContainerInfo(pub ::windows::runtime::IInspectable);
 impl GameSaveContainerInfo {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -495,22 +495,22 @@ impl ::windows::runtime::RuntimeName for GameSaveContainerInfo {
 }
 impl ::std::convert::From<GameSaveContainerInfo> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainerInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveContainerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveContainerInfo> for ::windows::runtime::IInspectable {
@@ -538,7 +538,7 @@ unsafe impl ::std::marker::Sync for GameSaveContainerInfo {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveContainerInfoGetResult(::windows::runtime::IInspectable);
+pub struct GameSaveContainerInfoGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveContainerInfoGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
@@ -570,22 +570,22 @@ impl ::windows::runtime::RuntimeName for GameSaveContainerInfoGetResult {
 }
 impl ::std::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainerInfoGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainerInfoGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainerInfoGetResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveContainerInfoGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
@@ -613,7 +613,7 @@ unsafe impl ::std::marker::Sync for GameSaveContainerInfoGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveContainerInfoQuery(::windows::runtime::IInspectable);
+pub struct GameSaveContainerInfoQuery(pub ::windows::runtime::IInspectable);
 impl GameSaveContainerInfoQuery {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_XboxLive_Storage`, `Foundation`*"]
@@ -655,22 +655,22 @@ impl ::windows::runtime::RuntimeName for GameSaveContainerInfoQuery {
 }
 impl ::std::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainerInfoQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainerInfoQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainerInfoQuery {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveContainerInfoQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
@@ -733,7 +733,7 @@ impl ::windows::runtime::DefaultType for GameSaveErrorStatus {
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveOperationResult(::windows::runtime::IInspectable);
+pub struct GameSaveOperationResult(pub ::windows::runtime::IInspectable);
 impl GameSaveOperationResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
@@ -756,22 +756,22 @@ impl ::windows::runtime::RuntimeName for GameSaveOperationResult {
 }
 impl ::std::convert::From<GameSaveOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveOperationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveOperationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveOperationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveOperationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveOperationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveOperationResult> for ::windows::runtime::IInspectable {
@@ -799,7 +799,7 @@ unsafe impl ::std::marker::Sync for GameSaveOperationResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveProvider(::windows::runtime::IInspectable);
+pub struct GameSaveProvider(pub ::windows::runtime::IInspectable);
 impl GameSaveProvider {
     #[cfg(feature = "System")]
     #[doc = "*Required features: `Gaming_XboxLive_Storage`, `System`*"]
@@ -894,22 +894,22 @@ impl ::windows::runtime::RuntimeName for GameSaveProvider {
 }
 impl ::std::convert::From<GameSaveProvider> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveProvider> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveProvider> for ::windows::runtime::IInspectable {
@@ -937,7 +937,7 @@ unsafe impl ::std::marker::Sync for GameSaveProvider {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GameSaveProviderGetResult(::windows::runtime::IInspectable);
+pub struct GameSaveProviderGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveProviderGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
@@ -968,22 +968,22 @@ impl ::windows::runtime::RuntimeName for GameSaveProviderGetResult {
 }
 impl ::std::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveProviderGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveProviderGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveProviderGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveProviderGetResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GameSaveProviderGetResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
@@ -1010,7 +1010,7 @@ unsafe impl ::std::marker::Send for GameSaveProviderGetResult {}
 unsafe impl ::std::marker::Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveBlobGetResult(::windows::runtime::IInspectable);
+pub struct IGameSaveBlobGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobGetResult {
     type Vtable = IGameSaveBlobGetResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440200672, 29185, 18771, [170, 44, 64, 8, 240, 58, 239, 69]);
@@ -1030,7 +1030,7 @@ pub struct IGameSaveBlobGetResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveBlobInfo(::windows::runtime::IInspectable);
+pub struct IGameSaveBlobInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfo {
     type Vtable = IGameSaveBlobInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916319284, 47856, 17989, [182, 208, 70, 237, 175, 251, 60, 43]);
@@ -1049,7 +1049,7 @@ pub struct IGameSaveBlobInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveBlobInfoGetResult(::windows::runtime::IInspectable);
+pub struct IGameSaveBlobInfoGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfoGetResult {
     type Vtable = IGameSaveBlobInfoGetResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3344401794, 13975, 17087, [152, 156, 102, 93, 146, 59, 82, 49]);
@@ -1069,7 +1069,7 @@ pub struct IGameSaveBlobInfoGetResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveBlobInfoQuery(::windows::runtime::IInspectable);
+pub struct IGameSaveBlobInfoQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfoQuery {
     type Vtable = IGameSaveBlobInfoQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682090674, 61166, 17531, [169, 210, 127, 150, 192, 248, 50, 8]);
@@ -1092,7 +1092,7 @@ pub struct IGameSaveBlobInfoQuery_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveContainer(::windows::runtime::IInspectable);
+pub struct IGameSaveContainer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainer {
     type Vtable = IGameSaveContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284176777, 22079, 20173, [156, 111, 51, 253, 14, 50, 61, 16]);
@@ -1120,7 +1120,7 @@ pub struct IGameSaveContainer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveContainerInfo(::windows::runtime::IInspectable);
+pub struct IGameSaveContainerInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfo {
     type Vtable = IGameSaveContainerInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085071104, 5469, 19380, [178, 186, 147, 3, 6, 243, 145, 181]);
@@ -1143,7 +1143,7 @@ pub struct IGameSaveContainerInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveContainerInfoGetResult(::windows::runtime::IInspectable);
+pub struct IGameSaveContainerInfoGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfoGetResult {
     type Vtable = IGameSaveContainerInfoGetResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291104116, 50561, 20381, [158, 57, 48, 161, 12, 30, 76, 80]);
@@ -1163,7 +1163,7 @@ pub struct IGameSaveContainerInfoGetResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveContainerInfoQuery(::windows::runtime::IInspectable);
+pub struct IGameSaveContainerInfoQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfoQuery {
     type Vtable = IGameSaveContainerInfoQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016391779, 28544, 17191, [147, 39, 255, 193, 26, 253, 66, 179]);
@@ -1186,7 +1186,7 @@ pub struct IGameSaveContainerInfoQuery_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveOperationResult(::windows::runtime::IInspectable);
+pub struct IGameSaveOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveOperationResult {
     type Vtable = IGameSaveOperationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3473873413, 9376, 17794, [154, 85, 177, 187, 187, 147, 136, 216]);
@@ -1204,7 +1204,7 @@ pub struct IGameSaveOperationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveProvider(::windows::runtime::IInspectable);
+pub struct IGameSaveProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProvider {
     type Vtable = IGameSaveProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426798996, 33022, 16913, [151, 248, 165, 222, 20, 221, 149, 210]);
@@ -1232,7 +1232,7 @@ pub struct IGameSaveProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveProviderGetResult(::windows::runtime::IInspectable);
+pub struct IGameSaveProviderGetResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProviderGetResult {
     type Vtable = IGameSaveProviderGetResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985204758, 54163, 19813, [172, 22, 65, 195, 230, 122, 185, 69]);
@@ -1251,7 +1251,7 @@ pub struct IGameSaveProviderGetResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGameSaveProviderStatics(::windows::runtime::IInspectable);
+pub struct IGameSaveProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProviderStatics {
     type Vtable = IGameSaveProviderStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491577552, 31491, 17565, [140, 189, 52, 2, 132, 42, 16, 72]);

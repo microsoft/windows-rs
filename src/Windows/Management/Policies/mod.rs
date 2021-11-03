@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INamedPolicyData(::windows::runtime::IInspectable);
+pub struct INamedPolicyData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedPolicyData {
     type Vtable = INamedPolicyData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(953987480, 38316, 16503, [166, 67, 128, 120, 202, 226, 100, 0]);
@@ -35,7 +35,7 @@ pub struct INamedPolicyData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INamedPolicyStatics(::windows::runtime::IInspectable);
+pub struct INamedPolicyStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedPolicyStatics {
     type Vtable = INamedPolicyStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2138651623, 30404, 16472, [140, 173, 103, 102, 44, 208, 95, 13]);
@@ -82,7 +82,7 @@ impl ::windows::runtime::RuntimeName for NamedPolicy {
 #[doc = "*Required features: `Management_Policies`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct NamedPolicyData(::windows::runtime::IInspectable);
+pub struct NamedPolicyData(pub ::windows::runtime::IInspectable);
 impl NamedPolicyData {
     #[doc = "*Required features: `Management_Policies`*"]
     pub fn Area(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -202,22 +202,22 @@ impl ::windows::runtime::RuntimeName for NamedPolicyData {
 }
 impl ::std::convert::From<NamedPolicyData> for ::windows::runtime::IUnknown {
     fn from(value: NamedPolicyData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&NamedPolicyData> for ::windows::runtime::IUnknown {
     fn from(value: &NamedPolicyData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NamedPolicyData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NamedPolicyData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NamedPolicyData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<NamedPolicyData> for ::windows::runtime::IInspectable {

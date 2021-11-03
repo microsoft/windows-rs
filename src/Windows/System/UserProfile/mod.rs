@@ -54,7 +54,7 @@ impl ::windows::runtime::RuntimeName for AdvertisingManager {
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AdvertisingManagerForUser(::windows::runtime::IInspectable);
+pub struct AdvertisingManagerForUser(pub ::windows::runtime::IInspectable);
 impl AdvertisingManagerForUser {
     #[doc = "*Required features: `System_UserProfile`*"]
     pub fn AdvertisingId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -85,22 +85,22 @@ impl ::windows::runtime::RuntimeName for AdvertisingManagerForUser {
 }
 impl ::std::convert::From<AdvertisingManagerForUser> for ::windows::runtime::IUnknown {
     fn from(value: AdvertisingManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AdvertisingManagerForUser> for ::windows::runtime::IUnknown {
     fn from(value: &AdvertisingManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdvertisingManagerForUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AdvertisingManagerForUser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AdvertisingManagerForUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AdvertisingManagerForUser> for ::windows::runtime::IInspectable {
@@ -128,7 +128,7 @@ unsafe impl ::std::marker::Sync for AdvertisingManagerForUser {}
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AssignedAccessSettings(::windows::runtime::IInspectable);
+pub struct AssignedAccessSettings(pub ::windows::runtime::IInspectable);
 impl AssignedAccessSettings {
     #[doc = "*Required features: `System_UserProfile`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -185,22 +185,22 @@ impl ::windows::runtime::RuntimeName for AssignedAccessSettings {
 }
 impl ::std::convert::From<AssignedAccessSettings> for ::windows::runtime::IUnknown {
     fn from(value: AssignedAccessSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AssignedAccessSettings> for ::windows::runtime::IUnknown {
     fn from(value: &AssignedAccessSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AssignedAccessSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AssignedAccessSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AssignedAccessSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AssignedAccessSettings> for ::windows::runtime::IInspectable {
@@ -228,7 +228,7 @@ unsafe impl ::std::marker::Sync for AssignedAccessSettings {}
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DiagnosticsSettings(::windows::runtime::IInspectable);
+pub struct DiagnosticsSettings(pub ::windows::runtime::IInspectable);
 impl DiagnosticsSettings {
     #[doc = "*Required features: `System_UserProfile`*"]
     pub fn CanUseDiagnosticsToTailorExperiences(&self) -> ::windows::runtime::Result<bool> {
@@ -277,22 +277,22 @@ impl ::windows::runtime::RuntimeName for DiagnosticsSettings {
 }
 impl ::std::convert::From<DiagnosticsSettings> for ::windows::runtime::IUnknown {
     fn from(value: DiagnosticsSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DiagnosticsSettings> for ::windows::runtime::IUnknown {
     fn from(value: &DiagnosticsSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiagnosticsSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiagnosticsSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DiagnosticsSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DiagnosticsSettings> for ::windows::runtime::IInspectable {
@@ -320,7 +320,7 @@ unsafe impl ::std::marker::Sync for DiagnosticsSettings {}
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FirstSignInSettings(::windows::runtime::IInspectable);
+pub struct FirstSignInSettings(pub ::windows::runtime::IInspectable);
 impl FirstSignInSettings {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
@@ -388,22 +388,22 @@ impl ::windows::runtime::RuntimeName for FirstSignInSettings {
 }
 impl ::std::convert::From<FirstSignInSettings> for ::windows::runtime::IUnknown {
     fn from(value: FirstSignInSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FirstSignInSettings> for ::windows::runtime::IUnknown {
     fn from(value: &FirstSignInSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FirstSignInSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FirstSignInSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FirstSignInSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FirstSignInSettings> for ::windows::runtime::IInspectable {
@@ -587,7 +587,7 @@ impl ::windows::runtime::RuntimeName for GlobalizationPreferences {
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GlobalizationPreferencesForUser(::windows::runtime::IInspectable);
+pub struct GlobalizationPreferencesForUser(pub ::windows::runtime::IInspectable);
 impl GlobalizationPreferencesForUser {
     #[doc = "*Required features: `System_UserProfile`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::User> {
@@ -663,22 +663,22 @@ impl ::windows::runtime::RuntimeName for GlobalizationPreferencesForUser {
 }
 impl ::std::convert::From<GlobalizationPreferencesForUser> for ::windows::runtime::IUnknown {
     fn from(value: GlobalizationPreferencesForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GlobalizationPreferencesForUser> for ::windows::runtime::IUnknown {
     fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalizationPreferencesForUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalizationPreferencesForUser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GlobalizationPreferencesForUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GlobalizationPreferencesForUser> for ::windows::runtime::IInspectable {
@@ -705,7 +705,7 @@ unsafe impl ::std::marker::Send for GlobalizationPreferencesForUser {}
 unsafe impl ::std::marker::Sync for GlobalizationPreferencesForUser {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdvertisingManagerForUser(::windows::runtime::IInspectable);
+pub struct IAdvertisingManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458645456, 53116, 19120, [167, 220, 109, 197, 188, 212, 66, 82]);
@@ -724,7 +724,7 @@ pub struct IAdvertisingManagerForUser_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdvertisingManagerStatics(::windows::runtime::IInspectable);
+pub struct IAdvertisingManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerStatics {
     type Vtable = IAdvertisingManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916304524, 41587, 18635, [179, 70, 53, 68, 82, 45, 85, 129]);
@@ -742,7 +742,7 @@ pub struct IAdvertisingManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAdvertisingManagerStatics2(::windows::runtime::IInspectable);
+pub struct IAdvertisingManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerStatics2 {
     type Vtable = IAdvertisingManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3708372911, 6765, 18096, [149, 188, 243, 249, 214, 190, 185, 251]);
@@ -760,7 +760,7 @@ pub struct IAdvertisingManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAssignedAccessSettings(::windows::runtime::IInspectable);
+pub struct IAssignedAccessSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(465927964, 59761, 22359, [184, 224, 81, 47, 139, 140, 70, 210]);
@@ -780,7 +780,7 @@ pub struct IAssignedAccessSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAssignedAccessSettingsStatics(::windows::runtime::IInspectable);
+pub struct IAssignedAccessSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAssignedAccessSettingsStatics {
     type Vtable = IAssignedAccessSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(883432717, 35369, 24307, [167, 190, 97, 142, 106, 195, 189, 1]);
@@ -799,7 +799,7 @@ pub struct IAssignedAccessSettingsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDiagnosticsSettings(::windows::runtime::IInspectable);
+pub struct IDiagnosticsSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3857312973, 10001, 17632, [151, 60, 73, 29, 120, 4, 141, 36]);
@@ -818,7 +818,7 @@ pub struct IDiagnosticsSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDiagnosticsSettingsStatics(::windows::runtime::IInspectable);
+pub struct IDiagnosticsSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticsSettingsStatics {
     type Vtable = IDiagnosticsSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926424591, 21392, 18323, [153, 11, 60, 204, 125, 106, 201, 200]);
@@ -837,7 +837,7 @@ pub struct IDiagnosticsSettingsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFirstSignInSettings(::windows::runtime::IInspectable);
+pub struct IFirstSignInSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFirstSignInSettings {
     type Vtable = IFirstSignInSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049907539, 14942, 17710, [166, 1, 245, 186, 173, 42, 72, 112]);
@@ -854,7 +854,7 @@ pub struct IFirstSignInSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFirstSignInSettingsStatics(::windows::runtime::IInspectable);
+pub struct IFirstSignInSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFirstSignInSettingsStatics {
     type Vtable = IFirstSignInSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(484544271, 7233, 20128, [183, 162, 111, 12, 28, 126, 132, 56]);
@@ -872,7 +872,7 @@ pub struct IFirstSignInSettingsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesForUser(::windows::runtime::IInspectable);
+pub struct IGlobalizationPreferencesForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353306517, 20334, 16570, [160, 16, 226, 125, 129, 189, 167, 245]);
@@ -901,7 +901,7 @@ pub struct IGlobalizationPreferencesForUser_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics(::windows::runtime::IInspectable);
+pub struct IGlobalizationPreferencesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics {
     type Vtable = IGlobalizationPreferencesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29311782, 60727, 20118, [176, 233, 193, 52, 13, 30, 161, 88]);
@@ -929,7 +929,7 @@ pub struct IGlobalizationPreferencesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics2(::windows::runtime::IInspectable);
+pub struct IGlobalizationPreferencesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics2 {
     type Vtable = IGlobalizationPreferencesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4241393137, 17152, 19664, [156, 172, 26, 142, 123, 126, 24, 244]);
@@ -949,7 +949,7 @@ pub struct IGlobalizationPreferencesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics3(::windows::runtime::IInspectable);
+pub struct IGlobalizationPreferencesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics3 {
     type Vtable = IGlobalizationPreferencesStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503682867, 13813, 16600, [185, 232, 174, 243, 239, 133, 111, 206]);
@@ -967,7 +967,7 @@ pub struct IGlobalizationPreferencesStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockScreenImageFeedStatics(::windows::runtime::IInspectable);
+pub struct ILockScreenImageFeedStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenImageFeedStatics {
     type Vtable = ILockScreenImageFeedStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(739079158, 937, 16806, [155, 1, 73, 82, 81, 255, 81, 213]);
@@ -987,7 +987,7 @@ pub struct ILockScreenImageFeedStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockScreenStatics(::windows::runtime::IInspectable);
+pub struct ILockScreenStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenStatics {
     type Vtable = ILockScreenStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1055511469, 46599, 16558, [180, 38, 118, 49, 217, 130, 18, 105]);
@@ -1012,7 +1012,7 @@ pub struct ILockScreenStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserInformationStatics(::windows::runtime::IInspectable);
+pub struct IUserInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserInformationStatics {
     type Vtable = IUserInformationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012457232, 18682, 18588, [147, 78, 42, 232, 91, 168, 247, 114]);
@@ -1057,7 +1057,7 @@ pub struct IUserInformationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserProfilePersonalizationSettings(::windows::runtime::IInspectable);
+pub struct IUserProfilePersonalizationSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364398260, 31128, 18133, [141, 211, 24, 79, 28, 95, 154, 185]);
@@ -1078,7 +1078,7 @@ pub struct IUserProfilePersonalizationSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserProfilePersonalizationSettingsStatics(::windows::runtime::IInspectable);
+pub struct IUserProfilePersonalizationSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserProfilePersonalizationSettingsStatics {
     type Vtable = IUserProfilePersonalizationSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444015681, 20535, 17739, [152, 131, 187, 119, 45, 8, 221, 22]);
@@ -1356,7 +1356,7 @@ pub struct UserProfileLockScreenContract(pub u8);
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserProfilePersonalizationSettings(::windows::runtime::IInspectable);
+pub struct UserProfilePersonalizationSettings(pub ::windows::runtime::IInspectable);
 impl UserProfilePersonalizationSettings {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage`*"]
@@ -1407,22 +1407,22 @@ impl ::windows::runtime::RuntimeName for UserProfilePersonalizationSettings {
 }
 impl ::std::convert::From<UserProfilePersonalizationSettings> for ::windows::runtime::IUnknown {
     fn from(value: UserProfilePersonalizationSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserProfilePersonalizationSettings> for ::windows::runtime::IUnknown {
     fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserProfilePersonalizationSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserProfilePersonalizationSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserProfilePersonalizationSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserProfilePersonalizationSettings> for ::windows::runtime::IInspectable {

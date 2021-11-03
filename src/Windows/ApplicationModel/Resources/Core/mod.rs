@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INamedResource(::windows::runtime::IInspectable);
+pub struct INamedResource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedResource {
     type Vtable = INamedResource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479773209, 2835, 16960, [137, 165, 212, 149, 220, 24, 154, 0]);
@@ -28,7 +28,7 @@ pub struct INamedResource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceCandidate(::windows::runtime::IInspectable);
+pub struct IResourceCandidate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate {
     type Vtable = IResourceCandidate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2941388761, 50227, 18276, [179, 253, 143, 166, 191, 188, 186, 220]);
@@ -54,7 +54,7 @@ pub struct IResourceCandidate_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceCandidate2(::windows::runtime::IInspectable);
+pub struct IResourceCandidate2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate2 {
     type Vtable = IResourceCandidate2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1776661608, 63228, 16403, [170, 162, 213, 63, 23, 87, 211, 181]);
@@ -73,7 +73,7 @@ pub struct IResourceCandidate2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceCandidate3(::windows::runtime::IInspectable);
+pub struct IResourceCandidate3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate3 {
     type Vtable = IResourceCandidate3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145659896, 20858, 18036, [149, 140, 74, 60, 124, 210, 204, 107]);
@@ -91,7 +91,7 @@ pub struct IResourceCandidate3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceContext(::windows::runtime::IInspectable);
+pub struct IResourceContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContext {
     type Vtable = IResourceContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799158091, 28798, 19239, [173, 13, 208, 216, 205, 70, 143, 210]);
@@ -120,7 +120,7 @@ pub struct IResourceContext_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceContextStatics(::windows::runtime::IInspectable);
+pub struct IResourceContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics {
     type Vtable = IResourceContextStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562628972, 25400, 19249, [153, 223, 178, 180, 66, 241, 113, 73]);
@@ -139,7 +139,7 @@ pub struct IResourceContextStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceContextStatics2(::windows::runtime::IInspectable);
+pub struct IResourceContextStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics2 {
     type Vtable = IResourceContextStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1106727663, 4783, 16825, [171, 54, 177, 235, 75, 81, 36, 96]);
@@ -162,7 +162,7 @@ pub struct IResourceContextStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceContextStatics3(::windows::runtime::IInspectable);
+pub struct IResourceContextStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics3 {
     type Vtable = IResourceContextStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(550455596, 44815, 17675, [157, 166, 16, 109, 208, 194, 154, 57]);
@@ -180,7 +180,7 @@ pub struct IResourceContextStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceContextStatics4(::windows::runtime::IInspectable);
+pub struct IResourceContextStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics4 {
     type Vtable = IResourceContextStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(585866445, 64305, 19450, [184, 107, 223, 157, 157, 123, 220, 57]);
@@ -199,7 +199,7 @@ pub struct IResourceContextStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceManager(::windows::runtime::IInspectable);
+pub struct IResourceManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManager {
     type Vtable = IResourceManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148484475, 39304, 17659, [171, 214, 83, 120, 132, 76, 250, 139]);
@@ -224,7 +224,7 @@ pub struct IResourceManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceManager2(::windows::runtime::IInspectable);
+pub struct IResourceManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManager2 {
     type Vtable = IResourceManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2640772716, 42199, 19491, [158, 133, 103, 95, 48, 76, 37, 45]);
@@ -245,7 +245,7 @@ pub struct IResourceManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceManagerStatics(::windows::runtime::IInspectable);
+pub struct IResourceManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManagerStatics {
     type Vtable = IResourceManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(482409980, 27118, 20035, [153, 1, 71, 241, 38, 135, 186, 247]);
@@ -264,7 +264,7 @@ pub struct IResourceManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceMap(::windows::runtime::IInspectable);
+pub struct IResourceMap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceMap {
     type Vtable = IResourceMap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1915242532, 56204, 17144, [176, 140, 83, 255, 53, 125, 173, 130]);
@@ -286,7 +286,7 @@ pub struct IResourceMap_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceQualifier(::windows::runtime::IInspectable);
+pub struct IResourceQualifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceQualifier {
     type Vtable = IResourceQualifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019403186, 19197, 17270, [168, 136, 197, 249, 166, 183, 160, 92]);
@@ -309,7 +309,7 @@ pub struct IResourceQualifier_abi(
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct NamedResource(::windows::runtime::IInspectable);
+pub struct NamedResource(pub ::windows::runtime::IInspectable);
 impl NamedResource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`*"]
@@ -376,22 +376,22 @@ impl ::windows::runtime::RuntimeName for NamedResource {
 }
 impl ::std::convert::From<NamedResource> for ::windows::runtime::IUnknown {
     fn from(value: NamedResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&NamedResource> for ::windows::runtime::IUnknown {
     fn from(value: &NamedResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NamedResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NamedResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NamedResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<NamedResource> for ::windows::runtime::IInspectable {
@@ -419,7 +419,7 @@ unsafe impl ::std::marker::Sync for NamedResource {}
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceCandidate(::windows::runtime::IInspectable);
+pub struct ResourceCandidate(pub ::windows::runtime::IInspectable);
 impl ResourceCandidate {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
@@ -509,22 +509,22 @@ impl ::windows::runtime::RuntimeName for ResourceCandidate {
 }
 impl ::std::convert::From<ResourceCandidate> for ::windows::runtime::IUnknown {
     fn from(value: ResourceCandidate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceCandidate> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceCandidate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceCandidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceCandidate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceCandidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceCandidate> for ::windows::runtime::IInspectable {
@@ -576,7 +576,7 @@ impl ::windows::runtime::DefaultType for ResourceCandidateKind {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceCandidateVectorView(::windows::runtime::IInspectable);
+pub struct ResourceCandidateVectorView(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceCandidateVectorView {
     #[cfg(feature = "Foundation_Collections")]
@@ -641,25 +641,25 @@ impl ::windows::runtime::RuntimeName for ResourceCandidateVectorView {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceCandidateVectorView> for ::windows::runtime::IUnknown {
     fn from(value: ResourceCandidateVectorView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceCandidateVectorView> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceCandidateVectorView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceCandidateVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceCandidateVectorView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceCandidateVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -759,7 +759,7 @@ impl ::std::iter::IntoIterator for &ResourceCandidateVectorView {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceContext(::windows::runtime::IInspectable);
+pub struct ResourceContext(pub ::windows::runtime::IInspectable);
 impl ResourceContext {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -893,22 +893,22 @@ impl ::windows::runtime::RuntimeName for ResourceContext {
 }
 impl ::std::convert::From<ResourceContext> for ::windows::runtime::IUnknown {
     fn from(value: ResourceContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceContext> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceContext> for ::windows::runtime::IInspectable {
@@ -937,7 +937,7 @@ unsafe impl ::std::marker::Sync for ResourceContext {}
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceContextLanguagesVectorView(::windows::runtime::IInspectable);
+pub struct ResourceContextLanguagesVectorView(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceContextLanguagesVectorView {
     #[cfg(feature = "Foundation_Collections")]
@@ -1002,25 +1002,25 @@ impl ::windows::runtime::RuntimeName for ResourceContextLanguagesVectorView {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceContextLanguagesVectorView> for ::windows::runtime::IUnknown {
     fn from(value: ResourceContextLanguagesVectorView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceContextLanguagesVectorView> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceContextLanguagesVectorView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceContextLanguagesVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceContextLanguagesVectorView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceContextLanguagesVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1156,7 +1156,7 @@ impl ::windows::runtime::DefaultType for ResourceLayoutInfo {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceManager(::windows::runtime::IInspectable);
+pub struct ResourceManager(pub ::windows::runtime::IInspectable);
 impl ResourceManager {
     #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn MainResourceMap(&self) -> ::windows::runtime::Result<ResourceMap> {
@@ -1244,22 +1244,22 @@ impl ::windows::runtime::RuntimeName for ResourceManager {
 }
 impl ::std::convert::From<ResourceManager> for ::windows::runtime::IUnknown {
     fn from(value: ResourceManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceManager> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceManager> for ::windows::runtime::IInspectable {
@@ -1287,7 +1287,7 @@ unsafe impl ::std::marker::Sync for ResourceManager {}
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceMap(::windows::runtime::IInspectable);
+pub struct ResourceMap(pub ::windows::runtime::IInspectable);
 impl ResourceMap {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`*"]
@@ -1377,22 +1377,22 @@ impl ::windows::runtime::RuntimeName for ResourceMap {
 }
 impl ::std::convert::From<ResourceMap> for ::windows::runtime::IUnknown {
     fn from(value: ResourceMap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceMap> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceMap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceMap {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceMap> for ::windows::runtime::IInspectable {
@@ -1489,7 +1489,7 @@ impl ::std::iter::IntoIterator for &ResourceMap {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceMapIterator(::windows::runtime::IInspectable);
+pub struct ResourceMapIterator(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -1545,25 +1545,25 @@ impl ::windows::runtime::RuntimeName for ResourceMapIterator {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceMapIterator> for ::windows::runtime::IUnknown {
     fn from(value: ResourceMapIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceMapIterator> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceMapIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceMapIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceMapIterator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceMapIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1622,7 +1622,7 @@ unsafe impl ::std::marker::Sync for ResourceMapIterator {}
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceMapMapView(::windows::runtime::IInspectable);
+pub struct ResourceMapMapView(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapView {
     #[cfg(feature = "Foundation_Collections")]
@@ -1684,25 +1684,25 @@ impl ::windows::runtime::RuntimeName for ResourceMapMapView {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceMapMapView> for ::windows::runtime::IUnknown {
     fn from(value: ResourceMapMapView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceMapMapView> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceMapMapView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceMapMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceMapMapView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceMapMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1803,7 +1803,7 @@ impl ::std::iter::IntoIterator for &ResourceMapMapView {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceMapMapViewIterator(::windows::runtime::IInspectable);
+pub struct ResourceMapMapViewIterator(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapViewIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -1859,25 +1859,25 @@ impl ::windows::runtime::RuntimeName for ResourceMapMapViewIterator {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceMapMapViewIterator> for ::windows::runtime::IUnknown {
     fn from(value: ResourceMapMapViewIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceMapMapViewIterator> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceMapMapViewIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceMapMapViewIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceMapMapViewIterator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceMapMapViewIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1935,7 +1935,7 @@ unsafe impl ::std::marker::Sync for ResourceMapMapViewIterator {}
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceQualifier(::windows::runtime::IInspectable);
+pub struct ResourceQualifier(pub ::windows::runtime::IInspectable);
 impl ResourceQualifier {
     #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn QualifierName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1990,22 +1990,22 @@ impl ::windows::runtime::RuntimeName for ResourceQualifier {
 }
 impl ::std::convert::From<ResourceQualifier> for ::windows::runtime::IUnknown {
     fn from(value: ResourceQualifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceQualifier> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceQualifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceQualifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceQualifier {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceQualifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceQualifier> for ::windows::runtime::IInspectable {
@@ -2034,7 +2034,7 @@ unsafe impl ::std::marker::Sync for ResourceQualifier {}
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceQualifierMapView(::windows::runtime::IInspectable);
+pub struct ResourceQualifierMapView(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierMapView {
     #[cfg(feature = "Foundation_Collections")]
@@ -2096,25 +2096,25 @@ impl ::windows::runtime::RuntimeName for ResourceQualifierMapView {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceQualifierMapView> for ::windows::runtime::IUnknown {
     fn from(value: ResourceQualifierMapView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceQualifierMapView> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceQualifierMapView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceQualifierMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceQualifierMapView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceQualifierMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2215,7 +2215,7 @@ impl ::std::iter::IntoIterator for &ResourceQualifierMapView {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceQualifierObservableMap(::windows::runtime::IInspectable);
+pub struct ResourceQualifierObservableMap(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierObservableMap {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -2316,25 +2316,25 @@ impl ::windows::runtime::RuntimeName for ResourceQualifierObservableMap {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceQualifierObservableMap> for ::windows::runtime::IUnknown {
     fn from(value: ResourceQualifierObservableMap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceQualifierObservableMap> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceQualifierObservableMap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceQualifierObservableMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceQualifierObservableMap {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceQualifierObservableMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2483,7 +2483,7 @@ impl ::windows::runtime::DefaultType for ResourceQualifierPersistence {
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceQualifierVectorView(::windows::runtime::IInspectable);
+pub struct ResourceQualifierVectorView(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierVectorView {
     #[cfg(feature = "Foundation_Collections")]
@@ -2548,25 +2548,25 @@ impl ::windows::runtime::RuntimeName for ResourceQualifierVectorView {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ResourceQualifierVectorView> for ::windows::runtime::IUnknown {
     fn from(value: ResourceQualifierVectorView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&ResourceQualifierVectorView> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceQualifierVectorView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceQualifierVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceQualifierVectorView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceQualifierVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]

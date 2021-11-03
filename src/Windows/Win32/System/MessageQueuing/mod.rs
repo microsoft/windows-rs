@@ -17,7 +17,7 @@ unsafe impl ::windows::runtime::Abi for FOREIGN_STATUS {
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQApplication(::windows::runtime::IUnknown);
+pub struct IMSMQApplication(pub ::windows::runtime::IUnknown);
 impl IMSMQApplication {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
@@ -32,22 +32,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQApplication {
 }
 impl ::std::convert::From<IMSMQApplication> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQApplication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQApplication> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQApplication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQApplication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -94,7 +94,7 @@ pub struct IMSMQApplication_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQApplication2(::windows::runtime::IUnknown);
+pub struct IMSMQApplication2(pub ::windows::runtime::IUnknown);
 impl IMSMQApplication2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -167,22 +167,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQApplication2 {
 }
 impl ::std::convert::From<IMSMQApplication2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQApplication2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQApplication2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQApplication2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQApplication2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQApplication2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQApplication2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQApplication2> for IMSMQApplication {
@@ -259,7 +259,7 @@ pub struct IMSMQApplication2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQApplication3(::windows::runtime::IUnknown);
+pub struct IMSMQApplication3(pub ::windows::runtime::IUnknown);
 impl IMSMQApplication3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -384,22 +384,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQApplication3 {
 }
 impl ::std::convert::From<IMSMQApplication3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQApplication3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQApplication3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQApplication3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQApplication3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQApplication3> for IMSMQApplication2 {
@@ -512,7 +512,7 @@ pub struct IMSMQApplication3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQCollection(::windows::runtime::IUnknown);
+pub struct IMSMQCollection(pub ::windows::runtime::IUnknown);
 impl IMSMQCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -537,22 +537,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQCollection {
 }
 impl ::std::convert::From<IMSMQCollection> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -601,7 +601,7 @@ pub struct IMSMQCollection_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQCoordinatedTransactionDispenser(::windows::runtime::IUnknown);
+pub struct IMSMQCoordinatedTransactionDispenser(pub ::windows::runtime::IUnknown);
 impl IMSMQCoordinatedTransactionDispenser {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::runtime::Result<IMSMQTransaction> {
@@ -615,22 +615,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQCoordinatedTransactionDispens
 }
 impl ::std::convert::From<IMSMQCoordinatedTransactionDispenser> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCoordinatedTransactionDispenser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQCoordinatedTransactionDispenser> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQCoordinatedTransactionDispenser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQCoordinatedTransactionDispenser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQCoordinatedTransactionDispenser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -676,7 +676,7 @@ pub struct IMSMQCoordinatedTransactionDispenser_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQCoordinatedTransactionDispenser2(::windows::runtime::IUnknown);
+pub struct IMSMQCoordinatedTransactionDispenser2(pub ::windows::runtime::IUnknown);
 impl IMSMQCoordinatedTransactionDispenser2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::runtime::Result<IMSMQTransaction2> {
@@ -696,22 +696,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQCoordinatedTransactionDispens
 }
 impl ::std::convert::From<IMSMQCoordinatedTransactionDispenser2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCoordinatedTransactionDispenser2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQCoordinatedTransactionDispenser2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQCoordinatedTransactionDispenser2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQCoordinatedTransactionDispenser2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQCoordinatedTransactionDispenser2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -759,7 +759,7 @@ pub struct IMSMQCoordinatedTransactionDispenser2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQCoordinatedTransactionDispenser3(::windows::runtime::IUnknown);
+pub struct IMSMQCoordinatedTransactionDispenser3(pub ::windows::runtime::IUnknown);
 impl IMSMQCoordinatedTransactionDispenser3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::runtime::Result<IMSMQTransaction3> {
@@ -779,22 +779,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQCoordinatedTransactionDispens
 }
 impl ::std::convert::From<IMSMQCoordinatedTransactionDispenser3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQCoordinatedTransactionDispenser3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQCoordinatedTransactionDispenser3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQCoordinatedTransactionDispenser3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQCoordinatedTransactionDispenser3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQCoordinatedTransactionDispenser3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -842,7 +842,7 @@ pub struct IMSMQCoordinatedTransactionDispenser3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQDestination(::windows::runtime::IUnknown);
+pub struct IMSMQDestination(pub ::windows::runtime::IUnknown);
 impl IMSMQDestination {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Open(&self) -> ::windows::runtime::Result<()> {
@@ -925,22 +925,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQDestination {
 }
 impl ::std::convert::From<IMSMQDestination> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQDestination) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQDestination> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQDestination) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQDestination {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQDestination {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQDestination {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1010,7 +1010,7 @@ pub struct IMSMQDestination_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQEvent(::windows::runtime::IUnknown);
+pub struct IMSMQEvent(pub ::windows::runtime::IUnknown);
 impl IMSMQEvent {}
 unsafe impl ::windows::runtime::Interface for IMSMQEvent {
     type Vtable = IMSMQEvent_abi;
@@ -1018,22 +1018,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQEvent {
 }
 impl ::std::convert::From<IMSMQEvent> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1078,7 +1078,7 @@ pub struct IMSMQEvent_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQEvent2(::windows::runtime::IUnknown);
+pub struct IMSMQEvent2(pub ::windows::runtime::IUnknown);
 impl IMSMQEvent2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1114,22 +1114,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQEvent2 {
 }
 impl ::std::convert::From<IMSMQEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQEvent2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQEvent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQEvent2> for IMSMQEvent {
@@ -1196,7 +1196,7 @@ pub struct IMSMQEvent2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQEvent3(::windows::runtime::IUnknown);
+pub struct IMSMQEvent3(pub ::windows::runtime::IUnknown);
 impl IMSMQEvent3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1232,22 +1232,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQEvent3 {
 }
 impl ::std::convert::From<IMSMQEvent3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQEvent3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQEvent3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQEvent3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQEvent3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQEvent3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQEvent3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQEvent3> for IMSMQEvent2 {
@@ -1334,7 +1334,7 @@ pub struct IMSMQEvent3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQManagement(::windows::runtime::IUnknown);
+pub struct IMSMQManagement(pub ::windows::runtime::IUnknown);
 impl IMSMQManagement {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1391,22 +1391,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQManagement {
 }
 impl ::std::convert::From<IMSMQManagement> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQManagement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQManagement> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQManagement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQManagement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1464,7 +1464,7 @@ pub struct IMSMQManagement_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQMessage(::windows::runtime::IUnknown);
+pub struct IMSMQMessage(pub ::windows::runtime::IUnknown);
 impl IMSMQMessage {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::runtime::Result<i32> {
@@ -1711,22 +1711,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQMessage {
 }
 impl ::std::convert::From<IMSMQMessage> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQMessage> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1834,7 +1834,7 @@ pub struct IMSMQMessage_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQMessage2(::windows::runtime::IUnknown);
+pub struct IMSMQMessage2(pub ::windows::runtime::IUnknown);
 impl IMSMQMessage2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::runtime::Result<i32> {
@@ -2214,22 +2214,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQMessage2 {
 }
 impl ::std::convert::From<IMSMQMessage2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQMessage2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQMessage2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQMessage2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2376,7 +2376,7 @@ pub struct IMSMQMessage2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQMessage3(::windows::runtime::IUnknown);
+pub struct IMSMQMessage3(pub ::windows::runtime::IUnknown);
 impl IMSMQMessage3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::runtime::Result<i32> {
@@ -2838,22 +2838,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQMessage3 {
 }
 impl ::std::convert::From<IMSMQMessage3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQMessage3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQMessage3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQMessage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQMessage3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQMessage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3024,7 +3024,7 @@ pub struct IMSMQMessage3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQMessage4(::windows::runtime::IUnknown);
+pub struct IMSMQMessage4(pub ::windows::runtime::IUnknown);
 impl IMSMQMessage4 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::runtime::Result<i32> {
@@ -3486,22 +3486,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQMessage4 {
 }
 impl ::std::convert::From<IMSMQMessage4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQMessage4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQMessage4> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQMessage4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQMessage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQMessage4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQMessage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3672,7 +3672,7 @@ pub struct IMSMQMessage4_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQOutgoingQueueManagement(::windows::runtime::IUnknown);
+pub struct IMSMQOutgoingQueueManagement(pub ::windows::runtime::IUnknown);
 impl IMSMQOutgoingQueueManagement {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3778,22 +3778,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQOutgoingQueueManagement {
 }
 impl ::std::convert::From<IMSMQOutgoingQueueManagement> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQOutgoingQueueManagement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQOutgoingQueueManagement> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQOutgoingQueueManagement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQOutgoingQueueManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQOutgoingQueueManagement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQOutgoingQueueManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQOutgoingQueueManagement> for IMSMQManagement {
@@ -3878,7 +3878,7 @@ pub struct IMSMQOutgoingQueueManagement_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQPrivateDestination(::windows::runtime::IUnknown);
+pub struct IMSMQPrivateDestination(pub ::windows::runtime::IUnknown);
 impl IMSMQPrivateDestination {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3898,22 +3898,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQPrivateDestination {
 }
 impl ::std::convert::From<IMSMQPrivateDestination> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQPrivateDestination) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQPrivateDestination> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQPrivateDestination) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQPrivateDestination {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQPrivateDestination {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQPrivateDestination {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3962,7 +3962,7 @@ pub struct IMSMQPrivateDestination_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQPrivateEvent(::windows::runtime::IUnknown);
+pub struct IMSMQPrivateEvent(pub ::windows::runtime::IUnknown);
 impl IMSMQPrivateEvent {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Hwnd(&self) -> ::windows::runtime::Result<i32> {
@@ -3984,22 +3984,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQPrivateEvent {
 }
 impl ::std::convert::From<IMSMQPrivateEvent> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQPrivateEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQPrivateEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQPrivateEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQPrivateEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQPrivateEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQPrivateEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4047,7 +4047,7 @@ pub struct IMSMQPrivateEvent_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQuery(::windows::runtime::IUnknown);
+pub struct IMSMQQuery(pub ::windows::runtime::IUnknown);
 impl IMSMQQuery {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -4075,22 +4075,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQuery {
 }
 impl ::std::convert::From<IMSMQQuery> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQuery> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQuery {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4150,7 +4150,7 @@ pub struct IMSMQQuery_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQuery2(::windows::runtime::IUnknown);
+pub struct IMSMQQuery2(pub ::windows::runtime::IUnknown);
 impl IMSMQQuery2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -4184,22 +4184,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQuery2 {
 }
 impl ::std::convert::From<IMSMQQuery2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQuery2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQuery2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQuery2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4261,7 +4261,7 @@ pub struct IMSMQQuery2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQuery3(::windows::runtime::IUnknown);
+pub struct IMSMQQuery3(pub ::windows::runtime::IUnknown);
 impl IMSMQQuery3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -4329,22 +4329,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQuery3 {
 }
 impl ::std::convert::From<IMSMQQuery3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQuery3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQuery3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQuery3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4423,7 +4423,7 @@ pub struct IMSMQQuery3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQuery4(::windows::runtime::IUnknown);
+pub struct IMSMQQuery4(pub ::windows::runtime::IUnknown);
 impl IMSMQQuery4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -4491,22 +4491,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQuery4 {
 }
 impl ::std::convert::From<IMSMQQuery4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQuery4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQuery4> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQuery4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQuery4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQuery4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQuery4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4585,7 +4585,7 @@ pub struct IMSMQQuery4_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueue(::windows::runtime::IUnknown);
+pub struct IMSMQQueue(pub ::windows::runtime::IUnknown);
 impl IMSMQQueue {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::runtime::Result<i32> {
@@ -4662,22 +4662,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueue {
 }
 impl ::std::convert::From<IMSMQQueue> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueue> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueue {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4743,7 +4743,7 @@ pub struct IMSMQQueue_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueue2(::windows::runtime::IUnknown);
+pub struct IMSMQQueue2(pub ::windows::runtime::IUnknown);
 impl IMSMQQueue2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::runtime::Result<i32> {
@@ -4856,22 +4856,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueue2 {
 }
 impl ::std::convert::From<IMSMQQueue2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueue2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueue2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueue2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4954,7 +4954,7 @@ pub struct IMSMQQueue2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueue3(::windows::runtime::IUnknown);
+pub struct IMSMQQueue3(pub ::windows::runtime::IUnknown);
 impl IMSMQQueue3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::runtime::Result<i32> {
@@ -5142,22 +5142,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueue3 {
 }
 impl ::std::convert::From<IMSMQQueue3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueue3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueue3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueue3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueue3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueue3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5272,7 +5272,7 @@ pub struct IMSMQQueue3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueue4(::windows::runtime::IUnknown);
+pub struct IMSMQQueue4(pub ::windows::runtime::IUnknown);
 impl IMSMQQueue4 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::runtime::Result<i32> {
@@ -5466,22 +5466,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueue4 {
 }
 impl ::std::convert::From<IMSMQQueue4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueue4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueue4> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueue4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueue4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueue4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueue4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5599,7 +5599,7 @@ pub struct IMSMQQueue4_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfo(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfo(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
@@ -5756,22 +5756,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo {
 }
 impl ::std::convert::From<IMSMQQueueInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5858,7 +5858,7 @@ pub struct IMSMQQueueInfo_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfo2(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfo2(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfo2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
@@ -6038,22 +6038,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo2 {
 }
 impl ::std::convert::From<IMSMQQueueInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfo2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfo2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6148,7 +6148,7 @@ pub struct IMSMQQueueInfo2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfo3(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfo3(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfo3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
@@ -6355,22 +6355,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo3 {
 }
 impl ::std::convert::From<IMSMQQueueInfo3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfo3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfo3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfo3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6473,7 +6473,7 @@ pub struct IMSMQQueueInfo3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfo4(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfo4(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfo4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
@@ -6680,22 +6680,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfo4 {
 }
 impl ::std::convert::From<IMSMQQueueInfo4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfo4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfo4> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfo4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfo4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfo4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfo4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6798,7 +6798,7 @@ pub struct IMSMQQueueInfo4_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfos(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfos(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfos {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -6816,22 +6816,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos {
 }
 impl ::std::convert::From<IMSMQQueueInfos> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfos> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfos) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfos {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfos {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfos {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6878,7 +6878,7 @@ pub struct IMSMQQueueInfos_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfos2(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfos2(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfos2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -6902,22 +6902,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos2 {
 }
 impl ::std::convert::From<IMSMQQueueInfos2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfos2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfos2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfos2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfos2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfos2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6966,7 +6966,7 @@ pub struct IMSMQQueueInfos2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfos3(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfos3(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfos3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -6990,22 +6990,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos3 {
 }
 impl ::std::convert::From<IMSMQQueueInfos3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfos3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfos3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfos3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfos3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfos3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7054,7 +7054,7 @@ pub struct IMSMQQueueInfos3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueInfos4(::windows::runtime::IUnknown);
+pub struct IMSMQQueueInfos4(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueInfos4 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -7078,22 +7078,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueInfos4 {
 }
 impl ::std::convert::From<IMSMQQueueInfos4> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueInfos4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueInfos4> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueInfos4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueInfos4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueInfos4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueInfos4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7142,7 +7142,7 @@ pub struct IMSMQQueueInfos4_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQQueueManagement(::windows::runtime::IUnknown);
+pub struct IMSMQQueueManagement(pub ::windows::runtime::IUnknown);
 impl IMSMQQueueManagement {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7237,22 +7237,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQQueueManagement {
 }
 impl ::std::convert::From<IMSMQQueueManagement> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQQueueManagement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQQueueManagement> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQQueueManagement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQQueueManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQQueueManagement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQQueueManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQQueueManagement> for IMSMQManagement {
@@ -7335,7 +7335,7 @@ pub struct IMSMQQueueManagement_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQTransaction(::windows::runtime::IUnknown);
+pub struct IMSMQTransaction(pub ::windows::runtime::IUnknown);
 impl IMSMQTransaction {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Transaction(&self) -> ::windows::runtime::Result<i32> {
@@ -7359,22 +7359,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQTransaction {
 }
 impl ::std::convert::From<IMSMQTransaction> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransaction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQTransaction> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQTransaction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQTransaction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQTransaction {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQTransaction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7424,7 +7424,7 @@ pub struct IMSMQTransaction_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQTransaction2(::windows::runtime::IUnknown);
+pub struct IMSMQTransaction2(pub ::windows::runtime::IUnknown);
 impl IMSMQTransaction2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7480,22 +7480,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQTransaction2 {
 }
 impl ::std::convert::From<IMSMQTransaction2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransaction2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQTransaction2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQTransaction2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQTransaction2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQTransaction2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQTransaction2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQTransaction2> for IMSMQTransaction {
@@ -7569,7 +7569,7 @@ pub struct IMSMQTransaction2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQTransaction3(::windows::runtime::IUnknown);
+pub struct IMSMQTransaction3(pub ::windows::runtime::IUnknown);
 impl IMSMQTransaction3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7631,22 +7631,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQTransaction3 {
 }
 impl ::std::convert::From<IMSMQTransaction3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransaction3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQTransaction3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQTransaction3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQTransaction3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQTransaction3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQTransaction3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMSMQTransaction3> for IMSMQTransaction2 {
@@ -7742,7 +7742,7 @@ pub struct IMSMQTransaction3_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQTransactionDispenser(::windows::runtime::IUnknown);
+pub struct IMSMQTransactionDispenser(pub ::windows::runtime::IUnknown);
 impl IMSMQTransactionDispenser {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::runtime::Result<IMSMQTransaction> {
@@ -7756,22 +7756,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQTransactionDispenser {
 }
 impl ::std::convert::From<IMSMQTransactionDispenser> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransactionDispenser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQTransactionDispenser> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQTransactionDispenser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQTransactionDispenser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQTransactionDispenser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQTransactionDispenser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7817,7 +7817,7 @@ pub struct IMSMQTransactionDispenser_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQTransactionDispenser2(::windows::runtime::IUnknown);
+pub struct IMSMQTransactionDispenser2(pub ::windows::runtime::IUnknown);
 impl IMSMQTransactionDispenser2 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::runtime::Result<IMSMQTransaction2> {
@@ -7837,22 +7837,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQTransactionDispenser2 {
 }
 impl ::std::convert::From<IMSMQTransactionDispenser2> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransactionDispenser2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQTransactionDispenser2> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQTransactionDispenser2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQTransactionDispenser2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQTransactionDispenser2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQTransactionDispenser2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7900,7 +7900,7 @@ pub struct IMSMQTransactionDispenser2_abi(
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSMQTransactionDispenser3(::windows::runtime::IUnknown);
+pub struct IMSMQTransactionDispenser3(pub ::windows::runtime::IUnknown);
 impl IMSMQTransactionDispenser3 {
     #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::runtime::Result<IMSMQTransaction3> {
@@ -7920,22 +7920,22 @@ unsafe impl ::windows::runtime::Interface for IMSMQTransactionDispenser3 {
 }
 impl ::std::convert::From<IMSMQTransactionDispenser3> for ::windows::runtime::IUnknown {
     fn from(value: IMSMQTransactionDispenser3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSMQTransactionDispenser3> for ::windows::runtime::IUnknown {
     fn from(value: &IMSMQTransactionDispenser3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSMQTransactionDispenser3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSMQTransactionDispenser3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSMQTransactionDispenser3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9011,7 +9011,7 @@ unsafe impl ::windows::runtime::Abi for XACT_STATUS {
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _DMSMQEventEvents(::windows::runtime::IUnknown);
+pub struct _DMSMQEventEvents(pub ::windows::runtime::IUnknown);
 impl _DMSMQEventEvents {}
 unsafe impl ::windows::runtime::Interface for _DMSMQEventEvents {
     type Vtable = _DMSMQEventEvents_abi;
@@ -9019,22 +9019,22 @@ unsafe impl ::windows::runtime::Interface for _DMSMQEventEvents {
 }
 impl ::std::convert::From<_DMSMQEventEvents> for ::windows::runtime::IUnknown {
     fn from(value: _DMSMQEventEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_DMSMQEventEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_DMSMQEventEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _DMSMQEventEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_DMSMQEventEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _DMSMQEventEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

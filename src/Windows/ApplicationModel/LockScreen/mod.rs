@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockApplicationHost(::windows::runtime::IInspectable);
+pub struct ILockApplicationHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockApplicationHost {
     type Vtable = ILockApplicationHost_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955134381, 55631, 20092, [129, 250, 79, 68, 54, 80, 98, 129]);
@@ -23,7 +23,7 @@ pub struct ILockApplicationHost_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockApplicationHostStatics(::windows::runtime::IInspectable);
+pub struct ILockApplicationHostStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockApplicationHostStatics {
     type Vtable = ILockApplicationHostStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103056270, 9175, 20067, [150, 161, 102, 111, 245, 45, 59, 44]);
@@ -41,7 +41,7 @@ pub struct ILockApplicationHostStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockScreenBadge(::windows::runtime::IInspectable);
+pub struct ILockScreenBadge(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenBadge {
     type Vtable = ILockScreenBadge_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914401241, 11263, 19888, [155, 79, 56, 36, 119, 139, 156, 154]);
@@ -66,7 +66,7 @@ pub struct ILockScreenBadge_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockScreenInfo(::windows::runtime::IInspectable);
+pub struct ILockScreenInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenInfo {
     type Vtable = ILockScreenInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120553052, 38673, 19913, [166, 48, 149, 182, 203, 140, 218, 208]);
@@ -107,7 +107,7 @@ pub struct ILockScreenInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockScreenUnlockingDeferral(::windows::runtime::IInspectable);
+pub struct ILockScreenUnlockingDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2122128086, 20995, 17383, [155, 214, 124, 57, 71, 209, 227, 254]);
@@ -125,7 +125,7 @@ pub struct ILockScreenUnlockingDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILockScreenUnlockingEventArgs(::windows::runtime::IInspectable);
+pub struct ILockScreenUnlockingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1155973127, 30203, 19131, [159, 139, 130, 71, 72, 144, 12, 113]);
@@ -146,7 +146,7 @@ pub struct ILockScreenUnlockingEventArgs_abi(
 #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LockApplicationHost(::windows::runtime::IInspectable);
+pub struct LockApplicationHost(pub ::windows::runtime::IInspectable);
 impl LockApplicationHost {
     #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
     pub fn RequestUnlock(&self) -> ::windows::runtime::Result<()> {
@@ -192,22 +192,22 @@ impl ::windows::runtime::RuntimeName for LockApplicationHost {
 }
 impl ::std::convert::From<LockApplicationHost> for ::windows::runtime::IUnknown {
     fn from(value: LockApplicationHost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LockApplicationHost> for ::windows::runtime::IUnknown {
     fn from(value: &LockApplicationHost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockApplicationHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockApplicationHost {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LockApplicationHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LockApplicationHost> for ::windows::runtime::IInspectable {
@@ -235,7 +235,7 @@ unsafe impl ::std::marker::Sync for LockApplicationHost {}
 #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LockScreenBadge(::windows::runtime::IInspectable);
+pub struct LockScreenBadge(pub ::windows::runtime::IInspectable);
 impl LockScreenBadge {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `ApplicationModel_LockScreen`, `Storage_Streams`*"]
@@ -290,22 +290,22 @@ impl ::windows::runtime::RuntimeName for LockScreenBadge {
 }
 impl ::std::convert::From<LockScreenBadge> for ::windows::runtime::IUnknown {
     fn from(value: LockScreenBadge) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LockScreenBadge> for ::windows::runtime::IUnknown {
     fn from(value: &LockScreenBadge) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenBadge {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenBadge {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LockScreenBadge {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LockScreenBadge> for ::windows::runtime::IInspectable {
@@ -333,7 +333,7 @@ unsafe impl ::std::marker::Sync for LockScreenBadge {}
 #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LockScreenInfo(::windows::runtime::IInspectable);
+pub struct LockScreenInfo(pub ::windows::runtime::IInspectable);
 impl LockScreenInfo {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_LockScreen`, `Foundation`*"]
@@ -444,22 +444,22 @@ impl ::windows::runtime::RuntimeName for LockScreenInfo {
 }
 impl ::std::convert::From<LockScreenInfo> for ::windows::runtime::IUnknown {
     fn from(value: LockScreenInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LockScreenInfo> for ::windows::runtime::IUnknown {
     fn from(value: &LockScreenInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LockScreenInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LockScreenInfo> for ::windows::runtime::IInspectable {
@@ -487,7 +487,7 @@ unsafe impl ::std::marker::Sync for LockScreenInfo {}
 #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LockScreenUnlockingDeferral(::windows::runtime::IInspectable);
+pub struct LockScreenUnlockingDeferral(pub ::windows::runtime::IInspectable);
 impl LockScreenUnlockingDeferral {
     #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -507,22 +507,22 @@ impl ::windows::runtime::RuntimeName for LockScreenUnlockingDeferral {
 }
 impl ::std::convert::From<LockScreenUnlockingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: LockScreenUnlockingDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LockScreenUnlockingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &LockScreenUnlockingDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenUnlockingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenUnlockingDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LockScreenUnlockingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LockScreenUnlockingDeferral> for ::windows::runtime::IInspectable {
@@ -550,7 +550,7 @@ unsafe impl ::std::marker::Sync for LockScreenUnlockingDeferral {}
 #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LockScreenUnlockingEventArgs(::windows::runtime::IInspectable);
+pub struct LockScreenUnlockingEventArgs(pub ::windows::runtime::IInspectable);
 impl LockScreenUnlockingEventArgs {
     #[doc = "*Required features: `ApplicationModel_LockScreen`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<LockScreenUnlockingDeferral> {
@@ -582,22 +582,22 @@ impl ::windows::runtime::RuntimeName for LockScreenUnlockingEventArgs {
 }
 impl ::std::convert::From<LockScreenUnlockingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: LockScreenUnlockingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LockScreenUnlockingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &LockScreenUnlockingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenUnlockingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenUnlockingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LockScreenUnlockingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LockScreenUnlockingEventArgs> for ::windows::runtime::IInspectable {

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlatformTelemetryClientStatics(::windows::runtime::IInspectable);
+pub struct IPlatformTelemetryClientStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformTelemetryClientStatics {
     type Vtable = IPlatformTelemetryClientStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2616455773, 54723, 20202, [141, 190, 156, 141, 187, 13, 157, 143]);
@@ -20,7 +20,7 @@ pub struct IPlatformTelemetryClientStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlatformTelemetryRegistrationResult(::windows::runtime::IInspectable);
+pub struct IPlatformTelemetryRegistrationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformTelemetryRegistrationResult {
     type Vtable = IPlatformTelemetryRegistrationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1300568235, 8850, 18877, [161, 90, 61, 113, 210, 20, 81, 18]);
@@ -38,7 +38,7 @@ pub struct IPlatformTelemetryRegistrationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlatformTelemetryRegistrationSettings(::windows::runtime::IInspectable);
+pub struct IPlatformTelemetryRegistrationSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformTelemetryRegistrationSettings {
     type Vtable = IPlatformTelemetryRegistrationSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2174387586, 51737, 16734, [187, 121, 156, 34, 75, 250, 58, 115]);
@@ -85,7 +85,7 @@ impl ::windows::runtime::RuntimeName for PlatformTelemetryClient {
 #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PlatformTelemetryRegistrationResult(::windows::runtime::IInspectable);
+pub struct PlatformTelemetryRegistrationResult(pub ::windows::runtime::IInspectable);
 impl PlatformTelemetryRegistrationResult {
     #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PlatformTelemetryRegistrationStatus> {
@@ -108,22 +108,22 @@ impl ::windows::runtime::RuntimeName for PlatformTelemetryRegistrationResult {
 }
 impl ::std::convert::From<PlatformTelemetryRegistrationResult> for ::windows::runtime::IUnknown {
     fn from(value: PlatformTelemetryRegistrationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::runtime::IUnknown {
     fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlatformTelemetryRegistrationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlatformTelemetryRegistrationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlatformTelemetryRegistrationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PlatformTelemetryRegistrationResult> for ::windows::runtime::IInspectable {
@@ -151,7 +151,7 @@ unsafe impl ::std::marker::Sync for PlatformTelemetryRegistrationResult {}
 #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PlatformTelemetryRegistrationSettings(::windows::runtime::IInspectable);
+pub struct PlatformTelemetryRegistrationSettings(pub ::windows::runtime::IInspectable);
 impl PlatformTelemetryRegistrationSettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -199,22 +199,22 @@ impl ::windows::runtime::RuntimeName for PlatformTelemetryRegistrationSettings {
 }
 impl ::std::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::runtime::IUnknown {
     fn from(value: PlatformTelemetryRegistrationSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows::runtime::IUnknown {
     fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlatformTelemetryRegistrationSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlatformTelemetryRegistrationSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PlatformTelemetryRegistrationSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::runtime::IInspectable {

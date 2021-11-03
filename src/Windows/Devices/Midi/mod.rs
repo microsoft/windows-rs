@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiChannelPressureMessage(::windows::runtime::IInspectable);
+pub struct IMidiChannelPressureMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiChannelPressureMessage {
     type Vtable = IMidiChannelPressureMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189745760, 25268, 19794, [163, 126, 146, 229, 77, 53, 185, 9]);
@@ -20,7 +20,7 @@ pub struct IMidiChannelPressureMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiChannelPressureMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiChannelPressureMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiChannelPressureMessageFactory {
     type Vtable = IMidiChannelPressureMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645800751, 8836, 16682, [148, 207, 16, 251, 4, 132, 44, 108]);
@@ -38,7 +38,7 @@ pub struct IMidiChannelPressureMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiControlChangeMessage(::windows::runtime::IInspectable);
+pub struct IMidiControlChangeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiControlChangeMessage {
     type Vtable = IMidiControlChangeMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085000579, 30733, 16479, [183, 129, 62, 21, 152, 201, 127, 64]);
@@ -58,7 +58,7 @@ pub struct IMidiControlChangeMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiControlChangeMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiControlChangeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiControlChangeMessageFactory {
     type Vtable = IMidiControlChangeMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(716260129, 38252, 18093, [151, 82, 248, 127, 85, 5, 47, 227]);
@@ -76,7 +76,7 @@ pub struct IMidiControlChangeMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiInPort(::windows::runtime::IInspectable);
+pub struct IMidiInPort(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiInPort {
     type Vtable = IMidiInPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3586251227, 38682, 20143, [162, 61, 234, 25, 254, 96, 127, 249]);
@@ -98,7 +98,7 @@ pub struct IMidiInPort_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiInPortStatics(::windows::runtime::IInspectable);
+pub struct IMidiInPortStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiInPortStatics {
     type Vtable = IMidiInPortStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1153710556, 26623, 19054, [139, 172, 253, 182, 97, 12, 242, 150]);
@@ -119,7 +119,7 @@ pub struct IMidiInPortStatics_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Midi`*"]
-pub struct IMidiMessage(::windows::runtime::IInspectable);
+pub struct IMidiMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessage {
     type Vtable = IMidiMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037807429, 4244, 17027, [155, 224, 40, 159, 192, 238, 131, 52]);
@@ -157,22 +157,22 @@ unsafe impl ::windows::runtime::RuntimeType for IMidiMessage {
 }
 impl ::std::convert::From<IMidiMessage> for ::windows::runtime::IUnknown {
     fn from(value: IMidiMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IMidiMessage> for ::windows::runtime::IUnknown {
     fn from(value: &IMidiMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMidiMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMidiMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMidiMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IMidiMessage> for ::windows::runtime::IInspectable {
@@ -212,7 +212,7 @@ pub struct IMidiMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiMessageReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMidiMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessageReceivedEventArgs {
     type Vtable = IMidiMessageReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985375830, 62248, 19281, [144, 125, 179, 168, 206, 150, 191, 128]);
@@ -230,7 +230,7 @@ pub struct IMidiMessageReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiNoteOffMessage(::windows::runtime::IInspectable);
+pub struct IMidiNoteOffMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOffMessage {
     type Vtable = IMidiNoteOffMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(385714932, 6542, 19855, [166, 84, 211, 5, 162, 147, 84, 143]);
@@ -250,7 +250,7 @@ pub struct IMidiNoteOffMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiNoteOffMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiNoteOffMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOffMessageFactory {
     type Vtable = IMidiNoteOffMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2796699872, 42825, 16991, [138, 244, 164, 217, 121, 204, 21, 181]);
@@ -268,7 +268,7 @@ pub struct IMidiNoteOffMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiNoteOnMessage(::windows::runtime::IInspectable);
+pub struct IMidiNoteOnMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOnMessage {
     type Vtable = IMidiNoteOnMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3760343797, 24961, 18141, [175, 162, 65, 0, 4, 192, 87, 170]);
@@ -288,7 +288,7 @@ pub struct IMidiNoteOnMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiNoteOnMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiNoteOnMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOnMessageFactory {
     type Vtable = IMidiNoteOnMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604826784, 22977, 16910, [181, 23, 21, 161, 10, 169, 96, 107]);
@@ -307,7 +307,7 @@ pub struct IMidiNoteOnMessageFactory_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Midi`*"]
-pub struct IMidiOutPort(::windows::runtime::IInspectable);
+pub struct IMidiOutPort(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPort {
     type Vtable = IMidiOutPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468179359, 22434, 19002, [173, 184, 70, 64, 136, 111, 102, 147]);
@@ -344,22 +344,22 @@ unsafe impl ::windows::runtime::RuntimeType for IMidiOutPort {
 }
 impl ::std::convert::From<IMidiOutPort> for ::windows::runtime::IUnknown {
     fn from(value: IMidiOutPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IMidiOutPort> for ::windows::runtime::IUnknown {
     fn from(value: &IMidiOutPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMidiOutPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMidiOutPort {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMidiOutPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IMidiOutPort> for ::windows::runtime::IInspectable {
@@ -424,7 +424,7 @@ pub struct IMidiOutPort_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiOutPortStatics(::windows::runtime::IInspectable);
+pub struct IMidiOutPortStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPortStatics {
     type Vtable = IMidiOutPortStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(106742761, 3976, 17547, [155, 100, 169, 88, 38, 198, 91, 143]);
@@ -444,7 +444,7 @@ pub struct IMidiOutPortStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiPitchBendChangeMessage(::windows::runtime::IInspectable);
+pub struct IMidiPitchBendChangeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPitchBendChangeMessage {
     type Vtable = IMidiPitchBendChangeMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702500017, 11935, 20399, [140, 43, 156, 184, 42, 144, 121, 202]);
@@ -463,7 +463,7 @@ pub struct IMidiPitchBendChangeMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiPitchBendChangeMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiPitchBendChangeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPitchBendChangeMessageFactory {
     type Vtable = IMidiPitchBendChangeMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126072661, 53192, 18726, [179, 14, 163, 98, 35, 147, 48, 108]);
@@ -481,7 +481,7 @@ pub struct IMidiPitchBendChangeMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiPolyphonicKeyPressureMessage(::windows::runtime::IInspectable);
+pub struct IMidiPolyphonicKeyPressureMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPolyphonicKeyPressureMessage {
     type Vtable = IMidiPolyphonicKeyPressureMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527644670, 44264, 18592, [134, 142, 124, 219, 242, 15, 4, 214]);
@@ -501,7 +501,7 @@ pub struct IMidiPolyphonicKeyPressureMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiPolyphonicKeyPressureMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiPolyphonicKeyPressureMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPolyphonicKeyPressureMessageFactory {
     type Vtable = IMidiPolyphonicKeyPressureMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3918481470, 50355, 19922, [145, 124, 227, 73, 129, 90, 27, 59]);
@@ -519,7 +519,7 @@ pub struct IMidiPolyphonicKeyPressureMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiProgramChangeMessage(::windows::runtime::IInspectable);
+pub struct IMidiProgramChangeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiProgramChangeMessage {
     type Vtable = IMidiProgramChangeMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629516408, 31294, 17191, [170, 152, 32, 184, 228, 72, 90, 248]);
@@ -538,7 +538,7 @@ pub struct IMidiProgramChangeMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiProgramChangeMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiProgramChangeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiProgramChangeMessageFactory {
     type Vtable = IMidiProgramChangeMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3601875847, 21067, 16644, [156, 153, 101, 114, 191, 210, 226, 97]);
@@ -556,7 +556,7 @@ pub struct IMidiProgramChangeMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSongPositionPointerMessage(::windows::runtime::IInspectable);
+pub struct IMidiSongPositionPointerMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongPositionPointerMessage {
     type Vtable = IMidiSongPositionPointerMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1285885014, 60510, 19172, [161, 21, 136, 220, 87, 204, 43, 121]);
@@ -574,7 +574,7 @@ pub struct IMidiSongPositionPointerMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSongPositionPointerMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiSongPositionPointerMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongPositionPointerMessageFactory {
     type Vtable = IMidiSongPositionPointerMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2617305494, 61707, 20458, [179, 149, 245, 214, 207, 128, 246, 78]);
@@ -592,7 +592,7 @@ pub struct IMidiSongPositionPointerMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSongSelectMessage(::windows::runtime::IInspectable);
+pub struct IMidiSongSelectMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongSelectMessage {
     type Vtable = IMidiSongSelectMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240527487, 28035, 18241, [165, 191, 70, 41, 246, 190, 151, 79]);
@@ -610,7 +610,7 @@ pub struct IMidiSongSelectMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSongSelectMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiSongSelectMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongSelectMessageFactory {
     type Vtable = IMidiSongSelectMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2223536356, 34632, 16681, [166, 108, 160, 84, 147, 247, 93, 170]);
@@ -628,7 +628,7 @@ pub struct IMidiSongSelectMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSynthesizer(::windows::runtime::IInspectable);
+pub struct IMidiSynthesizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSynthesizer {
     type Vtable = IMidiSynthesizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4040824158, 56208, 16479, [184, 174, 33, 210, 225, 127, 46, 69]);
@@ -649,7 +649,7 @@ pub struct IMidiSynthesizer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSynthesizerStatics(::windows::runtime::IInspectable);
+pub struct IMidiSynthesizerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSynthesizerStatics {
     type Vtable = IMidiSynthesizerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1109715624, 26153, 19819, [170, 143, 212, 82, 26, 90, 49, 206]);
@@ -672,7 +672,7 @@ pub struct IMidiSynthesizerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiSystemExclusiveMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiSystemExclusiveMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSystemExclusiveMessageFactory {
     type Vtable = IMidiSystemExclusiveMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(138273314, 15220, 17184, [155, 66, 12, 168, 84, 95, 138, 36]);
@@ -691,7 +691,7 @@ pub struct IMidiSystemExclusiveMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiTimeCodeMessage(::windows::runtime::IInspectable);
+pub struct IMidiTimeCodeMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiTimeCodeMessage {
     type Vtable = IMidiTimeCodeMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200738941, 64099, 18972, [141, 235, 192, 232, 119, 150, 166, 215]);
@@ -710,7 +710,7 @@ pub struct IMidiTimeCodeMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMidiTimeCodeMessageFactory(::windows::runtime::IInspectable);
+pub struct IMidiTimeCodeMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiTimeCodeMessageFactory {
     type Vtable = IMidiTimeCodeMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945830853, 30492, 16606, [185, 97, 23, 90, 116, 137, 168, 94]);
@@ -729,7 +729,7 @@ pub struct IMidiTimeCodeMessageFactory_abi(
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiActiveSensingMessage(::windows::runtime::IInspectable);
+pub struct MidiActiveSensingMessage(pub ::windows::runtime::IInspectable);
 impl MidiActiveSensingMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -777,22 +777,22 @@ impl ::windows::runtime::RuntimeName for MidiActiveSensingMessage {
 }
 impl ::std::convert::From<MidiActiveSensingMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiActiveSensingMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiActiveSensingMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiActiveSensingMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiActiveSensingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiActiveSensingMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiActiveSensingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiActiveSensingMessage> for ::windows::runtime::IInspectable {
@@ -840,7 +840,7 @@ unsafe impl ::std::marker::Sync for MidiActiveSensingMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiChannelPressureMessage(::windows::runtime::IInspectable);
+pub struct MidiChannelPressureMessage(pub ::windows::runtime::IInspectable);
 impl MidiChannelPressureMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -908,22 +908,22 @@ impl ::windows::runtime::RuntimeName for MidiChannelPressureMessage {
 }
 impl ::std::convert::From<MidiChannelPressureMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiChannelPressureMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiChannelPressureMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiChannelPressureMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiChannelPressureMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiChannelPressureMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiChannelPressureMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiChannelPressureMessage> for ::windows::runtime::IInspectable {
@@ -973,7 +973,7 @@ unsafe impl ::std::marker::Sync for MidiChannelPressureMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiContinueMessage(::windows::runtime::IInspectable);
+pub struct MidiContinueMessage(pub ::windows::runtime::IInspectable);
 impl MidiContinueMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1021,22 +1021,22 @@ impl ::windows::runtime::RuntimeName for MidiContinueMessage {
 }
 impl ::std::convert::From<MidiContinueMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiContinueMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiContinueMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiContinueMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiContinueMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiContinueMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiContinueMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiContinueMessage> for ::windows::runtime::IInspectable {
@@ -1084,7 +1084,7 @@ unsafe impl ::std::marker::Sync for MidiContinueMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiControlChangeMessage(::windows::runtime::IInspectable);
+pub struct MidiControlChangeMessage(pub ::windows::runtime::IInspectable);
 impl MidiControlChangeMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -1160,22 +1160,22 @@ impl ::windows::runtime::RuntimeName for MidiControlChangeMessage {
 }
 impl ::std::convert::From<MidiControlChangeMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiControlChangeMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiControlChangeMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiControlChangeMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiControlChangeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiControlChangeMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiControlChangeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiControlChangeMessage> for ::windows::runtime::IInspectable {
@@ -1225,7 +1225,7 @@ unsafe impl ::std::marker::Sync for MidiControlChangeMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiInPort(::windows::runtime::IInspectable);
+pub struct MidiInPort(pub ::windows::runtime::IInspectable);
 impl MidiInPort {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
@@ -1288,22 +1288,22 @@ impl ::windows::runtime::RuntimeName for MidiInPort {
 }
 impl ::std::convert::From<MidiInPort> for ::windows::runtime::IUnknown {
     fn from(value: MidiInPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiInPort> for ::windows::runtime::IUnknown {
     fn from(value: &MidiInPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiInPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiInPort {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiInPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiInPort> for ::windows::runtime::IInspectable {
@@ -1357,7 +1357,7 @@ unsafe impl ::std::marker::Sync for MidiInPort {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiMessageReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct MidiMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MidiMessageReceivedEventArgs {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<IMidiMessage> {
@@ -1380,22 +1380,22 @@ impl ::windows::runtime::RuntimeName for MidiMessageReceivedEventArgs {
 }
 impl ::std::convert::From<MidiMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MidiMessageReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MidiMessageReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiMessageReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiMessageReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiMessageReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -1463,7 +1463,7 @@ impl ::windows::runtime::DefaultType for MidiMessageType {
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiNoteOffMessage(::windows::runtime::IInspectable);
+pub struct MidiNoteOffMessage(pub ::windows::runtime::IInspectable);
 impl MidiNoteOffMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -1539,22 +1539,22 @@ impl ::windows::runtime::RuntimeName for MidiNoteOffMessage {
 }
 impl ::std::convert::From<MidiNoteOffMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiNoteOffMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiNoteOffMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiNoteOffMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiNoteOffMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiNoteOffMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiNoteOffMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiNoteOffMessage> for ::windows::runtime::IInspectable {
@@ -1604,7 +1604,7 @@ unsafe impl ::std::marker::Sync for MidiNoteOffMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiNoteOnMessage(::windows::runtime::IInspectable);
+pub struct MidiNoteOnMessage(pub ::windows::runtime::IInspectable);
 impl MidiNoteOnMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -1680,22 +1680,22 @@ impl ::windows::runtime::RuntimeName for MidiNoteOnMessage {
 }
 impl ::std::convert::From<MidiNoteOnMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiNoteOnMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiNoteOnMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiNoteOnMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiNoteOnMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiNoteOnMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiNoteOnMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiNoteOnMessage> for ::windows::runtime::IInspectable {
@@ -1745,7 +1745,7 @@ unsafe impl ::std::marker::Sync for MidiNoteOnMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiOutPort(::windows::runtime::IInspectable);
+pub struct MidiOutPort(pub ::windows::runtime::IInspectable);
 impl MidiOutPort {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn SendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::runtime::Result<()> {
@@ -1804,22 +1804,22 @@ impl ::windows::runtime::RuntimeName for MidiOutPort {
 }
 impl ::std::convert::From<MidiOutPort> for ::windows::runtime::IUnknown {
     fn from(value: MidiOutPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiOutPort> for ::windows::runtime::IUnknown {
     fn from(value: &MidiOutPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiOutPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiOutPort {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiOutPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiOutPort> for ::windows::runtime::IInspectable {
@@ -1893,7 +1893,7 @@ unsafe impl ::std::marker::Sync for MidiOutPort {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiPitchBendChangeMessage(::windows::runtime::IInspectable);
+pub struct MidiPitchBendChangeMessage(pub ::windows::runtime::IInspectable);
 impl MidiPitchBendChangeMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -1961,22 +1961,22 @@ impl ::windows::runtime::RuntimeName for MidiPitchBendChangeMessage {
 }
 impl ::std::convert::From<MidiPitchBendChangeMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiPitchBendChangeMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiPitchBendChangeMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiPitchBendChangeMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiPitchBendChangeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiPitchBendChangeMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiPitchBendChangeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiPitchBendChangeMessage> for ::windows::runtime::IInspectable {
@@ -2026,7 +2026,7 @@ unsafe impl ::std::marker::Sync for MidiPitchBendChangeMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiPolyphonicKeyPressureMessage(::windows::runtime::IInspectable);
+pub struct MidiPolyphonicKeyPressureMessage(pub ::windows::runtime::IInspectable);
 impl MidiPolyphonicKeyPressureMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -2102,22 +2102,22 @@ impl ::windows::runtime::RuntimeName for MidiPolyphonicKeyPressureMessage {
 }
 impl ::std::convert::From<MidiPolyphonicKeyPressureMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiPolyphonicKeyPressureMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiPolyphonicKeyPressureMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiPolyphonicKeyPressureMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiPolyphonicKeyPressureMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiPolyphonicKeyPressureMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiPolyphonicKeyPressureMessage> for ::windows::runtime::IInspectable {
@@ -2167,7 +2167,7 @@ unsafe impl ::std::marker::Sync for MidiPolyphonicKeyPressureMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiProgramChangeMessage(::windows::runtime::IInspectable);
+pub struct MidiProgramChangeMessage(pub ::windows::runtime::IInspectable);
 impl MidiProgramChangeMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
@@ -2235,22 +2235,22 @@ impl ::windows::runtime::RuntimeName for MidiProgramChangeMessage {
 }
 impl ::std::convert::From<MidiProgramChangeMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiProgramChangeMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiProgramChangeMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiProgramChangeMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiProgramChangeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiProgramChangeMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiProgramChangeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiProgramChangeMessage> for ::windows::runtime::IInspectable {
@@ -2300,7 +2300,7 @@ unsafe impl ::std::marker::Sync for MidiProgramChangeMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiSongPositionPointerMessage(::windows::runtime::IInspectable);
+pub struct MidiSongPositionPointerMessage(pub ::windows::runtime::IInspectable);
 impl MidiSongPositionPointerMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Beats(&self) -> ::windows::runtime::Result<u16> {
@@ -2360,22 +2360,22 @@ impl ::windows::runtime::RuntimeName for MidiSongPositionPointerMessage {
 }
 impl ::std::convert::From<MidiSongPositionPointerMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiSongPositionPointerMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiSongPositionPointerMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiSongPositionPointerMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiSongPositionPointerMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiSongPositionPointerMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiSongPositionPointerMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiSongPositionPointerMessage> for ::windows::runtime::IInspectable {
@@ -2425,7 +2425,7 @@ unsafe impl ::std::marker::Sync for MidiSongPositionPointerMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiSongSelectMessage(::windows::runtime::IInspectable);
+pub struct MidiSongSelectMessage(pub ::windows::runtime::IInspectable);
 impl MidiSongSelectMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Song(&self) -> ::windows::runtime::Result<u8> {
@@ -2485,22 +2485,22 @@ impl ::windows::runtime::RuntimeName for MidiSongSelectMessage {
 }
 impl ::std::convert::From<MidiSongSelectMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiSongSelectMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiSongSelectMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiSongSelectMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiSongSelectMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiSongSelectMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiSongSelectMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiSongSelectMessage> for ::windows::runtime::IInspectable {
@@ -2550,7 +2550,7 @@ unsafe impl ::std::marker::Sync for MidiSongSelectMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiStartMessage(::windows::runtime::IInspectable);
+pub struct MidiStartMessage(pub ::windows::runtime::IInspectable);
 impl MidiStartMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2598,22 +2598,22 @@ impl ::windows::runtime::RuntimeName for MidiStartMessage {
 }
 impl ::std::convert::From<MidiStartMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiStartMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiStartMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiStartMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiStartMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiStartMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiStartMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiStartMessage> for ::windows::runtime::IInspectable {
@@ -2661,7 +2661,7 @@ unsafe impl ::std::marker::Sync for MidiStartMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiStopMessage(::windows::runtime::IInspectable);
+pub struct MidiStopMessage(pub ::windows::runtime::IInspectable);
 impl MidiStopMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2709,22 +2709,22 @@ impl ::windows::runtime::RuntimeName for MidiStopMessage {
 }
 impl ::std::convert::From<MidiStopMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiStopMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiStopMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiStopMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiStopMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiStopMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiStopMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiStopMessage> for ::windows::runtime::IInspectable {
@@ -2772,7 +2772,7 @@ unsafe impl ::std::marker::Sync for MidiStopMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiSynthesizer(::windows::runtime::IInspectable);
+pub struct MidiSynthesizer(pub ::windows::runtime::IInspectable);
 impl MidiSynthesizer {
     #[cfg(feature = "Devices_Enumeration")]
     #[doc = "*Required features: `Devices_Midi`, `Devices_Enumeration`*"]
@@ -2862,22 +2862,22 @@ impl ::windows::runtime::RuntimeName for MidiSynthesizer {
 }
 impl ::std::convert::From<MidiSynthesizer> for ::windows::runtime::IUnknown {
     fn from(value: MidiSynthesizer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiSynthesizer> for ::windows::runtime::IUnknown {
     fn from(value: &MidiSynthesizer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiSynthesizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiSynthesizer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiSynthesizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiSynthesizer> for ::windows::runtime::IInspectable {
@@ -2953,7 +2953,7 @@ unsafe impl ::std::marker::Sync for MidiSynthesizer {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiSystemExclusiveMessage(::windows::runtime::IInspectable);
+pub struct MidiSystemExclusiveMessage(pub ::windows::runtime::IInspectable);
 impl MidiSystemExclusiveMessage {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
@@ -3006,22 +3006,22 @@ impl ::windows::runtime::RuntimeName for MidiSystemExclusiveMessage {
 }
 impl ::std::convert::From<MidiSystemExclusiveMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiSystemExclusiveMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiSystemExclusiveMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiSystemExclusiveMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiSystemExclusiveMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiSystemExclusiveMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiSystemExclusiveMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiSystemExclusiveMessage> for ::windows::runtime::IInspectable {
@@ -3069,7 +3069,7 @@ unsafe impl ::std::marker::Sync for MidiSystemExclusiveMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiSystemResetMessage(::windows::runtime::IInspectable);
+pub struct MidiSystemResetMessage(pub ::windows::runtime::IInspectable);
 impl MidiSystemResetMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3117,22 +3117,22 @@ impl ::windows::runtime::RuntimeName for MidiSystemResetMessage {
 }
 impl ::std::convert::From<MidiSystemResetMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiSystemResetMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiSystemResetMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiSystemResetMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiSystemResetMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiSystemResetMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiSystemResetMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiSystemResetMessage> for ::windows::runtime::IInspectable {
@@ -3180,7 +3180,7 @@ unsafe impl ::std::marker::Sync for MidiSystemResetMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiTimeCodeMessage(::windows::runtime::IInspectable);
+pub struct MidiTimeCodeMessage(pub ::windows::runtime::IInspectable);
 impl MidiTimeCodeMessage {
     #[doc = "*Required features: `Devices_Midi`*"]
     pub fn FrameType(&self) -> ::windows::runtime::Result<u8> {
@@ -3248,22 +3248,22 @@ impl ::windows::runtime::RuntimeName for MidiTimeCodeMessage {
 }
 impl ::std::convert::From<MidiTimeCodeMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiTimeCodeMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiTimeCodeMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiTimeCodeMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiTimeCodeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiTimeCodeMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiTimeCodeMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiTimeCodeMessage> for ::windows::runtime::IInspectable {
@@ -3313,7 +3313,7 @@ unsafe impl ::std::marker::Sync for MidiTimeCodeMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiTimingClockMessage(::windows::runtime::IInspectable);
+pub struct MidiTimingClockMessage(pub ::windows::runtime::IInspectable);
 impl MidiTimingClockMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3361,22 +3361,22 @@ impl ::windows::runtime::RuntimeName for MidiTimingClockMessage {
 }
 impl ::std::convert::From<MidiTimingClockMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiTimingClockMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiTimingClockMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiTimingClockMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiTimingClockMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiTimingClockMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiTimingClockMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiTimingClockMessage> for ::windows::runtime::IInspectable {
@@ -3424,7 +3424,7 @@ unsafe impl ::std::marker::Sync for MidiTimingClockMessage {}
 #[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MidiTuneRequestMessage(::windows::runtime::IInspectable);
+pub struct MidiTuneRequestMessage(pub ::windows::runtime::IInspectable);
 impl MidiTuneRequestMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3472,22 +3472,22 @@ impl ::windows::runtime::RuntimeName for MidiTuneRequestMessage {
 }
 impl ::std::convert::From<MidiTuneRequestMessage> for ::windows::runtime::IUnknown {
     fn from(value: MidiTuneRequestMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MidiTuneRequestMessage> for ::windows::runtime::IUnknown {
     fn from(value: &MidiTuneRequestMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MidiTuneRequestMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MidiTuneRequestMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MidiTuneRequestMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MidiTuneRequestMessage> for ::windows::runtime::IInspectable {

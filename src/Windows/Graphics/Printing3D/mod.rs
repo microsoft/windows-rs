@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DManager(::windows::runtime::IInspectable);
+pub struct IPrint3DManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DManager {
     type Vtable = IPrint3DManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294977802, 29542, 18801, [139, 213, 23, 196, 227, 232, 198, 192]);
@@ -22,7 +22,7 @@ pub struct IPrint3DManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DManagerStatics(::windows::runtime::IInspectable);
+pub struct IPrint3DManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DManagerStatics {
     type Vtable = IPrint3DManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(250727166, 43437, 19464, [169, 23, 29, 31, 134, 62, 171, 203]);
@@ -42,7 +42,7 @@ pub struct IPrint3DManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DTask(::windows::runtime::IInspectable);
+pub struct IPrint3DTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTask {
     type Vtable = IPrint3DTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2363740288, 8472, 19496, [128, 222, 244, 38, 215, 1, 145, 174]);
@@ -72,7 +72,7 @@ pub struct IPrint3DTask_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DTaskCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IPrint3DTaskCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424195759, 9748, 20253, [172, 204, 214, 252, 79, 218, 84, 85]);
@@ -91,7 +91,7 @@ pub struct IPrint3DTaskCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DTaskRequest(::windows::runtime::IInspectable);
+pub struct IPrint3DTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskRequest {
     type Vtable = IPrint3DTaskRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630572143, 8773, 19546, [135, 49, 13, 96, 77, 198, 188, 60]);
@@ -109,7 +109,7 @@ pub struct IPrint3DTaskRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DTaskRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IPrint3DTaskRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353154943, 6341, 16599, [159, 64, 250, 179, 9, 110, 5, 169]);
@@ -127,7 +127,7 @@ pub struct IPrint3DTaskRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DTaskSourceChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IPrint3DTaskSourceChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540175023, 9449, 19472, [141, 7, 20, 195, 70, 186, 63, 207]);
@@ -145,7 +145,7 @@ pub struct IPrint3DTaskSourceChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DTaskSourceRequestedArgs(::windows::runtime::IInspectable);
+pub struct IPrint3DTaskSourceRequestedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346832058, 9391, 16973, [163, 191, 146, 37, 12, 53, 86, 2]);
@@ -163,7 +163,7 @@ pub struct IPrint3DTaskSourceRequestedArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3D3MFPackage(::windows::runtime::IInspectable);
+pub struct IPrinting3D3MFPackage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackage {
     type Vtable = IPrinting3D3MFPackage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4132296136, 10935, 17833, [161, 183, 38, 126, 148, 141, 91, 24]);
@@ -198,7 +198,7 @@ pub struct IPrinting3D3MFPackage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3D3MFPackage2(::windows::runtime::IInspectable);
+pub struct IPrinting3D3MFPackage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackage2 {
     type Vtable = IPrinting3D3MFPackage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522643140, 37835, 17456, [146, 184, 120, 156, 212, 84, 248, 131]);
@@ -217,7 +217,7 @@ pub struct IPrinting3D3MFPackage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3D3MFPackageStatics(::windows::runtime::IInspectable);
+pub struct IPrinting3D3MFPackageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackageStatics {
     type Vtable = IPrinting3D3MFPackageStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884871087, 31386, 18311, [184, 23, 246, 244, 89, 33, 72, 35]);
@@ -236,7 +236,7 @@ pub struct IPrinting3D3MFPackageStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DBaseMaterial(::windows::runtime::IInspectable);
+pub struct IPrinting3DBaseMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterial_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3505448771, 50444, 19403, [157, 4, 252, 22, 173, 206, 162, 201]);
@@ -257,7 +257,7 @@ pub struct IPrinting3DBaseMaterial_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DBaseMaterialGroup(::windows::runtime::IInspectable);
+pub struct IPrinting3DBaseMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498785464, 9493, 19085, [161, 240, 208, 252, 19, 208, 96, 33]);
@@ -277,7 +277,7 @@ pub struct IPrinting3DBaseMaterialGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DBaseMaterialGroupFactory(::windows::runtime::IInspectable);
+pub struct IPrinting3DBaseMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialGroupFactory {
     type Vtable = IPrinting3DBaseMaterialGroupFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1544898268, 34455, 16787, [151, 107, 132, 187, 65, 22, 229, 191]);
@@ -295,7 +295,7 @@ pub struct IPrinting3DBaseMaterialGroupFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DBaseMaterialStatics(::windows::runtime::IInspectable);
+pub struct IPrinting3DBaseMaterialStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialStatics {
     type Vtable = IPrinting3DBaseMaterialStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2170177468, 14154, 18285, [190, 146, 62, 207, 209, 203, 151, 118]);
@@ -314,7 +314,7 @@ pub struct IPrinting3DBaseMaterialStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DColorMaterial(::windows::runtime::IInspectable);
+pub struct IPrinting3DColorMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterial {
     type Vtable = IPrinting3DColorMaterial_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3783891240, 31975, 17029, [163, 93, 241, 69, 201, 81, 12, 123]);
@@ -333,7 +333,7 @@ pub struct IPrinting3DColorMaterial_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DColorMaterial2(::windows::runtime::IInspectable);
+pub struct IPrinting3DColorMaterial2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterial2 {
     type Vtable = IPrinting3DColorMaterial2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205897810, 2799, 17641, [157, 221, 54, 238, 234, 90, 205, 68]);
@@ -354,7 +354,7 @@ pub struct IPrinting3DColorMaterial2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DColorMaterialGroup(::windows::runtime::IInspectable);
+pub struct IPrinting3DColorMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731536, 43743, 16934, [175, 233, 243, 105, 160, 180, 80, 4]);
@@ -374,7 +374,7 @@ pub struct IPrinting3DColorMaterialGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DColorMaterialGroupFactory(::windows::runtime::IInspectable);
+pub struct IPrinting3DColorMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterialGroupFactory {
     type Vtable = IPrinting3DColorMaterialGroupFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1909689709, 45546, 19035, [188, 84, 25, 198, 95, 61, 240, 68]);
@@ -392,7 +392,7 @@ pub struct IPrinting3DColorMaterialGroupFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DComponent(::windows::runtime::IInspectable);
+pub struct IPrinting3DComponent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DComponent {
     type Vtable = IPrinting3DComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2116581445, 49023, 19675, [162, 127, 48, 160, 20, 55, 254, 222]);
@@ -421,7 +421,7 @@ pub struct IPrinting3DComponent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DComponentWithMatrix(::windows::runtime::IInspectable);
+pub struct IPrinting3DComponentWithMatrix(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrix_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(846852917, 3824, 17771, [154, 33, 73, 190, 190, 139, 81, 194]);
@@ -444,7 +444,7 @@ pub struct IPrinting3DComponentWithMatrix_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DCompositeMaterial(::windows::runtime::IInspectable);
+pub struct IPrinting3DCompositeMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterial_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1176647901, 22062, 20332, [136, 45, 244, 216, 65, 253, 99, 199]);
@@ -463,7 +463,7 @@ pub struct IPrinting3DCompositeMaterial_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DCompositeMaterialGroup(::windows::runtime::IInspectable);
+pub struct IPrinting3DCompositeMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2375314011, 16625, 18797, [165, 251, 52, 10, 90, 103, 142, 48]);
@@ -485,7 +485,7 @@ pub struct IPrinting3DCompositeMaterialGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DCompositeMaterialGroup2(::windows::runtime::IInspectable);
+pub struct IPrinting3DCompositeMaterialGroup2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroup2 {
     type Vtable = IPrinting3DCompositeMaterialGroup2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(115895650, 32059, 16865, [148, 76, 186, 253, 228, 85, 84, 131]);
@@ -504,7 +504,7 @@ pub struct IPrinting3DCompositeMaterialGroup2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DCompositeMaterialGroupFactory(::windows::runtime::IInspectable);
+pub struct IPrinting3DCompositeMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroupFactory {
     type Vtable = IPrinting3DCompositeMaterialGroupFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499019539, 37631, 17322, [166, 39, 141, 67, 194, 44, 129, 126]);
@@ -522,7 +522,7 @@ pub struct IPrinting3DCompositeMaterialGroupFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DFaceReductionOptions(::windows::runtime::IInspectable);
+pub struct IPrinting3DFaceReductionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154039703, 11636, 18167, [190, 133, 153, 166, 123, 187, 102, 41]);
@@ -545,7 +545,7 @@ pub struct IPrinting3DFaceReductionOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DMaterial(::windows::runtime::IInspectable);
+pub struct IPrinting3DMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMaterial {
     type Vtable = IPrinting3DMaterial_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932033110, 60770, 18770, [184, 91, 3, 86, 125, 124, 70, 94]);
@@ -572,7 +572,7 @@ pub struct IPrinting3DMaterial_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DMesh(::windows::runtime::IInspectable);
+pub struct IPrinting3DMesh(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMesh {
     type Vtable = IPrinting3DMesh_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422482140, 552, 11777, [188, 32, 197, 41, 12, 191, 50, 196]);
@@ -619,7 +619,7 @@ pub struct IPrinting3DMesh_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DMeshVerificationResult(::windows::runtime::IInspectable);
+pub struct IPrinting3DMeshVerificationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425095610, 59706, 20106, [164, 111, 222, 168, 232, 82, 25, 126]);
@@ -641,7 +641,7 @@ pub struct IPrinting3DMeshVerificationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DModel(::windows::runtime::IInspectable);
+pub struct IPrinting3DModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModel {
     type Vtable = IPrinting3DModel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(755052272, 21243, 37274, [119, 176, 75, 26, 59, 128, 50, 79]);
@@ -679,7 +679,7 @@ pub struct IPrinting3DModel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DModel2(::windows::runtime::IInspectable);
+pub struct IPrinting3DModel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModel2 {
     type Vtable = IPrinting3DModel2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3374344647, 51265, 18419, [168, 78, 161, 73, 253, 8, 182, 87]);
@@ -708,7 +708,7 @@ pub struct IPrinting3DModel2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DModelTexture(::windows::runtime::IInspectable);
+pub struct IPrinting3DModelTexture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModelTexture {
     type Vtable = IPrinting3DModelTexture_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1571802881, 46493, 18492, [151, 187, 164, 213, 70, 209, 199, 92]);
@@ -731,7 +731,7 @@ pub struct IPrinting3DModelTexture_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DMultiplePropertyMaterial(::windows::runtime::IInspectable);
+pub struct IPrinting3DMultiplePropertyMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterial_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(631645515, 50921, 18509, [162, 20, 162, 94, 87, 118, 186, 98]);
@@ -750,7 +750,7 @@ pub struct IPrinting3DMultiplePropertyMaterial_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DMultiplePropertyMaterialGroup(::windows::runtime::IInspectable);
+pub struct IPrinting3DMultiplePropertyMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036298009, 44729, 17685, [163, 155, 160, 136, 251, 187, 39, 124]);
@@ -772,7 +772,7 @@ pub struct IPrinting3DMultiplePropertyMaterialGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DMultiplePropertyMaterialGroupFactory(::windows::runtime::IInspectable);
+pub struct IPrinting3DMultiplePropertyMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterialGroupFactory {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroupFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(842930542, 54470, 17694, [168, 20, 77, 120, 162, 16, 254, 83]);
@@ -790,7 +790,7 @@ pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DTexture2CoordMaterial(::windows::runtime::IInspectable);
+pub struct IPrinting3DTexture2CoordMaterial(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterial_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374257659, 2025, 18822, [152, 51, 141, 211, 212, 140, 104, 89]);
@@ -813,7 +813,7 @@ pub struct IPrinting3DTexture2CoordMaterial_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DTexture2CoordMaterialGroup(::windows::runtime::IInspectable);
+pub struct IPrinting3DTexture2CoordMaterialGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroup {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652391079, 28048, 20409, [159, 196, 159, 239, 243, 223, 168, 146]);
@@ -833,7 +833,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DTexture2CoordMaterialGroup2(::windows::runtime::IInspectable);
+pub struct IPrinting3DTexture2CoordMaterialGroup2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroup2 {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1778113466, 45358, 17051, [131, 134, 223, 82, 132, 246, 232, 15]);
@@ -852,7 +852,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroup2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DTexture2CoordMaterialGroupFactory(::windows::runtime::IInspectable);
+pub struct IPrinting3DTexture2CoordMaterialGroupFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroupFactory {
     type Vtable = IPrinting3DTexture2CoordMaterialGroupFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3417328048, 18058, 19567, [178, 162, 142, 184, 186, 141, 234, 72]);
@@ -870,7 +870,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroupFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrinting3DTextureResource(::windows::runtime::IInspectable);
+pub struct IPrinting3DTextureResource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTextureResource {
     type Vtable = IPrinting3DTextureResource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802709293, 27313, 17582, [188, 69, 162, 115, 130, 192, 211, 140]);
@@ -894,7 +894,7 @@ pub struct IPrinting3DTextureResource_abi(
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DManager(::windows::runtime::IInspectable);
+pub struct Print3DManager(pub ::windows::runtime::IInspectable);
 impl Print3DManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing3D`, `Foundation`*"]
@@ -943,22 +943,22 @@ impl ::windows::runtime::RuntimeName for Print3DManager {
 }
 impl ::std::convert::From<Print3DManager> for ::windows::runtime::IUnknown {
     fn from(value: Print3DManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DManager> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DManager> for ::windows::runtime::IInspectable {
@@ -986,7 +986,7 @@ unsafe impl ::std::marker::Sync for Print3DManager {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DTask(::windows::runtime::IInspectable);
+pub struct Print3DTask(pub ::windows::runtime::IInspectable);
 impl Print3DTask {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<Printing3D3MFPackage> {
@@ -1054,22 +1054,22 @@ impl ::windows::runtime::RuntimeName for Print3DTask {
 }
 impl ::std::convert::From<Print3DTask> for ::windows::runtime::IUnknown {
     fn from(value: Print3DTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DTask> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DTask {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DTask> for ::windows::runtime::IInspectable {
@@ -1097,7 +1097,7 @@ unsafe impl ::std::marker::Sync for Print3DTask {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DTaskCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct Print3DTaskCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl Print3DTaskCompletedEventArgs {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn Completion(&self) -> ::windows::runtime::Result<Print3DTaskCompletion> {
@@ -1128,22 +1128,22 @@ impl ::windows::runtime::RuntimeName for Print3DTaskCompletedEventArgs {
 }
 impl ::std::convert::From<Print3DTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: Print3DTaskCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DTaskCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DTaskCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DTaskCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DTaskCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -1223,7 +1223,7 @@ impl ::windows::runtime::DefaultType for Print3DTaskDetail {
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DTaskRequest(::windows::runtime::IInspectable);
+pub struct Print3DTaskRequest(pub ::windows::runtime::IInspectable);
 impl Print3DTaskRequest {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn CreateTask<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, Print3DTaskSourceRequestedHandler>>(&self, title: Param0, printerid: Param1, handler: Param2) -> ::windows::runtime::Result<Print3DTask> {
@@ -1246,22 +1246,22 @@ impl ::windows::runtime::RuntimeName for Print3DTaskRequest {
 }
 impl ::std::convert::From<Print3DTaskRequest> for ::windows::runtime::IUnknown {
     fn from(value: Print3DTaskRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DTaskRequest> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DTaskRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DTaskRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DTaskRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DTaskRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DTaskRequest> for ::windows::runtime::IInspectable {
@@ -1289,7 +1289,7 @@ unsafe impl ::std::marker::Sync for Print3DTaskRequest {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DTaskRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct Print3DTaskRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl Print3DTaskRequestedEventArgs {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<Print3DTaskRequest> {
@@ -1312,22 +1312,22 @@ impl ::windows::runtime::RuntimeName for Print3DTaskRequestedEventArgs {
 }
 impl ::std::convert::From<Print3DTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: Print3DTaskRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DTaskRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DTaskRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DTaskRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DTaskRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1355,7 +1355,7 @@ unsafe impl ::std::marker::Sync for Print3DTaskRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DTaskSourceChangedEventArgs(::windows::runtime::IInspectable);
+pub struct Print3DTaskSourceChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl Print3DTaskSourceChangedEventArgs {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<Printing3D3MFPackage> {
@@ -1378,22 +1378,22 @@ impl ::windows::runtime::RuntimeName for Print3DTaskSourceChangedEventArgs {
 }
 impl ::std::convert::From<Print3DTaskSourceChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: Print3DTaskSourceChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DTaskSourceChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DTaskSourceChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DTaskSourceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DTaskSourceChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DTaskSourceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DTaskSourceChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -1421,7 +1421,7 @@ unsafe impl ::std::marker::Sync for Print3DTaskSourceChangedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DTaskSourceRequestedArgs(::windows::runtime::IInspectable);
+pub struct Print3DTaskSourceRequestedArgs(pub ::windows::runtime::IInspectable);
 impl Print3DTaskSourceRequestedArgs {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, Printing3D3MFPackage>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
@@ -1441,22 +1441,22 @@ impl ::windows::runtime::RuntimeName for Print3DTaskSourceRequestedArgs {
 }
 impl ::std::convert::From<Print3DTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
     fn from(value: Print3DTaskSourceRequestedArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DTaskSourceRequestedArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DTaskSourceRequestedArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DTaskSourceRequestedArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DTaskSourceRequestedArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
@@ -1557,7 +1557,7 @@ impl<F: FnMut(&::std::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windo
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3D3MFPackage(::windows::runtime::IInspectable);
+pub struct Printing3D3MFPackage(pub ::windows::runtime::IInspectable);
 impl Printing3D3MFPackage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1683,22 +1683,22 @@ impl ::windows::runtime::RuntimeName for Printing3D3MFPackage {
 }
 impl ::std::convert::From<Printing3D3MFPackage> for ::windows::runtime::IUnknown {
     fn from(value: Printing3D3MFPackage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3D3MFPackage> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3D3MFPackage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3D3MFPackage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3D3MFPackage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3D3MFPackage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3D3MFPackage> for ::windows::runtime::IInspectable {
@@ -1726,7 +1726,7 @@ unsafe impl ::std::marker::Sync for Printing3D3MFPackage {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DBaseMaterial(::windows::runtime::IInspectable);
+pub struct Printing3DBaseMaterial(pub ::windows::runtime::IInspectable);
 impl Printing3DBaseMaterial {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1792,22 +1792,22 @@ impl ::windows::runtime::RuntimeName for Printing3DBaseMaterial {
 }
 impl ::std::convert::From<Printing3DBaseMaterial> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DBaseMaterial) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DBaseMaterial> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DBaseMaterial) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DBaseMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DBaseMaterial {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DBaseMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DBaseMaterial> for ::windows::runtime::IInspectable {
@@ -1835,7 +1835,7 @@ unsafe impl ::std::marker::Sync for Printing3DBaseMaterial {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DBaseMaterialGroup(::windows::runtime::IInspectable);
+pub struct Printing3DBaseMaterialGroup(pub ::windows::runtime::IInspectable);
 impl Printing3DBaseMaterialGroup {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Printing3D`, `Foundation_Collections`*"]
@@ -1878,22 +1878,22 @@ impl ::windows::runtime::RuntimeName for Printing3DBaseMaterialGroup {
 }
 impl ::std::convert::From<Printing3DBaseMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DBaseMaterialGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DBaseMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DBaseMaterialGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DBaseMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DBaseMaterialGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DBaseMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DBaseMaterialGroup> for ::windows::runtime::IInspectable {
@@ -1981,7 +1981,7 @@ impl ::windows::runtime::DefaultType for Printing3DBufferFormat {
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DColorMaterial(::windows::runtime::IInspectable);
+pub struct Printing3DColorMaterial(pub ::windows::runtime::IInspectable);
 impl Printing3DColorMaterial {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2031,22 +2031,22 @@ impl ::windows::runtime::RuntimeName for Printing3DColorMaterial {
 }
 impl ::std::convert::From<Printing3DColorMaterial> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DColorMaterial) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DColorMaterial> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DColorMaterial) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DColorMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DColorMaterial {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DColorMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DColorMaterial> for ::windows::runtime::IInspectable {
@@ -2074,7 +2074,7 @@ unsafe impl ::std::marker::Sync for Printing3DColorMaterial {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DColorMaterialGroup(::windows::runtime::IInspectable);
+pub struct Printing3DColorMaterialGroup(pub ::windows::runtime::IInspectable);
 impl Printing3DColorMaterialGroup {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Printing3D`, `Foundation_Collections`*"]
@@ -2117,22 +2117,22 @@ impl ::windows::runtime::RuntimeName for Printing3DColorMaterialGroup {
 }
 impl ::std::convert::From<Printing3DColorMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DColorMaterialGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DColorMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DColorMaterialGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DColorMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DColorMaterialGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DColorMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DColorMaterialGroup> for ::windows::runtime::IInspectable {
@@ -2160,7 +2160,7 @@ unsafe impl ::std::marker::Sync for Printing3DColorMaterialGroup {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DComponent(::windows::runtime::IInspectable);
+pub struct Printing3DComponent(pub ::windows::runtime::IInspectable);
 impl Printing3DComponent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2256,22 +2256,22 @@ impl ::windows::runtime::RuntimeName for Printing3DComponent {
 }
 impl ::std::convert::From<Printing3DComponent> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DComponent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DComponent> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DComponent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DComponent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DComponent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DComponent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DComponent> for ::windows::runtime::IInspectable {
@@ -2299,7 +2299,7 @@ unsafe impl ::std::marker::Sync for Printing3DComponent {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DComponentWithMatrix(::windows::runtime::IInspectable);
+pub struct Printing3DComponentWithMatrix(pub ::windows::runtime::IInspectable);
 impl Printing3DComponentWithMatrix {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2349,22 +2349,22 @@ impl ::windows::runtime::RuntimeName for Printing3DComponentWithMatrix {
 }
 impl ::std::convert::From<Printing3DComponentWithMatrix> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DComponentWithMatrix) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DComponentWithMatrix> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DComponentWithMatrix) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DComponentWithMatrix {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DComponentWithMatrix {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DComponentWithMatrix {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DComponentWithMatrix> for ::windows::runtime::IInspectable {
@@ -2392,7 +2392,7 @@ unsafe impl ::std::marker::Sync for Printing3DComponentWithMatrix {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DCompositeMaterial(::windows::runtime::IInspectable);
+pub struct Printing3DCompositeMaterial(pub ::windows::runtime::IInspectable);
 impl Printing3DCompositeMaterial {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2423,22 +2423,22 @@ impl ::windows::runtime::RuntimeName for Printing3DCompositeMaterial {
 }
 impl ::std::convert::From<Printing3DCompositeMaterial> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DCompositeMaterial) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DCompositeMaterial> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DCompositeMaterial) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DCompositeMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DCompositeMaterial {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DCompositeMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DCompositeMaterial> for ::windows::runtime::IInspectable {
@@ -2466,7 +2466,7 @@ unsafe impl ::std::marker::Sync for Printing3DCompositeMaterial {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DCompositeMaterialGroup(::windows::runtime::IInspectable);
+pub struct Printing3DCompositeMaterialGroup(pub ::windows::runtime::IInspectable);
 impl Printing3DCompositeMaterialGroup {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Printing3D`, `Foundation_Collections`*"]
@@ -2531,22 +2531,22 @@ impl ::windows::runtime::RuntimeName for Printing3DCompositeMaterialGroup {
 }
 impl ::std::convert::From<Printing3DCompositeMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DCompositeMaterialGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DCompositeMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DCompositeMaterialGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DCompositeMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DCompositeMaterialGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DCompositeMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DCompositeMaterialGroup> for ::windows::runtime::IInspectable {
@@ -2577,7 +2577,7 @@ pub struct Printing3DContract(pub u8);
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DFaceReductionOptions(::windows::runtime::IInspectable);
+pub struct Printing3DFaceReductionOptions(pub ::windows::runtime::IInspectable);
 impl Printing3DFaceReductionOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2638,22 +2638,22 @@ impl ::windows::runtime::RuntimeName for Printing3DFaceReductionOptions {
 }
 impl ::std::convert::From<Printing3DFaceReductionOptions> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DFaceReductionOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DFaceReductionOptions> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DFaceReductionOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DFaceReductionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DFaceReductionOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DFaceReductionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DFaceReductionOptions> for ::windows::runtime::IInspectable {
@@ -2681,7 +2681,7 @@ unsafe impl ::std::marker::Sync for Printing3DFaceReductionOptions {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DMaterial(::windows::runtime::IInspectable);
+pub struct Printing3DMaterial(pub ::windows::runtime::IInspectable);
 impl Printing3DMaterial {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2748,22 +2748,22 @@ impl ::windows::runtime::RuntimeName for Printing3DMaterial {
 }
 impl ::std::convert::From<Printing3DMaterial> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DMaterial) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DMaterial> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DMaterial) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DMaterial {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DMaterial> for ::windows::runtime::IInspectable {
@@ -2791,7 +2791,7 @@ unsafe impl ::std::marker::Sync for Printing3DMaterial {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DMesh(::windows::runtime::IInspectable);
+pub struct Printing3DMesh(pub ::windows::runtime::IInspectable);
 impl Printing3DMesh {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2974,22 +2974,22 @@ impl ::windows::runtime::RuntimeName for Printing3DMesh {
 }
 impl ::std::convert::From<Printing3DMesh> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DMesh) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DMesh> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DMesh) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DMesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DMesh {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DMesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DMesh> for ::windows::runtime::IInspectable {
@@ -3039,7 +3039,7 @@ impl ::windows::runtime::DefaultType for Printing3DMeshVerificationMode {
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DMeshVerificationResult(::windows::runtime::IInspectable);
+pub struct Printing3DMeshVerificationResult(pub ::windows::runtime::IInspectable);
 impl Printing3DMeshVerificationResult {
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn IsValid(&self) -> ::windows::runtime::Result<bool> {
@@ -3080,22 +3080,22 @@ impl ::windows::runtime::RuntimeName for Printing3DMeshVerificationResult {
 }
 impl ::std::convert::From<Printing3DMeshVerificationResult> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DMeshVerificationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DMeshVerificationResult> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DMeshVerificationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DMeshVerificationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DMeshVerificationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DMeshVerificationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DMeshVerificationResult> for ::windows::runtime::IInspectable {
@@ -3123,7 +3123,7 @@ unsafe impl ::std::marker::Sync for Printing3DMeshVerificationResult {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DModel(::windows::runtime::IInspectable);
+pub struct Printing3DModel(pub ::windows::runtime::IInspectable);
 impl Printing3DModel {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3313,22 +3313,22 @@ impl ::windows::runtime::RuntimeName for Printing3DModel {
 }
 impl ::std::convert::From<Printing3DModel> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DModel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DModel> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DModel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DModel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DModel> for ::windows::runtime::IInspectable {
@@ -3356,7 +3356,7 @@ unsafe impl ::std::marker::Sync for Printing3DModel {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DModelTexture(::windows::runtime::IInspectable);
+pub struct Printing3DModelTexture(pub ::windows::runtime::IInspectable);
 impl Printing3DModelTexture {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3417,22 +3417,22 @@ impl ::windows::runtime::RuntimeName for Printing3DModelTexture {
 }
 impl ::std::convert::From<Printing3DModelTexture> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DModelTexture) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DModelTexture> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DModelTexture) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DModelTexture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DModelTexture {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DModelTexture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DModelTexture> for ::windows::runtime::IInspectable {
@@ -3486,7 +3486,7 @@ impl ::windows::runtime::DefaultType for Printing3DModelUnit {
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DMultiplePropertyMaterial(::windows::runtime::IInspectable);
+pub struct Printing3DMultiplePropertyMaterial(pub ::windows::runtime::IInspectable);
 impl Printing3DMultiplePropertyMaterial {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3517,22 +3517,22 @@ impl ::windows::runtime::RuntimeName for Printing3DMultiplePropertyMaterial {
 }
 impl ::std::convert::From<Printing3DMultiplePropertyMaterial> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DMultiplePropertyMaterial) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DMultiplePropertyMaterial> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DMultiplePropertyMaterial) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DMultiplePropertyMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DMultiplePropertyMaterial {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DMultiplePropertyMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DMultiplePropertyMaterial> for ::windows::runtime::IInspectable {
@@ -3560,7 +3560,7 @@ unsafe impl ::std::marker::Sync for Printing3DMultiplePropertyMaterial {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DMultiplePropertyMaterialGroup(::windows::runtime::IInspectable);
+pub struct Printing3DMultiplePropertyMaterialGroup(pub ::windows::runtime::IInspectable);
 impl Printing3DMultiplePropertyMaterialGroup {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Printing3D`, `Foundation_Collections`*"]
@@ -3612,22 +3612,22 @@ impl ::windows::runtime::RuntimeName for Printing3DMultiplePropertyMaterialGroup
 }
 impl ::std::convert::From<Printing3DMultiplePropertyMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DMultiplePropertyMaterialGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DMultiplePropertyMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DMultiplePropertyMaterialGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DMultiplePropertyMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DMultiplePropertyMaterialGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DMultiplePropertyMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DMultiplePropertyMaterialGroup> for ::windows::runtime::IInspectable {
@@ -3701,7 +3701,7 @@ impl ::windows::runtime::DefaultType for Printing3DPackageCompression {
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DTexture2CoordMaterial(::windows::runtime::IInspectable);
+pub struct Printing3DTexture2CoordMaterial(pub ::windows::runtime::IInspectable);
 impl Printing3DTexture2CoordMaterial {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3762,22 +3762,22 @@ impl ::windows::runtime::RuntimeName for Printing3DTexture2CoordMaterial {
 }
 impl ::std::convert::From<Printing3DTexture2CoordMaterial> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DTexture2CoordMaterial) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DTexture2CoordMaterial> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DTexture2CoordMaterial) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DTexture2CoordMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DTexture2CoordMaterial {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DTexture2CoordMaterial {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DTexture2CoordMaterial> for ::windows::runtime::IInspectable {
@@ -3805,7 +3805,7 @@ unsafe impl ::std::marker::Sync for Printing3DTexture2CoordMaterial {}
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DTexture2CoordMaterialGroup(::windows::runtime::IInspectable);
+pub struct Printing3DTexture2CoordMaterialGroup(pub ::windows::runtime::IInspectable);
 impl Printing3DTexture2CoordMaterialGroup {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Printing3D`, `Foundation_Collections`*"]
@@ -3861,22 +3861,22 @@ impl ::windows::runtime::RuntimeName for Printing3DTexture2CoordMaterialGroup {
 }
 impl ::std::convert::From<Printing3DTexture2CoordMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DTexture2CoordMaterialGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DTexture2CoordMaterialGroup> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DTexture2CoordMaterialGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DTexture2CoordMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DTexture2CoordMaterialGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DTexture2CoordMaterialGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DTexture2CoordMaterialGroup> for ::windows::runtime::IInspectable {
@@ -3928,7 +3928,7 @@ impl ::windows::runtime::DefaultType for Printing3DTextureEdgeBehavior {
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Printing3DTextureResource(::windows::runtime::IInspectable);
+pub struct Printing3DTextureResource(pub ::windows::runtime::IInspectable);
 impl Printing3DTextureResource {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3978,22 +3978,22 @@ impl ::windows::runtime::RuntimeName for Printing3DTextureResource {
 }
 impl ::std::convert::From<Printing3DTextureResource> for ::windows::runtime::IUnknown {
     fn from(value: Printing3DTextureResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Printing3DTextureResource> for ::windows::runtime::IUnknown {
     fn from(value: &Printing3DTextureResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Printing3DTextureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Printing3DTextureResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Printing3DTextureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Printing3DTextureResource> for ::windows::runtime::IInspectable {

@@ -123,7 +123,7 @@ unsafe impl ::windows::runtime::Abi for DtdProcessing {
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXmlReader(::windows::runtime::IUnknown);
+pub struct IXmlReader(pub ::windows::runtime::IUnknown);
 impl IXmlReader {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
     pub unsafe fn SetInput<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pinput: Param0) -> ::windows::runtime::Result<()> {
@@ -242,22 +242,22 @@ unsafe impl ::windows::runtime::Interface for IXmlReader {
 }
 impl ::std::convert::From<IXmlReader> for ::windows::runtime::IUnknown {
     fn from(value: IXmlReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXmlReader> for ::windows::runtime::IUnknown {
     fn from(value: &IXmlReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXmlReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -304,7 +304,7 @@ pub struct IXmlReader_abi(
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXmlResolver(::windows::runtime::IUnknown);
+pub struct IXmlResolver(pub ::windows::runtime::IUnknown);
 impl IXmlResolver {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_Foundation`*"]
@@ -319,22 +319,22 @@ unsafe impl ::windows::runtime::Interface for IXmlResolver {
 }
 impl ::std::convert::From<IXmlResolver> for ::windows::runtime::IUnknown {
     fn from(value: IXmlResolver) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXmlResolver> for ::windows::runtime::IUnknown {
     fn from(value: &IXmlResolver) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlResolver {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlResolver {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXmlResolver {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -349,7 +349,7 @@ pub struct IXmlResolver_abi(
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXmlWriter(::windows::runtime::IUnknown);
+pub struct IXmlWriter(pub ::windows::runtime::IUnknown);
 impl IXmlWriter {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
     pub unsafe fn SetOutput<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, poutput: Param0) -> ::windows::runtime::Result<()> {
@@ -506,22 +506,22 @@ unsafe impl ::windows::runtime::Interface for IXmlWriter {
 }
 impl ::std::convert::From<IXmlWriter> for ::windows::runtime::IUnknown {
     fn from(value: IXmlWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXmlWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IXmlWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXmlWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -582,7 +582,7 @@ pub struct IXmlWriter_abi(
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXmlWriterLite(::windows::runtime::IUnknown);
+pub struct IXmlWriterLite(pub ::windows::runtime::IUnknown);
 impl IXmlWriterLite {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
     pub unsafe fn SetOutput<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, poutput: Param0) -> ::windows::runtime::Result<()> {
@@ -724,22 +724,22 @@ unsafe impl ::windows::runtime::Interface for IXmlWriterLite {
 }
 impl ::std::convert::From<IXmlWriterLite> for ::windows::runtime::IUnknown {
     fn from(value: IXmlWriterLite) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXmlWriterLite> for ::windows::runtime::IUnknown {
     fn from(value: &IXmlWriterLite) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlWriterLite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlWriterLite {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXmlWriterLite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

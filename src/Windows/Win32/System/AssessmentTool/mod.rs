@@ -8,7 +8,7 @@ pub const CQueryWinSAT: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAccessibleWinSAT(::windows::runtime::IUnknown);
+pub struct IAccessibleWinSAT(pub ::windows::runtime::IUnknown);
 impl IAccessibleWinSAT {
     #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -162,22 +162,22 @@ unsafe impl ::windows::runtime::Interface for IAccessibleWinSAT {
 }
 impl ::std::convert::From<IAccessibleWinSAT> for ::windows::runtime::IUnknown {
     fn from(value: IAccessibleWinSAT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAccessibleWinSAT> for ::windows::runtime::IUnknown {
     fn from(value: &IAccessibleWinSAT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessibleWinSAT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessibleWinSAT {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAccessibleWinSAT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_UI_Accessibility")]
@@ -289,7 +289,7 @@ pub struct IAccessibleWinSAT_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInitiateWinSATAssessment(::windows::runtime::IUnknown);
+pub struct IInitiateWinSATAssessment(pub ::windows::runtime::IUnknown);
 impl IInitiateWinSATAssessment {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_AssessmentTool`, `Win32_Foundation`*"]
@@ -312,22 +312,22 @@ unsafe impl ::windows::runtime::Interface for IInitiateWinSATAssessment {
 }
 impl ::std::convert::From<IInitiateWinSATAssessment> for ::windows::runtime::IUnknown {
     fn from(value: IInitiateWinSATAssessment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInitiateWinSATAssessment> for ::windows::runtime::IUnknown {
     fn from(value: &IInitiateWinSATAssessment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInitiateWinSATAssessment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInitiateWinSATAssessment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInitiateWinSATAssessment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -345,7 +345,7 @@ pub struct IInitiateWinSATAssessment_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProvideWinSATAssessmentInfo(::windows::runtime::IUnknown);
+pub struct IProvideWinSATAssessmentInfo(pub ::windows::runtime::IUnknown);
 impl IProvideWinSATAssessmentInfo {
     #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
     pub unsafe fn Score(&self) -> ::windows::runtime::Result<f32> {
@@ -371,22 +371,22 @@ unsafe impl ::windows::runtime::Interface for IProvideWinSATAssessmentInfo {
 }
 impl ::std::convert::From<IProvideWinSATAssessmentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IProvideWinSATAssessmentInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProvideWinSATAssessmentInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IProvideWinSATAssessmentInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvideWinSATAssessmentInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProvideWinSATAssessmentInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvideWinSATAssessmentInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -436,7 +436,7 @@ pub struct IProvideWinSATAssessmentInfo_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProvideWinSATResultsInfo(::windows::runtime::IUnknown);
+pub struct IProvideWinSATResultsInfo(pub ::windows::runtime::IUnknown);
 impl IProvideWinSATResultsInfo {
     #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
     pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> ::windows::runtime::Result<IProvideWinSATAssessmentInfo> {
@@ -472,22 +472,22 @@ unsafe impl ::windows::runtime::Interface for IProvideWinSATResultsInfo {
 }
 impl ::std::convert::From<IProvideWinSATResultsInfo> for ::windows::runtime::IUnknown {
     fn from(value: IProvideWinSATResultsInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProvideWinSATResultsInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IProvideWinSATResultsInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvideWinSATResultsInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProvideWinSATResultsInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvideWinSATResultsInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -539,7 +539,7 @@ pub struct IProvideWinSATResultsInfo_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProvideWinSATVisuals(::windows::runtime::IUnknown);
+pub struct IProvideWinSATVisuals(pub ::windows::runtime::IUnknown);
 impl IProvideWinSATVisuals {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_System_AssessmentTool`, `Win32_Graphics_Gdi`*"]
@@ -554,22 +554,22 @@ unsafe impl ::windows::runtime::Interface for IProvideWinSATVisuals {
 }
 impl ::std::convert::From<IProvideWinSATVisuals> for ::windows::runtime::IUnknown {
     fn from(value: IProvideWinSATVisuals) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProvideWinSATVisuals> for ::windows::runtime::IUnknown {
     fn from(value: &IProvideWinSATVisuals) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvideWinSATVisuals {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProvideWinSATVisuals {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvideWinSATVisuals {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -584,7 +584,7 @@ pub struct IProvideWinSATVisuals_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IQueryAllWinSATAssessments(::windows::runtime::IUnknown);
+pub struct IQueryAllWinSATAssessments(pub ::windows::runtime::IUnknown);
 impl IQueryAllWinSATAssessments {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     #[doc = "*Required features: `Win32_System_AssessmentTool`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
@@ -599,22 +599,22 @@ unsafe impl ::windows::runtime::Interface for IQueryAllWinSATAssessments {
 }
 impl ::std::convert::From<IQueryAllWinSATAssessments> for ::windows::runtime::IUnknown {
     fn from(value: IQueryAllWinSATAssessments) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IQueryAllWinSATAssessments> for ::windows::runtime::IUnknown {
     fn from(value: &IQueryAllWinSATAssessments) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryAllWinSATAssessments {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQueryAllWinSATAssessments {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQueryAllWinSATAssessments {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -661,7 +661,7 @@ pub struct IQueryAllWinSATAssessments_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IQueryOEMWinSATCustomization(::windows::runtime::IUnknown);
+pub struct IQueryOEMWinSATCustomization(pub ::windows::runtime::IUnknown);
 impl IQueryOEMWinSATCustomization {
     #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
     pub unsafe fn GetOEMPrePopulationInfo(&self) -> ::windows::runtime::Result<WINSAT_OEM_DATA_TYPE> {
@@ -675,22 +675,22 @@ unsafe impl ::windows::runtime::Interface for IQueryOEMWinSATCustomization {
 }
 impl ::std::convert::From<IQueryOEMWinSATCustomization> for ::windows::runtime::IUnknown {
     fn from(value: IQueryOEMWinSATCustomization) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IQueryOEMWinSATCustomization> for ::windows::runtime::IUnknown {
     fn from(value: &IQueryOEMWinSATCustomization) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryOEMWinSATCustomization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQueryOEMWinSATCustomization {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQueryOEMWinSATCustomization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -704,7 +704,7 @@ pub struct IQueryOEMWinSATCustomization_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IQueryRecentWinSATAssessment(::windows::runtime::IUnknown);
+pub struct IQueryRecentWinSATAssessment(pub ::windows::runtime::IUnknown);
 impl IQueryRecentWinSATAssessment {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     #[doc = "*Required features: `Win32_System_AssessmentTool`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
@@ -724,22 +724,22 @@ unsafe impl ::windows::runtime::Interface for IQueryRecentWinSATAssessment {
 }
 impl ::std::convert::From<IQueryRecentWinSATAssessment> for ::windows::runtime::IUnknown {
     fn from(value: IQueryRecentWinSATAssessment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IQueryRecentWinSATAssessment> for ::windows::runtime::IUnknown {
     fn from(value: &IQueryRecentWinSATAssessment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryRecentWinSATAssessment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQueryRecentWinSATAssessment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IQueryRecentWinSATAssessment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -787,7 +787,7 @@ pub struct IQueryRecentWinSATAssessment_abi(
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWinSATInitiateEvents(::windows::runtime::IUnknown);
+pub struct IWinSATInitiateEvents(pub ::windows::runtime::IUnknown);
 impl IWinSATInitiateEvents {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_AssessmentTool`, `Win32_Foundation`*"]
@@ -806,22 +806,22 @@ unsafe impl ::windows::runtime::Interface for IWinSATInitiateEvents {
 }
 impl ::std::convert::From<IWinSATInitiateEvents> for ::windows::runtime::IUnknown {
     fn from(value: IWinSATInitiateEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWinSATInitiateEvents> for ::windows::runtime::IUnknown {
     fn from(value: &IWinSATInitiateEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinSATInitiateEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinSATInitiateEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinSATInitiateEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

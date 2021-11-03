@@ -107,7 +107,7 @@ pub const ED_VIDEO: i32 = 33554432i32;
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICreateDeviceAccessAsync(::windows::runtime::IUnknown);
+pub struct ICreateDeviceAccessAsync(pub ::windows::runtime::IUnknown);
 impl ICreateDeviceAccessAsync {
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -133,22 +133,22 @@ unsafe impl ::windows::runtime::Interface for ICreateDeviceAccessAsync {
 }
 impl ::std::convert::From<ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
     fn from(value: ICreateDeviceAccessAsync) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateDeviceAccessAsync) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICreateDeviceAccessAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICreateDeviceAccessAsync {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICreateDeviceAccessAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -165,7 +165,7 @@ pub struct ICreateDeviceAccessAsync_abi(
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDeviceIoControl(::windows::runtime::IUnknown);
+pub struct IDeviceIoControl(pub ::windows::runtime::IUnknown);
 impl IDeviceIoControl {
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
@@ -196,22 +196,22 @@ unsafe impl ::windows::runtime::Interface for IDeviceIoControl {
 }
 impl ::std::convert::From<IDeviceIoControl> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceIoControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDeviceIoControl> for ::windows::runtime::IUnknown {
     fn from(value: &IDeviceIoControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDeviceIoControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDeviceIoControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDeviceIoControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -227,7 +227,7 @@ pub struct IDeviceIoControl_abi(
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDeviceRequestCompletionCallback(::windows::runtime::IUnknown);
+pub struct IDeviceRequestCompletionCallback(pub ::windows::runtime::IUnknown);
 impl IDeviceRequestCompletionCallback {
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn Invoke(&self, requestresult: ::windows::runtime::HRESULT, bytesreturned: u32) -> ::windows::runtime::Result<()> {
@@ -240,22 +240,22 @@ unsafe impl ::windows::runtime::Interface for IDeviceRequestCompletionCallback {
 }
 impl ::std::convert::From<IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceRequestCompletionCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IDeviceRequestCompletionCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDeviceRequestCompletionCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDeviceRequestCompletionCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDeviceRequestCompletionCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -4,7 +4,7 @@
 pub struct CallsBackgroundContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallBlockedTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneCallBlockedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallBlockedTriggerDetails {
     type Vtable = IPhoneCallBlockedTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762379426, 58561, 17023, [134, 78, 228, 112, 71, 125, 219, 103]);
@@ -24,7 +24,7 @@ pub struct IPhoneCallBlockedTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginDataRequestTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneCallOriginDataRequestTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginDataRequestTriggerDetails {
     type Vtable = IPhoneCallOriginDataRequestTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1855675199, 50507, 20098, [76, 201, 227, 41, 164, 24, 69, 146]);
@@ -43,7 +43,7 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneIncomingCallDismissedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneIncomingCallDismissedTriggerDetails {
     type Vtable = IPhoneIncomingCallDismissedTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134390902, 33718, 22322, [156, 56, 12, 32, 101, 70, 25, 106]);
@@ -67,7 +67,7 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneIncomingCallNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneIncomingCallNotificationTriggerDetails {
     type Vtable = IPhoneIncomingCallNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722362436, 39730, 23874, [130, 34, 210, 129, 46, 57, 251, 33]);
@@ -86,7 +86,7 @@ pub struct IPhoneIncomingCallNotificationTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneLineChangedTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneLineChangedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineChangedTriggerDetails {
     type Vtable = IPhoneLineChangedTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3335725543, 53533, 16600, [178, 183, 228, 10, 1, 214, 98, 73]);
@@ -106,7 +106,7 @@ pub struct IPhoneLineChangedTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPhoneNewVoicemailMessageTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNewVoicemailMessageTriggerDetails {
     type Vtable = IPhoneNewVoicemailMessageTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(329826331, 47153, 18643, [139, 169, 141, 34, 166, 88, 13, 207]);
@@ -150,7 +150,7 @@ impl ::windows::runtime::DefaultType for PhoneCallBlockedReason {
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneCallBlockedTriggerDetails(::windows::runtime::IInspectable);
+pub struct PhoneCallBlockedTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneCallBlockedTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
     pub fn PhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -189,22 +189,22 @@ impl ::windows::runtime::RuntimeName for PhoneCallBlockedTriggerDetails {
 }
 impl ::std::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: PhoneCallBlockedTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallBlockedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallBlockedTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneCallBlockedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::runtime::IInspectable {
@@ -232,7 +232,7 @@ unsafe impl ::std::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneCallOriginDataRequestTriggerDetails(::windows::runtime::IInspectable);
+pub struct PhoneCallOriginDataRequestTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneCallOriginDataRequestTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
     pub fn RequestId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -263,22 +263,22 @@ impl ::windows::runtime::RuntimeName for PhoneCallOriginDataRequestTriggerDetail
 }
 impl ::std::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallOriginDataRequestTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallOriginDataRequestTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneCallOriginDataRequestTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::runtime::IInspectable {
@@ -330,7 +330,7 @@ impl ::windows::runtime::DefaultType for PhoneIncomingCallDismissedReason {
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneIncomingCallDismissedTriggerDetails(::windows::runtime::IInspectable);
+pub struct PhoneIncomingCallDismissedTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneIncomingCallDismissedTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -394,22 +394,22 @@ impl ::windows::runtime::RuntimeName for PhoneIncomingCallDismissedTriggerDetail
 }
 impl ::std::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneIncomingCallDismissedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneIncomingCallDismissedTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneIncomingCallDismissedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::runtime::IInspectable {
@@ -437,7 +437,7 @@ unsafe impl ::std::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneIncomingCallNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct PhoneIncomingCallNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneIncomingCallNotificationTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -468,22 +468,22 @@ impl ::windows::runtime::RuntimeName for PhoneIncomingCallNotificationTriggerDet
 }
 impl ::std::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneIncomingCallNotificationTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneIncomingCallNotificationTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneIncomingCallNotificationTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::runtime::IInspectable {
@@ -534,7 +534,7 @@ impl ::windows::runtime::DefaultType for PhoneLineChangeKind {
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneLineChangedTriggerDetails(::windows::runtime::IInspectable);
+pub struct PhoneLineChangedTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneLineChangedTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -573,22 +573,22 @@ impl ::windows::runtime::RuntimeName for PhoneLineChangedTriggerDetails {
 }
 impl ::std::convert::From<PhoneLineChangedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: PhoneLineChangedTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineChangedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineChangedTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneLineChangedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneLineChangedTriggerDetails> for ::windows::runtime::IInspectable {
@@ -674,7 +674,7 @@ impl ::std::ops::Not for PhoneLineProperties {
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneNewVoicemailMessageTriggerDetails(::windows::runtime::IInspectable);
+pub struct PhoneNewVoicemailMessageTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PhoneNewVoicemailMessageTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -713,22 +713,22 @@ impl ::windows::runtime::RuntimeName for PhoneNewVoicemailMessageTriggerDetails 
 }
 impl ::std::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneNewVoicemailMessageTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneNewVoicemailMessageTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneNewVoicemailMessageTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::runtime::IInspectable {

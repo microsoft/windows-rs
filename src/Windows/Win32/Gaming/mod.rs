@@ -220,7 +220,7 @@ pub unsafe fn HasExpandedResources() -> ::windows::runtime::Result<super::Founda
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGameExplorer(::windows::runtime::IUnknown);
+pub struct IGameExplorer(pub ::windows::runtime::IUnknown);
 impl IGameExplorer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
@@ -248,22 +248,22 @@ unsafe impl ::windows::runtime::Interface for IGameExplorer {
 }
 impl ::std::convert::From<IGameExplorer> for ::windows::runtime::IUnknown {
     fn from(value: IGameExplorer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGameExplorer> for ::windows::runtime::IUnknown {
     fn from(value: &IGameExplorer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameExplorer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameExplorer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameExplorer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -282,7 +282,7 @@ pub struct IGameExplorer_abi(
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGameExplorer2(::windows::runtime::IUnknown);
+pub struct IGameExplorer2(pub ::windows::runtime::IUnknown);
 impl IGameExplorer2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
@@ -307,22 +307,22 @@ unsafe impl ::windows::runtime::Interface for IGameExplorer2 {
 }
 impl ::std::convert::From<IGameExplorer2> for ::windows::runtime::IUnknown {
     fn from(value: IGameExplorer2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGameExplorer2> for ::windows::runtime::IUnknown {
     fn from(value: &IGameExplorer2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameExplorer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameExplorer2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameExplorer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -341,7 +341,7 @@ pub struct IGameExplorer2_abi(
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGameStatistics(::windows::runtime::IUnknown);
+pub struct IGameStatistics(pub ::windows::runtime::IUnknown);
 impl IGameStatistics {
     #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetMaxCategoryLength(&self) -> ::windows::runtime::Result<u32> {
@@ -410,22 +410,22 @@ unsafe impl ::windows::runtime::Interface for IGameStatistics {
 }
 impl ::std::convert::From<IGameStatistics> for ::windows::runtime::IUnknown {
     fn from(value: IGameStatistics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGameStatistics> for ::windows::runtime::IUnknown {
     fn from(value: &IGameStatistics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameStatistics {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -455,7 +455,7 @@ pub struct IGameStatistics_abi(
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGameStatisticsMgr(::windows::runtime::IUnknown);
+pub struct IGameStatisticsMgr(pub ::windows::runtime::IUnknown);
 impl IGameStatisticsMgr {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
@@ -474,22 +474,22 @@ unsafe impl ::windows::runtime::Interface for IGameStatisticsMgr {
 }
 impl ::std::convert::From<IGameStatisticsMgr> for ::windows::runtime::IUnknown {
     fn from(value: IGameStatisticsMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGameStatisticsMgr> for ::windows::runtime::IUnknown {
     fn from(value: &IGameStatisticsMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameStatisticsMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameStatisticsMgr {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGameStatisticsMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -506,7 +506,7 @@ pub struct IGameStatisticsMgr_abi(
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXblIdpAuthManager(::windows::runtime::IUnknown);
+pub struct IXblIdpAuthManager(pub ::windows::runtime::IUnknown);
 impl IXblIdpAuthManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
@@ -584,22 +584,22 @@ unsafe impl ::windows::runtime::Interface for IXblIdpAuthManager {
 }
 impl ::std::convert::From<IXblIdpAuthManager> for ::windows::runtime::IUnknown {
     fn from(value: IXblIdpAuthManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXblIdpAuthManager> for ::windows::runtime::IUnknown {
     fn from(value: &IXblIdpAuthManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXblIdpAuthManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXblIdpAuthManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXblIdpAuthManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -624,7 +624,7 @@ pub struct IXblIdpAuthManager_abi(
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXblIdpAuthTokenResult(::windows::runtime::IUnknown);
+pub struct IXblIdpAuthTokenResult(pub ::windows::runtime::IUnknown);
 impl IXblIdpAuthTokenResult {
     #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
@@ -751,22 +751,22 @@ unsafe impl ::windows::runtime::Interface for IXblIdpAuthTokenResult {
 }
 impl ::std::convert::From<IXblIdpAuthTokenResult> for ::windows::runtime::IUnknown {
     fn from(value: IXblIdpAuthTokenResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXblIdpAuthTokenResult> for ::windows::runtime::IUnknown {
     fn from(value: &IXblIdpAuthTokenResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXblIdpAuthTokenResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXblIdpAuthTokenResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXblIdpAuthTokenResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -817,7 +817,7 @@ pub struct IXblIdpAuthTokenResult_abi(
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXblIdpAuthTokenResult2(::windows::runtime::IUnknown);
+pub struct IXblIdpAuthTokenResult2(pub ::windows::runtime::IUnknown);
 impl IXblIdpAuthTokenResult2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
@@ -844,22 +844,22 @@ unsafe impl ::windows::runtime::Interface for IXblIdpAuthTokenResult2 {
 }
 impl ::std::convert::From<IXblIdpAuthTokenResult2> for ::windows::runtime::IUnknown {
     fn from(value: IXblIdpAuthTokenResult2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXblIdpAuthTokenResult2> for ::windows::runtime::IUnknown {
     fn from(value: &IXblIdpAuthTokenResult2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXblIdpAuthTokenResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXblIdpAuthTokenResult2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXblIdpAuthTokenResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

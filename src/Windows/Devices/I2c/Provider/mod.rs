@@ -2,7 +2,7 @@
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
-pub struct II2cControllerProvider(::windows::runtime::IInspectable);
+pub struct II2cControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cControllerProvider {
     type Vtable = II2cControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1640151938, 17680, 16739, [168, 124, 78, 21, 169, 85, 137, 128]);
@@ -22,22 +22,22 @@ unsafe impl ::windows::runtime::RuntimeType for II2cControllerProvider {
 }
 impl ::std::convert::From<II2cControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: II2cControllerProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&II2cControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: &II2cControllerProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for II2cControllerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &II2cControllerProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a II2cControllerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<II2cControllerProvider> for ::windows::runtime::IInspectable {
@@ -74,7 +74,7 @@ pub struct II2cControllerProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
-pub struct II2cDeviceProvider(::windows::runtime::IInspectable);
+pub struct II2cDeviceProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cDeviceProvider {
     type Vtable = II2cDeviceProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905876052, 22504, 17726, [131, 41, 209, 228, 71, 209, 3, 169]);
@@ -139,22 +139,22 @@ unsafe impl ::windows::runtime::RuntimeType for II2cDeviceProvider {
 }
 impl ::std::convert::From<II2cDeviceProvider> for ::windows::runtime::IUnknown {
     fn from(value: II2cDeviceProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&II2cDeviceProvider> for ::windows::runtime::IUnknown {
     fn from(value: &II2cDeviceProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for II2cDeviceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &II2cDeviceProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a II2cDeviceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<II2cDeviceProvider> for ::windows::runtime::IInspectable {
@@ -223,7 +223,7 @@ pub struct II2cDeviceProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
-pub struct II2cProvider(::windows::runtime::IInspectable);
+pub struct II2cProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cProvider {
     type Vtable = II2cProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863518270, 48994, 20450, [169, 90, 240, 137, 153, 102, 152, 24]);
@@ -244,22 +244,22 @@ unsafe impl ::windows::runtime::RuntimeType for II2cProvider {
 }
 impl ::std::convert::From<II2cProvider> for ::windows::runtime::IUnknown {
     fn from(value: II2cProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&II2cProvider> for ::windows::runtime::IUnknown {
     fn from(value: &II2cProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for II2cProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &II2cProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a II2cProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<II2cProvider> for ::windows::runtime::IInspectable {
@@ -296,7 +296,7 @@ pub struct II2cProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProviderI2cConnectionSettings(::windows::runtime::IInspectable);
+pub struct IProviderI2cConnectionSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3923463732, 58640, 17591, [128, 157, 242, 248, 91, 85, 83, 57]);
@@ -342,7 +342,7 @@ impl ::windows::runtime::DefaultType for ProviderI2cBusSpeed {
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ProviderI2cConnectionSettings(::windows::runtime::IInspectable);
+pub struct ProviderI2cConnectionSettings(pub ::windows::runtime::IInspectable);
 impl ProviderI2cConnectionSettings {
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn SlaveAddress(&self) -> ::windows::runtime::Result<i32> {
@@ -396,22 +396,22 @@ impl ::windows::runtime::RuntimeName for ProviderI2cConnectionSettings {
 }
 impl ::std::convert::From<ProviderI2cConnectionSettings> for ::windows::runtime::IUnknown {
     fn from(value: ProviderI2cConnectionSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ProviderI2cConnectionSettings> for ::windows::runtime::IUnknown {
     fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProviderI2cConnectionSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProviderI2cConnectionSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProviderI2cConnectionSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ProviderI2cConnectionSettings> for ::windows::runtime::IInspectable {

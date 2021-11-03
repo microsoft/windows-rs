@@ -303,7 +303,7 @@ unsafe impl ::windows::runtime::Abi for HPTPROVIDER {
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsDocumentPackageTarget(::windows::runtime::IUnknown);
+pub struct IXpsDocumentPackageTarget(pub ::windows::runtime::IUnknown);
 impl IXpsDocumentPackageTarget {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -328,22 +328,22 @@ unsafe impl ::windows::runtime::Interface for IXpsDocumentPackageTarget {
 }
 impl ::std::convert::From<IXpsDocumentPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: IXpsDocumentPackageTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsDocumentPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsDocumentPackageTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsDocumentPackageTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsDocumentPackageTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsDocumentPackageTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -360,7 +360,7 @@ pub struct IXpsDocumentPackageTarget_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsDocumentPackageTarget3D(::windows::runtime::IUnknown);
+pub struct IXpsDocumentPackageTarget3D(pub ::windows::runtime::IUnknown);
 impl IXpsDocumentPackageTarget3D {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`, `Win32_System_Com`*"]
@@ -386,22 +386,22 @@ unsafe impl ::windows::runtime::Interface for IXpsDocumentPackageTarget3D {
 }
 impl ::std::convert::From<IXpsDocumentPackageTarget3D> for ::windows::runtime::IUnknown {
     fn from(value: IXpsDocumentPackageTarget3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsDocumentPackageTarget3D> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsDocumentPackageTarget3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsDocumentPackageTarget3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsDocumentPackageTarget3D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsDocumentPackageTarget3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -417,7 +417,7 @@ pub struct IXpsDocumentPackageTarget3D_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -445,22 +445,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMBrush {
 }
 impl ::std::convert::From<IXpsOMBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMBrush> for IXpsOMShareable {
@@ -497,7 +497,7 @@ pub struct IXpsOMBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMCanvas(::windows::runtime::IUnknown);
+pub struct IXpsOMCanvas(pub ::windows::runtime::IUnknown);
 impl IXpsOMCanvas {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -710,22 +710,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMCanvas {
 }
 impl ::std::convert::From<IXpsOMCanvas> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMCanvas) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMCanvas> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMCanvas) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMCanvas {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMCanvas {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMCanvas {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMCanvas> for IXpsOMVisual {
@@ -838,7 +838,7 @@ pub struct IXpsOMCanvas_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMColorProfileResource(::windows::runtime::IUnknown);
+pub struct IXpsOMColorProfileResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMColorProfileResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -869,22 +869,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMColorProfileResource {
 }
 impl ::std::convert::From<IXpsOMColorProfileResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMColorProfileResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMColorProfileResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMColorProfileResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMColorProfileResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMColorProfileResource> for IXpsOMResource {
@@ -945,7 +945,7 @@ pub struct IXpsOMColorProfileResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMColorProfileResourceCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMColorProfileResourceCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMColorProfileResourceCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -986,22 +986,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMColorProfileResourceCollecti
 }
 impl ::std::convert::From<IXpsOMColorProfileResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMColorProfileResourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMColorProfileResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMColorProfileResourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMColorProfileResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMColorProfileResourceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMColorProfileResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1022,7 +1022,7 @@ pub struct IXpsOMColorProfileResourceCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMCoreProperties(::windows::runtime::IUnknown);
+pub struct IXpsOMCoreProperties(pub ::windows::runtime::IUnknown);
 impl IXpsOMCoreProperties {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -1228,22 +1228,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMCoreProperties {
 }
 impl ::std::convert::From<IXpsOMCoreProperties> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMCoreProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMCoreProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMCoreProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMCoreProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMCoreProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMCoreProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMCoreProperties> for IXpsOMPart {
@@ -1346,7 +1346,7 @@ pub struct IXpsOMCoreProperties_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMDashCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMDashCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMDashCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1381,22 +1381,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMDashCollection {
 }
 impl ::std::convert::From<IXpsOMDashCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDashCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMDashCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMDashCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMDashCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMDashCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMDashCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1415,7 +1415,7 @@ pub struct IXpsOMDashCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMDictionary(::windows::runtime::IUnknown);
+pub struct IXpsOMDictionary(pub ::windows::runtime::IUnknown);
 impl IXpsOMDictionary {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -1474,22 +1474,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMDictionary {
 }
 impl ::std::convert::From<IXpsOMDictionary> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDictionary) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMDictionary> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMDictionary) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMDictionary {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMDictionary {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMDictionary {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1517,7 +1517,7 @@ pub struct IXpsOMDictionary_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMDocument(::windows::runtime::IUnknown);
+pub struct IXpsOMDocument(pub ::windows::runtime::IUnknown);
 impl IXpsOMDocument {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -1575,22 +1575,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMDocument {
 }
 impl ::std::convert::From<IXpsOMDocument> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMDocument> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMDocument {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMDocument> for IXpsOMPart {
@@ -1635,7 +1635,7 @@ pub struct IXpsOMDocument_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMDocumentCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMDocumentCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMDocumentCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1670,22 +1670,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMDocumentCollection {
 }
 impl ::std::convert::From<IXpsOMDocumentCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocumentCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMDocumentCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMDocumentCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMDocumentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMDocumentCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMDocumentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1704,7 +1704,7 @@ pub struct IXpsOMDocumentCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMDocumentSequence(::windows::runtime::IUnknown);
+pub struct IXpsOMDocumentSequence(pub ::windows::runtime::IUnknown);
 impl IXpsOMDocumentSequence {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -1743,22 +1743,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMDocumentSequence {
 }
 impl ::std::convert::From<IXpsOMDocumentSequence> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocumentSequence) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMDocumentSequence> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMDocumentSequence) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMDocumentSequence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMDocumentSequence {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMDocumentSequence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMDocumentSequence> for IXpsOMPart {
@@ -1799,7 +1799,7 @@ pub struct IXpsOMDocumentSequence_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMDocumentStructureResource(::windows::runtime::IUnknown);
+pub struct IXpsOMDocumentStructureResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMDocumentStructureResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -1835,22 +1835,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMDocumentStructureResource {
 }
 impl ::std::convert::From<IXpsOMDocumentStructureResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMDocumentStructureResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMDocumentStructureResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMDocumentStructureResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMDocumentStructureResource> for IXpsOMResource {
@@ -1912,7 +1912,7 @@ pub struct IXpsOMDocumentStructureResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMFontResource(::windows::runtime::IUnknown);
+pub struct IXpsOMFontResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMFontResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -1948,22 +1948,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMFontResource {
 }
 impl ::std::convert::From<IXpsOMFontResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMFontResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMFontResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMFontResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMFontResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMFontResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMFontResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMFontResource> for IXpsOMResource {
@@ -2025,7 +2025,7 @@ pub struct IXpsOMFontResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMFontResourceCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMFontResourceCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMFontResourceCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2066,22 +2066,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMFontResourceCollection {
 }
 impl ::std::convert::From<IXpsOMFontResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMFontResourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMFontResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMFontResourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMFontResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMFontResourceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMFontResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2102,7 +2102,7 @@ pub struct IXpsOMFontResourceCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGeometry(::windows::runtime::IUnknown);
+pub struct IXpsOMGeometry(pub ::windows::runtime::IUnknown);
 impl IXpsOMGeometry {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2165,22 +2165,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGeometry {
 }
 impl ::std::convert::From<IXpsOMGeometry> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGeometry> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGeometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMGeometry> for IXpsOMShareable {
@@ -2226,7 +2226,7 @@ pub struct IXpsOMGeometry_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGeometryFigure(::windows::runtime::IUnknown);
+pub struct IXpsOMGeometryFigure(pub ::windows::runtime::IUnknown);
 impl IXpsOMGeometryFigure {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<IXpsOMGeometry> {
@@ -2309,22 +2309,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGeometryFigure {
 }
 impl ::std::convert::From<IXpsOMGeometryFigure> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGeometryFigure) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGeometryFigure> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGeometryFigure) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGeometryFigure {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGeometryFigure {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGeometryFigure {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2358,7 +2358,7 @@ pub struct IXpsOMGeometryFigure_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGeometryFigureCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMGeometryFigureCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMGeometryFigureCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2393,22 +2393,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGeometryFigureCollection {
 }
 impl ::std::convert::From<IXpsOMGeometryFigureCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGeometryFigureCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGeometryFigureCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGeometryFigureCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGeometryFigureCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGeometryFigureCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGeometryFigureCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2427,7 +2427,7 @@ pub struct IXpsOMGeometryFigureCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGlyphs(::windows::runtime::IUnknown);
+pub struct IXpsOMGlyphs(pub ::windows::runtime::IUnknown);
 impl IXpsOMGlyphs {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2704,22 +2704,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGlyphs {
 }
 impl ::std::convert::From<IXpsOMGlyphs> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGlyphs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGlyphs> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGlyphs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGlyphs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMGlyphs> for IXpsOMVisual {
@@ -2845,7 +2845,7 @@ pub struct IXpsOMGlyphs_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGlyphsEditor(::windows::runtime::IUnknown);
+pub struct IXpsOMGlyphsEditor(pub ::windows::runtime::IUnknown);
 impl IXpsOMGlyphsEditor {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn ApplyEdits(&self) -> ::windows::runtime::Result<()> {
@@ -2939,22 +2939,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGlyphsEditor {
 }
 impl ::std::convert::From<IXpsOMGlyphsEditor> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGlyphsEditor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGlyphsEditor> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGlyphsEditor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGlyphsEditor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGlyphsEditor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGlyphsEditor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2991,7 +2991,7 @@ pub struct IXpsOMGlyphsEditor_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGradientBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMGradientBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMGradientBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -3067,22 +3067,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGradientBrush {
 }
 impl ::std::convert::From<IXpsOMGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGradientBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMGradientBrush> for IXpsOMBrush {
@@ -3151,7 +3151,7 @@ pub struct IXpsOMGradientBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGradientStop(::windows::runtime::IUnknown);
+pub struct IXpsOMGradientStop(pub ::windows::runtime::IUnknown);
 impl IXpsOMGradientStop {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<IXpsOMGradientBrush> {
@@ -3187,22 +3187,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGradientStop {
 }
 impl ::std::convert::From<IXpsOMGradientStop> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGradientStop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGradientStop> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGradientStop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGradientStop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGradientStop {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGradientStop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3221,7 +3221,7 @@ pub struct IXpsOMGradientStop_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMGradientStopCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMGradientStopCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMGradientStopCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3256,22 +3256,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMGradientStopCollection {
 }
 impl ::std::convert::From<IXpsOMGradientStopCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMGradientStopCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMGradientStopCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMGradientStopCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMGradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMGradientStopCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMGradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3290,7 +3290,7 @@ pub struct IXpsOMGradientStopCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMImageBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMImageBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMImageBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -3393,22 +3393,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMImageBrush {
 }
 impl ::std::convert::From<IXpsOMImageBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMImageBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMImageBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMImageBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMImageBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMImageBrush> for IXpsOMTileBrush {
@@ -3503,7 +3503,7 @@ pub struct IXpsOMImageBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMImageResource(::windows::runtime::IUnknown);
+pub struct IXpsOMImageResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMImageResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -3539,22 +3539,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMImageResource {
 }
 impl ::std::convert::From<IXpsOMImageResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMImageResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMImageResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMImageResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMImageResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMImageResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMImageResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMImageResource> for IXpsOMResource {
@@ -3616,7 +3616,7 @@ pub struct IXpsOMImageResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMImageResourceCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMImageResourceCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMImageResourceCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3657,22 +3657,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMImageResourceCollection {
 }
 impl ::std::convert::From<IXpsOMImageResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMImageResourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMImageResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMImageResourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMImageResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMImageResourceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMImageResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3693,7 +3693,7 @@ pub struct IXpsOMImageResourceCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMLinearGradientBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMLinearGradientBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMLinearGradientBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -3792,22 +3792,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMLinearGradientBrush {
 }
 impl ::std::convert::From<IXpsOMLinearGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMLinearGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMLinearGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMLinearGradientBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMLinearGradientBrush> for IXpsOMGradientBrush {
@@ -3901,7 +3901,7 @@ pub struct IXpsOMLinearGradientBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMMatrixTransform(::windows::runtime::IUnknown);
+pub struct IXpsOMMatrixTransform(pub ::windows::runtime::IUnknown);
 impl IXpsOMMatrixTransform {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -3934,22 +3934,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMMatrixTransform {
 }
 impl ::std::convert::From<IXpsOMMatrixTransform> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMMatrixTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMMatrixTransform> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMMatrixTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMMatrixTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMMatrixTransform> for IXpsOMShareable {
@@ -3987,7 +3987,7 @@ pub struct IXpsOMMatrixTransform_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMNameCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMNameCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMNameCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4007,22 +4007,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMNameCollection {
 }
 impl ::std::convert::From<IXpsOMNameCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMNameCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMNameCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMNameCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMNameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMNameCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMNameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4038,7 +4038,7 @@ pub struct IXpsOMNameCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMObjectFactory(::windows::runtime::IUnknown);
+pub struct IXpsOMObjectFactory(pub ::windows::runtime::IUnknown);
 impl IXpsOMObjectFactory {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn CreatePackage(&self) -> ::windows::runtime::Result<IXpsOMPackage> {
@@ -4318,22 +4318,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMObjectFactory {
 }
 impl ::std::convert::From<IXpsOMObjectFactory> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMObjectFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMObjectFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMObjectFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMObjectFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMObjectFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMObjectFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4429,7 +4429,7 @@ pub struct IXpsOMObjectFactory_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMObjectFactory1(::windows::runtime::IUnknown);
+pub struct IXpsOMObjectFactory1(pub ::windows::runtime::IUnknown);
 impl IXpsOMObjectFactory1 {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn CreatePackage(&self) -> ::windows::runtime::Result<IXpsOMPackage> {
@@ -4846,22 +4846,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMObjectFactory1 {
 }
 impl ::std::convert::From<IXpsOMObjectFactory1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMObjectFactory1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMObjectFactory1> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMObjectFactory1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMObjectFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMObjectFactory1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMObjectFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMObjectFactory1> for IXpsOMObjectFactory {
@@ -5026,7 +5026,7 @@ pub struct IXpsOMObjectFactory1_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPackage(::windows::runtime::IUnknown);
+pub struct IXpsOMPackage(pub ::windows::runtime::IUnknown);
 impl IXpsOMPackage {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetDocumentSequence(&self) -> ::windows::runtime::Result<IXpsOMDocumentSequence> {
@@ -5083,22 +5083,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPackage {
 }
 impl ::std::convert::From<IXpsOMPackage> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPackage> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPackage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPackage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPackage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPackage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5125,7 +5125,7 @@ pub struct IXpsOMPackage_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPackage1(::windows::runtime::IUnknown);
+pub struct IXpsOMPackage1(pub ::windows::runtime::IUnknown);
 impl IXpsOMPackage1 {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetDocumentSequence(&self) -> ::windows::runtime::Result<IXpsOMDocumentSequence> {
@@ -5197,22 +5197,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPackage1 {
 }
 impl ::std::convert::From<IXpsOMPackage1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackage1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPackage1> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPackage1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPackage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPackage1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPackage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMPackage1> for IXpsOMPackage {
@@ -5264,7 +5264,7 @@ pub struct IXpsOMPackage1_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPackageTarget(::windows::runtime::IUnknown);
+pub struct IXpsOMPackageTarget(pub ::windows::runtime::IUnknown);
 impl IXpsOMPackageTarget {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -5279,22 +5279,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPackageTarget {
 }
 impl ::std::convert::From<IXpsOMPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackageTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPackageTarget> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPackageTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPackageTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPackageTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPackageTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5309,7 +5309,7 @@ pub struct IXpsOMPackageTarget_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPackageWriter(::windows::runtime::IUnknown);
+pub struct IXpsOMPackageWriter(pub ::windows::runtime::IUnknown);
 impl IXpsOMPackageWriter {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -5356,22 +5356,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPackageWriter {
 }
 impl ::std::convert::From<IXpsOMPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackageWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPackageWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPackageWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPackageWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPackageWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPackageWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5391,7 +5391,7 @@ pub struct IXpsOMPackageWriter_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPackageWriter3D(::windows::runtime::IUnknown);
+pub struct IXpsOMPackageWriter3D(pub ::windows::runtime::IUnknown);
 impl IXpsOMPackageWriter3D {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -5448,22 +5448,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPackageWriter3D {
 }
 impl ::std::convert::From<IXpsOMPackageWriter3D> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPackageWriter3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPackageWriter3D> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPackageWriter3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPackageWriter3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPackageWriter3D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPackageWriter3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMPackageWriter3D> for IXpsOMPackageWriter {
@@ -5507,7 +5507,7 @@ pub struct IXpsOMPackageWriter3D_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPage(::windows::runtime::IUnknown);
+pub struct IXpsOMPage(pub ::windows::runtime::IUnknown);
 impl IXpsOMPage {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -5636,22 +5636,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPage {
 }
 impl ::std::convert::From<IXpsOMPage> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPage> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMPage> for IXpsOMPart {
@@ -5718,7 +5718,7 @@ pub struct IXpsOMPage_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPage1(::windows::runtime::IUnknown);
+pub struct IXpsOMPage1(pub ::windows::runtime::IUnknown);
 impl IXpsOMPage1 {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -5857,22 +5857,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPage1 {
 }
 impl ::std::convert::From<IXpsOMPage1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPage1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPage1> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPage1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPage1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMPage1> for IXpsOMPage {
@@ -5962,7 +5962,7 @@ pub struct IXpsOMPage1_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPageReference(::windows::runtime::IUnknown);
+pub struct IXpsOMPageReference(pub ::windows::runtime::IUnknown);
 impl IXpsOMPageReference {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<IXpsOMDocument> {
@@ -6052,22 +6052,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPageReference {
 }
 impl ::std::convert::From<IXpsOMPageReference> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPageReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPageReference> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPageReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPageReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPageReference {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPageReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6099,7 +6099,7 @@ pub struct IXpsOMPageReference_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPageReferenceCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMPageReferenceCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMPageReferenceCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6134,22 +6134,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPageReferenceCollection {
 }
 impl ::std::convert::From<IXpsOMPageReferenceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPageReferenceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPageReferenceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPageReferenceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPageReferenceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPageReferenceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPageReferenceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6168,7 +6168,7 @@ pub struct IXpsOMPageReferenceCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPart(::windows::runtime::IUnknown);
+pub struct IXpsOMPart(pub ::windows::runtime::IUnknown);
 impl IXpsOMPart {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -6188,22 +6188,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPart {
 }
 impl ::std::convert::From<IXpsOMPart> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPart) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPart> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPart) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPart {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPart {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPart {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6220,7 +6220,7 @@ pub struct IXpsOMPart_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPartResources(::windows::runtime::IUnknown);
+pub struct IXpsOMPartResources(pub ::windows::runtime::IUnknown);
 impl IXpsOMPartResources {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetFontResources(&self) -> ::windows::runtime::Result<IXpsOMFontResourceCollection> {
@@ -6249,22 +6249,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPartResources {
 }
 impl ::std::convert::From<IXpsOMPartResources> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPartResources) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPartResources> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPartResources) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPartResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPartResources {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPartResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6281,7 +6281,7 @@ pub struct IXpsOMPartResources_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPartUriCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMPartUriCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMPartUriCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6320,22 +6320,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPartUriCollection {
 }
 impl ::std::convert::From<IXpsOMPartUriCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPartUriCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPartUriCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPartUriCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPartUriCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPartUriCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPartUriCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6358,7 +6358,7 @@ pub struct IXpsOMPartUriCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPath(::windows::runtime::IUnknown);
+pub struct IXpsOMPath(pub ::windows::runtime::IUnknown);
 impl IXpsOMPath {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -6686,22 +6686,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPath {
 }
 impl ::std::convert::From<IXpsOMPath> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPath) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPath> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPath) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPath {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMPath> for IXpsOMVisual {
@@ -6844,7 +6844,7 @@ pub struct IXpsOMPath_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMPrintTicketResource(::windows::runtime::IUnknown);
+pub struct IXpsOMPrintTicketResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMPrintTicketResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -6875,22 +6875,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMPrintTicketResource {
 }
 impl ::std::convert::From<IXpsOMPrintTicketResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMPrintTicketResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMPrintTicketResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMPrintTicketResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMPrintTicketResource> for IXpsOMResource {
@@ -6951,7 +6951,7 @@ pub struct IXpsOMPrintTicketResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMRadialGradientBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMRadialGradientBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMRadialGradientBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7059,22 +7059,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMRadialGradientBrush {
 }
 impl ::std::convert::From<IXpsOMRadialGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMRadialGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMRadialGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMRadialGradientBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMRadialGradientBrush> for IXpsOMGradientBrush {
@@ -7170,7 +7170,7 @@ pub struct IXpsOMRadialGradientBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMRemoteDictionaryResource(::windows::runtime::IUnknown);
+pub struct IXpsOMRemoteDictionaryResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMRemoteDictionaryResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -7199,22 +7199,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMRemoteDictionaryResource {
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMRemoteDictionaryResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMRemoteDictionaryResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMRemoteDictionaryResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource> for IXpsOMResource {
@@ -7273,7 +7273,7 @@ pub struct IXpsOMRemoteDictionaryResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMRemoteDictionaryResource1(::windows::runtime::IUnknown);
+pub struct IXpsOMRemoteDictionaryResource1(pub ::windows::runtime::IUnknown);
 impl IXpsOMRemoteDictionaryResource1 {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -7312,22 +7312,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMRemoteDictionaryResource1 {
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource1> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMRemoteDictionaryResource1> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMRemoteDictionaryResource1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMRemoteDictionaryResource1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMRemoteDictionaryResource {
@@ -7409,7 +7409,7 @@ pub struct IXpsOMRemoteDictionaryResource1_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMRemoteDictionaryResourceCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMRemoteDictionaryResourceCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMRemoteDictionaryResourceCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7450,22 +7450,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMRemoteDictionaryResourceColl
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMRemoteDictionaryResourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMRemoteDictionaryResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMRemoteDictionaryResourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMRemoteDictionaryResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMRemoteDictionaryResourceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMRemoteDictionaryResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7486,7 +7486,7 @@ pub struct IXpsOMRemoteDictionaryResourceCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMResource(::windows::runtime::IUnknown);
+pub struct IXpsOMResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -7506,22 +7506,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMResource {
 }
 impl ::std::convert::From<IXpsOMResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMResource> for IXpsOMPart {
@@ -7558,7 +7558,7 @@ pub struct IXpsOMResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMShareable(::windows::runtime::IUnknown);
+pub struct IXpsOMShareable(pub ::windows::runtime::IUnknown);
 impl IXpsOMShareable {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7577,22 +7577,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMShareable {
 }
 impl ::std::convert::From<IXpsOMShareable> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMShareable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMShareable> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMShareable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMShareable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMShareable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMShareable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7607,7 +7607,7 @@ pub struct IXpsOMShareable_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMSignatureBlockResource(::windows::runtime::IUnknown);
+pub struct IXpsOMSignatureBlockResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMSignatureBlockResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -7643,22 +7643,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMSignatureBlockResource {
 }
 impl ::std::convert::From<IXpsOMSignatureBlockResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMSignatureBlockResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMSignatureBlockResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMSignatureBlockResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMSignatureBlockResource> for IXpsOMResource {
@@ -7720,7 +7720,7 @@ pub struct IXpsOMSignatureBlockResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMSignatureBlockResourceCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMSignatureBlockResourceCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMSignatureBlockResourceCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7761,22 +7761,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMSignatureBlockResourceCollec
 }
 impl ::std::convert::From<IXpsOMSignatureBlockResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMSignatureBlockResourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMSignatureBlockResourceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMSignatureBlockResourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMSignatureBlockResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMSignatureBlockResourceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMSignatureBlockResourceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7797,7 +7797,7 @@ pub struct IXpsOMSignatureBlockResourceCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMSolidColorBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMSolidColorBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMSolidColorBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7838,22 +7838,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMSolidColorBrush {
 }
 impl ::std::convert::From<IXpsOMSolidColorBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMSolidColorBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMSolidColorBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMSolidColorBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMSolidColorBrush> for IXpsOMBrush {
@@ -7913,7 +7913,7 @@ pub struct IXpsOMSolidColorBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMStoryFragmentsResource(::windows::runtime::IUnknown);
+pub struct IXpsOMStoryFragmentsResource(pub ::windows::runtime::IUnknown);
 impl IXpsOMStoryFragmentsResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -7949,22 +7949,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMStoryFragmentsResource {
 }
 impl ::std::convert::From<IXpsOMStoryFragmentsResource> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMStoryFragmentsResource> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMStoryFragmentsResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMStoryFragmentsResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMStoryFragmentsResource> for IXpsOMResource {
@@ -8026,7 +8026,7 @@ pub struct IXpsOMStoryFragmentsResource_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMThumbnailGenerator(::windows::runtime::IUnknown);
+pub struct IXpsOMThumbnailGenerator(pub ::windows::runtime::IUnknown);
 impl IXpsOMThumbnailGenerator {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Storage_Packaging_Opc`*"]
@@ -8041,22 +8041,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMThumbnailGenerator {
 }
 impl ::std::convert::From<IXpsOMThumbnailGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMThumbnailGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMThumbnailGenerator> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMThumbnailGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMThumbnailGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMThumbnailGenerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMThumbnailGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8071,7 +8071,7 @@ pub struct IXpsOMThumbnailGenerator_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMTileBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMTileBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMTileBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -8151,22 +8151,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMTileBrush {
 }
 impl ::std::convert::From<IXpsOMTileBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMTileBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMTileBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMTileBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMTileBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMTileBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMTileBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMTileBrush> for IXpsOMBrush {
@@ -8236,7 +8236,7 @@ pub struct IXpsOMTileBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMVisual(::windows::runtime::IUnknown);
+pub struct IXpsOMVisual(pub ::windows::runtime::IUnknown);
 impl IXpsOMVisual {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -8383,22 +8383,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMVisual {
 }
 impl ::std::convert::From<IXpsOMVisual> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMVisual> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMVisual {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMVisual {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMVisual {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMVisual> for IXpsOMShareable {
@@ -8472,7 +8472,7 @@ pub struct IXpsOMVisual_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMVisualBrush(::windows::runtime::IUnknown);
+pub struct IXpsOMVisualBrush(pub ::windows::runtime::IUnknown);
 impl IXpsOMVisualBrush {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -8582,22 +8582,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMVisualBrush {
 }
 impl ::std::convert::From<IXpsOMVisualBrush> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMVisualBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMVisualBrush> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMVisualBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMVisualBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IXpsOMVisualBrush> for IXpsOMTileBrush {
@@ -8695,7 +8695,7 @@ pub struct IXpsOMVisualBrush_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsOMVisualCollection(::windows::runtime::IUnknown);
+pub struct IXpsOMVisualCollection(pub ::windows::runtime::IUnknown);
 impl IXpsOMVisualCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8730,22 +8730,22 @@ unsafe impl ::windows::runtime::Interface for IXpsOMVisualCollection {
 }
 impl ::std::convert::From<IXpsOMVisualCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsOMVisualCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsOMVisualCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsOMVisualCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsOMVisualCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsOMVisualCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsOMVisualCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8764,7 +8764,7 @@ pub struct IXpsOMVisualCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignature(::windows::runtime::IUnknown);
+pub struct IXpsSignature(pub ::windows::runtime::IUnknown);
 impl IXpsSignature {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`*"]
@@ -8838,22 +8838,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignature {
 }
 impl ::std::convert::From<IXpsSignature> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignature) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignature> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignature) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignature {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignature {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignature {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8886,7 +8886,7 @@ pub struct IXpsSignature_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignatureBlock(::windows::runtime::IUnknown);
+pub struct IXpsSignatureBlock(pub ::windows::runtime::IUnknown);
 impl IXpsSignatureBlock {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetRequests(&self) -> ::windows::runtime::Result<IXpsSignatureRequestCollection> {
@@ -8923,22 +8923,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignatureBlock {
 }
 impl ::std::convert::From<IXpsSignatureBlock> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureBlock) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignatureBlock> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignatureBlock) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignatureBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignatureBlock {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignatureBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8959,7 +8959,7 @@ pub struct IXpsSignatureBlock_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignatureBlockCollection(::windows::runtime::IUnknown);
+pub struct IXpsSignatureBlockCollection(pub ::windows::runtime::IUnknown);
 impl IXpsSignatureBlockCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8982,22 +8982,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignatureBlockCollection {
 }
 impl ::std::convert::From<IXpsSignatureBlockCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureBlockCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignatureBlockCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignatureBlockCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignatureBlockCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignatureBlockCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignatureBlockCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9013,7 +9013,7 @@ pub struct IXpsSignatureBlockCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignatureCollection(::windows::runtime::IUnknown);
+pub struct IXpsSignatureCollection(pub ::windows::runtime::IUnknown);
 impl IXpsSignatureCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9036,22 +9036,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignatureCollection {
 }
 impl ::std::convert::From<IXpsSignatureCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignatureCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignatureCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignatureCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignatureCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignatureCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9067,7 +9067,7 @@ pub struct IXpsSignatureCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignatureManager(::windows::runtime::IUnknown);
+pub struct IXpsSignatureManager(pub ::windows::runtime::IUnknown);
 impl IXpsSignatureManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`*"]
@@ -9134,22 +9134,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignatureManager {
 }
 impl ::std::convert::From<IXpsSignatureManager> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignatureManager> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignatureManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignatureManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignatureManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignatureManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9181,7 +9181,7 @@ pub struct IXpsSignatureManager_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignatureRequest(::windows::runtime::IUnknown);
+pub struct IXpsSignatureRequest(pub ::windows::runtime::IUnknown);
 impl IXpsSignatureRequest {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`*"]
@@ -9254,22 +9254,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignatureRequest {
 }
 impl ::std::convert::From<IXpsSignatureRequest> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignatureRequest> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignatureRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignatureRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignatureRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignatureRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9304,7 +9304,7 @@ pub struct IXpsSignatureRequest_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSignatureRequestCollection(::windows::runtime::IUnknown);
+pub struct IXpsSignatureRequestCollection(pub ::windows::runtime::IUnknown);
 impl IXpsSignatureRequestCollection {
     #[doc = "*Required features: `Win32_Storage_Xps`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9327,22 +9327,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSignatureRequestCollection {
 }
 impl ::std::convert::From<IXpsSignatureRequestCollection> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSignatureRequestCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSignatureRequestCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSignatureRequestCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSignatureRequestCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSignatureRequestCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSignatureRequestCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9358,7 +9358,7 @@ pub struct IXpsSignatureRequestCollection_abi(
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IXpsSigningOptions(::windows::runtime::IUnknown);
+pub struct IXpsSigningOptions(pub ::windows::runtime::IUnknown);
 impl IXpsSigningOptions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`*"]
@@ -9458,22 +9458,22 @@ unsafe impl ::windows::runtime::Interface for IXpsSigningOptions {
 }
 impl ::std::convert::From<IXpsSigningOptions> for ::windows::runtime::IUnknown {
     fn from(value: IXpsSigningOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IXpsSigningOptions> for ::windows::runtime::IUnknown {
     fn from(value: &IXpsSigningOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsSigningOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsSigningOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXpsSigningOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

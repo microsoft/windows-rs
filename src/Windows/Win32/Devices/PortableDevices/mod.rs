@@ -193,7 +193,7 @@ pub const GUID_DEVINTERFACE_WPD_SERVICE: ::windows::runtime::GUID = ::windows::r
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConnectionRequestCallback(::windows::runtime::IUnknown);
+pub struct IConnectionRequestCallback(pub ::windows::runtime::IUnknown);
 impl IConnectionRequestCallback {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnComplete(&self, hrstatus: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -206,22 +206,22 @@ unsafe impl ::windows::runtime::Interface for IConnectionRequestCallback {
 }
 impl ::std::convert::From<IConnectionRequestCallback> for ::windows::runtime::IUnknown {
     fn from(value: IConnectionRequestCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConnectionRequestCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IConnectionRequestCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConnectionRequestCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConnectionRequestCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConnectionRequestCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -235,7 +235,7 @@ pub struct IConnectionRequestCallback_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumPortableDeviceConnectors(::windows::runtime::IUnknown);
+pub struct IEnumPortableDeviceConnectors(pub ::windows::runtime::IUnknown);
 impl IEnumPortableDeviceConnectors {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn Next(&self, crequested: u32, pconnectors: *mut ::std::option::Option<IPortableDeviceConnector>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -261,22 +261,22 @@ unsafe impl ::windows::runtime::Interface for IEnumPortableDeviceConnectors {
 }
 impl ::std::convert::From<IEnumPortableDeviceConnectors> for ::windows::runtime::IUnknown {
     fn from(value: IEnumPortableDeviceConnectors) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumPortableDeviceConnectors> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumPortableDeviceConnectors) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumPortableDeviceConnectors {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumPortableDeviceConnectors {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumPortableDeviceConnectors {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -293,7 +293,7 @@ pub struct IEnumPortableDeviceConnectors_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumPortableDeviceObjectIDs(::windows::runtime::IUnknown);
+pub struct IEnumPortableDeviceObjectIDs(pub ::windows::runtime::IUnknown);
 impl IEnumPortableDeviceObjectIDs {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -324,22 +324,22 @@ unsafe impl ::windows::runtime::Interface for IEnumPortableDeviceObjectIDs {
 }
 impl ::std::convert::From<IEnumPortableDeviceObjectIDs> for ::windows::runtime::IUnknown {
     fn from(value: IEnumPortableDeviceObjectIDs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumPortableDeviceObjectIDs> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumPortableDeviceObjectIDs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumPortableDeviceObjectIDs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumPortableDeviceObjectIDs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumPortableDeviceObjectIDs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -358,7 +358,7 @@ pub struct IEnumPortableDeviceObjectIDs_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMediaRadioManager(::windows::runtime::IUnknown);
+pub struct IMediaRadioManager(pub ::windows::runtime::IUnknown);
 impl IMediaRadioManager {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetRadioInstances(&self) -> ::windows::runtime::Result<IRadioInstanceCollection> {
@@ -376,22 +376,22 @@ unsafe impl ::windows::runtime::Interface for IMediaRadioManager {
 }
 impl ::std::convert::From<IMediaRadioManager> for ::windows::runtime::IUnknown {
     fn from(value: IMediaRadioManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMediaRadioManager> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaRadioManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaRadioManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaRadioManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMediaRadioManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -406,7 +406,7 @@ pub struct IMediaRadioManager_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMediaRadioManagerNotifySink(::windows::runtime::IUnknown);
+pub struct IMediaRadioManagerNotifySink(pub ::windows::runtime::IUnknown);
 impl IMediaRadioManagerNotifySink {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnInstanceAdd<'a, Param0: ::windows::runtime::IntoParam<'a, IRadioInstance>>(&self, pradioinstance: Param0) -> ::windows::runtime::Result<()> {
@@ -429,22 +429,22 @@ unsafe impl ::windows::runtime::Interface for IMediaRadioManagerNotifySink {
 }
 impl ::std::convert::From<IMediaRadioManagerNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: IMediaRadioManagerNotifySink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMediaRadioManagerNotifySink> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaRadioManagerNotifySink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaRadioManagerNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaRadioManagerNotifySink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMediaRadioManagerNotifySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -466,7 +466,7 @@ pub const IOCTL_WPD_MESSAGE_READ_ACCESS: u32 = 4210952u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDevice(::windows::runtime::IUnknown);
+pub struct IPortableDevice(pub ::windows::runtime::IUnknown);
 impl IPortableDevice {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -520,22 +520,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDevice {
 }
 impl ::std::convert::From<IPortableDevice> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -561,7 +561,7 @@ pub struct IPortableDevice_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceCapabilities(::windows::runtime::IUnknown);
+pub struct IPortableDeviceCapabilities(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceCapabilities {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetSupportedCommands(&self) -> ::windows::runtime::Result<IPortableDeviceKeyCollection> {
@@ -626,22 +626,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceCapabilities {
 }
 impl ::std::convert::From<IPortableDeviceCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -667,7 +667,7 @@ pub struct IPortableDeviceCapabilities_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceConnector(::windows::runtime::IUnknown);
+pub struct IPortableDeviceConnector(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceConnector {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::runtime::IntoParam<'a, IConnectionRequestCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -704,22 +704,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceConnector {
 }
 impl ::std::convert::From<IPortableDeviceConnector> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceConnector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceConnector> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceConnector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceConnector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -741,7 +741,7 @@ pub struct IPortableDeviceConnector_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceContent(::windows::runtime::IUnknown);
+pub struct IPortableDeviceContent(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceContent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -799,22 +799,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceContent {
 }
 impl ::std::convert::From<IPortableDeviceContent> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceContent> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -842,7 +842,7 @@ pub struct IPortableDeviceContent_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceContent2(::windows::runtime::IUnknown);
+pub struct IPortableDeviceContent2(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceContent2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -905,22 +905,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceContent2 {
 }
 impl ::std::convert::From<IPortableDeviceContent2> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceContent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceContent2> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceContent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceContent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceContent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceContent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IPortableDeviceContent2> for IPortableDeviceContent {
@@ -970,7 +970,7 @@ pub struct IPortableDeviceContent2_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceDataStream(::windows::runtime::IUnknown);
+pub struct IPortableDeviceDataStream(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceDataStream {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1040,22 +1040,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceDataStream {
 }
 impl ::std::convert::From<IPortableDeviceDataStream> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceDataStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceDataStream> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceDataStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceDataStream {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1134,7 +1134,7 @@ pub struct IPortableDeviceDataStream_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceDispatchFactory(::windows::runtime::IUnknown);
+pub struct IPortableDeviceDispatchFactory(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceDispatchFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -1149,22 +1149,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceDispatchFactory {
 }
 impl ::std::convert::From<IPortableDeviceDispatchFactory> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceDispatchFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceDispatchFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceDispatchFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceDispatchFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceDispatchFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceDispatchFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1179,7 +1179,7 @@ pub struct IPortableDeviceDispatchFactory_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceEventCallback(::windows::runtime::IUnknown);
+pub struct IPortableDeviceEventCallback(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceEventCallback {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnEvent<'a, Param0: ::windows::runtime::IntoParam<'a, IPortableDeviceValues>>(&self, peventparameters: Param0) -> ::windows::runtime::Result<()> {
@@ -1192,22 +1192,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceEventCallback {
 }
 impl ::std::convert::From<IPortableDeviceEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceEventCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceEventCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceEventCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceEventCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceEventCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1221,7 +1221,7 @@ pub struct IPortableDeviceEventCallback_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceKeyCollection(::windows::runtime::IUnknown);
+pub struct IPortableDeviceKeyCollection(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceKeyCollection {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
@@ -1252,22 +1252,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceKeyCollection {
 }
 impl ::std::convert::From<IPortableDeviceKeyCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceKeyCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceKeyCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceKeyCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceKeyCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceKeyCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceKeyCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1287,7 +1287,7 @@ pub struct IPortableDeviceKeyCollection_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceManager(::windows::runtime::IUnknown);
+pub struct IPortableDeviceManager(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -1330,22 +1330,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceManager {
 }
 impl ::std::convert::From<IPortableDeviceManager> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceManager> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1371,7 +1371,7 @@ pub struct IPortableDeviceManager_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDevicePropVariantCollection(::windows::runtime::IUnknown);
+pub struct IPortableDevicePropVariantCollection(pub ::windows::runtime::IUnknown);
 impl IPortableDevicePropVariantCollection {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
@@ -1411,22 +1411,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDevicePropVariantCollecti
 }
 impl ::std::convert::From<IPortableDevicePropVariantCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDevicePropVariantCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDevicePropVariantCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDevicePropVariantCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDevicePropVariantCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDevicePropVariantCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDevicePropVariantCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1448,7 +1448,7 @@ pub struct IPortableDevicePropVariantCollection_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceProperties(::windows::runtime::IUnknown);
+pub struct IPortableDeviceProperties(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceProperties {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -1490,22 +1490,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceProperties {
 }
 impl ::std::convert::From<IPortableDeviceProperties> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1529,7 +1529,7 @@ pub struct IPortableDeviceProperties_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDevicePropertiesBulk(::windows::runtime::IUnknown);
+pub struct IPortableDevicePropertiesBulk(pub ::windows::runtime::IUnknown);
 impl IPortableDevicePropertiesBulk {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn QueueGetValuesByObjectList<'a, Param0: ::windows::runtime::IntoParam<'a, IPortableDevicePropVariantCollection>, Param1: ::windows::runtime::IntoParam<'a, IPortableDeviceKeyCollection>, Param2: ::windows::runtime::IntoParam<'a, IPortableDevicePropertiesBulkCallback>>(&self, pobjectids: Param0, pkeys: Param1, pcallback: Param2) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -1562,22 +1562,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDevicePropertiesBulk {
 }
 impl ::std::convert::From<IPortableDevicePropertiesBulk> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDevicePropertiesBulk) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDevicePropertiesBulk> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDevicePropertiesBulk) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDevicePropertiesBulk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDevicePropertiesBulk {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDevicePropertiesBulk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1596,7 +1596,7 @@ pub struct IPortableDevicePropertiesBulk_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDevicePropertiesBulkCallback(::windows::runtime::IUnknown);
+pub struct IPortableDevicePropertiesBulkCallback(pub ::windows::runtime::IUnknown);
 impl IPortableDevicePropertiesBulkCallback {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnStart(&self, pcontext: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -1617,22 +1617,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDevicePropertiesBulkCallb
 }
 impl ::std::convert::From<IPortableDevicePropertiesBulkCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDevicePropertiesBulkCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDevicePropertiesBulkCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDevicePropertiesBulkCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDevicePropertiesBulkCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDevicePropertiesBulkCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDevicePropertiesBulkCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1648,7 +1648,7 @@ pub struct IPortableDevicePropertiesBulkCallback_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceResources(::windows::runtime::IUnknown);
+pub struct IPortableDeviceResources(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceResources {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -1688,22 +1688,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceResources {
 }
 impl ::std::convert::From<IPortableDeviceResources> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceResources) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceResources> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceResources) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceResources {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1727,7 +1727,7 @@ pub struct IPortableDeviceResources_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceService(::windows::runtime::IUnknown);
+pub struct IPortableDeviceService(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceService {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -1792,22 +1792,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceService {
 }
 impl ::std::convert::From<IPortableDeviceService> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceService> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1836,7 +1836,7 @@ pub struct IPortableDeviceService_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceServiceActivation(::windows::runtime::IUnknown);
+pub struct IPortableDeviceServiceActivation(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceServiceActivation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -1854,22 +1854,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceServiceActivation {
 }
 impl ::std::convert::From<IPortableDeviceServiceActivation> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceServiceActivation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceServiceActivation> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceServiceActivation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceServiceActivation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceServiceActivation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceServiceActivation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1885,7 +1885,7 @@ pub struct IPortableDeviceServiceActivation_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceServiceCapabilities(::windows::runtime::IUnknown);
+pub struct IPortableDeviceServiceCapabilities(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceServiceCapabilities {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetSupportedMethods(&self) -> ::windows::runtime::Result<IPortableDevicePropVariantCollection> {
@@ -1977,22 +1977,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceServiceCapabilities
 }
 impl ::std::convert::From<IPortableDeviceServiceCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceServiceCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceServiceCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceServiceCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceServiceCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceServiceCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceServiceCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2025,7 +2025,7 @@ pub struct IPortableDeviceServiceCapabilities_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceServiceManager(::windows::runtime::IUnknown);
+pub struct IPortableDeviceServiceManager(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceServiceManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
@@ -2045,22 +2045,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceServiceManager {
 }
 impl ::std::convert::From<IPortableDeviceServiceManager> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceServiceManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceServiceManager> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceServiceManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceServiceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceServiceManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceServiceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2077,7 +2077,7 @@ pub struct IPortableDeviceServiceManager_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceServiceMethodCallback(::windows::runtime::IUnknown);
+pub struct IPortableDeviceServiceMethodCallback(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceServiceMethodCallback {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnComplete<'a, Param1: ::windows::runtime::IntoParam<'a, IPortableDeviceValues>>(&self, hrstatus: ::windows::runtime::HRESULT, presults: Param1) -> ::windows::runtime::Result<()> {
@@ -2090,22 +2090,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceServiceMethodCallba
 }
 impl ::std::convert::From<IPortableDeviceServiceMethodCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceServiceMethodCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceServiceMethodCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceServiceMethodCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceServiceMethodCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceServiceMethodCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceServiceMethodCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2119,7 +2119,7 @@ pub struct IPortableDeviceServiceMethodCallback_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceServiceMethods(::windows::runtime::IUnknown);
+pub struct IPortableDeviceServiceMethods(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceServiceMethods {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn Invoke<'a, Param1: ::windows::runtime::IntoParam<'a, IPortableDeviceValues>>(&self, method: *const ::windows::runtime::GUID, pparameters: Param1, ppresults: *mut ::std::option::Option<IPortableDeviceValues>) -> ::windows::runtime::Result<()> {
@@ -2140,22 +2140,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceServiceMethods {
 }
 impl ::std::convert::From<IPortableDeviceServiceMethods> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceServiceMethods) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceServiceMethods> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceServiceMethods) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceServiceMethods {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceServiceMethods {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceServiceMethods {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2171,7 +2171,7 @@ pub struct IPortableDeviceServiceMethods_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceServiceOpenCallback(::windows::runtime::IUnknown);
+pub struct IPortableDeviceServiceOpenCallback(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceServiceOpenCallback {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnComplete(&self, hrstatus: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
@@ -2184,22 +2184,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceServiceOpenCallback
 }
 impl ::std::convert::From<IPortableDeviceServiceOpenCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceServiceOpenCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceServiceOpenCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceServiceOpenCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceServiceOpenCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceServiceOpenCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceServiceOpenCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2213,7 +2213,7 @@ pub struct IPortableDeviceServiceOpenCallback_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceUnitsStream(::windows::runtime::IUnknown);
+pub struct IPortableDeviceUnitsStream(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceUnitsStream {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32) -> ::windows::runtime::Result<u64> {
@@ -2231,22 +2231,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceUnitsStream {
 }
 impl ::std::convert::From<IPortableDeviceUnitsStream> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceUnitsStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceUnitsStream> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceUnitsStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceUnitsStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceUnitsStream {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceUnitsStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2261,7 +2261,7 @@ pub struct IPortableDeviceUnitsStream_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceValues(::windows::runtime::IUnknown);
+pub struct IPortableDeviceValues(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceValues {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetCount(&self, pcelt: *const u32) -> ::windows::runtime::Result<()> {
@@ -2484,22 +2484,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceValues {
 }
 impl ::std::convert::From<IPortableDeviceValues> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceValues) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceValues> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceValues) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceValues {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceValues {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceValues {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2590,7 +2590,7 @@ pub struct IPortableDeviceValues_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceValuesCollection(::windows::runtime::IUnknown);
+pub struct IPortableDeviceValuesCollection(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceValuesCollection {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
@@ -2620,22 +2620,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceValuesCollection {
 }
 impl ::std::convert::From<IPortableDeviceValuesCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceValuesCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceValuesCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceValuesCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceValuesCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceValuesCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceValuesCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2653,7 +2653,7 @@ pub struct IPortableDeviceValuesCollection_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPortableDeviceWebControl(::windows::runtime::IUnknown);
+pub struct IPortableDeviceWebControl(pub ::windows::runtime::IUnknown);
 impl IPortableDeviceWebControl {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -2673,22 +2673,22 @@ unsafe impl ::windows::runtime::Interface for IPortableDeviceWebControl {
 }
 impl ::std::convert::From<IPortableDeviceWebControl> for ::windows::runtime::IUnknown {
     fn from(value: IPortableDeviceWebControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPortableDeviceWebControl> for ::windows::runtime::IUnknown {
     fn from(value: &IPortableDeviceWebControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPortableDeviceWebControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2737,7 +2737,7 @@ pub struct IPortableDeviceWebControl_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRadioInstance(::windows::runtime::IUnknown);
+pub struct IRadioInstance(pub ::windows::runtime::IUnknown);
 impl IRadioInstance {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetRadioManagerSignature(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2782,22 +2782,22 @@ unsafe impl ::windows::runtime::Interface for IRadioInstance {
 }
 impl ::std::convert::From<IRadioInstance> for ::windows::runtime::IUnknown {
     fn from(value: IRadioInstance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRadioInstance> for ::windows::runtime::IUnknown {
     fn from(value: &IRadioInstance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadioInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadioInstance {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRadioInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2821,7 +2821,7 @@ pub struct IRadioInstance_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRadioInstanceCollection(::windows::runtime::IUnknown);
+pub struct IRadioInstanceCollection(pub ::windows::runtime::IUnknown);
 impl IRadioInstanceCollection {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2840,22 +2840,22 @@ unsafe impl ::windows::runtime::Interface for IRadioInstanceCollection {
 }
 impl ::std::convert::From<IRadioInstanceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IRadioInstanceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRadioInstanceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IRadioInstanceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadioInstanceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadioInstanceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRadioInstanceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2870,7 +2870,7 @@ pub struct IRadioInstanceCollection_abi(
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWpdSerializer(::windows::runtime::IUnknown);
+pub struct IWpdSerializer(pub ::windows::runtime::IUnknown);
 impl IWpdSerializer {
     #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: *const u8, dwinputbufferlength: u32) -> ::windows::runtime::Result<IPortableDeviceValues> {
@@ -2897,22 +2897,22 @@ unsafe impl ::windows::runtime::Interface for IWpdSerializer {
 }
 impl ::std::convert::From<IWpdSerializer> for ::windows::runtime::IUnknown {
     fn from(value: IWpdSerializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWpdSerializer> for ::windows::runtime::IUnknown {
     fn from(value: &IWpdSerializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWpdSerializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWpdSerializer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWpdSerializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

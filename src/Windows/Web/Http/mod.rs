@@ -8,7 +8,7 @@ pub mod Headers;
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpBufferContent(::windows::runtime::IInspectable);
+pub struct HttpBufferContent(pub ::windows::runtime::IInspectable);
 impl HttpBufferContent {
     #[cfg(feature = "Web_Http_Headers")]
     #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
@@ -120,22 +120,22 @@ impl ::windows::runtime::RuntimeName for HttpBufferContent {
 }
 impl ::std::convert::From<HttpBufferContent> for ::windows::runtime::IUnknown {
     fn from(value: HttpBufferContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpBufferContent> for ::windows::runtime::IUnknown {
     fn from(value: &HttpBufferContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpBufferContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpBufferContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpBufferContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpBufferContent> for ::windows::runtime::IInspectable {
@@ -235,7 +235,7 @@ unsafe impl ::std::marker::Sync for HttpBufferContent {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpClient(::windows::runtime::IInspectable);
+pub struct HttpClient(pub ::windows::runtime::IInspectable);
 impl HttpClient {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -473,22 +473,22 @@ impl ::windows::runtime::RuntimeName for HttpClient {
 }
 impl ::std::convert::From<HttpClient> for ::windows::runtime::IUnknown {
     fn from(value: HttpClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpClient> for ::windows::runtime::IUnknown {
     fn from(value: &HttpClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpClient> for ::windows::runtime::IInspectable {
@@ -590,7 +590,7 @@ impl ::windows::runtime::DefaultType for HttpCompletionOption {
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpCookie(::windows::runtime::IInspectable);
+pub struct HttpCookie(pub ::windows::runtime::IInspectable);
 impl HttpCookie {
     #[doc = "*Required features: `Web_Http`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -703,22 +703,22 @@ impl ::windows::runtime::RuntimeName for HttpCookie {
 }
 impl ::std::convert::From<HttpCookie> for ::windows::runtime::IUnknown {
     fn from(value: HttpCookie) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpCookie> for ::windows::runtime::IUnknown {
     fn from(value: &HttpCookie) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCookie {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpCookie> for ::windows::runtime::IInspectable {
@@ -773,7 +773,7 @@ unsafe impl ::std::marker::Sync for HttpCookie {}
 #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpCookieCollection(::windows::runtime::IInspectable);
+pub struct HttpCookieCollection(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpCookieCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -838,25 +838,25 @@ impl ::windows::runtime::RuntimeName for HttpCookieCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<HttpCookieCollection> for ::windows::runtime::IUnknown {
     fn from(value: HttpCookieCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&HttpCookieCollection> for ::windows::runtime::IUnknown {
     fn from(value: &HttpCookieCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCookieCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCookieCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpCookieCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -956,7 +956,7 @@ impl ::std::iter::IntoIterator for &HttpCookieCollection {
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpCookieManager(::windows::runtime::IInspectable);
+pub struct HttpCookieManager(pub ::windows::runtime::IInspectable);
 impl HttpCookieManager {
     #[doc = "*Required features: `Web_Http`*"]
     pub fn SetCookie<'a, Param0: ::windows::runtime::IntoParam<'a, HttpCookie>>(&self, cookie: Param0) -> ::windows::runtime::Result<bool> {
@@ -1001,22 +1001,22 @@ impl ::windows::runtime::RuntimeName for HttpCookieManager {
 }
 impl ::std::convert::From<HttpCookieManager> for ::windows::runtime::IUnknown {
     fn from(value: HttpCookieManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpCookieManager> for ::windows::runtime::IUnknown {
     fn from(value: &HttpCookieManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCookieManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCookieManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpCookieManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpCookieManager> for ::windows::runtime::IInspectable {
@@ -1044,7 +1044,7 @@ unsafe impl ::std::marker::Sync for HttpCookieManager {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpFormUrlEncodedContent(::windows::runtime::IInspectable);
+pub struct HttpFormUrlEncodedContent(pub ::windows::runtime::IInspectable);
 impl HttpFormUrlEncodedContent {
     #[cfg(feature = "Web_Http_Headers")]
     #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
@@ -1148,22 +1148,22 @@ impl ::windows::runtime::RuntimeName for HttpFormUrlEncodedContent {
 }
 impl ::std::convert::From<HttpFormUrlEncodedContent> for ::windows::runtime::IUnknown {
     fn from(value: HttpFormUrlEncodedContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpFormUrlEncodedContent> for ::windows::runtime::IUnknown {
     fn from(value: &HttpFormUrlEncodedContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpFormUrlEncodedContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpFormUrlEncodedContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpFormUrlEncodedContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpFormUrlEncodedContent> for ::windows::runtime::IInspectable {
@@ -1263,7 +1263,7 @@ unsafe impl ::std::marker::Sync for HttpFormUrlEncodedContent {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpGetBufferResult(::windows::runtime::IInspectable);
+pub struct HttpGetBufferResult(pub ::windows::runtime::IInspectable);
 impl HttpGetBufferResult {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http`, `Foundation`*"]
@@ -1334,22 +1334,22 @@ impl ::windows::runtime::RuntimeName for HttpGetBufferResult {
 }
 impl ::std::convert::From<HttpGetBufferResult> for ::windows::runtime::IUnknown {
     fn from(value: HttpGetBufferResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpGetBufferResult> for ::windows::runtime::IUnknown {
     fn from(value: &HttpGetBufferResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpGetBufferResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpGetBufferResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpGetBufferResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpGetBufferResult> for ::windows::runtime::IInspectable {
@@ -1429,7 +1429,7 @@ unsafe impl ::std::marker::Sync for HttpGetBufferResult {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpGetInputStreamResult(::windows::runtime::IInspectable);
+pub struct HttpGetInputStreamResult(pub ::windows::runtime::IInspectable);
 impl HttpGetInputStreamResult {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http`, `Foundation`*"]
@@ -1500,22 +1500,22 @@ impl ::windows::runtime::RuntimeName for HttpGetInputStreamResult {
 }
 impl ::std::convert::From<HttpGetInputStreamResult> for ::windows::runtime::IUnknown {
     fn from(value: HttpGetInputStreamResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpGetInputStreamResult> for ::windows::runtime::IUnknown {
     fn from(value: &HttpGetInputStreamResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpGetInputStreamResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpGetInputStreamResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpGetInputStreamResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpGetInputStreamResult> for ::windows::runtime::IInspectable {
@@ -1595,7 +1595,7 @@ unsafe impl ::std::marker::Sync for HttpGetInputStreamResult {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpGetStringResult(::windows::runtime::IInspectable);
+pub struct HttpGetStringResult(pub ::windows::runtime::IInspectable);
 impl HttpGetStringResult {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http`, `Foundation`*"]
@@ -1665,22 +1665,22 @@ impl ::windows::runtime::RuntimeName for HttpGetStringResult {
 }
 impl ::std::convert::From<HttpGetStringResult> for ::windows::runtime::IUnknown {
     fn from(value: HttpGetStringResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpGetStringResult> for ::windows::runtime::IUnknown {
     fn from(value: &HttpGetStringResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpGetStringResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpGetStringResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpGetStringResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpGetStringResult> for ::windows::runtime::IInspectable {
@@ -1760,7 +1760,7 @@ unsafe impl ::std::marker::Sync for HttpGetStringResult {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpMethod(::windows::runtime::IInspectable);
+pub struct HttpMethod(pub ::windows::runtime::IInspectable);
 impl HttpMethod {
     #[doc = "*Required features: `Web_Http`*"]
     pub fn Method(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1856,22 +1856,22 @@ impl ::windows::runtime::RuntimeName for HttpMethod {
 }
 impl ::std::convert::From<HttpMethod> for ::windows::runtime::IUnknown {
     fn from(value: HttpMethod) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpMethod> for ::windows::runtime::IUnknown {
     fn from(value: &HttpMethod) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMethod {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMethod {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpMethod {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpMethod> for ::windows::runtime::IInspectable {
@@ -1925,7 +1925,7 @@ unsafe impl ::std::marker::Sync for HttpMethod {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpMultipartContent(::windows::runtime::IInspectable);
+pub struct HttpMultipartContent(pub ::windows::runtime::IInspectable);
 impl HttpMultipartContent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2056,22 +2056,22 @@ impl ::windows::runtime::RuntimeName for HttpMultipartContent {
 }
 impl ::std::convert::From<HttpMultipartContent> for ::windows::runtime::IUnknown {
     fn from(value: HttpMultipartContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpMultipartContent> for ::windows::runtime::IUnknown {
     fn from(value: &HttpMultipartContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMultipartContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMultipartContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpMultipartContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpMultipartContent> for ::windows::runtime::IInspectable {
@@ -2213,7 +2213,7 @@ impl ::std::iter::IntoIterator for &HttpMultipartContent {
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpMultipartFormDataContent(::windows::runtime::IInspectable);
+pub struct HttpMultipartFormDataContent(pub ::windows::runtime::IInspectable);
 impl HttpMultipartFormDataContent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2347,22 +2347,22 @@ impl ::windows::runtime::RuntimeName for HttpMultipartFormDataContent {
 }
 impl ::std::convert::From<HttpMultipartFormDataContent> for ::windows::runtime::IUnknown {
     fn from(value: HttpMultipartFormDataContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpMultipartFormDataContent> for ::windows::runtime::IUnknown {
     fn from(value: &HttpMultipartFormDataContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMultipartFormDataContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMultipartFormDataContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpMultipartFormDataContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpMultipartFormDataContent> for ::windows::runtime::IInspectable {
@@ -2580,7 +2580,7 @@ impl ::windows::runtime::DefaultType for HttpProgressStage {
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpRequestMessage(::windows::runtime::IInspectable);
+pub struct HttpRequestMessage(pub ::windows::runtime::IInspectable);
 impl HttpRequestMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2696,22 +2696,22 @@ impl ::windows::runtime::RuntimeName for HttpRequestMessage {
 }
 impl ::std::convert::From<HttpRequestMessage> for ::windows::runtime::IUnknown {
     fn from(value: HttpRequestMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpRequestMessage> for ::windows::runtime::IUnknown {
     fn from(value: &HttpRequestMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpRequestMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpRequestMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpRequestMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpRequestMessage> for ::windows::runtime::IInspectable {
@@ -2791,7 +2791,7 @@ unsafe impl ::std::marker::Sync for HttpRequestMessage {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpRequestResult(::windows::runtime::IInspectable);
+pub struct HttpRequestResult(pub ::windows::runtime::IInspectable);
 impl HttpRequestResult {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http`, `Foundation`*"]
@@ -2853,22 +2853,22 @@ impl ::windows::runtime::RuntimeName for HttpRequestResult {
 }
 impl ::std::convert::From<HttpRequestResult> for ::windows::runtime::IUnknown {
     fn from(value: HttpRequestResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpRequestResult> for ::windows::runtime::IUnknown {
     fn from(value: &HttpRequestResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpRequestResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpRequestResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpRequestResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpRequestResult> for ::windows::runtime::IInspectable {
@@ -2948,7 +2948,7 @@ unsafe impl ::std::marker::Sync for HttpRequestResult {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpResponseMessage(::windows::runtime::IInspectable);
+pub struct HttpResponseMessage(pub ::windows::runtime::IInspectable);
 impl HttpResponseMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3099,22 +3099,22 @@ impl ::windows::runtime::RuntimeName for HttpResponseMessage {
 }
 impl ::std::convert::From<HttpResponseMessage> for ::windows::runtime::IUnknown {
     fn from(value: HttpResponseMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpResponseMessage> for ::windows::runtime::IUnknown {
     fn from(value: &HttpResponseMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpResponseMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpResponseMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpResponseMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpResponseMessage> for ::windows::runtime::IInspectable {
@@ -3295,7 +3295,7 @@ impl ::windows::runtime::DefaultType for HttpStatusCode {
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpStreamContent(::windows::runtime::IInspectable);
+pub struct HttpStreamContent(pub ::windows::runtime::IInspectable);
 impl HttpStreamContent {
     #[cfg(feature = "Web_Http_Headers")]
     #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
@@ -3399,22 +3399,22 @@ impl ::windows::runtime::RuntimeName for HttpStreamContent {
 }
 impl ::std::convert::From<HttpStreamContent> for ::windows::runtime::IUnknown {
     fn from(value: HttpStreamContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpStreamContent> for ::windows::runtime::IUnknown {
     fn from(value: &HttpStreamContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpStreamContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpStreamContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpStreamContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpStreamContent> for ::windows::runtime::IInspectable {
@@ -3514,7 +3514,7 @@ unsafe impl ::std::marker::Sync for HttpStreamContent {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpStringContent(::windows::runtime::IInspectable);
+pub struct HttpStringContent(pub ::windows::runtime::IInspectable);
 impl HttpStringContent {
     #[cfg(feature = "Web_Http_Headers")]
     #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
@@ -3633,22 +3633,22 @@ impl ::windows::runtime::RuntimeName for HttpStringContent {
 }
 impl ::std::convert::From<HttpStringContent> for ::windows::runtime::IUnknown {
     fn from(value: HttpStringContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpStringContent> for ::windows::runtime::IUnknown {
     fn from(value: &HttpStringContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpStringContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpStringContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpStringContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpStringContent> for ::windows::runtime::IInspectable {
@@ -3748,7 +3748,7 @@ unsafe impl ::std::marker::Sync for HttpStringContent {}
 #[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpTransportInformation(::windows::runtime::IInspectable);
+pub struct HttpTransportInformation(pub ::windows::runtime::IInspectable);
 impl HttpTransportInformation {
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Web_Http`, `Security_Cryptography_Certificates`*"]
@@ -3808,22 +3808,22 @@ impl ::windows::runtime::RuntimeName for HttpTransportInformation {
 }
 impl ::std::convert::From<HttpTransportInformation> for ::windows::runtime::IUnknown {
     fn from(value: HttpTransportInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpTransportInformation> for ::windows::runtime::IUnknown {
     fn from(value: &HttpTransportInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpTransportInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpTransportInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpTransportInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpTransportInformation> for ::windows::runtime::IInspectable {
@@ -3900,7 +3900,7 @@ impl ::windows::runtime::DefaultType for HttpVersion {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpBufferContentFactory(::windows::runtime::IInspectable);
+pub struct IHttpBufferContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBufferContentFactory {
     type Vtable = IHttpBufferContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3156263315, 50207, 20471, [145, 35, 100, 53, 115, 110, 173, 194]);
@@ -3921,7 +3921,7 @@ pub struct IHttpBufferContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpClient(::windows::runtime::IInspectable);
+pub struct IHttpClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpClient {
     type Vtable = IHttpClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2144997713, 13684, 18560, [168, 186, 230, 177, 224, 6, 31, 61]);
@@ -3960,7 +3960,7 @@ pub struct IHttpClient_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpClient2(::windows::runtime::IInspectable);
+pub struct IHttpClient2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpClient2 {
     type Vtable = IHttpClient2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453498184, 59575, 19692, [177, 176, 220, 69, 95, 231, 44, 146]);
@@ -3997,7 +3997,7 @@ pub struct IHttpClient2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpClientFactory(::windows::runtime::IInspectable);
+pub struct IHttpClientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpClientFactory {
     type Vtable = IHttpClientFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3272363722, 58362, 20377, [175, 180, 99, 204, 101, 0, 148, 98]);
@@ -4017,7 +4017,7 @@ pub struct IHttpClientFactory_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web_Http`*"]
-pub struct IHttpContent(::windows::runtime::IInspectable);
+pub struct IHttpContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContent {
     type Vtable = IHttpContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796514881, 64423, 19410, [175, 10, 131, 157, 231, 194, 149, 218]);
@@ -4097,22 +4097,22 @@ unsafe impl ::windows::runtime::RuntimeType for IHttpContent {
 }
 impl ::std::convert::From<IHttpContent> for ::windows::runtime::IUnknown {
     fn from(value: IHttpContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IHttpContent> for ::windows::runtime::IUnknown {
     fn from(value: &IHttpContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IHttpContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHttpContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IHttpContent> for ::windows::runtime::IInspectable {
@@ -4186,7 +4186,7 @@ pub struct IHttpContent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpCookie(::windows::runtime::IInspectable);
+pub struct IHttpCookie(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookie {
     type Vtable = IHttpCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(525633762, 52269, 18297, [134, 167, 136, 241, 6, 135, 210, 73]);
@@ -4216,7 +4216,7 @@ pub struct IHttpCookie_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpCookieFactory(::windows::runtime::IInspectable);
+pub struct IHttpCookieFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookieFactory {
     type Vtable = IHttpCookieFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1778746793, 37660, 19665, [169, 109, 194, 23, 1, 120, 92, 95]);
@@ -4234,7 +4234,7 @@ pub struct IHttpCookieFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpCookieManager(::windows::runtime::IInspectable);
+pub struct IHttpCookieManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookieManager {
     type Vtable = IHttpCookieManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2051217280, 52559, 20055, [168, 74, 91, 10, 83, 214, 187, 150]);
@@ -4256,7 +4256,7 @@ pub struct IHttpCookieManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpFormUrlEncodedContentFactory(::windows::runtime::IInspectable);
+pub struct IHttpFormUrlEncodedContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpFormUrlEncodedContentFactory {
     type Vtable = IHttpFormUrlEncodedContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1139807116, 12147, 17154, [181, 243, 234, 233, 35, 138, 94, 1]);
@@ -4275,7 +4275,7 @@ pub struct IHttpFormUrlEncodedContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpGetBufferResult(::windows::runtime::IInspectable);
+pub struct IHttpGetBufferResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1406176892, 57865, 16462, [154, 73, 116, 45, 130, 54, 253, 58]);
@@ -4298,7 +4298,7 @@ pub struct IHttpGetBufferResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpGetInputStreamResult(::windows::runtime::IInspectable);
+pub struct IHttpGetInputStreamResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3587585123, 5034, 20192, [190, 149, 160, 195, 159, 233, 18, 3]);
@@ -4321,7 +4321,7 @@ pub struct IHttpGetInputStreamResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpGetStringResult(::windows::runtime::IInspectable);
+pub struct IHttpGetStringResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpGetStringResult {
     type Vtable = IHttpGetStringResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2611758701, 34057, 18293, [177, 109, 137, 83, 244, 122, 127, 95]);
@@ -4343,7 +4343,7 @@ pub struct IHttpGetStringResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMethod(::windows::runtime::IInspectable);
+pub struct IHttpMethod(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethod {
     type Vtable = IHttpMethod_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921859618, 28685, 20448, [175, 165, 64, 41, 156, 88, 219, 253]);
@@ -4361,7 +4361,7 @@ pub struct IHttpMethod_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMethodFactory(::windows::runtime::IInspectable);
+pub struct IHttpMethodFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethodFactory {
     type Vtable = IHttpMethodFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011994893, 14039, 16632, [168, 109, 231, 89, 202, 242, 248, 63]);
@@ -4379,7 +4379,7 @@ pub struct IHttpMethodFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMethodStatics(::windows::runtime::IInspectable);
+pub struct IHttpMethodStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethodStatics {
     type Vtable = IHttpMethodStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1691447792, 55706, 16723, [141, 198, 214, 140, 196, 204, 227, 23]);
@@ -4403,7 +4403,7 @@ pub struct IHttpMethodStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMultipartContent(::windows::runtime::IInspectable);
+pub struct IHttpMultipartContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartContent {
     type Vtable = IHttpMultipartContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3750849279, 39206, 19145, [170, 241, 224, 208, 78, 240, 155, 185]);
@@ -4421,7 +4421,7 @@ pub struct IHttpMultipartContent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMultipartContentFactory(::windows::runtime::IInspectable);
+pub struct IHttpMultipartContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartContentFactory {
     type Vtable = IHttpMultipartContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125737570, 546, 20256, [179, 114, 71, 213, 219, 93, 51, 180]);
@@ -4440,7 +4440,7 @@ pub struct IHttpMultipartContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMultipartFormDataContent(::windows::runtime::IInspectable);
+pub struct IHttpMultipartFormDataContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartFormDataContent {
     type Vtable = IHttpMultipartFormDataContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1691564002, 59751, 17956, [182, 209, 207, 116, 96, 74, 74, 66]);
@@ -4460,7 +4460,7 @@ pub struct IHttpMultipartFormDataContent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMultipartFormDataContentFactory(::windows::runtime::IInspectable);
+pub struct IHttpMultipartFormDataContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartFormDataContentFactory {
     type Vtable = IHttpMultipartFormDataContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2689430289, 20503, 17954, [147, 168, 73, 178, 74, 79, 203, 252]);
@@ -4478,7 +4478,7 @@ pub struct IHttpMultipartFormDataContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpRequestMessage(::windows::runtime::IInspectable);
+pub struct IHttpRequestMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestMessage {
     type Vtable = IHttpRequestMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4118162236, 29908, 18449, [181, 220, 159, 139, 78, 47, 154, 191]);
@@ -4508,7 +4508,7 @@ pub struct IHttpRequestMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpRequestMessageFactory(::windows::runtime::IInspectable);
+pub struct IHttpRequestMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestMessageFactory {
     type Vtable = IHttpRequestMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538038094, 14470, 16686, [174, 195, 82, 236, 127, 37, 97, 111]);
@@ -4527,7 +4527,7 @@ pub struct IHttpRequestMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpRequestResult(::windows::runtime::IInspectable);
+pub struct IHttpRequestResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestResult {
     type Vtable = IHttpRequestResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1791970728, 46571, 18997, [169, 2, 66, 23, 251, 232, 32, 197]);
@@ -4548,7 +4548,7 @@ pub struct IHttpRequestResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpResponseMessage(::windows::runtime::IInspectable);
+pub struct IHttpResponseMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpResponseMessage {
     type Vtable = IHttpResponseMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276224251, 34404, 17632, [149, 217, 66, 105, 97, 153, 191, 252]);
@@ -4581,7 +4581,7 @@ pub struct IHttpResponseMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpResponseMessageFactory(::windows::runtime::IInspectable);
+pub struct IHttpResponseMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpResponseMessageFactory {
     type Vtable = IHttpResponseMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1386786713, 61589, 17370, [182, 15, 124, 252, 43, 199, 234, 47]);
@@ -4599,7 +4599,7 @@ pub struct IHttpResponseMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpStreamContentFactory(::windows::runtime::IInspectable);
+pub struct IHttpStreamContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpStreamContentFactory {
     type Vtable = IHttpStreamContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4091956637, 63269, 16510, [148, 47, 14, 218, 24, 152, 9, 244]);
@@ -4618,7 +4618,7 @@ pub struct IHttpStreamContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpStringContentFactory(::windows::runtime::IInspectable);
+pub struct IHttpStringContentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpStringContentFactory {
     type Vtable = IHttpStringContentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180999003, 11923, 18667, [142, 97, 25, 103, 120, 120, 229, 127]);
@@ -4640,7 +4640,7 @@ pub struct IHttpStringContentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpTransportInformation(::windows::runtime::IInspectable);
+pub struct IHttpTransportInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpTransportInformation {
     type Vtable = IHttpTransportInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1880256920, 50855, 20176, [131, 58, 131, 253, 139, 143, 23, 141]);

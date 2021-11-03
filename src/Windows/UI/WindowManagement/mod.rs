@@ -4,7 +4,7 @@ pub mod Preview;
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindow(::windows::runtime::IInspectable);
+pub struct AppWindow(pub ::windows::runtime::IInspectable);
 impl AppWindow {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::UIContentRoot> {
@@ -249,22 +249,22 @@ impl ::windows::runtime::RuntimeName for AppWindow {
 }
 impl ::std::convert::From<AppWindow> for ::windows::runtime::IUnknown {
     fn from(value: AppWindow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindow> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindow> for ::windows::runtime::IInspectable {
@@ -292,7 +292,7 @@ unsafe impl ::std::marker::Sync for AppWindow {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowChangedEventArgs(::windows::runtime::IInspectable);
+pub struct AppWindowChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppWindowChangedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidAvailableWindowPresentationsChange(&self) -> ::windows::runtime::Result<bool> {
@@ -371,22 +371,22 @@ impl ::windows::runtime::RuntimeName for AppWindowChangedEventArgs {
 }
 impl ::std::convert::From<AppWindowChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -414,7 +414,7 @@ unsafe impl ::std::marker::Sync for AppWindowChangedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowCloseRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct AppWindowCloseRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppWindowCloseRequestedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<bool> {
@@ -451,22 +451,22 @@ impl ::windows::runtime::RuntimeName for AppWindowCloseRequestedEventArgs {
 }
 impl ::std::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowCloseRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowCloseRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowCloseRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowCloseRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -494,7 +494,7 @@ unsafe impl ::std::marker::Sync for AppWindowCloseRequestedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowClosedEventArgs(::windows::runtime::IInspectable);
+pub struct AppWindowClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppWindowClosedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<AppWindowClosedReason> {
@@ -517,22 +517,22 @@ impl ::windows::runtime::RuntimeName for AppWindowClosedEventArgs {
 }
 impl ::std::convert::From<AppWindowClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -583,7 +583,7 @@ impl ::windows::runtime::DefaultType for AppWindowClosedReason {
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowFrame(::windows::runtime::IInspectable);
+pub struct AppWindowFrame(pub ::windows::runtime::IInspectable);
 impl AppWindowFrame {
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation_Collections`, `UI_Composition`*"]
@@ -620,22 +620,22 @@ impl ::windows::runtime::RuntimeName for AppWindowFrame {
 }
 impl ::std::convert::From<AppWindowFrame> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowFrame> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowFrame {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowFrame> for ::windows::runtime::IInspectable {
@@ -685,7 +685,7 @@ impl ::windows::runtime::DefaultType for AppWindowFrameStyle {
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowPlacement(::windows::runtime::IInspectable);
+pub struct AppWindowPlacement(pub ::windows::runtime::IInspectable);
 impl AppWindowPlacement {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DisplayRegion(&self) -> ::windows::runtime::Result<DisplayRegion> {
@@ -726,22 +726,22 @@ impl ::windows::runtime::RuntimeName for AppWindowPlacement {
 }
 impl ::std::convert::From<AppWindowPlacement> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowPlacement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowPlacement> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowPlacement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowPlacement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowPlacement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowPlacement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowPlacement> for ::windows::runtime::IInspectable {
@@ -769,7 +769,7 @@ unsafe impl ::std::marker::Sync for AppWindowPlacement {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct AppWindowPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl AppWindowPresentationConfiguration {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AppWindowPresentationKind> {
@@ -792,22 +792,22 @@ impl ::windows::runtime::RuntimeName for AppWindowPresentationConfiguration {
 }
 impl ::std::convert::From<AppWindowPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowPresentationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowPresentationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowPresentationConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowPresentationConfiguration> for ::windows::runtime::IInspectable {
@@ -858,7 +858,7 @@ impl ::windows::runtime::DefaultType for AppWindowPresentationKind {
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowPresenter(::windows::runtime::IInspectable);
+pub struct AppWindowPresenter(pub ::windows::runtime::IInspectable);
 impl AppWindowPresenter {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn GetConfiguration(&self) -> ::windows::runtime::Result<AppWindowPresentationConfiguration> {
@@ -905,22 +905,22 @@ impl ::windows::runtime::RuntimeName for AppWindowPresenter {
 }
 impl ::std::convert::From<AppWindowPresenter> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowPresenter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowPresenter> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowPresenter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowPresenter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowPresenter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowPresenter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowPresenter> for ::windows::runtime::IInspectable {
@@ -948,7 +948,7 @@ unsafe impl ::std::marker::Sync for AppWindowPresenter {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowTitleBar(::windows::runtime::IInspectable);
+pub struct AppWindowTitleBar(pub ::windows::runtime::IInspectable);
 impl AppWindowTitleBar {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
@@ -1186,22 +1186,22 @@ impl ::windows::runtime::RuntimeName for AppWindowTitleBar {
 }
 impl ::std::convert::From<AppWindowTitleBar> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowTitleBar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowTitleBar> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowTitleBar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowTitleBar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowTitleBar {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowTitleBar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowTitleBar> for ::windows::runtime::IInspectable {
@@ -1229,7 +1229,7 @@ unsafe impl ::std::marker::Sync for AppWindowTitleBar {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppWindowTitleBarOcclusion(::windows::runtime::IInspectable);
+pub struct AppWindowTitleBarOcclusion(pub ::windows::runtime::IInspectable);
 impl AppWindowTitleBarOcclusion {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
@@ -1253,22 +1253,22 @@ impl ::windows::runtime::RuntimeName for AppWindowTitleBarOcclusion {
 }
 impl ::std::convert::From<AppWindowTitleBarOcclusion> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowTitleBarOcclusion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppWindowTitleBarOcclusion> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowTitleBarOcclusion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppWindowTitleBarOcclusion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppWindowTitleBarOcclusion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppWindowTitleBarOcclusion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppWindowTitleBarOcclusion> for ::windows::runtime::IInspectable {
@@ -1318,7 +1318,7 @@ impl ::windows::runtime::DefaultType for AppWindowTitleBarVisibility {
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CompactOverlayPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct CompactOverlayPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl CompactOverlayPresentationConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1348,22 +1348,22 @@ impl ::windows::runtime::RuntimeName for CompactOverlayPresentationConfiguration
 }
 impl ::std::convert::From<CompactOverlayPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: CompactOverlayPresentationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompactOverlayPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompactOverlayPresentationConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompactOverlayPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CompactOverlayPresentationConfiguration> for ::windows::runtime::IInspectable {
@@ -1411,7 +1411,7 @@ unsafe impl ::std::marker::Sync for CompactOverlayPresentationConfiguration {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DefaultPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct DefaultPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl DefaultPresentationConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1441,22 +1441,22 @@ impl ::windows::runtime::RuntimeName for DefaultPresentationConfiguration {
 }
 impl ::std::convert::From<DefaultPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: DefaultPresentationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DefaultPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &DefaultPresentationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DefaultPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DefaultPresentationConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DefaultPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DefaultPresentationConfiguration> for ::windows::runtime::IInspectable {
@@ -1504,7 +1504,7 @@ unsafe impl ::std::marker::Sync for DefaultPresentationConfiguration {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DisplayRegion(::windows::runtime::IInspectable);
+pub struct DisplayRegion(pub ::windows::runtime::IInspectable);
 impl DisplayRegion {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DisplayMonitorDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1576,22 +1576,22 @@ impl ::windows::runtime::RuntimeName for DisplayRegion {
 }
 impl ::std::convert::From<DisplayRegion> for ::windows::runtime::IUnknown {
     fn from(value: DisplayRegion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DisplayRegion> for ::windows::runtime::IUnknown {
     fn from(value: &DisplayRegion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayRegion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DisplayRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DisplayRegion> for ::windows::runtime::IInspectable {
@@ -1619,7 +1619,7 @@ unsafe impl ::std::marker::Sync for DisplayRegion {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FullScreenPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct FullScreenPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl FullScreenPresentationConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1662,22 +1662,22 @@ impl ::windows::runtime::RuntimeName for FullScreenPresentationConfiguration {
 }
 impl ::std::convert::From<FullScreenPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: FullScreenPresentationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FullScreenPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &FullScreenPresentationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FullScreenPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FullScreenPresentationConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FullScreenPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FullScreenPresentationConfiguration> for ::windows::runtime::IInspectable {
@@ -1724,7 +1724,7 @@ unsafe impl ::std::marker::Send for FullScreenPresentationConfiguration {}
 unsafe impl ::std::marker::Sync for FullScreenPresentationConfiguration {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindow(::windows::runtime::IInspectable);
+pub struct IAppWindow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindow {
     type Vtable = IAppWindow_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714427046, 46942, 23997, [153, 92, 240, 17, 127, 163, 251, 97]);
@@ -1784,7 +1784,7 @@ pub struct IAppWindow_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IAppWindowChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowChangedEventArgs {
     type Vtable = IAppWindowChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501347262, 42581, 21933, [178, 182, 235, 36, 15, 136, 3, 86]);
@@ -1809,7 +1809,7 @@ pub struct IAppWindowChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowCloseRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IAppWindowCloseRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowCloseRequestedEventArgs {
     type Vtable = IAppWindowCloseRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3925803482, 59298, 22440, [139, 94, 57, 196, 0, 58, 253, 187]);
@@ -1830,7 +1830,7 @@ pub struct IAppWindowCloseRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IAppWindowClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowClosedEventArgs {
     type Vtable = IAppWindowClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3430807574, 38176, 23046, [130, 30, 69, 106, 216, 179, 88, 170]);
@@ -1848,7 +1848,7 @@ pub struct IAppWindowClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowFrame(::windows::runtime::IInspectable);
+pub struct IAppWindowFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowFrame {
     type Vtable = IAppWindowFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2665620993, 32349, 21167, [132, 107, 1, 220, 108, 41, 101, 103]);
@@ -1867,7 +1867,7 @@ pub struct IAppWindowFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowFrameStyle(::windows::runtime::IInspectable);
+pub struct IAppWindowFrameStyle(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowFrameStyle {
     type Vtable = IAppWindowFrameStyle_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2889951558, 57772, 21040, [148, 74, 198, 8, 115, 220, 244, 169]);
@@ -1886,7 +1886,7 @@ pub struct IAppWindowFrameStyle_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowPlacement(::windows::runtime::IInspectable);
+pub struct IAppWindowPlacement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPlacement {
     type Vtable = IAppWindowPlacement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64782686, 59305, 22615, [156, 3, 125, 103, 5, 148, 65, 14]);
@@ -1908,7 +1908,7 @@ pub struct IAppWindowPlacement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct IAppWindowPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresentationConfiguration {
     type Vtable = IAppWindowPresentationConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3047440099, 57139, 24167, [189, 49, 16, 114, 69, 115, 0, 223]);
@@ -1926,7 +1926,7 @@ pub struct IAppWindowPresentationConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowPresentationConfigurationFactory(::windows::runtime::IInspectable);
+pub struct IAppWindowPresentationConfigurationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresentationConfigurationFactory {
     type Vtable = IAppWindowPresentationConfigurationFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4248176294, 30837, 24040, [132, 255, 99, 81, 238, 19, 221, 13]);
@@ -1943,7 +1943,7 @@ pub struct IAppWindowPresentationConfigurationFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowPresenter(::windows::runtime::IInspectable);
+pub struct IAppWindowPresenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresenter {
     type Vtable = IAppWindowPresenter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525280115, 57853, 21271, [173, 120, 90, 62, 210, 113, 187, 222]);
@@ -1964,7 +1964,7 @@ pub struct IAppWindowPresenter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowStatics(::windows::runtime::IInspectable);
+pub struct IAppWindowStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowStatics {
     type Vtable = IAppWindowStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280237731, 46953, 20719, [152, 115, 16, 140, 208, 232, 151, 70]);
@@ -1985,7 +1985,7 @@ pub struct IAppWindowStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowTitleBar(::windows::runtime::IInspectable);
+pub struct IAppWindowTitleBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBar {
     type Vtable = IAppWindowTitleBar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1855138948, 63044, 21533, [162, 215, 12, 38, 36, 55, 132, 45]);
@@ -2055,7 +2055,7 @@ pub struct IAppWindowTitleBar_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowTitleBarOcclusion(::windows::runtime::IInspectable);
+pub struct IAppWindowTitleBarOcclusion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBarOcclusion {
     type Vtable = IAppWindowTitleBarOcclusion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272148477, 11471, 24515, [174, 174, 248, 67, 135, 107, 243, 126]);
@@ -2074,7 +2074,7 @@ pub struct IAppWindowTitleBarOcclusion_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppWindowTitleBarVisibility(::windows::runtime::IInspectable);
+pub struct IAppWindowTitleBarVisibility(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBarVisibility {
     type Vtable = IAppWindowTitleBarVisibility_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2719327459, 28286, 22097, [140, 59, 98, 72, 25, 82, 129, 84]);
@@ -2093,7 +2093,7 @@ pub struct IAppWindowTitleBarVisibility_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompactOverlayPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct ICompactOverlayPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompactOverlayPresentationConfiguration {
     type Vtable = ICompactOverlayPresentationConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816832783, 22320, 22214, [142, 31, 214, 63, 244, 215, 152, 13]);
@@ -2110,7 +2110,7 @@ pub struct ICompactOverlayPresentationConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDefaultPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct IDefaultPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDefaultPresentationConfiguration {
     type Vtable = IDefaultPresentationConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636639035, 8552, 22275, [168, 83, 213, 37, 88, 159, 226, 185]);
@@ -2127,7 +2127,7 @@ pub struct IDefaultPresentationConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDisplayRegion(::windows::runtime::IInspectable);
+pub struct IDisplayRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRegion {
     type Vtable = IDisplayRegion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3679503266, 16532, 24391, [140, 177, 234, 1, 221, 175, 170, 148]);
@@ -2155,7 +2155,7 @@ pub struct IDisplayRegion_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFullScreenPresentationConfiguration(::windows::runtime::IInspectable);
+pub struct IFullScreenPresentationConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullScreenPresentationConfiguration {
     type Vtable = IFullScreenPresentationConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137958104, 53928, 20541, [166, 38, 21, 83, 61, 109, 95, 98]);
@@ -2174,7 +2174,7 @@ pub struct IFullScreenPresentationConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowServicesStatics(::windows::runtime::IInspectable);
+pub struct IWindowServicesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowServicesStatics {
     type Vtable = IWindowServicesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488929049, 20646, 23652, [151, 246, 194, 217, 106, 221, 127, 66]);
@@ -2193,7 +2193,7 @@ pub struct IWindowServicesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowingEnvironment(::windows::runtime::IInspectable);
+pub struct IWindowingEnvironment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironment {
     type Vtable = IWindowingEnvironment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641950656, 10825, 21527, [179, 174, 72, 167, 28, 99, 163, 189]);
@@ -2218,7 +2218,7 @@ pub struct IWindowingEnvironment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentAddedEventArgs(::windows::runtime::IInspectable);
+pub struct IWindowingEnvironmentAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentAddedEventArgs {
     type Vtable = IWindowingEnvironmentAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4280966015, 61827, 23654, [153, 178, 66, 144, 130, 6, 146, 153]);
@@ -2236,7 +2236,7 @@ pub struct IWindowingEnvironmentAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IWindowingEnvironmentChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentChangedEventArgs {
     type Vtable = IWindowingEnvironmentChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096863686, 573, 24218, [180, 49, 53, 14, 103, 220, 151, 138]);
@@ -2253,7 +2253,7 @@ pub struct IWindowingEnvironmentChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IWindowingEnvironmentRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentRemovedEventArgs {
     type Vtable = IWindowingEnvironmentRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(777737331, 48895, 24147, [147, 22, 126, 119, 95, 229, 104, 179]);
@@ -2271,7 +2271,7 @@ pub struct IWindowingEnvironmentRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentStatics(::windows::runtime::IInspectable);
+pub struct IWindowingEnvironmentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentStatics {
     type Vtable = IWindowingEnvironmentStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2270076855, 50754, 21931, [138, 162, 22, 47, 115, 74, 154, 114]);
@@ -2312,7 +2312,7 @@ impl ::windows::runtime::RuntimeName for WindowServices {
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WindowingEnvironment(::windows::runtime::IInspectable);
+pub struct WindowingEnvironment(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironment {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -2387,22 +2387,22 @@ impl ::windows::runtime::RuntimeName for WindowingEnvironment {
 }
 impl ::std::convert::From<WindowingEnvironment> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WindowingEnvironment> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowingEnvironment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WindowingEnvironment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowingEnvironment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WindowingEnvironment> for ::windows::runtime::IInspectable {
@@ -2430,7 +2430,7 @@ unsafe impl ::std::marker::Sync for WindowingEnvironment {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WindowingEnvironmentAddedEventArgs(::windows::runtime::IInspectable);
+pub struct WindowingEnvironmentAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironmentAddedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn WindowingEnvironment(&self) -> ::windows::runtime::Result<WindowingEnvironment> {
@@ -2453,22 +2453,22 @@ impl ::windows::runtime::RuntimeName for WindowingEnvironmentAddedEventArgs {
 }
 impl ::std::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironmentAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowingEnvironmentAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WindowingEnvironmentAddedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowingEnvironmentAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IInspectable {
@@ -2496,7 +2496,7 @@ unsafe impl ::std::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WindowingEnvironmentChangedEventArgs(::windows::runtime::IInspectable);
+pub struct WindowingEnvironmentChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for WindowingEnvironmentChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs;{4160cfc6-023d-5e9a-b431-350e67dc978a})");
@@ -2510,22 +2510,22 @@ impl ::windows::runtime::RuntimeName for WindowingEnvironmentChangedEventArgs {
 }
 impl ::std::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironmentChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowingEnvironmentChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WindowingEnvironmentChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowingEnvironmentChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -2576,7 +2576,7 @@ impl ::windows::runtime::DefaultType for WindowingEnvironmentKind {
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WindowingEnvironmentRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct WindowingEnvironmentRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironmentRemovedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn WindowingEnvironment(&self) -> ::windows::runtime::Result<WindowingEnvironment> {
@@ -2599,22 +2599,22 @@ impl ::windows::runtime::RuntimeName for WindowingEnvironmentRemovedEventArgs {
 }
 impl ::std::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironmentRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowingEnvironmentRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WindowingEnvironmentRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowingEnvironmentRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IInspectable {

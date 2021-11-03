@@ -3,7 +3,7 @@
 pub mod Extensions;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppAttributeError(::windows::runtime::IInspectable);
+pub struct IIppAttributeError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeError {
     type Vtable = IIppAttributeError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963978145, 40687, 23609, [147, 228, 70, 20, 155, 188, 239, 39]);
@@ -24,7 +24,7 @@ pub struct IIppAttributeError_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppAttributeValue(::windows::runtime::IInspectable);
+pub struct IIppAttributeValue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeValue {
     type Vtable = IIppAttributeValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2571141101, 58043, 22947, [152, 139, 40, 169, 116, 5, 42, 38]);
@@ -78,7 +78,7 @@ pub struct IIppAttributeValue_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppAttributeValueStatics(::windows::runtime::IInspectable);
+pub struct IIppAttributeValueStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeValueStatics {
     type Vtable = IIppAttributeValueStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(282343746, 56724, 22936, [178, 53, 175, 175, 182, 250, 121, 53]);
@@ -156,7 +156,7 @@ pub struct IIppAttributeValueStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppIntegerRange(::windows::runtime::IInspectable);
+pub struct IIppIntegerRange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppIntegerRange {
     type Vtable = IIppIntegerRange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458940230, 50154, 24278, [189, 177, 55, 82, 198, 44, 111, 127]);
@@ -175,7 +175,7 @@ pub struct IIppIntegerRange_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppIntegerRangeFactory(::windows::runtime::IInspectable);
+pub struct IIppIntegerRangeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppIntegerRangeFactory {
     type Vtable = IIppIntegerRangeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976888494, 63614, 21677, [181, 208, 70, 82, 4, 219, 117, 83]);
@@ -193,7 +193,7 @@ pub struct IIppIntegerRangeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppPrintDevice(::windows::runtime::IInspectable);
+pub struct IIppPrintDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppPrintDevice {
     type Vtable = IIppPrintDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3611864150, 30451, 24006, [175, 212, 194, 168, 104, 107, 147, 89]);
@@ -221,7 +221,7 @@ pub struct IIppPrintDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppResolution(::windows::runtime::IInspectable);
+pub struct IIppResolution(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppResolution {
     type Vtable = IIppResolution_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410575238, 27635, 22261, [134, 206, 38, 61, 8, 174, 173, 99]);
@@ -241,7 +241,7 @@ pub struct IIppResolution_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppResolutionFactory(::windows::runtime::IInspectable);
+pub struct IIppResolutionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppResolutionFactory {
     type Vtable = IIppResolutionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833709230, 9498, 21286, [177, 115, 149, 84, 62, 217, 154, 53]);
@@ -259,7 +259,7 @@ pub struct IIppResolutionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppSetAttributesResult(::windows::runtime::IInspectable);
+pub struct IIppSetAttributesResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099019605, 43677, 22691, [144, 233, 23, 189, 197, 40, 31, 7]);
@@ -279,7 +279,7 @@ pub struct IIppSetAttributesResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppTextWithLanguage(::windows::runtime::IInspectable);
+pub struct IIppTextWithLanguage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845432742, 20809, 22838, [144, 232, 12, 115, 96, 54, 191, 119]);
@@ -298,7 +298,7 @@ pub struct IIppTextWithLanguage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIppTextWithLanguageFactory(::windows::runtime::IInspectable);
+pub struct IIppTextWithLanguageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppTextWithLanguageFactory {
     type Vtable = IIppTextWithLanguageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3393855117, 10600, 22389, [153, 124, 138, 70, 241, 165, 116, 237]);
@@ -316,7 +316,7 @@ pub struct IIppTextWithLanguageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DDevice(::windows::runtime::IInspectable);
+pub struct IPrint3DDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DDevice {
     type Vtable = IPrint3DDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(68959513, 38675, 17058, [152, 19, 125, 195, 51, 116, 40, 211]);
@@ -334,7 +334,7 @@ pub struct IPrint3DDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrint3DDeviceStatics(::windows::runtime::IInspectable);
+pub struct IPrint3DDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DDeviceStatics {
     type Vtable = IPrint3DDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259537418, 26573, 16823, [163, 68, 81, 80, 161, 253, 117, 181]);
@@ -354,7 +354,7 @@ pub struct IPrint3DDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPrintSchema(::windows::runtime::IInspectable);
+pub struct IPrintSchema(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSchema {
     type Vtable = IPrintSchema_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266937622, 9912, 19451, [129, 56, 159, 150, 44, 34, 163, 91]);
@@ -378,7 +378,7 @@ pub struct IPrintSchema_abi(
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppAttributeError(::windows::runtime::IInspectable);
+pub struct IppAttributeError(pub ::windows::runtime::IInspectable);
 impl IppAttributeError {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<IppAttributeErrorReason> {
@@ -418,22 +418,22 @@ impl ::windows::runtime::RuntimeName for IppAttributeError {
 }
 impl ::std::convert::From<IppAttributeError> for ::windows::runtime::IUnknown {
     fn from(value: IppAttributeError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppAttributeError> for ::windows::runtime::IUnknown {
     fn from(value: &IppAttributeError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppAttributeError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppAttributeError {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppAttributeError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppAttributeError> for ::windows::runtime::IInspectable {
@@ -486,7 +486,7 @@ impl ::windows::runtime::DefaultType for IppAttributeErrorReason {
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppAttributeValue(::windows::runtime::IInspectable);
+pub struct IppAttributeValue(pub ::windows::runtime::IInspectable);
 impl IppAttributeValue {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<IppAttributeValueKind> {
@@ -970,22 +970,22 @@ impl ::windows::runtime::RuntimeName for IppAttributeValue {
 }
 impl ::std::convert::From<IppAttributeValue> for ::windows::runtime::IUnknown {
     fn from(value: IppAttributeValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppAttributeValue> for ::windows::runtime::IUnknown {
     fn from(value: &IppAttributeValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppAttributeValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppAttributeValue {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppAttributeValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppAttributeValue> for ::windows::runtime::IInspectable {
@@ -1054,7 +1054,7 @@ impl ::windows::runtime::DefaultType for IppAttributeValueKind {
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppIntegerRange(::windows::runtime::IInspectable);
+pub struct IppIntegerRange(pub ::windows::runtime::IInspectable);
 impl IppIntegerRange {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<i32> {
@@ -1096,22 +1096,22 @@ impl ::windows::runtime::RuntimeName for IppIntegerRange {
 }
 impl ::std::convert::From<IppIntegerRange> for ::windows::runtime::IUnknown {
     fn from(value: IppIntegerRange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppIntegerRange> for ::windows::runtime::IUnknown {
     fn from(value: &IppIntegerRange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppIntegerRange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppIntegerRange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppIntegerRange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppIntegerRange> for ::windows::runtime::IInspectable {
@@ -1139,7 +1139,7 @@ unsafe impl ::std::marker::Sync for IppIntegerRange {}
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppPrintDevice(::windows::runtime::IInspectable);
+pub struct IppPrintDevice(pub ::windows::runtime::IInspectable);
 impl IppPrintDevice {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn PrinterName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1207,22 +1207,22 @@ impl ::windows::runtime::RuntimeName for IppPrintDevice {
 }
 impl ::std::convert::From<IppPrintDevice> for ::windows::runtime::IUnknown {
     fn from(value: IppPrintDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppPrintDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IppPrintDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppPrintDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppPrintDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppPrintDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppPrintDevice> for ::windows::runtime::IInspectable {
@@ -1250,7 +1250,7 @@ unsafe impl ::std::marker::Sync for IppPrintDevice {}
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppResolution(::windows::runtime::IInspectable);
+pub struct IppResolution(pub ::windows::runtime::IInspectable);
 impl IppResolution {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<i32> {
@@ -1300,22 +1300,22 @@ impl ::windows::runtime::RuntimeName for IppResolution {
 }
 impl ::std::convert::From<IppResolution> for ::windows::runtime::IUnknown {
     fn from(value: IppResolution) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppResolution> for ::windows::runtime::IUnknown {
     fn from(value: &IppResolution) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppResolution {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppResolution {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppResolution {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppResolution> for ::windows::runtime::IInspectable {
@@ -1365,7 +1365,7 @@ impl ::windows::runtime::DefaultType for IppResolutionUnit {
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppSetAttributesResult(::windows::runtime::IInspectable);
+pub struct IppSetAttributesResult(pub ::windows::runtime::IInspectable);
 impl IppSetAttributesResult {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
@@ -1397,22 +1397,22 @@ impl ::windows::runtime::RuntimeName for IppSetAttributesResult {
 }
 impl ::std::convert::From<IppSetAttributesResult> for ::windows::runtime::IUnknown {
     fn from(value: IppSetAttributesResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppSetAttributesResult> for ::windows::runtime::IUnknown {
     fn from(value: &IppSetAttributesResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppSetAttributesResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppSetAttributesResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppSetAttributesResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppSetAttributesResult> for ::windows::runtime::IInspectable {
@@ -1440,7 +1440,7 @@ unsafe impl ::std::marker::Sync for IppSetAttributesResult {}
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IppTextWithLanguage(::windows::runtime::IInspectable);
+pub struct IppTextWithLanguage(pub ::windows::runtime::IInspectable);
 impl IppTextWithLanguage {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1482,22 +1482,22 @@ impl ::windows::runtime::RuntimeName for IppTextWithLanguage {
 }
 impl ::std::convert::From<IppTextWithLanguage> for ::windows::runtime::IUnknown {
     fn from(value: IppTextWithLanguage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IppTextWithLanguage> for ::windows::runtime::IUnknown {
     fn from(value: &IppTextWithLanguage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IppTextWithLanguage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IppTextWithLanguage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IppTextWithLanguage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IppTextWithLanguage> for ::windows::runtime::IInspectable {
@@ -1525,7 +1525,7 @@ unsafe impl ::std::marker::Sync for IppTextWithLanguage {}
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Print3DDevice(::windows::runtime::IInspectable);
+pub struct Print3DDevice(pub ::windows::runtime::IInspectable);
 impl Print3DDevice {
     #[doc = "*Required features: `Devices_Printers`*"]
     pub fn PrintSchema(&self) -> ::windows::runtime::Result<PrintSchema> {
@@ -1567,22 +1567,22 @@ impl ::windows::runtime::RuntimeName for Print3DDevice {
 }
 impl ::std::convert::From<Print3DDevice> for ::windows::runtime::IUnknown {
     fn from(value: Print3DDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Print3DDevice> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Print3DDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Print3DDevice> for ::windows::runtime::IInspectable {
@@ -1610,7 +1610,7 @@ unsafe impl ::std::marker::Sync for Print3DDevice {}
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PrintSchema(::windows::runtime::IInspectable);
+pub struct PrintSchema(pub ::windows::runtime::IInspectable);
 impl PrintSchema {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Storage_Streams`*"]
@@ -1652,22 +1652,22 @@ impl ::windows::runtime::RuntimeName for PrintSchema {
 }
 impl ::std::convert::From<PrintSchema> for ::windows::runtime::IUnknown {
     fn from(value: PrintSchema) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PrintSchema> for ::windows::runtime::IUnknown {
     fn from(value: &PrintSchema) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintSchema {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintSchema {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PrintSchema {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PrintSchema> for ::windows::runtime::IInspectable {

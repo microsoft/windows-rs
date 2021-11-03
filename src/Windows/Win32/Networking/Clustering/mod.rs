@@ -8616,7 +8616,7 @@ pub const HCI_UPGRADE_BIT: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterDataInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterDataInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterDataInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -8638,22 +8638,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterDataInfo {
 }
 impl ::std::convert::From<IGetClusterDataInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterDataInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterDataInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterDataInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterDataInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterDataInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterDataInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8670,7 +8670,7 @@ pub struct IGetClusterDataInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterGroupInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterGroupInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterGroupInfo {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn GetGroupHandle(&self, lobjindex: i32) -> *mut _HGROUP {
@@ -8683,22 +8683,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterGroupInfo {
 }
 impl ::std::convert::From<IGetClusterGroupInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterGroupInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterGroupInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterGroupInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterGroupInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterGroupInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterGroupInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8712,7 +8712,7 @@ pub struct IGetClusterGroupInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterNetInterfaceInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterNetInterfaceInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterNetInterfaceInfo {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn GetNetInterfaceHandle(&self, lobjindex: i32) -> *mut _HNETINTERFACE {
@@ -8725,22 +8725,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterNetInterfaceInfo {
 }
 impl ::std::convert::From<IGetClusterNetInterfaceInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterNetInterfaceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterNetInterfaceInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterNetInterfaceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterNetInterfaceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterNetInterfaceInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterNetInterfaceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8754,7 +8754,7 @@ pub struct IGetClusterNetInterfaceInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterNetworkInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterNetworkInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterNetworkInfo {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn GetNetworkHandle(&self, lobjindex: i32) -> *mut _HNETWORK {
@@ -8767,22 +8767,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterNetworkInfo {
 }
 impl ::std::convert::From<IGetClusterNetworkInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterNetworkInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterNetworkInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterNetworkInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterNetworkInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterNetworkInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterNetworkInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8796,7 +8796,7 @@ pub struct IGetClusterNetworkInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterNodeInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterNodeInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterNodeInfo {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn GetNodeHandle(&self, lobjindex: i32) -> *mut _HNODE {
@@ -8809,22 +8809,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterNodeInfo {
 }
 impl ::std::convert::From<IGetClusterNodeInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterNodeInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterNodeInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterNodeInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterNodeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterNodeInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterNodeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8838,7 +8838,7 @@ pub struct IGetClusterNodeInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterObjectInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterObjectInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterObjectInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -8856,22 +8856,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterObjectInfo {
 }
 impl ::std::convert::From<IGetClusterObjectInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterObjectInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterObjectInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterObjectInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterObjectInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterObjectInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterObjectInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8887,7 +8887,7 @@ pub struct IGetClusterObjectInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterResourceInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterResourceInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterResourceInfo {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn GetResourceHandle(&self, lobjindex: i32) -> *mut _HRESOURCE {
@@ -8910,22 +8910,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterResourceInfo {
 }
 impl ::std::convert::From<IGetClusterResourceInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterResourceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterResourceInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterResourceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterResourceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterResourceInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterResourceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8943,7 +8943,7 @@ pub struct IGetClusterResourceInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGetClusterUIInfo(::windows::runtime::IUnknown);
+pub struct IGetClusterUIInfo(pub ::windows::runtime::IUnknown);
 impl IGetClusterUIInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -8971,22 +8971,22 @@ unsafe impl ::windows::runtime::Interface for IGetClusterUIInfo {
 }
 impl ::std::convert::From<IGetClusterUIInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGetClusterUIInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGetClusterUIInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGetClusterUIInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetClusterUIInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetClusterUIInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGetClusterUIInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9006,7 +9006,7 @@ pub struct IGetClusterUIInfo_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusApplication(::windows::runtime::IUnknown);
+pub struct ISClusApplication(pub ::windows::runtime::IUnknown);
 impl ISClusApplication {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn DomainNames(&self) -> ::windows::runtime::Result<ISDomainNames> {
@@ -9032,22 +9032,22 @@ unsafe impl ::windows::runtime::Interface for ISClusApplication {
 }
 impl ::std::convert::From<ISClusApplication> for ::windows::runtime::IUnknown {
     fn from(value: ISClusApplication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusApplication> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusApplication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusApplication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9097,7 +9097,7 @@ pub struct ISClusApplication_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusCryptoKeys(::windows::runtime::IUnknown);
+pub struct ISClusCryptoKeys(pub ::windows::runtime::IUnknown);
 impl ISClusCryptoKeys {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -9136,22 +9136,22 @@ unsafe impl ::windows::runtime::Interface for ISClusCryptoKeys {
 }
 impl ::std::convert::From<ISClusCryptoKeys> for ::windows::runtime::IUnknown {
     fn from(value: ISClusCryptoKeys) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusCryptoKeys> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusCryptoKeys) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusCryptoKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusCryptoKeys {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusCryptoKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9205,7 +9205,7 @@ pub struct ISClusCryptoKeys_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusDisk(::windows::runtime::IUnknown);
+pub struct ISClusDisk(pub ::windows::runtime::IUnknown);
 impl ISClusDisk {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Signature(&self) -> ::windows::runtime::Result<i32> {
@@ -9234,22 +9234,22 @@ unsafe impl ::windows::runtime::Interface for ISClusDisk {
 }
 impl ::std::convert::From<ISClusDisk> for ::windows::runtime::IUnknown {
     fn from(value: ISClusDisk) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusDisk> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusDisk) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusDisk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusDisk {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusDisk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9298,7 +9298,7 @@ pub struct ISClusDisk_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusDisks(::windows::runtime::IUnknown);
+pub struct ISClusDisks(pub ::windows::runtime::IUnknown);
 impl ISClusDisks {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -9323,22 +9323,22 @@ unsafe impl ::windows::runtime::Interface for ISClusDisks {
 }
 impl ::std::convert::From<ISClusDisks> for ::windows::runtime::IUnknown {
     fn from(value: ISClusDisks) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusDisks> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusDisks) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusDisks {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusDisks {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusDisks {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9387,7 +9387,7 @@ pub struct ISClusDisks_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNetInterface(::windows::runtime::IUnknown);
+pub struct ISClusNetInterface(pub ::windows::runtime::IUnknown);
 impl ISClusNetInterface {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -9437,22 +9437,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNetInterface {
 }
 impl ::std::convert::From<ISClusNetInterface> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetInterface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNetInterface> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNetInterface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNetInterface {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNetInterface {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNetInterface {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9506,7 +9506,7 @@ pub struct ISClusNetInterface_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNetInterfaces(::windows::runtime::IUnknown);
+pub struct ISClusNetInterfaces(pub ::windows::runtime::IUnknown);
 impl ISClusNetInterfaces {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -9535,22 +9535,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNetInterfaces {
 }
 impl ::std::convert::From<ISClusNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetInterfaces) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNetInterfaces) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNetInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNetInterfaces {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNetInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9600,7 +9600,7 @@ pub struct ISClusNetInterfaces_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNetwork(::windows::runtime::IUnknown);
+pub struct ISClusNetwork(pub ::windows::runtime::IUnknown);
 impl ISClusNetwork {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -9666,22 +9666,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNetwork {
 }
 impl ::std::convert::From<ISClusNetwork> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetwork) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNetwork> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNetwork) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNetwork {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNetwork {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNetwork {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9740,7 +9740,7 @@ pub struct ISClusNetwork_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNetworkNetInterfaces(::windows::runtime::IUnknown);
+pub struct ISClusNetworkNetInterfaces(pub ::windows::runtime::IUnknown);
 impl ISClusNetworkNetInterfaces {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -9769,22 +9769,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNetworkNetInterfaces {
 }
 impl ::std::convert::From<ISClusNetworkNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetworkNetInterfaces) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNetworkNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNetworkNetInterfaces) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNetworkNetInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNetworkNetInterfaces {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNetworkNetInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9834,7 +9834,7 @@ pub struct ISClusNetworkNetInterfaces_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNetworks(::windows::runtime::IUnknown);
+pub struct ISClusNetworks(pub ::windows::runtime::IUnknown);
 impl ISClusNetworks {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -9863,22 +9863,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNetworks {
 }
 impl ::std::convert::From<ISClusNetworks> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNetworks) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNetworks> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNetworks) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNetworks {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNetworks {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNetworks {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9928,7 +9928,7 @@ pub struct ISClusNetworks_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNode(::windows::runtime::IUnknown);
+pub struct ISClusNode(pub ::windows::runtime::IUnknown);
 impl ISClusNode {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -10006,22 +10006,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNode {
 }
 impl ::std::convert::From<ISClusNode> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNode> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10082,7 +10082,7 @@ pub struct ISClusNode_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNodeNetInterfaces(::windows::runtime::IUnknown);
+pub struct ISClusNodeNetInterfaces(pub ::windows::runtime::IUnknown);
 impl ISClusNodeNetInterfaces {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -10111,22 +10111,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNodeNetInterfaces {
 }
 impl ::std::convert::From<ISClusNodeNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNodeNetInterfaces) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNodeNetInterfaces> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNodeNetInterfaces) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNodeNetInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNodeNetInterfaces {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNodeNetInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10176,7 +10176,7 @@ pub struct ISClusNodeNetInterfaces_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusNodes(::windows::runtime::IUnknown);
+pub struct ISClusNodes(pub ::windows::runtime::IUnknown);
 impl ISClusNodes {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -10205,22 +10205,22 @@ unsafe impl ::windows::runtime::Interface for ISClusNodes {
 }
 impl ::std::convert::From<ISClusNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusNodes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusNodes> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusNodes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusNodes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10270,7 +10270,7 @@ pub struct ISClusNodes_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusPartition(::windows::runtime::IUnknown);
+pub struct ISClusPartition(pub ::windows::runtime::IUnknown);
 impl ISClusPartition {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<i32> {
@@ -10317,22 +10317,22 @@ unsafe impl ::windows::runtime::Interface for ISClusPartition {
 }
 impl ::std::convert::From<ISClusPartition> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPartition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusPartition> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusPartition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusPartition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusPartition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusPartition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10387,7 +10387,7 @@ pub struct ISClusPartition_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusPartitionEx(::windows::runtime::IUnknown);
+pub struct ISClusPartitionEx(pub ::windows::runtime::IUnknown);
 impl ISClusPartitionEx {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10481,22 +10481,22 @@ unsafe impl ::windows::runtime::Interface for ISClusPartitionEx {
 }
 impl ::std::convert::From<ISClusPartitionEx> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPartitionEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusPartitionEx> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusPartitionEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusPartitionEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusPartitionEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusPartitionEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISClusPartitionEx> for ISClusPartition {
@@ -10577,7 +10577,7 @@ pub struct ISClusPartitionEx_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusPartitions(::windows::runtime::IUnknown);
+pub struct ISClusPartitions(pub ::windows::runtime::IUnknown);
 impl ISClusPartitions {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -10602,22 +10602,22 @@ unsafe impl ::windows::runtime::Interface for ISClusPartitions {
 }
 impl ::std::convert::From<ISClusPartitions> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPartitions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusPartitions> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusPartitions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusPartitions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusPartitions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusPartitions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10666,7 +10666,7 @@ pub struct ISClusPartitions_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusProperties(::windows::runtime::IUnknown);
+pub struct ISClusProperties(pub ::windows::runtime::IUnknown);
 impl ISClusProperties {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -10736,22 +10736,22 @@ unsafe impl ::windows::runtime::Interface for ISClusProperties {
 }
 impl ::std::convert::From<ISClusProperties> for ::windows::runtime::IUnknown {
     fn from(value: ISClusProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusProperties> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10815,7 +10815,7 @@ pub struct ISClusProperties_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusProperty(::windows::runtime::IUnknown);
+pub struct ISClusProperty(pub ::windows::runtime::IUnknown);
 impl ISClusProperty {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -10902,22 +10902,22 @@ unsafe impl ::windows::runtime::Interface for ISClusProperty {
 }
 impl ::std::convert::From<ISClusProperty> for ::windows::runtime::IUnknown {
     fn from(value: ISClusProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusProperty> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10984,7 +10984,7 @@ pub struct ISClusProperty_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusPropertyValue(::windows::runtime::IUnknown);
+pub struct ISClusPropertyValue(pub ::windows::runtime::IUnknown);
 impl ISClusPropertyValue {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -11037,22 +11037,22 @@ unsafe impl ::windows::runtime::Interface for ISClusPropertyValue {
 }
 impl ::std::convert::From<ISClusPropertyValue> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPropertyValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusPropertyValue> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusPropertyValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusPropertyValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusPropertyValue {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusPropertyValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11108,7 +11108,7 @@ pub struct ISClusPropertyValue_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusPropertyValueData(::windows::runtime::IUnknown);
+pub struct ISClusPropertyValueData(pub ::windows::runtime::IUnknown);
 impl ISClusPropertyValueData {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -11144,22 +11144,22 @@ unsafe impl ::windows::runtime::Interface for ISClusPropertyValueData {
 }
 impl ::std::convert::From<ISClusPropertyValueData> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPropertyValueData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusPropertyValueData> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusPropertyValueData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusPropertyValueData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusPropertyValueData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusPropertyValueData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11212,7 +11212,7 @@ pub struct ISClusPropertyValueData_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusPropertyValues(::windows::runtime::IUnknown);
+pub struct ISClusPropertyValues(pub ::windows::runtime::IUnknown);
 impl ISClusPropertyValues {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -11248,22 +11248,22 @@ unsafe impl ::windows::runtime::Interface for ISClusPropertyValues {
 }
 impl ::std::convert::From<ISClusPropertyValues> for ::windows::runtime::IUnknown {
     fn from(value: ISClusPropertyValues) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusPropertyValues> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusPropertyValues) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusPropertyValues {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusPropertyValues {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusPropertyValues {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11316,7 +11316,7 @@ pub struct ISClusPropertyValues_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusRefObject(::windows::runtime::IUnknown);
+pub struct ISClusRefObject(pub ::windows::runtime::IUnknown);
 impl ISClusRefObject {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Handle(&self) -> ::windows::runtime::Result<usize> {
@@ -11330,22 +11330,22 @@ unsafe impl ::windows::runtime::Interface for ISClusRefObject {
 }
 impl ::std::convert::From<ISClusRefObject> for ::windows::runtime::IUnknown {
     fn from(value: ISClusRefObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusRefObject> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusRefObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusRefObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusRefObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusRefObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11391,7 +11391,7 @@ pub struct ISClusRefObject_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusRegistryKeys(::windows::runtime::IUnknown);
+pub struct ISClusRegistryKeys(pub ::windows::runtime::IUnknown);
 impl ISClusRegistryKeys {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -11430,22 +11430,22 @@ unsafe impl ::windows::runtime::Interface for ISClusRegistryKeys {
 }
 impl ::std::convert::From<ISClusRegistryKeys> for ::windows::runtime::IUnknown {
     fn from(value: ISClusRegistryKeys) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusRegistryKeys> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusRegistryKeys) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusRegistryKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusRegistryKeys {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusRegistryKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11499,7 +11499,7 @@ pub struct ISClusRegistryKeys_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResDependencies(::windows::runtime::IUnknown);
+pub struct ISClusResDependencies(pub ::windows::runtime::IUnknown);
 impl ISClusResDependencies {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -11548,22 +11548,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResDependencies {
 }
 impl ::std::convert::From<ISClusResDependencies> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResDependencies) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResDependencies> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResDependencies) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResDependencies {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResDependencies {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResDependencies {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11620,7 +11620,7 @@ pub struct ISClusResDependencies_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResDependents(::windows::runtime::IUnknown);
+pub struct ISClusResDependents(pub ::windows::runtime::IUnknown);
 impl ISClusResDependents {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -11669,22 +11669,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResDependents {
 }
 impl ::std::convert::From<ISClusResDependents> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResDependents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResDependents> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResDependents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResDependents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResDependents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResDependents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11741,7 +11741,7 @@ pub struct ISClusResDependents_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResGroup(::windows::runtime::IUnknown);
+pub struct ISClusResGroup(pub ::windows::runtime::IUnknown);
 impl ISClusResGroup {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -11833,22 +11833,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResGroup {
 }
 impl ::std::convert::From<ISClusResGroup> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResGroup> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11914,7 +11914,7 @@ pub struct ISClusResGroup_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResGroupPreferredOwnerNodes(::windows::runtime::IUnknown);
+pub struct ISClusResGroupPreferredOwnerNodes(pub ::windows::runtime::IUnknown);
 impl ISClusResGroupPreferredOwnerNodes {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -11966,22 +11966,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResGroupPreferredOwnerNodes 
 }
 impl ::std::convert::From<ISClusResGroupPreferredOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroupPreferredOwnerNodes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResGroupPreferredOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResGroupPreferredOwnerNodes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResGroupPreferredOwnerNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResGroupPreferredOwnerNodes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResGroupPreferredOwnerNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12038,7 +12038,7 @@ pub struct ISClusResGroupPreferredOwnerNodes_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResGroupResources(::windows::runtime::IUnknown);
+pub struct ISClusResGroupResources(pub ::windows::runtime::IUnknown);
 impl ISClusResGroupResources {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12078,22 +12078,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResGroupResources {
 }
 impl ::std::convert::From<ISClusResGroupResources> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroupResources) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResGroupResources> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResGroupResources) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResGroupResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResGroupResources {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResGroupResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12147,7 +12147,7 @@ pub struct ISClusResGroupResources_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResGroups(::windows::runtime::IUnknown);
+pub struct ISClusResGroups(pub ::windows::runtime::IUnknown);
 impl ISClusResGroups {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12187,22 +12187,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResGroups {
 }
 impl ::std::convert::From<ISClusResGroups> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResGroups) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResGroups> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResGroups) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResGroups {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12256,7 +12256,7 @@ pub struct ISClusResGroups_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResPossibleOwnerNodes(::windows::runtime::IUnknown);
+pub struct ISClusResPossibleOwnerNodes(pub ::windows::runtime::IUnknown);
 impl ISClusResPossibleOwnerNodes {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12300,22 +12300,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResPossibleOwnerNodes {
 }
 impl ::std::convert::From<ISClusResPossibleOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResPossibleOwnerNodes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResPossibleOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResPossibleOwnerNodes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResPossibleOwnerNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResPossibleOwnerNodes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResPossibleOwnerNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12370,7 +12370,7 @@ pub struct ISClusResPossibleOwnerNodes_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResType(::windows::runtime::IUnknown);
+pub struct ISClusResType(pub ::windows::runtime::IUnknown);
 impl ISClusResType {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -12429,22 +12429,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResType {
 }
 impl ::std::convert::From<ISClusResType> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResType> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResType {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12500,7 +12500,7 @@ pub struct ISClusResType_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResTypePossibleOwnerNodes(::windows::runtime::IUnknown);
+pub struct ISClusResTypePossibleOwnerNodes(pub ::windows::runtime::IUnknown);
 impl ISClusResTypePossibleOwnerNodes {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12529,22 +12529,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResTypePossibleOwnerNodes {
 }
 impl ::std::convert::From<ISClusResTypePossibleOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResTypePossibleOwnerNodes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResTypePossibleOwnerNodes> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResTypePossibleOwnerNodes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResTypePossibleOwnerNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResTypePossibleOwnerNodes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResTypePossibleOwnerNodes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12594,7 +12594,7 @@ pub struct ISClusResTypePossibleOwnerNodes_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResTypeResources(::windows::runtime::IUnknown);
+pub struct ISClusResTypeResources(pub ::windows::runtime::IUnknown);
 impl ISClusResTypeResources {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12634,22 +12634,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResTypeResources {
 }
 impl ::std::convert::From<ISClusResTypeResources> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResTypeResources) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResTypeResources> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResTypeResources) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResTypeResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResTypeResources {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResTypeResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12703,7 +12703,7 @@ pub struct ISClusResTypeResources_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResTypes(::windows::runtime::IUnknown);
+pub struct ISClusResTypes(pub ::windows::runtime::IUnknown);
 impl ISClusResTypes {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -12743,22 +12743,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResTypes {
 }
 impl ::std::convert::From<ISClusResTypes> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResTypes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResTypes> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResTypes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResTypes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResTypes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResTypes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12812,7 +12812,7 @@ pub struct ISClusResTypes_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResource(::windows::runtime::IUnknown);
+pub struct ISClusResource(pub ::windows::runtime::IUnknown);
 impl ISClusResource {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -12982,22 +12982,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResource {
 }
 impl ::std::convert::From<ISClusResource> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResource> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13083,7 +13083,7 @@ pub struct ISClusResource_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusResources(::windows::runtime::IUnknown);
+pub struct ISClusResources(pub ::windows::runtime::IUnknown);
 impl ISClusResources {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -13123,22 +13123,22 @@ unsafe impl ::windows::runtime::Interface for ISClusResources {
 }
 impl ::std::convert::From<ISClusResources> for ::windows::runtime::IUnknown {
     fn from(value: ISClusResources) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusResources> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusResources) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusResources {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusResources {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13192,7 +13192,7 @@ pub struct ISClusResources_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusScsiAddress(::windows::runtime::IUnknown);
+pub struct ISClusScsiAddress(pub ::windows::runtime::IUnknown);
 impl ISClusScsiAddress {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -13225,22 +13225,22 @@ unsafe impl ::windows::runtime::Interface for ISClusScsiAddress {
 }
 impl ::std::convert::From<ISClusScsiAddress> for ::windows::runtime::IUnknown {
     fn from(value: ISClusScsiAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusScsiAddress> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusScsiAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusScsiAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusScsiAddress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusScsiAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13293,7 +13293,7 @@ pub struct ISClusScsiAddress_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusVersion(::windows::runtime::IUnknown);
+pub struct ISClusVersion(pub ::windows::runtime::IUnknown);
 impl ISClusVersion {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -13356,22 +13356,22 @@ unsafe impl ::windows::runtime::Interface for ISClusVersion {
 }
 impl ::std::convert::From<ISClusVersion> for ::windows::runtime::IUnknown {
     fn from(value: ISClusVersion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusVersion> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusVersion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusVersion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusVersion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusVersion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13430,7 +13430,7 @@ pub struct ISClusVersion_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISCluster(::windows::runtime::IUnknown);
+pub struct ISCluster(pub ::windows::runtime::IUnknown);
 impl ISCluster {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CommonProperties(&self) -> ::windows::runtime::Result<ISClusProperties> {
@@ -13544,22 +13544,22 @@ unsafe impl ::windows::runtime::Interface for ISCluster {
 }
 impl ::std::convert::From<ISCluster> for ::windows::runtime::IUnknown {
     fn from(value: ISCluster) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISCluster> for ::windows::runtime::IUnknown {
     fn from(value: &ISCluster) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCluster {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCluster {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISCluster {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13630,7 +13630,7 @@ pub struct ISCluster_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISClusterNames(::windows::runtime::IUnknown);
+pub struct ISClusterNames(pub ::windows::runtime::IUnknown);
 impl ISClusterNames {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -13665,22 +13665,22 @@ unsafe impl ::windows::runtime::Interface for ISClusterNames {
 }
 impl ::std::convert::From<ISClusterNames> for ::windows::runtime::IUnknown {
     fn from(value: ISClusterNames) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISClusterNames> for ::windows::runtime::IUnknown {
     fn from(value: &ISClusterNames) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISClusterNames {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISClusterNames {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISClusterNames {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13732,7 +13732,7 @@ pub struct ISClusterNames_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISDomainNames(::windows::runtime::IUnknown);
+pub struct ISDomainNames(pub ::windows::runtime::IUnknown);
 impl ISDomainNames {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -13761,22 +13761,22 @@ unsafe impl ::windows::runtime::Interface for ISDomainNames {
 }
 impl ::std::convert::From<ISDomainNames> for ::windows::runtime::IUnknown {
     fn from(value: ISDomainNames) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISDomainNames> for ::windows::runtime::IUnknown {
     fn from(value: &ISDomainNames) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISDomainNames {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISDomainNames {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISDomainNames {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13826,7 +13826,7 @@ pub struct ISDomainNames_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWCContextMenuCallback(::windows::runtime::IUnknown);
+pub struct IWCContextMenuCallback(pub ::windows::runtime::IUnknown);
 impl IWCContextMenuCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -13840,22 +13840,22 @@ unsafe impl ::windows::runtime::Interface for IWCContextMenuCallback {
 }
 impl ::std::convert::From<IWCContextMenuCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWCContextMenuCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWCContextMenuCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IWCContextMenuCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCContextMenuCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWCContextMenuCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCContextMenuCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13870,7 +13870,7 @@ pub struct IWCContextMenuCallback_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWCPropertySheetCallback(::windows::runtime::IUnknown);
+pub struct IWCPropertySheetCallback(pub ::windows::runtime::IUnknown);
 impl IWCPropertySheetCallback {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> ::windows::runtime::Result<()> {
@@ -13883,22 +13883,22 @@ unsafe impl ::windows::runtime::Interface for IWCPropertySheetCallback {
 }
 impl ::std::convert::From<IWCPropertySheetCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWCPropertySheetCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWCPropertySheetCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IWCPropertySheetCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCPropertySheetCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWCPropertySheetCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCPropertySheetCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13912,7 +13912,7 @@ pub struct IWCPropertySheetCallback_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWCWizard97Callback(::windows::runtime::IUnknown);
+pub struct IWCWizard97Callback(pub ::windows::runtime::IUnknown);
 impl IWCWizard97Callback {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> ::windows::runtime::Result<()> {
@@ -13930,22 +13930,22 @@ unsafe impl ::windows::runtime::Interface for IWCWizard97Callback {
 }
 impl ::std::convert::From<IWCWizard97Callback> for ::windows::runtime::IUnknown {
     fn from(value: IWCWizard97Callback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWCWizard97Callback> for ::windows::runtime::IUnknown {
     fn from(value: &IWCWizard97Callback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCWizard97Callback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWCWizard97Callback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCWizard97Callback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13961,7 +13961,7 @@ pub struct IWCWizard97Callback_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWCWizardCallback(::windows::runtime::IUnknown);
+pub struct IWCWizardCallback(pub ::windows::runtime::IUnknown);
 impl IWCWizardCallback {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> ::windows::runtime::Result<()> {
@@ -13979,22 +13979,22 @@ unsafe impl ::windows::runtime::Interface for IWCWizardCallback {
 }
 impl ::std::convert::From<IWCWizardCallback> for ::windows::runtime::IUnknown {
     fn from(value: IWCWizardCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWCWizardCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IWCWizardCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWCWizardCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWCWizardCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWCWizardCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14010,7 +14010,7 @@ pub struct IWCWizardCallback_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWEExtendContextMenu(::windows::runtime::IUnknown);
+pub struct IWEExtendContextMenu(pub ::windows::runtime::IUnknown);
 impl IWEExtendContextMenu {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn AddContextMenuItems<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, IWCContextMenuCallback>>(&self, pidata: Param0, picallback: Param1) -> ::windows::runtime::Result<()> {
@@ -14023,22 +14023,22 @@ unsafe impl ::windows::runtime::Interface for IWEExtendContextMenu {
 }
 impl ::std::convert::From<IWEExtendContextMenu> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendContextMenu) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWEExtendContextMenu> for ::windows::runtime::IUnknown {
     fn from(value: &IWEExtendContextMenu) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWEExtendContextMenu {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWEExtendContextMenu {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWEExtendContextMenu {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14052,7 +14052,7 @@ pub struct IWEExtendContextMenu_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWEExtendPropertySheet(::windows::runtime::IUnknown);
+pub struct IWEExtendPropertySheet(pub ::windows::runtime::IUnknown);
 impl IWEExtendPropertySheet {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CreatePropertySheetPages<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, IWCPropertySheetCallback>>(&self, pidata: Param0, picallback: Param1) -> ::windows::runtime::Result<()> {
@@ -14065,22 +14065,22 @@ unsafe impl ::windows::runtime::Interface for IWEExtendPropertySheet {
 }
 impl ::std::convert::From<IWEExtendPropertySheet> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendPropertySheet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWEExtendPropertySheet> for ::windows::runtime::IUnknown {
     fn from(value: &IWEExtendPropertySheet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWEExtendPropertySheet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWEExtendPropertySheet {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWEExtendPropertySheet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14094,7 +14094,7 @@ pub struct IWEExtendPropertySheet_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWEExtendWizard(::windows::runtime::IUnknown);
+pub struct IWEExtendWizard(pub ::windows::runtime::IUnknown);
 impl IWEExtendWizard {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CreateWizardPages<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, IWCWizardCallback>>(&self, pidata: Param0, picallback: Param1) -> ::windows::runtime::Result<()> {
@@ -14107,22 +14107,22 @@ unsafe impl ::windows::runtime::Interface for IWEExtendWizard {
 }
 impl ::std::convert::From<IWEExtendWizard> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendWizard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWEExtendWizard> for ::windows::runtime::IUnknown {
     fn from(value: &IWEExtendWizard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWEExtendWizard {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWEExtendWizard {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWEExtendWizard {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14136,7 +14136,7 @@ pub struct IWEExtendWizard_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWEExtendWizard97(::windows::runtime::IUnknown);
+pub struct IWEExtendWizard97(pub ::windows::runtime::IUnknown);
 impl IWEExtendWizard97 {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn CreateWizard97Pages<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, IWCWizard97Callback>>(&self, pidata: Param0, picallback: Param1) -> ::windows::runtime::Result<()> {
@@ -14149,22 +14149,22 @@ unsafe impl ::windows::runtime::Interface for IWEExtendWizard97 {
 }
 impl ::std::convert::From<IWEExtendWizard97> for ::windows::runtime::IUnknown {
     fn from(value: IWEExtendWizard97) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWEExtendWizard97> for ::windows::runtime::IUnknown {
     fn from(value: &IWEExtendWizard97) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWEExtendWizard97 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWEExtendWizard97 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWEExtendWizard97 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14178,7 +14178,7 @@ pub struct IWEExtendWizard97_abi(
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWEInvokeCommand(::windows::runtime::IUnknown);
+pub struct IWEInvokeCommand(pub ::windows::runtime::IUnknown);
 impl IWEInvokeCommand {
     #[doc = "*Required features: `Win32_Networking_Clustering`*"]
     pub unsafe fn InvokeCommand<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, ncommandid: u32, pidata: Param1) -> ::windows::runtime::Result<()> {
@@ -14191,22 +14191,22 @@ unsafe impl ::windows::runtime::Interface for IWEInvokeCommand {
 }
 impl ::std::convert::From<IWEInvokeCommand> for ::windows::runtime::IUnknown {
     fn from(value: IWEInvokeCommand) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWEInvokeCommand> for ::windows::runtime::IUnknown {
     fn from(value: &IWEInvokeCommand) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWEInvokeCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWEInvokeCommand {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWEInvokeCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

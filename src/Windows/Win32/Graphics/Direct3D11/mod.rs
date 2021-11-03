@@ -12657,7 +12657,7 @@ pub const DXGI_DEBUG_D3D11: ::windows::runtime::GUID = ::windows::runtime::GUID:
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Asynchronous(::windows::runtime::IUnknown);
+pub struct ID3D11Asynchronous(pub ::windows::runtime::IUnknown);
 impl ID3D11Asynchronous {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -12686,22 +12686,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Asynchronous {
 }
 impl ::std::convert::From<ID3D11Asynchronous> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Asynchronous) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Asynchronous> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Asynchronous) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Asynchronous {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Asynchronous {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Asynchronous {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Asynchronous> for ID3D11DeviceChild {
@@ -12739,7 +12739,7 @@ pub struct ID3D11Asynchronous_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11AuthenticatedChannel(::windows::runtime::IUnknown);
+pub struct ID3D11AuthenticatedChannel(pub ::windows::runtime::IUnknown);
 impl ID3D11AuthenticatedChannel {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -12779,22 +12779,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11AuthenticatedChannel {
 }
 impl ::std::convert::From<ID3D11AuthenticatedChannel> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11AuthenticatedChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11AuthenticatedChannel> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11AuthenticatedChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11AuthenticatedChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11AuthenticatedChannel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11AuthenticatedChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11AuthenticatedChannel> for ID3D11DeviceChild {
@@ -12835,7 +12835,7 @@ pub struct ID3D11AuthenticatedChannel_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11BlendState(::windows::runtime::IUnknown);
+pub struct ID3D11BlendState(pub ::windows::runtime::IUnknown);
 impl ID3D11BlendState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -12865,22 +12865,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11BlendState {
 }
 impl ::std::convert::From<ID3D11BlendState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11BlendState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11BlendState> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11BlendState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11BlendState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11BlendState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11BlendState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11BlendState> for ID3D11DeviceChild {
@@ -12919,7 +12919,7 @@ pub struct ID3D11BlendState_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11BlendState1(::windows::runtime::IUnknown);
+pub struct ID3D11BlendState1(pub ::windows::runtime::IUnknown);
 impl ID3D11BlendState1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -12954,22 +12954,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11BlendState1 {
 }
 impl ::std::convert::From<ID3D11BlendState1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11BlendState1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11BlendState1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11BlendState1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11BlendState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11BlendState1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11BlendState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11BlendState1> for ID3D11BlendState {
@@ -13030,7 +13030,7 @@ pub struct ID3D11BlendState1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Buffer(::windows::runtime::IUnknown);
+pub struct ID3D11Buffer(pub ::windows::runtime::IUnknown);
 impl ID3D11Buffer {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13071,22 +13071,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Buffer {
 }
 impl ::std::convert::From<ID3D11Buffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Buffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Buffer> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Buffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Buffer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Buffer> for ID3D11Resource {
@@ -13147,7 +13147,7 @@ pub struct ID3D11Buffer_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ClassInstance(::windows::runtime::IUnknown);
+pub struct ID3D11ClassInstance(pub ::windows::runtime::IUnknown);
 impl ID3D11ClassInstance {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13191,22 +13191,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ClassInstance {
 }
 impl ::std::convert::From<ID3D11ClassInstance> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ClassInstance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ClassInstance> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ClassInstance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ClassInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ClassInstance {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ClassInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11ClassInstance> for ID3D11DeviceChild {
@@ -13250,7 +13250,7 @@ pub struct ID3D11ClassInstance_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ClassLinkage(::windows::runtime::IUnknown);
+pub struct ID3D11ClassLinkage(pub ::windows::runtime::IUnknown);
 impl ID3D11ClassLinkage {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13287,22 +13287,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ClassLinkage {
 }
 impl ::std::convert::From<ID3D11ClassLinkage> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ClassLinkage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ClassLinkage> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ClassLinkage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ClassLinkage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ClassLinkage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ClassLinkage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11ClassLinkage> for ID3D11DeviceChild {
@@ -13343,7 +13343,7 @@ pub struct ID3D11ClassLinkage_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11CommandList(::windows::runtime::IUnknown);
+pub struct ID3D11CommandList(pub ::windows::runtime::IUnknown);
 impl ID3D11CommandList {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13372,22 +13372,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11CommandList {
 }
 impl ::std::convert::From<ID3D11CommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11CommandList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11CommandList> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11CommandList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11CommandList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11CommandList> for ID3D11DeviceChild {
@@ -13425,7 +13425,7 @@ pub struct ID3D11CommandList_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ComputeShader(::windows::runtime::IUnknown);
+pub struct ID3D11ComputeShader(pub ::windows::runtime::IUnknown);
 impl ID3D11ComputeShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13450,22 +13450,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ComputeShader {
 }
 impl ::std::convert::From<ID3D11ComputeShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ComputeShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ComputeShader> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ComputeShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ComputeShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ComputeShader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ComputeShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11ComputeShader> for ID3D11DeviceChild {
@@ -13502,7 +13502,7 @@ pub struct ID3D11ComputeShader_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Counter(::windows::runtime::IUnknown);
+pub struct ID3D11Counter(pub ::windows::runtime::IUnknown);
 impl ID3D11Counter {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13535,22 +13535,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Counter {
 }
 impl ::std::convert::From<ID3D11Counter> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Counter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Counter> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Counter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Counter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Counter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Counter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Counter> for ID3D11Asynchronous {
@@ -13609,7 +13609,7 @@ pub struct ID3D11Counter_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11CryptoSession(::windows::runtime::IUnknown);
+pub struct ID3D11CryptoSession(pub ::windows::runtime::IUnknown);
 impl ID3D11CryptoSession {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13657,22 +13657,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11CryptoSession {
 }
 impl ::std::convert::From<ID3D11CryptoSession> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11CryptoSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11CryptoSession> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11CryptoSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11CryptoSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11CryptoSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11CryptoSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11CryptoSession> for ID3D11DeviceChild {
@@ -13715,7 +13715,7 @@ pub struct ID3D11CryptoSession_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Debug(::windows::runtime::IUnknown);
+pub struct ID3D11Debug(pub ::windows::runtime::IUnknown);
 impl ID3D11Debug {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetFeatureMask(&self, mask: u32) -> ::windows::runtime::Result<()> {
@@ -13763,22 +13763,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Debug {
 }
 impl ::std::convert::From<ID3D11Debug> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Debug) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Debug> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Debug) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Debug {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Debug {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Debug {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -13802,7 +13802,7 @@ pub struct ID3D11Debug_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DepthStencilState(::windows::runtime::IUnknown);
+pub struct ID3D11DepthStencilState(pub ::windows::runtime::IUnknown);
 impl ID3D11DepthStencilState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13832,22 +13832,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DepthStencilState {
 }
 impl ::std::convert::From<ID3D11DepthStencilState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DepthStencilState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DepthStencilState> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DepthStencilState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DepthStencilState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DepthStencilState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DepthStencilState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DepthStencilState> for ID3D11DeviceChild {
@@ -13886,7 +13886,7 @@ pub struct ID3D11DepthStencilState_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DepthStencilView(::windows::runtime::IUnknown);
+pub struct ID3D11DepthStencilView(pub ::windows::runtime::IUnknown);
 impl ID3D11DepthStencilView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -13920,22 +13920,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DepthStencilView {
 }
 impl ::std::convert::From<ID3D11DepthStencilView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DepthStencilView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DepthStencilView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DepthStencilView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DepthStencilView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DepthStencilView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DepthStencilView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DepthStencilView> for ID3D11View {
@@ -13995,7 +13995,7 @@ pub struct ID3D11DepthStencilView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Device(::windows::runtime::IUnknown);
+pub struct ID3D11Device(pub ::windows::runtime::IUnknown);
 impl ID3D11Device {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D11Buffer> {
@@ -14231,22 +14231,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Device {
 }
 impl ::std::convert::From<ID3D11Device> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Device> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Device) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Device {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Device {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Device {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -14315,7 +14315,7 @@ pub struct ID3D11Device_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Device1(::windows::runtime::IUnknown);
+pub struct ID3D11Device1(pub ::windows::runtime::IUnknown);
 impl ID3D11Device1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D11Buffer> {
@@ -14588,22 +14588,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Device1 {
 }
 impl ::std::convert::From<ID3D11Device1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Device1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Device1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Device1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Device1> for ID3D11Device {
@@ -14703,7 +14703,7 @@ pub struct ID3D11Device1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Device2(::windows::runtime::IUnknown);
+pub struct ID3D11Device2(pub ::windows::runtime::IUnknown);
 impl ID3D11Device2 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D11Buffer> {
@@ -15004,22 +15004,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Device2 {
 }
 impl ::std::convert::From<ID3D11Device2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Device2> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Device2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Device2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Device2> for ID3D11Device1 {
@@ -15144,7 +15144,7 @@ pub struct ID3D11Device2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Device3(::windows::runtime::IUnknown);
+pub struct ID3D11Device3(pub ::windows::runtime::IUnknown);
 impl ID3D11Device3 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D11Buffer> {
@@ -15503,22 +15503,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Device3 {
 }
 impl ::std::convert::From<ID3D11Device3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Device3> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Device3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Device3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Device3> for ID3D11Device2 {
@@ -15680,7 +15680,7 @@ pub struct ID3D11Device3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Device4(::windows::runtime::IUnknown);
+pub struct ID3D11Device4(pub ::windows::runtime::IUnknown);
 impl ID3D11Device4 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D11Buffer> {
@@ -16049,22 +16049,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Device4 {
 }
 impl ::std::convert::From<ID3D11Device4> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Device4> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Device4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Device4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Device4> for ID3D11Device3 {
@@ -16249,7 +16249,7 @@ pub struct ID3D11Device4_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Device5(::windows::runtime::IUnknown);
+pub struct ID3D11Device5(pub ::windows::runtime::IUnknown);
 impl ID3D11Device5 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D11Buffer> {
@@ -16627,22 +16627,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Device5 {
 }
 impl ::std::convert::From<ID3D11Device5> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Device5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Device5> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Device5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Device5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Device5> for ID3D11Device4 {
@@ -16850,7 +16850,7 @@ pub struct ID3D11Device5_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DeviceChild(::windows::runtime::IUnknown);
+pub struct ID3D11DeviceChild(pub ::windows::runtime::IUnknown);
 impl ID3D11DeviceChild {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -16875,22 +16875,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DeviceChild {
 }
 impl ::std::convert::From<ID3D11DeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceChild) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DeviceChild) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DeviceChild {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -16907,7 +16907,7 @@ pub struct ID3D11DeviceChild_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DeviceContext(::windows::runtime::IUnknown);
+pub struct ID3D11DeviceContext(pub ::windows::runtime::IUnknown);
 impl ID3D11DeviceContext {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -17402,22 +17402,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext {
 }
 impl ::std::convert::From<ID3D11DeviceContext> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DeviceContext> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DeviceContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DeviceContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext> for ID3D11DeviceChild {
@@ -17571,7 +17571,7 @@ pub struct ID3D11DeviceContext_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DeviceContext1(::windows::runtime::IUnknown);
+pub struct ID3D11DeviceContext1(pub ::windows::runtime::IUnknown);
 impl ID3D11DeviceContext1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -18164,22 +18164,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext1 {
 }
 impl ::std::convert::From<ID3D11DeviceContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DeviceContext1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DeviceContext1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DeviceContext1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext1> for ID3D11DeviceContext {
@@ -18374,7 +18374,7 @@ pub struct ID3D11DeviceContext1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DeviceContext2(::windows::runtime::IUnknown);
+pub struct ID3D11DeviceContext2(pub ::windows::runtime::IUnknown);
 impl ID3D11DeviceContext2 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -19047,22 +19047,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext2 {
 }
 impl ::std::convert::From<ID3D11DeviceContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DeviceContext2> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DeviceContext2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DeviceContext2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext2> for ID3D11DeviceContext1 {
@@ -19295,7 +19295,7 @@ pub struct ID3D11DeviceContext2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DeviceContext3(::windows::runtime::IUnknown);
+pub struct ID3D11DeviceContext3(pub ::windows::runtime::IUnknown);
 impl ID3D11DeviceContext3 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -19983,22 +19983,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext3 {
 }
 impl ::std::convert::From<ID3D11DeviceContext3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DeviceContext3> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DeviceContext3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DeviceContext3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext2 {
@@ -20257,7 +20257,7 @@ pub struct ID3D11DeviceContext3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DeviceContext4(::windows::runtime::IUnknown);
+pub struct ID3D11DeviceContext4(pub ::windows::runtime::IUnknown);
 impl ID3D11DeviceContext4 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -20953,22 +20953,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DeviceContext4 {
 }
 impl ::std::convert::From<ID3D11DeviceContext4> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DeviceContext4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DeviceContext4> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DeviceContext4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DeviceContext4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext3 {
@@ -21249,7 +21249,7 @@ pub struct ID3D11DeviceContext4_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11DomainShader(::windows::runtime::IUnknown);
+pub struct ID3D11DomainShader(pub ::windows::runtime::IUnknown);
 impl ID3D11DomainShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -21274,22 +21274,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11DomainShader {
 }
 impl ::std::convert::From<ID3D11DomainShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11DomainShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11DomainShader> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11DomainShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11DomainShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11DomainShader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11DomainShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11DomainShader> for ID3D11DeviceChild {
@@ -21326,7 +21326,7 @@ pub struct ID3D11DomainShader_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Fence(::windows::runtime::IUnknown);
+pub struct ID3D11Fence(pub ::windows::runtime::IUnknown);
 impl ID3D11Fence {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -21366,22 +21366,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Fence {
 }
 impl ::std::convert::From<ID3D11Fence> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Fence) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Fence> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Fence) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Fence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Fence {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Fence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Fence> for ID3D11DeviceChild {
@@ -21423,7 +21423,7 @@ pub struct ID3D11Fence_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11FunctionLinkingGraph(::windows::runtime::IUnknown);
+pub struct ID3D11FunctionLinkingGraph(pub ::windows::runtime::IUnknown);
 impl ID3D11FunctionLinkingGraph {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateModuleInstance(&self, ppmoduleinstance: *mut ::std::option::Option<ID3D11ModuleInstance>, pperrorbuffer: *mut ::std::option::Option<ID3DBlob>) -> ::windows::runtime::Result<()> {
@@ -21473,22 +21473,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11FunctionLinkingGraph {
 }
 impl ::std::convert::From<ID3D11FunctionLinkingGraph> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11FunctionLinkingGraph) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11FunctionLinkingGraph> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11FunctionLinkingGraph) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11FunctionLinkingGraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11FunctionLinkingGraph {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11FunctionLinkingGraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -21513,7 +21513,7 @@ pub struct ID3D11FunctionLinkingGraph_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11FunctionParameterReflection(::windows::runtime::IUnknown);
+pub struct ID3D11FunctionParameterReflection(pub ::windows::runtime::IUnknown);
 impl ID3D11FunctionParameterReflection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -21528,22 +21528,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11FunctionParameterReflection 
 }
 impl ::std::convert::From<ID3D11FunctionParameterReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11FunctionParameterReflection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11FunctionParameterReflection> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11FunctionParameterReflection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11FunctionParameterReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11FunctionParameterReflection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11FunctionParameterReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -21558,7 +21558,7 @@ pub struct ID3D11FunctionParameterReflection_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11FunctionReflection(::windows::runtime::IUnknown);
+pub struct ID3D11FunctionReflection(pub ::windows::runtime::IUnknown);
 impl ID3D11FunctionReflection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -21603,22 +21603,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11FunctionReflection {
 }
 impl ::std::convert::From<ID3D11FunctionReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11FunctionReflection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11FunctionReflection> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11FunctionReflection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11FunctionReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11FunctionReflection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11FunctionReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -21643,7 +21643,7 @@ pub struct ID3D11FunctionReflection_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11GeometryShader(::windows::runtime::IUnknown);
+pub struct ID3D11GeometryShader(pub ::windows::runtime::IUnknown);
 impl ID3D11GeometryShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -21668,22 +21668,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11GeometryShader {
 }
 impl ::std::convert::From<ID3D11GeometryShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11GeometryShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11GeometryShader> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11GeometryShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11GeometryShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11GeometryShader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11GeometryShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11GeometryShader> for ID3D11DeviceChild {
@@ -21720,7 +21720,7 @@ pub struct ID3D11GeometryShader_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11HullShader(::windows::runtime::IUnknown);
+pub struct ID3D11HullShader(pub ::windows::runtime::IUnknown);
 impl ID3D11HullShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -21745,22 +21745,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11HullShader {
 }
 impl ::std::convert::From<ID3D11HullShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11HullShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11HullShader> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11HullShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11HullShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11HullShader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11HullShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11HullShader> for ID3D11DeviceChild {
@@ -21797,7 +21797,7 @@ pub struct ID3D11HullShader_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11InfoQueue(::windows::runtime::IUnknown);
+pub struct ID3D11InfoQueue(pub ::windows::runtime::IUnknown);
 impl ID3D11InfoQueue {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows::runtime::Result<()> {
@@ -21956,22 +21956,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11InfoQueue {
 }
 impl ::std::convert::From<ID3D11InfoQueue> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11InfoQueue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11InfoQueue> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11InfoQueue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11InfoQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11InfoQueue {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11InfoQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22029,7 +22029,7 @@ pub struct ID3D11InfoQueue_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11InputLayout(::windows::runtime::IUnknown);
+pub struct ID3D11InputLayout(pub ::windows::runtime::IUnknown);
 impl ID3D11InputLayout {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -22054,22 +22054,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11InputLayout {
 }
 impl ::std::convert::From<ID3D11InputLayout> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11InputLayout) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11InputLayout> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11InputLayout) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11InputLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11InputLayout {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11InputLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11InputLayout> for ID3D11DeviceChild {
@@ -22106,7 +22106,7 @@ pub struct ID3D11InputLayout_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11LibraryReflection(::windows::runtime::IUnknown);
+pub struct ID3D11LibraryReflection(pub ::windows::runtime::IUnknown);
 impl ID3D11LibraryReflection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -22125,22 +22125,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11LibraryReflection {
 }
 impl ::std::convert::From<ID3D11LibraryReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11LibraryReflection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11LibraryReflection> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11LibraryReflection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11LibraryReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11LibraryReflection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11LibraryReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22156,7 +22156,7 @@ pub struct ID3D11LibraryReflection_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Linker(::windows::runtime::IUnknown);
+pub struct ID3D11Linker(pub ::windows::runtime::IUnknown);
 impl ID3D11Linker {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -22178,22 +22178,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Linker {
 }
 impl ::std::convert::From<ID3D11Linker> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Linker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Linker> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Linker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Linker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Linker {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Linker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22210,7 +22210,7 @@ pub struct ID3D11Linker_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11LinkingNode(::windows::runtime::IUnknown);
+pub struct ID3D11LinkingNode(pub ::windows::runtime::IUnknown);
 impl ID3D11LinkingNode {}
 unsafe impl ::windows::runtime::Interface for ID3D11LinkingNode {
     type Vtable = ID3D11LinkingNode_abi;
@@ -22218,22 +22218,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11LinkingNode {
 }
 impl ::std::convert::From<ID3D11LinkingNode> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11LinkingNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11LinkingNode> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11LinkingNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11LinkingNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11LinkingNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11LinkingNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22246,7 +22246,7 @@ pub struct ID3D11LinkingNode_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Module(::windows::runtime::IUnknown);
+pub struct ID3D11Module(pub ::windows::runtime::IUnknown);
 impl ID3D11Module {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -22261,22 +22261,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Module {
 }
 impl ::std::convert::From<ID3D11Module> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Module) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Module> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Module) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Module {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Module {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Module {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22291,7 +22291,7 @@ pub struct ID3D11Module_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ModuleInstance(::windows::runtime::IUnknown);
+pub struct ID3D11ModuleInstance(pub ::windows::runtime::IUnknown);
 impl ID3D11ModuleInstance {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn BindConstantBuffer(&self, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> ::windows::runtime::Result<()> {
@@ -22345,22 +22345,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ModuleInstance {
 }
 impl ::std::convert::From<ID3D11ModuleInstance> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ModuleInstance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ModuleInstance> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ModuleInstance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ModuleInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ModuleInstance {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ModuleInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22388,7 +22388,7 @@ pub struct ID3D11ModuleInstance_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Multithread(::windows::runtime::IUnknown);
+pub struct ID3D11Multithread(pub ::windows::runtime::IUnknown);
 impl ID3D11Multithread {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn Enter(&self) {
@@ -22415,22 +22415,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Multithread {
 }
 impl ::std::convert::From<ID3D11Multithread> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Multithread) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Multithread> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Multithread) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Multithread {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Multithread {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Multithread {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22449,7 +22449,7 @@ pub struct ID3D11Multithread_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11PixelShader(::windows::runtime::IUnknown);
+pub struct ID3D11PixelShader(pub ::windows::runtime::IUnknown);
 impl ID3D11PixelShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -22474,22 +22474,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11PixelShader {
 }
 impl ::std::convert::From<ID3D11PixelShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11PixelShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11PixelShader> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11PixelShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11PixelShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11PixelShader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11PixelShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11PixelShader> for ID3D11DeviceChild {
@@ -22526,7 +22526,7 @@ pub struct ID3D11PixelShader_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Predicate(::windows::runtime::IUnknown);
+pub struct ID3D11Predicate(pub ::windows::runtime::IUnknown);
 impl ID3D11Predicate {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -22559,22 +22559,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Predicate {
 }
 impl ::std::convert::From<ID3D11Predicate> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Predicate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Predicate> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Predicate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Predicate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Predicate> for ID3D11Query {
@@ -22653,7 +22653,7 @@ pub struct ID3D11Predicate_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Query(::windows::runtime::IUnknown);
+pub struct ID3D11Query(pub ::windows::runtime::IUnknown);
 impl ID3D11Query {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -22686,22 +22686,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Query {
 }
 impl ::std::convert::From<ID3D11Query> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Query) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Query> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Query) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Query {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Query {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Query {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Query> for ID3D11Asynchronous {
@@ -22760,7 +22760,7 @@ pub struct ID3D11Query_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Query1(::windows::runtime::IUnknown);
+pub struct ID3D11Query1(pub ::windows::runtime::IUnknown);
 impl ID3D11Query1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -22797,22 +22797,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Query1 {
 }
 impl ::std::convert::From<ID3D11Query1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Query1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Query1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Query1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Query1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Query1> for ID3D11Query {
@@ -22892,7 +22892,7 @@ pub struct ID3D11Query1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RasterizerState(::windows::runtime::IUnknown);
+pub struct ID3D11RasterizerState(pub ::windows::runtime::IUnknown);
 impl ID3D11RasterizerState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -22922,22 +22922,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RasterizerState {
 }
 impl ::std::convert::From<ID3D11RasterizerState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RasterizerState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RasterizerState> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RasterizerState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RasterizerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RasterizerState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RasterizerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11RasterizerState> for ID3D11DeviceChild {
@@ -22976,7 +22976,7 @@ pub struct ID3D11RasterizerState_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RasterizerState1(::windows::runtime::IUnknown);
+pub struct ID3D11RasterizerState1(pub ::windows::runtime::IUnknown);
 impl ID3D11RasterizerState1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -23011,22 +23011,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RasterizerState1 {
 }
 impl ::std::convert::From<ID3D11RasterizerState1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RasterizerState1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RasterizerState1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RasterizerState1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RasterizerState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RasterizerState1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RasterizerState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11RasterizerState1> for ID3D11RasterizerState {
@@ -23087,7 +23087,7 @@ pub struct ID3D11RasterizerState1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RasterizerState2(::windows::runtime::IUnknown);
+pub struct ID3D11RasterizerState2(pub ::windows::runtime::IUnknown);
 impl ID3D11RasterizerState2 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -23127,22 +23127,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RasterizerState2 {
 }
 impl ::std::convert::From<ID3D11RasterizerState2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RasterizerState2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RasterizerState2> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RasterizerState2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RasterizerState2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11RasterizerState2> for ID3D11RasterizerState1 {
@@ -23225,7 +23225,7 @@ pub struct ID3D11RasterizerState2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RefDefaultTrackingOptions(::windows::runtime::IUnknown);
+pub struct ID3D11RefDefaultTrackingOptions(pub ::windows::runtime::IUnknown);
 impl ID3D11RefDefaultTrackingOptions {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetTrackingOptions(&self, resourcetypeflags: u32, options: u32) -> ::windows::runtime::Result<()> {
@@ -23238,22 +23238,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RefDefaultTrackingOptions {
 }
 impl ::std::convert::From<ID3D11RefDefaultTrackingOptions> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RefDefaultTrackingOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RefDefaultTrackingOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RefDefaultTrackingOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RefDefaultTrackingOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RefDefaultTrackingOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RefDefaultTrackingOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -23267,7 +23267,7 @@ pub struct ID3D11RefDefaultTrackingOptions_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RefTrackingOptions(::windows::runtime::IUnknown);
+pub struct ID3D11RefTrackingOptions(pub ::windows::runtime::IUnknown);
 impl ID3D11RefTrackingOptions {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetTrackingOptions(&self, uoptions: u32) -> ::windows::runtime::Result<()> {
@@ -23280,22 +23280,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RefTrackingOptions {
 }
 impl ::std::convert::From<ID3D11RefTrackingOptions> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RefTrackingOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RefTrackingOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RefTrackingOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RefTrackingOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RefTrackingOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RefTrackingOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -23309,7 +23309,7 @@ pub struct ID3D11RefTrackingOptions_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RenderTargetView(::windows::runtime::IUnknown);
+pub struct ID3D11RenderTargetView(pub ::windows::runtime::IUnknown);
 impl ID3D11RenderTargetView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -23343,22 +23343,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RenderTargetView {
 }
 impl ::std::convert::From<ID3D11RenderTargetView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RenderTargetView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RenderTargetView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RenderTargetView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RenderTargetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RenderTargetView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RenderTargetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11RenderTargetView> for ID3D11View {
@@ -23418,7 +23418,7 @@ pub struct ID3D11RenderTargetView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11RenderTargetView1(::windows::runtime::IUnknown);
+pub struct ID3D11RenderTargetView1(pub ::windows::runtime::IUnknown);
 impl ID3D11RenderTargetView1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -23457,22 +23457,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11RenderTargetView1 {
 }
 impl ::std::convert::From<ID3D11RenderTargetView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11RenderTargetView1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11RenderTargetView1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11RenderTargetView1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11RenderTargetView1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11RenderTargetView1> for ID3D11RenderTargetView {
@@ -23554,7 +23554,7 @@ pub struct ID3D11RenderTargetView1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Resource(::windows::runtime::IUnknown);
+pub struct ID3D11Resource(pub ::windows::runtime::IUnknown);
 impl ID3D11Resource {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -23591,22 +23591,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Resource {
 }
 impl ::std::convert::From<ID3D11Resource> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Resource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Resource> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Resource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Resource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Resource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Resource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Resource> for ID3D11DeviceChild {
@@ -23646,7 +23646,7 @@ pub struct ID3D11Resource_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11SamplerState(::windows::runtime::IUnknown);
+pub struct ID3D11SamplerState(pub ::windows::runtime::IUnknown);
 impl ID3D11SamplerState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -23675,22 +23675,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11SamplerState {
 }
 impl ::std::convert::From<ID3D11SamplerState> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11SamplerState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11SamplerState> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11SamplerState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11SamplerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11SamplerState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11SamplerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11SamplerState> for ID3D11DeviceChild {
@@ -23728,7 +23728,7 @@ pub struct ID3D11SamplerState_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderReflection(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderReflection(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderReflection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -23829,22 +23829,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflection {
 }
 impl ::std::convert::From<ID3D11ShaderReflection> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderReflection> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderReflection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderReflection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderReflection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -23885,7 +23885,7 @@ pub struct ID3D11ShaderReflection_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderReflectionConstantBuffer(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderReflectionConstantBuffer(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderReflectionConstantBuffer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -23908,22 +23908,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflectionConstantBuff
 }
 impl ::std::convert::From<ID3D11ShaderReflectionConstantBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflectionConstantBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderReflectionConstantBuffer> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderReflectionConstantBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderReflectionConstantBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderReflectionConstantBuffer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderReflectionConstantBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -23941,7 +23941,7 @@ pub struct ID3D11ShaderReflectionConstantBuffer_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderReflectionType(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderReflectionType(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderReflectionType {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -23998,22 +23998,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflectionType {
 }
 impl ::std::convert::From<ID3D11ShaderReflectionType> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflectionType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderReflectionType> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderReflectionType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderReflectionType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderReflectionType {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderReflectionType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -24040,7 +24040,7 @@ pub struct ID3D11ShaderReflectionType_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderReflectionVariable(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderReflectionVariable(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderReflectionVariable {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -24067,22 +24067,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderReflectionVariable {
 }
 impl ::std::convert::From<ID3D11ShaderReflectionVariable> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderReflectionVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderReflectionVariable> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderReflectionVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderReflectionVariable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderReflectionVariable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderReflectionVariable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -24100,7 +24100,7 @@ pub struct ID3D11ShaderReflectionVariable_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderResourceView(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderResourceView(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderResourceView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -24134,22 +24134,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderResourceView {
 }
 impl ::std::convert::From<ID3D11ShaderResourceView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderResourceView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderResourceView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderResourceView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderResourceView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderResourceView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderResourceView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11ShaderResourceView> for ID3D11View {
@@ -24209,7 +24209,7 @@ pub struct ID3D11ShaderResourceView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderResourceView1(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderResourceView1(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderResourceView1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -24248,22 +24248,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderResourceView1 {
 }
 impl ::std::convert::From<ID3D11ShaderResourceView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderResourceView1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderResourceView1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderResourceView1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderResourceView1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11ShaderResourceView1> for ID3D11ShaderResourceView {
@@ -24345,7 +24345,7 @@ pub struct ID3D11ShaderResourceView1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderTrace(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderTrace(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderTrace {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn TraceReady(&self) -> ::windows::runtime::Result<u64> {
@@ -24392,22 +24392,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderTrace {
 }
 impl ::std::convert::From<ID3D11ShaderTrace> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderTrace) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderTrace> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderTrace) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderTrace {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderTrace {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderTrace {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -24430,7 +24430,7 @@ pub struct ID3D11ShaderTrace_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11ShaderTraceFactory(::windows::runtime::IUnknown);
+pub struct ID3D11ShaderTraceFactory(pub ::windows::runtime::IUnknown);
 impl ID3D11ShaderTraceFactory {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn CreateShaderTrace<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pshader: Param0, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> ::windows::runtime::Result<ID3D11ShaderTrace> {
@@ -24444,22 +24444,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11ShaderTraceFactory {
 }
 impl ::std::convert::From<ID3D11ShaderTraceFactory> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11ShaderTraceFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11ShaderTraceFactory> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11ShaderTraceFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11ShaderTraceFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11ShaderTraceFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11ShaderTraceFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -24473,7 +24473,7 @@ pub struct ID3D11ShaderTraceFactory_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11SwitchToRef(::windows::runtime::IUnknown);
+pub struct ID3D11SwitchToRef(pub ::windows::runtime::IUnknown);
 impl ID3D11SwitchToRef {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -24492,22 +24492,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11SwitchToRef {
 }
 impl ::std::convert::From<ID3D11SwitchToRef> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11SwitchToRef) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11SwitchToRef> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11SwitchToRef) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11SwitchToRef {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11SwitchToRef {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11SwitchToRef {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -24524,7 +24524,7 @@ pub struct ID3D11SwitchToRef_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Texture1D(::windows::runtime::IUnknown);
+pub struct ID3D11Texture1D(pub ::windows::runtime::IUnknown);
 impl ID3D11Texture1D {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -24566,22 +24566,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Texture1D {
 }
 impl ::std::convert::From<ID3D11Texture1D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture1D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Texture1D> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Texture1D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Texture1D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Texture1D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Texture1D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Texture1D> for ID3D11Resource {
@@ -24643,7 +24643,7 @@ pub struct ID3D11Texture1D_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Texture2D(::windows::runtime::IUnknown);
+pub struct ID3D11Texture2D(pub ::windows::runtime::IUnknown);
 impl ID3D11Texture2D {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -24685,22 +24685,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Texture2D {
 }
 impl ::std::convert::From<ID3D11Texture2D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture2D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Texture2D> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Texture2D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Texture2D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Texture2D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Texture2D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Texture2D> for ID3D11Resource {
@@ -24762,7 +24762,7 @@ pub struct ID3D11Texture2D_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Texture2D1(::windows::runtime::IUnknown);
+pub struct ID3D11Texture2D1(pub ::windows::runtime::IUnknown);
 impl ID3D11Texture2D1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -24809,22 +24809,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Texture2D1 {
 }
 impl ::std::convert::From<ID3D11Texture2D1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture2D1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Texture2D1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Texture2D1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Texture2D1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Texture2D1> for ID3D11Texture2D {
@@ -24908,7 +24908,7 @@ pub struct ID3D11Texture2D1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Texture3D(::windows::runtime::IUnknown);
+pub struct ID3D11Texture3D(pub ::windows::runtime::IUnknown);
 impl ID3D11Texture3D {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -24950,22 +24950,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Texture3D {
 }
 impl ::std::convert::From<ID3D11Texture3D> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Texture3D> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Texture3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Texture3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Texture3D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Texture3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Texture3D> for ID3D11Resource {
@@ -25027,7 +25027,7 @@ pub struct ID3D11Texture3D_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11Texture3D1(::windows::runtime::IUnknown);
+pub struct ID3D11Texture3D1(pub ::windows::runtime::IUnknown);
 impl ID3D11Texture3D1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -25074,22 +25074,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11Texture3D1 {
 }
 impl ::std::convert::From<ID3D11Texture3D1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11Texture3D1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11Texture3D1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11Texture3D1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11Texture3D1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11Texture3D1> for ID3D11Texture3D {
@@ -25173,7 +25173,7 @@ pub struct ID3D11Texture3D1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11TracingDevice(::windows::runtime::IUnknown);
+pub struct ID3D11TracingDevice(pub ::windows::runtime::IUnknown);
 impl ID3D11TracingDevice {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetShaderTrackingOptionsByType(&self, resourcetypeflags: u32, options: u32) -> ::windows::runtime::Result<()> {
@@ -25190,22 +25190,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11TracingDevice {
 }
 impl ::std::convert::From<ID3D11TracingDevice> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11TracingDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11TracingDevice> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11TracingDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11TracingDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11TracingDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11TracingDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -25220,7 +25220,7 @@ pub struct ID3D11TracingDevice_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11UnorderedAccessView(::windows::runtime::IUnknown);
+pub struct ID3D11UnorderedAccessView(pub ::windows::runtime::IUnknown);
 impl ID3D11UnorderedAccessView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -25254,22 +25254,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11UnorderedAccessView {
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11UnorderedAccessView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11UnorderedAccessView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11UnorderedAccessView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11UnorderedAccessView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11UnorderedAccessView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11UnorderedAccessView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView> for ID3D11View {
@@ -25329,7 +25329,7 @@ pub struct ID3D11UnorderedAccessView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11UnorderedAccessView1(::windows::runtime::IUnknown);
+pub struct ID3D11UnorderedAccessView1(pub ::windows::runtime::IUnknown);
 impl ID3D11UnorderedAccessView1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -25368,22 +25368,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11UnorderedAccessView1 {
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11UnorderedAccessView1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11UnorderedAccessView1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11UnorderedAccessView1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11UnorderedAccessView1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView1> for ID3D11UnorderedAccessView {
@@ -25465,7 +25465,7 @@ pub struct ID3D11UnorderedAccessView1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VertexShader(::windows::runtime::IUnknown);
+pub struct ID3D11VertexShader(pub ::windows::runtime::IUnknown);
 impl ID3D11VertexShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -25490,22 +25490,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VertexShader {
 }
 impl ::std::convert::From<ID3D11VertexShader> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VertexShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VertexShader> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VertexShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VertexShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VertexShader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VertexShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VertexShader> for ID3D11DeviceChild {
@@ -25542,7 +25542,7 @@ pub struct ID3D11VertexShader_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoContext(::windows::runtime::IUnknown);
+pub struct ID3D11VideoContext(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoContext {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -25871,22 +25871,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoContext {
 }
 impl ::std::convert::From<ID3D11VideoContext> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoContext> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoContext> for ID3D11DeviceChild {
@@ -26012,7 +26012,7 @@ pub struct ID3D11VideoContext_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoContext1(::windows::runtime::IUnknown);
+pub struct ID3D11VideoContext1(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoContext1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -26411,22 +26411,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoContext1 {
 }
 impl ::std::convert::From<ID3D11VideoContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoContext1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoContext1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoContext1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoContext1> for ID3D11VideoContext {
@@ -26597,7 +26597,7 @@ pub struct ID3D11VideoContext1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoContext2(::windows::runtime::IUnknown);
+pub struct ID3D11VideoContext2(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoContext2 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -27016,22 +27016,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoContext2 {
 }
 impl ::std::convert::From<ID3D11VideoContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoContext2> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoContext2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoContext2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoContext2> for ID3D11VideoContext1 {
@@ -27230,7 +27230,7 @@ pub struct ID3D11VideoContext2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoContext3(::windows::runtime::IUnknown);
+pub struct ID3D11VideoContext3(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoContext3 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -27657,22 +27657,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoContext3 {
 }
 impl ::std::convert::From<ID3D11VideoContext3> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoContext3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoContext3> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoContext3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoContext3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoContext3> for ID3D11VideoContext2 {
@@ -27893,7 +27893,7 @@ pub struct ID3D11VideoContext3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoDecoder(::windows::runtime::IUnknown);
+pub struct ID3D11VideoDecoder(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoDecoder {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -27929,22 +27929,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoDecoder {
 }
 impl ::std::convert::From<ID3D11VideoDecoder> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDecoder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoDecoder> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoDecoder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoDecoder {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoDecoder> for ID3D11DeviceChild {
@@ -27985,7 +27985,7 @@ pub struct ID3D11VideoDecoder_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoDecoderOutputView(::windows::runtime::IUnknown);
+pub struct ID3D11VideoDecoderOutputView(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoDecoderOutputView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -28018,22 +28018,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoDecoderOutputView {
 }
 impl ::std::convert::From<ID3D11VideoDecoderOutputView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDecoderOutputView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoDecoderOutputView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoDecoderOutputView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoDecoderOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoDecoderOutputView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoDecoderOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoDecoderOutputView> for ID3D11View {
@@ -28092,7 +28092,7 @@ pub struct ID3D11VideoDecoderOutputView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoDevice(::windows::runtime::IUnknown);
+pub struct ID3D11VideoDevice(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoDevice {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
@@ -28188,22 +28188,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoDevice {
 }
 impl ::std::convert::From<ID3D11VideoDevice> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoDevice> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -28238,7 +28238,7 @@ pub struct ID3D11VideoDevice_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoDevice1(::windows::runtime::IUnknown);
+pub struct ID3D11VideoDevice1(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoDevice1 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
@@ -28355,22 +28355,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoDevice1 {
 }
 impl ::std::convert::From<ID3D11VideoDevice1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDevice1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoDevice1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoDevice1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoDevice1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoDevice1> for ID3D11VideoDevice {
@@ -28433,7 +28433,7 @@ pub struct ID3D11VideoDevice1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoDevice2(::windows::runtime::IUnknown);
+pub struct ID3D11VideoDevice2(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoDevice2 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
@@ -28558,22 +28558,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoDevice2 {
 }
 impl ::std::convert::From<ID3D11VideoDevice2> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoDevice2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoDevice2> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoDevice2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoDevice2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoDevice2> for ID3D11VideoDevice1 {
@@ -28658,7 +28658,7 @@ pub struct ID3D11VideoDevice2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoProcessor(::windows::runtime::IUnknown);
+pub struct ID3D11VideoProcessor(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoProcessor {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -28692,22 +28692,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessor {
 }
 impl ::std::convert::From<ID3D11VideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoProcessor> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoProcessor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoProcessor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessor> for ID3D11DeviceChild {
@@ -28747,7 +28747,7 @@ pub struct ID3D11VideoProcessor_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoProcessorEnumerator(::windows::runtime::IUnknown);
+pub struct ID3D11VideoProcessorEnumerator(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoProcessorEnumerator {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -28805,22 +28805,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorEnumerator {
 }
 impl ::std::convert::From<ID3D11VideoProcessorEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoProcessorEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoProcessorEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoProcessorEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoProcessorEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoProcessorEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorEnumerator> for ID3D11DeviceChild {
@@ -28866,7 +28866,7 @@ pub struct ID3D11VideoProcessorEnumerator_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoProcessorEnumerator1(::windows::runtime::IUnknown);
+pub struct ID3D11VideoProcessorEnumerator1(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoProcessorEnumerator1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -28930,22 +28930,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorEnumerator1 {
 }
 impl ::std::convert::From<ID3D11VideoProcessorEnumerator1> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorEnumerator1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoProcessorEnumerator1> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoProcessorEnumerator1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoProcessorEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoProcessorEnumerator1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoProcessorEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorEnumerator1> for ID3D11VideoProcessorEnumerator {
@@ -29013,7 +29013,7 @@ pub struct ID3D11VideoProcessorEnumerator1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoProcessorInputView(::windows::runtime::IUnknown);
+pub struct ID3D11VideoProcessorInputView(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoProcessorInputView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -29046,22 +29046,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorInputView {
 }
 impl ::std::convert::From<ID3D11VideoProcessorInputView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorInputView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoProcessorInputView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoProcessorInputView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoProcessorInputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoProcessorInputView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoProcessorInputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorInputView> for ID3D11View {
@@ -29120,7 +29120,7 @@ pub struct ID3D11VideoProcessorInputView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11VideoProcessorOutputView(::windows::runtime::IUnknown);
+pub struct ID3D11VideoProcessorOutputView(pub ::windows::runtime::IUnknown);
 impl ID3D11VideoProcessorOutputView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -29153,22 +29153,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11VideoProcessorOutputView {
 }
 impl ::std::convert::From<ID3D11VideoProcessorOutputView> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11VideoProcessorOutputView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11VideoProcessorOutputView> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11VideoProcessorOutputView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11VideoProcessorOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11VideoProcessorOutputView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11VideoProcessorOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorOutputView> for ID3D11View {
@@ -29227,7 +29227,7 @@ pub struct ID3D11VideoProcessorOutputView_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3D11View(::windows::runtime::IUnknown);
+pub struct ID3D11View(pub ::windows::runtime::IUnknown);
 impl ID3D11View {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -29256,22 +29256,22 @@ unsafe impl ::windows::runtime::Interface for ID3D11View {
 }
 impl ::std::convert::From<ID3D11View> for ::windows::runtime::IUnknown {
     fn from(value: ID3D11View) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3D11View> for ::windows::runtime::IUnknown {
     fn from(value: &ID3D11View) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11View {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D11View {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11View {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3D11View> for ID3D11DeviceChild {
@@ -29309,7 +29309,7 @@ pub struct ID3D11View_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DBlob(::windows::runtime::IUnknown);
+pub struct ID3DBlob(pub ::windows::runtime::IUnknown);
 impl ID3DBlob {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::std::ffi::c_void {
@@ -29326,22 +29326,22 @@ unsafe impl ::windows::runtime::Interface for ID3DBlob {
 }
 impl ::std::convert::From<ID3DBlob> for ::windows::runtime::IUnknown {
     fn from(value: ID3DBlob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DBlob> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DBlob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DBlob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DBlob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DBlob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29356,7 +29356,7 @@ pub struct ID3DBlob_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DDestructionNotifier(::windows::runtime::IUnknown);
+pub struct ID3DDestructionNotifier(pub ::windows::runtime::IUnknown);
 impl ID3DDestructionNotifier {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: ::std::option::Option<PFN_DESTRUCTION_CALLBACK>, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
@@ -29374,22 +29374,22 @@ unsafe impl ::windows::runtime::Interface for ID3DDestructionNotifier {
 }
 impl ::std::convert::From<ID3DDestructionNotifier> for ::windows::runtime::IUnknown {
     fn from(value: ID3DDestructionNotifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DDestructionNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DDestructionNotifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DDestructionNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DDestructionNotifier {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DDestructionNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29404,7 +29404,7 @@ pub struct ID3DDestructionNotifier_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DDeviceContextState(::windows::runtime::IUnknown);
+pub struct ID3DDeviceContextState(pub ::windows::runtime::IUnknown);
 impl ID3DDeviceContextState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D11Device>) {
@@ -29429,22 +29429,22 @@ unsafe impl ::windows::runtime::Interface for ID3DDeviceContextState {
 }
 impl ::std::convert::From<ID3DDeviceContextState> for ::windows::runtime::IUnknown {
     fn from(value: ID3DDeviceContextState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DDeviceContextState> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DDeviceContextState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DDeviceContextState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DDeviceContextState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DDeviceContextState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID3DDeviceContextState> for ID3D11DeviceChild {
@@ -29481,7 +29481,7 @@ pub struct ID3DDeviceContextState_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DInclude(::windows::runtime::IUnknown);
+pub struct ID3DInclude(pub ::windows::runtime::IUnknown);
 impl ID3DInclude {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -29499,22 +29499,22 @@ unsafe impl ::windows::runtime::Interface for ID3DInclude {
 }
 impl ::std::convert::From<ID3DInclude> for ::windows::runtime::IUnknown {
     fn from(value: ID3DInclude) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DInclude> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DInclude) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DInclude {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DInclude {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DInclude {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29530,7 +29530,7 @@ pub struct ID3DInclude_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DUserDefinedAnnotation(::windows::runtime::IUnknown);
+pub struct ID3DUserDefinedAnnotation(pub ::windows::runtime::IUnknown);
 impl ID3DUserDefinedAnnotation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`*"]
@@ -29558,22 +29558,22 @@ unsafe impl ::windows::runtime::Interface for ID3DUserDefinedAnnotation {
 }
 impl ::std::convert::From<ID3DUserDefinedAnnotation> for ::windows::runtime::IUnknown {
     fn from(value: ID3DUserDefinedAnnotation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DUserDefinedAnnotation> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DUserDefinedAnnotation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DUserDefinedAnnotation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DUserDefinedAnnotation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DUserDefinedAnnotation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29593,7 +29593,7 @@ pub struct ID3DUserDefinedAnnotation_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DX11FFT(::windows::runtime::IUnknown);
+pub struct ID3DX11FFT(pub ::windows::runtime::IUnknown);
 impl ID3DX11FFT {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetForwardScale(&self, forwardscale: f32) -> ::windows::runtime::Result<()> {
@@ -29630,22 +29630,22 @@ unsafe impl ::windows::runtime::Interface for ID3DX11FFT {
 }
 impl ::std::convert::From<ID3DX11FFT> for ::windows::runtime::IUnknown {
     fn from(value: ID3DX11FFT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DX11FFT> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DX11FFT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DX11FFT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DX11FFT {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DX11FFT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29665,7 +29665,7 @@ pub struct ID3DX11FFT_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DX11Scan(::windows::runtime::IUnknown);
+pub struct ID3DX11Scan(pub ::windows::runtime::IUnknown);
 impl ID3DX11Scan {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetScanDirection(&self, direction: D3DX11_SCAN_DIRECTION) -> ::windows::runtime::Result<()> {
@@ -29686,22 +29686,22 @@ unsafe impl ::windows::runtime::Interface for ID3DX11Scan {
 }
 impl ::std::convert::From<ID3DX11Scan> for ::windows::runtime::IUnknown {
     fn from(value: ID3DX11Scan) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DX11Scan> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DX11Scan) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DX11Scan {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DX11Scan {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DX11Scan {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29717,7 +29717,7 @@ pub struct ID3DX11Scan_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID3DX11SegmentedScan(::windows::runtime::IUnknown);
+pub struct ID3DX11SegmentedScan(pub ::windows::runtime::IUnknown);
 impl ID3DX11SegmentedScan {
     #[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn SetScanDirection(&self, direction: D3DX11_SCAN_DIRECTION) -> ::windows::runtime::Result<()> {
@@ -29734,22 +29734,22 @@ unsafe impl ::windows::runtime::Interface for ID3DX11SegmentedScan {
 }
 impl ::std::convert::From<ID3DX11SegmentedScan> for ::windows::runtime::IUnknown {
     fn from(value: ID3DX11SegmentedScan) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID3DX11SegmentedScan> for ::windows::runtime::IUnknown {
     fn from(value: &ID3DX11SegmentedScan) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3DX11SegmentedScan {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3DX11SegmentedScan {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3DX11SegmentedScan {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

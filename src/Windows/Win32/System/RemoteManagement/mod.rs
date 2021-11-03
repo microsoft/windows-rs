@@ -1024,7 +1024,7 @@ pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSMan(::windows::runtime::IUnknown);
+pub struct IWSMan(pub ::windows::runtime::IUnknown);
 impl IWSMan {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -1057,22 +1057,22 @@ unsafe impl ::windows::runtime::Interface for IWSMan {
 }
 impl ::std::convert::From<IWSMan> for ::windows::runtime::IUnknown {
     fn from(value: IWSMan) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSMan> for ::windows::runtime::IUnknown {
     fn from(value: &IWSMan) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSMan {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSMan {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSMan {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1125,7 +1125,7 @@ pub struct IWSMan_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManConnectionOptions(::windows::runtime::IUnknown);
+pub struct IWSManConnectionOptions(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -1150,22 +1150,22 @@ unsafe impl ::windows::runtime::Interface for IWSManConnectionOptions {
 }
 impl ::std::convert::From<IWSManConnectionOptions> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManConnectionOptions> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManConnectionOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManConnectionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManConnectionOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManConnectionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1216,7 +1216,7 @@ pub struct IWSManConnectionOptions_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManConnectionOptionsEx(::windows::runtime::IUnknown);
+pub struct IWSManConnectionOptionsEx(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptionsEx {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1273,22 +1273,22 @@ unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx {
 }
 impl ::std::convert::From<IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManConnectionOptionsEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManConnectionOptionsEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWSManConnectionOptionsEx> for IWSManConnectionOptions {
@@ -1363,7 +1363,7 @@ pub struct IWSManConnectionOptionsEx_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManConnectionOptionsEx2(::windows::runtime::IUnknown);
+pub struct IWSManConnectionOptionsEx2(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptionsEx2 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1460,22 +1460,22 @@ unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx2 {
 }
 impl ::std::convert::From<IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManConnectionOptionsEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManConnectionOptionsEx2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptionsEx {
@@ -1579,7 +1579,7 @@ pub struct IWSManConnectionOptionsEx2_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManEnumerator(::windows::runtime::IUnknown);
+pub struct IWSManEnumerator(pub ::windows::runtime::IUnknown);
 impl IWSManEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -1605,22 +1605,22 @@ unsafe impl ::windows::runtime::Interface for IWSManEnumerator {
 }
 impl ::std::convert::From<IWSManEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1670,7 +1670,7 @@ pub struct IWSManEnumerator_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManEx(::windows::runtime::IUnknown);
+pub struct IWSManEx(pub ::windows::runtime::IUnknown);
 impl IWSManEx {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1826,22 +1826,22 @@ unsafe impl ::windows::runtime::Interface for IWSManEx {
 }
 impl ::std::convert::From<IWSManEx> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManEx> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWSManEx> for IWSMan {
@@ -1936,7 +1936,7 @@ pub struct IWSManEx_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManEx2(::windows::runtime::IUnknown);
+pub struct IWSManEx2(pub ::windows::runtime::IUnknown);
 impl IWSManEx2 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2097,22 +2097,22 @@ unsafe impl ::windows::runtime::Interface for IWSManEx2 {
 }
 impl ::std::convert::From<IWSManEx2> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManEx2> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManEx2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWSManEx2> for IWSManEx {
@@ -2228,7 +2228,7 @@ pub struct IWSManEx2_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManEx3(::windows::runtime::IUnknown);
+pub struct IWSManEx3(pub ::windows::runtime::IUnknown);
 impl IWSManEx3 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2424,22 +2424,22 @@ unsafe impl ::windows::runtime::Interface for IWSManEx3 {
 }
 impl ::std::convert::From<IWSManEx3> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManEx3> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEx3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManEx3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWSManEx3> for IWSManEx2 {
@@ -2582,7 +2582,7 @@ pub struct IWSManEx3_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManInternal(::windows::runtime::IUnknown);
+pub struct IWSManInternal(pub ::windows::runtime::IUnknown);
 impl IWSManInternal {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2597,22 +2597,22 @@ unsafe impl ::windows::runtime::Interface for IWSManInternal {
 }
 impl ::std::convert::From<IWSManInternal> for ::windows::runtime::IUnknown {
     fn from(value: IWSManInternal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManInternal> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManInternal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManInternal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2659,7 +2659,7 @@ pub struct IWSManInternal_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManResourceLocator(::windows::runtime::IUnknown);
+pub struct IWSManResourceLocator(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -2736,22 +2736,22 @@ unsafe impl ::windows::runtime::Interface for IWSManResourceLocator {
 }
 impl ::std::convert::From<IWSManResourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: IWSManResourceLocator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManResourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManResourceLocator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManResourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManResourceLocator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManResourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2820,7 +2820,7 @@ pub struct IWSManResourceLocator_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManResourceLocatorInternal(::windows::runtime::IUnknown);
+pub struct IWSManResourceLocatorInternal(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocatorInternal {}
 unsafe impl ::windows::runtime::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternal_abi;
@@ -2828,22 +2828,22 @@ unsafe impl ::windows::runtime::Interface for IWSManResourceLocatorInternal {
 }
 impl ::std::convert::From<IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
     fn from(value: IWSManResourceLocatorInternal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManResourceLocatorInternal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManResourceLocatorInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManResourceLocatorInternal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManResourceLocatorInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2856,7 +2856,7 @@ pub struct IWSManResourceLocatorInternal_abi(
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWSManSession(::windows::runtime::IUnknown);
+pub struct IWSManSession(pub ::windows::runtime::IUnknown);
 impl IWSManSession {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2930,22 +2930,22 @@ unsafe impl ::windows::runtime::Interface for IWSManSession {
 }
 impl ::std::convert::From<IWSManSession> for ::windows::runtime::IUnknown {
     fn from(value: IWSManSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWSManSession> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSManSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

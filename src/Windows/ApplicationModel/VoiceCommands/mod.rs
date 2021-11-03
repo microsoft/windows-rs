@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommand(::windows::runtime::IInspectable);
+pub struct IVoiceCommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommand {
     type Vtable = IVoiceCommand_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2473546355, 60546, 17062, [165, 92, 210, 215, 158, 198, 249, 32]);
@@ -23,7 +23,7 @@ pub struct IVoiceCommand_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IVoiceCommandCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandCompletedEventArgs {
     type Vtable = IVoiceCommandCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361630045, 65090, 17196, [153, 7, 9, 223, 159, 207, 100, 232]);
@@ -41,7 +41,7 @@ pub struct IVoiceCommandCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandConfirmationResult(::windows::runtime::IInspectable);
+pub struct IVoiceCommandConfirmationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandConfirmationResult {
     type Vtable = IVoiceCommandConfirmationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686605630, 33313, 17702, [176, 131, 132, 9, 114, 38, 34, 71]);
@@ -59,7 +59,7 @@ pub struct IVoiceCommandConfirmationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandContentTile(::windows::runtime::IInspectable);
+pub struct IVoiceCommandContentTile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandContentTile {
     type Vtable = IVoiceCommandContentTile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1055910384, 47303, 19574, [160, 222, 22, 7, 137, 94, 227, 39]);
@@ -94,7 +94,7 @@ pub struct IVoiceCommandContentTile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandDefinition(::windows::runtime::IInspectable);
+pub struct IVoiceCommandDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDefinition {
     type Vtable = IVoiceCommandDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037557968, 2420, 18809, [152, 75, 203, 137, 89, 205, 97, 174]);
@@ -115,7 +115,7 @@ pub struct IVoiceCommandDefinition_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandDefinitionManagerStatics(::windows::runtime::IInspectable);
+pub struct IVoiceCommandDefinitionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDefinitionManagerStatics {
     type Vtable = IVoiceCommandDefinitionManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2414323358, 1662, 20246, [161, 140, 91, 23, 233, 73, 153, 64]);
@@ -136,7 +136,7 @@ pub struct IVoiceCommandDefinitionManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandDisambiguationResult(::windows::runtime::IInspectable);
+pub struct IVoiceCommandDisambiguationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDisambiguationResult {
     type Vtable = IVoiceCommandDisambiguationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972435198, 51628, 17887, [168, 234, 254, 234, 8, 239, 156, 94]);
@@ -154,7 +154,7 @@ pub struct IVoiceCommandDisambiguationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandResponse(::windows::runtime::IInspectable);
+pub struct IVoiceCommandResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandResponse {
     type Vtable = IVoiceCommandResponse_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(42251022, 35387, 19652, [166, 161, 202, 213, 190, 39, 22, 181]);
@@ -179,7 +179,7 @@ pub struct IVoiceCommandResponse_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandResponseStatics(::windows::runtime::IInspectable);
+pub struct IVoiceCommandResponseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandResponseStatics {
     type Vtable = IVoiceCommandResponseStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691206163, 3387, 18930, [150, 221, 98, 80, 25, 189, 59, 93]);
@@ -203,7 +203,7 @@ pub struct IVoiceCommandResponseStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandServiceConnection(::windows::runtime::IInspectable);
+pub struct IVoiceCommandServiceConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandServiceConnection {
     type Vtable = IVoiceCommandServiceConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3633626015, 8666, 17572, [152, 162, 251, 19, 25, 32, 169, 204]);
@@ -240,7 +240,7 @@ pub struct IVoiceCommandServiceConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandServiceConnectionStatics(::windows::runtime::IInspectable);
+pub struct IVoiceCommandServiceConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandServiceConnectionStatics {
     type Vtable = IVoiceCommandServiceConnectionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923713531, 11572, 17119, [135, 112, 7, 77, 15, 51, 70, 151]);
@@ -259,7 +259,7 @@ pub struct IVoiceCommandServiceConnectionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVoiceCommandUserMessage(::windows::runtime::IInspectable);
+pub struct IVoiceCommandUserMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandUserMessage {
     type Vtable = IVoiceCommandUserMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1733211072, 17654, 20231, [185, 121, 76, 114, 63, 192, 133, 151]);
@@ -281,7 +281,7 @@ pub struct IVoiceCommandUserMessage_abi(
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommand(::windows::runtime::IInspectable);
+pub struct VoiceCommand(pub ::windows::runtime::IInspectable);
 impl VoiceCommand {
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn CommandName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -322,22 +322,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommand {
 }
 impl ::std::convert::From<VoiceCommand> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommand) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommand> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommand) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommand {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommand> for ::windows::runtime::IInspectable {
@@ -365,7 +365,7 @@ unsafe impl ::std::marker::Sync for VoiceCommand {}
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct VoiceCommandCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl VoiceCommandCompletedEventArgs {
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<VoiceCommandCompletionReason> {
@@ -388,22 +388,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandCompletedEventArgs {
 }
 impl ::std::convert::From<VoiceCommandCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -458,7 +458,7 @@ impl ::windows::runtime::DefaultType for VoiceCommandCompletionReason {
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandConfirmationResult(::windows::runtime::IInspectable);
+pub struct VoiceCommandConfirmationResult(pub ::windows::runtime::IInspectable);
 impl VoiceCommandConfirmationResult {
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Confirmed(&self) -> ::windows::runtime::Result<bool> {
@@ -481,22 +481,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandConfirmationResult {
 }
 impl ::std::convert::From<VoiceCommandConfirmationResult> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandConfirmationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandConfirmationResult> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandConfirmationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandConfirmationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandConfirmationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandConfirmationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandConfirmationResult> for ::windows::runtime::IInspectable {
@@ -524,7 +524,7 @@ unsafe impl ::std::marker::Sync for VoiceCommandConfirmationResult {}
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandContentTile(::windows::runtime::IInspectable);
+pub struct VoiceCommandContentTile(pub ::windows::runtime::IInspectable);
 impl VoiceCommandContentTile {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -652,22 +652,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandContentTile {
 }
 impl ::std::convert::From<VoiceCommandContentTile> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandContentTile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandContentTile> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandContentTile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandContentTile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandContentTile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandContentTile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandContentTile> for ::windows::runtime::IInspectable {
@@ -723,7 +723,7 @@ impl ::windows::runtime::DefaultType for VoiceCommandContentTileType {
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandDefinition(::windows::runtime::IInspectable);
+pub struct VoiceCommandDefinition(pub ::windows::runtime::IInspectable);
 impl VoiceCommandDefinition {
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -763,22 +763,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandDefinition {
 }
 impl ::std::convert::From<VoiceCommandDefinition> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandDefinition> for ::windows::runtime::IInspectable {
@@ -833,7 +833,7 @@ impl ::windows::runtime::RuntimeName for VoiceCommandDefinitionManager {
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandDisambiguationResult(::windows::runtime::IInspectable);
+pub struct VoiceCommandDisambiguationResult(pub ::windows::runtime::IInspectable);
 impl VoiceCommandDisambiguationResult {
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SelectedItem(&self) -> ::windows::runtime::Result<VoiceCommandContentTile> {
@@ -856,22 +856,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandDisambiguationResult {
 }
 impl ::std::convert::From<VoiceCommandDisambiguationResult> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandDisambiguationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandDisambiguationResult> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandDisambiguationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandDisambiguationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandDisambiguationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandDisambiguationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandDisambiguationResult> for ::windows::runtime::IInspectable {
@@ -899,7 +899,7 @@ unsafe impl ::std::marker::Sync for VoiceCommandDisambiguationResult {}
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandResponse(::windows::runtime::IInspectable);
+pub struct VoiceCommandResponse(pub ::windows::runtime::IInspectable);
 impl VoiceCommandResponse {
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<VoiceCommandUserMessage> {
@@ -1003,22 +1003,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandResponse {
 }
 impl ::std::convert::From<VoiceCommandResponse> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandResponse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandResponse> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandResponse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandResponse {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandResponse {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandResponse {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandResponse> for ::windows::runtime::IInspectable {
@@ -1046,7 +1046,7 @@ unsafe impl ::std::marker::Sync for VoiceCommandResponse {}
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandServiceConnection(::windows::runtime::IInspectable);
+pub struct VoiceCommandServiceConnection(pub ::windows::runtime::IInspectable);
 impl VoiceCommandServiceConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
@@ -1160,22 +1160,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandServiceConnection {
 }
 impl ::std::convert::From<VoiceCommandServiceConnection> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandServiceConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandServiceConnection> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandServiceConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandServiceConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandServiceConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandServiceConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandServiceConnection> for ::windows::runtime::IInspectable {
@@ -1203,7 +1203,7 @@ unsafe impl ::std::marker::Sync for VoiceCommandServiceConnection {}
 #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VoiceCommandUserMessage(::windows::runtime::IInspectable);
+pub struct VoiceCommandUserMessage(pub ::windows::runtime::IInspectable);
 impl VoiceCommandUserMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1251,22 +1251,22 @@ impl ::windows::runtime::RuntimeName for VoiceCommandUserMessage {
 }
 impl ::std::convert::From<VoiceCommandUserMessage> for ::windows::runtime::IUnknown {
     fn from(value: VoiceCommandUserMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VoiceCommandUserMessage> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceCommandUserMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandUserMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandUserMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VoiceCommandUserMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VoiceCommandUserMessage> for ::windows::runtime::IInspectable {

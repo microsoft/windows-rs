@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPdfDocument(::windows::runtime::IInspectable);
+pub struct IPdfDocument(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfDocument {
     type Vtable = IPdfDocument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2893987549, 33018, 16521, [132, 110, 129, 183, 127, 245, 168, 108]);
@@ -21,7 +21,7 @@ pub struct IPdfDocument_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPdfDocumentStatics(::windows::runtime::IInspectable);
+pub struct IPdfDocumentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfDocumentStatics {
     type Vtable = IPdfDocumentStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127877471, 49159, 18312, [144, 242, 8, 20, 61, 146, 37, 153]);
@@ -46,7 +46,7 @@ pub struct IPdfDocumentStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPdfPage(::windows::runtime::IInspectable);
+pub struct IPdfPage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfPage {
     type Vtable = IPdfPage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2645864648, 21280, 19708, [173, 118, 73, 63, 218, 208, 229, 148]);
@@ -75,7 +75,7 @@ pub struct IPdfPage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPdfPageDimensions(::windows::runtime::IInspectable);
+pub struct IPdfPageDimensions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfPageDimensions {
     type Vtable = IPdfPageDimensions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(571933809, 12606, 17640, [131, 93, 99, 163, 231, 98, 74, 16]);
@@ -102,7 +102,7 @@ pub struct IPdfPageDimensions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPdfPageRenderOptions(::windows::runtime::IInspectable);
+pub struct IPdfPageRenderOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1016595823, 47055, 19497, [154, 4, 82, 217, 2, 103, 244, 37]);
@@ -136,7 +136,7 @@ pub struct IPdfPageRenderOptions_abi(
 #[doc = "*Required features: `Data_Pdf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PdfDocument(::windows::runtime::IInspectable);
+pub struct PdfDocument(pub ::windows::runtime::IInspectable);
 impl PdfDocument {
     #[doc = "*Required features: `Data_Pdf`*"]
     pub fn GetPage(&self, pageindex: u32) -> ::windows::runtime::Result<PdfPage> {
@@ -211,22 +211,22 @@ impl ::windows::runtime::RuntimeName for PdfDocument {
 }
 impl ::std::convert::From<PdfDocument> for ::windows::runtime::IUnknown {
     fn from(value: PdfDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PdfDocument> for ::windows::runtime::IUnknown {
     fn from(value: &PdfDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PdfDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PdfDocument {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PdfDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PdfDocument> for ::windows::runtime::IInspectable {
@@ -254,7 +254,7 @@ unsafe impl ::std::marker::Sync for PdfDocument {}
 #[doc = "*Required features: `Data_Pdf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PdfPage(::windows::runtime::IInspectable);
+pub struct PdfPage(pub ::windows::runtime::IInspectable);
 impl PdfPage {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Data_Pdf`, `Foundation`, `Storage_Streams`*"]
@@ -343,22 +343,22 @@ impl ::windows::runtime::RuntimeName for PdfPage {
 }
 impl ::std::convert::From<PdfPage> for ::windows::runtime::IUnknown {
     fn from(value: PdfPage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PdfPage> for ::windows::runtime::IUnknown {
     fn from(value: &PdfPage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PdfPage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PdfPage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PdfPage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PdfPage> for ::windows::runtime::IInspectable {
@@ -412,7 +412,7 @@ unsafe impl ::std::marker::Sync for PdfPage {}
 #[doc = "*Required features: `Data_Pdf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PdfPageDimensions(::windows::runtime::IInspectable);
+pub struct PdfPageDimensions(pub ::windows::runtime::IInspectable);
 impl PdfPageDimensions {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Data_Pdf`, `Foundation`*"]
@@ -472,22 +472,22 @@ impl ::windows::runtime::RuntimeName for PdfPageDimensions {
 }
 impl ::std::convert::From<PdfPageDimensions> for ::windows::runtime::IUnknown {
     fn from(value: PdfPageDimensions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PdfPageDimensions> for ::windows::runtime::IUnknown {
     fn from(value: &PdfPageDimensions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PdfPageDimensions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PdfPageDimensions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PdfPageDimensions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PdfPageDimensions> for ::windows::runtime::IInspectable {
@@ -515,7 +515,7 @@ unsafe impl ::std::marker::Sync for PdfPageDimensions {}
 #[doc = "*Required features: `Data_Pdf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PdfPageRenderOptions(::windows::runtime::IInspectable);
+pub struct PdfPageRenderOptions(pub ::windows::runtime::IInspectable);
 impl PdfPageRenderOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -619,22 +619,22 @@ impl ::windows::runtime::RuntimeName for PdfPageRenderOptions {
 }
 impl ::std::convert::From<PdfPageRenderOptions> for ::windows::runtime::IUnknown {
     fn from(value: PdfPageRenderOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PdfPageRenderOptions> for ::windows::runtime::IUnknown {
     fn from(value: &PdfPageRenderOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PdfPageRenderOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PdfPageRenderOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PdfPageRenderOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PdfPageRenderOptions> for ::windows::runtime::IInspectable {

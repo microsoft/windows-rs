@@ -23,7 +23,7 @@ impl ::windows::runtime::DefaultType for ForegroundText {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJumpList(::windows::runtime::IInspectable);
+pub struct IJumpList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpList {
     type Vtable = IJumpList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955103294, 52591, 19638, [166, 17, 97, 253, 80, 95, 62, 209]);
@@ -46,7 +46,7 @@ pub struct IJumpList_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJumpListItem(::windows::runtime::IInspectable);
+pub struct IJumpListItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpListItem {
     type Vtable = IJumpListItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061199127, 35677, 18464, [153, 91, 155, 65, 141, 190, 72, 176]);
@@ -76,7 +76,7 @@ pub struct IJumpListItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJumpListItemStatics(::windows::runtime::IInspectable);
+pub struct IJumpListItemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpListItemStatics {
     type Vtable = IJumpListItemStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055876840, 51114, 18891, [141, 222, 236, 252, 205, 122, 215, 228]);
@@ -95,7 +95,7 @@ pub struct IJumpListItemStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJumpListStatics(::windows::runtime::IInspectable);
+pub struct IJumpListStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJumpListStatics {
     type Vtable = IJumpListStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2816525953, 59006, 19316, [130, 80, 63, 50, 44, 77, 146, 195]);
@@ -115,7 +115,7 @@ pub struct IJumpListStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTile(::windows::runtime::IInspectable);
+pub struct ISecondaryTile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTile {
     type Vtable = ISecondaryTile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661175776, 11189, 19392, [187, 141, 66, 178, 58, 188, 200, 141]);
@@ -182,7 +182,7 @@ pub struct ISecondaryTile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTile2(::windows::runtime::IInspectable);
+pub struct ISecondaryTile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTile2 {
     type Vtable = ISecondaryTile2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002518581, 12880, 18832, [146, 60, 41, 74, 180, 182, 148, 221]);
@@ -208,7 +208,7 @@ pub struct ISecondaryTile2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileFactory(::windows::runtime::IInspectable);
+pub struct ISecondaryTileFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileFactory {
     type Vtable = ISecondaryTileFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1475685536, 20924, 19135, [142, 191, 98, 122, 3, 152, 176, 90]);
@@ -242,7 +242,7 @@ pub struct ISecondaryTileFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileFactory2(::windows::runtime::IInspectable);
+pub struct ISecondaryTileFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileFactory2 {
     type Vtable = ISecondaryTileFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659262011, 21037, 17550, [158, 178, 208, 103, 42, 179, 69, 200]);
@@ -261,7 +261,7 @@ pub struct ISecondaryTileFactory2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileStatics(::windows::runtime::IInspectable);
+pub struct ISecondaryTileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileStatics {
     type Vtable = ISecondaryTileStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576387502, 53329, 18038, [135, 254, 158, 194, 66, 216, 60, 116]);
@@ -285,7 +285,7 @@ pub struct ISecondaryTileStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements(::windows::runtime::IInspectable);
+pub struct ISecondaryTileVisualElements(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElements_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495842099, 33118, 16703, [159, 80, 168, 29, 167, 10, 150, 178]);
@@ -332,7 +332,7 @@ pub struct ISecondaryTileVisualElements_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements2(::windows::runtime::IInspectable);
+pub struct ISecondaryTileVisualElements2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements2 {
     type Vtable = ISecondaryTileVisualElements2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4247663056, 22492, 18324, [142, 207, 86, 130, 245, 243, 230, 239]);
@@ -353,7 +353,7 @@ pub struct ISecondaryTileVisualElements2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements3(::windows::runtime::IInspectable);
+pub struct ISecondaryTileVisualElements3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements3 {
     type Vtable = ISecondaryTileVisualElements3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454725846, 53596, 16628, [129, 231, 87, 255, 216, 248, 164, 233]);
@@ -374,7 +374,7 @@ pub struct ISecondaryTileVisualElements3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements4(::windows::runtime::IInspectable);
+pub struct ISecondaryTileVisualElements4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryTileVisualElements4 {
     type Vtable = ISecondaryTileVisualElements4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716936983, 46404, 16594, [141, 18, 116, 212, 236, 36, 208, 76]);
@@ -392,7 +392,7 @@ pub struct ISecondaryTileVisualElements4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStartScreenManager(::windows::runtime::IInspectable);
+pub struct IStartScreenManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartScreenManager {
     type Vtable = IStartScreenManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1243466699, 9961, 20148, [137, 51, 133, 158, 182, 236, 219, 41]);
@@ -417,7 +417,7 @@ pub struct IStartScreenManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStartScreenManager2(::windows::runtime::IInspectable);
+pub struct IStartScreenManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartScreenManager2 {
     type Vtable = IStartScreenManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145168054, 12651, 19161, [172, 184, 254, 156, 240, 11, 214, 8]);
@@ -438,7 +438,7 @@ pub struct IStartScreenManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStartScreenManagerStatics(::windows::runtime::IInspectable);
+pub struct IStartScreenManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartScreenManagerStatics {
     type Vtable = IStartScreenManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019946255, 46469, 17998, [137, 147, 52, 232, 248, 115, 141, 72]);
@@ -458,7 +458,7 @@ pub struct IStartScreenManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITileMixedRealityModel(::windows::runtime::IInspectable);
+pub struct ITileMixedRealityModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileMixedRealityModel {
     type Vtable = ITileMixedRealityModel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960543323, 34941, 16962, [154, 25, 61, 10, 78, 167, 128, 49]);
@@ -483,7 +483,7 @@ pub struct ITileMixedRealityModel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITileMixedRealityModel2(::windows::runtime::IInspectable);
+pub struct ITileMixedRealityModel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileMixedRealityModel2 {
     type Vtable = ITileMixedRealityModel2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133801650, 55237, 16651, [131, 25, 148, 134, 162, 123, 108, 103]);
@@ -502,7 +502,7 @@ pub struct ITileMixedRealityModel2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVisualElementsRequest(::windows::runtime::IInspectable);
+pub struct IVisualElementsRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElementsRequest {
     type Vtable = IVisualElementsRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3241685818, 37640, 16498, [136, 204, 208, 104, 219, 52, 124, 104]);
@@ -525,7 +525,7 @@ pub struct IVisualElementsRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVisualElementsRequestDeferral(::windows::runtime::IInspectable);
+pub struct IVisualElementsRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2707779248, 294, 17239, [130, 4, 189, 130, 187, 42, 4, 109]);
@@ -543,7 +543,7 @@ pub struct IVisualElementsRequestDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVisualElementsRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IVisualElementsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070923650, 14861, 20174, [175, 150, 205, 23, 225, 176, 11, 45]);
@@ -562,7 +562,7 @@ pub struct IVisualElementsRequestedEventArgs_abi(
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct JumpList(::windows::runtime::IInspectable);
+pub struct JumpList(pub ::windows::runtime::IInspectable);
 impl JumpList {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_StartScreen`, `Foundation_Collections`*"]
@@ -627,22 +627,22 @@ impl ::windows::runtime::RuntimeName for JumpList {
 }
 impl ::std::convert::From<JumpList> for ::windows::runtime::IUnknown {
     fn from(value: JumpList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&JumpList> for ::windows::runtime::IUnknown {
     fn from(value: &JumpList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JumpList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JumpList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a JumpList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<JumpList> for ::windows::runtime::IInspectable {
@@ -670,7 +670,7 @@ unsafe impl ::std::marker::Sync for JumpList {}
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct JumpListItem(::windows::runtime::IInspectable);
+pub struct JumpListItem(pub ::windows::runtime::IInspectable);
 impl JumpListItem {
     #[doc = "*Required features: `UI_StartScreen`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<JumpListItemKind> {
@@ -781,22 +781,22 @@ impl ::windows::runtime::RuntimeName for JumpListItem {
 }
 impl ::std::convert::From<JumpListItem> for ::windows::runtime::IUnknown {
     fn from(value: JumpListItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&JumpListItem> for ::windows::runtime::IUnknown {
     fn from(value: &JumpListItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JumpListItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JumpListItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a JumpListItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<JumpListItem> for ::windows::runtime::IInspectable {
@@ -869,7 +869,7 @@ impl ::windows::runtime::DefaultType for JumpListSystemGroupKind {
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryTile(::windows::runtime::IInspectable);
+pub struct SecondaryTile(pub ::windows::runtime::IInspectable);
 impl SecondaryTile {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1290,22 +1290,22 @@ impl ::windows::runtime::RuntimeName for SecondaryTile {
 }
 impl ::std::convert::From<SecondaryTile> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryTile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryTile> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryTile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryTile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryTile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryTile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryTile> for ::windows::runtime::IInspectable {
@@ -1333,7 +1333,7 @@ unsafe impl ::std::marker::Sync for SecondaryTile {}
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SecondaryTileVisualElements(::windows::runtime::IInspectable);
+pub struct SecondaryTileVisualElements(pub ::windows::runtime::IInspectable);
 impl SecondaryTileVisualElements {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -1530,22 +1530,22 @@ impl ::windows::runtime::RuntimeName for SecondaryTileVisualElements {
 }
 impl ::std::convert::From<SecondaryTileVisualElements> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryTileVisualElements) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SecondaryTileVisualElements> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryTileVisualElements) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryTileVisualElements {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryTileVisualElements {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SecondaryTileVisualElements {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SecondaryTileVisualElements> for ::windows::runtime::IInspectable {
@@ -1573,7 +1573,7 @@ unsafe impl ::std::marker::Sync for SecondaryTileVisualElements {}
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StartScreenManager(::windows::runtime::IInspectable);
+pub struct StartScreenManager(pub ::windows::runtime::IInspectable);
 impl StartScreenManager {
     #[cfg(feature = "System")]
     #[doc = "*Required features: `UI_StartScreen`, `System`*"]
@@ -1661,22 +1661,22 @@ impl ::windows::runtime::RuntimeName for StartScreenManager {
 }
 impl ::std::convert::From<StartScreenManager> for ::windows::runtime::IUnknown {
     fn from(value: StartScreenManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StartScreenManager> for ::windows::runtime::IUnknown {
     fn from(value: &StartScreenManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StartScreenManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StartScreenManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StartScreenManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StartScreenManager> for ::windows::runtime::IInspectable {
@@ -1704,7 +1704,7 @@ unsafe impl ::std::marker::Sync for StartScreenManager {}
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TileMixedRealityModel(::windows::runtime::IInspectable);
+pub struct TileMixedRealityModel(pub ::windows::runtime::IInspectable);
 impl TileMixedRealityModel {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_StartScreen`, `Foundation`*"]
@@ -1762,22 +1762,22 @@ impl ::windows::runtime::RuntimeName for TileMixedRealityModel {
 }
 impl ::std::convert::From<TileMixedRealityModel> for ::windows::runtime::IUnknown {
     fn from(value: TileMixedRealityModel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TileMixedRealityModel> for ::windows::runtime::IUnknown {
     fn from(value: &TileMixedRealityModel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileMixedRealityModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileMixedRealityModel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TileMixedRealityModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TileMixedRealityModel> for ::windows::runtime::IInspectable {
@@ -1907,7 +1907,7 @@ impl ::windows::runtime::DefaultType for TileSize {
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VisualElementsRequest(::windows::runtime::IInspectable);
+pub struct VisualElementsRequest(pub ::windows::runtime::IInspectable);
 impl VisualElementsRequest {
     #[doc = "*Required features: `UI_StartScreen`*"]
     pub fn VisualElements(&self) -> ::windows::runtime::Result<SecondaryTileVisualElements> {
@@ -1956,22 +1956,22 @@ impl ::windows::runtime::RuntimeName for VisualElementsRequest {
 }
 impl ::std::convert::From<VisualElementsRequest> for ::windows::runtime::IUnknown {
     fn from(value: VisualElementsRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VisualElementsRequest> for ::windows::runtime::IUnknown {
     fn from(value: &VisualElementsRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VisualElementsRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VisualElementsRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VisualElementsRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VisualElementsRequest> for ::windows::runtime::IInspectable {
@@ -1999,7 +1999,7 @@ unsafe impl ::std::marker::Sync for VisualElementsRequest {}
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VisualElementsRequestDeferral(::windows::runtime::IInspectable);
+pub struct VisualElementsRequestDeferral(pub ::windows::runtime::IInspectable);
 impl VisualElementsRequestDeferral {
     #[doc = "*Required features: `UI_StartScreen`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -2019,22 +2019,22 @@ impl ::windows::runtime::RuntimeName for VisualElementsRequestDeferral {
 }
 impl ::std::convert::From<VisualElementsRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: VisualElementsRequestDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VisualElementsRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &VisualElementsRequestDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VisualElementsRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VisualElementsRequestDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VisualElementsRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VisualElementsRequestDeferral> for ::windows::runtime::IInspectable {
@@ -2062,7 +2062,7 @@ unsafe impl ::std::marker::Sync for VisualElementsRequestDeferral {}
 #[doc = "*Required features: `UI_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VisualElementsRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct VisualElementsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl VisualElementsRequestedEventArgs {
     #[doc = "*Required features: `UI_StartScreen`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<VisualElementsRequest> {
@@ -2085,22 +2085,22 @@ impl ::windows::runtime::RuntimeName for VisualElementsRequestedEventArgs {
 }
 impl ::std::convert::From<VisualElementsRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VisualElementsRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VisualElementsRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VisualElementsRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VisualElementsRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VisualElementsRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VisualElementsRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VisualElementsRequestedEventArgs> for ::windows::runtime::IInspectable {

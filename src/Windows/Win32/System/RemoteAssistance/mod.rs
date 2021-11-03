@@ -10,7 +10,7 @@ pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DRendezvousSessionEvents(::windows::runtime::IUnknown);
+pub struct DRendezvousSessionEvents(pub ::windows::runtime::IUnknown);
 impl DRendezvousSessionEvents {}
 unsafe impl ::windows::runtime::Interface for DRendezvousSessionEvents {
     type Vtable = DRendezvousSessionEvents_abi;
@@ -18,22 +18,22 @@ unsafe impl ::windows::runtime::Interface for DRendezvousSessionEvents {
 }
 impl ::std::convert::From<DRendezvousSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: DRendezvousSessionEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&DRendezvousSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: &DRendezvousSessionEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DRendezvousSessionEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DRendezvousSessionEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DRendezvousSessionEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -78,7 +78,7 @@ pub struct DRendezvousSessionEvents_abi(
 #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRendezvousApplication(::windows::runtime::IUnknown);
+pub struct IRendezvousApplication(pub ::windows::runtime::IUnknown);
 impl IRendezvousApplication {
     #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
     pub unsafe fn SetRendezvousSession<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, prendezvoussession: Param0) -> ::windows::runtime::Result<()> {
@@ -91,22 +91,22 @@ unsafe impl ::windows::runtime::Interface for IRendezvousApplication {
 }
 impl ::std::convert::From<IRendezvousApplication> for ::windows::runtime::IUnknown {
     fn from(value: IRendezvousApplication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRendezvousApplication> for ::windows::runtime::IUnknown {
     fn from(value: &IRendezvousApplication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRendezvousApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRendezvousApplication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRendezvousApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -120,7 +120,7 @@ pub struct IRendezvousApplication_abi(
 #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRendezvousSession(::windows::runtime::IUnknown);
+pub struct IRendezvousSession(pub ::windows::runtime::IUnknown);
 impl IRendezvousSession {
     #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RENDEZVOUS_SESSION_STATE> {
@@ -155,22 +155,22 @@ unsafe impl ::windows::runtime::Interface for IRendezvousSession {
 }
 impl ::std::convert::From<IRendezvousSession> for ::windows::runtime::IUnknown {
     fn from(value: IRendezvousSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRendezvousSession> for ::windows::runtime::IUnknown {
     fn from(value: &IRendezvousSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRendezvousSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRendezvousSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRendezvousSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

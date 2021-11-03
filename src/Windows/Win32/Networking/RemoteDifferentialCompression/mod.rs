@@ -44,7 +44,7 @@ unsafe impl ::windows::runtime::Abi for GeneratorParametersType {
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IFindSimilarResults(::windows::runtime::IUnknown);
+pub struct IFindSimilarResults(pub ::windows::runtime::IUnknown);
 impl IFindSimilarResults {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn GetSize(&self) -> ::windows::runtime::Result<u32> {
@@ -62,22 +62,22 @@ unsafe impl ::windows::runtime::Interface for IFindSimilarResults {
 }
 impl ::std::convert::From<IFindSimilarResults> for ::windows::runtime::IUnknown {
     fn from(value: IFindSimilarResults) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IFindSimilarResults> for ::windows::runtime::IUnknown {
     fn from(value: &IFindSimilarResults) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFindSimilarResults {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFindSimilarResults {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFindSimilarResults {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -92,7 +92,7 @@ pub struct IFindSimilarResults_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcComparator(::windows::runtime::IUnknown);
+pub struct IRdcComparator(pub ::windows::runtime::IUnknown);
 impl IRdcComparator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`, `Win32_Foundation`*"]
@@ -106,22 +106,22 @@ unsafe impl ::windows::runtime::Interface for IRdcComparator {
 }
 impl ::std::convert::From<IRdcComparator> for ::windows::runtime::IUnknown {
     fn from(value: IRdcComparator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcComparator> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcComparator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcComparator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcComparator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcComparator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -136,7 +136,7 @@ pub struct IRdcComparator_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcFileReader(::windows::runtime::IUnknown);
+pub struct IRdcFileReader(pub ::windows::runtime::IUnknown);
 impl IRdcFileReader {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn GetFileSize(&self) -> ::windows::runtime::Result<u64> {
@@ -160,22 +160,22 @@ unsafe impl ::windows::runtime::Interface for IRdcFileReader {
 }
 impl ::std::convert::From<IRdcFileReader> for ::windows::runtime::IUnknown {
     fn from(value: IRdcFileReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcFileReader> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcFileReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcFileReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcFileReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcFileReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -192,7 +192,7 @@ pub struct IRdcFileReader_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcFileWriter(::windows::runtime::IUnknown);
+pub struct IRdcFileWriter(pub ::windows::runtime::IUnknown);
 impl IRdcFileWriter {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn GetFileSize(&self) -> ::windows::runtime::Result<u64> {
@@ -229,22 +229,22 @@ unsafe impl ::windows::runtime::Interface for IRdcFileWriter {
 }
 impl ::std::convert::From<IRdcFileWriter> for ::windows::runtime::IUnknown {
     fn from(value: IRdcFileWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcFileWriter> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcFileWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcFileWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcFileWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcFileWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRdcFileWriter> for IRdcFileReader {
@@ -284,7 +284,7 @@ pub struct IRdcFileWriter_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcGenerator(::windows::runtime::IUnknown);
+pub struct IRdcGenerator(pub ::windows::runtime::IUnknown);
 impl IRdcGenerator {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn GetGeneratorParameters(&self, level: u32) -> ::windows::runtime::Result<IRdcGeneratorParameters> {
@@ -303,22 +303,22 @@ unsafe impl ::windows::runtime::Interface for IRdcGenerator {
 }
 impl ::std::convert::From<IRdcGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IRdcGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcGenerator> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcGenerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -334,7 +334,7 @@ pub struct IRdcGenerator_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcGeneratorFilterMaxParameters(::windows::runtime::IUnknown);
+pub struct IRdcGeneratorFilterMaxParameters(pub ::windows::runtime::IUnknown);
 impl IRdcGeneratorFilterMaxParameters {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn GetHorizonSize(&self) -> ::windows::runtime::Result<u32> {
@@ -361,22 +361,22 @@ unsafe impl ::windows::runtime::Interface for IRdcGeneratorFilterMaxParameters {
 }
 impl ::std::convert::From<IRdcGeneratorFilterMaxParameters> for ::windows::runtime::IUnknown {
     fn from(value: IRdcGeneratorFilterMaxParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcGeneratorFilterMaxParameters> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcGeneratorFilterMaxParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcGeneratorFilterMaxParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcGeneratorFilterMaxParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcGeneratorFilterMaxParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -393,7 +393,7 @@ pub struct IRdcGeneratorFilterMaxParameters_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcGeneratorParameters(::windows::runtime::IUnknown);
+pub struct IRdcGeneratorParameters(pub ::windows::runtime::IUnknown);
 impl IRdcGeneratorParameters {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn GetGeneratorParametersType(&self) -> ::windows::runtime::Result<GeneratorParametersType> {
@@ -420,22 +420,22 @@ unsafe impl ::windows::runtime::Interface for IRdcGeneratorParameters {
 }
 impl ::std::convert::From<IRdcGeneratorParameters> for ::windows::runtime::IUnknown {
     fn from(value: IRdcGeneratorParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcGeneratorParameters> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcGeneratorParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcGeneratorParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcGeneratorParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcGeneratorParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -452,7 +452,7 @@ pub struct IRdcGeneratorParameters_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcLibrary(::windows::runtime::IUnknown);
+pub struct IRdcLibrary(pub ::windows::runtime::IUnknown);
 impl IRdcLibrary {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn ComputeDefaultRecursionDepth(&self, filesize: u64) -> ::windows::runtime::Result<u32> {
@@ -495,22 +495,22 @@ unsafe impl ::windows::runtime::Interface for IRdcLibrary {
 }
 impl ::std::convert::From<IRdcLibrary> for ::windows::runtime::IUnknown {
     fn from(value: IRdcLibrary) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcLibrary> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcLibrary) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcLibrary {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcLibrary {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcLibrary {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -530,7 +530,7 @@ pub struct IRdcLibrary_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcSignatureReader(::windows::runtime::IUnknown);
+pub struct IRdcSignatureReader(pub ::windows::runtime::IUnknown);
 impl IRdcSignatureReader {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn ReadHeader(&self) -> ::windows::runtime::Result<RDC_ErrorCode> {
@@ -549,22 +549,22 @@ unsafe impl ::windows::runtime::Interface for IRdcSignatureReader {
 }
 impl ::std::convert::From<IRdcSignatureReader> for ::windows::runtime::IUnknown {
     fn from(value: IRdcSignatureReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcSignatureReader> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcSignatureReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcSignatureReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcSignatureReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcSignatureReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -580,7 +580,7 @@ pub struct IRdcSignatureReader_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRdcSimilarityGenerator(::windows::runtime::IUnknown);
+pub struct IRdcSimilarityGenerator(pub ::windows::runtime::IUnknown);
 impl IRdcSimilarityGenerator {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn EnableSimilarity(&self) -> ::windows::runtime::Result<()> {
@@ -598,22 +598,22 @@ unsafe impl ::windows::runtime::Interface for IRdcSimilarityGenerator {
 }
 impl ::std::convert::From<IRdcSimilarityGenerator> for ::windows::runtime::IUnknown {
     fn from(value: IRdcSimilarityGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRdcSimilarityGenerator> for ::windows::runtime::IUnknown {
     fn from(value: &IRdcSimilarityGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRdcSimilarityGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRdcSimilarityGenerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRdcSimilarityGenerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -628,7 +628,7 @@ pub struct IRdcSimilarityGenerator_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarity(::windows::runtime::IUnknown);
+pub struct ISimilarity(pub ::windows::runtime::IUnknown);
 impl ISimilarity {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`, `Win32_Foundation`*"]
@@ -672,22 +672,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarity {
 }
 impl ::std::convert::From<ISimilarity> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarity> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarity {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -710,7 +710,7 @@ pub struct ISimilarity_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarityFileIdTable(::windows::runtime::IUnknown);
+pub struct ISimilarityFileIdTable(pub ::windows::runtime::IUnknown);
 impl ISimilarityFileIdTable {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`, `Win32_Foundation`*"]
@@ -755,22 +755,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarityFileIdTable {
 }
 impl ::std::convert::From<ISimilarityFileIdTable> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityFileIdTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarityFileIdTable> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarityFileIdTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarityFileIdTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarityFileIdTable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarityFileIdTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -793,7 +793,7 @@ pub struct ISimilarityFileIdTable_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarityReportProgress(::windows::runtime::IUnknown);
+pub struct ISimilarityReportProgress(pub ::windows::runtime::IUnknown);
 impl ISimilarityReportProgress {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn ReportProgress(&self, percentcompleted: u32) -> ::windows::runtime::Result<()> {
@@ -806,22 +806,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarityReportProgress {
 }
 impl ::std::convert::From<ISimilarityReportProgress> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityReportProgress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarityReportProgress> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarityReportProgress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarityReportProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarityReportProgress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarityReportProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -835,7 +835,7 @@ pub struct ISimilarityReportProgress_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarityTableDumpState(::windows::runtime::IUnknown);
+pub struct ISimilarityTableDumpState(pub ::windows::runtime::IUnknown);
 impl ISimilarityTableDumpState {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`, `Win32_Foundation`*"]
@@ -849,22 +849,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarityTableDumpState {
 }
 impl ::std::convert::From<ISimilarityTableDumpState> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTableDumpState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarityTableDumpState> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarityTableDumpState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarityTableDumpState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarityTableDumpState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarityTableDumpState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -879,7 +879,7 @@ pub struct ISimilarityTableDumpState_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarityTraitsMappedView(::windows::runtime::IUnknown);
+pub struct ISimilarityTraitsMappedView(pub ::windows::runtime::IUnknown);
 impl ISimilarityTraitsMappedView {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
@@ -906,22 +906,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarityTraitsMappedView {
 }
 impl ::std::convert::From<ISimilarityTraitsMappedView> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTraitsMappedView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarityTraitsMappedView> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarityTraitsMappedView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarityTraitsMappedView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarityTraitsMappedView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarityTraitsMappedView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -939,7 +939,7 @@ pub struct ISimilarityTraitsMappedView_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarityTraitsMapping(::windows::runtime::IUnknown);
+pub struct ISimilarityTraitsMapping(pub ::windows::runtime::IUnknown);
 impl ISimilarityTraitsMapping {
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
     pub unsafe fn CloseMapping(&self) {
@@ -980,22 +980,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarityTraitsMapping {
 }
 impl ::std::convert::From<ISimilarityTraitsMapping> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTraitsMapping) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarityTraitsMapping> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarityTraitsMapping) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarityTraitsMapping {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarityTraitsMapping {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarityTraitsMapping {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1015,7 +1015,7 @@ pub struct ISimilarityTraitsMapping_abi(
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimilarityTraitsTable(::windows::runtime::IUnknown);
+pub struct ISimilarityTraitsTable(pub ::windows::runtime::IUnknown);
 impl ISimilarityTraitsTable {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`, `Win32_Foundation`*"]
@@ -1059,22 +1059,22 @@ unsafe impl ::windows::runtime::Interface for ISimilarityTraitsTable {
 }
 impl ::std::convert::From<ISimilarityTraitsTable> for ::windows::runtime::IUnknown {
     fn from(value: ISimilarityTraitsTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimilarityTraitsTable> for ::windows::runtime::IUnknown {
     fn from(value: &ISimilarityTraitsTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimilarityTraitsTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimilarityTraitsTable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimilarityTraitsTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

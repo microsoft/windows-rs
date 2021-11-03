@@ -2036,7 +2036,7 @@ unsafe impl ::windows::runtime::Abi for HTASK {
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IActivateAudioInterfaceAsyncOperation(::windows::runtime::IUnknown);
+pub struct IActivateAudioInterfaceAsyncOperation(pub ::windows::runtime::IUnknown);
 impl IActivateAudioInterfaceAsyncOperation {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetActivateResult(&self, activateresult: *mut ::windows::runtime::HRESULT, activatedinterface: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
@@ -2049,22 +2049,22 @@ unsafe impl ::windows::runtime::Interface for IActivateAudioInterfaceAsyncOperat
 }
 impl ::std::convert::From<IActivateAudioInterfaceAsyncOperation> for ::windows::runtime::IUnknown {
     fn from(value: IActivateAudioInterfaceAsyncOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IActivateAudioInterfaceAsyncOperation> for ::windows::runtime::IUnknown {
     fn from(value: &IActivateAudioInterfaceAsyncOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IActivateAudioInterfaceAsyncOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IActivateAudioInterfaceAsyncOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IActivateAudioInterfaceAsyncOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2078,7 +2078,7 @@ pub struct IActivateAudioInterfaceAsyncOperation_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IActivateAudioInterfaceCompletionHandler(::windows::runtime::IUnknown);
+pub struct IActivateAudioInterfaceCompletionHandler(pub ::windows::runtime::IUnknown);
 impl IActivateAudioInterfaceCompletionHandler {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn ActivateCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, IActivateAudioInterfaceAsyncOperation>>(&self, activateoperation: Param0) -> ::windows::runtime::Result<()> {
@@ -2091,22 +2091,22 @@ unsafe impl ::windows::runtime::Interface for IActivateAudioInterfaceCompletionH
 }
 impl ::std::convert::From<IActivateAudioInterfaceCompletionHandler> for ::windows::runtime::IUnknown {
     fn from(value: IActivateAudioInterfaceCompletionHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IActivateAudioInterfaceCompletionHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IActivateAudioInterfaceCompletionHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IActivateAudioInterfaceCompletionHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IActivateAudioInterfaceCompletionHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IActivateAudioInterfaceCompletionHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2120,7 +2120,7 @@ pub struct IActivateAudioInterfaceCompletionHandler_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioAmbisonicsControl(::windows::runtime::IUnknown);
+pub struct IAudioAmbisonicsControl(pub ::windows::runtime::IUnknown);
 impl IAudioAmbisonicsControl {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> ::windows::runtime::Result<()> {
@@ -2148,22 +2148,22 @@ unsafe impl ::windows::runtime::Interface for IAudioAmbisonicsControl {
 }
 impl ::std::convert::From<IAudioAmbisonicsControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioAmbisonicsControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioAmbisonicsControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioAmbisonicsControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioAmbisonicsControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioAmbisonicsControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioAmbisonicsControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2182,7 +2182,7 @@ pub struct IAudioAmbisonicsControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioAutoGainControl(::windows::runtime::IUnknown);
+pub struct IAudioAutoGainControl(pub ::windows::runtime::IUnknown);
 impl IAudioAutoGainControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -2202,22 +2202,22 @@ unsafe impl ::windows::runtime::Interface for IAudioAutoGainControl {
 }
 impl ::std::convert::From<IAudioAutoGainControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioAutoGainControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioAutoGainControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioAutoGainControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioAutoGainControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioAutoGainControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioAutoGainControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2234,7 +2234,7 @@ pub struct IAudioAutoGainControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioBass(::windows::runtime::IUnknown);
+pub struct IAudioBass(pub ::windows::runtime::IUnknown);
 impl IAudioBass {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2269,22 +2269,22 @@ unsafe impl ::windows::runtime::Interface for IAudioBass {
 }
 impl ::std::convert::From<IAudioBass> for ::windows::runtime::IUnknown {
     fn from(value: IAudioBass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioBass> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioBass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioBass {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioBass {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioBass {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioBass> for IPerChannelDbLevel {
@@ -2323,7 +2323,7 @@ pub struct IAudioBass_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioCaptureClient(::windows::runtime::IUnknown);
+pub struct IAudioCaptureClient(pub ::windows::runtime::IUnknown);
 impl IAudioCaptureClient {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: *mut u64, pu64qpcposition: *mut u64) -> ::windows::runtime::Result<()> {
@@ -2345,22 +2345,22 @@ unsafe impl ::windows::runtime::Interface for IAudioCaptureClient {
 }
 impl ::std::convert::From<IAudioCaptureClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioCaptureClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioCaptureClient> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioCaptureClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioCaptureClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioCaptureClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioCaptureClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2376,7 +2376,7 @@ pub struct IAudioCaptureClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioChannelConfig(::windows::runtime::IUnknown);
+pub struct IAudioChannelConfig(pub ::windows::runtime::IUnknown);
 impl IAudioChannelConfig {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -2394,22 +2394,22 @@ unsafe impl ::windows::runtime::Interface for IAudioChannelConfig {
 }
 impl ::std::convert::From<IAudioChannelConfig> for ::windows::runtime::IUnknown {
     fn from(value: IAudioChannelConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioChannelConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioChannelConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioChannelConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioChannelConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioChannelConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2424,7 +2424,7 @@ pub struct IAudioChannelConfig_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClient(::windows::runtime::IUnknown);
+pub struct IAudioClient(pub ::windows::runtime::IUnknown);
 impl IAudioClient {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Media_Multimedia`*"]
@@ -2490,22 +2490,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClient {
 }
 impl ::std::convert::From<IAudioClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClient> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2534,7 +2534,7 @@ pub struct IAudioClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClient2(::windows::runtime::IUnknown);
+pub struct IAudioClient2(pub ::windows::runtime::IUnknown);
 impl IAudioClient2 {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Media_Multimedia`*"]
@@ -2616,22 +2616,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClient2 {
 }
 impl ::std::convert::From<IAudioClient2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClient2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClient2> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClient2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClient2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioClient2> for IAudioClient {
@@ -2686,7 +2686,7 @@ pub struct IAudioClient2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClient3(::windows::runtime::IUnknown);
+pub struct IAudioClient3(pub ::windows::runtime::IUnknown);
 impl IAudioClient3 {
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Media_Multimedia`*"]
@@ -2783,22 +2783,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClient3 {
 }
 impl ::std::convert::From<IAudioClient3> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClient3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClient3> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClient3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClient3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClient3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClient3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioClient3> for IAudioClient2 {
@@ -2879,7 +2879,7 @@ pub struct IAudioClient3_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClientDuckingControl(::windows::runtime::IUnknown);
+pub struct IAudioClientDuckingControl(pub ::windows::runtime::IUnknown);
 impl IAudioClientDuckingControl {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> ::windows::runtime::Result<()> {
@@ -2892,22 +2892,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClientDuckingControl {
 }
 impl ::std::convert::From<IAudioClientDuckingControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClientDuckingControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClientDuckingControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClientDuckingControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClientDuckingControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClientDuckingControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClientDuckingControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2921,7 +2921,7 @@ pub struct IAudioClientDuckingControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClock(::windows::runtime::IUnknown);
+pub struct IAudioClock(pub ::windows::runtime::IUnknown);
 impl IAudioClock {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetFrequency(&self) -> ::windows::runtime::Result<u64> {
@@ -2944,22 +2944,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClock {
 }
 impl ::std::convert::From<IAudioClock> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClock) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClock> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClock) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClock {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2975,7 +2975,7 @@ pub struct IAudioClock_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClock2(::windows::runtime::IUnknown);
+pub struct IAudioClock2(pub ::windows::runtime::IUnknown);
 impl IAudioClock2 {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: *mut u64) -> ::windows::runtime::Result<()> {
@@ -2988,22 +2988,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClock2 {
 }
 impl ::std::convert::From<IAudioClock2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClock2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClock2> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClock2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClock2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClock2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClock2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3017,7 +3017,7 @@ pub struct IAudioClock2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioClockAdjustment(::windows::runtime::IUnknown);
+pub struct IAudioClockAdjustment(pub ::windows::runtime::IUnknown);
 impl IAudioClockAdjustment {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn SetSampleRate(&self, flsamplerate: f32) -> ::windows::runtime::Result<()> {
@@ -3030,22 +3030,22 @@ unsafe impl ::windows::runtime::Interface for IAudioClockAdjustment {
 }
 impl ::std::convert::From<IAudioClockAdjustment> for ::windows::runtime::IUnknown {
     fn from(value: IAudioClockAdjustment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioClockAdjustment> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioClockAdjustment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioClockAdjustment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioClockAdjustment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioClockAdjustment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3059,7 +3059,7 @@ pub struct IAudioClockAdjustment_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEffectsChangedNotificationClient(::windows::runtime::IUnknown);
+pub struct IAudioEffectsChangedNotificationClient(pub ::windows::runtime::IUnknown);
 impl IAudioEffectsChangedNotificationClient {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn OnAudioEffectsChanged(&self) -> ::windows::runtime::Result<()> {
@@ -3072,22 +3072,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEffectsChangedNotificationCl
 }
 impl ::std::convert::From<IAudioEffectsChangedNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEffectsChangedNotificationClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEffectsChangedNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEffectsChangedNotificationClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEffectsChangedNotificationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEffectsChangedNotificationClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEffectsChangedNotificationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3101,7 +3101,7 @@ pub struct IAudioEffectsChangedNotificationClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEffectsManager(::windows::runtime::IUnknown);
+pub struct IAudioEffectsManager(pub ::windows::runtime::IUnknown);
 impl IAudioEffectsManager {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn RegisterAudioEffectsChangedNotificationCallback<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioEffectsChangedNotificationClient>>(&self, client: Param0) -> ::windows::runtime::Result<()> {
@@ -3127,22 +3127,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEffectsManager {
 }
 impl ::std::convert::From<IAudioEffectsManager> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEffectsManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEffectsManager> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEffectsManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEffectsManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEffectsManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEffectsManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3160,7 +3160,7 @@ pub struct IAudioEffectsManager_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointFormatControl(::windows::runtime::IUnknown);
+pub struct IAudioEndpointFormatControl(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointFormatControl {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn ResetToDefault(&self, resetflags: u32) -> ::windows::runtime::Result<()> {
@@ -3173,22 +3173,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointFormatControl {
 }
 impl ::std::convert::From<IAudioEndpointFormatControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointFormatControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointFormatControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointFormatControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointFormatControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointFormatControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointFormatControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3202,7 +3202,7 @@ pub struct IAudioEndpointFormatControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointLastBufferControl(::windows::runtime::IUnknown);
+pub struct IAudioEndpointLastBufferControl(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointLastBufferControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -3221,22 +3221,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointLastBufferControl {
 }
 impl ::std::convert::From<IAudioEndpointLastBufferControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointLastBufferControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointLastBufferControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointLastBufferControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointLastBufferControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointLastBufferControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointLastBufferControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3253,7 +3253,7 @@ pub struct IAudioEndpointLastBufferControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointOffloadStreamMeter(::windows::runtime::IUnknown);
+pub struct IAudioEndpointOffloadStreamMeter(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointOffloadStreamMeter {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetMeterChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3272,22 +3272,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointOffloadStreamMeter {
 }
 impl ::std::convert::From<IAudioEndpointOffloadStreamMeter> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointOffloadStreamMeter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointOffloadStreamMeter> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointOffloadStreamMeter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointOffloadStreamMeter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointOffloadStreamMeter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointOffloadStreamMeter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3302,7 +3302,7 @@ pub struct IAudioEndpointOffloadStreamMeter_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointOffloadStreamMute(::windows::runtime::IUnknown);
+pub struct IAudioEndpointOffloadStreamMute(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointOffloadStreamMute {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn SetMute(&self, bmuted: u8) -> ::windows::runtime::Result<()> {
@@ -3320,22 +3320,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointOffloadStreamMute {
 }
 impl ::std::convert::From<IAudioEndpointOffloadStreamMute> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointOffloadStreamMute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointOffloadStreamMute> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointOffloadStreamMute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointOffloadStreamMute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointOffloadStreamMute {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointOffloadStreamMute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3350,7 +3350,7 @@ pub struct IAudioEndpointOffloadStreamMute_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointOffloadStreamVolume(::windows::runtime::IUnknown);
+pub struct IAudioEndpointOffloadStreamVolume(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointOffloadStreamVolume {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetVolumeChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3373,22 +3373,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointOffloadStreamVolume 
 }
 impl ::std::convert::From<IAudioEndpointOffloadStreamVolume> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointOffloadStreamVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointOffloadStreamVolume> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointOffloadStreamVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointOffloadStreamVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointOffloadStreamVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointOffloadStreamVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3404,7 +3404,7 @@ pub struct IAudioEndpointOffloadStreamVolume_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointVolume(::windows::runtime::IUnknown);
+pub struct IAudioEndpointVolume(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointVolume {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn RegisterControlChangeNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioEndpointVolumeCallback>>(&self, pnotify: Param0) -> ::windows::runtime::Result<()> {
@@ -3494,22 +3494,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointVolume {
 }
 impl ::std::convert::From<IAudioEndpointVolume> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointVolume> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3542,7 +3542,7 @@ pub struct IAudioEndpointVolume_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointVolumeCallback(::windows::runtime::IUnknown);
+pub struct IAudioEndpointVolumeCallback(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointVolumeCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -3556,22 +3556,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointVolumeCallback {
 }
 impl ::std::convert::From<IAudioEndpointVolumeCallback> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointVolumeCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointVolumeCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointVolumeCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointVolumeCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointVolumeCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointVolumeCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3586,7 +3586,7 @@ pub struct IAudioEndpointVolumeCallback_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioEndpointVolumeEx(::windows::runtime::IUnknown);
+pub struct IAudioEndpointVolumeEx(pub ::windows::runtime::IUnknown);
 impl IAudioEndpointVolumeEx {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn RegisterControlChangeNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioEndpointVolumeCallback>>(&self, pnotify: Param0) -> ::windows::runtime::Result<()> {
@@ -3680,22 +3680,22 @@ unsafe impl ::windows::runtime::Interface for IAudioEndpointVolumeEx {
 }
 impl ::std::convert::From<IAudioEndpointVolumeEx> for ::windows::runtime::IUnknown {
     fn from(value: IAudioEndpointVolumeEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioEndpointVolumeEx> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioEndpointVolumeEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioEndpointVolumeEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioEndpointVolumeEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioEndpointVolumeEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioEndpointVolumeEx> for IAudioEndpointVolume {
@@ -3749,7 +3749,7 @@ pub struct IAudioEndpointVolumeEx_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioFormatEnumerator(::windows::runtime::IUnknown);
+pub struct IAudioFormatEnumerator(pub ::windows::runtime::IUnknown);
 impl IAudioFormatEnumerator {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3769,22 +3769,22 @@ unsafe impl ::windows::runtime::Interface for IAudioFormatEnumerator {
 }
 impl ::std::convert::From<IAudioFormatEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAudioFormatEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioFormatEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioFormatEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioFormatEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioFormatEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioFormatEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3800,7 +3800,7 @@ pub struct IAudioFormatEnumerator_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioInputSelector(::windows::runtime::IUnknown);
+pub struct IAudioInputSelector(pub ::windows::runtime::IUnknown);
 impl IAudioInputSelector {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::runtime::Result<u32> {
@@ -3818,22 +3818,22 @@ unsafe impl ::windows::runtime::Interface for IAudioInputSelector {
 }
 impl ::std::convert::From<IAudioInputSelector> for ::windows::runtime::IUnknown {
     fn from(value: IAudioInputSelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioInputSelector> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioInputSelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioInputSelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioInputSelector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioInputSelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3848,7 +3848,7 @@ pub struct IAudioInputSelector_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioLfxControl(::windows::runtime::IUnknown);
+pub struct IAudioLfxControl(pub ::windows::runtime::IUnknown);
 impl IAudioLfxControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -3868,22 +3868,22 @@ unsafe impl ::windows::runtime::Interface for IAudioLfxControl {
 }
 impl ::std::convert::From<IAudioLfxControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioLfxControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioLfxControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioLfxControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioLfxControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioLfxControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioLfxControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3900,7 +3900,7 @@ pub struct IAudioLfxControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioLoudness(::windows::runtime::IUnknown);
+pub struct IAudioLoudness(pub ::windows::runtime::IUnknown);
 impl IAudioLoudness {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -3920,22 +3920,22 @@ unsafe impl ::windows::runtime::Interface for IAudioLoudness {
 }
 impl ::std::convert::From<IAudioLoudness> for ::windows::runtime::IUnknown {
     fn from(value: IAudioLoudness) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioLoudness> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioLoudness) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioLoudness {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioLoudness {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioLoudness {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3952,7 +3952,7 @@ pub struct IAudioLoudness_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioMeterInformation(::windows::runtime::IUnknown);
+pub struct IAudioMeterInformation(pub ::windows::runtime::IUnknown);
 impl IAudioMeterInformation {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetPeakValue(&self) -> ::windows::runtime::Result<f32> {
@@ -3980,22 +3980,22 @@ unsafe impl ::windows::runtime::Interface for IAudioMeterInformation {
 }
 impl ::std::convert::From<IAudioMeterInformation> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMeterInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioMeterInformation> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioMeterInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioMeterInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioMeterInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioMeterInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4012,7 +4012,7 @@ pub struct IAudioMeterInformation_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioMidrange(::windows::runtime::IUnknown);
+pub struct IAudioMidrange(pub ::windows::runtime::IUnknown);
 impl IAudioMidrange {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4047,22 +4047,22 @@ unsafe impl ::windows::runtime::Interface for IAudioMidrange {
 }
 impl ::std::convert::From<IAudioMidrange> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMidrange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioMidrange> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioMidrange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioMidrange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioMidrange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioMidrange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioMidrange> for IPerChannelDbLevel {
@@ -4101,7 +4101,7 @@ pub struct IAudioMidrange_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioMute(::windows::runtime::IUnknown);
+pub struct IAudioMute(pub ::windows::runtime::IUnknown);
 impl IAudioMute {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -4121,22 +4121,22 @@ unsafe impl ::windows::runtime::Interface for IAudioMute {
 }
 impl ::std::convert::From<IAudioMute> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioMute> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioMute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioMute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioMute {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioMute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4153,7 +4153,7 @@ pub struct IAudioMute_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioOutputSelector(::windows::runtime::IUnknown);
+pub struct IAudioOutputSelector(pub ::windows::runtime::IUnknown);
 impl IAudioOutputSelector {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::runtime::Result<u32> {
@@ -4171,22 +4171,22 @@ unsafe impl ::windows::runtime::Interface for IAudioOutputSelector {
 }
 impl ::std::convert::From<IAudioOutputSelector> for ::windows::runtime::IUnknown {
     fn from(value: IAudioOutputSelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioOutputSelector> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioOutputSelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioOutputSelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioOutputSelector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioOutputSelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4201,7 +4201,7 @@ pub struct IAudioOutputSelector_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioPeakMeter(::windows::runtime::IUnknown);
+pub struct IAudioPeakMeter(pub ::windows::runtime::IUnknown);
 impl IAudioPeakMeter {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4220,22 +4220,22 @@ unsafe impl ::windows::runtime::Interface for IAudioPeakMeter {
 }
 impl ::std::convert::From<IAudioPeakMeter> for ::windows::runtime::IUnknown {
     fn from(value: IAudioPeakMeter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioPeakMeter> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioPeakMeter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioPeakMeter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioPeakMeter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioPeakMeter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4250,7 +4250,7 @@ pub struct IAudioPeakMeter_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioProcessingObjectLoggingService(::windows::runtime::IUnknown);
+pub struct IAudioProcessingObjectLoggingService(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObjectLoggingService {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -4264,22 +4264,22 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectLoggingServi
 }
 impl ::std::convert::From<IAudioProcessingObjectLoggingService> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectLoggingService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioProcessingObjectLoggingService> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioProcessingObjectLoggingService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectLoggingService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObjectLoggingService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObjectLoggingService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4294,7 +4294,7 @@ pub struct IAudioProcessingObjectLoggingService_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioProcessingObjectNotifications(::windows::runtime::IUnknown);
+pub struct IAudioProcessingObjectNotifications(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObjectNotifications {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4312,22 +4312,22 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectNotification
 }
 impl ::std::convert::From<IAudioProcessingObjectNotifications> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectNotifications) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioProcessingObjectNotifications> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioProcessingObjectNotifications) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectNotifications {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObjectNotifications {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObjectNotifications {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4343,7 +4343,7 @@ pub struct IAudioProcessingObjectNotifications_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioProcessingObjectRTQueueService(::windows::runtime::IUnknown);
+pub struct IAudioProcessingObjectRTQueueService(pub ::windows::runtime::IUnknown);
 impl IAudioProcessingObjectRTQueueService {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetRealTimeWorkQueue(&self) -> ::windows::runtime::Result<u32> {
@@ -4357,22 +4357,22 @@ unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectRTQueueServi
 }
 impl ::std::convert::From<IAudioProcessingObjectRTQueueService> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectRTQueueService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioProcessingObjectRTQueueService> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioProcessingObjectRTQueueService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectRTQueueService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObjectRTQueueService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioProcessingObjectRTQueueService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4386,7 +4386,7 @@ pub struct IAudioProcessingObjectRTQueueService_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioRenderClient(::windows::runtime::IUnknown);
+pub struct IAudioRenderClient(pub ::windows::runtime::IUnknown);
 impl IAudioRenderClient {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, numframesrequested: u32) -> ::windows::runtime::Result<*mut u8> {
@@ -4404,22 +4404,22 @@ unsafe impl ::windows::runtime::Interface for IAudioRenderClient {
 }
 impl ::std::convert::From<IAudioRenderClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioRenderClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioRenderClient> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioRenderClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioRenderClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioRenderClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioRenderClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4434,7 +4434,7 @@ pub struct IAudioRenderClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionControl(::windows::runtime::IUnknown);
+pub struct IAudioSessionControl(pub ::windows::runtime::IUnknown);
 impl IAudioSessionControl {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetState(&self) -> ::windows::runtime::Result<AudioSessionState> {
@@ -4487,22 +4487,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionControl {
 }
 impl ::std::convert::From<IAudioSessionControl> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionControl> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4528,7 +4528,7 @@ pub struct IAudioSessionControl_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionControl2(::windows::runtime::IUnknown);
+pub struct IAudioSessionControl2(pub ::windows::runtime::IUnknown);
 impl IAudioSessionControl2 {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetState(&self) -> ::windows::runtime::Result<AudioSessionState> {
@@ -4607,22 +4607,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionControl2 {
 }
 impl ::std::convert::From<IAudioSessionControl2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionControl2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionControl2> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionControl2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionControl2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioSessionControl2> for IAudioSessionControl {
@@ -4676,7 +4676,7 @@ pub struct IAudioSessionControl2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionEnumerator(::windows::runtime::IUnknown);
+pub struct IAudioSessionEnumerator(pub ::windows::runtime::IUnknown);
 impl IAudioSessionEnumerator {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<i32> {
@@ -4695,22 +4695,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionEnumerator {
 }
 impl ::std::convert::From<IAudioSessionEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4725,7 +4725,7 @@ pub struct IAudioSessionEnumerator_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionEvents(::windows::runtime::IUnknown);
+pub struct IAudioSessionEvents(pub ::windows::runtime::IUnknown);
 impl IAudioSessionEvents {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -4765,22 +4765,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionEvents {
 }
 impl ::std::convert::From<IAudioSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionEvents> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4803,7 +4803,7 @@ pub struct IAudioSessionEvents_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionManager(::windows::runtime::IUnknown);
+pub struct IAudioSessionManager(pub ::windows::runtime::IUnknown);
 impl IAudioSessionManager {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: *const ::windows::runtime::GUID, streamflags: u32) -> ::windows::runtime::Result<IAudioSessionControl> {
@@ -4822,22 +4822,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionManager {
 }
 impl ::std::convert::From<IAudioSessionManager> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionManager> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4852,7 +4852,7 @@ pub struct IAudioSessionManager_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionManager2(::windows::runtime::IUnknown);
+pub struct IAudioSessionManager2(pub ::windows::runtime::IUnknown);
 impl IAudioSessionManager2 {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: *const ::windows::runtime::GUID, streamflags: u32) -> ::windows::runtime::Result<IAudioSessionControl> {
@@ -4893,22 +4893,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionManager2 {
 }
 impl ::std::convert::From<IAudioSessionManager2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionManager2> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionManager2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioSessionManager2> for IAudioSessionManager {
@@ -4949,7 +4949,7 @@ pub struct IAudioSessionManager2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSessionNotification(::windows::runtime::IUnknown);
+pub struct IAudioSessionNotification(pub ::windows::runtime::IUnknown);
 impl IAudioSessionNotification {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn OnSessionCreated<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioSessionControl>>(&self, newsession: Param0) -> ::windows::runtime::Result<()> {
@@ -4962,22 +4962,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSessionNotification {
 }
 impl ::std::convert::From<IAudioSessionNotification> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSessionNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSessionNotification> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSessionNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSessionNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSessionNotification {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSessionNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4991,7 +4991,7 @@ pub struct IAudioSessionNotification_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioStateMonitor(::windows::runtime::IUnknown);
+pub struct IAudioStateMonitor(pub ::windows::runtime::IUnknown);
 impl IAudioStateMonitor {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn RegisterCallback(&self, callback: ::std::option::Option<PAudioStateMonitorCallback>, context: *const ::std::ffi::c_void) -> ::windows::runtime::Result<i64> {
@@ -5013,22 +5013,22 @@ unsafe impl ::windows::runtime::Interface for IAudioStateMonitor {
 }
 impl ::std::convert::From<IAudioStateMonitor> for ::windows::runtime::IUnknown {
     fn from(value: IAudioStateMonitor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioStateMonitor> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioStateMonitor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioStateMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioStateMonitor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioStateMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5044,7 +5044,7 @@ pub struct IAudioStateMonitor_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioStreamVolume(::windows::runtime::IUnknown);
+pub struct IAudioStreamVolume(pub ::windows::runtime::IUnknown);
 impl IAudioStreamVolume {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5075,22 +5075,22 @@ unsafe impl ::windows::runtime::Interface for IAudioStreamVolume {
 }
 impl ::std::convert::From<IAudioStreamVolume> for ::windows::runtime::IUnknown {
     fn from(value: IAudioStreamVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioStreamVolume> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioStreamVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioStreamVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioStreamVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioStreamVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5108,7 +5108,7 @@ pub struct IAudioStreamVolume_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSystemEffects3(::windows::runtime::IUnknown);
+pub struct IAudioSystemEffects3(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffects3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -5131,22 +5131,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSystemEffects3 {
 }
 impl ::std::convert::From<IAudioSystemEffects3> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffects3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSystemEffects3> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSystemEffects3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffects3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSystemEffects3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSystemEffects3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
@@ -5212,7 +5212,7 @@ pub struct IAudioSystemEffects3_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSystemEffectsPropertyChangeNotificationClient(::windows::runtime::IUnknown);
+pub struct IAudioSystemEffectsPropertyChangeNotificationClient(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_System_PropertiesSystem`*"]
@@ -5226,22 +5226,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsPropertyChangeN
 }
 impl ::std::convert::From<IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffectsPropertyChangeNotificationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSystemEffectsPropertyChangeNotificationClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSystemEffectsPropertyChangeNotificationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5256,7 +5256,7 @@ pub struct IAudioSystemEffectsPropertyChangeNotificationClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioSystemEffectsPropertyStore(::windows::runtime::IUnknown);
+pub struct IAudioSystemEffectsPropertyStore(pub ::windows::runtime::IUnknown);
 impl IAudioSystemEffectsPropertyStore {
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_System_PropertiesSystem`*"]
@@ -5299,22 +5299,22 @@ unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsPropertyStore {
 }
 impl ::std::convert::From<IAudioSystemEffectsPropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffectsPropertyStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioSystemEffectsPropertyStore> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioSystemEffectsPropertyStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffectsPropertyStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSystemEffectsPropertyStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioSystemEffectsPropertyStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5337,7 +5337,7 @@ pub struct IAudioSystemEffectsPropertyStore_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioTreble(::windows::runtime::IUnknown);
+pub struct IAudioTreble(pub ::windows::runtime::IUnknown);
 impl IAudioTreble {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5372,22 +5372,22 @@ unsafe impl ::windows::runtime::Interface for IAudioTreble {
 }
 impl ::std::convert::From<IAudioTreble> for ::windows::runtime::IUnknown {
     fn from(value: IAudioTreble) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioTreble> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioTreble) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioTreble {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioTreble {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioTreble {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioTreble> for IPerChannelDbLevel {
@@ -5426,7 +5426,7 @@ pub struct IAudioTreble_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioVolumeDuckNotification(::windows::runtime::IUnknown);
+pub struct IAudioVolumeDuckNotification(pub ::windows::runtime::IUnknown);
 impl IAudioVolumeDuckNotification {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -5445,22 +5445,22 @@ unsafe impl ::windows::runtime::Interface for IAudioVolumeDuckNotification {
 }
 impl ::std::convert::From<IAudioVolumeDuckNotification> for ::windows::runtime::IUnknown {
     fn from(value: IAudioVolumeDuckNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioVolumeDuckNotification> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioVolumeDuckNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioVolumeDuckNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioVolumeDuckNotification {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioVolumeDuckNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5477,7 +5477,7 @@ pub struct IAudioVolumeDuckNotification_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAudioVolumeLevel(::windows::runtime::IUnknown);
+pub struct IAudioVolumeLevel(pub ::windows::runtime::IUnknown);
 impl IAudioVolumeLevel {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5512,22 +5512,22 @@ unsafe impl ::windows::runtime::Interface for IAudioVolumeLevel {
 }
 impl ::std::convert::From<IAudioVolumeLevel> for ::windows::runtime::IUnknown {
     fn from(value: IAudioVolumeLevel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAudioVolumeLevel> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioVolumeLevel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioVolumeLevel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioVolumeLevel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioVolumeLevel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAudioVolumeLevel> for IPerChannelDbLevel {
@@ -5566,7 +5566,7 @@ pub struct IAudioVolumeLevel_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IChannelAudioVolume(::windows::runtime::IUnknown);
+pub struct IChannelAudioVolume(pub ::windows::runtime::IUnknown);
 impl IChannelAudioVolume {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5597,22 +5597,22 @@ unsafe impl ::windows::runtime::Interface for IChannelAudioVolume {
 }
 impl ::std::convert::From<IChannelAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: IChannelAudioVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IChannelAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: &IChannelAudioVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IChannelAudioVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IChannelAudioVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IChannelAudioVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5630,7 +5630,7 @@ pub struct IChannelAudioVolume_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConnector(::windows::runtime::IUnknown);
+pub struct IConnector(pub ::windows::runtime::IUnknown);
 impl IConnector {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<ConnectorType> {
@@ -5680,22 +5680,22 @@ unsafe impl ::windows::runtime::Interface for IConnector {
 }
 impl ::std::convert::From<IConnector> for ::windows::runtime::IUnknown {
     fn from(value: IConnector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConnector> for ::windows::runtime::IUnknown {
     fn from(value: &IConnector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConnector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5719,7 +5719,7 @@ pub struct IConnector_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IControlChangeNotify(::windows::runtime::IUnknown);
+pub struct IControlChangeNotify(pub ::windows::runtime::IUnknown);
 impl IControlChangeNotify {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -5732,22 +5732,22 @@ unsafe impl ::windows::runtime::Interface for IControlChangeNotify {
 }
 impl ::std::convert::From<IControlChangeNotify> for ::windows::runtime::IUnknown {
     fn from(value: IControlChangeNotify) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IControlChangeNotify> for ::windows::runtime::IUnknown {
     fn from(value: &IControlChangeNotify) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IControlChangeNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IControlChangeNotify {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IControlChangeNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5761,7 +5761,7 @@ pub struct IControlChangeNotify_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IControlInterface(::windows::runtime::IUnknown);
+pub struct IControlInterface(pub ::windows::runtime::IUnknown);
 impl IControlInterface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -5781,22 +5781,22 @@ unsafe impl ::windows::runtime::Interface for IControlInterface {
 }
 impl ::std::convert::From<IControlInterface> for ::windows::runtime::IUnknown {
     fn from(value: IControlInterface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IControlInterface> for ::windows::runtime::IUnknown {
     fn from(value: &IControlInterface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IControlInterface {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IControlInterface {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IControlInterface {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5812,7 +5812,7 @@ pub struct IControlInterface_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDeviceSpecificProperty(::windows::runtime::IUnknown);
+pub struct IDeviceSpecificProperty(pub ::windows::runtime::IUnknown);
 impl IDeviceSpecificProperty {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u16> {
@@ -5838,22 +5838,22 @@ unsafe impl ::windows::runtime::Interface for IDeviceSpecificProperty {
 }
 impl ::std::convert::From<IDeviceSpecificProperty> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceSpecificProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDeviceSpecificProperty> for ::windows::runtime::IUnknown {
     fn from(value: &IDeviceSpecificProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDeviceSpecificProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDeviceSpecificProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDeviceSpecificProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5870,7 +5870,7 @@ pub struct IDeviceSpecificProperty_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDeviceTopology(::windows::runtime::IUnknown);
+pub struct IDeviceTopology(pub ::windows::runtime::IUnknown);
 impl IDeviceTopology {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetConnectorCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5916,22 +5916,22 @@ unsafe impl ::windows::runtime::Interface for IDeviceTopology {
 }
 impl ::std::convert::From<IDeviceTopology> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceTopology) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDeviceTopology> for ::windows::runtime::IUnknown {
     fn from(value: &IDeviceTopology) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDeviceTopology {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDeviceTopology {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDeviceTopology {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5953,7 +5953,7 @@ pub struct IDeviceTopology_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IHardwareAudioEngineBase(::windows::runtime::IUnknown);
+pub struct IHardwareAudioEngineBase(pub ::windows::runtime::IUnknown);
 impl IHardwareAudioEngineBase {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -5989,22 +5989,22 @@ unsafe impl ::windows::runtime::Interface for IHardwareAudioEngineBase {
 }
 impl ::std::convert::From<IHardwareAudioEngineBase> for ::windows::runtime::IUnknown {
     fn from(value: IHardwareAudioEngineBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IHardwareAudioEngineBase> for ::windows::runtime::IUnknown {
     fn from(value: &IHardwareAudioEngineBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHardwareAudioEngineBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IHardwareAudioEngineBase {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHardwareAudioEngineBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6027,7 +6027,7 @@ pub struct IHardwareAudioEngineBase_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IKsFormatSupport(::windows::runtime::IUnknown);
+pub struct IKsFormatSupport(pub ::windows::runtime::IUnknown);
 impl IKsFormatSupport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -6046,22 +6046,22 @@ unsafe impl ::windows::runtime::Interface for IKsFormatSupport {
 }
 impl ::std::convert::From<IKsFormatSupport> for ::windows::runtime::IUnknown {
     fn from(value: IKsFormatSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IKsFormatSupport> for ::windows::runtime::IUnknown {
     fn from(value: &IKsFormatSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IKsFormatSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IKsFormatSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IKsFormatSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6077,7 +6077,7 @@ pub struct IKsFormatSupport_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IKsJackContainerId(::windows::runtime::IUnknown);
+pub struct IKsJackContainerId(pub ::windows::runtime::IUnknown);
 impl IKsJackContainerId {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetJackContainerId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -6091,22 +6091,22 @@ unsafe impl ::windows::runtime::Interface for IKsJackContainerId {
 }
 impl ::std::convert::From<IKsJackContainerId> for ::windows::runtime::IUnknown {
     fn from(value: IKsJackContainerId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IKsJackContainerId> for ::windows::runtime::IUnknown {
     fn from(value: &IKsJackContainerId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IKsJackContainerId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IKsJackContainerId {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IKsJackContainerId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6120,7 +6120,7 @@ pub struct IKsJackContainerId_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IKsJackDescription(::windows::runtime::IUnknown);
+pub struct IKsJackDescription(pub ::windows::runtime::IUnknown);
 impl IKsJackDescription {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetJackCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6140,22 +6140,22 @@ unsafe impl ::windows::runtime::Interface for IKsJackDescription {
 }
 impl ::std::convert::From<IKsJackDescription> for ::windows::runtime::IUnknown {
     fn from(value: IKsJackDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IKsJackDescription> for ::windows::runtime::IUnknown {
     fn from(value: &IKsJackDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IKsJackDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IKsJackDescription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IKsJackDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6171,7 +6171,7 @@ pub struct IKsJackDescription_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IKsJackDescription2(::windows::runtime::IUnknown);
+pub struct IKsJackDescription2(pub ::windows::runtime::IUnknown);
 impl IKsJackDescription2 {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetJackCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6190,22 +6190,22 @@ unsafe impl ::windows::runtime::Interface for IKsJackDescription2 {
 }
 impl ::std::convert::From<IKsJackDescription2> for ::windows::runtime::IUnknown {
     fn from(value: IKsJackDescription2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IKsJackDescription2> for ::windows::runtime::IUnknown {
     fn from(value: &IKsJackDescription2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IKsJackDescription2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IKsJackDescription2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IKsJackDescription2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6220,7 +6220,7 @@ pub struct IKsJackDescription2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IKsJackSinkInformation(::windows::runtime::IUnknown);
+pub struct IKsJackSinkInformation(pub ::windows::runtime::IUnknown);
 impl IKsJackSinkInformation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -6235,22 +6235,22 @@ unsafe impl ::windows::runtime::Interface for IKsJackSinkInformation {
 }
 impl ::std::convert::From<IKsJackSinkInformation> for ::windows::runtime::IUnknown {
     fn from(value: IKsJackSinkInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IKsJackSinkInformation> for ::windows::runtime::IUnknown {
     fn from(value: &IKsJackSinkInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IKsJackSinkInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IKsJackSinkInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IKsJackSinkInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6265,7 +6265,7 @@ pub struct IKsJackSinkInformation_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMMDevice(::windows::runtime::IUnknown);
+pub struct IMMDevice(pub ::windows::runtime::IUnknown);
 impl IMMDevice {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -6296,22 +6296,22 @@ unsafe impl ::windows::runtime::Interface for IMMDevice {
 }
 impl ::std::convert::From<IMMDevice> for ::windows::runtime::IUnknown {
     fn from(value: IMMDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMMDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IMMDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMMDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMMDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMMDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6331,7 +6331,7 @@ pub struct IMMDevice_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMMDeviceActivator(::windows::runtime::IUnknown);
+pub struct IMMDeviceActivator(pub ::windows::runtime::IUnknown);
 impl IMMDeviceActivator {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -6345,22 +6345,22 @@ unsafe impl ::windows::runtime::Interface for IMMDeviceActivator {
 }
 impl ::std::convert::From<IMMDeviceActivator> for ::windows::runtime::IUnknown {
     fn from(value: IMMDeviceActivator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMMDeviceActivator> for ::windows::runtime::IUnknown {
     fn from(value: &IMMDeviceActivator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMMDeviceActivator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMMDeviceActivator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMMDeviceActivator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6375,7 +6375,7 @@ pub struct IMMDeviceActivator_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMMDeviceCollection(::windows::runtime::IUnknown);
+pub struct IMMDeviceCollection(pub ::windows::runtime::IUnknown);
 impl IMMDeviceCollection {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6394,22 +6394,22 @@ unsafe impl ::windows::runtime::Interface for IMMDeviceCollection {
 }
 impl ::std::convert::From<IMMDeviceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IMMDeviceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMMDeviceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IMMDeviceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMMDeviceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMMDeviceCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMMDeviceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6424,7 +6424,7 @@ pub struct IMMDeviceCollection_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMMDeviceEnumerator(::windows::runtime::IUnknown);
+pub struct IMMDeviceEnumerator(pub ::windows::runtime::IUnknown);
 impl IMMDeviceEnumerator {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows::runtime::Result<IMMDeviceCollection> {
@@ -6457,22 +6457,22 @@ unsafe impl ::windows::runtime::Interface for IMMDeviceEnumerator {
 }
 impl ::std::convert::From<IMMDeviceEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IMMDeviceEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMMDeviceEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IMMDeviceEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMMDeviceEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMMDeviceEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMMDeviceEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6491,7 +6491,7 @@ pub struct IMMDeviceEnumerator_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMMEndpoint(::windows::runtime::IUnknown);
+pub struct IMMEndpoint(pub ::windows::runtime::IUnknown);
 impl IMMEndpoint {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetDataFlow(&self) -> ::windows::runtime::Result<EDataFlow> {
@@ -6505,22 +6505,22 @@ unsafe impl ::windows::runtime::Interface for IMMEndpoint {
 }
 impl ::std::convert::From<IMMEndpoint> for ::windows::runtime::IUnknown {
     fn from(value: IMMEndpoint) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMMEndpoint> for ::windows::runtime::IUnknown {
     fn from(value: &IMMEndpoint) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMMEndpoint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMMEndpoint {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMMEndpoint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6534,7 +6534,7 @@ pub struct IMMEndpoint_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMMNotificationClient(::windows::runtime::IUnknown);
+pub struct IMMNotificationClient(pub ::windows::runtime::IUnknown);
 impl IMMNotificationClient {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -6568,22 +6568,22 @@ unsafe impl ::windows::runtime::Interface for IMMNotificationClient {
 }
 impl ::std::convert::From<IMMNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: IMMNotificationClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMMNotificationClient> for ::windows::runtime::IUnknown {
     fn from(value: &IMMNotificationClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMMNotificationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMMNotificationClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMMNotificationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6606,7 +6606,7 @@ pub struct IMMNotificationClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMessageFilter(::windows::runtime::IUnknown);
+pub struct IMessageFilter(pub ::windows::runtime::IUnknown);
 impl IMessageFilter {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_System_Com`*"]
@@ -6628,22 +6628,22 @@ unsafe impl ::windows::runtime::Interface for IMessageFilter {
 }
 impl ::std::convert::From<IMessageFilter> for ::windows::runtime::IUnknown {
     fn from(value: IMessageFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMessageFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IMessageFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMessageFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMessageFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMessageFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6716,7 +6716,7 @@ pub const IOCTL_KS_WRITE_STREAM: u32 = 3112979u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPart(::windows::runtime::IUnknown);
+pub struct IPart(pub ::windows::runtime::IUnknown);
 impl IPart {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -6789,22 +6789,22 @@ unsafe impl ::windows::runtime::Interface for IPart {
 }
 impl ::std::convert::From<IPart> for ::windows::runtime::IUnknown {
     fn from(value: IPart) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPart> for ::windows::runtime::IUnknown {
     fn from(value: &IPart) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPart {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPart {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPart {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6832,7 +6832,7 @@ pub struct IPart_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPartsList(::windows::runtime::IUnknown);
+pub struct IPartsList(pub ::windows::runtime::IUnknown);
 impl IPartsList {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6851,22 +6851,22 @@ unsafe impl ::windows::runtime::Interface for IPartsList {
 }
 impl ::std::convert::From<IPartsList> for ::windows::runtime::IUnknown {
     fn from(value: IPartsList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPartsList> for ::windows::runtime::IUnknown {
     fn from(value: &IPartsList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPartsList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPartsList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPartsList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6881,7 +6881,7 @@ pub struct IPartsList_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPerChannelDbLevel(::windows::runtime::IUnknown);
+pub struct IPerChannelDbLevel(pub ::windows::runtime::IUnknown);
 impl IPerChannelDbLevel {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetChannelCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6916,22 +6916,22 @@ unsafe impl ::windows::runtime::Interface for IPerChannelDbLevel {
 }
 impl ::std::convert::From<IPerChannelDbLevel> for ::windows::runtime::IUnknown {
     fn from(value: IPerChannelDbLevel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPerChannelDbLevel> for ::windows::runtime::IUnknown {
     fn from(value: &IPerChannelDbLevel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPerChannelDbLevel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPerChannelDbLevel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPerChannelDbLevel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6950,7 +6950,7 @@ pub struct IPerChannelDbLevel_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISimpleAudioVolume(::windows::runtime::IUnknown);
+pub struct ISimpleAudioVolume(pub ::windows::runtime::IUnknown);
 impl ISimpleAudioVolume {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn SetMasterVolume(&self, flevel: f32, eventcontext: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -6979,22 +6979,22 @@ unsafe impl ::windows::runtime::Interface for ISimpleAudioVolume {
 }
 impl ::std::convert::From<ISimpleAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: ISimpleAudioVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISimpleAudioVolume> for ::windows::runtime::IUnknown {
     fn from(value: &ISimpleAudioVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISimpleAudioVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISimpleAudioVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISimpleAudioVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7013,7 +7013,7 @@ pub struct ISimpleAudioVolume_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioClient(::windows::runtime::IUnknown);
+pub struct ISpatialAudioClient(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioClient {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::runtime::Result<()> {
@@ -7063,22 +7063,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioClient {
 }
 impl ::std::convert::From<ISpatialAudioClient> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioClient> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7103,7 +7103,7 @@ pub struct ISpatialAudioClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioClient2(::windows::runtime::IUnknown);
+pub struct ISpatialAudioClient2(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioClient2 {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::runtime::Result<()> {
@@ -7165,22 +7165,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioClient2 {
 }
 impl ::std::convert::From<ISpatialAudioClient2> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioClient2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioClient2> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioClient2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioClient2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioClient2> for ISpatialAudioClient {
@@ -7229,7 +7229,7 @@ pub struct ISpatialAudioClient2_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioMetadataClient(::windows::runtime::IUnknown);
+pub struct ISpatialAudioMetadataClient(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioMetadataClient {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut ::std::option::Option<ISpatialAudioMetadataItemsBuffer>, metadataitems: *mut ::std::option::Option<ISpatialAudioMetadataItems>) -> ::windows::runtime::Result<()> {
@@ -7262,22 +7262,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataClient {
 }
 impl ::std::convert::From<ISpatialAudioMetadataClient> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioMetadataClient> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioMetadataClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioMetadataClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioMetadataClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioMetadataClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7295,7 +7295,7 @@ pub struct ISpatialAudioMetadataClient_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioMetadataCopier(::windows::runtime::IUnknown);
+pub struct ISpatialAudioMetadataCopier(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioMetadataCopier {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, metadataitems: Param0) -> ::windows::runtime::Result<()> {
@@ -7317,22 +7317,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataCopier {
 }
 impl ::std::convert::From<ISpatialAudioMetadataCopier> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataCopier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioMetadataCopier> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioMetadataCopier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioMetadataCopier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioMetadataCopier {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioMetadataCopier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7348,7 +7348,7 @@ pub struct ISpatialAudioMetadataCopier_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioMetadataItems(::windows::runtime::IUnknown);
+pub struct ISpatialAudioMetadataItems(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioMetadataItems {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetFrameCount(&self) -> ::windows::runtime::Result<u16> {
@@ -7382,22 +7382,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataItems {
 }
 impl ::std::convert::From<ISpatialAudioMetadataItems> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioMetadataItems> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioMetadataItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioMetadataItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioMetadataItems {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioMetadataItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7415,7 +7415,7 @@ pub struct ISpatialAudioMetadataItems_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioMetadataItemsBuffer(::windows::runtime::IUnknown);
+pub struct ISpatialAudioMetadataItemsBuffer(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn AttachToBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows::runtime::Result<()> {
@@ -7436,22 +7436,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataItemsBuffer {
 }
 impl ::std::convert::From<ISpatialAudioMetadataItemsBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataItemsBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioMetadataItemsBuffer> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioMetadataItemsBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioMetadataItemsBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioMetadataItemsBuffer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioMetadataItemsBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7467,7 +7467,7 @@ pub struct ISpatialAudioMetadataItemsBuffer_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioMetadataReader(::windows::runtime::IUnknown);
+pub struct ISpatialAudioMetadataReader(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioMetadataReader {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, metadataitems: Param0) -> ::windows::runtime::Result<()> {
@@ -7492,22 +7492,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataReader {
 }
 impl ::std::convert::From<ISpatialAudioMetadataReader> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioMetadataReader> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioMetadataReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioMetadataReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioMetadataReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioMetadataReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7524,7 +7524,7 @@ pub struct ISpatialAudioMetadataReader_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioMetadataWriter(::windows::runtime::IUnknown);
+pub struct ISpatialAudioMetadataWriter(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioMetadataWriter {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, metadataitems: Param0) -> ::windows::runtime::Result<()> {
@@ -7549,22 +7549,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioMetadataWriter {
 }
 impl ::std::convert::From<ISpatialAudioMetadataWriter> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioMetadataWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioMetadataWriter> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioMetadataWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioMetadataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioMetadataWriter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioMetadataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7581,7 +7581,7 @@ pub struct ISpatialAudioMetadataWriter_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObject(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObject(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObject {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -7617,22 +7617,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObject {
 }
 impl ::std::convert::From<ISpatialAudioObject> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObject> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObject> for ISpatialAudioObjectBase {
@@ -7672,7 +7672,7 @@ pub struct ISpatialAudioObject_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectBase(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectBase(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectBase {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -7700,22 +7700,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectBase {
 }
 impl ::std::convert::From<ISpatialAudioObjectBase> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectBase> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectBase {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7733,7 +7733,7 @@ pub struct ISpatialAudioObjectBase_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectForHrtf(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectForHrtf(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectForHrtf {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -7785,22 +7785,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectForHrtf {
 }
 impl ::std::convert::From<ISpatialAudioObjectForHrtf> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectForHrtf) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectForHrtf> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectForHrtf) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectForHrtf {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBase {
@@ -7844,7 +7844,7 @@ pub struct ISpatialAudioObjectForHrtf_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectForMetadataCommands(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectForMetadataCommands(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectForMetadataCommands {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -7876,22 +7876,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectForMetadataComm
 }
 impl ::std::convert::From<ISpatialAudioObjectForMetadataCommands> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectForMetadataCommands) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectForMetadataCommands> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectForMetadataCommands) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectForMetadataCommands {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectForMetadataCommands {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectForMetadataCommands {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObjectForMetadataCommands> for ISpatialAudioObjectBase {
@@ -7930,7 +7930,7 @@ pub struct ISpatialAudioObjectForMetadataCommands_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectForMetadataItems(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectForMetadataItems(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectForMetadataItems {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
@@ -7963,22 +7963,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectForMetadataItem
 }
 impl ::std::convert::From<ISpatialAudioObjectForMetadataItems> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectForMetadataItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectForMetadataItems> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectForMetadataItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectForMetadataItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectForMetadataItems {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectForMetadataItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObjectForMetadataItems> for ISpatialAudioObjectBase {
@@ -8017,7 +8017,7 @@ pub struct ISpatialAudioObjectForMetadataItems_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectRenderStream(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectRenderStream(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectRenderStream {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8061,22 +8061,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStream {
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStream> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectRenderStream> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectRenderStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectRenderStream {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectRenderStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStream> for ISpatialAudioObjectRenderStreamBase {
@@ -8117,7 +8117,7 @@ pub struct ISpatialAudioObjectRenderStream_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectRenderStreamBase(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectRenderStreamBase(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectRenderStreamBase {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8156,22 +8156,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamBas
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStreamBase> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectRenderStreamBase> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStreamBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectRenderStreamBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectRenderStreamBase {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectRenderStreamBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8191,7 +8191,7 @@ pub struct ISpatialAudioObjectRenderStreamBase_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectRenderStreamForHrtf(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectRenderStreamForHrtf(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectRenderStreamForHrtf {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8235,22 +8235,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamFor
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectRenderStreamForHrtf> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectRenderStreamForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectRenderStreamForHrtf {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectRenderStreamForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ISpatialAudioObjectRenderStreamBase {
@@ -8291,7 +8291,7 @@ pub struct ISpatialAudioObjectRenderStreamForHrtf_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectRenderStreamForMetadata(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectRenderStreamForMetadata(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectRenderStreamForMetadata {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8340,22 +8340,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamFor
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectRenderStreamForMetadata> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectRenderStreamForMetadata {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectRenderStreamForMetadata {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectRenderStreamForMetadata {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ISpatialAudioObjectRenderStreamBase {
@@ -8397,7 +8397,7 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISpatialAudioObjectRenderStreamNotify(::windows::runtime::IUnknown);
+pub struct ISpatialAudioObjectRenderStreamNotify(pub ::windows::runtime::IUnknown);
 impl ISpatialAudioObjectRenderStreamNotify {
     #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
     pub unsafe fn OnAvailableDynamicObjectCountChange<'a, Param0: ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase>>(&self, sender: Param0, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows::runtime::Result<()> {
@@ -8410,22 +8410,22 @@ unsafe impl ::windows::runtime::Interface for ISpatialAudioObjectRenderStreamNot
 }
 impl ::std::convert::From<ISpatialAudioObjectRenderStreamNotify> for ::windows::runtime::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamNotify) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISpatialAudioObjectRenderStreamNotify> for ::windows::runtime::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStreamNotify) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpatialAudioObjectRenderStreamNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpatialAudioObjectRenderStreamNotify {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpatialAudioObjectRenderStreamNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8439,7 +8439,7 @@ pub struct ISpatialAudioObjectRenderStreamNotify_abi(
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISubunit(::windows::runtime::IUnknown);
+pub struct ISubunit(pub ::windows::runtime::IUnknown);
 impl ISubunit {}
 unsafe impl ::windows::runtime::Interface for ISubunit {
     type Vtable = ISubunit_abi;
@@ -8447,22 +8447,22 @@ unsafe impl ::windows::runtime::Interface for ISubunit {
 }
 impl ::std::convert::From<ISubunit> for ::windows::runtime::IUnknown {
     fn from(value: ISubunit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISubunit> for ::windows::runtime::IUnknown {
     fn from(value: &ISubunit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISubunit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISubunit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISubunit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

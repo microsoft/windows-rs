@@ -27,7 +27,7 @@ impl ::windows::runtime::DefaultType for GazeDeviceConfigurationStatePreview {
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeDevicePreview(::windows::runtime::IInspectable);
+pub struct GazeDevicePreview(pub ::windows::runtime::IInspectable);
 impl GazeDevicePreview {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -101,22 +101,22 @@ impl ::windows::runtime::RuntimeName for GazeDevicePreview {
 }
 impl ::std::convert::From<GazeDevicePreview> for ::windows::runtime::IUnknown {
     fn from(value: GazeDevicePreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeDevicePreview> for ::windows::runtime::IUnknown {
     fn from(value: &GazeDevicePreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeDevicePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeDevicePreview {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeDevicePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeDevicePreview> for ::windows::runtime::IInspectable {
@@ -144,7 +144,7 @@ unsafe impl ::std::marker::Sync for GazeDevicePreview {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeDeviceWatcherAddedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct GazeDeviceWatcherAddedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<GazeDevicePreview> {
@@ -167,22 +167,22 @@ impl ::windows::runtime::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs 
 }
 impl ::std::convert::From<GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeDeviceWatcherAddedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeDeviceWatcherAddedPreviewEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeDeviceWatcherAddedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::runtime::IInspectable {
@@ -210,7 +210,7 @@ unsafe impl ::std::marker::Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeDeviceWatcherPreview(::windows::runtime::IInspectable);
+pub struct GazeDeviceWatcherPreview(pub ::windows::runtime::IInspectable);
 impl GazeDeviceWatcherPreview {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input_Preview`, `Foundation`*"]
@@ -295,22 +295,22 @@ impl ::windows::runtime::RuntimeName for GazeDeviceWatcherPreview {
 }
 impl ::std::convert::From<GazeDeviceWatcherPreview> for ::windows::runtime::IUnknown {
     fn from(value: GazeDeviceWatcherPreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeDeviceWatcherPreview> for ::windows::runtime::IUnknown {
     fn from(value: &GazeDeviceWatcherPreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeDeviceWatcherPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeDeviceWatcherPreview {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeDeviceWatcherPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeDeviceWatcherPreview> for ::windows::runtime::IInspectable {
@@ -338,7 +338,7 @@ unsafe impl ::std::marker::Sync for GazeDeviceWatcherPreview {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeDeviceWatcherRemovedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct GazeDeviceWatcherRemovedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<GazeDevicePreview> {
@@ -361,22 +361,22 @@ impl ::windows::runtime::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArg
 }
 impl ::std::convert::From<GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeDeviceWatcherRemovedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeDeviceWatcherRemovedPreviewEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeDeviceWatcherRemovedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::runtime::IInspectable {
@@ -404,7 +404,7 @@ unsafe impl ::std::marker::Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<GazeDevicePreview> {
@@ -427,22 +427,22 @@ impl ::windows::runtime::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArg
 }
 impl ::std::convert::From<GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeDeviceWatcherUpdatedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeDeviceWatcherUpdatedPreviewEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeDeviceWatcherUpdatedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::runtime::IInspectable {
@@ -470,7 +470,7 @@ unsafe impl ::std::marker::Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeEnteredPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct GazeEnteredPreviewEventArgs(pub ::windows::runtime::IInspectable);
 impl GazeEnteredPreviewEventArgs {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
@@ -506,22 +506,22 @@ impl ::windows::runtime::RuntimeName for GazeEnteredPreviewEventArgs {
 }
 impl ::std::convert::From<GazeEnteredPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GazeEnteredPreviewEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeEnteredPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GazeEnteredPreviewEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeEnteredPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeEnteredPreviewEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeEnteredPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeEnteredPreviewEventArgs> for ::windows::runtime::IInspectable {
@@ -549,7 +549,7 @@ unsafe impl ::std::marker::Sync for GazeEnteredPreviewEventArgs {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeExitedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct GazeExitedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 impl GazeExitedPreviewEventArgs {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
@@ -585,22 +585,22 @@ impl ::windows::runtime::RuntimeName for GazeExitedPreviewEventArgs {
 }
 impl ::std::convert::From<GazeExitedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GazeExitedPreviewEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeExitedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GazeExitedPreviewEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeExitedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeExitedPreviewEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeExitedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeExitedPreviewEventArgs> for ::windows::runtime::IInspectable {
@@ -628,7 +628,7 @@ unsafe impl ::std::marker::Sync for GazeExitedPreviewEventArgs {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeInputSourcePreview(::windows::runtime::IInspectable);
+pub struct GazeInputSourcePreview(pub ::windows::runtime::IInspectable);
 impl GazeInputSourcePreview {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input_Preview`, `Foundation`*"]
@@ -706,22 +706,22 @@ impl ::windows::runtime::RuntimeName for GazeInputSourcePreview {
 }
 impl ::std::convert::From<GazeInputSourcePreview> for ::windows::runtime::IUnknown {
     fn from(value: GazeInputSourcePreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeInputSourcePreview> for ::windows::runtime::IUnknown {
     fn from(value: &GazeInputSourcePreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeInputSourcePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeInputSourcePreview {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeInputSourcePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeInputSourcePreview> for ::windows::runtime::IInspectable {
@@ -749,7 +749,7 @@ unsafe impl ::std::marker::Sync for GazeInputSourcePreview {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazeMovedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct GazeMovedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 impl GazeMovedPreviewEventArgs {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
@@ -794,22 +794,22 @@ impl ::windows::runtime::RuntimeName for GazeMovedPreviewEventArgs {
 }
 impl ::std::convert::From<GazeMovedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GazeMovedPreviewEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazeMovedPreviewEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GazeMovedPreviewEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazeMovedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazeMovedPreviewEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazeMovedPreviewEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazeMovedPreviewEventArgs> for ::windows::runtime::IInspectable {
@@ -837,7 +837,7 @@ unsafe impl ::std::marker::Sync for GazeMovedPreviewEventArgs {}
 #[doc = "*Required features: `Devices_Input_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GazePointPreview(::windows::runtime::IInspectable);
+pub struct GazePointPreview(pub ::windows::runtime::IInspectable);
 impl GazePointPreview {
     #[doc = "*Required features: `Devices_Input_Preview`*"]
     pub fn SourceDevice(&self) -> ::windows::runtime::Result<GazeDevicePreview> {
@@ -895,22 +895,22 @@ impl ::windows::runtime::RuntimeName for GazePointPreview {
 }
 impl ::std::convert::From<GazePointPreview> for ::windows::runtime::IUnknown {
     fn from(value: GazePointPreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GazePointPreview> for ::windows::runtime::IUnknown {
     fn from(value: &GazePointPreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GazePointPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GazePointPreview {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GazePointPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GazePointPreview> for ::windows::runtime::IInspectable {
@@ -937,7 +937,7 @@ unsafe impl ::std::marker::Send for GazePointPreview {}
 unsafe impl ::std::marker::Sync for GazePointPreview {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeDevicePreview(::windows::runtime::IInspectable);
+pub struct IGazeDevicePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDevicePreview {
     type Vtable = IGazeDevicePreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924073, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
@@ -964,7 +964,7 @@ pub struct IGazeDevicePreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeDeviceWatcherAddedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct IGazeDeviceWatcherAddedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherAddedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherAddedPreviewEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924077, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
@@ -982,7 +982,7 @@ pub struct IGazeDeviceWatcherAddedPreviewEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeDeviceWatcherPreview(::windows::runtime::IInspectable);
+pub struct IGazeDeviceWatcherPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherPreview {
     type Vtable = IGazeDeviceWatcherPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924071, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
@@ -1017,7 +1017,7 @@ pub struct IGazeDeviceWatcherPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeDeviceWatcherRemovedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct IGazeDeviceWatcherRemovedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherRemovedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066582280, 3647, 17183, [166, 6, 80, 179, 90, 249, 74, 28]);
@@ -1035,7 +1035,7 @@ pub struct IGazeDeviceWatcherRemovedPreviewEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherUpdatedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145923311, 32520, 18231, [136, 225, 74, 131, 174, 78, 72, 133]);
@@ -1053,7 +1053,7 @@ pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeEnteredPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct IGazeEnteredPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeEnteredPreviewEventArgs {
     type Vtable = IGazeEnteredPreviewEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627556163, 4645, 18591, [157, 209, 218, 167, 197, 15, 191, 75]);
@@ -1073,7 +1073,7 @@ pub struct IGazeEnteredPreviewEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeExitedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct IGazeExitedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeExitedPreviewEventArgs {
     type Vtable = IGazeExitedPreviewEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1560998014, 32131, 16623, [159, 10, 251, 193, 187, 220, 197, 172]);
@@ -1093,7 +1093,7 @@ pub struct IGazeExitedPreviewEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeInputSourcePreview(::windows::runtime::IInspectable);
+pub struct IGazeInputSourcePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeInputSourcePreview {
     type Vtable = IGazeInputSourcePreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924072, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
@@ -1122,7 +1122,7 @@ pub struct IGazeInputSourcePreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeInputSourcePreviewStatics(::windows::runtime::IInspectable);
+pub struct IGazeInputSourcePreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeInputSourcePreviewStatics {
     type Vtable = IGazeInputSourcePreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924070, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
@@ -1141,7 +1141,7 @@ pub struct IGazeInputSourcePreviewStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazeMovedPreviewEventArgs(::windows::runtime::IInspectable);
+pub struct IGazeMovedPreviewEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeMovedPreviewEventArgs {
     type Vtable = IGazeMovedPreviewEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924075, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);
@@ -1163,7 +1163,7 @@ pub struct IGazeMovedPreviewEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGazePointPreview(::windows::runtime::IInspectable);
+pub struct IGazePointPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazePointPreview {
     type Vtable = IGazePointPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885924074, 45961, 4583, [178, 1, 200, 211, 255, 183, 87, 33]);

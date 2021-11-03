@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpDiagnosticProvider(::windows::runtime::IInspectable);
+pub struct HttpDiagnosticProvider(pub ::windows::runtime::IInspectable);
 impl HttpDiagnosticProvider {
     #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
@@ -84,22 +84,22 @@ impl ::windows::runtime::RuntimeName for HttpDiagnosticProvider {
 }
 impl ::std::convert::From<HttpDiagnosticProvider> for ::windows::runtime::IUnknown {
     fn from(value: HttpDiagnosticProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpDiagnosticProvider> for ::windows::runtime::IUnknown {
     fn from(value: &HttpDiagnosticProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDiagnosticProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDiagnosticProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpDiagnosticProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpDiagnosticProvider> for ::windows::runtime::IInspectable {
@@ -127,7 +127,7 @@ unsafe impl ::std::marker::Sync for HttpDiagnosticProvider {}
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -200,22 +200,22 @@ impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderRequestResponseCo
 }
 impl ::std::convert::From<HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -243,7 +243,7 @@ unsafe impl ::std::marker::Sync for HttpDiagnosticProviderRequestResponseComplet
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpDiagnosticProviderRequestResponseTimestamps(::windows::runtime::IInspectable);
+pub struct HttpDiagnosticProviderRequestResponseTimestamps(pub ::windows::runtime::IInspectable);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
@@ -339,22 +339,22 @@ impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderRequestResponseTi
 }
 impl ::std::convert::From<HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::runtime::IUnknown {
     fn from(value: HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::runtime::IUnknown {
     fn from(value: &HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDiagnosticProviderRequestResponseTimestamps {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDiagnosticProviderRequestResponseTimestamps {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpDiagnosticProviderRequestResponseTimestamps {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::runtime::IInspectable {
@@ -382,7 +382,7 @@ unsafe impl ::std::marker::Sync for HttpDiagnosticProviderRequestResponseTimesta
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpDiagnosticProviderRequestSentEventArgs(::windows::runtime::IInspectable);
+pub struct HttpDiagnosticProviderRequestSentEventArgs(pub ::windows::runtime::IInspectable);
 impl HttpDiagnosticProviderRequestSentEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
@@ -455,22 +455,22 @@ impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderRequestSentEventA
 }
 impl ::std::convert::From<HttpDiagnosticProviderRequestSentEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpDiagnosticProviderRequestSentEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDiagnosticProviderRequestSentEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDiagnosticProviderRequestSentEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpDiagnosticProviderRequestSentEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpDiagnosticProviderRequestSentEventArgs> for ::windows::runtime::IInspectable {
@@ -498,7 +498,7 @@ unsafe impl ::std::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpDiagnosticProviderResponseReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct HttpDiagnosticProviderResponseReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
@@ -538,22 +538,22 @@ impl ::windows::runtime::RuntimeName for HttpDiagnosticProviderResponseReceivedE
 }
 impl ::std::convert::From<HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDiagnosticProviderResponseReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDiagnosticProviderResponseReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpDiagnosticProviderResponseReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -614,7 +614,7 @@ impl ::windows::runtime::DefaultType for HttpDiagnosticRequestInitiator {
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpDiagnosticSourceLocation(::windows::runtime::IInspectable);
+pub struct HttpDiagnosticSourceLocation(pub ::windows::runtime::IInspectable);
 impl HttpDiagnosticSourceLocation {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
@@ -654,22 +654,22 @@ impl ::windows::runtime::RuntimeName for HttpDiagnosticSourceLocation {
 }
 impl ::std::convert::From<HttpDiagnosticSourceLocation> for ::windows::runtime::IUnknown {
     fn from(value: HttpDiagnosticSourceLocation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpDiagnosticSourceLocation> for ::windows::runtime::IUnknown {
     fn from(value: &HttpDiagnosticSourceLocation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDiagnosticSourceLocation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDiagnosticSourceLocation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpDiagnosticSourceLocation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpDiagnosticSourceLocation> for ::windows::runtime::IInspectable {
@@ -699,7 +699,7 @@ unsafe impl ::std::marker::Sync for HttpDiagnosticSourceLocation {}
 pub struct HttpDiagnosticsContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProvider(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3179353345, 41046, 19769, [177, 116, 131, 59, 123, 3, 176, 44]);
@@ -730,7 +730,7 @@ pub struct IHttpDiagnosticProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935644910, 38134, 17714, [178, 110, 97, 225, 177, 228, 239, 212]);
@@ -756,7 +756,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticProviderRequestResponseTimestamps(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3769622032, 21967, 19457, [145, 212, 162, 5, 87, 216, 73, 240]);
@@ -791,7 +791,7 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderRequestSentEventArgs(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticProviderRequestSentEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1062311632, 19487, 20158, [165, 122, 6, 147, 7, 113, 197, 13]);
@@ -817,7 +817,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694993516, 43871, 19814, [187, 45, 8, 76, 244, 22, 53, 208]);
@@ -838,7 +838,7 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderStatics(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticProviderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderStatics {
     type Vtable = IHttpDiagnosticProviderStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1535266497, 27244, 18380, [175, 236, 30, 134, 188, 38, 5, 59]);
@@ -857,7 +857,7 @@ pub struct IHttpDiagnosticProviderStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticSourceLocation(::windows::runtime::IInspectable);
+pub struct IHttpDiagnosticSourceLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1420415584, 34912, 16959, [182, 250, 215, 119, 22, 246, 71, 167]);

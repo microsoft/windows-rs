@@ -6,7 +6,7 @@ pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumVdsObject(::windows::runtime::IUnknown);
+pub struct IEnumVdsObject(pub ::windows::runtime::IUnknown);
 impl IEnumVdsObject {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn Next(&self, celt: u32, ppobjectarray: *mut ::std::option::Option<::windows::runtime::IUnknown>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -32,22 +32,22 @@ unsafe impl ::windows::runtime::Interface for IEnumVdsObject {
 }
 impl ::std::convert::From<IEnumVdsObject> for ::windows::runtime::IUnknown {
     fn from(value: IEnumVdsObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumVdsObject> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumVdsObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumVdsObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumVdsObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumVdsObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -64,7 +64,7 @@ pub struct IEnumVdsObject_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsAdmin(::windows::runtime::IUnknown);
+pub struct IVdsAdmin(pub ::windows::runtime::IUnknown);
 impl IVdsAdmin {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -91,22 +91,22 @@ unsafe impl ::windows::runtime::Interface for IVdsAdmin {
 }
 impl ::std::convert::From<IVdsAdmin> for ::windows::runtime::IUnknown {
     fn from(value: IVdsAdmin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsAdmin> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsAdmin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsAdmin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -122,7 +122,7 @@ pub struct IVdsAdmin_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsAdviseSink(::windows::runtime::IUnknown);
+pub struct IVdsAdviseSink(pub ::windows::runtime::IUnknown);
 impl IVdsAdviseSink {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn OnNotify(&self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::runtime::Result<()> {
@@ -135,22 +135,22 @@ unsafe impl ::windows::runtime::Interface for IVdsAdviseSink {
 }
 impl ::std::convert::From<IVdsAdviseSink> for ::windows::runtime::IUnknown {
     fn from(value: IVdsAdviseSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsAdviseSink> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsAdviseSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsAdviseSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsAdviseSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsAdviseSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -164,7 +164,7 @@ pub struct IVdsAdviseSink_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsAsync(::windows::runtime::IUnknown);
+pub struct IVdsAsync(pub ::windows::runtime::IUnknown);
 impl IVdsAsync {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -185,22 +185,22 @@ unsafe impl ::windows::runtime::Interface for IVdsAsync {
 }
 impl ::std::convert::From<IVdsAsync> for ::windows::runtime::IUnknown {
     fn from(value: IVdsAsync) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsAsync> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsAsync) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsAsync {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -216,7 +216,7 @@ pub struct IVdsAsync_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsController(::windows::runtime::IUnknown);
+pub struct IVdsController(pub ::windows::runtime::IUnknown);
 impl IVdsController {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -263,22 +263,22 @@ unsafe impl ::windows::runtime::Interface for IVdsController {
 }
 impl ::std::convert::From<IVdsController> for ::windows::runtime::IUnknown {
     fn from(value: IVdsController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsController> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsController {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -301,7 +301,7 @@ pub struct IVdsController_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsControllerControllerPort(::windows::runtime::IUnknown);
+pub struct IVdsControllerControllerPort(pub ::windows::runtime::IUnknown);
 impl IVdsControllerControllerPort {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn QueryControllerPorts(&self) -> ::windows::runtime::Result<IEnumVdsObject> {
@@ -315,22 +315,22 @@ unsafe impl ::windows::runtime::Interface for IVdsControllerControllerPort {
 }
 impl ::std::convert::From<IVdsControllerControllerPort> for ::windows::runtime::IUnknown {
     fn from(value: IVdsControllerControllerPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsControllerControllerPort> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsControllerControllerPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsControllerControllerPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsControllerControllerPort {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsControllerControllerPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -344,7 +344,7 @@ pub struct IVdsControllerControllerPort_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsControllerPort(::windows::runtime::IUnknown);
+pub struct IVdsControllerPort(pub ::windows::runtime::IUnknown);
 impl IVdsControllerPort {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -377,22 +377,22 @@ unsafe impl ::windows::runtime::Interface for IVdsControllerPort {
 }
 impl ::std::convert::From<IVdsControllerPort> for ::windows::runtime::IUnknown {
     fn from(value: IVdsControllerPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsControllerPort> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsControllerPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsControllerPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsControllerPort {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsControllerPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -411,7 +411,7 @@ pub struct IVdsControllerPort_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsDrive(::windows::runtime::IUnknown);
+pub struct IVdsDrive(pub ::windows::runtime::IUnknown);
 impl IVdsDrive {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -448,22 +448,22 @@ unsafe impl ::windows::runtime::Interface for IVdsDrive {
 }
 impl ::std::convert::From<IVdsDrive> for ::windows::runtime::IUnknown {
     fn from(value: IVdsDrive) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsDrive> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsDrive) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsDrive {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsDrive {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsDrive {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -484,7 +484,7 @@ pub struct IVdsDrive_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsDrive2(::windows::runtime::IUnknown);
+pub struct IVdsDrive2(pub ::windows::runtime::IUnknown);
 impl IVdsDrive2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -499,22 +499,22 @@ unsafe impl ::windows::runtime::Interface for IVdsDrive2 {
 }
 impl ::std::convert::From<IVdsDrive2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsDrive2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsDrive2> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsDrive2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsDrive2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsDrive2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsDrive2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -529,7 +529,7 @@ pub struct IVdsDrive2_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsHwProvider(::windows::runtime::IUnknown);
+pub struct IVdsHwProvider(pub ::windows::runtime::IUnknown);
 impl IVdsHwProvider {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn QuerySubSystems(&self) -> ::windows::runtime::Result<IEnumVdsObject> {
@@ -551,22 +551,22 @@ unsafe impl ::windows::runtime::Interface for IVdsHwProvider {
 }
 impl ::std::convert::From<IVdsHwProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsHwProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsHwProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsHwProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsHwProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsHwProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -582,7 +582,7 @@ pub struct IVdsHwProvider_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsHwProviderPrivate(::windows::runtime::IUnknown);
+pub struct IVdsHwProviderPrivate(pub ::windows::runtime::IUnknown);
 impl IVdsHwProviderPrivate {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -597,22 +597,22 @@ unsafe impl ::windows::runtime::Interface for IVdsHwProviderPrivate {
 }
 impl ::std::convert::From<IVdsHwProviderPrivate> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderPrivate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsHwProviderPrivate> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsHwProviderPrivate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsHwProviderPrivate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsHwProviderPrivate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsHwProviderPrivate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -627,7 +627,7 @@ pub struct IVdsHwProviderPrivate_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsHwProviderPrivateMpio(::windows::runtime::IUnknown);
+pub struct IVdsHwProviderPrivateMpio(pub ::windows::runtime::IUnknown);
 impl IVdsHwProviderPrivateMpio {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn SetAllPathStatusesFromHbaPort<'a, Param0: ::windows::runtime::IntoParam<'a, VDS_HBAPORT_PROP>>(&self, hbaportprop: Param0, status: VDS_PATH_STATUS) -> ::windows::runtime::Result<()> {
@@ -640,22 +640,22 @@ unsafe impl ::windows::runtime::Interface for IVdsHwProviderPrivateMpio {
 }
 impl ::std::convert::From<IVdsHwProviderPrivateMpio> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderPrivateMpio) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsHwProviderPrivateMpio> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsHwProviderPrivateMpio) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsHwProviderPrivateMpio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsHwProviderPrivateMpio {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsHwProviderPrivateMpio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -669,7 +669,7 @@ pub struct IVdsHwProviderPrivateMpio_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsHwProviderStoragePools(::windows::runtime::IUnknown);
+pub struct IVdsHwProviderStoragePools(pub ::windows::runtime::IUnknown);
 impl IVdsHwProviderStoragePools {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -696,22 +696,22 @@ unsafe impl ::windows::runtime::Interface for IVdsHwProviderStoragePools {
 }
 impl ::std::convert::From<IVdsHwProviderStoragePools> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderStoragePools) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsHwProviderStoragePools> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsHwProviderStoragePools) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsHwProviderStoragePools {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsHwProviderStoragePools {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsHwProviderStoragePools {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -730,7 +730,7 @@ pub struct IVdsHwProviderStoragePools_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsHwProviderType(::windows::runtime::IUnknown);
+pub struct IVdsHwProviderType(pub ::windows::runtime::IUnknown);
 impl IVdsHwProviderType {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetProviderType(&self) -> ::windows::runtime::Result<VDS_HWPROVIDER_TYPE> {
@@ -744,22 +744,22 @@ unsafe impl ::windows::runtime::Interface for IVdsHwProviderType {
 }
 impl ::std::convert::From<IVdsHwProviderType> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsHwProviderType> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsHwProviderType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsHwProviderType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsHwProviderType {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsHwProviderType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -773,7 +773,7 @@ pub struct IVdsHwProviderType_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsHwProviderType2(::windows::runtime::IUnknown);
+pub struct IVdsHwProviderType2(pub ::windows::runtime::IUnknown);
 impl IVdsHwProviderType2 {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetProviderType2(&self) -> ::windows::runtime::Result<VDS_HWPROVIDER_TYPE> {
@@ -787,22 +787,22 @@ unsafe impl ::windows::runtime::Interface for IVdsHwProviderType2 {
 }
 impl ::std::convert::From<IVdsHwProviderType2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsHwProviderType2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsHwProviderType2> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsHwProviderType2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsHwProviderType2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsHwProviderType2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsHwProviderType2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -816,7 +816,7 @@ pub struct IVdsHwProviderType2_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsIscsiPortal(::windows::runtime::IUnknown);
+pub struct IVdsIscsiPortal(pub ::windows::runtime::IUnknown);
 impl IVdsIscsiPortal {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<VDS_ISCSI_PORTAL_PROP> {
@@ -857,22 +857,22 @@ unsafe impl ::windows::runtime::Interface for IVdsIscsiPortal {
 }
 impl ::std::convert::From<IVdsIscsiPortal> for ::windows::runtime::IUnknown {
     fn from(value: IVdsIscsiPortal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsIscsiPortal> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsIscsiPortal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsIscsiPortal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsIscsiPortal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsIscsiPortal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -892,7 +892,7 @@ pub struct IVdsIscsiPortal_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsIscsiPortalGroup(::windows::runtime::IUnknown);
+pub struct IVdsIscsiPortalGroup(pub ::windows::runtime::IUnknown);
 impl IVdsIscsiPortalGroup {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<VDS_ISCSI_PORTALGROUP_PROP> {
@@ -931,22 +931,22 @@ unsafe impl ::windows::runtime::Interface for IVdsIscsiPortalGroup {
 }
 impl ::std::convert::From<IVdsIscsiPortalGroup> for ::windows::runtime::IUnknown {
     fn from(value: IVdsIscsiPortalGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsIscsiPortalGroup> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsIscsiPortalGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsIscsiPortalGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsIscsiPortalGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsIscsiPortalGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -965,7 +965,7 @@ pub struct IVdsIscsiPortalGroup_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsIscsiTarget(::windows::runtime::IUnknown);
+pub struct IVdsIscsiTarget(pub ::windows::runtime::IUnknown);
 impl IVdsIscsiTarget {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1025,22 +1025,22 @@ unsafe impl ::windows::runtime::Interface for IVdsIscsiTarget {
 }
 impl ::std::convert::From<IVdsIscsiTarget> for ::windows::runtime::IUnknown {
     fn from(value: IVdsIscsiTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsIscsiTarget> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsIscsiTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsIscsiTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsIscsiTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsIscsiTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1068,7 +1068,7 @@ pub struct IVdsIscsiTarget_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLun(::windows::runtime::IUnknown);
+pub struct IVdsLun(pub ::windows::runtime::IUnknown);
 impl IVdsLun {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1162,22 +1162,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLun {
 }
 impl ::std::convert::From<IVdsLun> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLun) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLun> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLun) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLun {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLun {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLun {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1212,7 +1212,7 @@ pub struct IVdsLun_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLun2(::windows::runtime::IUnknown);
+pub struct IVdsLun2(pub ::windows::runtime::IUnknown);
 impl IVdsLun2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1232,22 +1232,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLun2 {
 }
 impl ::std::convert::From<IVdsLun2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLun2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLun2> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLun2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLun2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLun2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLun2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1264,7 +1264,7 @@ pub struct IVdsLun2_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLunControllerPorts(::windows::runtime::IUnknown);
+pub struct IVdsLunControllerPorts(pub ::windows::runtime::IUnknown);
 impl IVdsLunControllerPorts {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const ::windows::runtime::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::runtime::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::runtime::Result<()> {
@@ -1282,22 +1282,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLunControllerPorts {
 }
 impl ::std::convert::From<IVdsLunControllerPorts> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunControllerPorts) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLunControllerPorts> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLunControllerPorts) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLunControllerPorts {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLunControllerPorts {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLunControllerPorts {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1312,7 +1312,7 @@ pub struct IVdsLunControllerPorts_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLunIscsi(::windows::runtime::IUnknown);
+pub struct IVdsLunIscsi(pub ::windows::runtime::IUnknown);
 impl IVdsLunIscsi {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn AssociateTargets(&self, ptargetidarray: *const ::windows::runtime::GUID, lnumberoftargets: i32) -> ::windows::runtime::Result<()> {
@@ -1330,22 +1330,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLunIscsi {
 }
 impl ::std::convert::From<IVdsLunIscsi> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunIscsi) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLunIscsi> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLunIscsi) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLunIscsi {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLunIscsi {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLunIscsi {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1360,7 +1360,7 @@ pub struct IVdsLunIscsi_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLunMpio(::windows::runtime::IUnknown);
+pub struct IVdsLunMpio(pub ::windows::runtime::IUnknown);
 impl IVdsLunMpio {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::runtime::Result<()> {
@@ -1388,22 +1388,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLunMpio {
 }
 impl ::std::convert::From<IVdsLunMpio> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunMpio) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLunMpio> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLunMpio) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLunMpio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLunMpio {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLunMpio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1422,7 +1422,7 @@ pub struct IVdsLunMpio_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLunNaming(::windows::runtime::IUnknown);
+pub struct IVdsLunNaming(pub ::windows::runtime::IUnknown);
 impl IVdsLunNaming {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1436,22 +1436,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLunNaming {
 }
 impl ::std::convert::From<IVdsLunNaming> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunNaming) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLunNaming> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLunNaming) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLunNaming {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLunNaming {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLunNaming {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1466,7 +1466,7 @@ pub struct IVdsLunNaming_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLunNumber(::windows::runtime::IUnknown);
+pub struct IVdsLunNumber(pub ::windows::runtime::IUnknown);
 impl IVdsLunNumber {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetLunNumber(&self) -> ::windows::runtime::Result<u32> {
@@ -1480,22 +1480,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLunNumber {
 }
 impl ::std::convert::From<IVdsLunNumber> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunNumber) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLunNumber> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLunNumber) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLunNumber {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLunNumber {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLunNumber {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1509,7 +1509,7 @@ pub struct IVdsLunNumber_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsLunPlex(::windows::runtime::IUnknown);
+pub struct IVdsLunPlex(pub ::windows::runtime::IUnknown);
 impl IVdsLunPlex {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<VDS_LUN_PLEX_PROP> {
@@ -1544,22 +1544,22 @@ unsafe impl ::windows::runtime::Interface for IVdsLunPlex {
 }
 impl ::std::convert::From<IVdsLunPlex> for ::windows::runtime::IUnknown {
     fn from(value: IVdsLunPlex) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsLunPlex> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsLunPlex) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsLunPlex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsLunPlex {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsLunPlex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1580,7 +1580,7 @@ pub struct IVdsLunPlex_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsMaintenance(::windows::runtime::IUnknown);
+pub struct IVdsMaintenance(pub ::windows::runtime::IUnknown);
 impl IVdsMaintenance {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::runtime::Result<()> {
@@ -1601,22 +1601,22 @@ unsafe impl ::windows::runtime::Interface for IVdsMaintenance {
 }
 impl ::std::convert::From<IVdsMaintenance> for ::windows::runtime::IUnknown {
     fn from(value: IVdsMaintenance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsMaintenance> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsMaintenance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsMaintenance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsMaintenance {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsMaintenance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1632,7 +1632,7 @@ pub struct IVdsMaintenance_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsProvider(::windows::runtime::IUnknown);
+pub struct IVdsProvider(pub ::windows::runtime::IUnknown);
 impl IVdsProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1647,22 +1647,22 @@ unsafe impl ::windows::runtime::Interface for IVdsProvider {
 }
 impl ::std::convert::From<IVdsProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVdsProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1677,7 +1677,7 @@ pub struct IVdsProvider_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsProviderPrivate(::windows::runtime::IUnknown);
+pub struct IVdsProviderPrivate(pub ::windows::runtime::IUnknown);
 impl IVdsProviderPrivate {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, objectid: Param0, r#type: VDS_OBJECT_TYPE) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -1701,22 +1701,22 @@ unsafe impl ::windows::runtime::Interface for IVdsProviderPrivate {
 }
 impl ::std::convert::From<IVdsProviderPrivate> for ::windows::runtime::IUnknown {
     fn from(value: IVdsProviderPrivate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsProviderPrivate> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsProviderPrivate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsProviderPrivate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsProviderPrivate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsProviderPrivate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1734,7 +1734,7 @@ pub struct IVdsProviderPrivate_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsProviderSupport(::windows::runtime::IUnknown);
+pub struct IVdsProviderSupport(pub ::windows::runtime::IUnknown);
 impl IVdsProviderSupport {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetVersionSupport(&self) -> ::windows::runtime::Result<u32> {
@@ -1748,22 +1748,22 @@ unsafe impl ::windows::runtime::Interface for IVdsProviderSupport {
 }
 impl ::std::convert::From<IVdsProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: IVdsProviderSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsProviderSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsProviderSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsProviderSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsProviderSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1777,7 +1777,7 @@ pub struct IVdsProviderSupport_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsStoragePool(::windows::runtime::IUnknown);
+pub struct IVdsStoragePool(pub ::windows::runtime::IUnknown);
 impl IVdsStoragePool {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetProvider(&self) -> ::windows::runtime::Result<IVdsProvider> {
@@ -1818,22 +1818,22 @@ unsafe impl ::windows::runtime::Interface for IVdsStoragePool {
 }
 impl ::std::convert::From<IVdsStoragePool> for ::windows::runtime::IUnknown {
     fn from(value: IVdsStoragePool) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsStoragePool> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsStoragePool) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsStoragePool {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsStoragePool {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsStoragePool {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1855,7 +1855,7 @@ pub struct IVdsStoragePool_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsSubSystem(::windows::runtime::IUnknown);
+pub struct IVdsSubSystem(pub ::windows::runtime::IUnknown);
 impl IVdsSubSystem {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1923,22 +1923,22 @@ unsafe impl ::windows::runtime::Interface for IVdsSubSystem {
 }
 impl ::std::convert::From<IVdsSubSystem> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsSubSystem> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsSubSystem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsSubSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsSubSystem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsSubSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1966,7 +1966,7 @@ pub struct IVdsSubSystem_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsSubSystem2(::windows::runtime::IUnknown);
+pub struct IVdsSubSystem2(pub ::windows::runtime::IUnknown);
 impl IVdsSubSystem2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -1998,22 +1998,22 @@ unsafe impl ::windows::runtime::Interface for IVdsSubSystem2 {
 }
 impl ::std::convert::From<IVdsSubSystem2> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystem2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsSubSystem2> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsSubSystem2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsSubSystem2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsSubSystem2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsSubSystem2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2033,7 +2033,7 @@ pub struct IVdsSubSystem2_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsSubSystemInterconnect(::windows::runtime::IUnknown);
+pub struct IVdsSubSystemInterconnect(pub ::windows::runtime::IUnknown);
 impl IVdsSubSystemInterconnect {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn GetSupportedInterconnects(&self) -> ::windows::runtime::Result<u32> {
@@ -2047,22 +2047,22 @@ unsafe impl ::windows::runtime::Interface for IVdsSubSystemInterconnect {
 }
 impl ::std::convert::From<IVdsSubSystemInterconnect> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystemInterconnect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsSubSystemInterconnect> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsSubSystemInterconnect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsSubSystemInterconnect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsSubSystemInterconnect {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsSubSystemInterconnect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2076,7 +2076,7 @@ pub struct IVdsSubSystemInterconnect_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsSubSystemIscsi(::windows::runtime::IUnknown);
+pub struct IVdsSubSystemIscsi(pub ::windows::runtime::IUnknown);
 impl IVdsSubSystemIscsi {
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
     pub unsafe fn QueryTargets(&self) -> ::windows::runtime::Result<IEnumVdsObject> {
@@ -2105,22 +2105,22 @@ unsafe impl ::windows::runtime::Interface for IVdsSubSystemIscsi {
 }
 impl ::std::convert::From<IVdsSubSystemIscsi> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystemIscsi) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsSubSystemIscsi> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsSubSystemIscsi) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsSubSystemIscsi {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsSubSystemIscsi {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsSubSystemIscsi {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2138,7 +2138,7 @@ pub struct IVdsSubSystemIscsi_abi(
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IVdsSubSystemNaming(::windows::runtime::IUnknown);
+pub struct IVdsSubSystemNaming(pub ::windows::runtime::IUnknown);
 impl IVdsSubSystemNaming {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_VirtualDiskService`, `Win32_Foundation`*"]
@@ -2152,22 +2152,22 @@ unsafe impl ::windows::runtime::Interface for IVdsSubSystemNaming {
 }
 impl ::std::convert::From<IVdsSubSystemNaming> for ::windows::runtime::IUnknown {
     fn from(value: IVdsSubSystemNaming) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IVdsSubSystemNaming> for ::windows::runtime::IUnknown {
     fn from(value: &IVdsSubSystemNaming) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVdsSubSystemNaming {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVdsSubSystemNaming {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVdsSubSystemNaming {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

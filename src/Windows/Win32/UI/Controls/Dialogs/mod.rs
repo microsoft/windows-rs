@@ -946,7 +946,7 @@ pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPrintDialogCallback(::windows::runtime::IUnknown);
+pub struct IPrintDialogCallback(pub ::windows::runtime::IUnknown);
 impl IPrintDialogCallback {
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
     pub unsafe fn InitDone(&self) -> ::windows::runtime::Result<()> {
@@ -968,22 +968,22 @@ unsafe impl ::windows::runtime::Interface for IPrintDialogCallback {
 }
 impl ::std::convert::From<IPrintDialogCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDialogCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPrintDialogCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IPrintDialogCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDialogCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDialogCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintDialogCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1000,7 +1000,7 @@ pub struct IPrintDialogCallback_abi(
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPrintDialogServices(::windows::runtime::IUnknown);
+pub struct IPrintDialogServices(pub ::windows::runtime::IUnknown);
 impl IPrintDialogServices {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -1024,22 +1024,22 @@ unsafe impl ::windows::runtime::Interface for IPrintDialogServices {
 }
 impl ::std::convert::From<IPrintDialogServices> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDialogServices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPrintDialogServices> for ::windows::runtime::IUnknown {
     fn from(value: &IPrintDialogServices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDialogServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDialogServices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPrintDialogServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

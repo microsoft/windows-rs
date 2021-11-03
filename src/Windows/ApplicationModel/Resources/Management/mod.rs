@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIndexedResourceCandidate(::windows::runtime::IInspectable);
+pub struct IIndexedResourceCandidate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexedResourceCandidate {
     type Vtable = IIndexedResourceCandidate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241278707, 64236, 17428, [169, 215, 84, 172, 213, 149, 63, 41]);
@@ -27,7 +27,7 @@ pub struct IIndexedResourceCandidate_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIndexedResourceQualifier(::windows::runtime::IInspectable);
+pub struct IIndexedResourceQualifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexedResourceQualifier {
     type Vtable = IIndexedResourceQualifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3672357787, 54020, 18815, [161, 104, 163, 64, 4, 44, 138, 219]);
@@ -46,7 +46,7 @@ pub struct IIndexedResourceQualifier_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceIndexer(::windows::runtime::IInspectable);
+pub struct IResourceIndexer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexer {
     type Vtable = IResourceIndexer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760019365, 58159, 19122, [135, 72, 150, 53, 10, 1, 109, 163]);
@@ -67,7 +67,7 @@ pub struct IResourceIndexer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceIndexerFactory(::windows::runtime::IInspectable);
+pub struct IResourceIndexerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexerFactory {
     type Vtable = IResourceIndexerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3101572873, 12749, 19863, [189, 48, 141, 57, 247, 66, 188, 97]);
@@ -86,7 +86,7 @@ pub struct IResourceIndexerFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceIndexerFactory2(::windows::runtime::IInspectable);
+pub struct IResourceIndexerFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexerFactory2 {
     type Vtable = IResourceIndexerFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1614868877, 54757, 19296, [146, 1, 205, 39, 156, 188, 254, 217]);
@@ -106,7 +106,7 @@ pub struct IResourceIndexerFactory2_abi(
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IndexedResourceCandidate(::windows::runtime::IInspectable);
+pub struct IndexedResourceCandidate(pub ::windows::runtime::IInspectable);
 impl IndexedResourceCandidate {
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<IndexedResourceType> {
@@ -172,22 +172,22 @@ impl ::windows::runtime::RuntimeName for IndexedResourceCandidate {
 }
 impl ::std::convert::From<IndexedResourceCandidate> for ::windows::runtime::IUnknown {
     fn from(value: IndexedResourceCandidate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IndexedResourceCandidate> for ::windows::runtime::IUnknown {
     fn from(value: &IndexedResourceCandidate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IndexedResourceCandidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IndexedResourceCandidate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IndexedResourceCandidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IndexedResourceCandidate> for ::windows::runtime::IInspectable {
@@ -215,7 +215,7 @@ unsafe impl ::std::marker::Sync for IndexedResourceCandidate {}
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IndexedResourceQualifier(::windows::runtime::IInspectable);
+pub struct IndexedResourceQualifier(pub ::windows::runtime::IInspectable);
 impl IndexedResourceQualifier {
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn QualifierName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -246,22 +246,22 @@ impl ::windows::runtime::RuntimeName for IndexedResourceQualifier {
 }
 impl ::std::convert::From<IndexedResourceQualifier> for ::windows::runtime::IUnknown {
     fn from(value: IndexedResourceQualifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IndexedResourceQualifier> for ::windows::runtime::IUnknown {
     fn from(value: &IndexedResourceQualifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IndexedResourceQualifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IndexedResourceQualifier {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IndexedResourceQualifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IndexedResourceQualifier> for ::windows::runtime::IInspectable {
@@ -312,7 +312,7 @@ impl ::windows::runtime::DefaultType for IndexedResourceType {
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ResourceIndexer(::windows::runtime::IInspectable);
+pub struct ResourceIndexer(pub ::windows::runtime::IInspectable);
 impl ResourceIndexer {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -373,22 +373,22 @@ impl ::windows::runtime::RuntimeName for ResourceIndexer {
 }
 impl ::std::convert::From<ResourceIndexer> for ::windows::runtime::IUnknown {
     fn from(value: ResourceIndexer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ResourceIndexer> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceIndexer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceIndexer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceIndexer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceIndexer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ResourceIndexer> for ::windows::runtime::IInspectable {

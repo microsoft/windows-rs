@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppCapability(::windows::runtime::IInspectable);
+pub struct AppCapability(pub ::windows::runtime::IInspectable);
 impl AppCapability {
     #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
     pub fn CapabilityName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -101,22 +101,22 @@ impl ::windows::runtime::RuntimeName for AppCapability {
 }
 impl ::std::convert::From<AppCapability> for ::windows::runtime::IUnknown {
     fn from(value: AppCapability) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppCapability> for ::windows::runtime::IUnknown {
     fn from(value: &AppCapability) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppCapability {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppCapability {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppCapability {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppCapability> for ::windows::runtime::IInspectable {
@@ -144,7 +144,7 @@ unsafe impl ::std::marker::Sync for AppCapability {}
 #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppCapabilityAccessChangedEventArgs(::windows::runtime::IInspectable);
+pub struct AppCapabilityAccessChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
@@ -158,22 +158,22 @@ impl ::windows::runtime::RuntimeName for AppCapabilityAccessChangedEventArgs {
 }
 impl ::std::convert::From<AppCapabilityAccessChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppCapabilityAccessChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppCapabilityAccessChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppCapabilityAccessChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppCapabilityAccessChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppCapabilityAccessChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppCapabilityAccessChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppCapabilityAccessChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -225,7 +225,7 @@ impl ::windows::runtime::DefaultType for AppCapabilityAccessStatus {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppCapability(::windows::runtime::IInspectable);
+pub struct IAppCapability(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapability {
     type Vtable = IAppCapability_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1279908117, 35370, 17045, [148, 55, 45, 247, 195, 150, 175, 244]);
@@ -252,7 +252,7 @@ pub struct IAppCapability_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppCapabilityAccessChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IAppCapabilityAccessChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173509909, 48599, 17790, [140, 202, 111, 83, 189, 46, 89, 68]);
@@ -269,7 +269,7 @@ pub struct IAppCapabilityAccessChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppCapabilityStatics(::windows::runtime::IInspectable);
+pub struct IAppCapabilityStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapabilityStatics {
     type Vtable = IAppCapabilityStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2083864106, 18158, 17637, [175, 61, 106, 211, 252, 73, 189, 34]);

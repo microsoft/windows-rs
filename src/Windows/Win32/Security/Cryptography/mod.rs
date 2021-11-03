@@ -25312,7 +25312,7 @@ pub unsafe fn HashFinal(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata:
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICertSrvSetup(::windows::runtime::IUnknown);
+pub struct ICertSrvSetup(pub ::windows::runtime::IUnknown);
 impl ICertSrvSetup {
     #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn CAErrorId(&self) -> ::windows::runtime::Result<i32> {
@@ -25425,22 +25425,22 @@ unsafe impl ::windows::runtime::Interface for ICertSrvSetup {
 }
 impl ::std::convert::From<ICertSrvSetup> for ::windows::runtime::IUnknown {
     fn from(value: ICertSrvSetup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICertSrvSetup> for ::windows::runtime::IUnknown {
     fn from(value: &ICertSrvSetup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICertSrvSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICertSrvSetup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICertSrvSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -25518,7 +25518,7 @@ pub struct ICertSrvSetup_abi(
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICertSrvSetupKeyInformation(::windows::runtime::IUnknown);
+pub struct ICertSrvSetupKeyInformation(pub ::windows::runtime::IUnknown);
 impl ICertSrvSetupKeyInformation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -25589,22 +25589,22 @@ unsafe impl ::windows::runtime::Interface for ICertSrvSetupKeyInformation {
 }
 impl ::std::convert::From<ICertSrvSetupKeyInformation> for ::windows::runtime::IUnknown {
     fn from(value: ICertSrvSetupKeyInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICertSrvSetupKeyInformation> for ::windows::runtime::IUnknown {
     fn from(value: &ICertSrvSetupKeyInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICertSrvSetupKeyInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICertSrvSetupKeyInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICertSrvSetupKeyInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -25669,7 +25669,7 @@ pub struct ICertSrvSetupKeyInformation_abi(
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICertSrvSetupKeyInformationCollection(::windows::runtime::IUnknown);
+pub struct ICertSrvSetupKeyInformationCollection(pub ::windows::runtime::IUnknown);
 impl ICertSrvSetupKeyInformationCollection {
     #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -25698,22 +25698,22 @@ unsafe impl ::windows::runtime::Interface for ICertSrvSetupKeyInformationCollect
 }
 impl ::std::convert::From<ICertSrvSetupKeyInformationCollection> for ::windows::runtime::IUnknown {
     fn from(value: ICertSrvSetupKeyInformationCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICertSrvSetupKeyInformationCollection> for ::windows::runtime::IUnknown {
     fn from(value: &ICertSrvSetupKeyInformationCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICertSrvSetupKeyInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICertSrvSetupKeyInformationCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICertSrvSetupKeyInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -25763,7 +25763,7 @@ pub struct ICertSrvSetupKeyInformationCollection_abi(
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICertificateEnrollmentPolicyServerSetup(::windows::runtime::IUnknown);
+pub struct ICertificateEnrollmentPolicyServerSetup(pub ::windows::runtime::IUnknown);
 impl ICertificateEnrollmentPolicyServerSetup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -25802,22 +25802,22 @@ unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentPolicyServer
 }
 impl ::std::convert::From<ICertificateEnrollmentPolicyServerSetup> for ::windows::runtime::IUnknown {
     fn from(value: ICertificateEnrollmentPolicyServerSetup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICertificateEnrollmentPolicyServerSetup> for ::windows::runtime::IUnknown {
     fn from(value: &ICertificateEnrollmentPolicyServerSetup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICertificateEnrollmentPolicyServerSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICertificateEnrollmentPolicyServerSetup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICertificateEnrollmentPolicyServerSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -25872,7 +25872,7 @@ pub struct ICertificateEnrollmentPolicyServerSetup_abi(
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICertificateEnrollmentServerSetup(::windows::runtime::IUnknown);
+pub struct ICertificateEnrollmentServerSetup(pub ::windows::runtime::IUnknown);
 impl ICertificateEnrollmentServerSetup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -25916,22 +25916,22 @@ unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentServerSetup 
 }
 impl ::std::convert::From<ICertificateEnrollmentServerSetup> for ::windows::runtime::IUnknown {
     fn from(value: ICertificateEnrollmentServerSetup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICertificateEnrollmentServerSetup> for ::windows::runtime::IUnknown {
     fn from(value: &ICertificateEnrollmentServerSetup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICertificateEnrollmentServerSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICertificateEnrollmentServerSetup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICertificateEnrollmentServerSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -25994,7 +25994,7 @@ pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMSCEPSetup(::windows::runtime::IUnknown);
+pub struct IMSCEPSetup(pub ::windows::runtime::IUnknown);
 impl IMSCEPSetup {
     #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn MSCEPErrorId(&self) -> ::windows::runtime::Result<i32> {
@@ -26063,22 +26063,22 @@ unsafe impl ::windows::runtime::Interface for IMSCEPSetup {
 }
 impl ::std::convert::From<IMSCEPSetup> for ::windows::runtime::IUnknown {
     fn from(value: IMSCEPSetup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMSCEPSetup> for ::windows::runtime::IUnknown {
     fn from(value: &IMSCEPSetup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMSCEPSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMSCEPSetup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMSCEPSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

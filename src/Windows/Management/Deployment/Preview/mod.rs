@@ -22,7 +22,7 @@ impl ::windows::runtime::RuntimeName for ClassicAppManager {
 pub struct DeploymentPreviewContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClassicAppManagerStatics(::windows::runtime::IInspectable);
+pub struct IClassicAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClassicAppManagerStatics {
     type Vtable = IClassicAppManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3808089704, 34860, 20275, [176, 53, 13, 247, 185, 13, 103, 230]);
@@ -40,7 +40,7 @@ pub struct IClassicAppManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInstalledClassicAppInfo(::windows::runtime::IInspectable);
+pub struct IInstalledClassicAppInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175979939, 26064, 16518, [128, 214, 6, 16, 215, 96, 32, 125]);
@@ -60,7 +60,7 @@ pub struct IInstalledClassicAppInfo_abi(
 #[doc = "*Required features: `Management_Deployment_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InstalledClassicAppInfo(::windows::runtime::IInspectable);
+pub struct InstalledClassicAppInfo(pub ::windows::runtime::IInspectable);
 impl InstalledClassicAppInfo {
     #[doc = "*Required features: `Management_Deployment_Preview`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -91,22 +91,22 @@ impl ::windows::runtime::RuntimeName for InstalledClassicAppInfo {
 }
 impl ::std::convert::From<InstalledClassicAppInfo> for ::windows::runtime::IUnknown {
     fn from(value: InstalledClassicAppInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InstalledClassicAppInfo> for ::windows::runtime::IUnknown {
     fn from(value: &InstalledClassicAppInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InstalledClassicAppInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InstalledClassicAppInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InstalledClassicAppInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InstalledClassicAppInfo> for ::windows::runtime::IInspectable {

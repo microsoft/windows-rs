@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_System_ServerBackup`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWsbApplicationAsync(::windows::runtime::IUnknown);
+pub struct IWsbApplicationAsync(pub ::windows::runtime::IUnknown);
 impl IWsbApplicationAsync {
     #[doc = "*Required features: `Win32_System_ServerBackup`*"]
     pub unsafe fn QueryStatus(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
@@ -20,22 +20,22 @@ unsafe impl ::windows::runtime::Interface for IWsbApplicationAsync {
 }
 impl ::std::convert::From<IWsbApplicationAsync> for ::windows::runtime::IUnknown {
     fn from(value: IWsbApplicationAsync) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWsbApplicationAsync> for ::windows::runtime::IUnknown {
     fn from(value: &IWsbApplicationAsync) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWsbApplicationAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWsbApplicationAsync {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWsbApplicationAsync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -50,7 +50,7 @@ pub struct IWsbApplicationAsync_abi(
 #[doc = "*Required features: `Win32_System_ServerBackup`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWsbApplicationBackupSupport(::windows::runtime::IUnknown);
+pub struct IWsbApplicationBackupSupport(pub ::windows::runtime::IUnknown);
 impl IWsbApplicationBackupSupport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ServerBackup`, `Win32_Foundation`*"]
@@ -73,22 +73,22 @@ unsafe impl ::windows::runtime::Interface for IWsbApplicationBackupSupport {
 }
 impl ::std::convert::From<IWsbApplicationBackupSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWsbApplicationBackupSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWsbApplicationBackupSupport> for ::windows::runtime::IUnknown {
     fn from(value: &IWsbApplicationBackupSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWsbApplicationBackupSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWsbApplicationBackupSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWsbApplicationBackupSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -103,7 +103,7 @@ pub struct IWsbApplicationBackupSupport_abi(
 #[doc = "*Required features: `Win32_System_ServerBackup`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWsbApplicationRestoreSupport(::windows::runtime::IUnknown);
+pub struct IWsbApplicationRestoreSupport(pub ::windows::runtime::IUnknown);
 impl IWsbApplicationRestoreSupport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ServerBackup`, `Win32_Foundation`*"]
@@ -132,22 +132,22 @@ unsafe impl ::windows::runtime::Interface for IWsbApplicationRestoreSupport {
 }
 impl ::std::convert::From<IWsbApplicationRestoreSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWsbApplicationRestoreSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWsbApplicationRestoreSupport> for ::windows::runtime::IUnknown {
     fn from(value: &IWsbApplicationRestoreSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWsbApplicationRestoreSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWsbApplicationRestoreSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWsbApplicationRestoreSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

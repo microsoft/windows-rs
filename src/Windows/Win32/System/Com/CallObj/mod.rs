@@ -236,7 +236,7 @@ pub unsafe fn CoGetInterceptorFromTypeInfo<'a, Param1: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICallFrame(::windows::runtime::IUnknown);
+pub struct ICallFrame(pub ::windows::runtime::IUnknown);
 impl ICallFrame {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_CallObj`, `Win32_Foundation`*"]
@@ -336,22 +336,22 @@ unsafe impl ::windows::runtime::Interface for ICallFrame {
 }
 impl ::std::convert::From<ICallFrame> for ::windows::runtime::IUnknown {
     fn from(value: ICallFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICallFrame> for ::windows::runtime::IUnknown {
     fn from(value: &ICallFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICallFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICallFrame {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICallFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -392,7 +392,7 @@ pub struct ICallFrame_abi(
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICallFrameEvents(::windows::runtime::IUnknown);
+pub struct ICallFrameEvents(pub ::windows::runtime::IUnknown);
 impl ICallFrameEvents {
     #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
     pub unsafe fn OnCall<'a, Param0: ::windows::runtime::IntoParam<'a, ICallFrame>>(&self, pframe: Param0) -> ::windows::runtime::Result<()> {
@@ -405,22 +405,22 @@ unsafe impl ::windows::runtime::Interface for ICallFrameEvents {
 }
 impl ::std::convert::From<ICallFrameEvents> for ::windows::runtime::IUnknown {
     fn from(value: ICallFrameEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICallFrameEvents> for ::windows::runtime::IUnknown {
     fn from(value: &ICallFrameEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICallFrameEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICallFrameEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICallFrameEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -434,7 +434,7 @@ pub struct ICallFrameEvents_abi(
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICallFrameWalker(::windows::runtime::IUnknown);
+pub struct ICallFrameWalker(pub ::windows::runtime::IUnknown);
 impl ICallFrameWalker {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_CallObj`, `Win32_Foundation`*"]
@@ -448,22 +448,22 @@ unsafe impl ::windows::runtime::Interface for ICallFrameWalker {
 }
 impl ::std::convert::From<ICallFrameWalker> for ::windows::runtime::IUnknown {
     fn from(value: ICallFrameWalker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICallFrameWalker> for ::windows::runtime::IUnknown {
     fn from(value: &ICallFrameWalker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICallFrameWalker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICallFrameWalker {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICallFrameWalker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -478,7 +478,7 @@ pub struct ICallFrameWalker_abi(
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICallIndirect(::windows::runtime::IUnknown);
+pub struct ICallIndirect(pub ::windows::runtime::IUnknown);
 impl ICallIndirect {
     #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
     pub unsafe fn CallIndirect(&self, phrreturn: *mut ::windows::runtime::HRESULT, imethod: u32, pvargs: *const ::std::ffi::c_void, cbargs: *mut u32) -> ::windows::runtime::Result<()> {
@@ -506,22 +506,22 @@ unsafe impl ::windows::runtime::Interface for ICallIndirect {
 }
 impl ::std::convert::From<ICallIndirect> for ::windows::runtime::IUnknown {
     fn from(value: ICallIndirect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICallIndirect> for ::windows::runtime::IUnknown {
     fn from(value: &ICallIndirect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICallIndirect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICallIndirect {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICallIndirect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -540,7 +540,7 @@ pub struct ICallIndirect_abi(
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICallInterceptor(::windows::runtime::IUnknown);
+pub struct ICallInterceptor(pub ::windows::runtime::IUnknown);
 impl ICallInterceptor {
     #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
     pub unsafe fn CallIndirect(&self, phrreturn: *mut ::windows::runtime::HRESULT, imethod: u32, pvargs: *const ::std::ffi::c_void, cbargs: *mut u32) -> ::windows::runtime::Result<()> {
@@ -577,22 +577,22 @@ unsafe impl ::windows::runtime::Interface for ICallInterceptor {
 }
 impl ::std::convert::From<ICallInterceptor> for ::windows::runtime::IUnknown {
     fn from(value: ICallInterceptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICallInterceptor> for ::windows::runtime::IUnknown {
     fn from(value: &ICallInterceptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICallInterceptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICallInterceptor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICallInterceptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ICallInterceptor> for ICallIndirect {
@@ -633,7 +633,7 @@ pub struct ICallInterceptor_abi(
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ICallUnmarshal(::windows::runtime::IUnknown);
+pub struct ICallUnmarshal(pub ::windows::runtime::IUnknown);
 impl ICallUnmarshal {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_CallObj`, `Win32_Foundation`*"]
@@ -663,22 +663,22 @@ unsafe impl ::windows::runtime::Interface for ICallUnmarshal {
 }
 impl ::std::convert::From<ICallUnmarshal> for ::windows::runtime::IUnknown {
     fn from(value: ICallUnmarshal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ICallUnmarshal> for ::windows::runtime::IUnknown {
     fn from(value: &ICallUnmarshal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICallUnmarshal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICallUnmarshal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICallUnmarshal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -695,7 +695,7 @@ pub struct ICallUnmarshal_abi(
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInterfaceRelated(::windows::runtime::IUnknown);
+pub struct IInterfaceRelated(pub ::windows::runtime::IUnknown);
 impl IInterfaceRelated {
     #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
     pub unsafe fn SetIID(&self, iid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -713,22 +713,22 @@ unsafe impl ::windows::runtime::Interface for IInterfaceRelated {
 }
 impl ::std::convert::From<IInterfaceRelated> for ::windows::runtime::IUnknown {
     fn from(value: IInterfaceRelated) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInterfaceRelated> for ::windows::runtime::IUnknown {
     fn from(value: &IInterfaceRelated) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInterfaceRelated {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInterfaceRelated {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInterfaceRelated {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

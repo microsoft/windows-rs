@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Phone_UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BackPressedEventArgs(::windows::runtime::IInspectable);
+pub struct BackPressedEventArgs(pub ::windows::runtime::IInspectable);
 impl BackPressedEventArgs {
     #[doc = "*Required features: `Phone_UI_Input`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
@@ -30,22 +30,22 @@ impl ::windows::runtime::RuntimeName for BackPressedEventArgs {
 }
 impl ::std::convert::From<BackPressedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BackPressedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BackPressedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BackPressedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackPressedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackPressedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BackPressedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BackPressedEventArgs> for ::windows::runtime::IInspectable {
@@ -73,7 +73,7 @@ unsafe impl ::std::marker::Sync for BackPressedEventArgs {}
 #[doc = "*Required features: `Phone_UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CameraEventArgs(::windows::runtime::IInspectable);
+pub struct CameraEventArgs(pub ::windows::runtime::IInspectable);
 impl CameraEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for CameraEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.CameraEventArgs;{b4063bda-201f-473d-bc69-e9e4ac57c9d0})");
@@ -87,22 +87,22 @@ impl ::windows::runtime::RuntimeName for CameraEventArgs {
 }
 impl ::std::convert::From<CameraEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CameraEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CameraEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CameraEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CameraEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CameraEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CameraEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CameraEventArgs> for ::windows::runtime::IInspectable {
@@ -196,7 +196,7 @@ impl ::windows::runtime::RuntimeName for HardwareButtons {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackPressedEventArgs(::windows::runtime::IInspectable);
+pub struct IBackPressedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4143273471, 25836, 17058, [185, 59, 47, 188, 12, 54, 161, 33]);
@@ -215,7 +215,7 @@ pub struct IBackPressedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICameraEventArgs(::windows::runtime::IInspectable);
+pub struct ICameraEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraEventArgs {
     type Vtable = ICameraEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3020307418, 8223, 18237, [188, 105, 233, 228, 172, 87, 201, 208]);
@@ -232,7 +232,7 @@ pub struct ICameraEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHardwareButtonsStatics(::windows::runtime::IInspectable);
+pub struct IHardwareButtonsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHardwareButtonsStatics {
     type Vtable = IHardwareButtonsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498122112, 55910, 20440, [167, 118, 117, 6, 189, 12, 191, 167]);
@@ -253,7 +253,7 @@ pub struct IHardwareButtonsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHardwareButtonsStatics2(::windows::runtime::IInspectable);
+pub struct IHardwareButtonsStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHardwareButtonsStatics2 {
     type Vtable = IHardwareButtonsStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969327220, 39231, 16605, [133, 76, 131, 26, 137, 52, 185, 46]);

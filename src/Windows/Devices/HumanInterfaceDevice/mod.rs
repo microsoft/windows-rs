@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidBooleanControl(::windows::runtime::IInspectable);
+pub struct HidBooleanControl(pub ::windows::runtime::IInspectable);
 impl HidBooleanControl {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -62,22 +62,22 @@ impl ::windows::runtime::RuntimeName for HidBooleanControl {
 }
 impl ::std::convert::From<HidBooleanControl> for ::windows::runtime::IUnknown {
     fn from(value: HidBooleanControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidBooleanControl> for ::windows::runtime::IUnknown {
     fn from(value: &HidBooleanControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidBooleanControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidBooleanControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidBooleanControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidBooleanControl> for ::windows::runtime::IInspectable {
@@ -105,7 +105,7 @@ unsafe impl ::std::marker::Sync for HidBooleanControl {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidBooleanControlDescription(::windows::runtime::IInspectable);
+pub struct HidBooleanControlDescription(pub ::windows::runtime::IInspectable);
 impl HidBooleanControlDescription {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -177,22 +177,22 @@ impl ::windows::runtime::RuntimeName for HidBooleanControlDescription {
 }
 impl ::std::convert::From<HidBooleanControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: HidBooleanControlDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidBooleanControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: &HidBooleanControlDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidBooleanControlDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidBooleanControlDescription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidBooleanControlDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidBooleanControlDescription> for ::windows::runtime::IInspectable {
@@ -220,7 +220,7 @@ unsafe impl ::std::marker::Sync for HidBooleanControlDescription {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidCollection(::windows::runtime::IInspectable);
+pub struct HidCollection(pub ::windows::runtime::IInspectable);
 impl HidCollection {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -267,22 +267,22 @@ impl ::windows::runtime::RuntimeName for HidCollection {
 }
 impl ::std::convert::From<HidCollection> for ::windows::runtime::IUnknown {
     fn from(value: HidCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidCollection> for ::windows::runtime::IUnknown {
     fn from(value: &HidCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidCollection> for ::windows::runtime::IInspectable {
@@ -338,7 +338,7 @@ impl ::windows::runtime::DefaultType for HidCollectionType {
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidDevice(::windows::runtime::IInspectable);
+pub struct HidDevice(pub ::windows::runtime::IInspectable);
 impl HidDevice {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn VendorId(&self) -> ::windows::runtime::Result<u16> {
@@ -544,22 +544,22 @@ impl ::windows::runtime::RuntimeName for HidDevice {
 }
 impl ::std::convert::From<HidDevice> for ::windows::runtime::IUnknown {
     fn from(value: HidDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidDevice> for ::windows::runtime::IUnknown {
     fn from(value: &HidDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidDevice> for ::windows::runtime::IInspectable {
@@ -613,7 +613,7 @@ unsafe impl ::std::marker::Sync for HidDevice {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidFeatureReport(::windows::runtime::IInspectable);
+pub struct HidFeatureReport(pub ::windows::runtime::IInspectable);
 impl HidFeatureReport {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u16> {
@@ -683,22 +683,22 @@ impl ::windows::runtime::RuntimeName for HidFeatureReport {
 }
 impl ::std::convert::From<HidFeatureReport> for ::windows::runtime::IUnknown {
     fn from(value: HidFeatureReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidFeatureReport> for ::windows::runtime::IUnknown {
     fn from(value: &HidFeatureReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidFeatureReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidFeatureReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidFeatureReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidFeatureReport> for ::windows::runtime::IInspectable {
@@ -726,7 +726,7 @@ unsafe impl ::std::marker::Sync for HidFeatureReport {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidInputReport(::windows::runtime::IInspectable);
+pub struct HidInputReport(pub ::windows::runtime::IInspectable);
 impl HidInputReport {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u16> {
@@ -808,22 +808,22 @@ impl ::windows::runtime::RuntimeName for HidInputReport {
 }
 impl ::std::convert::From<HidInputReport> for ::windows::runtime::IUnknown {
     fn from(value: HidInputReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidInputReport> for ::windows::runtime::IUnknown {
     fn from(value: &HidInputReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidInputReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidInputReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidInputReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidInputReport> for ::windows::runtime::IInspectable {
@@ -851,7 +851,7 @@ unsafe impl ::std::marker::Sync for HidInputReport {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidInputReportReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct HidInputReportReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl HidInputReportReceivedEventArgs {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Report(&self) -> ::windows::runtime::Result<HidInputReport> {
@@ -874,22 +874,22 @@ impl ::windows::runtime::RuntimeName for HidInputReportReceivedEventArgs {
 }
 impl ::std::convert::From<HidInputReportReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HidInputReportReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidInputReportReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HidInputReportReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidInputReportReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidInputReportReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidInputReportReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidInputReportReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -917,7 +917,7 @@ unsafe impl ::std::marker::Sync for HidInputReportReceivedEventArgs {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidNumericControl(::windows::runtime::IInspectable);
+pub struct HidNumericControl(pub ::windows::runtime::IInspectable);
 impl HidNumericControl {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -998,22 +998,22 @@ impl ::windows::runtime::RuntimeName for HidNumericControl {
 }
 impl ::std::convert::From<HidNumericControl> for ::windows::runtime::IUnknown {
     fn from(value: HidNumericControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidNumericControl> for ::windows::runtime::IUnknown {
     fn from(value: &HidNumericControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidNumericControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidNumericControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidNumericControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidNumericControl> for ::windows::runtime::IInspectable {
@@ -1041,7 +1041,7 @@ unsafe impl ::std::marker::Sync for HidNumericControl {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidNumericControlDescription(::windows::runtime::IInspectable);
+pub struct HidNumericControlDescription(pub ::windows::runtime::IInspectable);
 impl HidNumericControlDescription {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -1185,22 +1185,22 @@ impl ::windows::runtime::RuntimeName for HidNumericControlDescription {
 }
 impl ::std::convert::From<HidNumericControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: HidNumericControlDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidNumericControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: &HidNumericControlDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidNumericControlDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidNumericControlDescription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidNumericControlDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidNumericControlDescription> for ::windows::runtime::IInspectable {
@@ -1228,7 +1228,7 @@ unsafe impl ::std::marker::Sync for HidNumericControlDescription {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HidOutputReport(::windows::runtime::IInspectable);
+pub struct HidOutputReport(pub ::windows::runtime::IInspectable);
 impl HidOutputReport {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u16> {
@@ -1298,22 +1298,22 @@ impl ::windows::runtime::RuntimeName for HidOutputReport {
 }
 impl ::std::convert::From<HidOutputReport> for ::windows::runtime::IUnknown {
     fn from(value: HidOutputReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HidOutputReport> for ::windows::runtime::IUnknown {
     fn from(value: &HidOutputReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HidOutputReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HidOutputReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HidOutputReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HidOutputReport> for ::windows::runtime::IInspectable {
@@ -1363,7 +1363,7 @@ impl ::windows::runtime::DefaultType for HidReportType {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidBooleanControl(::windows::runtime::IInspectable);
+pub struct IHidBooleanControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControl {
     type Vtable = IHidBooleanControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380840586, 13973, 16524, [187, 162, 226, 235, 90, 191, 188, 32]);
@@ -1386,7 +1386,7 @@ pub struct IHidBooleanControl_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidBooleanControlDescription(::windows::runtime::IInspectable);
+pub struct IHidBooleanControlDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637279043, 10712, 18986, [134, 131, 132, 158, 32, 123, 190, 49]);
@@ -1410,7 +1410,7 @@ pub struct IHidBooleanControlDescription_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidBooleanControlDescription2(::windows::runtime::IInspectable);
+pub struct IHidBooleanControlDescription2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControlDescription2 {
     type Vtable = IHidBooleanControlDescription2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371094762, 35447, 19510, [170, 0, 95, 240, 68, 157, 62, 115]);
@@ -1428,7 +1428,7 @@ pub struct IHidBooleanControlDescription2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidCollection(::windows::runtime::IInspectable);
+pub struct IHidCollection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidCollection {
     type Vtable = IHidCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904866723, 13041, 18147, [190, 253, 68, 210, 102, 59, 126, 106]);
@@ -1449,7 +1449,7 @@ pub struct IHidCollection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidDevice(::windows::runtime::IInspectable);
+pub struct IHidDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidDevice {
     type Vtable = IHidDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602884839, 8704, 17198, [149, 218, 208, 155, 135, 213, 116, 168]);
@@ -1495,7 +1495,7 @@ pub struct IHidDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidDeviceStatics(::windows::runtime::IInspectable);
+pub struct IHidDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidDeviceStatics {
     type Vtable = IHidDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2656666084, 38998, 16780, [159, 115, 119, 222, 12, 216, 87, 84]);
@@ -1516,7 +1516,7 @@ pub struct IHidDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidFeatureReport(::windows::runtime::IInspectable);
+pub struct IHidFeatureReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidFeatureReport {
     type Vtable = IHidFeatureReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2216532857, 23269, 18147, [130, 239, 31, 236, 92, 137, 66, 244]);
@@ -1542,7 +1542,7 @@ pub struct IHidFeatureReport_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidInputReport(::windows::runtime::IInspectable);
+pub struct IHidInputReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidInputReport {
     type Vtable = IHidInputReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3277655632, 63463, 20109, [178, 62, 202, 187, 229, 107, 144, 233]);
@@ -1570,7 +1570,7 @@ pub struct IHidInputReport_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidInputReportReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IHidInputReportReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884931531, 22962, 19906, [152, 92, 10, 220, 97, 54, 250, 45]);
@@ -1588,7 +1588,7 @@ pub struct IHidInputReportReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidNumericControl(::windows::runtime::IInspectable);
+pub struct IHidNumericControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidNumericControl {
     type Vtable = IHidNumericControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3817476773, 13735, 19317, [137, 200, 251, 31, 40, 177, 8, 35]);
@@ -1614,7 +1614,7 @@ pub struct IHidNumericControl_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidNumericControlDescription(::windows::runtime::IInspectable);
+pub struct IHidNumericControlDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670209158, 7575, 19573, [146, 127, 95, 245, 139, 160, 94, 50]);
@@ -1648,7 +1648,7 @@ pub struct IHidNumericControlDescription_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHidOutputReport(::windows::runtime::IInspectable);
+pub struct IHidOutputReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidOutputReport {
     type Vtable = IHidOutputReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1657480516, 51350, 17507, [147, 193, 223, 157, 176, 83, 196, 80]);

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRetailModeStatics(::windows::runtime::IInspectable);
+pub struct IRetailModeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRetailModeStatics {
     type Vtable = IRetailModeStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3621703721, 64986, 17383, [147, 251, 229, 58, 182, 232, 158, 195]);

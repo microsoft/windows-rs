@@ -862,7 +862,7 @@ pub unsafe fn GetManagedApplications(pcategory: *const ::windows::runtime::GUID,
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPEInformation(::windows::runtime::IUnknown);
+pub struct IGPEInformation(pub ::windows::runtime::IUnknown);
 impl IGPEInformation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -913,22 +913,22 @@ unsafe impl ::windows::runtime::Interface for IGPEInformation {
 }
 impl ::std::convert::From<IGPEInformation> for ::windows::runtime::IUnknown {
     fn from(value: IGPEInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPEInformation> for ::windows::runtime::IUnknown {
     fn from(value: &IGPEInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPEInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPEInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPEInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -956,7 +956,7 @@ pub struct IGPEInformation_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPM(::windows::runtime::IUnknown);
+pub struct IGPM(pub ::windows::runtime::IUnknown);
 impl IGPM {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -1032,22 +1032,22 @@ unsafe impl ::windows::runtime::Interface for IGPM {
 }
 impl ::std::convert::From<IGPM> for ::windows::runtime::IUnknown {
     fn from(value: IGPM) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPM> for ::windows::runtime::IUnknown {
     fn from(value: &IGPM) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPM {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPM {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPM {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1112,7 +1112,7 @@ pub struct IGPM_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPM2(::windows::runtime::IUnknown);
+pub struct IGPM2(pub ::windows::runtime::IUnknown);
 impl IGPM2 {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1220,22 +1220,22 @@ unsafe impl ::windows::runtime::Interface for IGPM2 {
 }
 impl ::std::convert::From<IGPM2> for ::windows::runtime::IUnknown {
     fn from(value: IGPM2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPM2> for ::windows::runtime::IUnknown {
     fn from(value: &IGPM2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPM2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPM2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPM2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IGPM2> for IGPM {
@@ -1324,7 +1324,7 @@ pub struct IGPM2_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMAsyncCancel(::windows::runtime::IUnknown);
+pub struct IGPMAsyncCancel(pub ::windows::runtime::IUnknown);
 impl IGPMAsyncCancel {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -1337,22 +1337,22 @@ unsafe impl ::windows::runtime::Interface for IGPMAsyncCancel {
 }
 impl ::std::convert::From<IGPMAsyncCancel> for ::windows::runtime::IUnknown {
     fn from(value: IGPMAsyncCancel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMAsyncCancel> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMAsyncCancel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMAsyncCancel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMAsyncCancel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMAsyncCancel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1398,7 +1398,7 @@ pub struct IGPMAsyncCancel_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMAsyncProgress(::windows::runtime::IUnknown);
+pub struct IGPMAsyncProgress(pub ::windows::runtime::IUnknown);
 impl IGPMAsyncProgress {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1412,22 +1412,22 @@ unsafe impl ::windows::runtime::Interface for IGPMAsyncProgress {
 }
 impl ::std::convert::From<IGPMAsyncProgress> for ::windows::runtime::IUnknown {
     fn from(value: IGPMAsyncProgress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMAsyncProgress> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMAsyncProgress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMAsyncProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMAsyncProgress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMAsyncProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1474,7 +1474,7 @@ pub struct IGPMAsyncProgress_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMBackup(::windows::runtime::IUnknown);
+pub struct IGPMBackup(pub ::windows::runtime::IUnknown);
 impl IGPMBackup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -1539,22 +1539,22 @@ unsafe impl ::windows::runtime::Interface for IGPMBackup {
 }
 impl ::std::convert::From<IGPMBackup> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMBackup> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMBackup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMBackup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMBackup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMBackup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1617,7 +1617,7 @@ pub struct IGPMBackup_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMBackupCollection(::windows::runtime::IUnknown);
+pub struct IGPMBackupCollection(pub ::windows::runtime::IUnknown);
 impl IGPMBackupCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -1643,22 +1643,22 @@ unsafe impl ::windows::runtime::Interface for IGPMBackupCollection {
 }
 impl ::std::convert::From<IGPMBackupCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackupCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMBackupCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMBackupCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMBackupCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMBackupCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMBackupCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1708,7 +1708,7 @@ pub struct IGPMBackupCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMBackupDir(::windows::runtime::IUnknown);
+pub struct IGPMBackupDir(pub ::windows::runtime::IUnknown);
 impl IGPMBackupDir {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -1734,22 +1734,22 @@ unsafe impl ::windows::runtime::Interface for IGPMBackupDir {
 }
 impl ::std::convert::From<IGPMBackupDir> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackupDir) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMBackupDir> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMBackupDir) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMBackupDir {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMBackupDir {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMBackupDir {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1799,7 +1799,7 @@ pub struct IGPMBackupDir_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMBackupDirEx(::windows::runtime::IUnknown);
+pub struct IGPMBackupDirEx(pub ::windows::runtime::IUnknown);
 impl IGPMBackupDirEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -1831,22 +1831,22 @@ unsafe impl ::windows::runtime::Interface for IGPMBackupDirEx {
 }
 impl ::std::convert::From<IGPMBackupDirEx> for ::windows::runtime::IUnknown {
     fn from(value: IGPMBackupDirEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMBackupDirEx> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMBackupDirEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMBackupDirEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMBackupDirEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMBackupDirEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1898,7 +1898,7 @@ pub struct IGPMBackupDirEx_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMCSECollection(::windows::runtime::IUnknown);
+pub struct IGPMCSECollection(pub ::windows::runtime::IUnknown);
 impl IGPMCSECollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -1924,22 +1924,22 @@ unsafe impl ::windows::runtime::Interface for IGPMCSECollection {
 }
 impl ::std::convert::From<IGPMCSECollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMCSECollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMCSECollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMCSECollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMCSECollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMCSECollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMCSECollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1989,7 +1989,7 @@ pub struct IGPMCSECollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMClientSideExtension(::windows::runtime::IUnknown);
+pub struct IGPMClientSideExtension(pub ::windows::runtime::IUnknown);
 impl IGPMClientSideExtension {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -2020,22 +2020,22 @@ unsafe impl ::windows::runtime::Interface for IGPMClientSideExtension {
 }
 impl ::std::convert::From<IGPMClientSideExtension> for ::windows::runtime::IUnknown {
     fn from(value: IGPMClientSideExtension) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMClientSideExtension> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMClientSideExtension) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMClientSideExtension {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMClientSideExtension {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMClientSideExtension {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2086,7 +2086,7 @@ pub struct IGPMClientSideExtension_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMConstants(::windows::runtime::IUnknown);
+pub struct IGPMConstants(pub ::windows::runtime::IUnknown);
 impl IGPMConstants {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOApply(&self) -> ::windows::runtime::Result<GPMPermissionType> {
@@ -2395,22 +2395,22 @@ unsafe impl ::windows::runtime::Interface for IGPMConstants {
 }
 impl ::std::convert::From<IGPMConstants> for ::windows::runtime::IUnknown {
     fn from(value: IGPMConstants) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMConstants> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMConstants) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMConstants {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMConstants {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMConstants {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2515,7 +2515,7 @@ pub struct IGPMConstants_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMConstants2(::windows::runtime::IUnknown);
+pub struct IGPMConstants2(pub ::windows::runtime::IUnknown);
 impl IGPMConstants2 {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2920,22 +2920,22 @@ unsafe impl ::windows::runtime::Interface for IGPMConstants2 {
 }
 impl ::std::convert::From<IGPMConstants2> for ::windows::runtime::IUnknown {
     fn from(value: IGPMConstants2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMConstants2> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMConstants2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMConstants2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMConstants2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMConstants2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IGPMConstants2> for IGPMConstants {
@@ -3075,7 +3075,7 @@ pub struct IGPMConstants2_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMDomain(::windows::runtime::IUnknown);
+pub struct IGPMDomain(pub ::windows::runtime::IUnknown);
 impl IGPMDomain {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -3139,22 +3139,22 @@ unsafe impl ::windows::runtime::Interface for IGPMDomain {
 }
 impl ::std::convert::From<IGPMDomain> for ::windows::runtime::IUnknown {
     fn from(value: IGPMDomain) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMDomain> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMDomain) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMDomain {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3215,7 +3215,7 @@ pub struct IGPMDomain_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMDomain2(::windows::runtime::IUnknown);
+pub struct IGPMDomain2(pub ::windows::runtime::IUnknown);
 impl IGPMDomain2 {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3331,22 +3331,22 @@ unsafe impl ::windows::runtime::Interface for IGPMDomain2 {
 }
 impl ::std::convert::From<IGPMDomain2> for ::windows::runtime::IUnknown {
     fn from(value: IGPMDomain2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMDomain2> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMDomain2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMDomain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMDomain2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMDomain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IGPMDomain2> for IGPMDomain {
@@ -3436,7 +3436,7 @@ pub struct IGPMDomain2_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMDomain3(::windows::runtime::IUnknown);
+pub struct IGPMDomain3(pub ::windows::runtime::IUnknown);
 impl IGPMDomain3 {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3572,22 +3572,22 @@ unsafe impl ::windows::runtime::Interface for IGPMDomain3 {
 }
 impl ::std::convert::From<IGPMDomain3> for ::windows::runtime::IUnknown {
     fn from(value: IGPMDomain3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMDomain3> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMDomain3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMDomain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMDomain3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMDomain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IGPMDomain3> for IGPMDomain2 {
@@ -3704,7 +3704,7 @@ pub struct IGPMDomain3_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMGPO(::windows::runtime::IUnknown);
+pub struct IGPMGPO(pub ::windows::runtime::IUnknown);
 impl IGPMGPO {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -3858,22 +3858,22 @@ unsafe impl ::windows::runtime::Interface for IGPMGPO {
 }
 impl ::std::convert::From<IGPMGPO> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPO) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMGPO> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMGPO) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMGPO {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMGPO {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMGPO {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3962,7 +3962,7 @@ pub struct IGPMGPO_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMGPO2(::windows::runtime::IUnknown);
+pub struct IGPMGPO2(pub ::windows::runtime::IUnknown);
 impl IGPMGPO2 {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4148,22 +4148,22 @@ unsafe impl ::windows::runtime::Interface for IGPMGPO2 {
 }
 impl ::std::convert::From<IGPMGPO2> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPO2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMGPO2> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMGPO2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMGPO2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMGPO2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMGPO2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IGPMGPO2> for IGPMGPO {
@@ -4276,7 +4276,7 @@ pub struct IGPMGPO2_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMGPO3(::windows::runtime::IUnknown);
+pub struct IGPMGPO3(pub ::windows::runtime::IUnknown);
 impl IGPMGPO3 {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4477,22 +4477,22 @@ unsafe impl ::windows::runtime::Interface for IGPMGPO3 {
 }
 impl ::std::convert::From<IGPMGPO3> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPO3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMGPO3> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMGPO3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMGPO3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMGPO3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMGPO3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IGPMGPO3> for IGPMGPO2 {
@@ -4630,7 +4630,7 @@ pub struct IGPMGPO3_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMGPOCollection(::windows::runtime::IUnknown);
+pub struct IGPMGPOCollection(pub ::windows::runtime::IUnknown);
 impl IGPMGPOCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -4656,22 +4656,22 @@ unsafe impl ::windows::runtime::Interface for IGPMGPOCollection {
 }
 impl ::std::convert::From<IGPMGPOCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPOCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMGPOCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMGPOCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMGPOCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMGPOCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMGPOCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4721,7 +4721,7 @@ pub struct IGPMGPOCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMGPOLink(::windows::runtime::IUnknown);
+pub struct IGPMGPOLink(pub ::windows::runtime::IUnknown);
 impl IGPMGPOLink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -4774,22 +4774,22 @@ unsafe impl ::windows::runtime::Interface for IGPMGPOLink {
 }
 impl ::std::convert::From<IGPMGPOLink> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPOLink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMGPOLink> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMGPOLink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMGPOLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMGPOLink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMGPOLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4845,7 +4845,7 @@ pub struct IGPMGPOLink_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMGPOLinksCollection(::windows::runtime::IUnknown);
+pub struct IGPMGPOLinksCollection(pub ::windows::runtime::IUnknown);
 impl IGPMGPOLinksCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -4871,22 +4871,22 @@ unsafe impl ::windows::runtime::Interface for IGPMGPOLinksCollection {
 }
 impl ::std::convert::From<IGPMGPOLinksCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMGPOLinksCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMGPOLinksCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMGPOLinksCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMGPOLinksCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMGPOLinksCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMGPOLinksCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4936,7 +4936,7 @@ pub struct IGPMGPOLinksCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMMapEntry(::windows::runtime::IUnknown);
+pub struct IGPMMapEntry(pub ::windows::runtime::IUnknown);
 impl IGPMMapEntry {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -4967,22 +4967,22 @@ unsafe impl ::windows::runtime::Interface for IGPMMapEntry {
 }
 impl ::std::convert::From<IGPMMapEntry> for ::windows::runtime::IUnknown {
     fn from(value: IGPMMapEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMMapEntry> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMMapEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMMapEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMMapEntry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMMapEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5033,7 +5033,7 @@ pub struct IGPMMapEntry_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMMapEntryCollection(::windows::runtime::IUnknown);
+pub struct IGPMMapEntryCollection(pub ::windows::runtime::IUnknown);
 impl IGPMMapEntryCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -5059,22 +5059,22 @@ unsafe impl ::windows::runtime::Interface for IGPMMapEntryCollection {
 }
 impl ::std::convert::From<IGPMMapEntryCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMMapEntryCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMMapEntryCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMMapEntryCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMMapEntryCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMMapEntryCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMMapEntryCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5124,7 +5124,7 @@ pub struct IGPMMapEntryCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMMigrationTable(::windows::runtime::IUnknown);
+pub struct IGPMMigrationTable(pub ::windows::runtime::IUnknown);
 impl IGPMMigrationTable {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -5176,22 +5176,22 @@ unsafe impl ::windows::runtime::Interface for IGPMMigrationTable {
 }
 impl ::std::convert::From<IGPMMigrationTable> for ::windows::runtime::IUnknown {
     fn from(value: IGPMMigrationTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMMigrationTable> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMMigrationTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMMigrationTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMMigrationTable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMMigrationTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5250,7 +5250,7 @@ pub struct IGPMMigrationTable_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMPermission(::windows::runtime::IUnknown);
+pub struct IGPMPermission(pub ::windows::runtime::IUnknown);
 impl IGPMPermission {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Inherited(&self) -> ::windows::runtime::Result<i16> {
@@ -5284,22 +5284,22 @@ unsafe impl ::windows::runtime::Interface for IGPMPermission {
 }
 impl ::std::convert::From<IGPMPermission> for ::windows::runtime::IUnknown {
     fn from(value: IGPMPermission) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMPermission> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMPermission) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMPermission {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMPermission {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMPermission {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5349,7 +5349,7 @@ pub struct IGPMPermission_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMRSOP(::windows::runtime::IUnknown);
+pub struct IGPMRSOP(pub ::windows::runtime::IUnknown);
 impl IGPMRSOP {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Mode(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
@@ -5544,22 +5544,22 @@ unsafe impl ::windows::runtime::Interface for IGPMRSOP {
 }
 impl ::std::convert::From<IGPMRSOP> for ::windows::runtime::IUnknown {
     fn from(value: IGPMRSOP) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMRSOP> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMRSOP) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMRSOP {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMRSOP {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMRSOP {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5667,7 +5667,7 @@ pub struct IGPMRSOP_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMResult(::windows::runtime::IUnknown);
+pub struct IGPMResult(pub ::windows::runtime::IUnknown);
 impl IGPMResult {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<IGPMStatusMsgCollection> {
@@ -5691,22 +5691,22 @@ unsafe impl ::windows::runtime::Interface for IGPMResult {
 }
 impl ::std::convert::From<IGPMResult> for ::windows::runtime::IUnknown {
     fn from(value: IGPMResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMResult> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5755,7 +5755,7 @@ pub struct IGPMResult_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMSOM(::windows::runtime::IUnknown);
+pub struct IGPMSOM(pub ::windows::runtime::IUnknown);
 impl IGPMSOM {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GPOInheritanceBlocked(&self) -> ::windows::runtime::Result<i16> {
@@ -5814,22 +5814,22 @@ unsafe impl ::windows::runtime::Interface for IGPMSOM {
 }
 impl ::std::convert::From<IGPMSOM> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSOM) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMSOM> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMSOM) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMSOM {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMSOM {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMSOM {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5886,7 +5886,7 @@ pub struct IGPMSOM_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMSOMCollection(::windows::runtime::IUnknown);
+pub struct IGPMSOMCollection(pub ::windows::runtime::IUnknown);
 impl IGPMSOMCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -5912,22 +5912,22 @@ unsafe impl ::windows::runtime::Interface for IGPMSOMCollection {
 }
 impl ::std::convert::From<IGPMSOMCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSOMCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMSOMCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMSOMCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMSOMCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMSOMCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMSOMCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5977,7 +5977,7 @@ pub struct IGPMSOMCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMSearchCriteria(::windows::runtime::IUnknown);
+pub struct IGPMSearchCriteria(pub ::windows::runtime::IUnknown);
 impl IGPMSearchCriteria {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -5991,22 +5991,22 @@ unsafe impl ::windows::runtime::Interface for IGPMSearchCriteria {
 }
 impl ::std::convert::From<IGPMSearchCriteria> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSearchCriteria) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMSearchCriteria> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMSearchCriteria) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMSearchCriteria {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMSearchCriteria {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMSearchCriteria {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6053,7 +6053,7 @@ pub struct IGPMSearchCriteria_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMSecurityInfo(::windows::runtime::IUnknown);
+pub struct IGPMSecurityInfo(pub ::windows::runtime::IUnknown);
 impl IGPMSecurityInfo {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6092,22 +6092,22 @@ unsafe impl ::windows::runtime::Interface for IGPMSecurityInfo {
 }
 impl ::std::convert::From<IGPMSecurityInfo> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSecurityInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMSecurityInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMSecurityInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMSecurityInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMSecurityInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMSecurityInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6161,7 +6161,7 @@ pub struct IGPMSecurityInfo_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMSitesContainer(::windows::runtime::IUnknown);
+pub struct IGPMSitesContainer(pub ::windows::runtime::IUnknown);
 impl IGPMSitesContainer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -6199,22 +6199,22 @@ unsafe impl ::windows::runtime::Interface for IGPMSitesContainer {
 }
 impl ::std::convert::From<IGPMSitesContainer> for ::windows::runtime::IUnknown {
     fn from(value: IGPMSitesContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMSitesContainer> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMSitesContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMSitesContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMSitesContainer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMSitesContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6268,7 +6268,7 @@ pub struct IGPMSitesContainer_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMStarterGPO(::windows::runtime::IUnknown);
+pub struct IGPMStarterGPO(pub ::windows::runtime::IUnknown);
 impl IGPMStarterGPO {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -6416,22 +6416,22 @@ unsafe impl ::windows::runtime::Interface for IGPMStarterGPO {
 }
 impl ::std::convert::From<IGPMStarterGPO> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPO) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMStarterGPO> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMStarterGPO) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMStarterGPO {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMStarterGPO {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMStarterGPO {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6525,7 +6525,7 @@ pub struct IGPMStarterGPO_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMStarterGPOBackup(::windows::runtime::IUnknown);
+pub struct IGPMStarterGPOBackup(pub ::windows::runtime::IUnknown);
 impl IGPMStarterGPOBackup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -6595,22 +6595,22 @@ unsafe impl ::windows::runtime::Interface for IGPMStarterGPOBackup {
 }
 impl ::std::convert::From<IGPMStarterGPOBackup> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPOBackup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMStarterGPOBackup> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMStarterGPOBackup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMStarterGPOBackup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMStarterGPOBackup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMStarterGPOBackup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6674,7 +6674,7 @@ pub struct IGPMStarterGPOBackup_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMStarterGPOBackupCollection(::windows::runtime::IUnknown);
+pub struct IGPMStarterGPOBackupCollection(pub ::windows::runtime::IUnknown);
 impl IGPMStarterGPOBackupCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6700,22 +6700,22 @@ unsafe impl ::windows::runtime::Interface for IGPMStarterGPOBackupCollection {
 }
 impl ::std::convert::From<IGPMStarterGPOBackupCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPOBackupCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMStarterGPOBackupCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMStarterGPOBackupCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMStarterGPOBackupCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMStarterGPOBackupCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMStarterGPOBackupCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6765,7 +6765,7 @@ pub struct IGPMStarterGPOBackupCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMStarterGPOCollection(::windows::runtime::IUnknown);
+pub struct IGPMStarterGPOCollection(pub ::windows::runtime::IUnknown);
 impl IGPMStarterGPOCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6791,22 +6791,22 @@ unsafe impl ::windows::runtime::Interface for IGPMStarterGPOCollection {
 }
 impl ::std::convert::From<IGPMStarterGPOCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStarterGPOCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMStarterGPOCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMStarterGPOCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMStarterGPOCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMStarterGPOCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMStarterGPOCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6856,7 +6856,7 @@ pub struct IGPMStarterGPOCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMStatusMessage(::windows::runtime::IUnknown);
+pub struct IGPMStatusMessage(pub ::windows::runtime::IUnknown);
 impl IGPMStatusMessage {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -6897,22 +6897,22 @@ unsafe impl ::windows::runtime::Interface for IGPMStatusMessage {
 }
 impl ::std::convert::From<IGPMStatusMessage> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStatusMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMStatusMessage> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMStatusMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMStatusMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMStatusMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMStatusMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6967,7 +6967,7 @@ pub struct IGPMStatusMessage_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMStatusMsgCollection(::windows::runtime::IUnknown);
+pub struct IGPMStatusMsgCollection(pub ::windows::runtime::IUnknown);
 impl IGPMStatusMsgCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6993,22 +6993,22 @@ unsafe impl ::windows::runtime::Interface for IGPMStatusMsgCollection {
 }
 impl ::std::convert::From<IGPMStatusMsgCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMStatusMsgCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMStatusMsgCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMStatusMsgCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMStatusMsgCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMStatusMsgCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMStatusMsgCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7058,7 +7058,7 @@ pub struct IGPMStatusMsgCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMTrustee(::windows::runtime::IUnknown);
+pub struct IGPMTrustee(pub ::windows::runtime::IUnknown);
 impl IGPMTrustee {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -7096,22 +7096,22 @@ unsafe impl ::windows::runtime::Interface for IGPMTrustee {
 }
 impl ::std::convert::From<IGPMTrustee> for ::windows::runtime::IUnknown {
     fn from(value: IGPMTrustee) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMTrustee> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMTrustee) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMTrustee {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMTrustee {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMTrustee {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7165,7 +7165,7 @@ pub struct IGPMTrustee_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMWMIFilter(::windows::runtime::IUnknown);
+pub struct IGPMWMIFilter(pub ::windows::runtime::IUnknown);
 impl IGPMWMIFilter {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -7217,22 +7217,22 @@ unsafe impl ::windows::runtime::Interface for IGPMWMIFilter {
 }
 impl ::std::convert::From<IGPMWMIFilter> for ::windows::runtime::IUnknown {
     fn from(value: IGPMWMIFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMWMIFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMWMIFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMWMIFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMWMIFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMWMIFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7291,7 +7291,7 @@ pub struct IGPMWMIFilter_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGPMWMIFilterCollection(::windows::runtime::IUnknown);
+pub struct IGPMWMIFilterCollection(pub ::windows::runtime::IUnknown);
 impl IGPMWMIFilterCollection {
     #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -7317,22 +7317,22 @@ unsafe impl ::windows::runtime::Interface for IGPMWMIFilterCollection {
 }
 impl ::std::convert::From<IGPMWMIFilterCollection> for ::windows::runtime::IUnknown {
     fn from(value: IGPMWMIFilterCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGPMWMIFilterCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IGPMWMIFilterCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGPMWMIFilterCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGPMWMIFilterCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGPMWMIFilterCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7382,7 +7382,7 @@ pub struct IGPMWMIFilterCollection_abi(
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGroupPolicyObject(::windows::runtime::IUnknown);
+pub struct IGroupPolicyObject(pub ::windows::runtime::IUnknown);
 impl IGroupPolicyObject {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -7476,22 +7476,22 @@ unsafe impl ::windows::runtime::Interface for IGroupPolicyObject {
 }
 impl ::std::convert::From<IGroupPolicyObject> for ::windows::runtime::IUnknown {
     fn from(value: IGroupPolicyObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGroupPolicyObject> for ::windows::runtime::IUnknown {
     fn from(value: &IGroupPolicyObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGroupPolicyObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGroupPolicyObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGroupPolicyObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -7670,7 +7670,7 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPECTYPE {
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRSOPInformation(::windows::runtime::IUnknown);
+pub struct IRSOPInformation(pub ::windows::runtime::IUnknown);
 impl IRSOPInformation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -7694,22 +7694,22 @@ unsafe impl ::windows::runtime::Interface for IRSOPInformation {
 }
 impl ::std::convert::From<IRSOPInformation> for ::windows::runtime::IUnknown {
     fn from(value: IRSOPInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRSOPInformation> for ::windows::runtime::IUnknown {
     fn from(value: &IRSOPInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRSOPInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRSOPInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRSOPInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

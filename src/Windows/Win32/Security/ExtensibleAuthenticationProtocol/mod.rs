@@ -2560,7 +2560,7 @@ pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::runtime::GUID = :
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAccountingProviderConfig(::windows::runtime::IUnknown);
+pub struct IAccountingProviderConfig(pub ::windows::runtime::IUnknown);
 impl IAccountingProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2592,22 +2592,22 @@ unsafe impl ::windows::runtime::Interface for IAccountingProviderConfig {
 }
 impl ::std::convert::From<IAccountingProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IAccountingProviderConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAccountingProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IAccountingProviderConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccountingProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccountingProviderConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAccountingProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2627,7 +2627,7 @@ pub struct IAccountingProviderConfig_abi(
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAuthenticationProviderConfig(::windows::runtime::IUnknown);
+pub struct IAuthenticationProviderConfig(pub ::windows::runtime::IUnknown);
 impl IAuthenticationProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2659,22 +2659,22 @@ unsafe impl ::windows::runtime::Interface for IAuthenticationProviderConfig {
 }
 impl ::std::convert::From<IAuthenticationProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IAuthenticationProviderConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAuthenticationProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IAuthenticationProviderConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAuthenticationProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAuthenticationProviderConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAuthenticationProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2694,7 +2694,7 @@ pub struct IAuthenticationProviderConfig_abi(
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEAPProviderConfig(::windows::runtime::IUnknown);
+pub struct IEAPProviderConfig(pub ::windows::runtime::IUnknown);
 impl IEAPProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2752,22 +2752,22 @@ unsafe impl ::windows::runtime::Interface for IEAPProviderConfig {
 }
 impl ::std::convert::From<IEAPProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IEAPProviderConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEAPProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IEAPProviderConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEAPProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEAPProviderConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEAPProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2789,7 +2789,7 @@ pub struct IEAPProviderConfig_abi(
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEAPProviderConfig2(::windows::runtime::IUnknown);
+pub struct IEAPProviderConfig2(pub ::windows::runtime::IUnknown);
 impl IEAPProviderConfig2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2866,22 +2866,22 @@ unsafe impl ::windows::runtime::Interface for IEAPProviderConfig2 {
 }
 impl ::std::convert::From<IEAPProviderConfig2> for ::windows::runtime::IUnknown {
     fn from(value: IEAPProviderConfig2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEAPProviderConfig2> for ::windows::runtime::IUnknown {
     fn from(value: &IEAPProviderConfig2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEAPProviderConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEAPProviderConfig2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEAPProviderConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IEAPProviderConfig2> for IEAPProviderConfig {
@@ -2926,7 +2926,7 @@ pub struct IEAPProviderConfig2_abi(
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEAPProviderConfig3(::windows::runtime::IUnknown);
+pub struct IEAPProviderConfig3(pub ::windows::runtime::IUnknown);
 impl IEAPProviderConfig3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -3019,22 +3019,22 @@ unsafe impl ::windows::runtime::Interface for IEAPProviderConfig3 {
 }
 impl ::std::convert::From<IEAPProviderConfig3> for ::windows::runtime::IUnknown {
     fn from(value: IEAPProviderConfig3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEAPProviderConfig3> for ::windows::runtime::IUnknown {
     fn from(value: &IEAPProviderConfig3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEAPProviderConfig3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IEAPProviderConfig3> for IEAPProviderConfig2 {
@@ -3101,7 +3101,7 @@ pub struct IEAPProviderConfig3_abi(
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRouterProtocolConfig(::windows::runtime::IUnknown);
+pub struct IRouterProtocolConfig(pub ::windows::runtime::IUnknown);
 impl IRouterProtocolConfig {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -3120,22 +3120,22 @@ unsafe impl ::windows::runtime::Interface for IRouterProtocolConfig {
 }
 impl ::std::convert::From<IRouterProtocolConfig> for ::windows::runtime::IUnknown {
     fn from(value: IRouterProtocolConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRouterProtocolConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IRouterProtocolConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRouterProtocolConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRouterProtocolConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRouterProtocolConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

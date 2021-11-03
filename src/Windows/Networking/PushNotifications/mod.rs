@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannel(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannel {
     type Vtable = IPushNotificationChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(724045870, 61195, 20281, [155, 138, 163, 193, 148, 222, 112, 129]);
@@ -26,7 +26,7 @@ pub struct IPushNotificationChannel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelManagerForUser(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2764330756, 4482, 17095, [136, 144, 245, 99, 196, 137, 13, 196]);
@@ -51,7 +51,7 @@ pub struct IPushNotificationChannelManagerForUser_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelManagerForUser2(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelManagerForUser2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerForUser2 {
     type Vtable = IPushNotificationChannelManagerForUser2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3280668266, 31937, 19884, [135, 253, 190, 110, 146, 4, 20, 164]);
@@ -72,7 +72,7 @@ pub struct IPushNotificationChannelManagerForUser2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelManagerStatics(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics {
     type Vtable = IPushNotificationChannelManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343541605, 30625, 17800, [189, 25, 134, 21, 41, 169, 220, 240]);
@@ -95,7 +95,7 @@ pub struct IPushNotificationChannelManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelManagerStatics2(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics2 {
     type Vtable = IPushNotificationChannelManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024397917, 42985, 19240, [149, 14, 243, 117, 169, 7, 249, 223]);
@@ -114,7 +114,7 @@ pub struct IPushNotificationChannelManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelManagerStatics3(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics3 {
     type Vtable = IPushNotificationChannelManagerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1191313150, 3806, 19007, [174, 120, 191, 164, 113, 73, 105, 37]);
@@ -132,7 +132,7 @@ pub struct IPushNotificationChannelManagerStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelManagerStatics4(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics4 {
     type Vtable = IPushNotificationChannelManagerStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159625467, 30752, 23131, [156, 1, 180, 117, 127, 119, 64, 37]);
@@ -153,7 +153,7 @@ pub struct IPushNotificationChannelManagerStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationChannelsRevokedEventArgs(::windows::runtime::IInspectable);
+pub struct IPushNotificationChannelsRevokedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(551658060, 6708, 23531, [170, 226, 64, 194, 50, 200, 193, 64]);
@@ -170,7 +170,7 @@ pub struct IPushNotificationChannelsRevokedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IPushNotificationReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3506855436, 14029, 18508, [185, 53, 10, 153, 183, 83, 207, 0]);
@@ -197,7 +197,7 @@ pub struct IPushNotificationReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRawNotification(::windows::runtime::IInspectable);
+pub struct IRawNotification(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification {
     type Vtable = IRawNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(438465153, 15225, 17068, [153, 99, 34, 171, 0, 212, 240, 183]);
@@ -215,7 +215,7 @@ pub struct IRawNotification_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRawNotification2(::windows::runtime::IInspectable);
+pub struct IRawNotification2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification2 {
     type Vtable = IRawNotification2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872444185, 3183, 19677, [148, 36, 238, 197, 190, 1, 77, 38]);
@@ -235,7 +235,7 @@ pub struct IRawNotification2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRawNotification3(::windows::runtime::IInspectable);
+pub struct IRawNotification3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification3 {
     type Vtable = IRawNotification3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1651736030, 35443, 16972, [171, 68, 86, 53, 244, 10, 150, 229]);
@@ -255,7 +255,7 @@ pub struct IRawNotification3_abi(
 #[doc = "*Required features: `Networking_PushNotifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PushNotificationChannel(::windows::runtime::IInspectable);
+pub struct PushNotificationChannel(pub ::windows::runtime::IInspectable);
 impl PushNotificationChannel {
     #[doc = "*Required features: `Networking_PushNotifications`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -307,22 +307,22 @@ impl ::windows::runtime::RuntimeName for PushNotificationChannel {
 }
 impl ::std::convert::From<PushNotificationChannel> for ::windows::runtime::IUnknown {
     fn from(value: PushNotificationChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PushNotificationChannel> for ::windows::runtime::IUnknown {
     fn from(value: &PushNotificationChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PushNotificationChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PushNotificationChannel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PushNotificationChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PushNotificationChannel> for ::windows::runtime::IInspectable {
@@ -425,7 +425,7 @@ impl ::windows::runtime::RuntimeName for PushNotificationChannelManager {
 #[doc = "*Required features: `Networking_PushNotifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PushNotificationChannelManagerForUser(::windows::runtime::IInspectable);
+pub struct PushNotificationChannelManagerForUser(pub ::windows::runtime::IInspectable);
 impl PushNotificationChannelManagerForUser {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_PushNotifications`, `Foundation`*"]
@@ -494,22 +494,22 @@ impl ::windows::runtime::RuntimeName for PushNotificationChannelManagerForUser {
 }
 impl ::std::convert::From<PushNotificationChannelManagerForUser> for ::windows::runtime::IUnknown {
     fn from(value: PushNotificationChannelManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PushNotificationChannelManagerForUser> for ::windows::runtime::IUnknown {
     fn from(value: &PushNotificationChannelManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PushNotificationChannelManagerForUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PushNotificationChannelManagerForUser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PushNotificationChannelManagerForUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PushNotificationChannelManagerForUser> for ::windows::runtime::IInspectable {
@@ -537,7 +537,7 @@ unsafe impl ::std::marker::Sync for PushNotificationChannelManagerForUser {}
 #[doc = "*Required features: `Networking_PushNotifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PushNotificationChannelsRevokedEventArgs(::windows::runtime::IInspectable);
+pub struct PushNotificationChannelsRevokedEventArgs(pub ::windows::runtime::IInspectable);
 impl PushNotificationChannelsRevokedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs;{20e1a24c-1a34-5beb-aae2-40c232c8c140})");
@@ -551,22 +551,22 @@ impl ::windows::runtime::RuntimeName for PushNotificationChannelsRevokedEventArg
 }
 impl ::std::convert::From<PushNotificationChannelsRevokedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PushNotificationChannelsRevokedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PushNotificationChannelsRevokedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PushNotificationChannelsRevokedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PushNotificationChannelsRevokedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PushNotificationChannelsRevokedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PushNotificationChannelsRevokedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PushNotificationChannelsRevokedEventArgs> for ::windows::runtime::IInspectable {
@@ -594,7 +594,7 @@ unsafe impl ::std::marker::Sync for PushNotificationChannelsRevokedEventArgs {}
 #[doc = "*Required features: `Networking_PushNotifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PushNotificationReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct PushNotificationReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl PushNotificationReceivedEventArgs {
     #[doc = "*Required features: `Networking_PushNotifications`*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::runtime::Result<()> {
@@ -665,22 +665,22 @@ impl ::windows::runtime::RuntimeName for PushNotificationReceivedEventArgs {
 }
 impl ::std::convert::From<PushNotificationReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PushNotificationReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PushNotificationReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PushNotificationReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PushNotificationReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PushNotificationReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PushNotificationReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PushNotificationReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -733,7 +733,7 @@ impl ::windows::runtime::DefaultType for PushNotificationType {
 #[doc = "*Required features: `Networking_PushNotifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RawNotification(::windows::runtime::IInspectable);
+pub struct RawNotification(pub ::windows::runtime::IInspectable);
 impl RawNotification {
     #[doc = "*Required features: `Networking_PushNotifications`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -782,22 +782,22 @@ impl ::windows::runtime::RuntimeName for RawNotification {
 }
 impl ::std::convert::From<RawNotification> for ::windows::runtime::IUnknown {
     fn from(value: RawNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RawNotification> for ::windows::runtime::IUnknown {
     fn from(value: &RawNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RawNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RawNotification {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RawNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RawNotification> for ::windows::runtime::IInspectable {

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DevicePortalConnection(::windows::runtime::IInspectable);
+pub struct DevicePortalConnection(pub ::windows::runtime::IInspectable);
 impl DevicePortalConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation`*"]
@@ -112,22 +112,22 @@ impl ::windows::runtime::RuntimeName for DevicePortalConnection {
 }
 impl ::std::convert::From<DevicePortalConnection> for ::windows::runtime::IUnknown {
     fn from(value: DevicePortalConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DevicePortalConnection> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePortalConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePortalConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePortalConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DevicePortalConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DevicePortalConnection> for ::windows::runtime::IInspectable {
@@ -155,7 +155,7 @@ unsafe impl ::std::marker::Sync for DevicePortalConnection {}
 #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DevicePortalConnectionClosedEventArgs(::windows::runtime::IInspectable);
+pub struct DevicePortalConnectionClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl DevicePortalConnectionClosedEventArgs {
     #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<DevicePortalConnectionClosedReason> {
@@ -178,22 +178,22 @@ impl ::windows::runtime::RuntimeName for DevicePortalConnectionClosedEventArgs {
 }
 impl ::std::convert::From<DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DevicePortalConnectionClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePortalConnectionClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePortalConnectionClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DevicePortalConnectionClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -247,7 +247,7 @@ impl ::windows::runtime::DefaultType for DevicePortalConnectionClosedReason {
 #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DevicePortalConnectionRequestReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct DevicePortalConnectionRequestReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl DevicePortalConnectionRequestReceivedEventArgs {
     #[cfg(feature = "Web_Http")]
     #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Web_Http`*"]
@@ -306,22 +306,22 @@ impl ::windows::runtime::RuntimeName for DevicePortalConnectionRequestReceivedEv
 }
 impl ::std::convert::From<DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePortalConnectionRequestReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePortalConnectionRequestReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DevicePortalConnectionRequestReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -348,7 +348,7 @@ unsafe impl ::std::marker::Send for DevicePortalConnectionRequestReceivedEventAr
 unsafe impl ::std::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDevicePortalConnection(::windows::runtime::IInspectable);
+pub struct IDevicePortalConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnection {
     type Vtable = IDevicePortalConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(256147281, 4504, 19873, [141, 84, 189, 239, 57, 62, 9, 182]);
@@ -373,7 +373,7 @@ pub struct IDevicePortalConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IDevicePortalConnectionClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionClosedEventArgs {
     type Vtable = IDevicePortalConnectionClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4244049464, 28722, 17036, [159, 80, 148, 92, 21, 169, 240, 203]);
@@ -391,7 +391,7 @@ pub struct IDevicePortalConnectionClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionRequestReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IDevicePortalConnectionRequestReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1692065861, 28634, 17497, [158, 189, 236, 206, 34, 227, 133, 89]);
@@ -412,7 +412,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionStatics(::windows::runtime::IInspectable);
+pub struct IDevicePortalConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionStatics {
     type Vtable = IDevicePortalConnectionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270755815, 59833, 17989, [143, 237, 165, 62, 234, 14, 219, 214]);
@@ -431,7 +431,7 @@ pub struct IDevicePortalConnectionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDevicePortalWebSocketConnection(::windows::runtime::IInspectable);
+pub struct IDevicePortalWebSocketConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalWebSocketConnection {
     type Vtable = IDevicePortalWebSocketConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1734703392, 54874, 17136, [174, 244, 120, 120, 8, 9, 139, 123]);
@@ -459,7 +459,7 @@ pub struct IDevicePortalWebSocketConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalWebSocketConnectionRequestReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046675642, 5980, 18233, [159, 116, 221, 167, 151, 195, 91, 63]);

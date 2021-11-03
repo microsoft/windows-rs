@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveDeviceAddress(::windows::runtime::IInspectable);
+pub struct IXboxLiveDeviceAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122727033, 15494, 19287, [163, 26, 185, 70, 36, 8, 253, 1]);
@@ -30,7 +30,7 @@ pub struct IXboxLiveDeviceAddress_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveDeviceAddressStatics(::windows::runtime::IInspectable);
+pub struct IXboxLiveDeviceAddressStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddressStatics {
     type Vtable = IXboxLiveDeviceAddressStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498720281, 19065, 18737, [130, 124, 127, 80, 62, 150, 50, 99]);
@@ -53,7 +53,7 @@ pub struct IXboxLiveDeviceAddressStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPair(::windows::runtime::IInspectable);
+pub struct IXboxLiveEndpointPair(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPair_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(513442715, 33086, 17632, [184, 127, 200, 122, 9, 52, 117, 228]);
@@ -85,7 +85,7 @@ pub struct IXboxLiveEndpointPair_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairCreationResult(::windows::runtime::IInspectable);
+pub struct IXboxLiveEndpointPairCreationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651713941, 10923, 19742, [151, 148, 51, 236, 192, 220, 240, 254]);
@@ -106,7 +106,7 @@ pub struct IXboxLiveEndpointPairCreationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IXboxLiveEndpointPairStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1496202069, 56840, 17639, [172, 59, 185, 185, 161, 105, 88, 58]);
@@ -125,7 +125,7 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairStatics(::windows::runtime::IInspectable);
+pub struct IXboxLiveEndpointPairStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStatics {
     type Vtable = IXboxLiveEndpointPairStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680960304, 8570, 16963, [142, 225, 103, 41, 40, 29, 39, 219]);
@@ -144,7 +144,7 @@ pub struct IXboxLiveEndpointPairStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairTemplate(::windows::runtime::IInspectable);
+pub struct IXboxLiveEndpointPairTemplate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797811919, 13399, 16590, [185, 161, 192, 207, 224, 33, 62, 167]);
@@ -181,7 +181,7 @@ pub struct IXboxLiveEndpointPairTemplate_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairTemplateStatics(::windows::runtime::IInspectable);
+pub struct IXboxLiveEndpointPairTemplateStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplateStatics {
     type Vtable = IXboxLiveEndpointPairTemplateStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504566651, 29563, 18979, [188, 100, 8, 112, 247, 86, 85, 186]);
@@ -201,7 +201,7 @@ pub struct IXboxLiveEndpointPairTemplateStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(::windows::runtime::IInspectable);
+pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692575586, 8890, 18642, [128, 222, 194, 57, 104, 189, 25, 139]);
@@ -219,7 +219,7 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServiceMeasurement(::windows::runtime::IInspectable);
+pub struct IXboxLiveQualityOfServiceMeasurement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1298672590, 42454, 18406, [162, 54, 207, 222, 95, 189, 242, 237]);
@@ -259,7 +259,7 @@ pub struct IXboxLiveQualityOfServiceMeasurement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServiceMeasurementStatics(::windows::runtime::IInspectable);
+pub struct IXboxLiveQualityOfServiceMeasurementStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurementStatics {
     type Vtable = IXboxLiveQualityOfServiceMeasurementStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848978890, 9167, 17418, [176, 119, 94, 48, 133, 122, 130, 52]);
@@ -289,7 +289,7 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServiceMetricResult(::windows::runtime::IInspectable);
+pub struct IXboxLiveQualityOfServiceMetricResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMetricResult {
     type Vtable = IXboxLiveQualityOfServiceMetricResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2934723537, 13665, 18306, [176, 207, 211, 174, 41, 217, 250, 135]);
@@ -310,7 +310,7 @@ pub struct IXboxLiveQualityOfServiceMetricResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServicePrivatePayloadResult(::windows::runtime::IInspectable);
+pub struct IXboxLiveQualityOfServicePrivatePayloadResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516438190, 28472, 16832, [159, 204, 234, 108, 185, 120, 202, 252]);
@@ -332,7 +332,7 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_abi(
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveDeviceAddress(::windows::runtime::IInspectable);
+pub struct XboxLiveDeviceAddress(pub ::windows::runtime::IInspectable);
 impl XboxLiveDeviceAddress {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
@@ -456,22 +456,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveDeviceAddress {
 }
 impl ::std::convert::From<XboxLiveDeviceAddress> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveDeviceAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveDeviceAddress> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveDeviceAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveDeviceAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveDeviceAddress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveDeviceAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveDeviceAddress> for ::windows::runtime::IInspectable {
@@ -499,7 +499,7 @@ unsafe impl ::std::marker::Sync for XboxLiveDeviceAddress {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveEndpointPair(::windows::runtime::IInspectable);
+pub struct XboxLiveEndpointPair(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPair {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
@@ -622,22 +622,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveEndpointPair {
 }
 impl ::std::convert::From<XboxLiveEndpointPair> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPair) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveEndpointPair> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPair) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveEndpointPair {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveEndpointPair {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveEndpointPair {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveEndpointPair> for ::windows::runtime::IInspectable {
@@ -715,7 +715,7 @@ impl ::std::ops::Not for XboxLiveEndpointPairCreationBehaviors {
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveEndpointPairCreationResult(::windows::runtime::IInspectable);
+pub struct XboxLiveEndpointPairCreationResult(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPairCreationResult {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn DeviceAddress(&self) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
@@ -762,22 +762,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairCreationResult {
 }
 impl ::std::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPairCreationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveEndpointPairCreationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveEndpointPairCreationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveEndpointPairCreationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::runtime::IInspectable {
@@ -861,7 +861,7 @@ impl ::windows::runtime::DefaultType for XboxLiveEndpointPairState {
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveEndpointPairStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct XboxLiveEndpointPairStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPairStateChangedEventArgs {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn OldState(&self) -> ::windows::runtime::Result<XboxLiveEndpointPairState> {
@@ -892,22 +892,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairStateChangedEventAr
 }
 impl ::std::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveEndpointPairStateChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveEndpointPairStateChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveEndpointPairStateChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -935,7 +935,7 @@ unsafe impl ::std::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveEndpointPairTemplate(::windows::runtime::IInspectable);
+pub struct XboxLiveEndpointPairTemplate(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPairTemplate {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
@@ -1083,22 +1083,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairTemplate {
 }
 impl ::std::convert::From<XboxLiveEndpointPairTemplate> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPairTemplate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveEndpointPairTemplate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveEndpointPairTemplate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveEndpointPairTemplate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveEndpointPairTemplate> for ::windows::runtime::IInspectable {
@@ -1126,7 +1126,7 @@ unsafe impl ::std::marker::Sync for XboxLiveEndpointPairTemplate {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveInboundEndpointPairCreatedEventArgs(::windows::runtime::IInspectable);
+pub struct XboxLiveInboundEndpointPairCreatedEventArgs(pub ::windows::runtime::IInspectable);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn EndpointPair(&self) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
@@ -1149,22 +1149,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveInboundEndpointPairCreatedEvent
 }
 impl ::std::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveInboundEndpointPairCreatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveInboundEndpointPairCreatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveInboundEndpointPairCreatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IInspectable {
@@ -1215,7 +1215,7 @@ impl ::windows::runtime::DefaultType for XboxLiveNetworkAccessKind {
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveQualityOfServiceMeasurement(::windows::runtime::IInspectable);
+pub struct XboxLiveQualityOfServiceMeasurement(pub ::windows::runtime::IInspectable);
 impl XboxLiveQualityOfServiceMeasurement {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1428,22 +1428,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServiceMeasurement {
 }
 impl ::std::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveQualityOfServiceMeasurement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveQualityOfServiceMeasurement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveQualityOfServiceMeasurement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveQualityOfServiceMeasurement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IInspectable {
@@ -1532,7 +1532,7 @@ impl ::windows::runtime::DefaultType for XboxLiveQualityOfServiceMetric {
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveQualityOfServiceMetricResult(::windows::runtime::IInspectable);
+pub struct XboxLiveQualityOfServiceMetricResult(pub ::windows::runtime::IInspectable);
 impl XboxLiveQualityOfServiceMetricResult {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<XboxLiveQualityOfServiceMeasurementStatus> {
@@ -1579,22 +1579,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServiceMetricResult {
 }
 impl ::std::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveQualityOfServiceMetricResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveQualityOfServiceMetricResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveQualityOfServiceMetricResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveQualityOfServiceMetricResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IInspectable {
@@ -1622,7 +1622,7 @@ unsafe impl ::std::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct XboxLiveQualityOfServicePrivatePayloadResult(::windows::runtime::IInspectable);
+pub struct XboxLiveQualityOfServicePrivatePayloadResult(pub ::windows::runtime::IInspectable);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<XboxLiveQualityOfServiceMeasurementStatus> {
@@ -1662,22 +1662,22 @@ impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServicePrivatePayloadR
 }
 impl ::std::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XboxLiveQualityOfServicePrivatePayloadResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XboxLiveQualityOfServicePrivatePayloadResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XboxLiveQualityOfServicePrivatePayloadResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IInspectable {

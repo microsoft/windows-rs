@@ -3493,7 +3493,7 @@ pub unsafe fn GetTraceLoggerHandle(buffer: *const ::std::ffi::c_void) -> u64 {
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITraceEvent(::windows::runtime::IUnknown);
+pub struct ITraceEvent(pub ::windows::runtime::IUnknown);
 impl ITraceEvent {
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ITraceEvent> {
@@ -3552,22 +3552,22 @@ unsafe impl ::windows::runtime::Interface for ITraceEvent {
 }
 impl ::std::convert::From<ITraceEvent> for ::windows::runtime::IUnknown {
     fn from(value: ITraceEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITraceEvent> for ::windows::runtime::IUnknown {
     fn from(value: &ITraceEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITraceEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3592,7 +3592,7 @@ pub struct ITraceEvent_abi(
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITraceEventCallback(::windows::runtime::IUnknown);
+pub struct ITraceEventCallback(pub ::windows::runtime::IUnknown);
 impl ITraceEventCallback {
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub unsafe fn OnBeginProcessTrace<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>, Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, headerevent: Param0, relogger: Param1) -> ::windows::runtime::Result<()> {
@@ -3613,22 +3613,22 @@ unsafe impl ::windows::runtime::Interface for ITraceEventCallback {
 }
 impl ::std::convert::From<ITraceEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: ITraceEventCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITraceEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: &ITraceEventCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceEventCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITraceEventCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceEventCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3644,7 +3644,7 @@ pub struct ITraceEventCallback_abi(
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITraceRelogger(::windows::runtime::IUnknown);
+pub struct ITraceRelogger(pub ::windows::runtime::IUnknown);
 impl ITraceRelogger {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
@@ -3696,22 +3696,22 @@ unsafe impl ::windows::runtime::Interface for ITraceRelogger {
 }
 impl ::std::convert::From<ITraceRelogger> for ::windows::runtime::IUnknown {
     fn from(value: ITraceRelogger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITraceRelogger> for ::windows::runtime::IUnknown {
     fn from(value: &ITraceRelogger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceRelogger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITraceRelogger {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITraceRelogger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AnimationDescription(::windows::runtime::IInspectable);
+pub struct AnimationDescription(pub ::windows::runtime::IInspectable);
 impl AnimationDescription {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation_Collections`*"]
@@ -71,22 +71,22 @@ impl ::windows::runtime::RuntimeName for AnimationDescription {
 }
 impl ::std::convert::From<AnimationDescription> for ::windows::runtime::IUnknown {
     fn from(value: AnimationDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AnimationDescription> for ::windows::runtime::IUnknown {
     fn from(value: &AnimationDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AnimationDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AnimationDescription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AnimationDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AnimationDescription> for ::windows::runtime::IInspectable {
@@ -212,7 +212,7 @@ impl ::windows::runtime::DefaultType for AnimationEffectTarget {
 pub struct AnimationMetricsContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAnimationDescription(::windows::runtime::IInspectable);
+pub struct IAnimationDescription(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescription {
     type Vtable = IAnimationDescription_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098308425, 48701, 16862, [176, 129, 5, 193, 73, 150, 47, 155]);
@@ -237,7 +237,7 @@ pub struct IAnimationDescription_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAnimationDescriptionFactory(::windows::runtime::IInspectable);
+pub struct IAnimationDescriptionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescriptionFactory {
     type Vtable = IAnimationDescriptionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3336731326, 49659, 18613, [146, 113, 236, 199, 10, 200, 110, 240]);
@@ -255,7 +255,7 @@ pub struct IAnimationDescriptionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IOpacityAnimation(::windows::runtime::IInspectable);
+pub struct IOpacityAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOpacityAnimation {
     type Vtable = IOpacityAnimation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151328741, 61054, 17759, [132, 233, 37, 6, 175, 184, 210, 180]);
@@ -276,7 +276,7 @@ pub struct IOpacityAnimation_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
-pub struct IPropertyAnimation(::windows::runtime::IInspectable);
+pub struct IPropertyAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
@@ -332,22 +332,22 @@ unsafe impl ::windows::runtime::RuntimeType for IPropertyAnimation {
 }
 impl ::std::convert::From<IPropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IPropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &IPropertyAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyAnimation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IPropertyAnimation> for ::windows::runtime::IInspectable {
@@ -391,7 +391,7 @@ pub struct IPropertyAnimation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IScaleAnimation(::windows::runtime::IInspectable);
+pub struct IScaleAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScaleAnimation {
     type Vtable = IScaleAnimation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37049031, 29099, 17036, [156, 159, 211, 23, 128, 150, 73, 149]);
@@ -417,7 +417,7 @@ pub struct IScaleAnimation_abi(
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct OpacityAnimation(::windows::runtime::IInspectable);
+pub struct OpacityAnimation(pub ::windows::runtime::IInspectable);
 impl OpacityAnimation {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
@@ -493,22 +493,22 @@ impl ::windows::runtime::RuntimeName for OpacityAnimation {
 }
 impl ::std::convert::From<OpacityAnimation> for ::windows::runtime::IUnknown {
     fn from(value: OpacityAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&OpacityAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &OpacityAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OpacityAnimation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<OpacityAnimation> for ::windows::runtime::IInspectable {
@@ -558,7 +558,7 @@ unsafe impl ::std::marker::Sync for OpacityAnimation {}
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PropertyAnimation(::windows::runtime::IInspectable);
+pub struct PropertyAnimation(pub ::windows::runtime::IInspectable);
 impl PropertyAnimation {
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
@@ -617,22 +617,22 @@ impl ::windows::runtime::RuntimeName for PropertyAnimation {
 }
 impl ::std::convert::From<PropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: PropertyAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &PropertyAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PropertyAnimation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PropertyAnimation> for ::windows::runtime::IInspectable {
@@ -703,7 +703,7 @@ impl ::windows::runtime::DefaultType for PropertyAnimationType {
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ScaleAnimation(::windows::runtime::IInspectable);
+pub struct ScaleAnimation(pub ::windows::runtime::IInspectable);
 impl ScaleAnimation {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
@@ -805,22 +805,22 @@ impl ::windows::runtime::RuntimeName for ScaleAnimation {
 }
 impl ::std::convert::From<ScaleAnimation> for ::windows::runtime::IUnknown {
     fn from(value: ScaleAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ScaleAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &ScaleAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScaleAnimation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ScaleAnimation> for ::windows::runtime::IInspectable {
@@ -870,7 +870,7 @@ unsafe impl ::std::marker::Sync for ScaleAnimation {}
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TranslationAnimation(::windows::runtime::IInspectable);
+pub struct TranslationAnimation(pub ::windows::runtime::IInspectable);
 impl TranslationAnimation {
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
@@ -929,22 +929,22 @@ impl ::windows::runtime::RuntimeName for TranslationAnimation {
 }
 impl ::std::convert::From<TranslationAnimation> for ::windows::runtime::IUnknown {
     fn from(value: TranslationAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TranslationAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &TranslationAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TranslationAnimation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TranslationAnimation> for ::windows::runtime::IInspectable {

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Ellipse(::windows::runtime::IInspectable);
+pub struct Ellipse(pub ::windows::runtime::IInspectable);
 impl Ellipse {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2265,22 +2265,22 @@ impl ::windows::runtime::RuntimeName for Ellipse {
 }
 impl ::std::convert::From<Ellipse> for ::windows::runtime::IUnknown {
     fn from(value: Ellipse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Ellipse> for ::windows::runtime::IUnknown {
     fn from(value: &Ellipse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Ellipse {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Ellipse {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Ellipse {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Ellipse> for ::windows::runtime::IInspectable {
@@ -2439,7 +2439,7 @@ unsafe impl ::std::marker::Send for Ellipse {}
 unsafe impl ::std::marker::Sync for Ellipse {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEllipse(::windows::runtime::IInspectable);
+pub struct IEllipse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEllipse {
     type Vtable = IEllipse_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893751492, 54157, 19371, [131, 31, 74, 34, 239, 82, 172, 134]);
@@ -2456,7 +2456,7 @@ pub struct IEllipse_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILine(::windows::runtime::IInspectable);
+pub struct ILine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILine {
     type Vtable = ILine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185235773, 20475, 18655, [135, 50, 78, 21, 200, 52, 129, 107]);
@@ -2481,7 +2481,7 @@ pub struct ILine_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineStatics(::windows::runtime::IInspectable);
+pub struct ILineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineStatics {
     type Vtable = ILineStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(645665341, 28324, 19536, [139, 29, 80, 32, 122, 255, 30, 138]);
@@ -2502,7 +2502,7 @@ pub struct ILineStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPath(::windows::runtime::IInspectable);
+pub struct IPath(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPath {
     type Vtable = IPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2022192649, 15703, 20284, [184, 165, 108, 171, 202, 201, 113, 31]);
@@ -2523,7 +2523,7 @@ pub struct IPath_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPathFactory(::windows::runtime::IInspectable);
+pub struct IPathFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathFactory {
     type Vtable = IPathFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591439075, 23174, 20422, [154, 80, 203, 185, 59, 130, 135, 102]);
@@ -2541,7 +2541,7 @@ pub struct IPathFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPathStatics(::windows::runtime::IInspectable);
+pub struct IPathStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathStatics {
     type Vtable = IPathStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129809821, 34780, 16706, [129, 241, 151, 252, 127, 248, 100, 28]);
@@ -2559,7 +2559,7 @@ pub struct IPathStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolygon(::windows::runtime::IInspectable);
+pub struct IPolygon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolygon {
     type Vtable = IPolygon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816119321, 11853, 19404, [141, 52, 134, 135, 25, 87, 250, 1]);
@@ -2584,7 +2584,7 @@ pub struct IPolygon_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolygonStatics(::windows::runtime::IInspectable);
+pub struct IPolygonStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolygonStatics {
     type Vtable = IPolygonStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(908757675, 54371, 17254, [158, 26, 190, 186, 114, 129, 15, 183]);
@@ -2603,7 +2603,7 @@ pub struct IPolygonStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolyline(::windows::runtime::IInspectable);
+pub struct IPolyline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolyline {
     type Vtable = IPolyline_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2447139576, 17075, 18419, [132, 118, 197, 81, 36, 167, 196, 198]);
@@ -2628,7 +2628,7 @@ pub struct IPolyline_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolylineStatics(::windows::runtime::IInspectable);
+pub struct IPolylineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPolylineStatics {
     type Vtable = IPolylineStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349818577, 41580, 17328, [170, 165, 130, 47, 166, 74, 17, 185]);
@@ -2647,7 +2647,7 @@ pub struct IPolylineStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRectangle(::windows::runtime::IInspectable);
+pub struct IRectangle(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRectangle {
     type Vtable = IRectangle_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2237383216, 35345, 19992, [161, 54, 75, 194, 28, 120, 39, 176]);
@@ -2668,7 +2668,7 @@ pub struct IRectangle_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRectangleStatics(::windows::runtime::IInspectable);
+pub struct IRectangleStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRectangleStatics {
     type Vtable = IRectangleStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2670045779, 47930, 19516, [137, 219, 111, 188, 13, 31, 160, 204]);
@@ -2687,7 +2687,7 @@ pub struct IRectangleStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShape(::windows::runtime::IInspectable);
+pub struct IShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShape {
     type Vtable = IShape_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020551541, 39584, 17741, [174, 6, 162, 70, 110, 55, 200, 50]);
@@ -2744,7 +2744,7 @@ pub struct IShape_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShape2(::windows::runtime::IInspectable);
+pub struct IShape2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShape2 {
     type Vtable = IShape2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2535755194, 18930, 18852, [165, 221, 22, 77, 248, 36, 219, 20]);
@@ -2763,7 +2763,7 @@ pub struct IShape2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShapeFactory(::windows::runtime::IInspectable);
+pub struct IShapeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShapeFactory {
     type Vtable = IShapeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1265726995, 63146, 18645, [149, 136, 225, 209, 136, 234, 203, 201]);
@@ -2781,7 +2781,7 @@ pub struct IShapeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IShapeStatics(::windows::runtime::IInspectable);
+pub struct IShapeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShapeStatics {
     type Vtable = IShapeStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(494619733, 40435, 18652, [145, 148, 157, 48, 111, 170, 96, 137]);
@@ -2810,7 +2810,7 @@ pub struct IShapeStatics_abi(
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Line(::windows::runtime::IInspectable);
+pub struct Line(pub ::windows::runtime::IInspectable);
 impl Line {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -5157,22 +5157,22 @@ impl ::windows::runtime::RuntimeName for Line {
 }
 impl ::std::convert::From<Line> for ::windows::runtime::IUnknown {
     fn from(value: Line) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Line> for ::windows::runtime::IUnknown {
     fn from(value: &Line) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Line {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Line {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Line {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Line> for ::windows::runtime::IInspectable {
@@ -5332,7 +5332,7 @@ unsafe impl ::std::marker::Sync for Line {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Path(::windows::runtime::IInspectable);
+pub struct Path(pub ::windows::runtime::IInspectable);
 impl Path {
     #[cfg(feature = "UI_Xaml_Media")]
     #[doc = "*Required features: `UI_Xaml_Shapes`, `UI_Xaml_Media`*"]
@@ -7625,22 +7625,22 @@ impl ::windows::runtime::RuntimeName for Path {
 }
 impl ::std::convert::From<Path> for ::windows::runtime::IUnknown {
     fn from(value: Path) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Path> for ::windows::runtime::IUnknown {
     fn from(value: &Path) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Path {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Path {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Path {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Path> for ::windows::runtime::IInspectable {
@@ -7800,7 +7800,7 @@ unsafe impl ::std::marker::Sync for Path {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Polygon(::windows::runtime::IInspectable);
+pub struct Polygon(pub ::windows::runtime::IInspectable);
 impl Polygon {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10111,22 +10111,22 @@ impl ::windows::runtime::RuntimeName for Polygon {
 }
 impl ::std::convert::From<Polygon> for ::windows::runtime::IUnknown {
     fn from(value: Polygon) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Polygon> for ::windows::runtime::IUnknown {
     fn from(value: &Polygon) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Polygon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Polygon {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Polygon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Polygon> for ::windows::runtime::IInspectable {
@@ -10286,7 +10286,7 @@ unsafe impl ::std::marker::Sync for Polygon {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Polyline(::windows::runtime::IInspectable);
+pub struct Polyline(pub ::windows::runtime::IInspectable);
 impl Polyline {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -12597,22 +12597,22 @@ impl ::windows::runtime::RuntimeName for Polyline {
 }
 impl ::std::convert::From<Polyline> for ::windows::runtime::IUnknown {
     fn from(value: Polyline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Polyline> for ::windows::runtime::IUnknown {
     fn from(value: &Polyline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Polyline {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Polyline {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Polyline {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Polyline> for ::windows::runtime::IInspectable {
@@ -12772,7 +12772,7 @@ unsafe impl ::std::marker::Sync for Polyline {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Rectangle(::windows::runtime::IInspectable);
+pub struct Rectangle(pub ::windows::runtime::IInspectable);
 impl Rectangle {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -15079,22 +15079,22 @@ impl ::windows::runtime::RuntimeName for Rectangle {
 }
 impl ::std::convert::From<Rectangle> for ::windows::runtime::IUnknown {
     fn from(value: Rectangle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Rectangle> for ::windows::runtime::IUnknown {
     fn from(value: &Rectangle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Rectangle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Rectangle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Rectangle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Rectangle> for ::windows::runtime::IInspectable {
@@ -15254,7 +15254,7 @@ unsafe impl ::std::marker::Sync for Rectangle {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Shape(::windows::runtime::IInspectable);
+pub struct Shape(pub ::windows::runtime::IInspectable);
 impl Shape {
     #[cfg(feature = "UI_Xaml_Media")]
     #[doc = "*Required features: `UI_Xaml_Shapes`, `UI_Xaml_Media`*"]
@@ -17591,22 +17591,22 @@ impl ::windows::runtime::RuntimeName for Shape {
 }
 impl ::std::convert::From<Shape> for ::windows::runtime::IUnknown {
     fn from(value: Shape) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Shape> for ::windows::runtime::IUnknown {
     fn from(value: &Shape) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Shape {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Shape {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Shape {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Shape> for ::windows::runtime::IInspectable {

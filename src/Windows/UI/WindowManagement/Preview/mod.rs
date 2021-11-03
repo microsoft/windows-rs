@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowManagementPreview(::windows::runtime::IInspectable);
+pub struct IWindowManagementPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowManagementPreview {
     type Vtable = IWindowManagementPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1324702477, 22045, 20796, [166, 124, 44, 2, 182, 156, 239, 65]);
@@ -18,7 +18,7 @@ pub struct IWindowManagementPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowManagementPreviewStatics(::windows::runtime::IInspectable);
+pub struct IWindowManagementPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowManagementPreviewStatics {
     type Vtable = IWindowManagementPreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(261563846, 49156, 23075, [143, 210, 141, 9, 44, 226, 112, 74]);
@@ -38,7 +38,7 @@ pub struct IWindowManagementPreviewStatics_abi(
 #[doc = "*Required features: `UI_WindowManagement_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WindowManagementPreview(::windows::runtime::IInspectable);
+pub struct WindowManagementPreview(pub ::windows::runtime::IInspectable);
 impl WindowManagementPreview {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement_Preview`, `Foundation`*"]
@@ -62,22 +62,22 @@ impl ::windows::runtime::RuntimeName for WindowManagementPreview {
 }
 impl ::std::convert::From<WindowManagementPreview> for ::windows::runtime::IUnknown {
     fn from(value: WindowManagementPreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WindowManagementPreview> for ::windows::runtime::IUnknown {
     fn from(value: &WindowManagementPreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowManagementPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WindowManagementPreview {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowManagementPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WindowManagementPreview> for ::windows::runtime::IInspectable {

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialGraphInteropFrameOfReferencePreview(::windows::runtime::IInspectable);
+pub struct ISpatialGraphInteropFrameOfReferencePreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2821135139, 29535, 22313, [169, 142, 230, 78, 209, 137, 171, 197]);
@@ -22,7 +22,7 @@ pub struct ISpatialGraphInteropFrameOfReferencePreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialGraphInteropPreviewStatics(::windows::runtime::IInspectable);
+pub struct ISpatialGraphInteropPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGraphInteropPreviewStatics {
     type Vtable = ISpatialGraphInteropPreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225576524, 8408, 20176, [174, 247, 104, 5, 184, 229, 63, 85]);
@@ -45,7 +45,7 @@ pub struct ISpatialGraphInteropPreviewStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialGraphInteropPreviewStatics2(::windows::runtime::IInspectable);
+pub struct ISpatialGraphInteropPreviewStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGraphInteropPreviewStatics2 {
     type Vtable = ISpatialGraphInteropPreviewStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613462367, 27837, 19230, [183, 101, 49, 228, 98, 163, 45, 242]);
@@ -68,7 +68,7 @@ pub struct ISpatialGraphInteropPreviewStatics2_abi(
 #[doc = "*Required features: `Perception_Spatial_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialGraphInteropFrameOfReferencePreview(::windows::runtime::IInspectable);
+pub struct SpatialGraphInteropFrameOfReferencePreview(pub ::windows::runtime::IInspectable);
 impl SpatialGraphInteropFrameOfReferencePreview {
     #[doc = "*Required features: `Perception_Spatial_Preview`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<super::SpatialCoordinateSystem> {
@@ -108,22 +108,22 @@ impl ::windows::runtime::RuntimeName for SpatialGraphInteropFrameOfReferencePrev
 }
 impl ::std::convert::From<SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IUnknown {
     fn from(value: SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialGraphInteropFrameOfReferencePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialGraphInteropFrameOfReferencePreview {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialGraphInteropFrameOfReferencePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IInspectable {

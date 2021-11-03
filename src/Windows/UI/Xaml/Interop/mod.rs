@@ -79,7 +79,7 @@ impl<F: FnMut(&::std::option::Option<IBindableObservableVector>, &::std::option:
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
-pub struct IBindableIterable(::windows::runtime::IInspectable);
+pub struct IBindableIterable(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableIterable {
     type Vtable = IBindableIterable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(57486344, 57129, 16815, [138, 162, 215, 116, 190, 98, 186, 111]);
@@ -99,22 +99,22 @@ unsafe impl ::windows::runtime::RuntimeType for IBindableIterable {
 }
 impl ::std::convert::From<IBindableIterable> for ::windows::runtime::IUnknown {
     fn from(value: IBindableIterable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IBindableIterable> for ::windows::runtime::IUnknown {
     fn from(value: &IBindableIterable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindableIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBindableIterable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindableIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IBindableIterable> for ::windows::runtime::IInspectable {
@@ -151,7 +151,7 @@ pub struct IBindableIterable_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
-pub struct IBindableIterator(::windows::runtime::IInspectable);
+pub struct IBindableIterator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableIterator {
     type Vtable = IBindableIterator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1780313095, 1901, 18930, [131, 20, 245, 44, 156, 154, 131, 49]);
@@ -187,22 +187,22 @@ unsafe impl ::windows::runtime::RuntimeType for IBindableIterator {
 }
 impl ::std::convert::From<IBindableIterator> for ::windows::runtime::IUnknown {
     fn from(value: IBindableIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IBindableIterator> for ::windows::runtime::IUnknown {
     fn from(value: &IBindableIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindableIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBindableIterator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindableIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IBindableIterator> for ::windows::runtime::IInspectable {
@@ -241,7 +241,7 @@ pub struct IBindableIterator_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
-pub struct IBindableObservableVector(::windows::runtime::IInspectable);
+pub struct IBindableObservableVector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableObservableVector {
     type Vtable = IBindableObservableVector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4263425334, 32383, 20368, [172, 154, 71, 73, 132, 170, 229, 18]);
@@ -338,22 +338,22 @@ unsafe impl ::windows::runtime::RuntimeType for IBindableObservableVector {
 }
 impl ::std::convert::From<IBindableObservableVector> for ::windows::runtime::IUnknown {
     fn from(value: IBindableObservableVector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IBindableObservableVector> for ::windows::runtime::IUnknown {
     fn from(value: &IBindableObservableVector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindableObservableVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBindableObservableVector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindableObservableVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IBindableObservableVector> for ::windows::runtime::IInspectable {
@@ -437,7 +437,7 @@ pub struct IBindableObservableVector_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
-pub struct IBindableVector(::windows::runtime::IInspectable);
+pub struct IBindableVector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableVector {
     type Vtable = IBindableVector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(960358366, 28624, 19469, [187, 113, 71, 36, 74, 17, 62, 147]);
@@ -519,22 +519,22 @@ unsafe impl ::windows::runtime::RuntimeType for IBindableVector {
 }
 impl ::std::convert::From<IBindableVector> for ::windows::runtime::IUnknown {
     fn from(value: IBindableVector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IBindableVector> for ::windows::runtime::IUnknown {
     fn from(value: &IBindableVector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindableVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBindableVector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindableVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IBindableVector> for ::windows::runtime::IInspectable {
@@ -602,7 +602,7 @@ pub struct IBindableVector_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
-pub struct IBindableVectorView(::windows::runtime::IInspectable);
+pub struct IBindableVectorView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindableVectorView {
     type Vtable = IBindableVectorView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879613671, 38766, 19395, [129, 93, 236, 226, 67, 188, 15, 51]);
@@ -646,22 +646,22 @@ unsafe impl ::windows::runtime::RuntimeType for IBindableVectorView {
 }
 impl ::std::convert::From<IBindableVectorView> for ::windows::runtime::IUnknown {
     fn from(value: IBindableVectorView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IBindableVectorView> for ::windows::runtime::IUnknown {
     fn from(value: &IBindableVectorView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBindableVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBindableVectorView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IBindableVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IBindableVectorView> for ::windows::runtime::IInspectable {
@@ -722,7 +722,7 @@ pub struct IBindableVectorView_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
-pub struct INotifyCollectionChanged(::windows::runtime::IInspectable);
+pub struct INotifyCollectionChanged(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChanged {
     type Vtable = INotifyCollectionChanged_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(682715093, 6705, 18011, [155, 37, 213, 195, 174, 104, 108, 64]);
@@ -749,22 +749,22 @@ unsafe impl ::windows::runtime::RuntimeType for INotifyCollectionChanged {
 }
 impl ::std::convert::From<INotifyCollectionChanged> for ::windows::runtime::IUnknown {
     fn from(value: INotifyCollectionChanged) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&INotifyCollectionChanged> for ::windows::runtime::IUnknown {
     fn from(value: &INotifyCollectionChanged) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INotifyCollectionChanged {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INotifyCollectionChanged {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INotifyCollectionChanged {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<INotifyCollectionChanged> for ::windows::runtime::IInspectable {
@@ -803,7 +803,7 @@ pub struct INotifyCollectionChanged_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INotifyCollectionChangedEventArgs(::windows::runtime::IInspectable);
+pub struct INotifyCollectionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChangedEventArgs {
     type Vtable = INotifyCollectionChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1291226419, 58354, 18788, [184, 94, 148, 91, 79, 126, 47, 33]);
@@ -825,7 +825,7 @@ pub struct INotifyCollectionChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INotifyCollectionChangedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct INotifyCollectionChangedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChangedEventArgsFactory {
     type Vtable = INotifyCollectionChangedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3003924026, 57229, 17573, [154, 56, 122, 192, 208, 140, 230, 61]);
@@ -869,7 +869,7 @@ impl ::windows::runtime::DefaultType for NotifyCollectionChangedAction {
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct NotifyCollectionChangedEventArgs(::windows::runtime::IInspectable);
+pub struct NotifyCollectionChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl NotifyCollectionChangedEventArgs {
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
     pub fn Action(&self) -> ::windows::runtime::Result<NotifyCollectionChangedAction> {
@@ -935,22 +935,22 @@ impl ::windows::runtime::RuntimeName for NotifyCollectionChangedEventArgs {
 }
 impl ::std::convert::From<NotifyCollectionChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: NotifyCollectionChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&NotifyCollectionChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &NotifyCollectionChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NotifyCollectionChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NotifyCollectionChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NotifyCollectionChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<NotifyCollectionChangedEventArgs> for ::windows::runtime::IInspectable {

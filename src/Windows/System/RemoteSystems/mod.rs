@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownRemoteSystemCapabilitiesStatics(::windows::runtime::IInspectable);
+pub struct IKnownRemoteSystemCapabilitiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownRemoteSystemCapabilitiesStatics {
     type Vtable = IKnownRemoteSystemCapabilitiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2164843392, 32650, 17636, [146, 205, 3, 182, 70, 155, 148, 163]);
@@ -22,7 +22,7 @@ pub struct IKnownRemoteSystemCapabilitiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystem(::windows::runtime::IInspectable);
+pub struct IRemoteSystem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem {
     type Vtable = IRemoteSystem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981981901, 7696, 19084, [180, 166, 78, 95, 214, 249, 119, 33]);
@@ -44,7 +44,7 @@ pub struct IRemoteSystem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystem2(::windows::runtime::IInspectable);
+pub struct IRemoteSystem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem2 {
     type Vtable = IRemoteSystem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165668076, 64395, 18952, [167, 88, 104, 118, 67, 93, 118, 158]);
@@ -64,7 +64,7 @@ pub struct IRemoteSystem2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystem3(::windows::runtime::IInspectable);
+pub struct IRemoteSystem3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem3 {
     type Vtable = IRemoteSystem3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924445333, 47046, 16574, [131, 27, 115, 86, 47, 18, 255, 168]);
@@ -83,7 +83,7 @@ pub struct IRemoteSystem3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystem4(::windows::runtime::IInspectable);
+pub struct IRemoteSystem4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem4 {
     type Vtable = IRemoteSystem4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049928165, 47495, 19621, [153, 38, 250, 4, 56, 190, 98, 115]);
@@ -101,7 +101,7 @@ pub struct IRemoteSystem4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystem5(::windows::runtime::IInspectable);
+pub struct IRemoteSystem5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem5 {
     type Vtable = IRemoteSystem5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3945453347, 58850, 19170, [167, 167, 161, 9, 122, 9, 142, 144]);
@@ -120,7 +120,7 @@ pub struct IRemoteSystem5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystem6(::windows::runtime::IInspectable);
+pub struct IRemoteSystem6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem6 {
     type Vtable = IRemoteSystem6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570248002, 49191, 21310, [147, 132, 58, 25, 180, 247, 238, 243]);
@@ -138,7 +138,7 @@ pub struct IRemoteSystem6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemAddedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2402899471, 58676, 18071, [136, 54, 122, 190, 161, 81, 81, 110]);
@@ -156,7 +156,7 @@ pub struct IRemoteSystemAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemApp(::windows::runtime::IInspectable);
+pub struct IRemoteSystemApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemApp {
     type Vtable = IRemoteSystemApp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162539709, 54605, 16817, [155, 22, 104, 16, 168, 113, 237, 79]);
@@ -179,7 +179,7 @@ pub struct IRemoteSystemApp_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemApp2(::windows::runtime::IInspectable);
+pub struct IRemoteSystemApp2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemApp2 {
     type Vtable = IRemoteSystemApp2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667874581, 2710, 22394, [143, 246, 195, 89, 4, 223, 168, 243]);
@@ -198,7 +198,7 @@ pub struct IRemoteSystemApp2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemAppRegistration(::windows::runtime::IInspectable);
+pub struct IRemoteSystemAppRegistration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3027847093, 28725, 19034, [184, 223, 150, 45, 143, 132, 49, 244]);
@@ -220,7 +220,7 @@ pub struct IRemoteSystemAppRegistration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemAppRegistrationStatics(::windows::runtime::IInspectable);
+pub struct IRemoteSystemAppRegistrationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAppRegistrationStatics {
     type Vtable = IRemoteSystemAppRegistrationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28940352, 53202, 17727, [174, 37, 194, 83, 159, 8, 106, 253]);
@@ -239,7 +239,7 @@ pub struct IRemoteSystemAppRegistrationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemAuthorizationKindFilter(::windows::runtime::IInspectable);
+pub struct IRemoteSystemAuthorizationKindFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAuthorizationKindFilter {
     type Vtable = IRemoteSystemAuthorizationKindFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796071054, 1232, 16628, [162, 127, 194, 172, 187, 214, 183, 52]);
@@ -257,7 +257,7 @@ pub struct IRemoteSystemAuthorizationKindFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemAuthorizationKindFilterFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemAuthorizationKindFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAuthorizationKindFilterFactory {
     type Vtable = IRemoteSystemAuthorizationKindFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2909134669, 46698, 17828, [129, 119, 140, 174, 215, 93, 158, 90]);
@@ -275,7 +275,7 @@ pub struct IRemoteSystemAuthorizationKindFilterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionInfo(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(589794243, 3337, 21195, [156, 106, 238, 210, 148, 11, 238, 67]);
@@ -293,7 +293,7 @@ pub struct IRemoteSystemConnectionInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionInfoStatics(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionInfoStatics {
     type Vtable = IRemoteSystemConnectionInfoStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2894274093, 26309, 22231, [164, 206, 112, 93, 148, 146, 90, 214]);
@@ -312,7 +312,7 @@ pub struct IRemoteSystemConnectionInfoStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionRequest(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2230141188, 36190, 19826, [130, 56, 118, 33, 87, 108, 122, 103]);
@@ -330,7 +330,7 @@ pub struct IRemoteSystemConnectionRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionRequest2(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest2 {
     type Vtable = IRemoteSystemConnectionRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(316632431, 49148, 18490, [138, 190, 211, 74, 108, 25, 249, 43]);
@@ -348,7 +348,7 @@ pub struct IRemoteSystemConnectionRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionRequest3(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionRequest3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest3 {
     type Vtable = IRemoteSystemConnectionRequest3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3733373927, 51660, 23120, [184, 217, 186, 123, 52, 187, 141, 14]);
@@ -366,7 +366,7 @@ pub struct IRemoteSystemConnectionRequest3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionRequestFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestFactory {
     type Vtable = IRemoteSystemConnectionRequestFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2852784672, 47851, 17781, [181, 48, 129, 11, 185, 120, 99, 52]);
@@ -384,7 +384,7 @@ pub struct IRemoteSystemConnectionRequestFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionRequestStatics(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionRequestStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestStatics {
     type Vtable = IRemoteSystemConnectionRequestStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261390397, 33300, 16988, [137, 50, 219, 73, 3, 45, 19, 6]);
@@ -402,7 +402,7 @@ pub struct IRemoteSystemConnectionRequestStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemConnectionRequestStatics2(::windows::runtime::IInspectable);
+pub struct IRemoteSystemConnectionRequestStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestStatics2 {
     type Vtable = IRemoteSystemConnectionRequestStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1175392295, 25836, 22926, [168, 0, 79, 46, 229, 141, 239, 25]);
@@ -421,7 +421,7 @@ pub struct IRemoteSystemConnectionRequestStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemDiscoveryTypeFilter(::windows::runtime::IInspectable);
+pub struct IRemoteSystemDiscoveryTypeFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121518623, 61018, 17370, [172, 106, 111, 238, 37, 70, 7, 65]);
@@ -439,7 +439,7 @@ pub struct IRemoteSystemDiscoveryTypeFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemDiscoveryTypeFilterFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemDiscoveryTypeFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemDiscoveryTypeFilterFactory {
     type Vtable = IRemoteSystemDiscoveryTypeFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2677979539, 49760, 16737, [146, 242, 156, 2, 31, 35, 254, 93]);
@@ -457,7 +457,7 @@ pub struct IRemoteSystemDiscoveryTypeFilterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemEnumerationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemEnumerationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemEnumerationCompletedEventArgs {
     type Vtable = IRemoteSystemEnumerationCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3337108831, 16432, 17236, [160, 96, 20, 241, 178, 44, 84, 93]);
@@ -475,7 +475,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `System_RemoteSystems`*"]
-pub struct IRemoteSystemFilter(::windows::runtime::IInspectable);
+pub struct IRemoteSystemFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemFilter {
     type Vtable = IRemoteSystemFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1245424100, 39403, 17899, [186, 22, 3, 103, 114, 143, 243, 116]);
@@ -486,22 +486,22 @@ unsafe impl ::windows::runtime::RuntimeType for IRemoteSystemFilter {
 }
 impl ::std::convert::From<IRemoteSystemFilter> for ::windows::runtime::IUnknown {
     fn from(value: IRemoteSystemFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IRemoteSystemFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IRemoteSystemFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRemoteSystemFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRemoteSystemFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRemoteSystemFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IRemoteSystemFilter> for ::windows::runtime::IInspectable {
@@ -536,7 +536,7 @@ pub struct IRemoteSystemFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemKindFilter(::windows::runtime::IInspectable);
+pub struct IRemoteSystemKindFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954321388, 8899, 20214, [144, 26, 187, 177, 199, 170, 212, 237]);
@@ -555,7 +555,7 @@ pub struct IRemoteSystemKindFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemKindFilterFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemKindFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindFilterFactory {
     type Vtable = IRemoteSystemKindFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2717587694, 39402, 16572, [154, 57, 198, 112, 170, 128, 74, 40]);
@@ -574,7 +574,7 @@ pub struct IRemoteSystemKindFilterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemKindStatics(::windows::runtime::IInspectable);
+pub struct IRemoteSystemKindStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindStatics {
     type Vtable = IRemoteSystemKindStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4130436659, 43796, 16848, [149, 83, 121, 106, 173, 184, 130, 219]);
@@ -596,7 +596,7 @@ pub struct IRemoteSystemKindStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemKindStatics2(::windows::runtime::IInspectable);
+pub struct IRemoteSystemKindStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindStatics2 {
     type Vtable = IRemoteSystemKindStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118703568, 1126, 18249, [145, 232, 101, 249, 209, 154, 150, 165]);
@@ -616,7 +616,7 @@ pub struct IRemoteSystemKindStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2336036539, 29446, 18922, [183, 223, 103, 213, 113, 76, 176, 19]);
@@ -634,7 +634,7 @@ pub struct IRemoteSystemRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSession(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSession {
     type Vtable = IRemoteSystemSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1766287873, 39642, 18703, [149, 73, 211, 28, 177, 76, 158, 149]);
@@ -661,7 +661,7 @@ pub struct IRemoteSystemSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionAddedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582318420, 48279, 19513, [153, 180, 190, 202, 118, 224, 76, 63]);
@@ -679,7 +679,7 @@ pub struct IRemoteSystemSessionAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionController(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834326482, 26656, 18535, [180, 37, 216, 156, 10, 62, 247, 186]);
@@ -704,7 +704,7 @@ pub struct IRemoteSystemSessionController_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionControllerFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionControllerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionControllerFactory {
     type Vtable = IRemoteSystemSessionControllerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217829739, 44093, 16793, [130, 205, 102, 112, 167, 115, 239, 46]);
@@ -723,7 +723,7 @@ pub struct IRemoteSystemSessionControllerFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionCreationResult(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionCreationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2811761346, 14302, 17548, [139, 131, 163, 10, 163, 196, 234, 214]);
@@ -742,7 +742,7 @@ pub struct IRemoteSystemSessionCreationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionDisconnectedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionDisconnectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionDisconnectedEventArgs {
     type Vtable = IRemoteSystemSessionDisconnectedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725313691, 30661, 17948, [130, 9, 124, 108, 93, 49, 17, 171]);
@@ -760,7 +760,7 @@ pub struct IRemoteSystemSessionDisconnectedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionInfo(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283299400, 35594, 20122, [153, 5, 105, 228, 184, 65, 197, 136]);
@@ -781,7 +781,7 @@ pub struct IRemoteSystemSessionInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionInvitation(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionInvitation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1043516561, 20951, 18278, [161, 33, 37, 81, 108, 59, 130, 148]);
@@ -800,7 +800,7 @@ pub struct IRemoteSystemSessionInvitation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionInvitationListener(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionInvitationListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150208575, 48241, 18913, [135, 74, 49, 221, 255, 154, 39, 185]);
@@ -821,7 +821,7 @@ pub struct IRemoteSystemSessionInvitationListener_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionInvitationReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionInvitationReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1586907693, 41229, 20187, [141, 234, 84, 210, 10, 193, 149, 67]);
@@ -839,7 +839,7 @@ pub struct IRemoteSystemSessionInvitationReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionJoinRequest(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionJoinRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543162472, 31124, 17201, [134, 209, 216, 157, 136, 37, 133, 238]);
@@ -858,7 +858,7 @@ pub struct IRemoteSystemSessionJoinRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionJoinRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionJoinRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687468995, 33465, 18454, [156, 36, 228, 14, 97, 119, 75, 216]);
@@ -878,7 +878,7 @@ pub struct IRemoteSystemSessionJoinRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionJoinResult(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionJoinResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3464175364, 41022, 16804, [144, 11, 30, 121, 50, 140, 18, 103]);
@@ -897,7 +897,7 @@ pub struct IRemoteSystemSessionJoinResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionMessageChannel(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionMessageChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2502218026, 29657, 19472, [183, 81, 194, 103, 132, 67, 113, 39]);
@@ -925,7 +925,7 @@ pub struct IRemoteSystemSessionMessageChannel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionMessageChannelFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionMessageChannelFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionMessageChannelFactory {
     type Vtable = IRemoteSystemSessionMessageChannelFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(694033482, 48406, 17048, [183, 206, 65, 84, 130, 176, 225, 29]);
@@ -944,7 +944,7 @@ pub struct IRemoteSystemSessionMessageChannelFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionOptions(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947129685, 33816, 20225, [147, 83, 226, 28, 158, 204, 108, 252]);
@@ -963,7 +963,7 @@ pub struct IRemoteSystemSessionOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionParticipant(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionParticipant(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipant_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123367820, 44281, 18217, [138, 23, 68, 231, 186, 237, 93, 204]);
@@ -983,7 +983,7 @@ pub struct IRemoteSystemSessionParticipant_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionParticipantAddedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionParticipantAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3545913304, 51617, 19383, [182, 176, 121, 187, 145, 173, 249, 61]);
@@ -1001,7 +1001,7 @@ pub struct IRemoteSystemSessionParticipantAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionParticipantRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionParticipantRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2255417480, 56936, 19135, [136, 161, 249, 13, 22, 39, 65, 146]);
@@ -1019,7 +1019,7 @@ pub struct IRemoteSystemSessionParticipantRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionParticipantWatcher(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionParticipantWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705471692, 43655, 19833, [182, 204, 68, 89, 179, 233, 32, 117]);
@@ -1051,7 +1051,7 @@ pub struct IRemoteSystemSessionParticipantWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionRemovedEventArgs {
     type Vtable = IRemoteSystemSessionRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2944569678, 14753, 19946, [157, 99, 67, 121, 141, 91, 187, 208]);
@@ -1069,7 +1069,7 @@ pub struct IRemoteSystemSessionRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionStatics(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionStatics {
     type Vtable = IRemoteSystemSessionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2233764255, 64800, 17635, [149, 101, 231, 90, 59, 20, 198, 110]);
@@ -1087,7 +1087,7 @@ pub struct IRemoteSystemSessionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionUpdatedEventArgs {
     type Vtable = IRemoteSystemSessionUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(377966697, 8990, 19601, [142, 200, 179, 163, 157, 158, 85, 163]);
@@ -1105,7 +1105,7 @@ pub struct IRemoteSystemSessionUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionValueSetReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionValueSetReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116594565, 11685, 20056, [167, 143, 158, 141, 7, 132, 238, 37]);
@@ -1125,7 +1125,7 @@ pub struct IRemoteSystemSessionValueSetReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemSessionWatcher(::windows::runtime::IInspectable);
+pub struct IRemoteSystemSessionWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2147738432, 3137, 19042, [182, 215, 189, 190, 43, 25, 190, 45]);
@@ -1157,7 +1157,7 @@ pub struct IRemoteSystemSessionWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemStatics(::windows::runtime::IInspectable);
+pub struct IRemoteSystemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics {
     type Vtable = IRemoteSystemStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2760225682, 65323, 19271, [190, 98, 116, 63, 47, 20, 15, 48]);
@@ -1181,7 +1181,7 @@ pub struct IRemoteSystemStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemStatics2(::windows::runtime::IInspectable);
+pub struct IRemoteSystemStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics2 {
     type Vtable = IRemoteSystemStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211348938, 28569, 19538, [162, 114, 234, 79, 54, 71, 23, 68]);
@@ -1199,7 +1199,7 @@ pub struct IRemoteSystemStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemStatics3(::windows::runtime::IInspectable);
+pub struct IRemoteSystemStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics3 {
     type Vtable = IRemoteSystemStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2576740719, 2876, 23237, [179, 37, 204, 115, 244, 55, 223, 205]);
@@ -1219,7 +1219,7 @@ pub struct IRemoteSystemStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemStatusTypeFilter(::windows::runtime::IInspectable);
+pub struct IRemoteSystemStatusTypeFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(205082958, 52150, 18295, [133, 52, 46, 12, 82, 26, 255, 162]);
@@ -1237,7 +1237,7 @@ pub struct IRemoteSystemStatusTypeFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemStatusTypeFilterFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemStatusTypeFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatusTypeFilterFactory {
     type Vtable = IRemoteSystemStatusTypeFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(869234938, 55076, 16677, [172, 122, 141, 40, 30, 68, 201, 73]);
@@ -1255,7 +1255,7 @@ pub struct IRemoteSystemStatusTypeFilterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963130638, 56267, 16725, [180, 202, 179, 10, 4, 242, 118, 39]);
@@ -1273,7 +1273,7 @@ pub struct IRemoteSystemUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemWatcher(::windows::runtime::IInspectable);
+pub struct IRemoteSystemWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566575742, 11271, 18629, [136, 156, 69, 93, 43, 9, 151, 113]);
@@ -1304,7 +1304,7 @@ pub struct IRemoteSystemWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemWatcher2(::windows::runtime::IInspectable);
+pub struct IRemoteSystemWatcher2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher2 {
     type Vtable = IRemoteSystemWatcher2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1933797120, 6602, 18681, [164, 205, 120, 15, 122, 213, 140, 113]);
@@ -1329,7 +1329,7 @@ pub struct IRemoteSystemWatcher2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemWatcher3(::windows::runtime::IInspectable);
+pub struct IRemoteSystemWatcher3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher3 {
     type Vtable = IRemoteSystemWatcher3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4154200015, 43283, 21971, [132, 19, 65, 143, 207, 21, 186, 84]);
@@ -1347,7 +1347,7 @@ pub struct IRemoteSystemWatcher3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemWatcherErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct IRemoteSystemWatcherErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1959118511, 20756, 17446, [146, 22, 32, 216, 31, 133, 25, 174]);
@@ -1365,7 +1365,7 @@ pub struct IRemoteSystemWatcherErrorOccurredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemWebAccountFilter(::windows::runtime::IInspectable);
+pub struct IRemoteSystemWebAccountFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068980339, 34760, 23951, [151, 126, 246, 159, 150, 214, 114, 56]);
@@ -1384,7 +1384,7 @@ pub struct IRemoteSystemWebAccountFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRemoteSystemWebAccountFilterFactory(::windows::runtime::IInspectable);
+pub struct IRemoteSystemWebAccountFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWebAccountFilterFactory {
     type Vtable = IRemoteSystemWebAccountFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(881469193, 24397, 20775, [180, 167, 191, 153, 213, 37, 43, 27]);
@@ -1443,7 +1443,7 @@ impl ::windows::runtime::RuntimeName for KnownRemoteSystemCapabilities {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystem(::windows::runtime::IInspectable);
+pub struct RemoteSystem(pub ::windows::runtime::IInspectable);
 impl RemoteSystem {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1621,22 +1621,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystem {
 }
 impl ::std::convert::From<RemoteSystem> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystem> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystem> for ::windows::runtime::IInspectable {
@@ -1688,7 +1688,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemAccessStatus {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemAddedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemAddedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystem(&self) -> ::windows::runtime::Result<RemoteSystem> {
@@ -1711,22 +1711,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemAddedEventArgs {
 }
 impl ::std::convert::From<RemoteSystemAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemAddedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemAddedEventArgs> for ::windows::runtime::IInspectable {
@@ -1754,7 +1754,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemAddedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemApp(::windows::runtime::IInspectable);
+pub struct RemoteSystemApp(pub ::windows::runtime::IInspectable);
 impl RemoteSystemApp {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1826,22 +1826,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemApp {
 }
 impl ::std::convert::From<RemoteSystemApp> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemApp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemApp> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemApp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemApp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemApp {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemApp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemApp> for ::windows::runtime::IInspectable {
@@ -1869,7 +1869,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemApp {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemAppRegistration(::windows::runtime::IInspectable);
+pub struct RemoteSystemAppRegistration(pub ::windows::runtime::IInspectable);
 impl RemoteSystemAppRegistration {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::User> {
@@ -1928,22 +1928,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemAppRegistration {
 }
 impl ::std::convert::From<RemoteSystemAppRegistration> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemAppRegistration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemAppRegistration> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemAppRegistration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemAppRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemAppRegistration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemAppRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemAppRegistration> for ::windows::runtime::IInspectable {
@@ -1993,7 +1993,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemAuthorizationKind {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemAuthorizationKindFilter(::windows::runtime::IInspectable);
+pub struct RemoteSystemAuthorizationKindFilter(pub ::windows::runtime::IInspectable);
 impl RemoteSystemAuthorizationKindFilter {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystemAuthorizationKind(&self) -> ::windows::runtime::Result<RemoteSystemAuthorizationKind> {
@@ -2027,22 +2027,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemAuthorizationKindFilter {
 }
 impl ::std::convert::From<RemoteSystemAuthorizationKindFilter> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemAuthorizationKindFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemAuthorizationKindFilter> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemAuthorizationKindFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemAuthorizationKindFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemAuthorizationKindFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemAuthorizationKindFilter> for ::windows::runtime::IInspectable {
@@ -2092,7 +2092,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemAuthorizationKindFilter {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemConnectionInfo(::windows::runtime::IInspectable);
+pub struct RemoteSystemConnectionInfo(pub ::windows::runtime::IInspectable);
 impl RemoteSystemConnectionInfo {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn IsProximal(&self) -> ::windows::runtime::Result<bool> {
@@ -2127,22 +2127,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemConnectionInfo {
 }
 impl ::std::convert::From<RemoteSystemConnectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemConnectionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemConnectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemConnectionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemConnectionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemConnectionInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemConnectionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemConnectionInfo> for ::windows::runtime::IInspectable {
@@ -2170,7 +2170,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemConnectionInfo {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemConnectionRequest(::windows::runtime::IInspectable);
+pub struct RemoteSystemConnectionRequest(pub ::windows::runtime::IInspectable);
 impl RemoteSystemConnectionRequest {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystem(&self) -> ::windows::runtime::Result<RemoteSystem> {
@@ -2249,22 +2249,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemConnectionRequest {
 }
 impl ::std::convert::From<RemoteSystemConnectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemConnectionRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemConnectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemConnectionRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemConnectionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemConnectionRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemConnectionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemConnectionRequest> for ::windows::runtime::IInspectable {
@@ -2316,7 +2316,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemDiscoveryType {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemDiscoveryTypeFilter(::windows::runtime::IInspectable);
+pub struct RemoteSystemDiscoveryTypeFilter(pub ::windows::runtime::IInspectable);
 impl RemoteSystemDiscoveryTypeFilter {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystemDiscoveryType(&self) -> ::windows::runtime::Result<RemoteSystemDiscoveryType> {
@@ -2350,22 +2350,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemDiscoveryTypeFilter {
 }
 impl ::std::convert::From<RemoteSystemDiscoveryTypeFilter> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemDiscoveryTypeFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemDiscoveryTypeFilter> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemDiscoveryTypeFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemDiscoveryTypeFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemDiscoveryTypeFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemDiscoveryTypeFilter> for ::windows::runtime::IInspectable {
@@ -2415,7 +2415,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemDiscoveryTypeFilter {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemEnumerationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemEnumerationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemEnumerationCompletedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs;{c6e83d5f-4030-4354-a060-14f1b22c545d})");
@@ -2429,22 +2429,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemEnumerationCompletedEventAr
 }
 impl ::std::convert::From<RemoteSystemEnumerationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemEnumerationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemEnumerationCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemEnumerationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemEnumerationCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -2472,7 +2472,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemKindFilter(::windows::runtime::IInspectable);
+pub struct RemoteSystemKindFilter(pub ::windows::runtime::IInspectable);
 impl RemoteSystemKindFilter {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System_RemoteSystems`, `Foundation_Collections`*"]
@@ -2508,22 +2508,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemKindFilter {
 }
 impl ::std::convert::From<RemoteSystemKindFilter> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemKindFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemKindFilter> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemKindFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemKindFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemKindFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemKindFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemKindFilter> for ::windows::runtime::IInspectable {
@@ -2669,7 +2669,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemPlatform {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemRemovedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystemId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2692,22 +2692,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemRemovedEventArgs {
 }
 impl ::std::convert::From<RemoteSystemRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -2735,7 +2735,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemRemovedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSession(::windows::runtime::IInspectable);
+pub struct RemoteSystemSession(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSession {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_RemoteSystems`, `Foundation`*"]
@@ -2823,22 +2823,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSession {
 }
 impl ::std::convert::From<RemoteSystemSession> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSession> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSession> for ::windows::runtime::IInspectable {
@@ -2892,7 +2892,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSession {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionAddedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionAddedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn SessionInfo(&self) -> ::windows::runtime::Result<RemoteSystemSessionInfo> {
@@ -2915,22 +2915,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionAddedEventArgs {
 }
 impl ::std::convert::From<RemoteSystemSessionAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionAddedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionAddedEventArgs> for ::windows::runtime::IInspectable {
@@ -2958,7 +2958,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionAddedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionController(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionController(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionController {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_RemoteSystems`, `Foundation`*"]
@@ -3024,22 +3024,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionController {
 }
 impl ::std::convert::From<RemoteSystemSessionController> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionController> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionController {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionController> for ::windows::runtime::IInspectable {
@@ -3067,7 +3067,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionController {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionCreationResult(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionCreationResult(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionCreationResult {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<RemoteSystemSessionCreationStatus> {
@@ -3098,22 +3098,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionCreationResult {
 }
 impl ::std::convert::From<RemoteSystemSessionCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionCreationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionCreationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionCreationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionCreationResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionCreationResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionCreationResult> for ::windows::runtime::IInspectable {
@@ -3164,7 +3164,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemSessionCreationStatus {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionDisconnectedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionDisconnectedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionDisconnectedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<RemoteSystemSessionDisconnectedReason> {
@@ -3187,22 +3187,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionDisconnectedEventArg
 }
 impl ::std::convert::From<RemoteSystemSessionDisconnectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionDisconnectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionDisconnectedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionDisconnectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionDisconnectedEventArgs> for ::windows::runtime::IInspectable {
@@ -3253,7 +3253,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemSessionDisconnectedReason {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionInfo(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionInfo(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionInfo {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3293,22 +3293,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionInfo {
 }
 impl ::std::convert::From<RemoteSystemSessionInfo> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionInfo> for ::windows::runtime::IInspectable {
@@ -3336,7 +3336,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionInfo {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionInvitation(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionInvitation(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionInvitation {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Sender(&self) -> ::windows::runtime::Result<RemoteSystem> {
@@ -3367,22 +3367,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionInvitation {
 }
 impl ::std::convert::From<RemoteSystemSessionInvitation> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionInvitation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionInvitation> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionInvitation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionInvitation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionInvitation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionInvitation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionInvitation> for ::windows::runtime::IInspectable {
@@ -3410,7 +3410,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionInvitation {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionInvitationListener(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionInvitationListener(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionInvitationListener {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3447,22 +3447,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionInvitationListener {
 }
 impl ::std::convert::From<RemoteSystemSessionInvitationListener> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionInvitationListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionInvitationListener> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionInvitationListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionInvitationListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionInvitationListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionInvitationListener> for ::windows::runtime::IInspectable {
@@ -3490,7 +3490,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionInvitationListener {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionInvitationReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionInvitationReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionInvitationReceivedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Invitation(&self) -> ::windows::runtime::Result<RemoteSystemSessionInvitation> {
@@ -3513,22 +3513,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionInvitationReceivedEv
 }
 impl ::std::convert::From<RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionInvitationReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionInvitationReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionInvitationReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -3556,7 +3556,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionInvitationReceivedEventAr
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionJoinRequest(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionJoinRequest(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionJoinRequest {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Participant(&self) -> ::windows::runtime::Result<RemoteSystemSessionParticipant> {
@@ -3584,22 +3584,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionJoinRequest {
 }
 impl ::std::convert::From<RemoteSystemSessionJoinRequest> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionJoinRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionJoinRequest> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionJoinRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionJoinRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionJoinRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionJoinRequest> for ::windows::runtime::IInspectable {
@@ -3627,7 +3627,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionJoinRequest {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionJoinRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionJoinRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionJoinRequestedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn JoinRequest(&self) -> ::windows::runtime::Result<RemoteSystemSessionJoinRequest> {
@@ -3659,22 +3659,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionJoinRequestedEventAr
 }
 impl ::std::convert::From<RemoteSystemSessionJoinRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionJoinRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionJoinRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionJoinRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionJoinRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -3702,7 +3702,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionJoinResult(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionJoinResult(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionJoinResult {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<RemoteSystemSessionJoinStatus> {
@@ -3733,22 +3733,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionJoinResult {
 }
 impl ::std::convert::From<RemoteSystemSessionJoinResult> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionJoinResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionJoinResult> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionJoinResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionJoinResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionJoinResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionJoinResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionJoinResult> for ::windows::runtime::IInspectable {
@@ -3801,7 +3801,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemSessionJoinStatus {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionMessageChannel(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionMessageChannel(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionMessageChannel {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Session(&self) -> ::windows::runtime::Result<RemoteSystemSession> {
@@ -3884,22 +3884,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionMessageChannel {
 }
 impl ::std::convert::From<RemoteSystemSessionMessageChannel> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionMessageChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionMessageChannel> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionMessageChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionMessageChannel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionMessageChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionMessageChannel> for ::windows::runtime::IInspectable {
@@ -3949,7 +3949,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemSessionMessageChannelReliab
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionOptions(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionOptions(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3984,22 +3984,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionOptions {
 }
 impl ::std::convert::From<RemoteSystemSessionOptions> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionOptions> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionOptions> for ::windows::runtime::IInspectable {
@@ -4027,7 +4027,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionOptions {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionParticipant(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionParticipant(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionParticipant {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystem(&self) -> ::windows::runtime::Result<RemoteSystem> {
@@ -4059,22 +4059,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipant {
 }
 impl ::std::convert::From<RemoteSystemSessionParticipant> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionParticipant) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionParticipant> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionParticipant) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionParticipant {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionParticipant {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionParticipant {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionParticipant> for ::windows::runtime::IInspectable {
@@ -4102,7 +4102,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionParticipant {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionParticipantAddedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionParticipantAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionParticipantAddedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Participant(&self) -> ::windows::runtime::Result<RemoteSystemSessionParticipant> {
@@ -4125,22 +4125,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipantAddedEven
 }
 impl ::std::convert::From<RemoteSystemSessionParticipantAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionParticipantAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionParticipantAddedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionParticipantAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionParticipantAddedEventArgs> for ::windows::runtime::IInspectable {
@@ -4168,7 +4168,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionParticipantAddedEventArgs
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionParticipantRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionParticipantRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionParticipantRemovedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Participant(&self) -> ::windows::runtime::Result<RemoteSystemSessionParticipant> {
@@ -4191,22 +4191,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipantRemovedEv
 }
 impl ::std::convert::From<RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionParticipantRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionParticipantRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionParticipantRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -4234,7 +4234,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionParticipantRemovedEventAr
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionParticipantWatcher(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionParticipantWatcher(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionParticipantWatcher {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
@@ -4312,22 +4312,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionParticipantWatcher {
 }
 impl ::std::convert::From<RemoteSystemSessionParticipantWatcher> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionParticipantWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionParticipantWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionParticipantWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionParticipantWatcher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionParticipantWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionParticipantWatcher> for ::windows::runtime::IInspectable {
@@ -4381,7 +4381,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemSessionParticipantWatcherSt
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionRemovedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn SessionInfo(&self) -> ::windows::runtime::Result<RemoteSystemSessionInfo> {
@@ -4404,22 +4404,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionRemovedEventArgs {
 }
 impl ::std::convert::From<RemoteSystemSessionRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -4447,7 +4447,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionUpdatedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn SessionInfo(&self) -> ::windows::runtime::Result<RemoteSystemSessionInfo> {
@@ -4470,22 +4470,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
 }
 impl ::std::convert::From<RemoteSystemSessionUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -4513,7 +4513,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionValueSetReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionValueSetReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionValueSetReceivedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Sender(&self) -> ::windows::runtime::Result<RemoteSystemSessionParticipant> {
@@ -4545,22 +4545,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionValueSetReceivedEven
 }
 impl ::std::convert::From<RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionValueSetReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionValueSetReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionValueSetReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -4588,7 +4588,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemSessionValueSetReceivedEventArgs
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemSessionWatcher(::windows::runtime::IInspectable);
+pub struct RemoteSystemSessionWatcher(pub ::windows::runtime::IInspectable);
 impl RemoteSystemSessionWatcher {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
@@ -4666,22 +4666,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemSessionWatcher {
 }
 impl ::std::convert::From<RemoteSystemSessionWatcher> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemSessionWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemSessionWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemSessionWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemSessionWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemSessionWatcher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemSessionWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemSessionWatcher> for ::windows::runtime::IInspectable {
@@ -4781,7 +4781,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemStatusType {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemStatusTypeFilter(::windows::runtime::IInspectable);
+pub struct RemoteSystemStatusTypeFilter(pub ::windows::runtime::IInspectable);
 impl RemoteSystemStatusTypeFilter {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystemStatusType(&self) -> ::windows::runtime::Result<RemoteSystemStatusType> {
@@ -4815,22 +4815,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemStatusTypeFilter {
 }
 impl ::std::convert::From<RemoteSystemStatusTypeFilter> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemStatusTypeFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemStatusTypeFilter> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemStatusTypeFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemStatusTypeFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemStatusTypeFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemStatusTypeFilter> for ::windows::runtime::IInspectable {
@@ -4880,7 +4880,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemStatusTypeFilter {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemUpdatedEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn RemoteSystem(&self) -> ::windows::runtime::Result<RemoteSystem> {
@@ -4903,22 +4903,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemUpdatedEventArgs {
 }
 impl ::std::convert::From<RemoteSystemUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -4946,7 +4946,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemUpdatedEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemWatcher(::windows::runtime::IInspectable);
+pub struct RemoteSystemWatcher(pub ::windows::runtime::IInspectable);
 impl RemoteSystemWatcher {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
@@ -5054,22 +5054,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemWatcher {
 }
 impl ::std::convert::From<RemoteSystemWatcher> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemWatcher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemWatcher> for ::windows::runtime::IInspectable {
@@ -5120,7 +5120,7 @@ impl ::windows::runtime::DefaultType for RemoteSystemWatcherError {
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemWatcherErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct RemoteSystemWatcherErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteSystemWatcherErrorOccurredEventArgs {
     #[doc = "*Required features: `System_RemoteSystems`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<RemoteSystemWatcherError> {
@@ -5143,22 +5143,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemWatcherErrorOccurredEventAr
 }
 impl ::std::convert::From<RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemWatcherErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemWatcherErrorOccurredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemWatcherErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
@@ -5186,7 +5186,7 @@ unsafe impl ::std::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RemoteSystemWebAccountFilter(::windows::runtime::IInspectable);
+pub struct RemoteSystemWebAccountFilter(pub ::windows::runtime::IInspectable);
 impl RemoteSystemWebAccountFilter {
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `System_RemoteSystems`, `Security_Credentials`*"]
@@ -5222,22 +5222,22 @@ impl ::windows::runtime::RuntimeName for RemoteSystemWebAccountFilter {
 }
 impl ::std::convert::From<RemoteSystemWebAccountFilter> for ::windows::runtime::IUnknown {
     fn from(value: RemoteSystemWebAccountFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RemoteSystemWebAccountFilter> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteSystemWebAccountFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteSystemWebAccountFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteSystemWebAccountFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RemoteSystemWebAccountFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RemoteSystemWebAccountFilter> for ::windows::runtime::IInspectable {

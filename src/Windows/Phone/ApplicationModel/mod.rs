@@ -69,7 +69,7 @@ impl ::std::ops::Not for ApplicationProfileModes {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationProfileStatics(::windows::runtime::IInspectable);
+pub struct IApplicationProfileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3573582516, 32378, 4577, [167, 242, 176, 161, 72, 36, 1, 155]);

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingConnection(::windows::runtime::IInspectable);
+pub struct CastingConnection(pub ::windows::runtime::IInspectable);
 impl CastingConnection {
     #[doc = "*Required features: `Media_Casting`*"]
     pub fn State(&self) -> ::windows::runtime::Result<CastingConnectionState> {
@@ -100,22 +100,22 @@ impl ::windows::runtime::RuntimeName for CastingConnection {
 }
 impl ::std::convert::From<CastingConnection> for ::windows::runtime::IUnknown {
     fn from(value: CastingConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingConnection> for ::windows::runtime::IUnknown {
     fn from(value: &CastingConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingConnection> for ::windows::runtime::IInspectable {
@@ -169,7 +169,7 @@ unsafe impl ::std::marker::Sync for CastingConnection {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingConnectionErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct CastingConnectionErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 impl CastingConnectionErrorOccurredEventArgs {
     #[doc = "*Required features: `Media_Casting`*"]
     pub fn ErrorStatus(&self) -> ::windows::runtime::Result<CastingConnectionErrorStatus> {
@@ -200,22 +200,22 @@ impl ::windows::runtime::RuntimeName for CastingConnectionErrorOccurredEventArgs
 }
 impl ::std::convert::From<CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CastingConnectionErrorOccurredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingConnectionErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingConnectionErrorOccurredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingConnectionErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
@@ -295,7 +295,7 @@ impl ::windows::runtime::DefaultType for CastingConnectionState {
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingDevice(::windows::runtime::IInspectable);
+pub struct CastingDevice(pub ::windows::runtime::IInspectable);
 impl CastingDevice {
     #[doc = "*Required features: `Media_Casting`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -387,22 +387,22 @@ impl ::windows::runtime::RuntimeName for CastingDevice {
 }
 impl ::std::convert::From<CastingDevice> for ::windows::runtime::IUnknown {
     fn from(value: CastingDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingDevice> for ::windows::runtime::IUnknown {
     fn from(value: &CastingDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingDevice> for ::windows::runtime::IInspectable {
@@ -430,7 +430,7 @@ unsafe impl ::std::marker::Sync for CastingDevice {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingDevicePicker(::windows::runtime::IInspectable);
+pub struct CastingDevicePicker(pub ::windows::runtime::IInspectable);
 impl CastingDevicePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -516,22 +516,22 @@ impl ::windows::runtime::RuntimeName for CastingDevicePicker {
 }
 impl ::std::convert::From<CastingDevicePicker> for ::windows::runtime::IUnknown {
     fn from(value: CastingDevicePicker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingDevicePicker> for ::windows::runtime::IUnknown {
     fn from(value: &CastingDevicePicker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDevicePicker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDevicePicker {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingDevicePicker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingDevicePicker> for ::windows::runtime::IInspectable {
@@ -559,7 +559,7 @@ unsafe impl ::std::marker::Sync for CastingDevicePicker {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingDevicePickerFilter(::windows::runtime::IInspectable);
+pub struct CastingDevicePickerFilter(pub ::windows::runtime::IInspectable);
 impl CastingDevicePickerFilter {
     #[doc = "*Required features: `Media_Casting`*"]
     pub fn SupportsAudio(&self) -> ::windows::runtime::Result<bool> {
@@ -622,22 +622,22 @@ impl ::windows::runtime::RuntimeName for CastingDevicePickerFilter {
 }
 impl ::std::convert::From<CastingDevicePickerFilter> for ::windows::runtime::IUnknown {
     fn from(value: CastingDevicePickerFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingDevicePickerFilter> for ::windows::runtime::IUnknown {
     fn from(value: &CastingDevicePickerFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDevicePickerFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDevicePickerFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingDevicePickerFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingDevicePickerFilter> for ::windows::runtime::IInspectable {
@@ -665,7 +665,7 @@ unsafe impl ::std::marker::Sync for CastingDevicePickerFilter {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingDeviceSelectedEventArgs(::windows::runtime::IInspectable);
+pub struct CastingDeviceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 impl CastingDeviceSelectedEventArgs {
     #[doc = "*Required features: `Media_Casting`*"]
     pub fn SelectedCastingDevice(&self) -> ::windows::runtime::Result<CastingDevice> {
@@ -688,22 +688,22 @@ impl ::windows::runtime::RuntimeName for CastingDeviceSelectedEventArgs {
 }
 impl ::std::convert::From<CastingDeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CastingDeviceSelectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingDeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDeviceSelectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDeviceSelectedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingDeviceSelectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingDeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
@@ -783,7 +783,7 @@ impl ::std::ops::Not for CastingPlaybackTypes {
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CastingSource(::windows::runtime::IInspectable);
+pub struct CastingSource(pub ::windows::runtime::IInspectable);
 impl CastingSource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
@@ -813,22 +813,22 @@ impl ::windows::runtime::RuntimeName for CastingSource {
 }
 impl ::std::convert::From<CastingSource> for ::windows::runtime::IUnknown {
     fn from(value: CastingSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CastingSource> for ::windows::runtime::IUnknown {
     fn from(value: &CastingSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CastingSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CastingSource> for ::windows::runtime::IInspectable {
@@ -855,7 +855,7 @@ unsafe impl ::std::marker::Send for CastingSource {}
 unsafe impl ::std::marker::Sync for CastingSource {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingConnection(::windows::runtime::IInspectable);
+pub struct ICastingConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingConnection {
     type Vtable = ICastingConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3449099859, 49905, 17560, [139, 120, 95, 180, 205, 54, 64, 221]);
@@ -888,7 +888,7 @@ pub struct ICastingConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingConnectionErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct ICastingConnectionErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingConnectionErrorOccurredEventArgs {
     type Vtable = ICastingConnectionErrorOccurredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818260073, 34585, 20224, [129, 251, 150, 24, 99, 199, 154, 50]);
@@ -907,7 +907,7 @@ pub struct ICastingConnectionErrorOccurredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingDevice(::windows::runtime::IInspectable);
+pub struct ICastingDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevice {
     type Vtable = ICastingDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732020355, 19011, 19153, [166, 210, 36, 146, 167, 150, 195, 242]);
@@ -931,7 +931,7 @@ pub struct ICastingDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingDevicePicker(::windows::runtime::IInspectable);
+pub struct ICastingDevicePicker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevicePicker {
     type Vtable = ICastingDevicePicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704854820, 1425, 18878, [170, 203, 75, 130, 238, 117, 106, 149]);
@@ -964,7 +964,7 @@ pub struct ICastingDevicePicker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingDevicePickerFilter(::windows::runtime::IInspectable);
+pub struct ICastingDevicePickerFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3196871068, 46435, 17236, [174, 51, 159, 218, 173, 140, 98, 145]);
@@ -989,7 +989,7 @@ pub struct ICastingDevicePickerFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingDeviceSelectedEventArgs(::windows::runtime::IInspectable);
+pub struct ICastingDeviceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3695419014, 56663, 19725, [148, 0, 175, 69, 228, 251, 54, 99]);
@@ -1007,7 +1007,7 @@ pub struct ICastingDeviceSelectedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingDeviceStatics(::windows::runtime::IInspectable);
+pub struct ICastingDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDeviceStatics {
     type Vtable = ICastingDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889780951, 19731, 16951, [163, 101, 76, 79, 106, 76, 253, 47]);
@@ -1031,7 +1031,7 @@ pub struct ICastingDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICastingSource(::windows::runtime::IInspectable);
+pub struct ICastingSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingSource {
     type Vtable = ICastingSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096387698, 13415, 18406, [160, 39, 82, 41, 35, 233, 215, 39]);

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_System_Com_ChannelCredentials`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IChannelCredentials(::windows::runtime::IUnknown);
+pub struct IChannelCredentials(pub ::windows::runtime::IUnknown);
 impl IChannelCredentials {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Com_ChannelCredentials`, `Win32_Foundation`*"]
@@ -68,22 +68,22 @@ unsafe impl ::windows::runtime::Interface for IChannelCredentials {
 }
 impl ::std::convert::From<IChannelCredentials> for ::windows::runtime::IUnknown {
     fn from(value: IChannelCredentials) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IChannelCredentials> for ::windows::runtime::IUnknown {
     fn from(value: &IChannelCredentials) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IChannelCredentials {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IChannelCredentials {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IChannelCredentials {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

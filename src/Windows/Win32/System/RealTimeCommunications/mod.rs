@@ -8,7 +8,7 @@ pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INetworkTransportSettings(::windows::runtime::IUnknown);
+pub struct INetworkTransportSettings(pub ::windows::runtime::IUnknown);
 impl INetworkTransportSettings {
     #[cfg(feature = "Win32_Networking_WinSock")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
@@ -27,22 +27,22 @@ unsafe impl ::windows::runtime::Interface for INetworkTransportSettings {
 }
 impl ::std::convert::From<INetworkTransportSettings> for ::windows::runtime::IUnknown {
     fn from(value: INetworkTransportSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INetworkTransportSettings> for ::windows::runtime::IUnknown {
     fn from(value: &INetworkTransportSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkTransportSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkTransportSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetworkTransportSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -59,7 +59,7 @@ pub struct INetworkTransportSettings_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INotificationTransportSync(::windows::runtime::IUnknown);
+pub struct INotificationTransportSync(pub ::windows::runtime::IUnknown);
 impl INotificationTransportSync {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CompleteDelivery(&self) -> ::windows::runtime::Result<()> {
@@ -76,22 +76,22 @@ unsafe impl ::windows::runtime::Interface for INotificationTransportSync {
 }
 impl ::std::convert::From<INotificationTransportSync> for ::windows::runtime::IUnknown {
     fn from(value: INotificationTransportSync) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INotificationTransportSync> for ::windows::runtime::IUnknown {
     fn from(value: &INotificationTransportSync) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INotificationTransportSync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INotificationTransportSync {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INotificationTransportSync {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -106,7 +106,7 @@ pub struct INotificationTransportSync_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCBuddy(::windows::runtime::IUnknown);
+pub struct IRTCBuddy(pub ::windows::runtime::IUnknown);
 impl IRTCBuddy {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -168,22 +168,22 @@ unsafe impl ::windows::runtime::Interface for IRTCBuddy {
 }
 impl ::std::convert::From<IRTCBuddy> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddy) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCBuddy> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCBuddy) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCBuddy {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCBuddy {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCBuddy {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCBuddy> for IRTCPresenceContact {
@@ -233,7 +233,7 @@ pub struct IRTCBuddy_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCBuddy2(::windows::runtime::IUnknown);
+pub struct IRTCBuddy2(pub ::windows::runtime::IUnknown);
 impl IRTCBuddy2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -335,22 +335,22 @@ unsafe impl ::windows::runtime::Interface for IRTCBuddy2 {
 }
 impl ::std::convert::From<IRTCBuddy2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddy2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCBuddy2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCBuddy2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCBuddy2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCBuddy2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCBuddy2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCBuddy2> for IRTCBuddy {
@@ -429,7 +429,7 @@ pub struct IRTCBuddy2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCBuddyEvent(::windows::runtime::IUnknown);
+pub struct IRTCBuddyEvent(pub ::windows::runtime::IUnknown);
 impl IRTCBuddyEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddy(&self) -> ::windows::runtime::Result<IRTCBuddy> {
@@ -443,22 +443,22 @@ unsafe impl ::windows::runtime::Interface for IRTCBuddyEvent {
 }
 impl ::std::convert::From<IRTCBuddyEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCBuddyEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCBuddyEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCBuddyEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCBuddyEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCBuddyEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -504,7 +504,7 @@ pub struct IRTCBuddyEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCBuddyEvent2(::windows::runtime::IUnknown);
+pub struct IRTCBuddyEvent2(pub ::windows::runtime::IUnknown);
 impl IRTCBuddyEvent2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -555,22 +555,22 @@ unsafe impl ::windows::runtime::Interface for IRTCBuddyEvent2 {
 }
 impl ::std::convert::From<IRTCBuddyEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCBuddyEvent2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCBuddyEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCBuddyEvent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCBuddyEvent2> for IRTCBuddyEvent {
@@ -640,7 +640,7 @@ pub struct IRTCBuddyEvent2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCBuddyGroup(::windows::runtime::IUnknown);
+pub struct IRTCBuddyGroup(pub ::windows::runtime::IUnknown);
 impl IRTCBuddyGroup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -694,22 +694,22 @@ unsafe impl ::windows::runtime::Interface for IRTCBuddyGroup {
 }
 impl ::std::convert::From<IRTCBuddyGroup> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCBuddyGroup> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCBuddyGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCBuddyGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCBuddyGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCBuddyGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -735,7 +735,7 @@ pub struct IRTCBuddyGroup_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCBuddyGroupEvent(::windows::runtime::IUnknown);
+pub struct IRTCBuddyGroupEvent(pub ::windows::runtime::IUnknown);
 impl IRTCBuddyGroupEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_GROUP_EVENT_TYPE> {
@@ -764,22 +764,22 @@ unsafe impl ::windows::runtime::Interface for IRTCBuddyGroupEvent {
 }
 impl ::std::convert::From<IRTCBuddyGroupEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCBuddyGroupEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCBuddyGroupEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCBuddyGroupEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCBuddyGroupEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCBuddyGroupEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCBuddyGroupEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -828,7 +828,7 @@ pub struct IRTCBuddyGroupEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClient(::windows::runtime::IUnknown);
+pub struct IRTCClient(pub ::windows::runtime::IUnknown);
 impl IRTCClient {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
@@ -1037,22 +1037,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClient {
 }
 impl ::std::convert::From<IRTCClient> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClient> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1118,7 +1118,7 @@ pub struct IRTCClient_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClient2(::windows::runtime::IUnknown);
+pub struct IRTCClient2(pub ::windows::runtime::IUnknown);
 impl IRTCClient2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
@@ -1387,22 +1387,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClient2 {
 }
 impl ::std::convert::From<IRTCClient2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClient2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClient2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClient2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClient2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCClient2> for IRTCClient {
@@ -1504,7 +1504,7 @@ pub struct IRTCClient2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClientEvent(::windows::runtime::IUnknown);
+pub struct IRTCClientEvent(pub ::windows::runtime::IUnknown);
 impl IRTCClientEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_CLIENT_EVENT_TYPE> {
@@ -1523,22 +1523,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClientEvent {
 }
 impl ::std::convert::From<IRTCClientEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClientEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClientEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClientEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClientEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClientEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1585,7 +1585,7 @@ pub struct IRTCClientEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClientPortManagement(::windows::runtime::IUnknown);
+pub struct IRTCClientPortManagement(pub ::windows::runtime::IUnknown);
 impl IRTCClientPortManagement {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -1608,22 +1608,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClientPortManagement {
 }
 impl ::std::convert::From<IRTCClientPortManagement> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientPortManagement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClientPortManagement> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClientPortManagement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClientPortManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClientPortManagement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClientPortManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1641,7 +1641,7 @@ pub struct IRTCClientPortManagement_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClientPresence(::windows::runtime::IUnknown);
+pub struct IRTCClientPresence(pub ::windows::runtime::IUnknown);
 impl IRTCClientPresence {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1740,22 +1740,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClientPresence {
 }
 impl ::std::convert::From<IRTCClientPresence> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientPresence) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClientPresence> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClientPresence) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClientPresence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClientPresence {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClientPresence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1794,7 +1794,7 @@ pub struct IRTCClientPresence_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClientPresence2(::windows::runtime::IUnknown);
+pub struct IRTCClientPresence2(pub ::windows::runtime::IUnknown);
 impl IRTCClientPresence2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2003,22 +2003,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClientPresence2 {
 }
 impl ::std::convert::From<IRTCClientPresence2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientPresence2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClientPresence2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClientPresence2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClientPresence2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClientPresence2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClientPresence2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCClientPresence2> for IRTCClientPresence {
@@ -2105,7 +2105,7 @@ pub struct IRTCClientPresence2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClientProvisioning(::windows::runtime::IUnknown);
+pub struct IRTCClientProvisioning(pub ::windows::runtime::IUnknown);
 impl IRTCClientProvisioning {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -2148,22 +2148,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClientProvisioning {
 }
 impl ::std::convert::From<IRTCClientProvisioning> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientProvisioning) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClientProvisioning> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClientProvisioning) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClientProvisioning {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClientProvisioning {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClientProvisioning {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2185,7 +2185,7 @@ pub struct IRTCClientProvisioning_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCClientProvisioning2(::windows::runtime::IUnknown);
+pub struct IRTCClientProvisioning2(pub ::windows::runtime::IUnknown);
 impl IRTCClientProvisioning2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -2232,22 +2232,22 @@ unsafe impl ::windows::runtime::Interface for IRTCClientProvisioning2 {
 }
 impl ::std::convert::From<IRTCClientProvisioning2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCClientProvisioning2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCClientProvisioning2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCClientProvisioning2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCClientProvisioning2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCClientProvisioning2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCClientProvisioning2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCClientProvisioning2> for IRTCClientProvisioning {
@@ -2290,7 +2290,7 @@ pub struct IRTCClientProvisioning2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCCollection(::windows::runtime::IUnknown);
+pub struct IRTCCollection(pub ::windows::runtime::IUnknown);
 impl IRTCCollection {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -2315,22 +2315,22 @@ unsafe impl ::windows::runtime::Interface for IRTCCollection {
 }
 impl ::std::convert::From<IRTCCollection> for ::windows::runtime::IUnknown {
     fn from(value: IRTCCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2379,7 +2379,7 @@ pub struct IRTCCollection_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCDispatchEventNotification(::windows::runtime::IUnknown);
+pub struct IRTCDispatchEventNotification(pub ::windows::runtime::IUnknown);
 impl IRTCDispatchEventNotification {}
 unsafe impl ::windows::runtime::Interface for IRTCDispatchEventNotification {
     type Vtable = IRTCDispatchEventNotification_abi;
@@ -2387,22 +2387,22 @@ unsafe impl ::windows::runtime::Interface for IRTCDispatchEventNotification {
 }
 impl ::std::convert::From<IRTCDispatchEventNotification> for ::windows::runtime::IUnknown {
     fn from(value: IRTCDispatchEventNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCDispatchEventNotification> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCDispatchEventNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCDispatchEventNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCDispatchEventNotification {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCDispatchEventNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2447,7 +2447,7 @@ pub struct IRTCDispatchEventNotification_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumBuddies(::windows::runtime::IUnknown);
+pub struct IRTCEnumBuddies(pub ::windows::runtime::IUnknown);
 impl IRTCEnumBuddies {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCBuddy>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2473,22 +2473,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumBuddies {
 }
 impl ::std::convert::From<IRTCEnumBuddies> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumBuddies) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumBuddies> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumBuddies) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumBuddies {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumBuddies {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumBuddies {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2505,7 +2505,7 @@ pub struct IRTCEnumBuddies_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumGroups(::windows::runtime::IUnknown);
+pub struct IRTCEnumGroups(pub ::windows::runtime::IUnknown);
 impl IRTCEnumGroups {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2531,22 +2531,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumGroups {
 }
 impl ::std::convert::From<IRTCEnumGroups> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumGroups) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumGroups> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumGroups) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumGroups {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2563,7 +2563,7 @@ pub struct IRTCEnumGroups_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumParticipants(::windows::runtime::IUnknown);
+pub struct IRTCEnumParticipants(pub ::windows::runtime::IUnknown);
 impl IRTCEnumParticipants {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCParticipant>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2589,22 +2589,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumParticipants {
 }
 impl ::std::convert::From<IRTCEnumParticipants> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumParticipants) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumParticipants> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumParticipants) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumParticipants {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumParticipants {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumParticipants {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2621,7 +2621,7 @@ pub struct IRTCEnumParticipants_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumPresenceDevices(::windows::runtime::IUnknown);
+pub struct IRTCEnumPresenceDevices(pub ::windows::runtime::IUnknown);
 impl IRTCEnumPresenceDevices {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2647,22 +2647,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumPresenceDevices {
 }
 impl ::std::convert::From<IRTCEnumPresenceDevices> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumPresenceDevices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumPresenceDevices> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumPresenceDevices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumPresenceDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumPresenceDevices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumPresenceDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2679,7 +2679,7 @@ pub struct IRTCEnumPresenceDevices_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumProfiles(::windows::runtime::IUnknown);
+pub struct IRTCEnumProfiles(pub ::windows::runtime::IUnknown);
 impl IRTCEnumProfiles {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCProfile>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2705,22 +2705,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumProfiles {
 }
 impl ::std::convert::From<IRTCEnumProfiles> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumProfiles) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumProfiles> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumProfiles) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumProfiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumProfiles {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumProfiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2737,7 +2737,7 @@ pub struct IRTCEnumProfiles_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumUserSearchResults(::windows::runtime::IUnknown);
+pub struct IRTCEnumUserSearchResults(pub ::windows::runtime::IUnknown);
 impl IRTCEnumUserSearchResults {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2763,22 +2763,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumUserSearchResults {
 }
 impl ::std::convert::From<IRTCEnumUserSearchResults> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumUserSearchResults) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumUserSearchResults> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumUserSearchResults) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumUserSearchResults {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumUserSearchResults {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumUserSearchResults {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2795,7 +2795,7 @@ pub struct IRTCEnumUserSearchResults_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEnumWatchers(::windows::runtime::IUnknown);
+pub struct IRTCEnumWatchers(pub ::windows::runtime::IUnknown);
 impl IRTCEnumWatchers {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCWatcher>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2821,22 +2821,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEnumWatchers {
 }
 impl ::std::convert::From<IRTCEnumWatchers> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEnumWatchers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEnumWatchers> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEnumWatchers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEnumWatchers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEnumWatchers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEnumWatchers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2853,7 +2853,7 @@ pub struct IRTCEnumWatchers_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCEventNotification(::windows::runtime::IUnknown);
+pub struct IRTCEventNotification(pub ::windows::runtime::IUnknown);
 impl IRTCEventNotification {
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
@@ -2867,22 +2867,22 @@ unsafe impl ::windows::runtime::Interface for IRTCEventNotification {
 }
 impl ::std::convert::From<IRTCEventNotification> for ::windows::runtime::IUnknown {
     fn from(value: IRTCEventNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCEventNotification> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCEventNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCEventNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCEventNotification {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCEventNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2897,7 +2897,7 @@ pub struct IRTCEventNotification_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCInfoEvent(::windows::runtime::IUnknown);
+pub struct IRTCInfoEvent(pub ::windows::runtime::IUnknown);
 impl IRTCInfoEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
@@ -2928,22 +2928,22 @@ unsafe impl ::windows::runtime::Interface for IRTCInfoEvent {
 }
 impl ::std::convert::From<IRTCInfoEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCInfoEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCInfoEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCInfoEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCInfoEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCInfoEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCInfoEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2994,7 +2994,7 @@ pub struct IRTCInfoEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCIntensityEvent(::windows::runtime::IUnknown);
+pub struct IRTCIntensityEvent(pub ::windows::runtime::IUnknown);
 impl IRTCIntensityEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Level(&self) -> ::windows::runtime::Result<i32> {
@@ -3023,22 +3023,22 @@ unsafe impl ::windows::runtime::Interface for IRTCIntensityEvent {
 }
 impl ::std::convert::From<IRTCIntensityEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCIntensityEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCIntensityEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCIntensityEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCIntensityEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCIntensityEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCIntensityEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3087,7 +3087,7 @@ pub struct IRTCIntensityEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCMediaEvent(::windows::runtime::IUnknown);
+pub struct IRTCMediaEvent(pub ::windows::runtime::IUnknown);
 impl IRTCMediaEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MediaType(&self) -> ::windows::runtime::Result<i32> {
@@ -3111,22 +3111,22 @@ unsafe impl ::windows::runtime::Interface for IRTCMediaEvent {
 }
 impl ::std::convert::From<IRTCMediaEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCMediaEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCMediaEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCMediaEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCMediaEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCMediaEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCMediaEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3174,7 +3174,7 @@ pub struct IRTCMediaEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCMediaRequestEvent(::windows::runtime::IUnknown);
+pub struct IRTCMediaRequestEvent(pub ::windows::runtime::IUnknown);
 impl IRTCMediaRequestEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
@@ -3216,22 +3216,22 @@ unsafe impl ::windows::runtime::Interface for IRTCMediaRequestEvent {
 }
 impl ::std::convert::From<IRTCMediaRequestEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCMediaRequestEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCMediaRequestEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCMediaRequestEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCMediaRequestEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCMediaRequestEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCMediaRequestEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3283,7 +3283,7 @@ pub struct IRTCMediaRequestEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCMessagingEvent(::windows::runtime::IUnknown);
+pub struct IRTCMessagingEvent(pub ::windows::runtime::IUnknown);
 impl IRTCMessagingEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
@@ -3324,22 +3324,22 @@ unsafe impl ::windows::runtime::Interface for IRTCMessagingEvent {
 }
 impl ::std::convert::From<IRTCMessagingEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCMessagingEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCMessagingEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCMessagingEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCMessagingEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCMessagingEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCMessagingEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3392,7 +3392,7 @@ pub struct IRTCMessagingEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCParticipant(::windows::runtime::IUnknown);
+pub struct IRTCParticipant(pub ::windows::runtime::IUnknown);
 impl IRTCParticipant {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -3428,22 +3428,22 @@ unsafe impl ::windows::runtime::Interface for IRTCParticipant {
 }
 impl ::std::convert::From<IRTCParticipant> for ::windows::runtime::IUnknown {
     fn from(value: IRTCParticipant) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCParticipant> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCParticipant) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCParticipant {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCParticipant {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCParticipant {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3463,7 +3463,7 @@ pub struct IRTCParticipant_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCParticipantStateChangeEvent(::windows::runtime::IUnknown);
+pub struct IRTCParticipantStateChangeEvent(pub ::windows::runtime::IUnknown);
 impl IRTCParticipantStateChangeEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participant(&self) -> ::windows::runtime::Result<IRTCParticipant> {
@@ -3487,22 +3487,22 @@ unsafe impl ::windows::runtime::Interface for IRTCParticipantStateChangeEvent {
 }
 impl ::std::convert::From<IRTCParticipantStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCParticipantStateChangeEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCParticipantStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCParticipantStateChangeEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCParticipantStateChangeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCParticipantStateChangeEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCParticipantStateChangeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3550,7 +3550,7 @@ pub struct IRTCParticipantStateChangeEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCPortManager(::windows::runtime::IUnknown);
+pub struct IRTCPortManager(pub ::windows::runtime::IUnknown);
 impl IRTCPortManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -3574,22 +3574,22 @@ unsafe impl ::windows::runtime::Interface for IRTCPortManager {
 }
 impl ::std::convert::From<IRTCPortManager> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPortManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCPortManager> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCPortManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCPortManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCPortManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCPortManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3608,7 +3608,7 @@ pub struct IRTCPortManager_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCPresenceContact(::windows::runtime::IUnknown);
+pub struct IRTCPresenceContact(pub ::windows::runtime::IUnknown);
 impl IRTCPresenceContact {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -3659,22 +3659,22 @@ unsafe impl ::windows::runtime::Interface for IRTCPresenceContact {
 }
 impl ::std::convert::From<IRTCPresenceContact> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceContact) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCPresenceContact> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCPresenceContact) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCPresenceContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCPresenceContact {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCPresenceContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3701,7 +3701,7 @@ pub struct IRTCPresenceContact_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCPresenceDataEvent(::windows::runtime::IUnknown);
+pub struct IRTCPresenceDataEvent(pub ::windows::runtime::IUnknown);
 impl IRTCPresenceDataEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
@@ -3726,22 +3726,22 @@ unsafe impl ::windows::runtime::Interface for IRTCPresenceDataEvent {
 }
 impl ::std::convert::From<IRTCPresenceDataEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceDataEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCPresenceDataEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCPresenceDataEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCPresenceDataEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCPresenceDataEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCPresenceDataEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3791,7 +3791,7 @@ pub struct IRTCPresenceDataEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCPresenceDevice(::windows::runtime::IUnknown);
+pub struct IRTCPresenceDevice(pub ::windows::runtime::IUnknown);
 impl IRTCPresenceDevice {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<RTC_PRESENCE_STATUS> {
@@ -3822,22 +3822,22 @@ unsafe impl ::windows::runtime::Interface for IRTCPresenceDevice {
 }
 impl ::std::convert::From<IRTCPresenceDevice> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCPresenceDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCPresenceDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCPresenceDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCPresenceDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCPresenceDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3857,7 +3857,7 @@ pub struct IRTCPresenceDevice_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCPresencePropertyEvent(::windows::runtime::IUnknown);
+pub struct IRTCPresencePropertyEvent(pub ::windows::runtime::IUnknown);
 impl IRTCPresencePropertyEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
@@ -3888,22 +3888,22 @@ unsafe impl ::windows::runtime::Interface for IRTCPresencePropertyEvent {
 }
 impl ::std::convert::From<IRTCPresencePropertyEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresencePropertyEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCPresencePropertyEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCPresencePropertyEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCPresencePropertyEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCPresencePropertyEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCPresencePropertyEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3954,7 +3954,7 @@ pub struct IRTCPresencePropertyEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCPresenceStatusEvent(::windows::runtime::IUnknown);
+pub struct IRTCPresenceStatusEvent(pub ::windows::runtime::IUnknown);
 impl IRTCPresenceStatusEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
@@ -3979,22 +3979,22 @@ unsafe impl ::windows::runtime::Interface for IRTCPresenceStatusEvent {
 }
 impl ::std::convert::From<IRTCPresenceStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCPresenceStatusEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCPresenceStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCPresenceStatusEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCPresenceStatusEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCPresenceStatusEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCPresenceStatusEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4044,7 +4044,7 @@ pub struct IRTCPresenceStatusEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCProfile(::windows::runtime::IUnknown);
+pub struct IRTCProfile(pub ::windows::runtime::IUnknown);
 impl IRTCProfile {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -4157,22 +4157,22 @@ unsafe impl ::windows::runtime::Interface for IRTCProfile {
 }
 impl ::std::convert::From<IRTCProfile> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCProfile> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCProfile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4218,7 +4218,7 @@ pub struct IRTCProfile_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCProfile2(::windows::runtime::IUnknown);
+pub struct IRTCProfile2(pub ::windows::runtime::IUnknown);
 impl IRTCProfile2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -4351,22 +4351,22 @@ unsafe impl ::windows::runtime::Interface for IRTCProfile2 {
 }
 impl ::std::convert::From<IRTCProfile2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfile2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCProfile2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCProfile2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCProfile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCProfile2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCProfile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCProfile2> for IRTCProfile {
@@ -4438,7 +4438,7 @@ pub struct IRTCProfile2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCProfileEvent(::windows::runtime::IUnknown);
+pub struct IRTCProfileEvent(pub ::windows::runtime::IUnknown);
 impl IRTCProfileEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
@@ -4462,22 +4462,22 @@ unsafe impl ::windows::runtime::Interface for IRTCProfileEvent {
 }
 impl ::std::convert::From<IRTCProfileEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfileEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCProfileEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCProfileEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCProfileEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCProfileEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCProfileEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4525,7 +4525,7 @@ pub struct IRTCProfileEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCProfileEvent2(::windows::runtime::IUnknown);
+pub struct IRTCProfileEvent2(pub ::windows::runtime::IUnknown);
 impl IRTCProfileEvent2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4575,22 +4575,22 @@ unsafe impl ::windows::runtime::Interface for IRTCProfileEvent2 {
 }
 impl ::std::convert::From<IRTCProfileEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCProfileEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCProfileEvent2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCProfileEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCProfileEvent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCProfileEvent2> for IRTCProfileEvent {
@@ -4659,7 +4659,7 @@ pub struct IRTCProfileEvent2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCReInviteEvent(::windows::runtime::IUnknown);
+pub struct IRTCReInviteEvent(pub ::windows::runtime::IUnknown);
 impl IRTCReInviteEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
@@ -4692,22 +4692,22 @@ unsafe impl ::windows::runtime::Interface for IRTCReInviteEvent {
 }
 impl ::std::convert::From<IRTCReInviteEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCReInviteEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCReInviteEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCReInviteEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCReInviteEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCReInviteEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCReInviteEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4759,7 +4759,7 @@ pub struct IRTCReInviteEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCRegistrationStateChangeEvent(::windows::runtime::IUnknown);
+pub struct IRTCRegistrationStateChangeEvent(pub ::windows::runtime::IUnknown);
 impl IRTCRegistrationStateChangeEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
@@ -4789,22 +4789,22 @@ unsafe impl ::windows::runtime::Interface for IRTCRegistrationStateChangeEvent {
 }
 impl ::std::convert::From<IRTCRegistrationStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCRegistrationStateChangeEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCRegistrationStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCRegistrationStateChangeEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCRegistrationStateChangeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCRegistrationStateChangeEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCRegistrationStateChangeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4854,7 +4854,7 @@ pub struct IRTCRegistrationStateChangeEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCRoamingEvent(::windows::runtime::IUnknown);
+pub struct IRTCRoamingEvent(pub ::windows::runtime::IUnknown);
 impl IRTCRoamingEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_ROAMING_EVENT_TYPE> {
@@ -4884,22 +4884,22 @@ unsafe impl ::windows::runtime::Interface for IRTCRoamingEvent {
 }
 impl ::std::convert::From<IRTCRoamingEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCRoamingEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCRoamingEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCRoamingEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCRoamingEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCRoamingEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCRoamingEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4949,7 +4949,7 @@ pub struct IRTCRoamingEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSession(::windows::runtime::IUnknown);
+pub struct IRTCSession(pub ::windows::runtime::IUnknown);
 impl IRTCSession {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Client(&self) -> ::windows::runtime::Result<IRTCClient> {
@@ -5054,22 +5054,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSession {
 }
 impl ::std::convert::From<IRTCSession> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSession> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5108,7 +5108,7 @@ pub struct IRTCSession_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSession2(::windows::runtime::IUnknown);
+pub struct IRTCSession2(pub ::windows::runtime::IUnknown);
 impl IRTCSession2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Client(&self) -> ::windows::runtime::Result<IRTCClient> {
@@ -5242,22 +5242,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSession2 {
 }
 impl ::std::convert::From<IRTCSession2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSession2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSession2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSession2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSession2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSession2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSession2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCSession2> for IRTCSession {
@@ -5325,7 +5325,7 @@ pub struct IRTCSession2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionCallControl(::windows::runtime::IUnknown);
+pub struct IRTCSessionCallControl(pub ::windows::runtime::IUnknown);
 impl IRTCSessionCallControl {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Hold(&self, lcookie: isize) -> ::windows::runtime::Result<()> {
@@ -5379,22 +5379,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionCallControl {
 }
 impl ::std::convert::From<IRTCSessionCallControl> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionCallControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionCallControl> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionCallControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionCallControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionCallControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionCallControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5422,7 +5422,7 @@ pub struct IRTCSessionCallControl_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionDescriptionManager(::windows::runtime::IUnknown);
+pub struct IRTCSessionDescriptionManager(pub ::windows::runtime::IUnknown);
 impl IRTCSessionDescriptionManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -5436,22 +5436,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionDescriptionManager {
 }
 impl ::std::convert::From<IRTCSessionDescriptionManager> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionDescriptionManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionDescriptionManager> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionDescriptionManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionDescriptionManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionDescriptionManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionDescriptionManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5466,7 +5466,7 @@ pub struct IRTCSessionDescriptionManager_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionOperationCompleteEvent(::windows::runtime::IUnknown);
+pub struct IRTCSessionOperationCompleteEvent(pub ::windows::runtime::IUnknown);
 impl IRTCSessionOperationCompleteEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
@@ -5496,22 +5496,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionOperationCompleteEvent 
 }
 impl ::std::convert::From<IRTCSessionOperationCompleteEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionOperationCompleteEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionOperationCompleteEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionOperationCompleteEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionOperationCompleteEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionOperationCompleteEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionOperationCompleteEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5561,7 +5561,7 @@ pub struct IRTCSessionOperationCompleteEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionOperationCompleteEvent2(::windows::runtime::IUnknown);
+pub struct IRTCSessionOperationCompleteEvent2(pub ::windows::runtime::IUnknown);
 impl IRTCSessionOperationCompleteEvent2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5622,22 +5622,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionOperationCompleteEvent2
 }
 impl ::std::convert::From<IRTCSessionOperationCompleteEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionOperationCompleteEvent2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionOperationCompleteEvent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
@@ -5710,7 +5710,7 @@ pub struct IRTCSessionOperationCompleteEvent2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionPortManagement(::windows::runtime::IUnknown);
+pub struct IRTCSessionPortManagement(pub ::windows::runtime::IUnknown);
 impl IRTCSessionPortManagement {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPortManager<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCPortManager>>(&self, pportmanager: Param0) -> ::windows::runtime::Result<()> {
@@ -5723,22 +5723,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionPortManagement {
 }
 impl ::std::convert::From<IRTCSessionPortManagement> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionPortManagement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionPortManagement> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionPortManagement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionPortManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionPortManagement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionPortManagement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5752,7 +5752,7 @@ pub struct IRTCSessionPortManagement_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionReferStatusEvent(::windows::runtime::IUnknown);
+pub struct IRTCSessionReferStatusEvent(pub ::windows::runtime::IUnknown);
 impl IRTCSessionReferStatusEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
@@ -5782,22 +5782,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionReferStatusEvent {
 }
 impl ::std::convert::From<IRTCSessionReferStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionReferStatusEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionReferStatusEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionReferStatusEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionReferStatusEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionReferStatusEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionReferStatusEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5847,7 +5847,7 @@ pub struct IRTCSessionReferStatusEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionReferredEvent(::windows::runtime::IUnknown);
+pub struct IRTCSessionReferredEvent(pub ::windows::runtime::IUnknown);
 impl IRTCSessionReferredEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
@@ -5891,22 +5891,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionReferredEvent {
 }
 impl ::std::convert::From<IRTCSessionReferredEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionReferredEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionReferredEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionReferredEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionReferredEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionReferredEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionReferredEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5961,7 +5961,7 @@ pub struct IRTCSessionReferredEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionStateChangeEvent(::windows::runtime::IUnknown);
+pub struct IRTCSessionStateChangeEvent(pub ::windows::runtime::IUnknown);
 impl IRTCSessionStateChangeEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
@@ -5991,22 +5991,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionStateChangeEvent {
 }
 impl ::std::convert::From<IRTCSessionStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionStateChangeEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionStateChangeEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionStateChangeEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionStateChangeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionStateChangeEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionStateChangeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6056,7 +6056,7 @@ pub struct IRTCSessionStateChangeEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCSessionStateChangeEvent2(::windows::runtime::IUnknown);
+pub struct IRTCSessionStateChangeEvent2(pub ::windows::runtime::IUnknown);
 impl IRTCSessionStateChangeEvent2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6127,22 +6127,22 @@ unsafe impl ::windows::runtime::Interface for IRTCSessionStateChangeEvent2 {
 }
 impl ::std::convert::From<IRTCSessionStateChangeEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCSessionStateChangeEvent2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCSessionStateChangeEvent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
@@ -6217,7 +6217,7 @@ pub struct IRTCSessionStateChangeEvent2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCUserSearch(::windows::runtime::IUnknown);
+pub struct IRTCUserSearch(pub ::windows::runtime::IUnknown);
 impl IRTCUserSearch {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CreateQuery(&self) -> ::windows::runtime::Result<IRTCUserSearchQuery> {
@@ -6235,22 +6235,22 @@ unsafe impl ::windows::runtime::Interface for IRTCUserSearch {
 }
 impl ::std::convert::From<IRTCUserSearch> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCUserSearch> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCUserSearch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCUserSearch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCUserSearch {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCUserSearch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6265,7 +6265,7 @@ pub struct IRTCUserSearch_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCUserSearchQuery(::windows::runtime::IUnknown);
+pub struct IRTCUserSearchQuery(pub ::windows::runtime::IUnknown);
 impl IRTCUserSearchQuery {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -6311,22 +6311,22 @@ unsafe impl ::windows::runtime::Interface for IRTCUserSearchQuery {
 }
 impl ::std::convert::From<IRTCUserSearchQuery> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearchQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCUserSearchQuery> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCUserSearchQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCUserSearchQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCUserSearchQuery {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCUserSearchQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6351,7 +6351,7 @@ pub struct IRTCUserSearchQuery_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCUserSearchResult(::windows::runtime::IUnknown);
+pub struct IRTCUserSearchResult(pub ::windows::runtime::IUnknown);
 impl IRTCUserSearchResult {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -6366,22 +6366,22 @@ unsafe impl ::windows::runtime::Interface for IRTCUserSearchResult {
 }
 impl ::std::convert::From<IRTCUserSearchResult> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearchResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCUserSearchResult> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCUserSearchResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCUserSearchResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCUserSearchResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCUserSearchResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6396,7 +6396,7 @@ pub struct IRTCUserSearchResult_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCUserSearchResultsEvent(::windows::runtime::IUnknown);
+pub struct IRTCUserSearchResultsEvent(pub ::windows::runtime::IUnknown);
 impl IRTCUserSearchResultsEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateResults(&self) -> ::windows::runtime::Result<IRTCEnumUserSearchResults> {
@@ -6440,22 +6440,22 @@ unsafe impl ::windows::runtime::Interface for IRTCUserSearchResultsEvent {
 }
 impl ::std::convert::From<IRTCUserSearchResultsEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCUserSearchResultsEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCUserSearchResultsEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCUserSearchResultsEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCUserSearchResultsEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCUserSearchResultsEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCUserSearchResultsEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6507,7 +6507,7 @@ pub struct IRTCUserSearchResultsEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCWatcher(::windows::runtime::IUnknown);
+pub struct IRTCWatcher(pub ::windows::runtime::IUnknown);
 impl IRTCWatcher {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -6567,22 +6567,22 @@ unsafe impl ::windows::runtime::Interface for IRTCWatcher {
 }
 impl ::std::convert::From<IRTCWatcher> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCWatcher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCWatcher> for IRTCPresenceContact {
@@ -6631,7 +6631,7 @@ pub struct IRTCWatcher_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCWatcher2(::windows::runtime::IUnknown);
+pub struct IRTCWatcher2(pub ::windows::runtime::IUnknown);
 impl IRTCWatcher2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
@@ -6701,22 +6701,22 @@ unsafe impl ::windows::runtime::Interface for IRTCWatcher2 {
 }
 impl ::std::convert::From<IRTCWatcher2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcher2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCWatcher2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCWatcher2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCWatcher2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCWatcher2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCWatcher2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCWatcher2> for IRTCWatcher {
@@ -6787,7 +6787,7 @@ pub struct IRTCWatcher2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCWatcherEvent(::windows::runtime::IUnknown);
+pub struct IRTCWatcherEvent(pub ::windows::runtime::IUnknown);
 impl IRTCWatcherEvent {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Watcher(&self) -> ::windows::runtime::Result<IRTCWatcher> {
@@ -6801,22 +6801,22 @@ unsafe impl ::windows::runtime::Interface for IRTCWatcherEvent {
 }
 impl ::std::convert::From<IRTCWatcherEvent> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcherEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCWatcherEvent> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCWatcherEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCWatcherEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCWatcherEvent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCWatcherEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6862,7 +6862,7 @@ pub struct IRTCWatcherEvent_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRTCWatcherEvent2(::windows::runtime::IUnknown);
+pub struct IRTCWatcherEvent2(pub ::windows::runtime::IUnknown);
 impl IRTCWatcherEvent2 {
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6907,22 +6907,22 @@ unsafe impl ::windows::runtime::Interface for IRTCWatcherEvent2 {
 }
 impl ::std::convert::From<IRTCWatcherEvent2> for ::windows::runtime::IUnknown {
     fn from(value: IRTCWatcherEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRTCWatcherEvent2> for ::windows::runtime::IUnknown {
     fn from(value: &IRTCWatcherEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRTCWatcherEvent2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IRTCWatcherEvent2> for IRTCWatcherEvent {
@@ -6990,7 +6990,7 @@ pub struct IRTCWatcherEvent2_abi(
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITransportSettingsInternal(::windows::runtime::IUnknown);
+pub struct ITransportSettingsInternal(pub ::windows::runtime::IUnknown);
 impl ITransportSettingsInternal {
     #[cfg(feature = "Win32_Networking_WinSock")]
     #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
@@ -7009,22 +7009,22 @@ unsafe impl ::windows::runtime::Interface for ITransportSettingsInternal {
 }
 impl ::std::convert::From<ITransportSettingsInternal> for ::windows::runtime::IUnknown {
     fn from(value: ITransportSettingsInternal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITransportSettingsInternal> for ::windows::runtime::IUnknown {
     fn from(value: &ITransportSettingsInternal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransportSettingsInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransportSettingsInternal {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITransportSettingsInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

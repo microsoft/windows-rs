@@ -61,7 +61,7 @@ impl ::windows::runtime::DefaultType for CommonFolderQuery {
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContentIndexer(::windows::runtime::IInspectable);
+pub struct ContentIndexer(pub ::windows::runtime::IInspectable);
 impl ContentIndexer {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
@@ -189,22 +189,22 @@ impl ::windows::runtime::RuntimeName for ContentIndexer {
 }
 impl ::std::convert::From<ContentIndexer> for ::windows::runtime::IUnknown {
     fn from(value: ContentIndexer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContentIndexer> for ::windows::runtime::IUnknown {
     fn from(value: &ContentIndexer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentIndexer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentIndexer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContentIndexer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContentIndexer> for ::windows::runtime::IInspectable {
@@ -232,7 +232,7 @@ unsafe impl ::std::marker::Sync for ContentIndexer {}
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContentIndexerQuery(::windows::runtime::IInspectable);
+pub struct ContentIndexerQuery(pub ::windows::runtime::IInspectable);
 impl ContentIndexerQuery {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
@@ -300,22 +300,22 @@ impl ::windows::runtime::RuntimeName for ContentIndexerQuery {
 }
 impl ::std::convert::From<ContentIndexerQuery> for ::windows::runtime::IUnknown {
     fn from(value: ContentIndexerQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContentIndexerQuery> for ::windows::runtime::IUnknown {
     fn from(value: &ContentIndexerQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentIndexerQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentIndexerQuery {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContentIndexerQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContentIndexerQuery> for ::windows::runtime::IInspectable {
@@ -387,7 +387,7 @@ impl ::windows::runtime::DefaultType for FolderDepth {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContentIndexer(::windows::runtime::IInspectable);
+pub struct IContentIndexer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexer {
     type Vtable = IContentIndexer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977333133, 63128, 18818, [176, 95, 58, 110, 140, 171, 1, 162]);
@@ -417,7 +417,7 @@ pub struct IContentIndexer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContentIndexerQuery(::windows::runtime::IInspectable);
+pub struct IContentIndexerQuery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerQuery {
     type Vtable = IContentIndexerQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1893970168, 19452, 17034, [136, 137, 204, 81, 218, 154, 123, 157]);
@@ -445,7 +445,7 @@ pub struct IContentIndexerQuery_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContentIndexerQueryOperations(::windows::runtime::IInspectable);
+pub struct IContentIndexerQueryOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerQueryOperations {
     type Vtable = IContentIndexerQueryOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(679624208, 18310, 17137, [151, 48, 121, 43, 53, 102, 177, 80]);
@@ -468,7 +468,7 @@ pub struct IContentIndexerQueryOperations_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContentIndexerStatics(::windows::runtime::IInspectable);
+pub struct IContentIndexerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerStatics {
     type Vtable = IContentIndexerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353562485, 45950, 19552, [155, 168, 183, 96, 253, 163, 229, 157]);
@@ -488,7 +488,7 @@ pub struct IContentIndexerStatics_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Search`*"]
-pub struct IIndexableContent(::windows::runtime::IInspectable);
+pub struct IIndexableContent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexableContent {
     type Vtable = IIndexableContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438387295, 54453, 18490, [176, 110, 224, 219, 30, 196, 32, 228]);
@@ -550,22 +550,22 @@ unsafe impl ::windows::runtime::RuntimeType for IIndexableContent {
 }
 impl ::std::convert::From<IIndexableContent> for ::windows::runtime::IUnknown {
     fn from(value: IIndexableContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IIndexableContent> for ::windows::runtime::IUnknown {
     fn from(value: &IIndexableContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIndexableContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIndexableContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIndexableContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IIndexableContent> for ::windows::runtime::IInspectable {
@@ -610,7 +610,7 @@ pub struct IIndexableContent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IQueryOptions(::windows::runtime::IInspectable);
+pub struct IQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptions {
     type Vtable = IQueryOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(509495022, 3909, 18488, [168, 233, 208, 71, 157, 68, 108, 48]);
@@ -649,7 +649,7 @@ pub struct IQueryOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IQueryOptionsFactory(::windows::runtime::IInspectable);
+pub struct IQueryOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptionsFactory {
     type Vtable = IQueryOptionsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(53354380, 43457, 20081, [128, 17, 13, 238, 157, 72, 17, 163]);
@@ -669,7 +669,7 @@ pub struct IQueryOptionsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IQueryOptionsWithProviderFilter(::windows::runtime::IInspectable);
+pub struct IQueryOptionsWithProviderFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptionsWithProviderFilter {
     type Vtable = IQueryOptionsWithProviderFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1537019942, 5572, 17629, [184, 154, 71, 165, 155, 125, 124, 79]);
@@ -688,7 +688,7 @@ pub struct IQueryOptionsWithProviderFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageFileQueryResult(::windows::runtime::IInspectable);
+pub struct IStorageFileQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1392354375, 11178, 16684, [178, 159, 212, 177, 119, 142, 250, 30]);
@@ -709,7 +709,7 @@ pub struct IStorageFileQueryResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageFileQueryResult2(::windows::runtime::IInspectable);
+pub struct IStorageFileQueryResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileQueryResult2 {
     type Vtable = IStorageFileQueryResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314765277, 28993, 18116, [139, 227, 233, 220, 158, 39, 39, 92]);
@@ -729,7 +729,7 @@ pub struct IStorageFileQueryResult2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Search`*"]
-pub struct IStorageFolderQueryOperations(::windows::runtime::IInspectable);
+pub struct IStorageFolderQueryOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3410218185, 17515, 19023, [190, 151, 117, 119, 113, 190, 82, 3]);
@@ -883,22 +883,22 @@ unsafe impl ::windows::runtime::RuntimeType for IStorageFolderQueryOperations {
 }
 impl ::std::convert::From<IStorageFolderQueryOperations> for ::windows::runtime::IUnknown {
     fn from(value: IStorageFolderQueryOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IStorageFolderQueryOperations> for ::windows::runtime::IUnknown {
     fn from(value: &IStorageFolderQueryOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStorageFolderQueryOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStorageFolderQueryOperations {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStorageFolderQueryOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IStorageFolderQueryOperations> for ::windows::runtime::IInspectable {
@@ -956,7 +956,7 @@ pub struct IStorageFolderQueryOperations_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageFolderQueryResult(::windows::runtime::IInspectable);
+pub struct IStorageFolderQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716832529, 32102, 18170, [174, 207, 228, 164, 186, 169, 58, 184]);
@@ -977,7 +977,7 @@ pub struct IStorageFolderQueryResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageItemQueryResult(::windows::runtime::IInspectable);
+pub struct IStorageItemQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3902046329, 40280, 18360, [178, 178, 65, 176, 127, 71, 149, 249]);
@@ -998,7 +998,7 @@ pub struct IStorageItemQueryResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageLibraryChangeTrackerTriggerDetails(::windows::runtime::IInspectable);
+pub struct IStorageLibraryChangeTrackerTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499622761, 47011, 19954, [157, 97, 235, 168, 90, 3, 67, 210]);
@@ -1017,7 +1017,7 @@ pub struct IStorageLibraryChangeTrackerTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageLibraryContentChangedTriggerDetails(::windows::runtime::IInspectable);
+pub struct IStorageLibraryContentChangedTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(708254071, 43967, 19997, [138, 165, 99, 133, 216, 136, 71, 153]);
@@ -1038,7 +1038,7 @@ pub struct IStorageLibraryContentChangedTriggerDetails_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Search`*"]
-pub struct IStorageQueryResultBase(::windows::runtime::IInspectable);
+pub struct IStorageQueryResultBase(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3264730893, 29523, 18347, [186, 88, 140, 97, 66, 93, 197, 75]);
@@ -1119,22 +1119,22 @@ unsafe impl ::windows::runtime::RuntimeType for IStorageQueryResultBase {
 }
 impl ::std::convert::From<IStorageQueryResultBase> for ::windows::runtime::IUnknown {
     fn from(value: IStorageQueryResultBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IStorageQueryResultBase> for ::windows::runtime::IUnknown {
     fn from(value: &IStorageQueryResultBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStorageQueryResultBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStorageQueryResultBase {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStorageQueryResultBase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IStorageQueryResultBase> for ::windows::runtime::IInspectable {
@@ -1184,7 +1184,7 @@ pub struct IStorageQueryResultBase_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IValueAndLanguage(::windows::runtime::IInspectable);
+pub struct IValueAndLanguage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValueAndLanguage {
     type Vtable = IValueAndLanguage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3113306241, 41454, 19396, [146, 165, 70, 105, 104, 227, 4, 54]);
@@ -1206,7 +1206,7 @@ pub struct IValueAndLanguage_abi(
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IndexableContent(::windows::runtime::IInspectable);
+pub struct IndexableContent(pub ::windows::runtime::IInspectable);
 impl IndexableContent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1278,22 +1278,22 @@ impl ::windows::runtime::RuntimeName for IndexableContent {
 }
 impl ::std::convert::From<IndexableContent> for ::windows::runtime::IUnknown {
     fn from(value: IndexableContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IndexableContent> for ::windows::runtime::IUnknown {
     fn from(value: &IndexableContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IndexableContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IndexableContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IndexableContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IndexableContent> for ::windows::runtime::IInspectable {
@@ -1389,7 +1389,7 @@ impl ::windows::runtime::DefaultType for IndexerOption {
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct QueryOptions(::windows::runtime::IInspectable);
+pub struct QueryOptions(pub ::windows::runtime::IInspectable);
 impl QueryOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1563,22 +1563,22 @@ impl ::windows::runtime::RuntimeName for QueryOptions {
 }
 impl ::std::convert::From<QueryOptions> for ::windows::runtime::IUnknown {
     fn from(value: QueryOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&QueryOptions> for ::windows::runtime::IUnknown {
     fn from(value: &QueryOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for QueryOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &QueryOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a QueryOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<QueryOptions> for ::windows::runtime::IInspectable {
@@ -1640,7 +1640,7 @@ impl ::windows::runtime::DefaultType for SortEntry {
 #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SortEntryVector(::windows::runtime::IInspectable);
+pub struct SortEntryVector(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl SortEntryVector {
     #[cfg(feature = "Foundation_Collections")]
@@ -1756,25 +1756,25 @@ impl ::windows::runtime::RuntimeName for SortEntryVector {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SortEntryVector> for ::windows::runtime::IUnknown {
     fn from(value: SortEntryVector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&SortEntryVector> for ::windows::runtime::IUnknown {
     fn from(value: &SortEntryVector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SortEntryVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SortEntryVector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SortEntryVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1870,7 +1870,7 @@ impl ::std::iter::IntoIterator for &SortEntryVector {
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StorageFileQueryResult(::windows::runtime::IInspectable);
+pub struct StorageFileQueryResult(pub ::windows::runtime::IInspectable);
 impl StorageFileQueryResult {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
@@ -1981,22 +1981,22 @@ impl ::windows::runtime::RuntimeName for StorageFileQueryResult {
 }
 impl ::std::convert::From<StorageFileQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: StorageFileQueryResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StorageFileQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: &StorageFileQueryResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageFileQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageFileQueryResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageFileQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StorageFileQueryResult> for ::windows::runtime::IInspectable {
@@ -2044,7 +2044,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageQueryResultBase> for &Storage
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StorageFolderQueryResult(::windows::runtime::IInspectable);
+pub struct StorageFolderQueryResult(pub ::windows::runtime::IInspectable);
 impl StorageFolderQueryResult {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
@@ -2146,22 +2146,22 @@ impl ::windows::runtime::RuntimeName for StorageFolderQueryResult {
 }
 impl ::std::convert::From<StorageFolderQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: StorageFolderQueryResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StorageFolderQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: &StorageFolderQueryResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageFolderQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageFolderQueryResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageFolderQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StorageFolderQueryResult> for ::windows::runtime::IInspectable {
@@ -2209,7 +2209,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageQueryResultBase> for &Storage
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StorageItemQueryResult(::windows::runtime::IInspectable);
+pub struct StorageItemQueryResult(pub ::windows::runtime::IInspectable);
 impl StorageItemQueryResult {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
@@ -2311,22 +2311,22 @@ impl ::windows::runtime::RuntimeName for StorageItemQueryResult {
 }
 impl ::std::convert::From<StorageItemQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: StorageItemQueryResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StorageItemQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: &StorageItemQueryResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageItemQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageItemQueryResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageItemQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StorageItemQueryResult> for ::windows::runtime::IInspectable {
@@ -2374,7 +2374,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageQueryResultBase> for &Storage
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StorageLibraryChangeTrackerTriggerDetails(::windows::runtime::IInspectable);
+pub struct StorageLibraryChangeTrackerTriggerDetails(pub ::windows::runtime::IInspectable);
 impl StorageLibraryChangeTrackerTriggerDetails {
     #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
@@ -2405,22 +2405,22 @@ impl ::windows::runtime::RuntimeName for StorageLibraryChangeTrackerTriggerDetai
 }
 impl ::std::convert::From<StorageLibraryChangeTrackerTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: StorageLibraryChangeTrackerTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StorageLibraryChangeTrackerTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &StorageLibraryChangeTrackerTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryChangeTrackerTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryChangeTrackerTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageLibraryChangeTrackerTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StorageLibraryChangeTrackerTriggerDetails> for ::windows::runtime::IInspectable {
@@ -2446,7 +2446,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StorageLibraryContentChangedTriggerDetails(::windows::runtime::IInspectable);
+pub struct StorageLibraryContentChangedTriggerDetails(pub ::windows::runtime::IInspectable);
 impl StorageLibraryContentChangedTriggerDetails {
     #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
@@ -2478,22 +2478,22 @@ impl ::windows::runtime::RuntimeName for StorageLibraryContentChangedTriggerDeta
 }
 impl ::std::convert::From<StorageLibraryContentChangedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: StorageLibraryContentChangedTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StorageLibraryContentChangedTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &StorageLibraryContentChangedTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryContentChangedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryContentChangedTriggerDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageLibraryContentChangedTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StorageLibraryContentChangedTriggerDetails> for ::windows::runtime::IInspectable {
@@ -2519,7 +2519,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ValueAndLanguage(::windows::runtime::IInspectable);
+pub struct ValueAndLanguage(pub ::windows::runtime::IInspectable);
 impl ValueAndLanguage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2567,22 +2567,22 @@ impl ::windows::runtime::RuntimeName for ValueAndLanguage {
 }
 impl ::std::convert::From<ValueAndLanguage> for ::windows::runtime::IUnknown {
     fn from(value: ValueAndLanguage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ValueAndLanguage> for ::windows::runtime::IUnknown {
     fn from(value: &ValueAndLanguage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ValueAndLanguage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ValueAndLanguage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ValueAndLanguage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ValueAndLanguage> for ::windows::runtime::IInspectable {

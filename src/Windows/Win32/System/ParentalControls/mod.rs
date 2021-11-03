@@ -6,7 +6,7 @@ pub const FACILITY_WPC: u32 = 2457u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWPCGamesSettings(::windows::runtime::IUnknown);
+pub struct IWPCGamesSettings(pub ::windows::runtime::IUnknown);
 impl IWPCGamesSettings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
@@ -37,22 +37,22 @@ unsafe impl ::windows::runtime::Interface for IWPCGamesSettings {
 }
 impl ::std::convert::From<IWPCGamesSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCGamesSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWPCGamesSettings> for ::windows::runtime::IUnknown {
     fn from(value: &IWPCGamesSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCGamesSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWPCGamesSettings> for IWPCSettings {
@@ -91,7 +91,7 @@ pub struct IWPCGamesSettings_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWPCProviderConfig(::windows::runtime::IUnknown);
+pub struct IWPCProviderConfig(pub ::windows::runtime::IUnknown);
 impl IWPCProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
@@ -116,22 +116,22 @@ unsafe impl ::windows::runtime::Interface for IWPCProviderConfig {
 }
 impl ::std::convert::From<IWPCProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWPCProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IWPCProviderConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCProviderConfig {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWPCProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -150,7 +150,7 @@ pub struct IWPCProviderConfig_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWPCProviderState(::windows::runtime::IUnknown);
+pub struct IWPCProviderState(pub ::windows::runtime::IUnknown);
 impl IWPCProviderState {
     #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn Enable(&self) -> ::windows::runtime::Result<()> {
@@ -167,22 +167,22 @@ unsafe impl ::windows::runtime::Interface for IWPCProviderState {
 }
 impl ::std::convert::From<IWPCProviderState> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWPCProviderState> for ::windows::runtime::IUnknown {
     fn from(value: &IWPCProviderState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCProviderState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCProviderState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWPCProviderState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -197,7 +197,7 @@ pub struct IWPCProviderState_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWPCProviderSupport(::windows::runtime::IUnknown);
+pub struct IWPCProviderSupport(pub ::windows::runtime::IUnknown);
 impl IWPCProviderSupport {
     #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -211,22 +211,22 @@ unsafe impl ::windows::runtime::Interface for IWPCProviderSupport {
 }
 impl ::std::convert::From<IWPCProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWPCProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: &IWPCProviderSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCProviderSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCProviderSupport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWPCProviderSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -240,7 +240,7 @@ pub struct IWPCProviderSupport_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWPCSettings(::windows::runtime::IUnknown);
+pub struct IWPCSettings(pub ::windows::runtime::IUnknown);
 impl IWPCSettings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
@@ -266,22 +266,22 @@ unsafe impl ::windows::runtime::Interface for IWPCSettings {
 }
 impl ::std::convert::From<IWPCSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWPCSettings> for ::windows::runtime::IUnknown {
     fn from(value: &IWPCSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWPCSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -299,7 +299,7 @@ pub struct IWPCSettings_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWPCWebSettings(::windows::runtime::IUnknown);
+pub struct IWPCWebSettings(pub ::windows::runtime::IUnknown);
 impl IWPCWebSettings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
@@ -336,22 +336,22 @@ unsafe impl ::windows::runtime::Interface for IWPCWebSettings {
 }
 impl ::std::convert::From<IWPCWebSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCWebSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWPCWebSettings> for ::windows::runtime::IUnknown {
     fn from(value: &IWPCWebSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCWebSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWPCWebSettings> for IWPCSettings {
@@ -392,7 +392,7 @@ pub struct IWPCWebSettings_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsParentalControls(::windows::runtime::IUnknown);
+pub struct IWindowsParentalControls(pub ::windows::runtime::IUnknown);
 impl IWindowsParentalControls {
     #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetVisibility(&self) -> ::windows::runtime::Result<WPCFLAG_VISIBILITY> {
@@ -429,22 +429,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsParentalControls {
 }
 impl ::std::convert::From<IWindowsParentalControls> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsParentalControls) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsParentalControls> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsParentalControls) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsParentalControls {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IWindowsParentalControls> for IWindowsParentalControlsCore {
@@ -486,7 +486,7 @@ pub struct IWindowsParentalControls_abi(
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsParentalControlsCore(::windows::runtime::IUnknown);
+pub struct IWindowsParentalControlsCore(pub ::windows::runtime::IUnknown);
 impl IWindowsParentalControlsCore {
     #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetVisibility(&self) -> ::windows::runtime::Result<WPCFLAG_VISIBILITY> {
@@ -517,22 +517,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsParentalControlsCore {
 }
 impl ::std::convert::From<IWindowsParentalControlsCore> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsParentalControlsCore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsParentalControlsCore> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsParentalControlsCore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsParentalControlsCore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsParentalControlsCore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsParentalControlsCore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

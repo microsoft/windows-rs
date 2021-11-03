@@ -275,7 +275,7 @@ pub const DirectManipulationViewport: ::windows::runtime::GUID = ::windows::runt
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationAutoScrollBehavior(::windows::runtime::IUnknown);
+pub struct IDirectManipulationAutoScrollBehavior(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationAutoScrollBehavior {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn SetConfiguration(&self, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> ::windows::runtime::Result<()> {
@@ -288,22 +288,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationAutoScrollBehav
 }
 impl ::std::convert::From<IDirectManipulationAutoScrollBehavior> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationAutoScrollBehavior) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationAutoScrollBehavior> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationAutoScrollBehavior) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationAutoScrollBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationAutoScrollBehavior {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationAutoScrollBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -317,7 +317,7 @@ pub struct IDirectManipulationAutoScrollBehavior_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationCompositor(::windows::runtime::IUnknown);
+pub struct IDirectManipulationCompositor(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationCompositor {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn AddContent<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectManipulationContent>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, content: Param0, device: Param1, parentvisual: Param2, childvisual: Param3) -> ::windows::runtime::Result<()> {
@@ -342,22 +342,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationCompositor {
 }
 impl ::std::convert::From<IDirectManipulationCompositor> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationCompositor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationCompositor> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationCompositor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationCompositor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationCompositor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationCompositor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -374,7 +374,7 @@ pub struct IDirectManipulationCompositor_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationCompositor2(::windows::runtime::IUnknown);
+pub struct IDirectManipulationCompositor2(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationCompositor2 {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn AddContent<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectManipulationContent>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, content: Param0, device: Param1, parentvisual: Param2, childvisual: Param3) -> ::windows::runtime::Result<()> {
@@ -403,22 +403,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationCompositor2 {
 }
 impl ::std::convert::From<IDirectManipulationCompositor2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationCompositor2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationCompositor2> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationCompositor2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationCompositor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationCompositor2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationCompositor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDirectManipulationCompositor2> for IDirectManipulationCompositor {
@@ -456,7 +456,7 @@ pub struct IDirectManipulationCompositor2_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationContent(::windows::runtime::IUnknown);
+pub struct IDirectManipulationContent(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationContent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`, `Win32_Foundation`*"]
@@ -501,22 +501,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationContent {
 }
 impl ::std::convert::From<IDirectManipulationContent> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationContent> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -539,7 +539,7 @@ pub struct IDirectManipulationContent_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationDeferContactService(::windows::runtime::IUnknown);
+pub struct IDirectManipulationDeferContactService(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationDeferContactService {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn DeferContact(&self, pointerid: u32, timeout: u32) -> ::windows::runtime::Result<()> {
@@ -560,22 +560,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationDeferContactSer
 }
 impl ::std::convert::From<IDirectManipulationDeferContactService> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationDeferContactService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationDeferContactService> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationDeferContactService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationDeferContactService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationDeferContactService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationDeferContactService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -591,7 +591,7 @@ pub struct IDirectManipulationDeferContactService_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationDragDropBehavior(::windows::runtime::IUnknown);
+pub struct IDirectManipulationDragDropBehavior(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationDragDropBehavior {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> ::windows::runtime::Result<()> {
@@ -609,22 +609,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationDragDropBehavio
 }
 impl ::std::convert::From<IDirectManipulationDragDropBehavior> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationDragDropBehavior) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationDragDropBehavior> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationDragDropBehavior) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationDragDropBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationDragDropBehavior {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationDragDropBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -639,7 +639,7 @@ pub struct IDirectManipulationDragDropBehavior_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationDragDropEventHandler(::windows::runtime::IUnknown);
+pub struct IDirectManipulationDragDropEventHandler(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationDragDropEventHandler {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn OnDragDropStatusChange<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectManipulationViewport2>>(&self, viewport: Param0, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::runtime::Result<()> {
@@ -652,22 +652,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationDragDropEventHa
 }
 impl ::std::convert::From<IDirectManipulationDragDropEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationDragDropEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationDragDropEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationDragDropEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationDragDropEventHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationDragDropEventHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationDragDropEventHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -681,7 +681,7 @@ pub struct IDirectManipulationDragDropEventHandler_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationFrameInfoProvider(::windows::runtime::IUnknown);
+pub struct IDirectManipulationFrameInfoProvider(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationFrameInfoProvider {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows::runtime::Result<()> {
@@ -694,22 +694,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationFrameInfoProvid
 }
 impl ::std::convert::From<IDirectManipulationFrameInfoProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationFrameInfoProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationFrameInfoProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationFrameInfoProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationFrameInfoProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationFrameInfoProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationFrameInfoProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -723,7 +723,7 @@ pub struct IDirectManipulationFrameInfoProvider_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationInteractionEventHandler(::windows::runtime::IUnknown);
+pub struct IDirectManipulationInteractionEventHandler(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationInteractionEventHandler {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn OnInteraction<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectManipulationViewport2>>(&self, viewport: Param0, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::runtime::Result<()> {
@@ -736,22 +736,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationInteractionEven
 }
 impl ::std::convert::From<IDirectManipulationInteractionEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationInteractionEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationInteractionEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationInteractionEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationInteractionEventHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationInteractionEventHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationInteractionEventHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -765,7 +765,7 @@ pub struct IDirectManipulationInteractionEventHandler_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationManager(::windows::runtime::IUnknown);
+pub struct IDirectManipulationManager(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`, `Win32_Foundation`*"]
@@ -811,22 +811,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationManager {
 }
 impl ::std::convert::From<IDirectManipulationManager> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationManager> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -851,7 +851,7 @@ pub struct IDirectManipulationManager_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationManager2(::windows::runtime::IUnknown);
+pub struct IDirectManipulationManager2(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationManager2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`, `Win32_Foundation`*"]
@@ -902,22 +902,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationManager2 {
 }
 impl ::std::convert::From<IDirectManipulationManager2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationManager2> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationManager2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDirectManipulationManager2> for IDirectManipulationManager {
@@ -963,7 +963,7 @@ pub struct IDirectManipulationManager2_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationManager3(::windows::runtime::IUnknown);
+pub struct IDirectManipulationManager3(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationManager3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`, `Win32_Foundation`*"]
@@ -1019,22 +1019,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationManager3 {
 }
 impl ::std::convert::From<IDirectManipulationManager3> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationManager3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationManager3> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationManager3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationManager3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDirectManipulationManager3> for IDirectManipulationManager2 {
@@ -1101,7 +1101,7 @@ pub struct IDirectManipulationManager3_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationPrimaryContent(::windows::runtime::IUnknown);
+pub struct IDirectManipulationPrimaryContent(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationPrimaryContent {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> ::windows::runtime::Result<()> {
@@ -1146,22 +1146,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationPrimaryContent 
 }
 impl ::std::convert::From<IDirectManipulationPrimaryContent> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationPrimaryContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationPrimaryContent> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationPrimaryContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationPrimaryContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationPrimaryContent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationPrimaryContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1183,7 +1183,7 @@ pub struct IDirectManipulationPrimaryContent_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationUpdateHandler(::windows::runtime::IUnknown);
+pub struct IDirectManipulationUpdateHandler(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationUpdateHandler {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn Update(&self) -> ::windows::runtime::Result<()> {
@@ -1196,22 +1196,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationUpdateHandler {
 }
 impl ::std::convert::From<IDirectManipulationUpdateHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationUpdateHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationUpdateHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationUpdateHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationUpdateHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationUpdateHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationUpdateHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1225,7 +1225,7 @@ pub struct IDirectManipulationUpdateHandler_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationUpdateManager(::windows::runtime::IUnknown);
+pub struct IDirectManipulationUpdateManager(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationUpdateManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`, `Win32_Foundation`*"]
@@ -1248,22 +1248,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationUpdateManager {
 }
 impl ::std::convert::From<IDirectManipulationUpdateManager> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationUpdateManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationUpdateManager> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationUpdateManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationUpdateManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationUpdateManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationUpdateManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1280,7 +1280,7 @@ pub struct IDirectManipulationUpdateManager_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationViewport(::windows::runtime::IUnknown);
+pub struct IDirectManipulationViewport(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationViewport {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn Enable(&self) -> ::windows::runtime::Result<()> {
@@ -1409,22 +1409,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationViewport {
 }
 impl ::std::convert::From<IDirectManipulationViewport> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationViewport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationViewport> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationViewport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationViewport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationViewport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationViewport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1469,7 +1469,7 @@ pub struct IDirectManipulationViewport_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationViewport2(::windows::runtime::IUnknown);
+pub struct IDirectManipulationViewport2(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationViewport2 {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn Enable(&self) -> ::windows::runtime::Result<()> {
@@ -1611,22 +1611,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationViewport2 {
 }
 impl ::std::convert::From<IDirectManipulationViewport2> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationViewport2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationViewport2> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationViewport2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationViewport2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationViewport2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationViewport2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDirectManipulationViewport2> for IDirectManipulationViewport {
@@ -1694,7 +1694,7 @@ pub struct IDirectManipulationViewport2_abi(
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDirectManipulationViewportEventHandler(::windows::runtime::IUnknown);
+pub struct IDirectManipulationViewportEventHandler(pub ::windows::runtime::IUnknown);
 impl IDirectManipulationViewportEventHandler {
     #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
     pub unsafe fn OnViewportStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectManipulationViewport>>(&self, viewport: Param0, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::runtime::Result<()> {
@@ -1715,22 +1715,22 @@ unsafe impl ::windows::runtime::Interface for IDirectManipulationViewportEventHa
 }
 impl ::std::convert::From<IDirectManipulationViewportEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: IDirectManipulationViewportEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDirectManipulationViewportEventHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectManipulationViewportEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectManipulationViewportEventHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectManipulationViewportEventHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectManipulationViewportEventHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

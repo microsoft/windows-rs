@@ -285,7 +285,7 @@ unsafe impl ::windows::runtime::Abi for HypothesisResult {
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INetDiagExtensibleHelper(::windows::runtime::IUnknown);
+pub struct INetDiagExtensibleHelper(pub ::windows::runtime::IUnknown);
 impl INetDiagExtensibleHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -299,22 +299,22 @@ unsafe impl ::windows::runtime::Interface for INetDiagExtensibleHelper {
 }
 impl ::std::convert::From<INetDiagExtensibleHelper> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagExtensibleHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INetDiagExtensibleHelper> for ::windows::runtime::IUnknown {
     fn from(value: &INetDiagExtensibleHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagExtensibleHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetDiagExtensibleHelper {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagExtensibleHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -329,7 +329,7 @@ pub struct INetDiagExtensibleHelper_abi(
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INetDiagHelper(::windows::runtime::IUnknown);
+pub struct INetDiagHelper(pub ::windows::runtime::IUnknown);
 impl INetDiagHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -427,22 +427,22 @@ unsafe impl ::windows::runtime::Interface for INetDiagHelper {
 }
 impl ::std::convert::From<INetDiagHelper> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INetDiagHelper> for ::windows::runtime::IUnknown {
     fn from(value: &INetDiagHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetDiagHelper {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -487,7 +487,7 @@ pub struct INetDiagHelper_abi(
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INetDiagHelperEx(::windows::runtime::IUnknown);
+pub struct INetDiagHelperEx(pub ::windows::runtime::IUnknown);
 impl INetDiagHelperEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -509,22 +509,22 @@ unsafe impl ::windows::runtime::Interface for INetDiagHelperEx {
 }
 impl ::std::convert::From<INetDiagHelperEx> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelperEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INetDiagHelperEx> for ::windows::runtime::IUnknown {
     fn from(value: &INetDiagHelperEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelperEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetDiagHelperEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelperEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -541,7 +541,7 @@ pub struct INetDiagHelperEx_abi(
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INetDiagHelperInfo(::windows::runtime::IUnknown);
+pub struct INetDiagHelperInfo(pub ::windows::runtime::IUnknown);
 impl INetDiagHelperInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
@@ -555,22 +555,22 @@ unsafe impl ::windows::runtime::Interface for INetDiagHelperInfo {
 }
 impl ::std::convert::From<INetDiagHelperInfo> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelperInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INetDiagHelperInfo> for ::windows::runtime::IUnknown {
     fn from(value: &INetDiagHelperInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelperInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetDiagHelperInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelperInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -585,7 +585,7 @@ pub struct INetDiagHelperInfo_abi(
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct INetDiagHelperUtilFactory(::windows::runtime::IUnknown);
+pub struct INetDiagHelperUtilFactory(pub ::windows::runtime::IUnknown);
 impl INetDiagHelperUtilFactory {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
     pub unsafe fn CreateUtilityInstance<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
@@ -599,22 +599,22 @@ unsafe impl ::windows::runtime::Interface for INetDiagHelperUtilFactory {
 }
 impl ::std::convert::From<INetDiagHelperUtilFactory> for ::windows::runtime::IUnknown {
     fn from(value: INetDiagHelperUtilFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&INetDiagHelperUtilFactory> for ::windows::runtime::IUnknown {
     fn from(value: &INetDiagHelperUtilFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetDiagHelperUtilFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetDiagHelperUtilFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetDiagHelperUtilFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

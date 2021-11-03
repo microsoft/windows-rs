@@ -10654,7 +10654,7 @@ pub const FACILITY_D2D: u32 = 2201u32;
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1AnalysisTransform(::windows::runtime::IUnknown);
+pub struct ID2D1AnalysisTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1AnalysisTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ProcessAnalysisResults(&self, analysisdata: *const u8, analysisdatacount: u32) -> ::windows::runtime::Result<()> {
@@ -10667,22 +10667,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1AnalysisTransform {
 }
 impl ::std::convert::From<ID2D1AnalysisTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1AnalysisTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1AnalysisTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1AnalysisTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1AnalysisTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1AnalysisTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1AnalysisTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10696,7 +10696,7 @@ pub struct ID2D1AnalysisTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Bitmap(::windows::runtime::IUnknown);
+pub struct ID2D1Bitmap(pub ::windows::runtime::IUnknown);
 impl ID2D1Bitmap {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -10744,22 +10744,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Bitmap {
 }
 impl ::std::convert::From<ID2D1Bitmap> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Bitmap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Bitmap> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Bitmap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Bitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Bitmap {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Bitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Bitmap> for ID2D1Image {
@@ -10821,7 +10821,7 @@ pub struct ID2D1Bitmap_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Bitmap1(::windows::runtime::IUnknown);
+pub struct ID2D1Bitmap1(pub ::windows::runtime::IUnknown);
 impl ID2D1Bitmap1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -10892,22 +10892,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Bitmap1 {
 }
 impl ::std::convert::From<ID2D1Bitmap1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Bitmap1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Bitmap1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Bitmap1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Bitmap1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Bitmap1> for ID2D1Bitmap {
@@ -10995,7 +10995,7 @@ pub struct ID2D1Bitmap1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1BitmapBrush(::windows::runtime::IUnknown);
+pub struct ID2D1BitmapBrush(pub ::windows::runtime::IUnknown);
 impl ID2D1BitmapBrush {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -11058,22 +11058,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1BitmapBrush {
 }
 impl ::std::convert::From<ID2D1BitmapBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BitmapBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1BitmapBrush> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1BitmapBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1BitmapBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1BitmapBrush> for ID2D1Brush {
@@ -11141,7 +11141,7 @@ pub struct ID2D1BitmapBrush_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1BitmapBrush1(::windows::runtime::IUnknown);
+pub struct ID2D1BitmapBrush1(pub ::windows::runtime::IUnknown);
 impl ID2D1BitmapBrush1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -11212,22 +11212,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1BitmapBrush1 {
 }
 impl ::std::convert::From<ID2D1BitmapBrush1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BitmapBrush1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1BitmapBrush1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1BitmapBrush1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1BitmapBrush1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1BitmapBrush1> for ID2D1BitmapBrush {
@@ -11317,7 +11317,7 @@ pub struct ID2D1BitmapBrush1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1BitmapRenderTarget(::windows::runtime::IUnknown);
+pub struct ID2D1BitmapRenderTarget(pub ::windows::runtime::IUnknown);
 impl ID2D1BitmapRenderTarget {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -11590,22 +11590,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1BitmapRenderTarget {
 }
 impl ::std::convert::From<ID2D1BitmapRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1BitmapRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1BitmapRenderTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1BitmapRenderTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1BitmapRenderTarget> for ID2D1RenderTarget {
@@ -11731,7 +11731,7 @@ pub struct ID2D1BitmapRenderTarget_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1BlendTransform(::windows::runtime::IUnknown);
+pub struct ID2D1BlendTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1BlendTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -11761,22 +11761,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1BlendTransform {
 }
 impl ::std::convert::From<ID2D1BlendTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BlendTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1BlendTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1BlendTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1BlendTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1BlendTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1BlendTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1BlendTransform> for ID2D1ConcreteTransform {
@@ -11835,7 +11835,7 @@ pub struct ID2D1BlendTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1BorderTransform(::windows::runtime::IUnknown);
+pub struct ID2D1BorderTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1BorderTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -11873,22 +11873,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1BorderTransform {
 }
 impl ::std::convert::From<ID2D1BorderTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BorderTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1BorderTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1BorderTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1BorderTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1BorderTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1BorderTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1BorderTransform> for ID2D1ConcreteTransform {
@@ -11949,7 +11949,7 @@ pub struct ID2D1BorderTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1BoundsAdjustmentTransform(::windows::runtime::IUnknown);
+pub struct ID2D1BoundsAdjustmentTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1BoundsAdjustmentTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -11972,22 +11972,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1BoundsAdjustmentTransform {
 }
 impl ::std::convert::From<ID2D1BoundsAdjustmentTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1BoundsAdjustmentTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1BoundsAdjustmentTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1BoundsAdjustmentTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1BoundsAdjustmentTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1BoundsAdjustmentTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1BoundsAdjustmentTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1BoundsAdjustmentTransform> for ID2D1TransformNode {
@@ -12025,7 +12025,7 @@ pub struct ID2D1BoundsAdjustmentTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Brush(::windows::runtime::IUnknown);
+pub struct ID2D1Brush(pub ::windows::runtime::IUnknown);
 impl ID2D1Brush {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -12056,22 +12056,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Brush {
 }
 impl ::std::convert::From<ID2D1Brush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Brush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Brush> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Brush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Brush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Brush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Brush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Brush> for ID2D1Resource {
@@ -12111,7 +12111,7 @@ pub struct ID2D1Brush_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ColorContext(::windows::runtime::IUnknown);
+pub struct ID2D1ColorContext(pub ::windows::runtime::IUnknown);
 impl ID2D1ColorContext {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -12136,22 +12136,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ColorContext {
 }
 impl ::std::convert::From<ID2D1ColorContext> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ColorContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ColorContext> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ColorContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ColorContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ColorContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ColorContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ColorContext> for ID2D1Resource {
@@ -12188,7 +12188,7 @@ pub struct ID2D1ColorContext_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ColorContext1(::windows::runtime::IUnknown);
+pub struct ID2D1ColorContext1(pub ::windows::runtime::IUnknown);
 impl ID2D1ColorContext1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -12227,22 +12227,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ColorContext1 {
 }
 impl ::std::convert::From<ID2D1ColorContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ColorContext1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ColorContext1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ColorContext1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ColorContext1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ColorContext1> for ID2D1ColorContext {
@@ -12303,7 +12303,7 @@ pub struct ID2D1ColorContext1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandList(::windows::runtime::IUnknown);
+pub struct ID2D1CommandList(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandList {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -12324,22 +12324,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandList {
 }
 impl ::std::convert::From<ID2D1CommandList> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandList> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1CommandList> for ID2D1Image {
@@ -12395,7 +12395,7 @@ pub struct ID2D1CommandList_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandSink(::windows::runtime::IUnknown);
+pub struct ID2D1CommandSink(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandSink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn BeginDraw(&self) -> ::windows::runtime::Result<()> {
@@ -12508,22 +12508,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandSink {
 }
 impl ::std::convert::From<ID2D1CommandSink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandSink> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -12565,7 +12565,7 @@ pub struct ID2D1CommandSink_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandSink1(::windows::runtime::IUnknown);
+pub struct ID2D1CommandSink1(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandSink1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn BeginDraw(&self) -> ::windows::runtime::Result<()> {
@@ -12682,22 +12682,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandSink1 {
 }
 impl ::std::convert::From<ID2D1CommandSink1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandSink1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandSink1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandSink1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1CommandSink1> for ID2D1CommandSink {
@@ -12760,7 +12760,7 @@ pub struct ID2D1CommandSink1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandSink2(::windows::runtime::IUnknown);
+pub struct ID2D1CommandSink2(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandSink2 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn BeginDraw(&self) -> ::windows::runtime::Result<()> {
@@ -12889,22 +12889,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandSink2 {
 }
 impl ::std::convert::From<ID2D1CommandSink2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandSink2> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandSink2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandSink2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1CommandSink2> for ID2D1CommandSink1 {
@@ -12990,7 +12990,7 @@ pub struct ID2D1CommandSink2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandSink3(::windows::runtime::IUnknown);
+pub struct ID2D1CommandSink3(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandSink3 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn BeginDraw(&self) -> ::windows::runtime::Result<()> {
@@ -13123,22 +13123,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandSink3 {
 }
 impl ::std::convert::From<ID2D1CommandSink3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandSink3> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandSink3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandSink3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1CommandSink3> for ID2D1CommandSink2 {
@@ -13245,7 +13245,7 @@ pub struct ID2D1CommandSink3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandSink4(::windows::runtime::IUnknown);
+pub struct ID2D1CommandSink4(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandSink4 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn BeginDraw(&self) -> ::windows::runtime::Result<()> {
@@ -13382,22 +13382,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandSink4 {
 }
 impl ::std::convert::From<ID2D1CommandSink4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandSink4> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandSink4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandSink4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1CommandSink4> for ID2D1CommandSink3 {
@@ -13525,7 +13525,7 @@ pub struct ID2D1CommandSink4_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1CommandSink5(::windows::runtime::IUnknown);
+pub struct ID2D1CommandSink5(pub ::windows::runtime::IUnknown);
 impl ID2D1CommandSink5 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn BeginDraw(&self) -> ::windows::runtime::Result<()> {
@@ -13666,22 +13666,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1CommandSink5 {
 }
 impl ::std::convert::From<ID2D1CommandSink5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1CommandSink5> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1CommandSink5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1CommandSink5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1CommandSink5> for ID2D1CommandSink4 {
@@ -13830,7 +13830,7 @@ pub struct ID2D1CommandSink5_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ComputeInfo(::windows::runtime::IUnknown);
+pub struct ID2D1ComputeInfo(pub ::windows::runtime::IUnknown);
 impl ID2D1ComputeInfo {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn SetInputDescription<'a, Param1: ::windows::runtime::IntoParam<'a, D2D1_INPUT_DESCRIPTION>>(&self, inputindex: u32, inputdescription: Param1) -> ::windows::runtime::Result<()> {
@@ -13868,22 +13868,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ComputeInfo {
 }
 impl ::std::convert::From<ID2D1ComputeInfo> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ComputeInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ComputeInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ComputeInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ComputeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ComputeInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ComputeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ComputeInfo> for ID2D1RenderInfo {
@@ -13924,7 +13924,7 @@ pub struct ID2D1ComputeInfo_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ComputeTransform(::windows::runtime::IUnknown);
+pub struct ID2D1ComputeTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1ComputeTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -13962,22 +13962,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ComputeTransform {
 }
 impl ::std::convert::From<ID2D1ComputeTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ComputeTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ComputeTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ComputeTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ComputeTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ComputeTransform> for ID2D1Transform {
@@ -14040,7 +14040,7 @@ pub struct ID2D1ComputeTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ConcreteTransform(::windows::runtime::IUnknown);
+pub struct ID2D1ConcreteTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1ConcreteTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -14062,22 +14062,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ConcreteTransform {
 }
 impl ::std::convert::From<ID2D1ConcreteTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ConcreteTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ConcreteTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ConcreteTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ConcreteTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ConcreteTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ConcreteTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ConcreteTransform> for ID2D1TransformNode {
@@ -14114,7 +14114,7 @@ pub struct ID2D1ConcreteTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DCRenderTarget(::windows::runtime::IUnknown);
+pub struct ID2D1DCRenderTarget(pub ::windows::runtime::IUnknown);
 impl ID2D1DCRenderTarget {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -14387,22 +14387,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DCRenderTarget {
 }
 impl ::std::convert::From<ID2D1DCRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DCRenderTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DCRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DCRenderTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DCRenderTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DCRenderTarget> for ID2D1RenderTarget {
@@ -14529,7 +14529,7 @@ pub struct ID2D1DCRenderTarget_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device(::windows::runtime::IUnknown);
+pub struct ID2D1Device(pub ::windows::runtime::IUnknown);
 impl ID2D1Device {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -14565,22 +14565,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device {
 }
 impl ::std::convert::From<ID2D1Device> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device> for ID2D1Resource {
@@ -14620,7 +14620,7 @@ pub struct ID2D1Device_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device1(::windows::runtime::IUnknown);
+pub struct ID2D1Device1(pub ::windows::runtime::IUnknown);
 impl ID2D1Device1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -14669,22 +14669,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device1 {
 }
 impl ::std::convert::From<ID2D1Device1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device1> for ID2D1Device {
@@ -14747,7 +14747,7 @@ pub struct ID2D1Device1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device2(::windows::runtime::IUnknown);
+pub struct ID2D1Device2(pub ::windows::runtime::IUnknown);
 impl ID2D1Device2 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -14811,22 +14811,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device2 {
 }
 impl ::std::convert::From<ID2D1Device2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device2> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device2> for ID2D1Device1 {
@@ -14913,7 +14913,7 @@ pub struct ID2D1Device2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device3(::windows::runtime::IUnknown);
+pub struct ID2D1Device3(pub ::windows::runtime::IUnknown);
 impl ID2D1Device3 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -14982,22 +14982,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device3 {
 }
 impl ::std::convert::From<ID2D1Device3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device3> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device3> for ID2D1Device2 {
@@ -15105,7 +15105,7 @@ pub struct ID2D1Device3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device4(::windows::runtime::IUnknown);
+pub struct ID2D1Device4(pub ::windows::runtime::IUnknown);
 impl ID2D1Device4 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -15187,22 +15187,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device4 {
 }
 impl ::std::convert::From<ID2D1Device4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device4> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device4> for ID2D1Device3 {
@@ -15333,7 +15333,7 @@ pub struct ID2D1Device4_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device5(::windows::runtime::IUnknown);
+pub struct ID2D1Device5(pub ::windows::runtime::IUnknown);
 impl ID2D1Device5 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -15420,22 +15420,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device5 {
 }
 impl ::std::convert::From<ID2D1Device5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device5> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device5> for ID2D1Device4 {
@@ -15587,7 +15587,7 @@ pub struct ID2D1Device5_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Device6(::windows::runtime::IUnknown);
+pub struct ID2D1Device6(pub ::windows::runtime::IUnknown);
 impl ID2D1Device6 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -15679,22 +15679,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Device6 {
 }
 impl ::std::convert::From<ID2D1Device6> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Device6> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Device6) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Device6 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Device5 {
@@ -15867,7 +15867,7 @@ pub struct ID2D1Device6_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -16321,22 +16321,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext {
 }
 impl ::std::convert::From<ID2D1DeviceContext> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext> for ID2D1RenderTarget {
@@ -16508,7 +16508,7 @@ pub struct ID2D1DeviceContext_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext1(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext1(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -16976,22 +16976,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext1 {
 }
 impl ::std::convert::From<ID2D1DeviceContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext1> for ID2D1DeviceContext {
@@ -17186,7 +17186,7 @@ pub struct ID2D1DeviceContext1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext2(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext2(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext2 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -17709,22 +17709,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext2 {
 }
 impl ::std::convert::From<ID2D1DeviceContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext2> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext2> for ID2D1DeviceContext1 {
@@ -17953,7 +17953,7 @@ pub struct ID2D1DeviceContext2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext3(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext3(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext3 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -18485,22 +18485,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext3 {
 }
 impl ::std::convert::From<ID2D1DeviceContext3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext3> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext3> for ID2D1DeviceContext2 {
@@ -18751,7 +18751,7 @@ pub struct ID2D1DeviceContext3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext4(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext4(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext4 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -19402,22 +19402,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext4 {
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext4> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext3 {
@@ -19729,7 +19729,7 @@ pub struct ID2D1DeviceContext4_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext5(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext5(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext5 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -20401,22 +20401,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext5 {
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext5> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext4 {
@@ -20754,7 +20754,7 @@ pub struct ID2D1DeviceContext5_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DeviceContext6(::windows::runtime::IUnknown);
+pub struct ID2D1DeviceContext6(pub ::windows::runtime::IUnknown);
 impl ID2D1DeviceContext6 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -21430,22 +21430,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DeviceContext6 {
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DeviceContext6> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext5 {
@@ -21804,7 +21804,7 @@ pub struct ID2D1DeviceContext6_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DrawInfo(::windows::runtime::IUnknown);
+pub struct ID2D1DrawInfo(pub ::windows::runtime::IUnknown);
 impl ID2D1DrawInfo {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn SetInputDescription<'a, Param1: ::windows::runtime::IntoParam<'a, D2D1_INPUT_DESCRIPTION>>(&self, inputindex: u32, inputdescription: Param1) -> ::windows::runtime::Result<()> {
@@ -21850,22 +21850,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DrawInfo {
 }
 impl ::std::convert::From<ID2D1DrawInfo> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DrawInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DrawInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DrawInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DrawInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DrawInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DrawInfo> for ID2D1RenderInfo {
@@ -21908,7 +21908,7 @@ pub struct ID2D1DrawInfo_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DrawTransform(::windows::runtime::IUnknown);
+pub struct ID2D1DrawTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1DrawTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -21941,22 +21941,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DrawTransform {
 }
 impl ::std::convert::From<ID2D1DrawTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DrawTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DrawTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DrawTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DrawTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DrawTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DrawTransform> for ID2D1Transform {
@@ -22017,7 +22017,7 @@ pub struct ID2D1DrawTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DrawingStateBlock(::windows::runtime::IUnknown);
+pub struct ID2D1DrawingStateBlock(pub ::windows::runtime::IUnknown);
 impl ID2D1DrawingStateBlock {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -22050,22 +22050,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DrawingStateBlock {
 }
 impl ::std::convert::From<ID2D1DrawingStateBlock> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawingStateBlock) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DrawingStateBlock> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DrawingStateBlock) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DrawingStateBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DrawingStateBlock {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DrawingStateBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DrawingStateBlock> for ID2D1Resource {
@@ -22107,7 +22107,7 @@ pub struct ID2D1DrawingStateBlock_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1DrawingStateBlock1(::windows::runtime::IUnknown);
+pub struct ID2D1DrawingStateBlock1(pub ::windows::runtime::IUnknown);
 impl ID2D1DrawingStateBlock1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -22150,22 +22150,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1DrawingStateBlock1 {
 }
 impl ::std::convert::From<ID2D1DrawingStateBlock1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1DrawingStateBlock1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1DrawingStateBlock1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1DrawingStateBlock1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1DrawingStateBlock1> for ID2D1DrawingStateBlock {
@@ -22231,7 +22231,7 @@ pub struct ID2D1DrawingStateBlock1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Effect(::windows::runtime::IUnknown);
+pub struct ID2D1Effect(pub ::windows::runtime::IUnknown);
 impl ID2D1Effect {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetPropertyCount(&self) -> u32 {
@@ -22310,22 +22310,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Effect {
 }
 impl ::std::convert::From<ID2D1Effect> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Effect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Effect> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Effect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Effect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Effect {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Effect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Effect> for ID2D1Properties {
@@ -22379,7 +22379,7 @@ pub struct ID2D1Effect_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1EffectContext(::windows::runtime::IUnknown);
+pub struct ID2D1EffectContext(pub ::windows::runtime::IUnknown);
 impl ID2D1EffectContext {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
@@ -22494,22 +22494,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1EffectContext {
 }
 impl ::std::convert::From<ID2D1EffectContext> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1EffectContext> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1EffectContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1EffectContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1EffectContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1EffectContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -22551,7 +22551,7 @@ pub struct ID2D1EffectContext_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1EffectContext1(::windows::runtime::IUnknown);
+pub struct ID2D1EffectContext1(pub ::windows::runtime::IUnknown);
 impl ID2D1EffectContext1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
@@ -22671,22 +22671,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1EffectContext1 {
 }
 impl ::std::convert::From<ID2D1EffectContext1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectContext1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1EffectContext1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1EffectContext1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1EffectContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1EffectContext1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1EffectContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1EffectContext1> for ID2D1EffectContext {
@@ -22749,7 +22749,7 @@ pub struct ID2D1EffectContext1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1EffectContext2(::windows::runtime::IUnknown);
+pub struct ID2D1EffectContext2(pub ::windows::runtime::IUnknown);
 impl ID2D1EffectContext2 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
@@ -22880,22 +22880,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1EffectContext2 {
 }
 impl ::std::convert::From<ID2D1EffectContext2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectContext2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1EffectContext2> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1EffectContext2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1EffectContext2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1EffectContext2> for ID2D1EffectContext1 {
@@ -22981,7 +22981,7 @@ pub struct ID2D1EffectContext2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1EffectImpl(::windows::runtime::IUnknown);
+pub struct ID2D1EffectImpl(pub ::windows::runtime::IUnknown);
 impl ID2D1EffectImpl {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ID2D1EffectContext>, Param1: ::windows::runtime::IntoParam<'a, ID2D1TransformGraph>>(&self, effectcontext: Param0, transformgraph: Param1) -> ::windows::runtime::Result<()> {
@@ -23002,22 +23002,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1EffectImpl {
 }
 impl ::std::convert::From<ID2D1EffectImpl> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EffectImpl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1EffectImpl> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1EffectImpl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1EffectImpl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1EffectImpl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1EffectImpl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -23033,7 +23033,7 @@ pub struct ID2D1EffectImpl_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1EllipseGeometry(::windows::runtime::IUnknown);
+pub struct ID2D1EllipseGeometry(pub ::windows::runtime::IUnknown);
 impl ID2D1EllipseGeometry {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -23122,22 +23122,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1EllipseGeometry {
 }
 impl ::std::convert::From<ID2D1EllipseGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1EllipseGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1EllipseGeometry> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1EllipseGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1EllipseGeometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1EllipseGeometry> for ID2D1Geometry {
@@ -23218,7 +23218,7 @@ pub struct ID2D1EllipseGeometry_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory(::windows::runtime::IUnknown);
+pub struct ID2D1Factory(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -23301,22 +23301,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory {
 }
 impl ::std::convert::From<ID2D1Factory> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -23349,7 +23349,7 @@ pub struct ID2D1Factory_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory1(::windows::runtime::IUnknown);
+pub struct ID2D1Factory1(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -23483,22 +23483,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory1 {
 }
 impl ::std::convert::From<ID2D1Factory1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory1> for ID2D1Factory {
@@ -23566,7 +23566,7 @@ pub struct ID2D1Factory1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory2(::windows::runtime::IUnknown);
+pub struct ID2D1Factory2(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory2 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -23706,22 +23706,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory2 {
 }
 impl ::std::convert::From<ID2D1Factory2> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory2> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory2> for ID2D1Factory1 {
@@ -23811,7 +23811,7 @@ pub struct ID2D1Factory2_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory3(::windows::runtime::IUnknown);
+pub struct ID2D1Factory3(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory3 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -23957,22 +23957,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory3 {
 }
 impl ::std::convert::From<ID2D1Factory3> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory3> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory3> for ID2D1Factory2 {
@@ -24084,7 +24084,7 @@ pub struct ID2D1Factory3_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory4(::windows::runtime::IUnknown);
+pub struct ID2D1Factory4(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory4 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -24236,22 +24236,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory4 {
 }
 impl ::std::convert::From<ID2D1Factory4> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory4> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory4> for ID2D1Factory3 {
@@ -24385,7 +24385,7 @@ pub struct ID2D1Factory4_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory5(::windows::runtime::IUnknown);
+pub struct ID2D1Factory5(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory5 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -24543,22 +24543,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory5 {
 }
 impl ::std::convert::From<ID2D1Factory5> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory5> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory5) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory5 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory5> for ID2D1Factory4 {
@@ -24714,7 +24714,7 @@ pub struct ID2D1Factory5_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory6(::windows::runtime::IUnknown);
+pub struct ID2D1Factory6(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory6 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -24878,22 +24878,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory6 {
 }
 impl ::std::convert::From<ID2D1Factory6> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory6> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory6) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory6 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory6> for ID2D1Factory5 {
@@ -25071,7 +25071,7 @@ pub struct ID2D1Factory6_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Factory7(::windows::runtime::IUnknown);
+pub struct ID2D1Factory7(pub ::windows::runtime::IUnknown);
 impl ID2D1Factory7 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows::runtime::Result<()> {
@@ -25241,22 +25241,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Factory7 {
 }
 impl ::std::convert::From<ID2D1Factory7> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Factory7> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Factory7) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Factory7 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory6 {
@@ -25456,7 +25456,7 @@ pub struct ID2D1Factory7_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GdiInteropRenderTarget(::windows::runtime::IUnknown);
+pub struct ID2D1GdiInteropRenderTarget(pub ::windows::runtime::IUnknown);
 impl ID2D1GdiInteropRenderTarget {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Gdi`*"]
@@ -25476,22 +25476,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GdiInteropRenderTarget {
 }
 impl ::std::convert::From<ID2D1GdiInteropRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiInteropRenderTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GdiInteropRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GdiInteropRenderTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GdiInteropRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GdiInteropRenderTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GdiInteropRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -25508,7 +25508,7 @@ pub struct ID2D1GdiInteropRenderTarget_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GdiMetafile(::windows::runtime::IUnknown);
+pub struct ID2D1GdiMetafile(pub ::windows::runtime::IUnknown);
 impl ID2D1GdiMetafile {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -25530,22 +25530,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafile {
 }
 impl ::std::convert::From<ID2D1GdiMetafile> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GdiMetafile> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GdiMetafile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GdiMetafile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GdiMetafile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GdiMetafile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GdiMetafile> for ID2D1Resource {
@@ -25581,7 +25581,7 @@ pub struct ID2D1GdiMetafile_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GdiMetafile1(::windows::runtime::IUnknown);
+pub struct ID2D1GdiMetafile1(pub ::windows::runtime::IUnknown);
 impl ID2D1GdiMetafile1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -25612,22 +25612,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafile1 {
 }
 impl ::std::convert::From<ID2D1GdiMetafile1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafile1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GdiMetafile1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GdiMetafile1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GdiMetafile1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GdiMetafile1> for ID2D1GdiMetafile {
@@ -25685,7 +25685,7 @@ pub struct ID2D1GdiMetafile1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GdiMetafileSink(::windows::runtime::IUnknown);
+pub struct ID2D1GdiMetafileSink(pub ::windows::runtime::IUnknown);
 impl ID2D1GdiMetafileSink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ProcessRecord(&self, recordtype: u32, recorddata: *const ::std::ffi::c_void, recorddatasize: u32) -> ::windows::runtime::Result<()> {
@@ -25698,22 +25698,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafileSink {
 }
 impl ::std::convert::From<ID2D1GdiMetafileSink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafileSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GdiMetafileSink> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GdiMetafileSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GdiMetafileSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GdiMetafileSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GdiMetafileSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -25727,7 +25727,7 @@ pub struct ID2D1GdiMetafileSink_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GdiMetafileSink1(::windows::runtime::IUnknown);
+pub struct ID2D1GdiMetafileSink1(pub ::windows::runtime::IUnknown);
 impl ID2D1GdiMetafileSink1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn ProcessRecord(&self, recordtype: u32, recorddata: *const ::std::ffi::c_void, recorddatasize: u32) -> ::windows::runtime::Result<()> {
@@ -25744,22 +25744,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GdiMetafileSink1 {
 }
 impl ::std::convert::From<ID2D1GdiMetafileSink1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GdiMetafileSink1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GdiMetafileSink1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GdiMetafileSink1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GdiMetafileSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GdiMetafileSink1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GdiMetafileSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GdiMetafileSink1> for ID2D1GdiMetafileSink {
@@ -25794,7 +25794,7 @@ pub struct ID2D1GdiMetafileSink1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Geometry(::windows::runtime::IUnknown);
+pub struct ID2D1Geometry(pub ::windows::runtime::IUnknown);
 impl ID2D1Geometry {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -25879,22 +25879,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Geometry {
 }
 impl ::std::convert::From<ID2D1Geometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Geometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Geometry> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Geometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Geometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Geometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Geometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Geometry> for ID2D1Resource {
@@ -25954,7 +25954,7 @@ pub struct ID2D1Geometry_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GeometryGroup(::windows::runtime::IUnknown);
+pub struct ID2D1GeometryGroup(pub ::windows::runtime::IUnknown);
 impl ID2D1GeometryGroup {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -26051,22 +26051,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GeometryGroup {
 }
 impl ::std::convert::From<ID2D1GeometryGroup> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GeometryGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GeometryGroup> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GeometryGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GeometryGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GeometryGroup> for ID2D1Geometry {
@@ -26149,7 +26149,7 @@ pub struct ID2D1GeometryGroup_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GeometryRealization(::windows::runtime::IUnknown);
+pub struct ID2D1GeometryRealization(pub ::windows::runtime::IUnknown);
 impl ID2D1GeometryRealization {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -26162,22 +26162,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GeometryRealization {
 }
 impl ::std::convert::From<ID2D1GeometryRealization> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GeometryRealization) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GeometryRealization> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GeometryRealization) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GeometryRealization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GeometryRealization {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GeometryRealization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GeometryRealization> for ID2D1Resource {
@@ -26211,7 +26211,7 @@ pub struct ID2D1GeometryRealization_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GeometrySink(::windows::runtime::IUnknown);
+pub struct ID2D1GeometrySink(pub ::windows::runtime::IUnknown);
 impl ID2D1GeometrySink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
@@ -26268,22 +26268,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GeometrySink {
 }
 impl ::std::convert::From<ID2D1GeometrySink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GeometrySink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GeometrySink> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GeometrySink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GeometrySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GeometrySink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GeometrySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GeometrySink> for ID2D1SimplifiedGeometrySink {
@@ -26328,7 +26328,7 @@ pub struct ID2D1GeometrySink_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GradientMesh(::windows::runtime::IUnknown);
+pub struct ID2D1GradientMesh(pub ::windows::runtime::IUnknown);
 impl ID2D1GradientMesh {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -26349,22 +26349,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GradientMesh {
 }
 impl ::std::convert::From<ID2D1GradientMesh> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GradientMesh) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GradientMesh> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GradientMesh) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GradientMesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GradientMesh {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GradientMesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GradientMesh> for ID2D1Resource {
@@ -26400,7 +26400,7 @@ pub struct ID2D1GradientMesh_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GradientStopCollection(::windows::runtime::IUnknown);
+pub struct ID2D1GradientStopCollection(pub ::windows::runtime::IUnknown);
 impl ID2D1GradientStopCollection {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -26429,22 +26429,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GradientStopCollection {
 }
 impl ::std::convert::From<ID2D1GradientStopCollection> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GradientStopCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GradientStopCollection> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GradientStopCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GradientStopCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GradientStopCollection> for ID2D1Resource {
@@ -26482,7 +26482,7 @@ pub struct ID2D1GradientStopCollection_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1GradientStopCollection1(::windows::runtime::IUnknown);
+pub struct ID2D1GradientStopCollection1(pub ::windows::runtime::IUnknown);
 impl ID2D1GradientStopCollection1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -26531,22 +26531,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1GradientStopCollection1 {
 }
 impl ::std::convert::From<ID2D1GradientStopCollection1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1GradientStopCollection1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1GradientStopCollection1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1GradientStopCollection1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1GradientStopCollection1> for ID2D1GradientStopCollection {
@@ -26609,7 +26609,7 @@ pub struct ID2D1GradientStopCollection1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1HwndRenderTarget(::windows::runtime::IUnknown);
+pub struct ID2D1HwndRenderTarget(pub ::windows::runtime::IUnknown);
 impl ID2D1HwndRenderTarget {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -26890,22 +26890,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1HwndRenderTarget {
 }
 impl ::std::convert::From<ID2D1HwndRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1HwndRenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1HwndRenderTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1HwndRenderTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1HwndRenderTarget> for ID2D1RenderTarget {
@@ -27034,7 +27034,7 @@ pub struct ID2D1HwndRenderTarget_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Image(::windows::runtime::IUnknown);
+pub struct ID2D1Image(pub ::windows::runtime::IUnknown);
 impl ID2D1Image {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27047,22 +27047,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Image {
 }
 impl ::std::convert::From<ID2D1Image> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Image) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Image> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Image) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Image {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Image {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Image {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Image> for ID2D1Resource {
@@ -27096,7 +27096,7 @@ pub struct ID2D1Image_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ImageBrush(::windows::runtime::IUnknown);
+pub struct ID2D1ImageBrush(pub ::windows::runtime::IUnknown);
 impl ID2D1ImageBrush {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27167,22 +27167,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ImageBrush {
 }
 impl ::std::convert::From<ID2D1ImageBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ImageBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ImageBrush> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ImageBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ImageBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ImageBrush> for ID2D1Brush {
@@ -27252,7 +27252,7 @@ pub struct ID2D1ImageBrush_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ImageSource(::windows::runtime::IUnknown);
+pub struct ID2D1ImageSource(pub ::windows::runtime::IUnknown);
 impl ID2D1ImageSource {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27275,22 +27275,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ImageSource {
 }
 impl ::std::convert::From<ID2D1ImageSource> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ImageSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ImageSource> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ImageSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ImageSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ImageSource> for ID2D1Image {
@@ -27347,7 +27347,7 @@ pub struct ID2D1ImageSource_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ImageSourceFromWic(::windows::runtime::IUnknown);
+pub struct ID2D1ImageSourceFromWic(pub ::windows::runtime::IUnknown);
 impl ID2D1ImageSourceFromWic {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27383,22 +27383,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ImageSourceFromWic {
 }
 impl ::std::convert::From<ID2D1ImageSourceFromWic> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ImageSourceFromWic> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ImageSourceFromWic) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ImageSourceFromWic {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1ImageSourceFromWic> for ID2D1ImageSource {
@@ -27479,7 +27479,7 @@ pub struct ID2D1ImageSourceFromWic_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Ink(::windows::runtime::IUnknown);
+pub struct ID2D1Ink(pub ::windows::runtime::IUnknown);
 impl ID2D1Ink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27537,22 +27537,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Ink {
 }
 impl ::std::convert::From<ID2D1Ink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Ink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Ink> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Ink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Ink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Ink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Ink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Ink> for ID2D1Resource {
@@ -27598,7 +27598,7 @@ pub struct ID2D1Ink_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1InkStyle(::windows::runtime::IUnknown);
+pub struct ID2D1InkStyle(pub ::windows::runtime::IUnknown);
 impl ID2D1InkStyle {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27629,22 +27629,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1InkStyle {
 }
 impl ::std::convert::From<ID2D1InkStyle> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1InkStyle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1InkStyle> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1InkStyle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1InkStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1InkStyle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1InkStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1InkStyle> for ID2D1Resource {
@@ -27684,7 +27684,7 @@ pub struct ID2D1InkStyle_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Layer(::windows::runtime::IUnknown);
+pub struct ID2D1Layer(pub ::windows::runtime::IUnknown);
 impl ID2D1Layer {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27703,22 +27703,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Layer {
 }
 impl ::std::convert::From<ID2D1Layer> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Layer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Layer> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Layer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Layer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Layer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Layer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Layer> for ID2D1Resource {
@@ -27753,7 +27753,7 @@ pub struct ID2D1Layer_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1LinearGradientBrush(::windows::runtime::IUnknown);
+pub struct ID2D1LinearGradientBrush(pub ::windows::runtime::IUnknown);
 impl ID2D1LinearGradientBrush {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27808,22 +27808,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1LinearGradientBrush {
 }
 impl ::std::convert::From<ID2D1LinearGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1LinearGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1LinearGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1LinearGradientBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1LinearGradientBrush> for ID2D1Brush {
@@ -27888,7 +27888,7 @@ pub struct ID2D1LinearGradientBrush_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1LookupTable3D(::windows::runtime::IUnknown);
+pub struct ID2D1LookupTable3D(pub ::windows::runtime::IUnknown);
 impl ID2D1LookupTable3D {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27901,22 +27901,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1LookupTable3D {
 }
 impl ::std::convert::From<ID2D1LookupTable3D> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1LookupTable3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1LookupTable3D> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1LookupTable3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1LookupTable3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1LookupTable3D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1LookupTable3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1LookupTable3D> for ID2D1Resource {
@@ -27950,7 +27950,7 @@ pub struct ID2D1LookupTable3D_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Mesh(::windows::runtime::IUnknown);
+pub struct ID2D1Mesh(pub ::windows::runtime::IUnknown);
 impl ID2D1Mesh {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -27968,22 +27968,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Mesh {
 }
 impl ::std::convert::From<ID2D1Mesh> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Mesh) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Mesh> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Mesh) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Mesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Mesh {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Mesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Mesh> for ID2D1Resource {
@@ -28018,7 +28018,7 @@ pub struct ID2D1Mesh_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Multithread(::windows::runtime::IUnknown);
+pub struct ID2D1Multithread(pub ::windows::runtime::IUnknown);
 impl ID2D1Multithread {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Foundation`*"]
@@ -28040,22 +28040,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Multithread {
 }
 impl ::std::convert::From<ID2D1Multithread> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Multithread) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Multithread> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Multithread) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Multithread {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Multithread {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Multithread {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -28072,7 +28072,7 @@ pub struct ID2D1Multithread_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1OffsetTransform(::windows::runtime::IUnknown);
+pub struct ID2D1OffsetTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1OffsetTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -28097,22 +28097,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1OffsetTransform {
 }
 impl ::std::convert::From<ID2D1OffsetTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1OffsetTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1OffsetTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1OffsetTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1OffsetTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1OffsetTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1OffsetTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1OffsetTransform> for ID2D1TransformNode {
@@ -28150,7 +28150,7 @@ pub struct ID2D1OffsetTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1PathGeometry(::windows::runtime::IUnknown);
+pub struct ID2D1PathGeometry(pub ::windows::runtime::IUnknown);
 impl ID2D1PathGeometry {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -28254,22 +28254,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1PathGeometry {
 }
 impl ::std::convert::From<ID2D1PathGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1PathGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1PathGeometry> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1PathGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1PathGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1PathGeometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1PathGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1PathGeometry> for ID2D1Geometry {
@@ -28353,7 +28353,7 @@ pub struct ID2D1PathGeometry_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1PathGeometry1(::windows::runtime::IUnknown);
+pub struct ID2D1PathGeometry1(pub ::windows::runtime::IUnknown);
 impl ID2D1PathGeometry1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -28463,22 +28463,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1PathGeometry1 {
 }
 impl ::std::convert::From<ID2D1PathGeometry1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1PathGeometry1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1PathGeometry1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1PathGeometry1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1PathGeometry1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1PathGeometry1> for ID2D1PathGeometry {
@@ -28584,7 +28584,7 @@ pub struct ID2D1PathGeometry1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1PrintControl(::windows::runtime::IUnknown);
+pub struct ID2D1PrintControl(pub ::windows::runtime::IUnknown);
 impl ID2D1PrintControl {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_System_Com`*"]
@@ -28602,22 +28602,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1PrintControl {
 }
 impl ::std::convert::From<ID2D1PrintControl> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1PrintControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1PrintControl> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1PrintControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1PrintControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1PrintControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1PrintControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -28633,7 +28633,7 @@ pub struct ID2D1PrintControl_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Properties(::windows::runtime::IUnknown);
+pub struct ID2D1Properties(pub ::windows::runtime::IUnknown);
 impl ID2D1Properties {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetPropertyCount(&self) -> u32 {
@@ -28691,22 +28691,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Properties {
 }
 impl ::std::convert::From<ID2D1Properties> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Properties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Properties> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Properties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Properties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Properties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Properties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -28734,7 +28734,7 @@ pub struct ID2D1Properties_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1RadialGradientBrush(::windows::runtime::IUnknown);
+pub struct ID2D1RadialGradientBrush(pub ::windows::runtime::IUnknown);
 impl ID2D1RadialGradientBrush {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -28805,22 +28805,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1RadialGradientBrush {
 }
 impl ::std::convert::From<ID2D1RadialGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1RadialGradientBrush> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1RadialGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1RadialGradientBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1RadialGradientBrush> for ID2D1Brush {
@@ -28889,7 +28889,7 @@ pub struct ID2D1RadialGradientBrush_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1RectangleGeometry(::windows::runtime::IUnknown);
+pub struct ID2D1RectangleGeometry(pub ::windows::runtime::IUnknown);
 impl ID2D1RectangleGeometry {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -28978,22 +28978,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1RectangleGeometry {
 }
 impl ::std::convert::From<ID2D1RectangleGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RectangleGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1RectangleGeometry> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1RectangleGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1RectangleGeometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1RectangleGeometry> for ID2D1Geometry {
@@ -29074,7 +29074,7 @@ pub struct ID2D1RectangleGeometry_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1RenderInfo(::windows::runtime::IUnknown);
+pub struct ID2D1RenderInfo(pub ::windows::runtime::IUnknown);
 impl ID2D1RenderInfo {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn SetInputDescription<'a, Param1: ::windows::runtime::IntoParam<'a, D2D1_INPUT_DESCRIPTION>>(&self, inputindex: u32, inputdescription: Param1) -> ::windows::runtime::Result<()> {
@@ -29100,22 +29100,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1RenderInfo {
 }
 impl ::std::convert::From<ID2D1RenderInfo> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RenderInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1RenderInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1RenderInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1RenderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1RenderInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1RenderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29133,7 +29133,7 @@ pub struct ID2D1RenderInfo_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1RenderTarget(::windows::runtime::IUnknown);
+pub struct ID2D1RenderTarget(pub ::windows::runtime::IUnknown);
 impl ID2D1RenderTarget {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -29401,22 +29401,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1RenderTarget {
 }
 impl ::std::convert::From<ID2D1RenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RenderTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1RenderTarget> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1RenderTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1RenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1RenderTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1RenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1RenderTarget> for ID2D1Resource {
@@ -29521,7 +29521,7 @@ pub struct ID2D1RenderTarget_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Resource(::windows::runtime::IUnknown);
+pub struct ID2D1Resource(pub ::windows::runtime::IUnknown);
 impl ID2D1Resource {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -29534,22 +29534,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Resource {
 }
 impl ::std::convert::From<ID2D1Resource> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Resource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Resource> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Resource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Resource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Resource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Resource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29563,7 +29563,7 @@ pub struct ID2D1Resource_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1ResourceTexture(::windows::runtime::IUnknown);
+pub struct ID2D1ResourceTexture(pub ::windows::runtime::IUnknown);
 impl ID2D1ResourceTexture {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn Update(&self, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: *const u8, datacount: u32) -> ::windows::runtime::Result<()> {
@@ -29576,22 +29576,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1ResourceTexture {
 }
 impl ::std::convert::From<ID2D1ResourceTexture> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1ResourceTexture) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1ResourceTexture> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1ResourceTexture) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1ResourceTexture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1ResourceTexture {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1ResourceTexture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29605,7 +29605,7 @@ pub struct ID2D1ResourceTexture_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1RoundedRectangleGeometry(::windows::runtime::IUnknown);
+pub struct ID2D1RoundedRectangleGeometry(pub ::windows::runtime::IUnknown);
 impl ID2D1RoundedRectangleGeometry {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -29694,22 +29694,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1RoundedRectangleGeometry {
 }
 impl ::std::convert::From<ID2D1RoundedRectangleGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1RoundedRectangleGeometry> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1RoundedRectangleGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1RoundedRectangleGeometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1RoundedRectangleGeometry> for ID2D1Geometry {
@@ -29790,7 +29790,7 @@ pub struct ID2D1RoundedRectangleGeometry_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SimplifiedGeometrySink(::windows::runtime::IUnknown);
+pub struct ID2D1SimplifiedGeometrySink(pub ::windows::runtime::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
@@ -29827,22 +29827,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SimplifiedGeometrySink {
 }
 impl ::std::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SimplifiedGeometrySink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SimplifiedGeometrySink> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SimplifiedGeometrySink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SimplifiedGeometrySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SimplifiedGeometrySink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SimplifiedGeometrySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -29862,7 +29862,7 @@ pub struct ID2D1SimplifiedGeometrySink_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SolidColorBrush(::windows::runtime::IUnknown);
+pub struct ID2D1SolidColorBrush(pub ::windows::runtime::IUnknown);
 impl ID2D1SolidColorBrush {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -29903,22 +29903,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SolidColorBrush {
 }
 impl ::std::convert::From<ID2D1SolidColorBrush> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SolidColorBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SolidColorBrush> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SolidColorBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SolidColorBrush {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SolidColorBrush> for ID2D1Brush {
@@ -29980,7 +29980,7 @@ pub struct ID2D1SolidColorBrush_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SourceTransform(::windows::runtime::IUnknown);
+pub struct ID2D1SourceTransform(pub ::windows::runtime::IUnknown);
 impl ID2D1SourceTransform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -30018,22 +30018,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SourceTransform {
 }
 impl ::std::convert::From<ID2D1SourceTransform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SourceTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SourceTransform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SourceTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SourceTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SourceTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SourceTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SourceTransform> for ID2D1Transform {
@@ -30096,7 +30096,7 @@ pub struct ID2D1SourceTransform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SpriteBatch(::windows::runtime::IUnknown);
+pub struct ID2D1SpriteBatch(pub ::windows::runtime::IUnknown);
 impl ID2D1SpriteBatch {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30157,22 +30157,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SpriteBatch {
 }
 impl ::std::convert::From<ID2D1SpriteBatch> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SpriteBatch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SpriteBatch> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SpriteBatch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SpriteBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SpriteBatch {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SpriteBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SpriteBatch> for ID2D1Resource {
@@ -30214,7 +30214,7 @@ pub struct ID2D1SpriteBatch_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1StrokeStyle(::windows::runtime::IUnknown);
+pub struct ID2D1StrokeStyle(pub ::windows::runtime::IUnknown);
 impl ID2D1StrokeStyle {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30263,22 +30263,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1StrokeStyle {
 }
 impl ::std::convert::From<ID2D1StrokeStyle> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1StrokeStyle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1StrokeStyle> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1StrokeStyle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1StrokeStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1StrokeStyle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1StrokeStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1StrokeStyle> for ID2D1Resource {
@@ -30321,7 +30321,7 @@ pub struct ID2D1StrokeStyle_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1StrokeStyle1(::windows::runtime::IUnknown);
+pub struct ID2D1StrokeStyle1(pub ::windows::runtime::IUnknown);
 impl ID2D1StrokeStyle1 {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30374,22 +30374,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1StrokeStyle1 {
 }
 impl ::std::convert::From<ID2D1StrokeStyle1> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1StrokeStyle1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1StrokeStyle1> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1StrokeStyle1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1StrokeStyle1 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1StrokeStyle1> for ID2D1StrokeStyle {
@@ -30453,7 +30453,7 @@ pub struct ID2D1StrokeStyle1_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgAttribute(::windows::runtime::IUnknown);
+pub struct ID2D1SvgAttribute(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgAttribute {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30475,22 +30475,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgAttribute {
 }
 impl ::std::convert::From<ID2D1SvgAttribute> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgAttribute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgAttribute> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgAttribute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgAttribute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgAttribute {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgAttribute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgAttribute> for ID2D1Resource {
@@ -30526,7 +30526,7 @@ pub struct ID2D1SvgAttribute_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgDocument(::windows::runtime::IUnknown);
+pub struct ID2D1SvgDocument(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgDocument {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30595,22 +30595,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgDocument {
 }
 impl ::std::convert::From<ID2D1SvgDocument> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgDocument> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgDocument {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgDocument> for ID2D1Resource {
@@ -30659,7 +30659,7 @@ pub struct ID2D1SvgDocument_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgElement(::windows::runtime::IUnknown);
+pub struct ID2D1SvgElement(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgElement {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30813,22 +30813,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgElement {
 }
 impl ::std::convert::From<ID2D1SvgElement> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgElement> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgElement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgElement> for ID2D1Resource {
@@ -30909,7 +30909,7 @@ pub struct ID2D1SvgElement_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgGlyphStyle(::windows::runtime::IUnknown);
+pub struct ID2D1SvgGlyphStyle(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgGlyphStyle {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -30942,22 +30942,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgGlyphStyle {
 }
 impl ::std::convert::From<ID2D1SvgGlyphStyle> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgGlyphStyle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgGlyphStyle> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgGlyphStyle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgGlyphStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgGlyphStyle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgGlyphStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgGlyphStyle> for ID2D1Resource {
@@ -30996,7 +30996,7 @@ pub struct ID2D1SvgGlyphStyle_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgPaint(::windows::runtime::IUnknown);
+pub struct ID2D1SvgPaint(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgPaint {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -31048,22 +31048,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgPaint {
 }
 impl ::std::convert::From<ID2D1SvgPaint> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgPaint) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgPaint> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgPaint) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgPaint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgPaint {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgPaint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgPaint> for ID2D1SvgAttribute {
@@ -31128,7 +31128,7 @@ pub struct ID2D1SvgPaint_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgPathData(::windows::runtime::IUnknown);
+pub struct ID2D1SvgPathData(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgPathData {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -31187,22 +31187,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgPathData {
 }
 impl ::std::convert::From<ID2D1SvgPathData> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgPathData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgPathData> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgPathData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgPathData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgPathData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgPathData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgPathData> for ID2D1SvgAttribute {
@@ -31267,7 +31267,7 @@ pub struct ID2D1SvgPathData_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgPointCollection(::windows::runtime::IUnknown);
+pub struct ID2D1SvgPointCollection(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgPointCollection {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -31305,22 +31305,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgPointCollection {
 }
 impl ::std::convert::From<ID2D1SvgPointCollection> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgPointCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgPointCollection> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgPointCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgPointCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgPointCollection> for ID2D1SvgAttribute {
@@ -31380,7 +31380,7 @@ pub struct ID2D1SvgPointCollection_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1SvgStrokeDashArray(::windows::runtime::IUnknown);
+pub struct ID2D1SvgStrokeDashArray(pub ::windows::runtime::IUnknown);
 impl ID2D1SvgStrokeDashArray {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -31426,22 +31426,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1SvgStrokeDashArray {
 }
 impl ::std::convert::From<ID2D1SvgStrokeDashArray> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1SvgStrokeDashArray> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1SvgStrokeDashArray) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1SvgStrokeDashArray {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1SvgStrokeDashArray> for ID2D1SvgAttribute {
@@ -31503,7 +31503,7 @@ pub struct ID2D1SvgStrokeDashArray_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1TessellationSink(::windows::runtime::IUnknown);
+pub struct ID2D1TessellationSink(pub ::windows::runtime::IUnknown);
 impl ID2D1TessellationSink {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn AddTriangles(&self, triangles: *const D2D1_TRIANGLE, trianglescount: u32) {
@@ -31520,22 +31520,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1TessellationSink {
 }
 impl ::std::convert::From<ID2D1TessellationSink> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TessellationSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1TessellationSink> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1TessellationSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1TessellationSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1TessellationSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1TessellationSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -31550,7 +31550,7 @@ pub struct ID2D1TessellationSink_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1Transform(::windows::runtime::IUnknown);
+pub struct ID2D1Transform(pub ::windows::runtime::IUnknown);
 impl ID2D1Transform {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -31579,22 +31579,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1Transform {
 }
 impl ::std::convert::From<ID2D1Transform> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1Transform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1Transform> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1Transform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1Transform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1Transform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1Transform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1Transform> for ID2D1TransformNode {
@@ -31634,7 +31634,7 @@ pub struct ID2D1Transform_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1TransformGraph(::windows::runtime::IUnknown);
+pub struct ID2D1TransformGraph(pub ::windows::runtime::IUnknown);
 impl ID2D1TransformGraph {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -31679,22 +31679,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1TransformGraph {
 }
 impl ::std::convert::From<ID2D1TransformGraph> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformGraph) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1TransformGraph> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1TransformGraph) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1TransformGraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1TransformGraph {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1TransformGraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -31716,7 +31716,7 @@ pub struct ID2D1TransformGraph_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1TransformNode(::windows::runtime::IUnknown);
+pub struct ID2D1TransformNode(pub ::windows::runtime::IUnknown);
 impl ID2D1TransformNode {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -31729,22 +31729,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1TransformNode {
 }
 impl ::std::convert::From<ID2D1TransformNode> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1TransformNode> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1TransformNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1TransformNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1TransformNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1TransformNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -31758,7 +31758,7 @@ pub struct ID2D1TransformNode_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1TransformedGeometry(::windows::runtime::IUnknown);
+pub struct ID2D1TransformedGeometry(pub ::windows::runtime::IUnknown);
 impl ID2D1TransformedGeometry {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -31852,22 +31852,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1TransformedGeometry {
 }
 impl ::std::convert::From<ID2D1TransformedGeometry> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformedGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1TransformedGeometry> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1TransformedGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1TransformedGeometry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1TransformedGeometry> for ID2D1Geometry {
@@ -31950,7 +31950,7 @@ pub struct ID2D1TransformedGeometry_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1TransformedImageSource(::windows::runtime::IUnknown);
+pub struct ID2D1TransformedImageSource(pub ::windows::runtime::IUnknown);
 impl ID2D1TransformedImageSource {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetFactory(&self, factory: *mut ::std::option::Option<ID2D1Factory>) {
@@ -31971,22 +31971,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1TransformedImageSource {
 }
 impl ::std::convert::From<ID2D1TransformedImageSource> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1TransformedImageSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1TransformedImageSource> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1TransformedImageSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1TransformedImageSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ID2D1TransformedImageSource> for ID2D1Image {
@@ -32042,7 +32042,7 @@ pub struct ID2D1TransformedImageSource_abi(
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ID2D1VertexBuffer(::windows::runtime::IUnknown);
+pub struct ID2D1VertexBuffer(pub ::windows::runtime::IUnknown);
 impl ID2D1VertexBuffer {
     #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub unsafe fn Map(&self, data: *mut *mut u8, buffersize: u32) -> ::windows::runtime::Result<()> {
@@ -32059,22 +32059,22 @@ unsafe impl ::windows::runtime::Interface for ID2D1VertexBuffer {
 }
 impl ::std::convert::From<ID2D1VertexBuffer> for ::windows::runtime::IUnknown {
     fn from(value: ID2D1VertexBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ID2D1VertexBuffer> for ::windows::runtime::IUnknown {
     fn from(value: &ID2D1VertexBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID2D1VertexBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID2D1VertexBuffer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID2D1VertexBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

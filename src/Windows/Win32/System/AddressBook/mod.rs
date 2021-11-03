@@ -1402,7 +1402,7 @@ pub unsafe fn HrThisThreadAdviseSink<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IABContainer(::windows::runtime::IUnknown);
+pub struct IABContainer(pub ::windows::runtime::IUnknown);
 impl IABContainer {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -1514,22 +1514,22 @@ unsafe impl ::windows::runtime::Interface for IABContainer {
 }
 impl ::std::convert::From<IABContainer> for ::windows::runtime::IUnknown {
     fn from(value: IABContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IABContainer> for ::windows::runtime::IUnknown {
     fn from(value: &IABContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IABContainer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IABContainer> for IMAPIContainer {
@@ -1609,7 +1609,7 @@ pub struct IABContainer_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAddrBook(::windows::runtime::IUnknown);
+pub struct IAddrBook(pub ::windows::runtime::IUnknown);
 impl IAddrBook {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -1780,22 +1780,22 @@ unsafe impl ::windows::runtime::Interface for IAddrBook {
 }
 impl ::std::convert::From<IAddrBook> for ::windows::runtime::IUnknown {
     fn from(value: IAddrBook) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAddrBook> for ::windows::runtime::IUnknown {
     fn from(value: &IAddrBook) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAddrBook {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAddrBook {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAddrBook {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAddrBook> for IMAPIProp {
@@ -1868,7 +1868,7 @@ pub struct IAddrBook_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAttach(::windows::runtime::IUnknown);
+pub struct IAttach(pub ::windows::runtime::IUnknown);
 impl IAttach {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -1937,22 +1937,22 @@ unsafe impl ::windows::runtime::Interface for IAttach {
 }
 impl ::std::convert::From<IAttach> for ::windows::runtime::IUnknown {
     fn from(value: IAttach) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAttach> for ::windows::runtime::IUnknown {
     fn from(value: &IAttach) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAttach {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAttach {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAttach {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IAttach> for IMAPIProp {
@@ -2000,7 +2000,7 @@ pub struct IAttach_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDistList(::windows::runtime::IUnknown);
+pub struct IDistList(pub ::windows::runtime::IUnknown);
 impl IDistList {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2112,22 +2112,22 @@ unsafe impl ::windows::runtime::Interface for IDistList {
 }
 impl ::std::convert::From<IDistList> for ::windows::runtime::IUnknown {
     fn from(value: IDistList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDistList> for ::windows::runtime::IUnknown {
     fn from(value: &IDistList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDistList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IDistList> for IMAPIContainer {
@@ -2207,7 +2207,7 @@ pub struct IDistList_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIAdviseSink(::windows::runtime::IUnknown);
+pub struct IMAPIAdviseSink(pub ::windows::runtime::IUnknown);
 impl IMAPIAdviseSink {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2221,22 +2221,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIAdviseSink {
 }
 impl ::std::convert::From<IMAPIAdviseSink> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIAdviseSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIAdviseSink> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIAdviseSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIAdviseSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIAdviseSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIAdviseSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2251,7 +2251,7 @@ pub struct IMAPIAdviseSink_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIContainer(::windows::runtime::IUnknown);
+pub struct IMAPIContainer(pub ::windows::runtime::IUnknown);
 impl IMAPIContainer {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2344,22 +2344,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIContainer {
 }
 impl ::std::convert::From<IMAPIContainer> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIContainer> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIContainer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMAPIContainer> for IMAPIProp {
@@ -2414,7 +2414,7 @@ pub struct IMAPIContainer_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIControl(::windows::runtime::IUnknown);
+pub struct IMAPIControl(pub ::windows::runtime::IUnknown);
 impl IMAPIControl {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32) -> ::windows::runtime::Result<*mut MAPIERROR> {
@@ -2436,22 +2436,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIControl {
 }
 impl ::std::convert::From<IMAPIControl> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIControl> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2467,7 +2467,7 @@ pub struct IMAPIControl_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIFolder(::windows::runtime::IUnknown);
+pub struct IMAPIFolder(pub ::windows::runtime::IUnknown);
 impl IMAPIFolder {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2618,22 +2618,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIFolder {
 }
 impl ::std::convert::From<IMAPIFolder> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIFolder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIFolder> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIFolder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIFolder {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMAPIFolder> for IMAPIContainer {
@@ -2719,7 +2719,7 @@ pub struct IMAPIFolder_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIProgress(::windows::runtime::IUnknown);
+pub struct IMAPIProgress(pub ::windows::runtime::IUnknown);
 impl IMAPIProgress {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn Progress(&self, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::runtime::Result<()> {
@@ -2748,22 +2748,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIProgress {
 }
 impl ::std::convert::From<IMAPIProgress> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIProgress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIProgress> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIProgress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIProgress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2781,7 +2781,7 @@ pub struct IMAPIProgress_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIProp(::windows::runtime::IUnknown);
+pub struct IMAPIProp(pub ::windows::runtime::IUnknown);
 impl IMAPIProp {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2850,22 +2850,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIProp {
 }
 impl ::std::convert::From<IMAPIProp> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIProp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIProp> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIProp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIProp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIProp {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIProp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2893,7 +2893,7 @@ pub struct IMAPIProp_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPIStatus(::windows::runtime::IUnknown);
+pub struct IMAPIStatus(pub ::windows::runtime::IUnknown);
 impl IMAPIStatus {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -2978,22 +2978,22 @@ unsafe impl ::windows::runtime::Interface for IMAPIStatus {
 }
 impl ::std::convert::From<IMAPIStatus> for ::windows::runtime::IUnknown {
     fn from(value: IMAPIStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPIStatus> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPIStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPIStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMAPIStatus> for IMAPIProp {
@@ -3045,7 +3045,7 @@ pub struct IMAPIStatus_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMAPITable(::windows::runtime::IUnknown);
+pub struct IMAPITable(pub ::windows::runtime::IUnknown);
 impl IMAPITable {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3150,22 +3150,22 @@ unsafe impl ::windows::runtime::Interface for IMAPITable {
 }
 impl ::std::convert::From<IMAPITable> for ::windows::runtime::IUnknown {
     fn from(value: IMAPITable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMAPITable> for ::windows::runtime::IUnknown {
     fn from(value: &IMAPITable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMAPITable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMAPITable {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMAPITable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3329,7 +3329,7 @@ pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::w
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMailUser(::windows::runtime::IUnknown);
+pub struct IMailUser(pub ::windows::runtime::IUnknown);
 impl IMailUser {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3398,22 +3398,22 @@ unsafe impl ::windows::runtime::Interface for IMailUser {
 }
 impl ::std::convert::From<IMailUser> for ::windows::runtime::IUnknown {
     fn from(value: IMailUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMailUser> for ::windows::runtime::IUnknown {
     fn from(value: &IMailUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMailUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMailUser {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMailUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMailUser> for IMAPIProp {
@@ -3461,7 +3461,7 @@ pub struct IMailUser_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMessage(::windows::runtime::IUnknown);
+pub struct IMessage(pub ::windows::runtime::IUnknown);
 impl IMessage {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3566,22 +3566,22 @@ unsafe impl ::windows::runtime::Interface for IMessage {
 }
 impl ::std::convert::From<IMessage> for ::windows::runtime::IUnknown {
     fn from(value: IMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMessage> for ::windows::runtime::IUnknown {
     fn from(value: &IMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMessage {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMessage> for IMAPIProp {
@@ -3638,7 +3638,7 @@ pub struct IMessage_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsgStore(::windows::runtime::IUnknown);
+pub struct IMsgStore(pub ::windows::runtime::IUnknown);
 impl IMsgStore {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3764,22 +3764,22 @@ unsafe impl ::windows::runtime::Interface for IMsgStore {
 }
 impl ::std::convert::From<IMsgStore> for ::windows::runtime::IUnknown {
     fn from(value: IMsgStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsgStore> for ::windows::runtime::IUnknown {
     fn from(value: &IMsgStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsgStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsgStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsgStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMsgStore> for IMAPIProp {
@@ -3841,7 +3841,7 @@ pub struct IMsgStore_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProfSect(::windows::runtime::IUnknown);
+pub struct IProfSect(pub ::windows::runtime::IUnknown);
 impl IProfSect {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -3910,22 +3910,22 @@ unsafe impl ::windows::runtime::Interface for IProfSect {
 }
 impl ::std::convert::From<IProfSect> for ::windows::runtime::IUnknown {
     fn from(value: IProfSect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProfSect> for ::windows::runtime::IUnknown {
     fn from(value: &IProfSect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProfSect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProfSect {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProfSect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IProfSect> for IMAPIProp {
@@ -3973,7 +3973,7 @@ pub struct IProfSect_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPropData(::windows::runtime::IUnknown);
+pub struct IPropData(pub ::windows::runtime::IUnknown);
 impl IPropData {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -4058,22 +4058,22 @@ unsafe impl ::windows::runtime::Interface for IPropData {
 }
 impl ::std::convert::From<IPropData> for ::windows::runtime::IUnknown {
     fn from(value: IPropData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPropData> for ::windows::runtime::IUnknown {
     fn from(value: &IPropData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPropData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IPropData> for IMAPIProp {
@@ -4125,7 +4125,7 @@ pub struct IPropData_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IProviderAdmin(::windows::runtime::IUnknown);
+pub struct IProviderAdmin(pub ::windows::runtime::IUnknown);
 impl IProviderAdmin {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32) -> ::windows::runtime::Result<*mut MAPIERROR> {
@@ -4159,22 +4159,22 @@ unsafe impl ::windows::runtime::Interface for IProviderAdmin {
 }
 impl ::std::convert::From<IProviderAdmin> for ::windows::runtime::IUnknown {
     fn from(value: IProviderAdmin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IProviderAdmin> for ::windows::runtime::IUnknown {
     fn from(value: &IProviderAdmin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProviderAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProviderAdmin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProviderAdmin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4193,7 +4193,7 @@ pub struct IProviderAdmin_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITableData(::windows::runtime::IUnknown);
+pub struct ITableData(pub ::windows::runtime::IUnknown);
 impl ITableData {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut ::std::option::Option<CALLERRELEASE>, ulcallerdata: u32, lppmapitable: *mut ::std::option::Option<IMAPITable>) -> ::windows::runtime::Result<()> {
@@ -4246,22 +4246,22 @@ unsafe impl ::windows::runtime::Interface for ITableData {
 }
 impl ::std::convert::From<ITableData> for ::windows::runtime::IUnknown {
     fn from(value: ITableData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITableData> for ::windows::runtime::IUnknown {
     fn from(value: &ITableData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4291,7 +4291,7 @@ pub struct ITableData_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWABExtInit(::windows::runtime::IUnknown);
+pub struct IWABExtInit(pub ::windows::runtime::IUnknown);
 impl IWABExtInit {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
@@ -4305,22 +4305,22 @@ unsafe impl ::windows::runtime::Interface for IWABExtInit {
 }
 impl ::std::convert::From<IWABExtInit> for ::windows::runtime::IUnknown {
     fn from(value: IWABExtInit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWABExtInit> for ::windows::runtime::IUnknown {
     fn from(value: &IWABExtInit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWABExtInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWABExtInit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWABExtInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4335,7 +4335,7 @@ pub struct IWABExtInit_abi(
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWABOBJECT_(::windows::runtime::IUnknown);
+pub struct IWABOBJECT_(pub ::windows::runtime::IUnknown);
 impl IWABOBJECT_ {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn QueryInterface(&self, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -4419,22 +4419,22 @@ unsafe impl ::windows::runtime::Interface for IWABOBJECT_ {
 }
 impl ::std::convert::From<IWABOBJECT_> for ::windows::runtime::IUnknown {
     fn from(value: IWABOBJECT_) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWABOBJECT_> for ::windows::runtime::IUnknown {
     fn from(value: &IWABOBJECT_) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWABOBJECT_ {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWABOBJECT_ {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWABOBJECT_ {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4497,7 +4497,7 @@ pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: ::wi
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWABObject(::windows::runtime::IUnknown);
+pub struct IWABObject(pub ::windows::runtime::IUnknown);
 impl IWABObject {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub unsafe fn GetLastError(&self, hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::Result<()> {
@@ -4569,22 +4569,22 @@ unsafe impl ::windows::runtime::Interface for IWABObject {
 }
 impl ::std::convert::From<IWABObject> for ::windows::runtime::IUnknown {
     fn from(value: IWABObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWABObject> for ::windows::runtime::IUnknown {
     fn from(value: &IWABObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWABObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWABObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWABObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOrigin(::windows::runtime::IInspectable);
+pub struct IPhoneCallOrigin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOrigin {
     type Vtable = IPhoneCallOrigin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543241337, 3833, 17492, [135, 28, 175, 182, 106, 20, 182, 165]);
@@ -24,7 +24,7 @@ pub struct IPhoneCallOrigin_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOrigin2(::windows::runtime::IInspectable);
+pub struct IPhoneCallOrigin2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOrigin2 {
     type Vtable = IPhoneCallOrigin2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80210304, 39618, 18280, [181, 54, 182, 141, 164, 149, 125, 2]);
@@ -43,7 +43,7 @@ pub struct IPhoneCallOrigin2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOrigin3(::windows::runtime::IInspectable);
+pub struct IPhoneCallOrigin3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOrigin3 {
     type Vtable = IPhoneCallOrigin3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228083124, 53671, 17314, [174, 238, 192, 123, 109, 186, 240, 104]);
@@ -64,7 +64,7 @@ pub struct IPhoneCallOrigin3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginManagerStatics(::windows::runtime::IInspectable);
+pub struct IPhoneCallOriginManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginManagerStatics {
     type Vtable = IPhoneCallOriginManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3439090186, 39671, 24905, [57, 208, 224, 118, 252, 206, 19, 149]);
@@ -84,7 +84,7 @@ pub struct IPhoneCallOriginManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginManagerStatics2(::windows::runtime::IInspectable);
+pub struct IPhoneCallOriginManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginManagerStatics2 {
     type Vtable = IPhoneCallOriginManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2348019263, 16628, 17280, [140, 124, 174, 162, 201, 184, 221, 122]);
@@ -103,7 +103,7 @@ pub struct IPhoneCallOriginManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginManagerStatics3(::windows::runtime::IInspectable);
+pub struct IPhoneCallOriginManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginManagerStatics3 {
     type Vtable = IPhoneCallOriginManagerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785815396, 42723, 20720, [183, 106, 214, 124, 179, 155, 223, 222]);
@@ -122,7 +122,7 @@ pub struct IPhoneCallOriginManagerStatics3_abi(
 #[doc = "*Required features: `ApplicationModel_Calls_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PhoneCallOrigin(::windows::runtime::IInspectable);
+pub struct PhoneCallOrigin(pub ::windows::runtime::IInspectable);
 impl PhoneCallOrigin {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -211,22 +211,22 @@ impl ::windows::runtime::RuntimeName for PhoneCallOrigin {
 }
 impl ::std::convert::From<PhoneCallOrigin> for ::windows::runtime::IUnknown {
     fn from(value: PhoneCallOrigin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PhoneCallOrigin> for ::windows::runtime::IUnknown {
     fn from(value: &PhoneCallOrigin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallOrigin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallOrigin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PhoneCallOrigin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PhoneCallOrigin> for ::windows::runtime::IInspectable {

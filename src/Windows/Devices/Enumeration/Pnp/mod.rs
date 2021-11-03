@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPnpObject(::windows::runtime::IInspectable);
+pub struct IPnpObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObject {
     type Vtable = IPnpObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512806488, 29499, 19087, [147, 163, 219, 7, 138, 200, 112, 193]);
@@ -23,7 +23,7 @@ pub struct IPnpObject_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPnpObjectStatics(::windows::runtime::IInspectable);
+pub struct IPnpObjectStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectStatics {
     type Vtable = IPnpObjectStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015911997, 53608, 18016, [187, 243, 167, 51, 177, 75, 110, 1]);
@@ -50,7 +50,7 @@ pub struct IPnpObjectStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPnpObjectUpdate(::windows::runtime::IInspectable);
+pub struct IPnpObjectUpdate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868163090, 30, 18500, [188, 198, 67, 40, 134, 133, 106, 23]);
@@ -71,7 +71,7 @@ pub struct IPnpObjectUpdate_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPnpObjectWatcher(::windows::runtime::IInspectable);
+pub struct IPnpObjectWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2211011752, 18290, 19066, [172, 168, 228, 140, 66, 168, 156, 68]);
@@ -112,7 +112,7 @@ pub struct IPnpObjectWatcher_abi(
 #[doc = "*Required features: `Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PnpObject(::windows::runtime::IInspectable);
+pub struct PnpObject(pub ::windows::runtime::IInspectable);
 impl PnpObject {
     #[doc = "*Required features: `Devices_Enumeration_Pnp`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PnpObjectType> {
@@ -201,22 +201,22 @@ impl ::windows::runtime::RuntimeName for PnpObject {
 }
 impl ::std::convert::From<PnpObject> for ::windows::runtime::IUnknown {
     fn from(value: PnpObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PnpObject> for ::windows::runtime::IUnknown {
     fn from(value: &PnpObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PnpObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PnpObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PnpObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PnpObject> for ::windows::runtime::IInspectable {
@@ -245,7 +245,7 @@ unsafe impl ::std::marker::Sync for PnpObject {}
 #[doc = "*Required features: `Devices_Enumeration_Pnp`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PnpObjectCollection(::windows::runtime::IInspectable);
+pub struct PnpObjectCollection(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PnpObjectCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -310,25 +310,25 @@ impl ::windows::runtime::RuntimeName for PnpObjectCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<PnpObjectCollection> for ::windows::runtime::IUnknown {
     fn from(value: PnpObjectCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&PnpObjectCollection> for ::windows::runtime::IUnknown {
     fn from(value: &PnpObjectCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PnpObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PnpObjectCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PnpObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -457,7 +457,7 @@ impl ::windows::runtime::DefaultType for PnpObjectType {
 #[doc = "*Required features: `Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PnpObjectUpdate(::windows::runtime::IInspectable);
+pub struct PnpObjectUpdate(pub ::windows::runtime::IInspectable);
 impl PnpObjectUpdate {
     #[doc = "*Required features: `Devices_Enumeration_Pnp`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PnpObjectType> {
@@ -497,22 +497,22 @@ impl ::windows::runtime::RuntimeName for PnpObjectUpdate {
 }
 impl ::std::convert::From<PnpObjectUpdate> for ::windows::runtime::IUnknown {
     fn from(value: PnpObjectUpdate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PnpObjectUpdate> for ::windows::runtime::IUnknown {
     fn from(value: &PnpObjectUpdate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PnpObjectUpdate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PnpObjectUpdate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PnpObjectUpdate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PnpObjectUpdate> for ::windows::runtime::IInspectable {
@@ -540,7 +540,7 @@ unsafe impl ::std::marker::Sync for PnpObjectUpdate {}
 #[doc = "*Required features: `Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PnpObjectWatcher(::windows::runtime::IInspectable);
+pub struct PnpObjectWatcher(pub ::windows::runtime::IInspectable);
 impl PnpObjectWatcher {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration_Pnp`, `Foundation`*"]
@@ -648,22 +648,22 @@ impl ::windows::runtime::RuntimeName for PnpObjectWatcher {
 }
 impl ::std::convert::From<PnpObjectWatcher> for ::windows::runtime::IUnknown {
     fn from(value: PnpObjectWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PnpObjectWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &PnpObjectWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PnpObjectWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PnpObjectWatcher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PnpObjectWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PnpObjectWatcher> for ::windows::runtime::IInspectable {

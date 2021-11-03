@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnAppId(::windows::runtime::IInspectable);
+pub struct IVpnAppId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnAppId {
     type Vtable = IVpnAppId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2064033333, 23640, 16857, [148, 167, 191, 188, 241, 216, 202, 84]);
@@ -22,7 +22,7 @@ pub struct IVpnAppId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnAppIdFactory(::windows::runtime::IInspectable);
+pub struct IVpnAppIdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnAppIdFactory {
     type Vtable = IVpnAppIdFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185807658, 2731, 20443, [130, 29, 211, 221, 201, 25, 120, 139]);
@@ -40,7 +40,7 @@ pub struct IVpnAppIdFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannel(::windows::runtime::IInspectable);
+pub struct IVpnChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel {
     type Vtable = IVpnChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1254591751, 53672, 17155, [160, 145, 200, 210, 224, 145, 91, 195]);
@@ -91,7 +91,7 @@ pub struct IVpnChannel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannel2(::windows::runtime::IInspectable);
+pub struct IVpnChannel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel2 {
     type Vtable = IVpnChannel2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576049509, 39227, 17961, [173, 96, 241, 195, 243, 83, 127, 80]);
@@ -143,7 +143,7 @@ pub struct IVpnChannel2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannel4(::windows::runtime::IInspectable);
+pub struct IVpnChannel4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel4 {
     type Vtable = IVpnChannel4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609620190, 10551, 16797, [149, 112, 72, 106, 235, 184, 24, 3]);
@@ -169,7 +169,7 @@ pub struct IVpnChannel4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannel5(::windows::runtime::IInspectable);
+pub struct IVpnChannel5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel5 {
     type Vtable = IVpnChannel5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732539794, 33668, 20412, [136, 44, 31, 210, 49, 36, 205, 59]);
@@ -190,7 +190,7 @@ pub struct IVpnChannel5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannel6(::windows::runtime::IInspectable);
+pub struct IVpnChannel6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel6 {
     type Vtable = IVpnChannel6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1434728086, 48483, 18885, [171, 202, 93, 167, 120, 133, 85, 26]);
@@ -209,7 +209,7 @@ pub struct IVpnChannel6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannelActivityEventArgs(::windows::runtime::IInspectable);
+pub struct IVpnChannelActivityEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741799154, 45020, 18293, [133, 93, 212, 172, 10, 53, 252, 85]);
@@ -227,7 +227,7 @@ pub struct IVpnChannelActivityEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannelActivityStateChangedArgs(::windows::runtime::IInspectable);
+pub struct IVpnChannelActivityStateChangedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031079269, 64960, 19390, [162, 59, 69, 255, 252, 109, 151, 161]);
@@ -245,7 +245,7 @@ pub struct IVpnChannelActivityStateChangedArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannelConfiguration(::windows::runtime::IInspectable);
+pub struct IVpnChannelConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(237886626, 8210, 20452, [177, 121, 140, 101, 44, 109, 16, 126]);
@@ -266,7 +266,7 @@ pub struct IVpnChannelConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnChannelConfiguration2(::windows::runtime::IInspectable);
+pub struct IVpnChannelConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelConfiguration2 {
     type Vtable = IVpnChannelConfiguration2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077606732, 30756, 18204, [161, 24, 99, 219, 201, 58, 228, 199]);
@@ -286,7 +286,7 @@ pub struct IVpnChannelConfiguration2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnChannelStatics(::windows::runtime::IInspectable);
+pub struct IVpnChannelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelStatics {
     type Vtable = IVpnChannelStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297103917, 59416, 20477, [152, 166, 54, 62, 55, 54, 201, 93]);
@@ -303,22 +303,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnChannelStatics {
 }
 impl ::std::convert::From<IVpnChannelStatics> for ::windows::runtime::IUnknown {
     fn from(value: IVpnChannelStatics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnChannelStatics> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnChannelStatics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnChannelStatics {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnChannelStatics {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnChannelStatics {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnChannelStatics> for ::windows::runtime::IInspectable {
@@ -355,7 +355,7 @@ pub struct IVpnChannelStatics_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnCredential(::windows::runtime::IInspectable);
+pub struct IVpnCredential(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCredential {
     type Vtable = IVpnCredential_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085404915, 42093, 16459, [135, 41, 24, 50, 82, 40, 83, 172]);
@@ -402,22 +402,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnCredential {
 }
 impl ::std::convert::From<IVpnCredential> for ::windows::runtime::IUnknown {
     fn from(value: IVpnCredential) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnCredential> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnCredential) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnCredential {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnCredential {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnCredential {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnCredential> for ::windows::runtime::IInspectable {
@@ -459,7 +459,7 @@ pub struct IVpnCredential_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomCheckBox(::windows::runtime::IInspectable);
+pub struct IVpnCustomCheckBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132955475, 965, 20065, [147, 215, 169, 87, 113, 76, 66, 130]);
@@ -479,7 +479,7 @@ pub struct IVpnCustomCheckBox_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomComboBox(::windows::runtime::IInspectable);
+pub struct IVpnCustomComboBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586056078, 56225, 19567, [130, 112, 220, 243, 201, 118, 28, 76]);
@@ -501,7 +501,7 @@ pub struct IVpnCustomComboBox_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomEditBox(::windows::runtime::IInspectable);
+pub struct IVpnCustomEditBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(805493152, 53183, 19467, [143, 60, 102, 245, 3, 194, 11, 57]);
@@ -523,7 +523,7 @@ pub struct IVpnCustomEditBox_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomErrorBox(::windows::runtime::IInspectable);
+pub struct IVpnCustomErrorBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2663706546, 51522, 17071, [178, 35, 88, 139, 72, 50, 135, 33]);
@@ -541,7 +541,7 @@ pub struct IVpnCustomErrorBox_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnCustomPrompt(::windows::runtime::IInspectable);
+pub struct IVpnCustomPrompt(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPrompt {
     type Vtable = IVpnCustomPrompt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603531899, 34773, 17212, [180, 246, 238, 230, 170, 104, 162, 68]);
@@ -592,22 +592,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnCustomPrompt {
 }
 impl ::std::convert::From<IVpnCustomPrompt> for ::windows::runtime::IUnknown {
     fn from(value: IVpnCustomPrompt) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnCustomPrompt> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnCustomPrompt) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnCustomPrompt {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnCustomPrompt {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnCustomPrompt {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnCustomPrompt> for ::windows::runtime::IInspectable {
@@ -648,7 +648,7 @@ pub struct IVpnCustomPrompt_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomPromptBooleanInput(::windows::runtime::IInspectable);
+pub struct IVpnCustomPromptBooleanInput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3301549726, 65351, 17703, [159, 39, 164, 146, 146, 1, 153, 121]);
@@ -669,7 +669,7 @@ pub struct IVpnCustomPromptBooleanInput_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnCustomPromptElement(::windows::runtime::IInspectable);
+pub struct IVpnCustomPromptElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptElement {
     type Vtable = IVpnCustomPromptElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1941788216, 28420, 16461, [147, 221, 80, 164, 73, 36, 163, 139]);
@@ -720,22 +720,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnCustomPromptElement {
 }
 impl ::std::convert::From<IVpnCustomPromptElement> for ::windows::runtime::IUnknown {
     fn from(value: IVpnCustomPromptElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnCustomPromptElement> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnCustomPromptElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnCustomPromptElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnCustomPromptElement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnCustomPromptElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnCustomPromptElement> for ::windows::runtime::IInspectable {
@@ -776,7 +776,7 @@ pub struct IVpnCustomPromptElement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomPromptOptionSelector(::windows::runtime::IInspectable);
+pub struct IVpnCustomPromptOptionSelector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(999240921, 36545, 20117, [154, 78, 123, 166, 77, 56, 243, 48]);
@@ -796,7 +796,7 @@ pub struct IVpnCustomPromptOptionSelector_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomPromptText(::windows::runtime::IInspectable);
+pub struct IVpnCustomPromptText(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1003011566, 14914, 18851, [171, 221, 7, 178, 237, 234, 117, 45]);
@@ -815,7 +815,7 @@ pub struct IVpnCustomPromptText_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomPromptTextInput(::windows::runtime::IInspectable);
+pub struct IVpnCustomPromptTextInput(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3386547317, 37180, 18389, [136, 186, 72, 252, 72, 147, 2, 53]);
@@ -837,7 +837,7 @@ pub struct IVpnCustomPromptTextInput_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnCustomTextBox(::windows::runtime::IInspectable);
+pub struct IVpnCustomTextBox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3668231114, 36643, 19766, [145, 241, 118, 217, 55, 130, 121, 66]);
@@ -856,7 +856,7 @@ pub struct IVpnCustomTextBox_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnDomainNameAssignment(::windows::runtime::IInspectable);
+pub struct IVpnDomainNameAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1094037825, 52443, 18869, [148, 1, 3, 154, 138, 231, 103, 233]);
@@ -879,7 +879,7 @@ pub struct IVpnDomainNameAssignment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnDomainNameInfo(::windows::runtime::IInspectable);
+pub struct IVpnDomainNameInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2905520175, 60046, 20346, [132, 62, 26, 135, 227, 46, 27, 154]);
@@ -904,7 +904,7 @@ pub struct IVpnDomainNameInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnDomainNameInfo2(::windows::runtime::IInspectable);
+pub struct IVpnDomainNameInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfo2 {
     type Vtable = IVpnDomainNameInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877755729, 27731, 18472, [152, 131, 216, 134, 222, 16, 68, 7]);
@@ -924,7 +924,7 @@ pub struct IVpnDomainNameInfo2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnDomainNameInfoFactory(::windows::runtime::IInspectable);
+pub struct IVpnDomainNameInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfoFactory {
     type Vtable = IVpnDomainNameInfoFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(621263733, 655, 18056, [141, 58, 196, 83, 29, 243, 125, 168]);
@@ -945,22 +945,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnDomainNameInfoFactory {
 }
 impl ::std::convert::From<IVpnDomainNameInfoFactory> for ::windows::runtime::IUnknown {
     fn from(value: IVpnDomainNameInfoFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnDomainNameInfoFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnDomainNameInfoFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnDomainNameInfoFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnDomainNameInfoFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnDomainNameInfoFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnDomainNameInfoFactory> for ::windows::runtime::IInspectable {
@@ -997,7 +997,7 @@ pub struct IVpnDomainNameInfoFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnForegroundActivatedEventArgs(::windows::runtime::IInspectable);
+pub struct IVpnForegroundActivatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243192240, 51931, 19824, [172, 146, 84, 58, 36, 220, 158, 188]);
@@ -1018,7 +1018,7 @@ pub struct IVpnForegroundActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnForegroundActivationOperation(::windows::runtime::IInspectable);
+pub struct IVpnForegroundActivationOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2650869079, 61818, 19413, [155, 109, 249, 132, 241, 41, 125, 60]);
@@ -1037,7 +1037,7 @@ pub struct IVpnForegroundActivationOperation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnInterfaceId(::windows::runtime::IInspectable);
+pub struct IVpnInterfaceId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnInterfaceId {
     type Vtable = IVpnInterfaceId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 17]);
@@ -1056,7 +1056,7 @@ pub struct IVpnInterfaceId_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnInterfaceIdFactory(::windows::runtime::IInspectable);
+pub struct IVpnInterfaceIdFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnInterfaceIdFactory {
     type Vtable = IVpnInterfaceIdFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 16, 0]);
@@ -1076,22 +1076,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnInterfaceIdFactory {
 }
 impl ::std::convert::From<IVpnInterfaceIdFactory> for ::windows::runtime::IUnknown {
     fn from(value: IVpnInterfaceIdFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnInterfaceIdFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnInterfaceIdFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnInterfaceIdFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnInterfaceIdFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnInterfaceIdFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnInterfaceIdFactory> for ::windows::runtime::IInspectable {
@@ -1127,7 +1127,7 @@ pub struct IVpnInterfaceIdFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnManagementAgent(::windows::runtime::IInspectable);
+pub struct IVpnManagementAgent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnManagementAgent {
     type Vtable = IVpnManagementAgent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423007949, 42436, 19134, [133, 43, 120, 91, 228, 203, 62, 52]);
@@ -1162,7 +1162,7 @@ pub struct IVpnManagementAgent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnNamespaceAssignment(::windows::runtime::IInspectable);
+pub struct IVpnNamespaceAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623344920, 12413, 19470, [189, 98, 143, 162, 112, 187, 173, 214]);
@@ -1187,7 +1187,7 @@ pub struct IVpnNamespaceAssignment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnNamespaceInfo(::windows::runtime::IInspectable);
+pub struct IVpnNamespaceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(820902723, 17487, 17605, [129, 103, 163, 90, 145, 241, 175, 148]);
@@ -1215,7 +1215,7 @@ pub struct IVpnNamespaceInfo_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnNamespaceInfoFactory(::windows::runtime::IInspectable);
+pub struct IVpnNamespaceInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceInfoFactory {
     type Vtable = IVpnNamespaceInfoFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3409876250, 45262, 17451, [172, 187, 95, 153, 178, 2, 195, 28]);
@@ -1236,22 +1236,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnNamespaceInfoFactory {
 }
 impl ::std::convert::From<IVpnNamespaceInfoFactory> for ::windows::runtime::IUnknown {
     fn from(value: IVpnNamespaceInfoFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnNamespaceInfoFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnNamespaceInfoFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnNamespaceInfoFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnNamespaceInfoFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnNamespaceInfoFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnNamespaceInfoFactory> for ::windows::runtime::IInspectable {
@@ -1288,7 +1288,7 @@ pub struct IVpnNamespaceInfoFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnNativeProfile(::windows::runtime::IInspectable);
+pub struct IVpnNativeProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNativeProfile {
     type Vtable = IVpnNativeProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2762924702, 25623, 17203, [152, 66, 240, 166, 109, 182, 152, 2]);
@@ -1317,7 +1317,7 @@ pub struct IVpnNativeProfile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnNativeProfile2(::windows::runtime::IInspectable);
+pub struct IVpnNativeProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNativeProfile2 {
     type Vtable = IVpnNativeProfile2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(267134055, 52661, 19143, [181, 163, 10, 251, 94, 196, 118, 130]);
@@ -1337,7 +1337,7 @@ pub struct IVpnNativeProfile2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPacketBuffer(::windows::runtime::IInspectable);
+pub struct IVpnPacketBuffer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271070204, 19804, 19043, [183, 13, 78, 48, 126, 172, 206, 85]);
@@ -1360,7 +1360,7 @@ pub struct IVpnPacketBuffer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPacketBuffer2(::windows::runtime::IInspectable);
+pub struct IVpnPacketBuffer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer2 {
     type Vtable = IVpnPacketBuffer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1717473776, 34821, 19445, [166, 25, 46, 132, 136, 46, 107, 79]);
@@ -1378,7 +1378,7 @@ pub struct IVpnPacketBuffer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPacketBuffer3(::windows::runtime::IInspectable);
+pub struct IVpnPacketBuffer3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer3 {
     type Vtable = IVpnPacketBuffer3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3797288751, 4219, 19520, [177, 39, 91, 197, 62, 10, 217, 96]);
@@ -1398,7 +1398,7 @@ pub struct IVpnPacketBuffer3_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnPacketBufferFactory(::windows::runtime::IInspectable);
+pub struct IVpnPacketBufferFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferFactory {
     type Vtable = IVpnPacketBufferFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653805730, 5906, 19684, [177, 121, 140, 101, 44, 109, 153, 153]);
@@ -1418,22 +1418,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnPacketBufferFactory {
 }
 impl ::std::convert::From<IVpnPacketBufferFactory> for ::windows::runtime::IUnknown {
     fn from(value: IVpnPacketBufferFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnPacketBufferFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnPacketBufferFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnPacketBufferFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnPacketBufferFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnPacketBufferFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnPacketBufferFactory> for ::windows::runtime::IInspectable {
@@ -1469,7 +1469,7 @@ pub struct IVpnPacketBufferFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPacketBufferList(::windows::runtime::IInspectable);
+pub struct IVpnPacketBufferList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271070204, 19804, 19043, [183, 13, 78, 48, 126, 172, 206, 119]);
@@ -1494,7 +1494,7 @@ pub struct IVpnPacketBufferList_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPacketBufferList2(::windows::runtime::IInspectable);
+pub struct IVpnPacketBufferList2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferList2 {
     type Vtable = IVpnPacketBufferList2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048236005, 59934, 18474, [141, 152, 192, 101, 245, 125, 137, 234]);
@@ -1515,7 +1515,7 @@ pub struct IVpnPacketBufferList2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPickedCredential(::windows::runtime::IInspectable);
+pub struct IVpnPickedCredential(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPickedCredential {
     type Vtable = IVpnPickedCredential_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591636167, 34900, 20050, [173, 151, 36, 221, 154, 132, 43, 206]);
@@ -1538,7 +1538,7 @@ pub struct IVpnPickedCredential_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnPlugIn(::windows::runtime::IInspectable);
+pub struct IVpnPlugIn(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugIn {
     type Vtable = IVpnPlugIn_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3468135687, 53416, 18179, [160, 145, 200, 194, 192, 145, 91, 196]);
@@ -1575,22 +1575,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnPlugIn {
 }
 impl ::std::convert::From<IVpnPlugIn> for ::windows::runtime::IUnknown {
     fn from(value: IVpnPlugIn) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnPlugIn> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnPlugIn) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnPlugIn {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnPlugIn {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnPlugIn {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnPlugIn> for ::windows::runtime::IInspectable {
@@ -1630,7 +1630,7 @@ pub struct IVpnPlugIn_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPlugInProfile(::windows::runtime::IInspectable);
+pub struct IVpnPlugInProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249499044, 20224, 17801, [141, 123, 75, 249, 136, 246, 84, 44]);
@@ -1653,7 +1653,7 @@ pub struct IVpnPlugInProfile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnPlugInProfile2(::windows::runtime::IInspectable);
+pub struct IVpnPlugInProfile2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugInProfile2 {
     type Vtable = IVpnPlugInProfile2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1629243538, 53140, 19158, [186, 153, 0, 244, 255, 52, 86, 94]);
@@ -1674,7 +1674,7 @@ pub struct IVpnPlugInProfile2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnProfile(::windows::runtime::IInspectable);
+pub struct IVpnProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnProfile {
     type Vtable = IVpnProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020980561, 45271, 17371, [138, 147, 211, 254, 36, 121, 229, 106]);
@@ -1761,22 +1761,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnProfile {
 }
 impl ::std::convert::From<IVpnProfile> for ::windows::runtime::IUnknown {
     fn from(value: IVpnProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnProfile> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnProfile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnProfile> for ::windows::runtime::IInspectable {
@@ -1825,7 +1825,7 @@ pub struct IVpnProfile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnRoute(::windows::runtime::IInspectable);
+pub struct IVpnRoute(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRoute {
     type Vtable = IVpnRoute_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3044219779, 2409, 18073, [147, 142, 119, 118, 219, 41, 207, 179]);
@@ -1846,7 +1846,7 @@ pub struct IVpnRoute_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnRouteAssignment(::windows::runtime::IInspectable);
+pub struct IVpnRouteAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680820770, 52793, 19062, [149, 80, 246, 16, 57, 248, 14, 72]);
@@ -1882,7 +1882,7 @@ pub struct IVpnRouteAssignment_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Vpn`*"]
-pub struct IVpnRouteFactory(::windows::runtime::IInspectable);
+pub struct IVpnRouteFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRouteFactory {
     type Vtable = IVpnRouteFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3186275839, 17871, 19353, [131, 251, 219, 59, 194, 103, 43, 2]);
@@ -1902,22 +1902,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVpnRouteFactory {
 }
 impl ::std::convert::From<IVpnRouteFactory> for ::windows::runtime::IUnknown {
     fn from(value: IVpnRouteFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVpnRouteFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IVpnRouteFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVpnRouteFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVpnRouteFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVpnRouteFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVpnRouteFactory> for ::windows::runtime::IInspectable {
@@ -1953,7 +1953,7 @@ pub struct IVpnRouteFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnSystemHealth(::windows::runtime::IInspectable);
+pub struct IVpnSystemHealth(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnSystemHealth {
     type Vtable = IVpnSystemHealth_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2577987759, 49390, 20085, [129, 122, 242, 49, 174, 229, 18, 61]);
@@ -1972,7 +1972,7 @@ pub struct IVpnSystemHealth_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnTrafficFilter(::windows::runtime::IInspectable);
+pub struct IVpnTrafficFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795417440, 27807, 18421, [172, 54, 187, 27, 4, 46, 44, 80]);
@@ -2005,7 +2005,7 @@ pub struct IVpnTrafficFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnTrafficFilterAssignment(::windows::runtime::IInspectable);
+pub struct IVpnTrafficFilterAssignment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456264284, 58980, 18206, [137, 205, 96, 22, 3, 185, 224, 243]);
@@ -2028,7 +2028,7 @@ pub struct IVpnTrafficFilterAssignment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVpnTrafficFilterFactory(::windows::runtime::IInspectable);
+pub struct IVpnTrafficFilterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilterFactory {
     type Vtable = IVpnTrafficFilterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1208828373, 32665, 18252, [134, 238, 150, 223, 22, 131, 24, 241]);
@@ -2047,7 +2047,7 @@ pub struct IVpnTrafficFilterFactory_abi(
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnAppId(::windows::runtime::IInspectable);
+pub struct VpnAppId(pub ::windows::runtime::IInspectable);
 impl VpnAppId {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<VpnAppIdType> {
@@ -2099,22 +2099,22 @@ impl ::windows::runtime::RuntimeName for VpnAppId {
 }
 impl ::std::convert::From<VpnAppId> for ::windows::runtime::IUnknown {
     fn from(value: VpnAppId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnAppId> for ::windows::runtime::IUnknown {
     fn from(value: &VpnAppId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnAppId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnAppId {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnAppId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnAppId> for ::windows::runtime::IInspectable {
@@ -2189,7 +2189,7 @@ impl ::windows::runtime::DefaultType for VpnAuthenticationMethod {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnChannel(::windows::runtime::IInspectable);
+pub struct VpnChannel(pub ::windows::runtime::IInspectable);
 impl VpnChannel {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn AssociateTransport<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, mainoutertunneltransport: Param0, optionaloutertunneltransport: Param1) -> ::windows::runtime::Result<()> {
@@ -2626,22 +2626,22 @@ impl ::windows::runtime::RuntimeName for VpnChannel {
 }
 impl ::std::convert::From<VpnChannel> for ::windows::runtime::IUnknown {
     fn from(value: VpnChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnChannel> for ::windows::runtime::IUnknown {
     fn from(value: &VpnChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnChannel> for ::windows::runtime::IInspectable {
@@ -2669,7 +2669,7 @@ unsafe impl ::std::marker::Sync for VpnChannel {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnChannelActivityEventArgs(::windows::runtime::IInspectable);
+pub struct VpnChannelActivityEventArgs(pub ::windows::runtime::IInspectable);
 impl VpnChannelActivityEventArgs {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<VpnChannelActivityEventType> {
@@ -2692,22 +2692,22 @@ impl ::windows::runtime::RuntimeName for VpnChannelActivityEventArgs {
 }
 impl ::std::convert::From<VpnChannelActivityEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VpnChannelActivityEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnChannelActivityEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannelActivityEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannelActivityEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnChannelActivityEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnChannelActivityEventArgs> for ::windows::runtime::IInspectable {
@@ -2757,7 +2757,7 @@ impl ::windows::runtime::DefaultType for VpnChannelActivityEventType {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnChannelActivityStateChangedArgs(::windows::runtime::IInspectable);
+pub struct VpnChannelActivityStateChangedArgs(pub ::windows::runtime::IInspectable);
 impl VpnChannelActivityStateChangedArgs {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn ActivityState(&self) -> ::windows::runtime::Result<VpnChannelActivityEventType> {
@@ -2780,22 +2780,22 @@ impl ::windows::runtime::RuntimeName for VpnChannelActivityStateChangedArgs {
 }
 impl ::std::convert::From<VpnChannelActivityStateChangedArgs> for ::windows::runtime::IUnknown {
     fn from(value: VpnChannelActivityStateChangedArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnChannelActivityStateChangedArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannelActivityStateChangedArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannelActivityStateChangedArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnChannelActivityStateChangedArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnChannelActivityStateChangedArgs> for ::windows::runtime::IInspectable {
@@ -2823,7 +2823,7 @@ unsafe impl ::std::marker::Sync for VpnChannelActivityStateChangedArgs {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnChannelConfiguration(::windows::runtime::IInspectable);
+pub struct VpnChannelConfiguration(pub ::windows::runtime::IInspectable);
 impl VpnChannelConfiguration {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn ServerServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2872,22 +2872,22 @@ impl ::windows::runtime::RuntimeName for VpnChannelConfiguration {
 }
 impl ::std::convert::From<VpnChannelConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: VpnChannelConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnChannelConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &VpnChannelConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannelConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannelConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnChannelConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnChannelConfiguration> for ::windows::runtime::IInspectable {
@@ -2966,7 +2966,7 @@ impl ::std::ops::Not for VpnChannelRequestCredentialsOptions {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCredential(::windows::runtime::IInspectable);
+pub struct VpnCredential(pub ::windows::runtime::IInspectable);
 impl VpnCredential {
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Vpn`, `Security_Credentials`*"]
@@ -3016,22 +3016,22 @@ impl ::windows::runtime::RuntimeName for VpnCredential {
 }
 impl ::std::convert::From<VpnCredential> for ::windows::runtime::IUnknown {
     fn from(value: VpnCredential) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCredential> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCredential) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCredential {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCredential {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCredential {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCredential> for ::windows::runtime::IInspectable {
@@ -3106,7 +3106,7 @@ impl ::windows::runtime::DefaultType for VpnCredentialType {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomCheckBox(::windows::runtime::IInspectable);
+pub struct VpnCustomCheckBox(pub ::windows::runtime::IInspectable);
 impl VpnCustomCheckBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3188,22 +3188,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomCheckBox {
 }
 impl ::std::convert::From<VpnCustomCheckBox> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomCheckBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomCheckBox> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomCheckBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomCheckBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomCheckBox {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomCheckBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomCheckBox> for ::windows::runtime::IInspectable {
@@ -3253,7 +3253,7 @@ unsafe impl ::std::marker::Sync for VpnCustomCheckBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomComboBox(::windows::runtime::IInspectable);
+pub struct VpnCustomComboBox(pub ::windows::runtime::IInspectable);
 impl VpnCustomComboBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3337,22 +3337,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomComboBox {
 }
 impl ::std::convert::From<VpnCustomComboBox> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomComboBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomComboBox> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomComboBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomComboBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomComboBox {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomComboBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomComboBox> for ::windows::runtime::IInspectable {
@@ -3402,7 +3402,7 @@ unsafe impl ::std::marker::Sync for VpnCustomComboBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomEditBox(::windows::runtime::IInspectable);
+pub struct VpnCustomEditBox(pub ::windows::runtime::IInspectable);
 impl VpnCustomEditBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3497,22 +3497,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomEditBox {
 }
 impl ::std::convert::From<VpnCustomEditBox> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomEditBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomEditBox> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomEditBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomEditBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomEditBox {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomEditBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomEditBox> for ::windows::runtime::IInspectable {
@@ -3562,7 +3562,7 @@ unsafe impl ::std::marker::Sync for VpnCustomEditBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomErrorBox(::windows::runtime::IInspectable);
+pub struct VpnCustomErrorBox(pub ::windows::runtime::IInspectable);
 impl VpnCustomErrorBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3623,22 +3623,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomErrorBox {
 }
 impl ::std::convert::From<VpnCustomErrorBox> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomErrorBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomErrorBox> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomErrorBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomErrorBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomErrorBox {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomErrorBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomErrorBox> for ::windows::runtime::IInspectable {
@@ -3688,7 +3688,7 @@ unsafe impl ::std::marker::Sync for VpnCustomErrorBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomPromptBooleanInput(::windows::runtime::IInspectable);
+pub struct VpnCustomPromptBooleanInput(pub ::windows::runtime::IInspectable);
 impl VpnCustomPromptBooleanInput {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3770,22 +3770,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomPromptBooleanInput {
 }
 impl ::std::convert::From<VpnCustomPromptBooleanInput> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomPromptBooleanInput) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomPromptBooleanInput> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptBooleanInput {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptBooleanInput {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomPromptBooleanInput {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomPromptBooleanInput> for ::windows::runtime::IInspectable {
@@ -3835,7 +3835,7 @@ unsafe impl ::std::marker::Sync for VpnCustomPromptBooleanInput {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomPromptOptionSelector(::windows::runtime::IInspectable);
+pub struct VpnCustomPromptOptionSelector(pub ::windows::runtime::IInspectable);
 impl VpnCustomPromptOptionSelector {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3913,22 +3913,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomPromptOptionSelector {
 }
 impl ::std::convert::From<VpnCustomPromptOptionSelector> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomPromptOptionSelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomPromptOptionSelector> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptOptionSelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptOptionSelector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomPromptOptionSelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomPromptOptionSelector> for ::windows::runtime::IInspectable {
@@ -3978,7 +3978,7 @@ unsafe impl ::std::marker::Sync for VpnCustomPromptOptionSelector {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomPromptText(::windows::runtime::IInspectable);
+pub struct VpnCustomPromptText(pub ::windows::runtime::IInspectable);
 impl VpnCustomPromptText {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4052,22 +4052,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomPromptText {
 }
 impl ::std::convert::From<VpnCustomPromptText> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomPromptText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomPromptText> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomPromptText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptText {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomPromptText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomPromptText> for ::windows::runtime::IInspectable {
@@ -4117,7 +4117,7 @@ unsafe impl ::std::marker::Sync for VpnCustomPromptText {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomPromptTextInput(::windows::runtime::IInspectable);
+pub struct VpnCustomPromptTextInput(pub ::windows::runtime::IInspectable);
 impl VpnCustomPromptTextInput {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4212,22 +4212,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomPromptTextInput {
 }
 impl ::std::convert::From<VpnCustomPromptTextInput> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomPromptTextInput) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomPromptTextInput> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomPromptTextInput) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptTextInput {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptTextInput {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomPromptTextInput {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomPromptTextInput> for ::windows::runtime::IInspectable {
@@ -4277,7 +4277,7 @@ unsafe impl ::std::marker::Sync for VpnCustomPromptTextInput {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnCustomTextBox(::windows::runtime::IInspectable);
+pub struct VpnCustomTextBox(pub ::windows::runtime::IInspectable);
 impl VpnCustomTextBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4351,22 +4351,22 @@ impl ::windows::runtime::RuntimeName for VpnCustomTextBox {
 }
 impl ::std::convert::From<VpnCustomTextBox> for ::windows::runtime::IUnknown {
     fn from(value: VpnCustomTextBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnCustomTextBox> for ::windows::runtime::IUnknown {
     fn from(value: &VpnCustomTextBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomTextBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomTextBox {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnCustomTextBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnCustomTextBox> for ::windows::runtime::IInspectable {
@@ -4438,7 +4438,7 @@ impl ::windows::runtime::DefaultType for VpnDataPathType {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnDomainNameAssignment(::windows::runtime::IInspectable);
+pub struct VpnDomainNameAssignment(pub ::windows::runtime::IInspectable);
 impl VpnDomainNameAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4484,22 +4484,22 @@ impl ::windows::runtime::RuntimeName for VpnDomainNameAssignment {
 }
 impl ::std::convert::From<VpnDomainNameAssignment> for ::windows::runtime::IUnknown {
     fn from(value: VpnDomainNameAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnDomainNameAssignment> for ::windows::runtime::IUnknown {
     fn from(value: &VpnDomainNameAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnDomainNameAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnDomainNameAssignment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnDomainNameAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnDomainNameAssignment> for ::windows::runtime::IInspectable {
@@ -4527,7 +4527,7 @@ unsafe impl ::std::marker::Sync for VpnDomainNameAssignment {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnDomainNameInfo(::windows::runtime::IInspectable);
+pub struct VpnDomainNameInfo(pub ::windows::runtime::IInspectable);
 impl VpnDomainNameInfo {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn SetDomainName<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
@@ -4607,22 +4607,22 @@ impl ::windows::runtime::RuntimeName for VpnDomainNameInfo {
 }
 impl ::std::convert::From<VpnDomainNameInfo> for ::windows::runtime::IUnknown {
     fn from(value: VpnDomainNameInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnDomainNameInfo> for ::windows::runtime::IUnknown {
     fn from(value: &VpnDomainNameInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnDomainNameInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnDomainNameInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnDomainNameInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnDomainNameInfo> for ::windows::runtime::IInspectable {
@@ -4673,7 +4673,7 @@ impl ::windows::runtime::DefaultType for VpnDomainNameType {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnForegroundActivatedEventArgs(::windows::runtime::IInspectable);
+pub struct VpnForegroundActivatedEventArgs(pub ::windows::runtime::IInspectable);
 impl VpnForegroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `Networking_Vpn`, `ApplicationModel_Activation`*"]
@@ -4749,22 +4749,22 @@ impl ::windows::runtime::RuntimeName for VpnForegroundActivatedEventArgs {
 }
 impl ::std::convert::From<VpnForegroundActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VpnForegroundActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnForegroundActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnForegroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnForegroundActivatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnForegroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnForegroundActivatedEventArgs> for ::windows::runtime::IInspectable {
@@ -4844,7 +4844,7 @@ unsafe impl ::std::marker::Sync for VpnForegroundActivatedEventArgs {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnForegroundActivationOperation(::windows::runtime::IInspectable);
+pub struct VpnForegroundActivationOperation(pub ::windows::runtime::IInspectable);
 impl VpnForegroundActivationOperation {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Vpn`, `Foundation_Collections`*"]
@@ -4865,22 +4865,22 @@ impl ::windows::runtime::RuntimeName for VpnForegroundActivationOperation {
 }
 impl ::std::convert::From<VpnForegroundActivationOperation> for ::windows::runtime::IUnknown {
     fn from(value: VpnForegroundActivationOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnForegroundActivationOperation> for ::windows::runtime::IUnknown {
     fn from(value: &VpnForegroundActivationOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnForegroundActivationOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnForegroundActivationOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnForegroundActivationOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnForegroundActivationOperation> for ::windows::runtime::IInspectable {
@@ -4935,7 +4935,7 @@ impl ::windows::runtime::DefaultType for VpnIPProtocol {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnInterfaceId(::windows::runtime::IInspectable);
+pub struct VpnInterfaceId(pub ::windows::runtime::IInspectable);
 impl VpnInterfaceId {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn GetAddressInfo(&self, id: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
@@ -4966,22 +4966,22 @@ impl ::windows::runtime::RuntimeName for VpnInterfaceId {
 }
 impl ::std::convert::From<VpnInterfaceId> for ::windows::runtime::IUnknown {
     fn from(value: VpnInterfaceId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnInterfaceId> for ::windows::runtime::IUnknown {
     fn from(value: &VpnInterfaceId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnInterfaceId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnInterfaceId {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnInterfaceId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnInterfaceId> for ::windows::runtime::IInspectable {
@@ -5009,7 +5009,7 @@ unsafe impl ::std::marker::Sync for VpnInterfaceId {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnManagementAgent(::windows::runtime::IInspectable);
+pub struct VpnManagementAgent(pub ::windows::runtime::IInspectable);
 impl VpnManagementAgent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -5112,22 +5112,22 @@ impl ::windows::runtime::RuntimeName for VpnManagementAgent {
 }
 impl ::std::convert::From<VpnManagementAgent> for ::windows::runtime::IUnknown {
     fn from(value: VpnManagementAgent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnManagementAgent> for ::windows::runtime::IUnknown {
     fn from(value: &VpnManagementAgent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnManagementAgent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnManagementAgent {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnManagementAgent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnManagementAgent> for ::windows::runtime::IInspectable {
@@ -5218,7 +5218,7 @@ impl ::windows::runtime::DefaultType for VpnManagementErrorStatus {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnNamespaceAssignment(::windows::runtime::IInspectable);
+pub struct VpnNamespaceAssignment(pub ::windows::runtime::IInspectable);
 impl VpnNamespaceAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -5270,22 +5270,22 @@ impl ::windows::runtime::RuntimeName for VpnNamespaceAssignment {
 }
 impl ::std::convert::From<VpnNamespaceAssignment> for ::windows::runtime::IUnknown {
     fn from(value: VpnNamespaceAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnNamespaceAssignment> for ::windows::runtime::IUnknown {
     fn from(value: &VpnNamespaceAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnNamespaceAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnNamespaceAssignment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnNamespaceAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnNamespaceAssignment> for ::windows::runtime::IInspectable {
@@ -5313,7 +5313,7 @@ unsafe impl ::std::marker::Sync for VpnNamespaceAssignment {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnNamespaceInfo(::windows::runtime::IInspectable);
+pub struct VpnNamespaceInfo(pub ::windows::runtime::IInspectable);
 impl VpnNamespaceInfo {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn SetNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
@@ -5383,22 +5383,22 @@ impl ::windows::runtime::RuntimeName for VpnNamespaceInfo {
 }
 impl ::std::convert::From<VpnNamespaceInfo> for ::windows::runtime::IUnknown {
     fn from(value: VpnNamespaceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnNamespaceInfo> for ::windows::runtime::IUnknown {
     fn from(value: &VpnNamespaceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnNamespaceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnNamespaceInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnNamespaceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnNamespaceInfo> for ::windows::runtime::IInspectable {
@@ -5426,7 +5426,7 @@ unsafe impl ::std::marker::Sync for VpnNamespaceInfo {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnNativeProfile(::windows::runtime::IInspectable);
+pub struct VpnNativeProfile(pub ::windows::runtime::IInspectable);
 impl VpnNativeProfile {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -5618,22 +5618,22 @@ impl ::windows::runtime::RuntimeName for VpnNativeProfile {
 }
 impl ::std::convert::From<VpnNativeProfile> for ::windows::runtime::IUnknown {
     fn from(value: VpnNativeProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnNativeProfile> for ::windows::runtime::IUnknown {
     fn from(value: &VpnNativeProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnNativeProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnNativeProfile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnNativeProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnNativeProfile> for ::windows::runtime::IInspectable {
@@ -5706,7 +5706,7 @@ impl ::windows::runtime::DefaultType for VpnNativeProtocolType {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnPacketBuffer(::windows::runtime::IInspectable);
+pub struct VpnPacketBuffer(pub ::windows::runtime::IInspectable);
 impl VpnPacketBuffer {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Vpn`, `Storage_Streams`*"]
@@ -5788,22 +5788,22 @@ impl ::windows::runtime::RuntimeName for VpnPacketBuffer {
 }
 impl ::std::convert::From<VpnPacketBuffer> for ::windows::runtime::IUnknown {
     fn from(value: VpnPacketBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnPacketBuffer> for ::windows::runtime::IUnknown {
     fn from(value: &VpnPacketBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPacketBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPacketBuffer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnPacketBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnPacketBuffer> for ::windows::runtime::IInspectable {
@@ -5831,7 +5831,7 @@ unsafe impl ::std::marker::Sync for VpnPacketBuffer {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnPacketBufferList(::windows::runtime::IInspectable);
+pub struct VpnPacketBufferList(pub ::windows::runtime::IInspectable);
 impl VpnPacketBufferList {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, VpnPacketBuffer>>(&self, nextvpnpacketbuffer: Param0) -> ::windows::runtime::Result<()> {
@@ -5907,22 +5907,22 @@ impl ::windows::runtime::RuntimeName for VpnPacketBufferList {
 }
 impl ::std::convert::From<VpnPacketBufferList> for ::windows::runtime::IUnknown {
     fn from(value: VpnPacketBufferList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnPacketBufferList> for ::windows::runtime::IUnknown {
     fn from(value: &VpnPacketBufferList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPacketBufferList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPacketBufferList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnPacketBufferList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnPacketBufferList> for ::windows::runtime::IInspectable {
@@ -6014,7 +6014,7 @@ impl ::windows::runtime::DefaultType for VpnPacketBufferStatus {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnPickedCredential(::windows::runtime::IInspectable);
+pub struct VpnPickedCredential(pub ::windows::runtime::IInspectable);
 impl VpnPickedCredential {
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Vpn`, `Security_Credentials`*"]
@@ -6055,22 +6055,22 @@ impl ::windows::runtime::RuntimeName for VpnPickedCredential {
 }
 impl ::std::convert::From<VpnPickedCredential> for ::windows::runtime::IUnknown {
     fn from(value: VpnPickedCredential) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnPickedCredential> for ::windows::runtime::IUnknown {
     fn from(value: &VpnPickedCredential) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPickedCredential {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPickedCredential {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnPickedCredential {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnPickedCredential> for ::windows::runtime::IInspectable {
@@ -6098,7 +6098,7 @@ unsafe impl ::std::marker::Sync for VpnPickedCredential {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnPlugInProfile(::windows::runtime::IInspectable);
+pub struct VpnPlugInProfile(pub ::windows::runtime::IInspectable);
 impl VpnPlugInProfile {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -6251,22 +6251,22 @@ impl ::windows::runtime::RuntimeName for VpnPlugInProfile {
 }
 impl ::std::convert::From<VpnPlugInProfile> for ::windows::runtime::IUnknown {
     fn from(value: VpnPlugInProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnPlugInProfile> for ::windows::runtime::IUnknown {
     fn from(value: &VpnPlugInProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPlugInProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPlugInProfile {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnPlugInProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnPlugInProfile> for ::windows::runtime::IInspectable {
@@ -6316,7 +6316,7 @@ unsafe impl ::std::marker::Sync for VpnPlugInProfile {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnRoute(::windows::runtime::IInspectable);
+pub struct VpnRoute(pub ::windows::runtime::IInspectable);
 impl VpnRoute {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn SetAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
@@ -6368,22 +6368,22 @@ impl ::windows::runtime::RuntimeName for VpnRoute {
 }
 impl ::std::convert::From<VpnRoute> for ::windows::runtime::IUnknown {
     fn from(value: VpnRoute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnRoute> for ::windows::runtime::IUnknown {
     fn from(value: &VpnRoute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnRoute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnRoute {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnRoute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnRoute> for ::windows::runtime::IInspectable {
@@ -6411,7 +6411,7 @@ unsafe impl ::std::marker::Sync for VpnRoute {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnRouteAssignment(::windows::runtime::IInspectable);
+pub struct VpnRouteAssignment(pub ::windows::runtime::IInspectable);
 impl VpnRouteAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -6506,22 +6506,22 @@ impl ::windows::runtime::RuntimeName for VpnRouteAssignment {
 }
 impl ::std::convert::From<VpnRouteAssignment> for ::windows::runtime::IUnknown {
     fn from(value: VpnRouteAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnRouteAssignment> for ::windows::runtime::IUnknown {
     fn from(value: &VpnRouteAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnRouteAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnRouteAssignment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnRouteAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnRouteAssignment> for ::windows::runtime::IInspectable {
@@ -6571,7 +6571,7 @@ impl ::windows::runtime::DefaultType for VpnRoutingPolicyType {
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnSystemHealth(::windows::runtime::IInspectable);
+pub struct VpnSystemHealth(pub ::windows::runtime::IInspectable);
 impl VpnSystemHealth {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Vpn`, `Storage_Streams`*"]
@@ -6595,22 +6595,22 @@ impl ::windows::runtime::RuntimeName for VpnSystemHealth {
 }
 impl ::std::convert::From<VpnSystemHealth> for ::windows::runtime::IUnknown {
     fn from(value: VpnSystemHealth) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnSystemHealth> for ::windows::runtime::IUnknown {
     fn from(value: &VpnSystemHealth) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnSystemHealth {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnSystemHealth {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnSystemHealth {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnSystemHealth> for ::windows::runtime::IInspectable {
@@ -6638,7 +6638,7 @@ unsafe impl ::std::marker::Sync for VpnSystemHealth {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnTrafficFilter(::windows::runtime::IInspectable);
+pub struct VpnTrafficFilter(pub ::windows::runtime::IInspectable);
 impl VpnTrafficFilter {
     #[doc = "*Required features: `Networking_Vpn`*"]
     pub fn AppId(&self) -> ::windows::runtime::Result<VpnAppId> {
@@ -6748,22 +6748,22 @@ impl ::windows::runtime::RuntimeName for VpnTrafficFilter {
 }
 impl ::std::convert::From<VpnTrafficFilter> for ::windows::runtime::IUnknown {
     fn from(value: VpnTrafficFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnTrafficFilter> for ::windows::runtime::IUnknown {
     fn from(value: &VpnTrafficFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnTrafficFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnTrafficFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnTrafficFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnTrafficFilter> for ::windows::runtime::IInspectable {
@@ -6791,7 +6791,7 @@ unsafe impl ::std::marker::Sync for VpnTrafficFilter {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VpnTrafficFilterAssignment(::windows::runtime::IInspectable);
+pub struct VpnTrafficFilterAssignment(pub ::windows::runtime::IInspectable);
 impl VpnTrafficFilterAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -6848,22 +6848,22 @@ impl ::windows::runtime::RuntimeName for VpnTrafficFilterAssignment {
 }
 impl ::std::convert::From<VpnTrafficFilterAssignment> for ::windows::runtime::IUnknown {
     fn from(value: VpnTrafficFilterAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VpnTrafficFilterAssignment> for ::windows::runtime::IUnknown {
     fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnTrafficFilterAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnTrafficFilterAssignment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VpnTrafficFilterAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VpnTrafficFilterAssignment> for ::windows::runtime::IInspectable {

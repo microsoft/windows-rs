@@ -1933,7 +1933,7 @@ pub const HandwrittenTextInsertion: ::windows::runtime::GUID = ::windows::runtim
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IDynamicRenderer(::windows::runtime::IUnknown);
+pub struct IDynamicRenderer(pub ::windows::runtime::IUnknown);
 impl IDynamicRenderer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -2019,22 +2019,22 @@ unsafe impl ::windows::runtime::Interface for IDynamicRenderer {
 }
 impl ::std::convert::From<IDynamicRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IDynamicRenderer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IDynamicRenderer> for ::windows::runtime::IUnknown {
     fn from(value: &IDynamicRenderer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDynamicRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDynamicRenderer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDynamicRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2187,7 +2187,7 @@ pub const IEC__BASE: u32 = 1536u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IGestureRecognizer(::windows::runtime::IUnknown);
+pub struct IGestureRecognizer(pub ::windows::runtime::IUnknown);
 impl IGestureRecognizer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -2224,22 +2224,22 @@ unsafe impl ::windows::runtime::Interface for IGestureRecognizer {
 }
 impl ::std::convert::From<IGestureRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: IGestureRecognizer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IGestureRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: &IGestureRecognizer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGestureRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGestureRecognizer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGestureRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2260,7 +2260,7 @@ pub struct IGestureRecognizer_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IHandwrittenTextInsertion(::windows::runtime::IUnknown);
+pub struct IHandwrittenTextInsertion(pub ::windows::runtime::IUnknown);
 impl IHandwrittenTextInsertion {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2279,22 +2279,22 @@ unsafe impl ::windows::runtime::Interface for IHandwrittenTextInsertion {
 }
 impl ::std::convert::From<IHandwrittenTextInsertion> for ::windows::runtime::IUnknown {
     fn from(value: IHandwrittenTextInsertion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IHandwrittenTextInsertion> for ::windows::runtime::IUnknown {
     fn from(value: &IHandwrittenTextInsertion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHandwrittenTextInsertion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IHandwrittenTextInsertion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IHandwrittenTextInsertion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2311,7 +2311,7 @@ pub struct IHandwrittenTextInsertion_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInk(::windows::runtime::IUnknown);
+pub struct IInk(pub ::windows::runtime::IUnknown);
 impl IInk {}
 unsafe impl ::windows::runtime::Interface for IInk {
     type Vtable = IInk_abi;
@@ -2319,22 +2319,22 @@ unsafe impl ::windows::runtime::Interface for IInk {
 }
 impl ::std::convert::From<IInk> for ::windows::runtime::IUnknown {
     fn from(value: IInk) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInk> for ::windows::runtime::IUnknown {
     fn from(value: &IInk) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInk {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2379,7 +2379,7 @@ pub struct IInk_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCollector(::windows::runtime::IUnknown);
+pub struct IInkCollector(pub ::windows::runtime::IUnknown);
 impl IInkCollector {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn hWnd(&self) -> ::windows::runtime::Result<isize> {
@@ -2572,22 +2572,22 @@ unsafe impl ::windows::runtime::Interface for IInkCollector {
 }
 impl ::std::convert::From<IInkCollector> for ::windows::runtime::IUnknown {
     fn from(value: IInkCollector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCollector> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCollector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCollector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCollector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2677,7 +2677,7 @@ pub struct IInkCollector_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCursor(::windows::runtime::IUnknown);
+pub struct IInkCursor(pub ::windows::runtime::IUnknown);
 impl IInkCursor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -2721,22 +2721,22 @@ unsafe impl ::windows::runtime::Interface for IInkCursor {
 }
 impl ::std::convert::From<IInkCursor> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCursor> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCursor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCursor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCursor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCursor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2789,7 +2789,7 @@ pub struct IInkCursor_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCursorButton(::windows::runtime::IUnknown);
+pub struct IInkCursorButton(pub ::windows::runtime::IUnknown);
 impl IInkCursorButton {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -2815,22 +2815,22 @@ unsafe impl ::windows::runtime::Interface for IInkCursorButton {
 }
 impl ::std::convert::From<IInkCursorButton> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursorButton) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCursorButton> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCursorButton) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCursorButton {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCursorButton {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCursorButton {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2880,7 +2880,7 @@ pub struct IInkCursorButton_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCursorButtons(::windows::runtime::IUnknown);
+pub struct IInkCursorButtons(pub ::windows::runtime::IUnknown);
 impl IInkCursorButtons {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -2905,22 +2905,22 @@ unsafe impl ::windows::runtime::Interface for IInkCursorButtons {
 }
 impl ::std::convert::From<IInkCursorButtons> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursorButtons) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCursorButtons> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCursorButtons) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCursorButtons {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCursorButtons {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCursorButtons {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2969,7 +2969,7 @@ pub struct IInkCursorButtons_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCursors(::windows::runtime::IUnknown);
+pub struct IInkCursors(pub ::windows::runtime::IUnknown);
 impl IInkCursors {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -2993,22 +2993,22 @@ unsafe impl ::windows::runtime::Interface for IInkCursors {
 }
 impl ::std::convert::From<IInkCursors> for ::windows::runtime::IUnknown {
     fn from(value: IInkCursors) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCursors> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCursors) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCursors {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCursors {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCursors {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3056,7 +3056,7 @@ pub struct IInkCursors_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCustomStrokes(::windows::runtime::IUnknown);
+pub struct IInkCustomStrokes(pub ::windows::runtime::IUnknown);
 impl IInkCustomStrokes {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -3095,22 +3095,22 @@ unsafe impl ::windows::runtime::Interface for IInkCustomStrokes {
 }
 impl ::std::convert::From<IInkCustomStrokes> for ::windows::runtime::IUnknown {
     fn from(value: IInkCustomStrokes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCustomStrokes> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCustomStrokes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCustomStrokes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCustomStrokes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCustomStrokes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3164,7 +3164,7 @@ pub struct IInkCustomStrokes_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDisp(::windows::runtime::IUnknown);
+pub struct IInkDisp(pub ::windows::runtime::IUnknown);
 impl IInkDisp {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Strokes(&self) -> ::windows::runtime::Result<IInkStrokes> {
@@ -3299,22 +3299,22 @@ unsafe impl ::windows::runtime::Interface for IInkDisp {
 }
 impl ::std::convert::From<IInkDisp> for ::windows::runtime::IUnknown {
     fn from(value: IInkDisp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDisp> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDisp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDisp {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3393,7 +3393,7 @@ pub struct IInkDisp_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDivider(::windows::runtime::IUnknown);
+pub struct IInkDivider(pub ::windows::runtime::IUnknown);
 impl IInkDivider {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Strokes(&self) -> ::windows::runtime::Result<IInkStrokes> {
@@ -3434,22 +3434,22 @@ unsafe impl ::windows::runtime::Interface for IInkDivider {
 }
 impl ::std::convert::From<IInkDivider> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDivider> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDivider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDivider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDivider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDivider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3501,7 +3501,7 @@ pub struct IInkDivider_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDivisionResult(::windows::runtime::IUnknown);
+pub struct IInkDivisionResult(pub ::windows::runtime::IUnknown);
 impl IInkDivisionResult {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Strokes(&self) -> ::windows::runtime::Result<IInkStrokes> {
@@ -3520,22 +3520,22 @@ unsafe impl ::windows::runtime::Interface for IInkDivisionResult {
 }
 impl ::std::convert::From<IInkDivisionResult> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivisionResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDivisionResult> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDivisionResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDivisionResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDivisionResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDivisionResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3582,7 +3582,7 @@ pub struct IInkDivisionResult_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDivisionUnit(::windows::runtime::IUnknown);
+pub struct IInkDivisionUnit(pub ::windows::runtime::IUnknown);
 impl IInkDivisionUnit {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Strokes(&self) -> ::windows::runtime::Result<IInkStrokes> {
@@ -3612,22 +3612,22 @@ unsafe impl ::windows::runtime::Interface for IInkDivisionUnit {
 }
 impl ::std::convert::From<IInkDivisionUnit> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivisionUnit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDivisionUnit> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDivisionUnit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDivisionUnit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDivisionUnit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDivisionUnit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3677,7 +3677,7 @@ pub struct IInkDivisionUnit_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDivisionUnits(::windows::runtime::IUnknown);
+pub struct IInkDivisionUnits(pub ::windows::runtime::IUnknown);
 impl IInkDivisionUnits {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -3701,22 +3701,22 @@ unsafe impl ::windows::runtime::Interface for IInkDivisionUnits {
 }
 impl ::std::convert::From<IInkDivisionUnits> for ::windows::runtime::IUnknown {
     fn from(value: IInkDivisionUnits) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDivisionUnits> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDivisionUnits) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDivisionUnits {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDivisionUnits {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDivisionUnits {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3764,7 +3764,7 @@ pub struct IInkDivisionUnits_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDrawingAttributes(::windows::runtime::IUnknown);
+pub struct IInkDrawingAttributes(pub ::windows::runtime::IUnknown);
 impl IInkDrawingAttributes {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Color(&self) -> ::windows::runtime::Result<i32> {
@@ -3864,22 +3864,22 @@ unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes {
 }
 impl ::std::convert::From<IInkDrawingAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IInkDrawingAttributes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDrawingAttributes> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDrawingAttributes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDrawingAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDrawingAttributes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDrawingAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3944,7 +3944,7 @@ pub struct IInkDrawingAttributes_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkEdit(::windows::runtime::IUnknown);
+pub struct IInkEdit(pub ::windows::runtime::IUnknown);
 impl IInkEdit {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<InkEditStatus> {
@@ -4332,22 +4332,22 @@ unsafe impl ::windows::runtime::Interface for IInkEdit {
 }
 impl ::std::convert::From<IInkEdit> for ::windows::runtime::IUnknown {
     fn from(value: IInkEdit) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkEdit> for ::windows::runtime::IUnknown {
     fn from(value: &IInkEdit) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkEdit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkEdit {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkEdit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4502,7 +4502,7 @@ pub struct IInkEdit_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkExtendedProperties(::windows::runtime::IUnknown);
+pub struct IInkExtendedProperties(pub ::windows::runtime::IUnknown);
 impl IInkExtendedProperties {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -4548,22 +4548,22 @@ unsafe impl ::windows::runtime::Interface for IInkExtendedProperties {
 }
 impl ::std::convert::From<IInkExtendedProperties> for ::windows::runtime::IUnknown {
     fn from(value: IInkExtendedProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkExtendedProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IInkExtendedProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkExtendedProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkExtendedProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkExtendedProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4619,7 +4619,7 @@ pub struct IInkExtendedProperties_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkExtendedProperty(::windows::runtime::IUnknown);
+pub struct IInkExtendedProperty(pub ::windows::runtime::IUnknown);
 impl IInkExtendedProperty {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -4645,22 +4645,22 @@ unsafe impl ::windows::runtime::Interface for IInkExtendedProperty {
 }
 impl ::std::convert::From<IInkExtendedProperty> for ::windows::runtime::IUnknown {
     fn from(value: IInkExtendedProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkExtendedProperty> for ::windows::runtime::IUnknown {
     fn from(value: &IInkExtendedProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkExtendedProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkExtendedProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkExtendedProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4711,7 +4711,7 @@ pub struct IInkExtendedProperty_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkGesture(::windows::runtime::IUnknown);
+pub struct IInkGesture(pub ::windows::runtime::IUnknown);
 impl IInkGesture {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Confidence(&self) -> ::windows::runtime::Result<InkRecognitionConfidence> {
@@ -4734,22 +4734,22 @@ unsafe impl ::windows::runtime::Interface for IInkGesture {
 }
 impl ::std::convert::From<IInkGesture> for ::windows::runtime::IUnknown {
     fn from(value: IInkGesture) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkGesture> for ::windows::runtime::IUnknown {
     fn from(value: &IInkGesture) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkGesture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkGesture {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkGesture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4797,7 +4797,7 @@ pub struct IInkGesture_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkLineInfo(::windows::runtime::IUnknown);
+pub struct IInkLineInfo(pub ::windows::runtime::IUnknown);
 impl IInkLineInfo {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn SetFormat(&self, pim: *const INKMETRIC) -> ::windows::runtime::Result<()> {
@@ -4832,22 +4832,22 @@ unsafe impl ::windows::runtime::Interface for IInkLineInfo {
 }
 impl ::std::convert::From<IInkLineInfo> for ::windows::runtime::IUnknown {
     fn from(value: IInkLineInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkLineInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IInkLineInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkLineInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkLineInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkLineInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4868,7 +4868,7 @@ pub struct IInkLineInfo_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkOverlay(::windows::runtime::IUnknown);
+pub struct IInkOverlay(pub ::windows::runtime::IUnknown);
 impl IInkOverlay {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn hWnd(&self) -> ::windows::runtime::Result<isize> {
@@ -5124,22 +5124,22 @@ unsafe impl ::windows::runtime::Interface for IInkOverlay {
 }
 impl ::std::convert::From<IInkOverlay> for ::windows::runtime::IUnknown {
     fn from(value: IInkOverlay) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkOverlay> for ::windows::runtime::IUnknown {
     fn from(value: &IInkOverlay) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkOverlay {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkOverlay {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkOverlay {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5243,7 +5243,7 @@ pub struct IInkOverlay_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkPicture(::windows::runtime::IUnknown);
+pub struct IInkPicture(pub ::windows::runtime::IUnknown);
 impl IInkPicture {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn hWnd(&self) -> ::windows::runtime::Result<isize> {
@@ -5525,22 +5525,22 @@ unsafe impl ::windows::runtime::Interface for IInkPicture {
 }
 impl ::std::convert::From<IInkPicture> for ::windows::runtime::IUnknown {
     fn from(value: IInkPicture) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkPicture> for ::windows::runtime::IUnknown {
     fn from(value: &IInkPicture) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkPicture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkPicture {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkPicture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5652,7 +5652,7 @@ pub struct IInkPicture_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognitionAlternate(::windows::runtime::IUnknown);
+pub struct IInkRecognitionAlternate(pub ::windows::runtime::IUnknown);
 impl IInkRecognitionAlternate {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -5741,22 +5741,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognitionAlternate {
 }
 impl ::std::convert::From<IInkRecognitionAlternate> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognitionAlternate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognitionAlternate> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognitionAlternate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognitionAlternate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognitionAlternate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognitionAlternate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5823,7 +5823,7 @@ pub struct IInkRecognitionAlternate_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognitionAlternates(::windows::runtime::IUnknown);
+pub struct IInkRecognitionAlternates(pub ::windows::runtime::IUnknown);
 impl IInkRecognitionAlternates {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -5852,22 +5852,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognitionAlternates {
 }
 impl ::std::convert::From<IInkRecognitionAlternates> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognitionAlternates) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognitionAlternates> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognitionAlternates) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognitionAlternates {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognitionAlternates {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognitionAlternates {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5916,7 +5916,7 @@ pub struct IInkRecognitionAlternates_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognitionResult(::windows::runtime::IUnknown);
+pub struct IInkRecognitionResult(pub ::windows::runtime::IUnknown);
 impl IInkRecognitionResult {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -5959,22 +5959,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognitionResult {
 }
 impl ::std::convert::From<IInkRecognitionResult> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognitionResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognitionResult> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognitionResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognitionResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognitionResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognitionResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6027,7 +6027,7 @@ pub struct IInkRecognitionResult_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognizer(::windows::runtime::IUnknown);
+pub struct IInkRecognizer(pub ::windows::runtime::IUnknown);
 impl IInkRecognizer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -6076,22 +6076,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognizer {
 }
 impl ::std::convert::From<IInkRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognizer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognizer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6148,7 +6148,7 @@ pub struct IInkRecognizer_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognizer2(::windows::runtime::IUnknown);
+pub struct IInkRecognizer2(pub ::windows::runtime::IUnknown);
 impl IInkRecognizer2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -6169,22 +6169,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognizer2 {
 }
 impl ::std::convert::From<IInkRecognizer2> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizer2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognizer2> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognizer2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognizer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognizer2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognizer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6233,7 +6233,7 @@ pub struct IInkRecognizer2_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognizerContext(::windows::runtime::IUnknown);
+pub struct IInkRecognizerContext(pub ::windows::runtime::IUnknown);
 impl IInkRecognizerContext {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Strokes(&self) -> ::windows::runtime::Result<IInkStrokes> {
@@ -6358,22 +6358,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognizerContext {
 }
 impl ::std::convert::From<IInkRecognizerContext> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizerContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognizerContext> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognizerContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognizerContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognizerContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognizerContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6451,7 +6451,7 @@ pub struct IInkRecognizerContext_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognizerContext2(::windows::runtime::IUnknown);
+pub struct IInkRecognizerContext2(pub ::windows::runtime::IUnknown);
 impl IInkRecognizerContext2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6471,22 +6471,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognizerContext2 {
 }
 impl ::std::convert::From<IInkRecognizerContext2> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizerContext2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognizerContext2> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognizerContext2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognizerContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognizerContext2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognizerContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6535,7 +6535,7 @@ pub struct IInkRecognizerContext2_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognizerGuide(::windows::runtime::IUnknown);
+pub struct IInkRecognizerGuide(pub ::windows::runtime::IUnknown);
 impl IInkRecognizerGuide {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn WritingBox(&self) -> ::windows::runtime::Result<IInkRectangle> {
@@ -6600,22 +6600,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognizerGuide {
 }
 impl ::std::convert::From<IInkRecognizerGuide> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizerGuide) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognizerGuide> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognizerGuide) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognizerGuide {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognizerGuide {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognizerGuide {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6674,7 +6674,7 @@ pub struct IInkRecognizerGuide_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRecognizers(::windows::runtime::IUnknown);
+pub struct IInkRecognizers(pub ::windows::runtime::IUnknown);
 impl IInkRecognizers {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6703,22 +6703,22 @@ unsafe impl ::windows::runtime::Interface for IInkRecognizers {
 }
 impl ::std::convert::From<IInkRecognizers> for ::windows::runtime::IUnknown {
     fn from(value: IInkRecognizers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRecognizers> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRecognizers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRecognizers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRecognizers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRecognizers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6767,7 +6767,7 @@ pub struct IInkRecognizers_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRectangle(::windows::runtime::IUnknown);
+pub struct IInkRectangle(pub ::windows::runtime::IUnknown);
 impl IInkRectangle {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Top(&self) -> ::windows::runtime::Result<i32> {
@@ -6831,22 +6831,22 @@ unsafe impl ::windows::runtime::Interface for IInkRectangle {
 }
 impl ::std::convert::From<IInkRectangle> for ::windows::runtime::IUnknown {
     fn from(value: IInkRectangle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRectangle> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRectangle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRectangle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRectangle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRectangle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6905,7 +6905,7 @@ pub struct IInkRectangle_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkRenderer(::windows::runtime::IUnknown);
+pub struct IInkRenderer(pub ::windows::runtime::IUnknown);
 impl IInkRenderer {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn GetViewTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IInkTransform>>(&self, viewtransform: Param0) -> ::windows::runtime::Result<()> {
@@ -6978,22 +6978,22 @@ unsafe impl ::windows::runtime::Interface for IInkRenderer {
 }
 impl ::std::convert::From<IInkRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IInkRenderer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkRenderer> for ::windows::runtime::IUnknown {
     fn from(value: &IInkRenderer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkRenderer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7055,7 +7055,7 @@ pub struct IInkRenderer_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkStrokeDisp(::windows::runtime::IUnknown);
+pub struct IInkStrokeDisp(pub ::windows::runtime::IUnknown);
 impl IInkStrokeDisp {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<i32> {
@@ -7233,22 +7233,22 @@ unsafe impl ::windows::runtime::Interface for IInkStrokeDisp {
 }
 impl ::std::convert::From<IInkStrokeDisp> for ::windows::runtime::IUnknown {
     fn from(value: IInkStrokeDisp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkStrokeDisp> for ::windows::runtime::IUnknown {
     fn from(value: &IInkStrokeDisp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkStrokeDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkStrokeDisp {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkStrokeDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7340,7 +7340,7 @@ pub struct IInkStrokeDisp_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkStrokes(::windows::runtime::IUnknown);
+pub struct IInkStrokes(pub ::windows::runtime::IUnknown);
 impl IInkStrokes {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -7437,22 +7437,22 @@ unsafe impl ::windows::runtime::Interface for IInkStrokes {
 }
 impl ::std::convert::From<IInkStrokes> for ::windows::runtime::IUnknown {
     fn from(value: IInkStrokes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkStrokes> for ::windows::runtime::IUnknown {
     fn from(value: &IInkStrokes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkStrokes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkStrokes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkStrokes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7518,7 +7518,7 @@ pub struct IInkStrokes_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkTablet(::windows::runtime::IUnknown);
+pub struct IInkTablet(pub ::windows::runtime::IUnknown);
 impl IInkTablet {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -7560,22 +7560,22 @@ unsafe impl ::windows::runtime::Interface for IInkTablet {
 }
 impl ::std::convert::From<IInkTablet> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkTablet> for ::windows::runtime::IUnknown {
     fn from(value: &IInkTablet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkTablet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkTablet {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkTablet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7630,7 +7630,7 @@ pub struct IInkTablet_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkTablet2(::windows::runtime::IUnknown);
+pub struct IInkTablet2(pub ::windows::runtime::IUnknown);
 impl IInkTablet2 {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn DeviceKind(&self) -> ::windows::runtime::Result<TabletDeviceKind> {
@@ -7644,22 +7644,22 @@ unsafe impl ::windows::runtime::Interface for IInkTablet2 {
 }
 impl ::std::convert::From<IInkTablet2> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablet2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkTablet2> for ::windows::runtime::IUnknown {
     fn from(value: &IInkTablet2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkTablet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkTablet2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkTablet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7705,7 +7705,7 @@ pub struct IInkTablet2_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkTablet3(::windows::runtime::IUnknown);
+pub struct IInkTablet3(pub ::windows::runtime::IUnknown);
 impl IInkTablet3 {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn IsMultiTouch(&self) -> ::windows::runtime::Result<i16> {
@@ -7724,22 +7724,22 @@ unsafe impl ::windows::runtime::Interface for IInkTablet3 {
 }
 impl ::std::convert::From<IInkTablet3> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablet3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkTablet3> for ::windows::runtime::IUnknown {
     fn from(value: &IInkTablet3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkTablet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkTablet3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkTablet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7786,7 +7786,7 @@ pub struct IInkTablet3_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkTablets(::windows::runtime::IUnknown);
+pub struct IInkTablets(pub ::windows::runtime::IUnknown);
 impl IInkTablets {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -7821,22 +7821,22 @@ unsafe impl ::windows::runtime::Interface for IInkTablets {
 }
 impl ::std::convert::From<IInkTablets> for ::windows::runtime::IUnknown {
     fn from(value: IInkTablets) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkTablets> for ::windows::runtime::IUnknown {
     fn from(value: &IInkTablets) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkTablets {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkTablets {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkTablets {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7887,7 +7887,7 @@ pub struct IInkTablets_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkTransform(::windows::runtime::IUnknown);
+pub struct IInkTransform(pub ::windows::runtime::IUnknown);
 impl IInkTransform {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -7993,22 +7993,22 @@ unsafe impl ::windows::runtime::Interface for IInkTransform {
 }
 impl ::std::convert::From<IInkTransform> for ::windows::runtime::IUnknown {
     fn from(value: IInkTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkTransform> for ::windows::runtime::IUnknown {
     fn from(value: &IInkTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkTransform {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8077,7 +8077,7 @@ pub struct IInkTransform_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkWordList(::windows::runtime::IUnknown);
+pub struct IInkWordList(pub ::windows::runtime::IUnknown);
 impl IInkWordList {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -8100,22 +8100,22 @@ unsafe impl ::windows::runtime::Interface for IInkWordList {
 }
 impl ::std::convert::From<IInkWordList> for ::windows::runtime::IUnknown {
     fn from(value: IInkWordList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkWordList> for ::windows::runtime::IUnknown {
     fn from(value: &IInkWordList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkWordList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkWordList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkWordList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8165,7 +8165,7 @@ pub struct IInkWordList_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkWordList2(::windows::runtime::IUnknown);
+pub struct IInkWordList2(pub ::windows::runtime::IUnknown);
 impl IInkWordList2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -8179,22 +8179,22 @@ unsafe impl ::windows::runtime::Interface for IInkWordList2 {
 }
 impl ::std::convert::From<IInkWordList2> for ::windows::runtime::IUnknown {
     fn from(value: IInkWordList2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkWordList2> for ::windows::runtime::IUnknown {
     fn from(value: &IInkWordList2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkWordList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkWordList2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkWordList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8241,7 +8241,7 @@ pub struct IInkWordList2_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInputPanelWindowHandle(::windows::runtime::IUnknown);
+pub struct IInputPanelWindowHandle(pub ::windows::runtime::IUnknown);
 impl IInputPanelWindowHandle {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn AttachedEditWindow32(&self) -> ::windows::runtime::Result<i32> {
@@ -8268,22 +8268,22 @@ unsafe impl ::windows::runtime::Interface for IInputPanelWindowHandle {
 }
 impl ::std::convert::From<IInputPanelWindowHandle> for ::windows::runtime::IUnknown {
     fn from(value: IInputPanelWindowHandle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInputPanelWindowHandle> for ::windows::runtime::IUnknown {
     fn from(value: &IInputPanelWindowHandle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInputPanelWindowHandle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInputPanelWindowHandle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInputPanelWindowHandle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8300,7 +8300,7 @@ pub struct IInputPanelWindowHandle_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMathInputControl(::windows::runtime::IUnknown);
+pub struct IMathInputControl(pub ::windows::runtime::IUnknown);
 impl IMathInputControl {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Show(&self) -> ::windows::runtime::Result<()> {
@@ -8384,22 +8384,22 @@ unsafe impl ::windows::runtime::Interface for IMathInputControl {
 }
 impl ::std::convert::From<IMathInputControl> for ::windows::runtime::IUnknown {
     fn from(value: IMathInputControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMathInputControl> for ::windows::runtime::IUnknown {
     fn from(value: &IMathInputControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMathInputControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMathInputControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMathInputControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8501,7 +8501,7 @@ pub const IP_MARGIN: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPenInputPanel(::windows::runtime::IUnknown);
+pub struct IPenInputPanel(pub ::windows::runtime::IUnknown);
 impl IPenInputPanel {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn Busy(&self) -> ::windows::runtime::Result<i16> {
@@ -8625,22 +8625,22 @@ unsafe impl ::windows::runtime::Interface for IPenInputPanel {
 }
 impl ::std::convert::From<IPenInputPanel> for ::windows::runtime::IUnknown {
     fn from(value: IPenInputPanel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPenInputPanel> for ::windows::runtime::IUnknown {
     fn from(value: &IPenInputPanel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPenInputPanel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPenInputPanel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPenInputPanel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8712,7 +8712,7 @@ pub struct IPenInputPanel_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRealTimeStylus(::windows::runtime::IUnknown);
+pub struct IRealTimeStylus(pub ::windows::runtime::IUnknown);
 impl IRealTimeStylus {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -8865,22 +8865,22 @@ unsafe impl ::windows::runtime::Interface for IRealTimeStylus {
 }
 impl ::std::convert::From<IRealTimeStylus> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRealTimeStylus> for ::windows::runtime::IUnknown {
     fn from(value: &IRealTimeStylus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRealTimeStylus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRealTimeStylus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRealTimeStylus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8931,7 +8931,7 @@ pub struct IRealTimeStylus_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRealTimeStylus2(::windows::runtime::IUnknown);
+pub struct IRealTimeStylus2(pub ::windows::runtime::IUnknown);
 impl IRealTimeStylus2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -8951,22 +8951,22 @@ unsafe impl ::windows::runtime::Interface for IRealTimeStylus2 {
 }
 impl ::std::convert::From<IRealTimeStylus2> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylus2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRealTimeStylus2> for ::windows::runtime::IUnknown {
     fn from(value: &IRealTimeStylus2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRealTimeStylus2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRealTimeStylus2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRealTimeStylus2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8983,7 +8983,7 @@ pub struct IRealTimeStylus2_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRealTimeStylus3(::windows::runtime::IUnknown);
+pub struct IRealTimeStylus3(pub ::windows::runtime::IUnknown);
 impl IRealTimeStylus3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -9003,22 +9003,22 @@ unsafe impl ::windows::runtime::Interface for IRealTimeStylus3 {
 }
 impl ::std::convert::From<IRealTimeStylus3> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylus3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRealTimeStylus3> for ::windows::runtime::IUnknown {
     fn from(value: &IRealTimeStylus3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRealTimeStylus3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRealTimeStylus3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRealTimeStylus3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9035,7 +9035,7 @@ pub struct IRealTimeStylus3_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRealTimeStylusSynchronization(::windows::runtime::IUnknown);
+pub struct IRealTimeStylusSynchronization(pub ::windows::runtime::IUnknown);
 impl IRealTimeStylusSynchronization {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn AcquireLock(&self, lock: RealTimeStylusLockType) -> ::windows::runtime::Result<()> {
@@ -9052,22 +9052,22 @@ unsafe impl ::windows::runtime::Interface for IRealTimeStylusSynchronization {
 }
 impl ::std::convert::From<IRealTimeStylusSynchronization> for ::windows::runtime::IUnknown {
     fn from(value: IRealTimeStylusSynchronization) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRealTimeStylusSynchronization> for ::windows::runtime::IUnknown {
     fn from(value: &IRealTimeStylusSynchronization) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRealTimeStylusSynchronization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRealTimeStylusSynchronization {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRealTimeStylusSynchronization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9082,7 +9082,7 @@ pub struct IRealTimeStylusSynchronization_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISketchInk(::windows::runtime::IUnknown);
+pub struct ISketchInk(pub ::windows::runtime::IUnknown);
 impl ISketchInk {}
 unsafe impl ::windows::runtime::Interface for ISketchInk {
     type Vtable = ISketchInk_abi;
@@ -9090,22 +9090,22 @@ unsafe impl ::windows::runtime::Interface for ISketchInk {
 }
 impl ::std::convert::From<ISketchInk> for ::windows::runtime::IUnknown {
     fn from(value: ISketchInk) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISketchInk> for ::windows::runtime::IUnknown {
     fn from(value: &ISketchInk) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISketchInk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISketchInk {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISketchInk {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9150,7 +9150,7 @@ pub struct ISketchInk_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStrokeBuilder(::windows::runtime::IUnknown);
+pub struct IStrokeBuilder(pub ::windows::runtime::IUnknown);
 impl IStrokeBuilder {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn CreateStroke(&self, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut ::std::option::Option<IInkStrokeDisp>) -> ::windows::runtime::Result<()> {
@@ -9206,22 +9206,22 @@ unsafe impl ::windows::runtime::Interface for IStrokeBuilder {
 }
 impl ::std::convert::From<IStrokeBuilder> for ::windows::runtime::IUnknown {
     fn from(value: IStrokeBuilder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStrokeBuilder> for ::windows::runtime::IUnknown {
     fn from(value: &IStrokeBuilder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStrokeBuilder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStrokeBuilder {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStrokeBuilder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9241,7 +9241,7 @@ pub struct IStrokeBuilder_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStylusAsyncPlugin(::windows::runtime::IUnknown);
+pub struct IStylusAsyncPlugin(pub ::windows::runtime::IUnknown);
 impl IStylusAsyncPlugin {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ctcidcount: u32, ptcids: *const u32) -> ::windows::runtime::Result<()> {
@@ -9325,22 +9325,22 @@ unsafe impl ::windows::runtime::Interface for IStylusAsyncPlugin {
 }
 impl ::std::convert::From<IStylusAsyncPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IStylusAsyncPlugin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStylusAsyncPlugin> for ::windows::runtime::IUnknown {
     fn from(value: &IStylusAsyncPlugin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStylusAsyncPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStylusAsyncPlugin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStylusAsyncPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IStylusAsyncPlugin> for IStylusPlugin {
@@ -9396,7 +9396,7 @@ pub struct IStylusAsyncPlugin_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStylusPlugin(::windows::runtime::IUnknown);
+pub struct IStylusPlugin(pub ::windows::runtime::IUnknown);
 impl IStylusPlugin {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ctcidcount: u32, ptcids: *const u32) -> ::windows::runtime::Result<()> {
@@ -9480,22 +9480,22 @@ unsafe impl ::windows::runtime::Interface for IStylusPlugin {
 }
 impl ::std::convert::From<IStylusPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IStylusPlugin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStylusPlugin> for ::windows::runtime::IUnknown {
     fn from(value: &IStylusPlugin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStylusPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStylusPlugin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStylusPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9531,7 +9531,7 @@ pub struct IStylusPlugin_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IStylusSyncPlugin(::windows::runtime::IUnknown);
+pub struct IStylusSyncPlugin(pub ::windows::runtime::IUnknown);
 impl IStylusSyncPlugin {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ctcidcount: u32, ptcids: *const u32) -> ::windows::runtime::Result<()> {
@@ -9615,22 +9615,22 @@ unsafe impl ::windows::runtime::Interface for IStylusSyncPlugin {
 }
 impl ::std::convert::From<IStylusSyncPlugin> for ::windows::runtime::IUnknown {
     fn from(value: IStylusSyncPlugin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IStylusSyncPlugin> for ::windows::runtime::IUnknown {
     fn from(value: &IStylusSyncPlugin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStylusSyncPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStylusSyncPlugin {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStylusSyncPlugin {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IStylusSyncPlugin> for IStylusPlugin {
@@ -9686,7 +9686,7 @@ pub struct IStylusSyncPlugin_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextInputPanel(::windows::runtime::IUnknown);
+pub struct ITextInputPanel(pub ::windows::runtime::IUnknown);
 impl ITextInputPanel {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -9816,22 +9816,22 @@ unsafe impl ::windows::runtime::Interface for ITextInputPanel {
 }
 impl ::std::convert::From<ITextInputPanel> for ::windows::runtime::IUnknown {
     fn from(value: ITextInputPanel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextInputPanel> for ::windows::runtime::IUnknown {
     fn from(value: &ITextInputPanel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextInputPanel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextInputPanel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextInputPanel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9877,7 +9877,7 @@ pub struct ITextInputPanel_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextInputPanelEventSink(::windows::runtime::IUnknown);
+pub struct ITextInputPanelEventSink(pub ::windows::runtime::IUnknown);
 impl ITextInputPanelEventSink {
     #[doc = "*Required features: `Win32_UI_TabletPC`*"]
     pub unsafe fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::runtime::Result<()> {
@@ -9940,22 +9940,22 @@ unsafe impl ::windows::runtime::Interface for ITextInputPanelEventSink {
 }
 impl ::std::convert::From<ITextInputPanelEventSink> for ::windows::runtime::IUnknown {
     fn from(value: ITextInputPanelEventSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextInputPanelEventSink> for ::windows::runtime::IUnknown {
     fn from(value: &ITextInputPanelEventSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextInputPanelEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextInputPanelEventSink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextInputPanelEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9986,7 +9986,7 @@ pub struct ITextInputPanelEventSink_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextInputPanelRunInfo(::windows::runtime::IUnknown);
+pub struct ITextInputPanelRunInfo(pub ::windows::runtime::IUnknown);
 impl ITextInputPanelRunInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -10001,22 +10001,22 @@ unsafe impl ::windows::runtime::Interface for ITextInputPanelRunInfo {
 }
 impl ::std::convert::From<ITextInputPanelRunInfo> for ::windows::runtime::IUnknown {
     fn from(value: ITextInputPanelRunInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextInputPanelRunInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ITextInputPanelRunInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextInputPanelRunInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextInputPanelRunInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextInputPanelRunInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10031,7 +10031,7 @@ pub struct ITextInputPanelRunInfo_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITipAutoCompleteClient(::windows::runtime::IUnknown);
+pub struct ITipAutoCompleteClient(pub ::windows::runtime::IUnknown);
 impl ITipAutoCompleteClient {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -10065,22 +10065,22 @@ unsafe impl ::windows::runtime::Interface for ITipAutoCompleteClient {
 }
 impl ::std::convert::From<ITipAutoCompleteClient> for ::windows::runtime::IUnknown {
     fn from(value: ITipAutoCompleteClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITipAutoCompleteClient> for ::windows::runtime::IUnknown {
     fn from(value: &ITipAutoCompleteClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITipAutoCompleteClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITipAutoCompleteClient {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITipAutoCompleteClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -10102,7 +10102,7 @@ pub struct ITipAutoCompleteClient_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITipAutoCompleteProvider(::windows::runtime::IUnknown);
+pub struct ITipAutoCompleteProvider(pub ::windows::runtime::IUnknown);
 impl ITipAutoCompleteProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -10121,22 +10121,22 @@ unsafe impl ::windows::runtime::Interface for ITipAutoCompleteProvider {
 }
 impl ::std::convert::From<ITipAutoCompleteProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITipAutoCompleteProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITipAutoCompleteProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITipAutoCompleteProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITipAutoCompleteProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITipAutoCompleteProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITipAutoCompleteProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -11992,7 +11992,7 @@ pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkCollectorEvents(::windows::runtime::IUnknown);
+pub struct _IInkCollectorEvents(pub ::windows::runtime::IUnknown);
 impl _IInkCollectorEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkCollectorEvents {
     type Vtable = _IInkCollectorEvents_abi;
@@ -12000,22 +12000,22 @@ unsafe impl ::windows::runtime::Interface for _IInkCollectorEvents {
 }
 impl ::std::convert::From<_IInkCollectorEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkCollectorEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkCollectorEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkCollectorEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkCollectorEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkCollectorEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkCollectorEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12060,7 +12060,7 @@ pub struct _IInkCollectorEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkEditEvents(::windows::runtime::IUnknown);
+pub struct _IInkEditEvents(pub ::windows::runtime::IUnknown);
 impl _IInkEditEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkEditEvents {
     type Vtable = _IInkEditEvents_abi;
@@ -12068,22 +12068,22 @@ unsafe impl ::windows::runtime::Interface for _IInkEditEvents {
 }
 impl ::std::convert::From<_IInkEditEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkEditEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkEditEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkEditEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkEditEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkEditEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkEditEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12128,7 +12128,7 @@ pub struct _IInkEditEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkEvents(::windows::runtime::IUnknown);
+pub struct _IInkEvents(pub ::windows::runtime::IUnknown);
 impl _IInkEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkEvents {
     type Vtable = _IInkEvents_abi;
@@ -12136,22 +12136,22 @@ unsafe impl ::windows::runtime::Interface for _IInkEvents {
 }
 impl ::std::convert::From<_IInkEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12196,7 +12196,7 @@ pub struct _IInkEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkOverlayEvents(::windows::runtime::IUnknown);
+pub struct _IInkOverlayEvents(pub ::windows::runtime::IUnknown);
 impl _IInkOverlayEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkOverlayEvents {
     type Vtable = _IInkOverlayEvents_abi;
@@ -12204,22 +12204,22 @@ unsafe impl ::windows::runtime::Interface for _IInkOverlayEvents {
 }
 impl ::std::convert::From<_IInkOverlayEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkOverlayEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkOverlayEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkOverlayEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkOverlayEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkOverlayEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkOverlayEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12264,7 +12264,7 @@ pub struct _IInkOverlayEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkPictureEvents(::windows::runtime::IUnknown);
+pub struct _IInkPictureEvents(pub ::windows::runtime::IUnknown);
 impl _IInkPictureEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkPictureEvents {
     type Vtable = _IInkPictureEvents_abi;
@@ -12272,22 +12272,22 @@ unsafe impl ::windows::runtime::Interface for _IInkPictureEvents {
 }
 impl ::std::convert::From<_IInkPictureEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkPictureEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkPictureEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkPictureEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkPictureEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkPictureEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkPictureEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12332,7 +12332,7 @@ pub struct _IInkPictureEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkRecognitionEvents(::windows::runtime::IUnknown);
+pub struct _IInkRecognitionEvents(pub ::windows::runtime::IUnknown);
 impl _IInkRecognitionEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkRecognitionEvents {
     type Vtable = _IInkRecognitionEvents_abi;
@@ -12340,22 +12340,22 @@ unsafe impl ::windows::runtime::Interface for _IInkRecognitionEvents {
 }
 impl ::std::convert::From<_IInkRecognitionEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkRecognitionEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkRecognitionEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkRecognitionEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkRecognitionEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkRecognitionEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkRecognitionEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12400,7 +12400,7 @@ pub struct _IInkRecognitionEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IInkStrokesEvents(::windows::runtime::IUnknown);
+pub struct _IInkStrokesEvents(pub ::windows::runtime::IUnknown);
 impl _IInkStrokesEvents {}
 unsafe impl ::windows::runtime::Interface for _IInkStrokesEvents {
     type Vtable = _IInkStrokesEvents_abi;
@@ -12408,22 +12408,22 @@ unsafe impl ::windows::runtime::Interface for _IInkStrokesEvents {
 }
 impl ::std::convert::From<_IInkStrokesEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IInkStrokesEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IInkStrokesEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IInkStrokesEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkStrokesEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkStrokesEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IInkStrokesEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12468,7 +12468,7 @@ pub struct _IInkStrokesEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IMathInputControlEvents(::windows::runtime::IUnknown);
+pub struct _IMathInputControlEvents(pub ::windows::runtime::IUnknown);
 impl _IMathInputControlEvents {}
 unsafe impl ::windows::runtime::Interface for _IMathInputControlEvents {
     type Vtable = _IMathInputControlEvents_abi;
@@ -12476,22 +12476,22 @@ unsafe impl ::windows::runtime::Interface for _IMathInputControlEvents {
 }
 impl ::std::convert::From<_IMathInputControlEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IMathInputControlEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IMathInputControlEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IMathInputControlEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IMathInputControlEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IMathInputControlEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IMathInputControlEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12536,7 +12536,7 @@ pub struct _IMathInputControlEvents_abi(
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct _IPenInputPanelEvents(::windows::runtime::IUnknown);
+pub struct _IPenInputPanelEvents(pub ::windows::runtime::IUnknown);
 impl _IPenInputPanelEvents {}
 unsafe impl ::windows::runtime::Interface for _IPenInputPanelEvents {
     type Vtable = _IPenInputPanelEvents_abi;
@@ -12544,22 +12544,22 @@ unsafe impl ::windows::runtime::Interface for _IPenInputPanelEvents {
 }
 impl ::std::convert::From<_IPenInputPanelEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IPenInputPanelEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&_IPenInputPanelEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IPenInputPanelEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IPenInputPanelEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IPenInputPanelEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IPenInputPanelEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

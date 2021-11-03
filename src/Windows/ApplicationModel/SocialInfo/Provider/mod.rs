@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialDashboardItemUpdater(::windows::runtime::IInspectable);
+pub struct ISocialDashboardItemUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialDashboardItemUpdater {
     type Vtable = ISocialDashboardItemUpdater_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1021222345, 18432, 18125, [134, 155, 25, 115, 236, 104, 91, 222]);
@@ -32,7 +32,7 @@ pub struct ISocialDashboardItemUpdater_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialFeedUpdater(::windows::runtime::IInspectable);
+pub struct ISocialFeedUpdater(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedUpdater {
     type Vtable = ISocialFeedUpdater_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2047609511, 60809, 19413, [168, 217, 21, 244, 217, 134, 28, 16]);
@@ -55,7 +55,7 @@ pub struct ISocialFeedUpdater_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocialInfoProviderManagerStatics(::windows::runtime::IInspectable);
+pub struct ISocialInfoProviderManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialInfoProviderManagerStatics {
     type Vtable = ISocialInfoProviderManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461956395, 30599, 18646, [170, 18, 216, 232, 244, 122, 184, 90]);
@@ -83,7 +83,7 @@ pub struct ISocialInfoProviderManagerStatics_abi(
 #[doc = "*Required features: `ApplicationModel_SocialInfo_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SocialDashboardItemUpdater(::windows::runtime::IInspectable);
+pub struct SocialDashboardItemUpdater(pub ::windows::runtime::IInspectable);
 impl SocialDashboardItemUpdater {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo_Provider`*"]
@@ -175,22 +175,22 @@ impl ::windows::runtime::RuntimeName for SocialDashboardItemUpdater {
 }
 impl ::std::convert::From<SocialDashboardItemUpdater> for ::windows::runtime::IUnknown {
     fn from(value: SocialDashboardItemUpdater) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SocialDashboardItemUpdater> for ::windows::runtime::IUnknown {
     fn from(value: &SocialDashboardItemUpdater) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialDashboardItemUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialDashboardItemUpdater {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialDashboardItemUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SocialDashboardItemUpdater> for ::windows::runtime::IInspectable {
@@ -218,7 +218,7 @@ unsafe impl ::std::marker::Sync for SocialDashboardItemUpdater {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SocialFeedUpdater(::windows::runtime::IInspectable);
+pub struct SocialFeedUpdater(pub ::windows::runtime::IInspectable);
 impl SocialFeedUpdater {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_SocialInfo_Provider`*"]
@@ -271,22 +271,22 @@ impl ::windows::runtime::RuntimeName for SocialFeedUpdater {
 }
 impl ::std::convert::From<SocialFeedUpdater> for ::windows::runtime::IUnknown {
     fn from(value: SocialFeedUpdater) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SocialFeedUpdater> for ::windows::runtime::IUnknown {
     fn from(value: &SocialFeedUpdater) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialFeedUpdater {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SocialFeedUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SocialFeedUpdater> for ::windows::runtime::IInspectable {

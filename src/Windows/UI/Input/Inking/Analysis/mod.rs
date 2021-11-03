@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisInkBullet(::windows::runtime::IInspectable);
+pub struct IInkAnalysisInkBullet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkBullet {
     type Vtable = IInkAnalysisInkBullet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993277288, 24848, 16694, [149, 249, 238, 128, 159, 194, 0, 48]);
@@ -19,7 +19,7 @@ pub struct IInkAnalysisInkBullet_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisInkDrawing(::windows::runtime::IInspectable);
+pub struct IInkAnalysisInkDrawing(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkDrawing {
     type Vtable = IInkAnalysisInkDrawing_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787161887, 8164, 19989, [137, 140, 142, 17, 35, 119, 224, 33]);
@@ -41,7 +41,7 @@ pub struct IInkAnalysisInkDrawing_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisInkWord(::windows::runtime::IInspectable);
+pub struct IInkAnalysisInkWord(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkWord {
     type Vtable = IInkAnalysisInkWord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272064173, 33711, 16436, [143, 59, 248, 104, 125, 255, 244, 54]);
@@ -61,7 +61,7 @@ pub struct IInkAnalysisInkWord_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisLine(::windows::runtime::IInspectable);
+pub struct IInkAnalysisLine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisLine {
     type Vtable = IInkAnalysisLine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2691499149, 11149, 18260, [173, 90, 208, 135, 17, 147, 169, 86]);
@@ -80,7 +80,7 @@ pub struct IInkAnalysisLine_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisListItem(::windows::runtime::IInspectable);
+pub struct IInkAnalysisListItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisListItem {
     type Vtable = IInkAnalysisListItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3034825279, 50371, 19514, [161, 166, 157, 133, 84, 126, 229, 134]);
@@ -99,7 +99,7 @@ pub struct IInkAnalysisListItem_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
-pub struct IInkAnalysisNode(::windows::runtime::IInspectable);
+pub struct IInkAnalysisNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisNode {
     type Vtable = IInkAnalysisNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(813899525, 24420, 18988, [186, 55, 79, 72, 135, 135, 149, 116]);
@@ -171,22 +171,22 @@ unsafe impl ::windows::runtime::RuntimeType for IInkAnalysisNode {
 }
 impl ::std::convert::From<IInkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: IInkAnalysisNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IInkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: &IInkAnalysisNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkAnalysisNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkAnalysisNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkAnalysisNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IInkAnalysisNode> for ::windows::runtime::IInspectable {
@@ -232,7 +232,7 @@ pub struct IInkAnalysisNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisParagraph(::windows::runtime::IInspectable);
+pub struct IInkAnalysisParagraph(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisParagraph {
     type Vtable = IInkAnalysisParagraph_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3651994716, 3281, 19924, [166, 139, 235, 31, 18, 179, 215, 39]);
@@ -250,7 +250,7 @@ pub struct IInkAnalysisParagraph_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisResult(::windows::runtime::IInspectable);
+pub struct IInkAnalysisResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisResult {
     type Vtable = IInkAnalysisResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303244921, 41539, 19107, [162, 148, 31, 152, 189, 15, 245, 128]);
@@ -268,7 +268,7 @@ pub struct IInkAnalysisResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisRoot(::windows::runtime::IInspectable);
+pub struct IInkAnalysisRoot(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisRoot {
     type Vtable = IInkAnalysisRoot_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1068934084, 12254, 16481, [133, 2, 169, 15, 50, 84, 91, 132]);
@@ -288,7 +288,7 @@ pub struct IInkAnalysisRoot_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalysisWritingRegion(::windows::runtime::IInspectable);
+pub struct IInkAnalysisWritingRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisWritingRegion {
     type Vtable = IInkAnalysisWritingRegion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3714933297, 48406, 18019, [181, 174, 148, 29, 48, 67, 239, 91]);
@@ -306,7 +306,7 @@ pub struct IInkAnalysisWritingRegion_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInkAnalyzer(::windows::runtime::IInspectable);
+pub struct IInkAnalyzer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalyzer {
     type Vtable = IInkAnalyzer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046163861, 2150, 19909, [140, 119, 248, 134, 20, 223, 227, 140]);
@@ -337,7 +337,7 @@ pub struct IInkAnalyzer_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
-pub struct IInkAnalyzerFactory(::windows::runtime::IInspectable);
+pub struct IInkAnalyzerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalyzerFactory {
     type Vtable = IInkAnalyzerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(689145478, 6499, 18904, [149, 137, 225, 67, 132, 199, 105, 227]);
@@ -357,22 +357,22 @@ unsafe impl ::windows::runtime::RuntimeType for IInkAnalyzerFactory {
 }
 impl ::std::convert::From<IInkAnalyzerFactory> for ::windows::runtime::IUnknown {
     fn from(value: IInkAnalyzerFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IInkAnalyzerFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IInkAnalyzerFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkAnalyzerFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkAnalyzerFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkAnalyzerFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IInkAnalyzerFactory> for ::windows::runtime::IInspectable {
@@ -444,7 +444,7 @@ impl ::windows::runtime::DefaultType for InkAnalysisDrawingKind {
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisInkBullet(::windows::runtime::IInspectable);
+pub struct InkAnalysisInkBullet(pub ::windows::runtime::IInspectable);
 impl InkAnalysisInkBullet {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -527,22 +527,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisInkBullet {
 }
 impl ::std::convert::From<InkAnalysisInkBullet> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisInkBullet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisInkBullet> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisInkBullet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisInkBullet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisInkBullet {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisInkBullet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisInkBullet> for ::windows::runtime::IInspectable {
@@ -592,7 +592,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisInkBullet {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisInkDrawing(::windows::runtime::IInspectable);
+pub struct InkAnalysisInkDrawing(pub ::windows::runtime::IInspectable);
 impl InkAnalysisInkDrawing {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn DrawingKind(&self) -> ::windows::runtime::Result<InkAnalysisDrawingKind> {
@@ -693,22 +693,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisInkDrawing {
 }
 impl ::std::convert::From<InkAnalysisInkDrawing> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisInkDrawing) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisInkDrawing> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisInkDrawing) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisInkDrawing {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisInkDrawing {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisInkDrawing {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisInkDrawing> for ::windows::runtime::IInspectable {
@@ -758,7 +758,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisInkDrawing {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisInkWord(::windows::runtime::IInspectable);
+pub struct InkAnalysisInkWord(pub ::windows::runtime::IInspectable);
 impl InkAnalysisInkWord {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -850,22 +850,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisInkWord {
 }
 impl ::std::convert::From<InkAnalysisInkWord> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisInkWord) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisInkWord> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisInkWord) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisInkWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisInkWord {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisInkWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisInkWord> for ::windows::runtime::IInspectable {
@@ -915,7 +915,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisInkWord {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisLine(::windows::runtime::IInspectable);
+pub struct InkAnalysisLine(pub ::windows::runtime::IInspectable);
 impl InkAnalysisLine {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1006,22 +1006,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisLine {
 }
 impl ::std::convert::From<InkAnalysisLine> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisLine) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisLine> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisLine) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisLine {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisLine {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisLine {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisLine> for ::windows::runtime::IInspectable {
@@ -1071,7 +1071,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisLine {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisListItem(::windows::runtime::IInspectable);
+pub struct InkAnalysisListItem(pub ::windows::runtime::IInspectable);
 impl InkAnalysisListItem {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1154,22 +1154,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisListItem {
 }
 impl ::std::convert::From<InkAnalysisListItem> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisListItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisListItem> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisListItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisListItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisListItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisListItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisListItem> for ::windows::runtime::IInspectable {
@@ -1219,7 +1219,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisListItem {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisNode(::windows::runtime::IInspectable);
+pub struct InkAnalysisNode(pub ::windows::runtime::IInspectable);
 impl InkAnalysisNode {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -1294,22 +1294,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisNode {
 }
 impl ::std::convert::From<InkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisNode> for ::windows::runtime::IInspectable {
@@ -1386,7 +1386,7 @@ impl ::windows::runtime::DefaultType for InkAnalysisNodeKind {
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisParagraph(::windows::runtime::IInspectable);
+pub struct InkAnalysisParagraph(pub ::windows::runtime::IInspectable);
 impl InkAnalysisParagraph {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1469,22 +1469,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisParagraph {
 }
 impl ::std::convert::From<InkAnalysisParagraph> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisParagraph) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisParagraph> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisParagraph) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisParagraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisParagraph {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisParagraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisParagraph> for ::windows::runtime::IInspectable {
@@ -1534,7 +1534,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisParagraph {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisResult(::windows::runtime::IInspectable);
+pub struct InkAnalysisResult(pub ::windows::runtime::IInspectable);
 impl InkAnalysisResult {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<InkAnalysisStatus> {
@@ -1557,22 +1557,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisResult {
 }
 impl ::std::convert::From<InkAnalysisResult> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisResult> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisResult> for ::windows::runtime::IInspectable {
@@ -1600,7 +1600,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisResult {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisRoot(::windows::runtime::IInspectable);
+pub struct InkAnalysisRoot(pub ::windows::runtime::IInspectable);
 impl InkAnalysisRoot {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1692,22 +1692,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisRoot {
 }
 impl ::std::convert::From<InkAnalysisRoot> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisRoot) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisRoot> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisRoot) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisRoot {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisRoot {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisRoot {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisRoot> for ::windows::runtime::IInspectable {
@@ -1802,7 +1802,7 @@ impl ::windows::runtime::DefaultType for InkAnalysisStrokeKind {
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalysisWritingRegion(::windows::runtime::IInspectable);
+pub struct InkAnalysisWritingRegion(pub ::windows::runtime::IInspectable);
 impl InkAnalysisWritingRegion {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1885,22 +1885,22 @@ impl ::windows::runtime::RuntimeName for InkAnalysisWritingRegion {
 }
 impl ::std::convert::From<InkAnalysisWritingRegion> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisWritingRegion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalysisWritingRegion> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisWritingRegion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalysisWritingRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalysisWritingRegion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalysisWritingRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalysisWritingRegion> for ::windows::runtime::IInspectable {
@@ -1950,7 +1950,7 @@ unsafe impl ::std::marker::Sync for InkAnalysisWritingRegion {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct InkAnalyzer(::windows::runtime::IInspectable);
+pub struct InkAnalyzer(pub ::windows::runtime::IInspectable);
 impl InkAnalyzer {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2034,22 +2034,22 @@ impl ::windows::runtime::RuntimeName for InkAnalyzer {
 }
 impl ::std::convert::From<InkAnalyzer> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalyzer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&InkAnalyzer> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalyzer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkAnalyzer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkAnalyzer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InkAnalyzer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<InkAnalyzer> for ::windows::runtime::IInspectable {

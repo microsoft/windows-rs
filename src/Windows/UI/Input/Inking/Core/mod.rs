@@ -2,7 +2,7 @@
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreIncrementalInkStroke(::windows::runtime::IInspectable);
+pub struct CoreIncrementalInkStroke(pub ::windows::runtime::IInspectable);
 impl CoreIncrementalInkStroke {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `UI_Input_Inking_Core`, `Foundation`, `Foundation_Collections`*"]
@@ -72,22 +72,22 @@ impl ::windows::runtime::RuntimeName for CoreIncrementalInkStroke {
 }
 impl ::std::convert::From<CoreIncrementalInkStroke> for ::windows::runtime::IUnknown {
     fn from(value: CoreIncrementalInkStroke) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreIncrementalInkStroke> for ::windows::runtime::IUnknown {
     fn from(value: &CoreIncrementalInkStroke) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreIncrementalInkStroke {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreIncrementalInkStroke {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreIncrementalInkStroke {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreIncrementalInkStroke> for ::windows::runtime::IInspectable {
@@ -115,7 +115,7 @@ unsafe impl ::std::marker::Sync for CoreIncrementalInkStroke {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreInkIndependentInputSource(::windows::runtime::IInspectable);
+pub struct CoreInkIndependentInputSource(pub ::windows::runtime::IInspectable);
 impl CoreInkIndependentInputSource {
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     #[doc = "*Required features: `UI_Input_Inking_Core`, `Foundation`, `UI_Core`*"]
@@ -269,22 +269,22 @@ impl ::windows::runtime::RuntimeName for CoreInkIndependentInputSource {
 }
 impl ::std::convert::From<CoreInkIndependentInputSource> for ::windows::runtime::IUnknown {
     fn from(value: CoreInkIndependentInputSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreInkIndependentInputSource> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInkIndependentInputSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInkIndependentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInkIndependentInputSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreInkIndependentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreInkIndependentInputSource> for ::windows::runtime::IInspectable {
@@ -312,7 +312,7 @@ unsafe impl ::std::marker::Sync for CoreInkIndependentInputSource {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreInkPresenterHost(::windows::runtime::IInspectable);
+pub struct CoreInkPresenterHost(pub ::windows::runtime::IInspectable);
 impl CoreInkPresenterHost {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -357,22 +357,22 @@ impl ::windows::runtime::RuntimeName for CoreInkPresenterHost {
 }
 impl ::std::convert::From<CoreInkPresenterHost> for ::windows::runtime::IUnknown {
     fn from(value: CoreInkPresenterHost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreInkPresenterHost> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInkPresenterHost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInkPresenterHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInkPresenterHost {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreInkPresenterHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreInkPresenterHost> for ::windows::runtime::IInspectable {
@@ -423,7 +423,7 @@ impl ::windows::runtime::DefaultType for CoreWetStrokeDisposition {
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreWetStrokeUpdateEventArgs(::windows::runtime::IInspectable);
+pub struct CoreWetStrokeUpdateEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreWetStrokeUpdateEventArgs {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input_Inking_Core`, `Foundation_Collections`*"]
@@ -468,22 +468,22 @@ impl ::windows::runtime::RuntimeName for CoreWetStrokeUpdateEventArgs {
 }
 impl ::std::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreWetStrokeUpdateEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreWetStrokeUpdateEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreWetStrokeUpdateEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreWetStrokeUpdateEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IInspectable {
@@ -511,7 +511,7 @@ unsafe impl ::std::marker::Sync for CoreWetStrokeUpdateEventArgs {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreWetStrokeUpdateSource(::windows::runtime::IInspectable);
+pub struct CoreWetStrokeUpdateSource(pub ::windows::runtime::IInspectable);
 impl CoreWetStrokeUpdateSource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input_Inking_Core`, `Foundation`*"]
@@ -620,22 +620,22 @@ impl ::windows::runtime::RuntimeName for CoreWetStrokeUpdateSource {
 }
 impl ::std::convert::From<CoreWetStrokeUpdateSource> for ::windows::runtime::IUnknown {
     fn from(value: CoreWetStrokeUpdateSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreWetStrokeUpdateSource> for ::windows::runtime::IUnknown {
     fn from(value: &CoreWetStrokeUpdateSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreWetStrokeUpdateSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreWetStrokeUpdateSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreWetStrokeUpdateSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreWetStrokeUpdateSource> for ::windows::runtime::IInspectable {
@@ -662,7 +662,7 @@ unsafe impl ::std::marker::Send for CoreWetStrokeUpdateSource {}
 unsafe impl ::std::marker::Sync for CoreWetStrokeUpdateSource {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreIncrementalInkStroke(::windows::runtime::IInspectable);
+pub struct ICoreIncrementalInkStroke(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIncrementalInkStroke {
     type Vtable = ICoreIncrementalInkStroke_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4255126995, 40294, 20349, [165, 127, 204, 112, 185, 207, 170, 118]);
@@ -687,7 +687,7 @@ pub struct ICoreIncrementalInkStroke_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreIncrementalInkStrokeFactory(::windows::runtime::IInspectable);
+pub struct ICoreIncrementalInkStrokeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIncrementalInkStrokeFactory {
     type Vtable = ICoreIncrementalInkStrokeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3620052806, 36264, 20336, [151, 81, 229, 59, 182, 223, 69, 150]);
@@ -706,7 +706,7 @@ pub struct ICoreIncrementalInkStrokeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreInkIndependentInputSource(::windows::runtime::IInspectable);
+pub struct ICoreInkIndependentInputSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSource {
     type Vtable = ICoreInkIndependentInputSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968068521, 30265, 17561, [165, 181, 25, 29, 0, 227, 91, 22]);
@@ -752,7 +752,7 @@ pub struct ICoreInkIndependentInputSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreInkIndependentInputSource2(::windows::runtime::IInspectable);
+pub struct ICoreInkIndependentInputSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSource2 {
     type Vtable = ICoreInkIndependentInputSource2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(675721234, 2905, 23481, [163, 197, 190, 203, 124, 240, 58, 51]);
@@ -773,7 +773,7 @@ pub struct ICoreInkIndependentInputSource2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreInkIndependentInputSourceStatics(::windows::runtime::IInspectable);
+pub struct ICoreInkIndependentInputSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSourceStatics {
     type Vtable = ICoreInkIndependentInputSourceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944453403, 32960, 19963, [155, 102, 16, 186, 127, 63, 156, 132]);
@@ -791,7 +791,7 @@ pub struct ICoreInkIndependentInputSourceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreInkPresenterHost(::windows::runtime::IInspectable);
+pub struct ICoreInkPresenterHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkPresenterHost {
     type Vtable = ICoreInkPresenterHost_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(963545574, 32085, 17943, [158, 88, 104, 199, 12, 145, 105, 185]);
@@ -813,7 +813,7 @@ pub struct ICoreInkPresenterHost_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreWetStrokeUpdateEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreWetStrokeUpdateEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateEventArgs {
     type Vtable = ICoreWetStrokeUpdateEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4211593548, 13184, 17786, [169, 135, 153, 19, 87, 137, 108, 27]);
@@ -835,7 +835,7 @@ pub struct ICoreWetStrokeUpdateEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreWetStrokeUpdateSource(::windows::runtime::IInspectable);
+pub struct ICoreWetStrokeUpdateSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateSource {
     type Vtable = ICoreWetStrokeUpdateSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(527535650, 61010, 19968, [130, 9, 76, 62, 91, 33, 163, 204]);
@@ -873,7 +873,7 @@ pub struct ICoreWetStrokeUpdateSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreWetStrokeUpdateSourceStatics(::windows::runtime::IInspectable);
+pub struct ICoreWetStrokeUpdateSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateSourceStatics {
     type Vtable = ICoreWetStrokeUpdateSourceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034788026, 7485, 18094, [171, 157, 134, 71, 72, 108, 111, 144]);

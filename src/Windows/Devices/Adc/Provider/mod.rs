@@ -2,7 +2,7 @@
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Adc_Provider`*"]
-pub struct IAdcControllerProvider(::windows::runtime::IInspectable);
+pub struct IAdcControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193198632, 33133, 19941, [160, 72, 171, 160, 105, 88, 170, 168]);
@@ -85,22 +85,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAdcControllerProvider {
 }
 impl ::std::convert::From<IAdcControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAdcControllerProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAdcControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IAdcControllerProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdcControllerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdcControllerProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAdcControllerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAdcControllerProvider> for ::windows::runtime::IInspectable {
@@ -146,7 +146,7 @@ pub struct IAdcControllerProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Adc_Provider`*"]
-pub struct IAdcProvider(::windows::runtime::IInspectable);
+pub struct IAdcProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcProvider {
     type Vtable = IAdcProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680867432, 37721, 19543, [188, 136, 226, 117, 232, 22, 56, 201]);
@@ -167,22 +167,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAdcProvider {
 }
 impl ::std::convert::From<IAdcProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAdcProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAdcProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IAdcProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdcProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdcProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAdcProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAdcProvider> for ::windows::runtime::IInspectable {

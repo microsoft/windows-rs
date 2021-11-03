@@ -5,7 +5,7 @@ pub mod Preview;
 pub mod Surfaces;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchor(::windows::runtime::IInspectable);
+pub struct ISpatialAnchor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchor {
     type Vtable = ISpatialAnchor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86631886, 7476, 14082, [188, 236, 234, 191, 245, 120, 168, 105]);
@@ -28,7 +28,7 @@ pub struct ISpatialAnchor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchor2(::windows::runtime::IInspectable);
+pub struct ISpatialAnchor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchor2 {
     type Vtable = ISpatialAnchor2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3977758984, 42645, 19702, [146, 253, 151, 38, 59, 167, 16, 71]);
@@ -46,7 +46,7 @@ pub struct ISpatialAnchor2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorExportSufficiency(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorExportSufficiency(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExportSufficiency {
     type Vtable = ISpatialAnchorExportSufficiency_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2009226027, 13321, 16520, [185, 27, 253, 253, 5, 209, 100, 143]);
@@ -66,7 +66,7 @@ pub struct ISpatialAnchorExportSufficiency_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorExporter(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorExporter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExporter {
     type Vtable = ISpatialAnchorExporter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586460984, 9467, 17001, [137, 197, 136, 48, 74, 238, 242, 15]);
@@ -87,7 +87,7 @@ pub struct ISpatialAnchorExporter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorExporterStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorExporterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExporterStatics {
     type Vtable = ISpatialAnchorExporterStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978627000, 9333, 17308, [133, 255, 127, 237, 52, 31, 220, 136]);
@@ -107,7 +107,7 @@ pub struct ISpatialAnchorExporterStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorManagerStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorManagerStatics {
     type Vtable = ISpatialAnchorManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2296581803, 62391, 16907, [176, 134, 138, 128, 192, 125, 145, 13]);
@@ -126,7 +126,7 @@ pub struct ISpatialAnchorManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     type Vtable = ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716343992, 22215, 12567, [162, 228, 129, 224, 252, 242, 142, 0]);
@@ -145,7 +145,7 @@ pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorStatics {
     type Vtable = ISpatialAnchorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844952130, 372, 12572, [174, 121, 14, 81, 7, 102, 159, 22]);
@@ -167,7 +167,7 @@ pub struct ISpatialAnchorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorStore(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorStore {
     type Vtable = ISpatialAnchorStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965124662, 18538, 15536, [158, 111, 18, 69, 22, 92, 77, 182]);
@@ -189,7 +189,7 @@ pub struct ISpatialAnchorStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAnchorTransferManagerStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAnchorTransferManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorTransferManagerStatics {
     type Vtable = ISpatialAnchorTransferManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(62650809, 4824, 19406, [136, 53, 197, 223, 58, 192, 173, 171]);
@@ -212,7 +212,7 @@ pub struct ISpatialAnchorTransferManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialBoundingVolume(::windows::runtime::IInspectable);
+pub struct ISpatialBoundingVolume(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialBoundingVolume {
     type Vtable = ISpatialBoundingVolume_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4213204442, 26819, 13279, [183, 175, 76, 120, 114, 7, 153, 156]);
@@ -229,7 +229,7 @@ pub struct ISpatialBoundingVolume_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialBoundingVolumeStatics(::windows::runtime::IInspectable);
+pub struct ISpatialBoundingVolumeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialBoundingVolumeStatics {
     type Vtable = ISpatialBoundingVolumeStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(92836119, 46049, 14040, [176, 23, 86, 97, 129, 165, 177, 150]);
@@ -254,7 +254,7 @@ pub struct ISpatialBoundingVolumeStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialCoordinateSystem(::windows::runtime::IInspectable);
+pub struct ISpatialCoordinateSystem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialCoordinateSystem {
     type Vtable = ISpatialCoordinateSystem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1777060427, 24739, 13702, [166, 83, 89, 167, 189, 103, 109, 7]);
@@ -273,7 +273,7 @@ pub struct ISpatialCoordinateSystem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntity(::windows::runtime::IInspectable);
+pub struct ISpatialEntity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntity {
     type Vtable = ISpatialEntity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(376301909, 57835, 17740, [186, 8, 230, 192, 102, 141, 220, 101]);
@@ -294,7 +294,7 @@ pub struct ISpatialEntity_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityAddedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialEntityAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityAddedEventArgs {
     type Vtable = ISpatialEntityAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2744644763, 5482, 18183, [172, 44, 211, 29, 87, 14, 211, 153]);
@@ -312,7 +312,7 @@ pub struct ISpatialEntityAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityFactory(::windows::runtime::IInspectable);
+pub struct ISpatialEntityFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityFactory {
     type Vtable = ISpatialEntityFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3790725925, 13471, 16933, [162, 243, 75, 1, 193, 95, 224, 86]);
@@ -332,7 +332,7 @@ pub struct ISpatialEntityFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialEntityRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityRemovedEventArgs {
     type Vtable = ISpatialEntityRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2440304640, 21357, 20127, [171, 246, 65, 91, 84, 68, 214, 81]);
@@ -350,7 +350,7 @@ pub struct ISpatialEntityRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityStore(::windows::runtime::IInspectable);
+pub struct ISpatialEntityStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityStore {
     type Vtable = ISpatialEntityStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(848791738, 58643, 20230, [136, 157, 27, 227, 14, 207, 67, 230]);
@@ -372,7 +372,7 @@ pub struct ISpatialEntityStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityStoreStatics(::windows::runtime::IInspectable);
+pub struct ISpatialEntityStoreStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityStoreStatics {
     type Vtable = ISpatialEntityStoreStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1800091806, 31824, 20114, [138, 98, 77, 29, 75, 124, 205, 62]);
@@ -392,7 +392,7 @@ pub struct ISpatialEntityStoreStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialEntityUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityUpdatedEventArgs {
     type Vtable = ISpatialEntityUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848738662, 25211, 17355, [164, 159, 179, 190, 109, 71, 222, 237]);
@@ -410,7 +410,7 @@ pub struct ISpatialEntityUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialEntityWatcher(::windows::runtime::IInspectable);
+pub struct ISpatialEntityWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityWatcher {
     type Vtable = ISpatialEntityWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015204768, 27998, 19388, [128, 93, 95, 229, 185, 186, 25, 89]);
@@ -446,7 +446,7 @@ pub struct ISpatialEntityWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialLocation(::windows::runtime::IInspectable);
+pub struct ISpatialLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocation {
     type Vtable = ISpatialLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(495047325, 9377, 14293, [143, 161, 57, 180, 249, 173, 103, 226]);
@@ -475,7 +475,7 @@ pub struct ISpatialLocation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialLocation2(::windows::runtime::IInspectable);
+pub struct ISpatialLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocation2 {
     type Vtable = ISpatialLocation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(293544982, 14503, 18968, [180, 4, 171, 143, 171, 225, 215, 139]);
@@ -496,7 +496,7 @@ pub struct ISpatialLocation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialLocator(::windows::runtime::IInspectable);
+pub struct ISpatialLocator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocator {
     type Vtable = ISpatialLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4131883301, 40460, 15286, [153, 126, 182, 78, 204, 162, 76, 244]);
@@ -537,7 +537,7 @@ pub struct ISpatialLocator_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialLocatorAttachedFrameOfReference(::windows::runtime::IInspectable);
+pub struct ISpatialLocatorAttachedFrameOfReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorAttachedFrameOfReference {
     type Vtable = ISpatialLocatorAttachedFrameOfReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3782692598, 8015, 18844, [150, 37, 239, 94, 110, 215, 160, 72]);
@@ -566,7 +566,7 @@ pub struct ISpatialLocatorAttachedFrameOfReference_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorPositionalTrackingDeactivatingEventArgs {
     type Vtable = ISpatialLocatorPositionalTrackingDeactivatingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098034275, 58356, 13963, [144, 97, 158, 169, 209, 214, 204, 22]);
@@ -585,7 +585,7 @@ pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialLocatorStatics(::windows::runtime::IInspectable);
+pub struct ISpatialLocatorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorStatics {
     type Vtable = ISpatialLocatorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077452608, 42946, 13851, [187, 130, 86, 233, 59, 137, 177, 187]);
@@ -603,7 +603,7 @@ pub struct ISpatialLocatorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialStageFrameOfReference(::windows::runtime::IInspectable);
+pub struct ISpatialStageFrameOfReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStageFrameOfReference {
     type Vtable = ISpatialStageFrameOfReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2055877732, 44301, 17808, [171, 134, 51, 6, 43, 103, 73, 38]);
@@ -626,7 +626,7 @@ pub struct ISpatialStageFrameOfReference_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialStageFrameOfReferenceStatics(::windows::runtime::IInspectable);
+pub struct ISpatialStageFrameOfReferenceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStageFrameOfReferenceStatics {
     type Vtable = ISpatialStageFrameOfReferenceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4153236557, 41124, 18844, [141, 145, 168, 201, 101, 212, 6, 84]);
@@ -650,7 +650,7 @@ pub struct ISpatialStageFrameOfReferenceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialStationaryFrameOfReference(::windows::runtime::IInspectable);
+pub struct ISpatialStationaryFrameOfReference(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStationaryFrameOfReference {
     type Vtable = ISpatialStationaryFrameOfReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165399737, 48376, 15999, [190, 126, 126, 220, 203, 177, 120, 168]);
@@ -669,7 +669,7 @@ pub struct ISpatialStationaryFrameOfReference_abi(
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAnchor(::windows::runtime::IInspectable);
+pub struct SpatialAnchor(pub ::windows::runtime::IInspectable);
 impl SpatialAnchor {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<SpatialCoordinateSystem> {
@@ -750,22 +750,22 @@ impl ::windows::runtime::RuntimeName for SpatialAnchor {
 }
 impl ::std::convert::From<SpatialAnchor> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAnchor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAnchor> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAnchor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAnchor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAnchor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAnchor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAnchor> for ::windows::runtime::IInspectable {
@@ -815,7 +815,7 @@ impl ::windows::runtime::DefaultType for SpatialAnchorExportPurpose {
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAnchorExportSufficiency(::windows::runtime::IInspectable);
+pub struct SpatialAnchorExportSufficiency(pub ::windows::runtime::IInspectable);
 impl SpatialAnchorExportSufficiency {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn IsMinimallySufficient(&self) -> ::windows::runtime::Result<bool> {
@@ -854,22 +854,22 @@ impl ::windows::runtime::RuntimeName for SpatialAnchorExportSufficiency {
 }
 impl ::std::convert::From<SpatialAnchorExportSufficiency> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAnchorExportSufficiency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAnchorExportSufficiency> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAnchorExportSufficiency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAnchorExportSufficiency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAnchorExportSufficiency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAnchorExportSufficiency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAnchorExportSufficiency> for ::windows::runtime::IInspectable {
@@ -897,7 +897,7 @@ unsafe impl ::std::marker::Sync for SpatialAnchorExportSufficiency {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAnchorExporter(::windows::runtime::IInspectable);
+pub struct SpatialAnchorExporter(pub ::windows::runtime::IInspectable);
 impl SpatialAnchorExporter {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation`*"]
@@ -949,22 +949,22 @@ impl ::windows::runtime::RuntimeName for SpatialAnchorExporter {
 }
 impl ::std::convert::From<SpatialAnchorExporter> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAnchorExporter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAnchorExporter> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAnchorExporter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAnchorExporter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAnchorExporter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAnchorExporter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAnchorExporter> for ::windows::runtime::IInspectable {
@@ -1011,7 +1011,7 @@ impl ::windows::runtime::RuntimeName for SpatialAnchorManager {
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation_Numerics`*"]
@@ -1035,22 +1035,22 @@ impl ::windows::runtime::RuntimeName for SpatialAnchorRawCoordinateSystemAdjuste
 }
 impl ::std::convert::From<SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::runtime::IInspectable {
@@ -1078,7 +1078,7 @@ unsafe impl ::std::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEven
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAnchorStore(::windows::runtime::IInspectable);
+pub struct SpatialAnchorStore(pub ::windows::runtime::IInspectable);
 impl SpatialAnchorStore {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation_Collections`*"]
@@ -1120,22 +1120,22 @@ impl ::windows::runtime::RuntimeName for SpatialAnchorStore {
 }
 impl ::std::convert::From<SpatialAnchorStore> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAnchorStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAnchorStore> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAnchorStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAnchorStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAnchorStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAnchorStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAnchorStore> for ::windows::runtime::IInspectable {
@@ -1374,7 +1374,7 @@ impl ::windows::runtime::DefaultType for SpatialBoundingSphere {
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialBoundingVolume(::windows::runtime::IInspectable);
+pub struct SpatialBoundingVolume(pub ::windows::runtime::IInspectable);
 impl SpatialBoundingVolume {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation_Numerics`*"]
@@ -1425,22 +1425,22 @@ impl ::windows::runtime::RuntimeName for SpatialBoundingVolume {
 }
 impl ::std::convert::From<SpatialBoundingVolume> for ::windows::runtime::IUnknown {
     fn from(value: SpatialBoundingVolume) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialBoundingVolume> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialBoundingVolume) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialBoundingVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialBoundingVolume {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialBoundingVolume {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialBoundingVolume> for ::windows::runtime::IInspectable {
@@ -1468,7 +1468,7 @@ unsafe impl ::std::marker::Sync for SpatialBoundingVolume {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialCoordinateSystem(::windows::runtime::IInspectable);
+pub struct SpatialCoordinateSystem(pub ::windows::runtime::IInspectable);
 impl SpatialCoordinateSystem {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation`, `Foundation_Numerics`*"]
@@ -1492,22 +1492,22 @@ impl ::windows::runtime::RuntimeName for SpatialCoordinateSystem {
 }
 impl ::std::convert::From<SpatialCoordinateSystem> for ::windows::runtime::IUnknown {
     fn from(value: SpatialCoordinateSystem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialCoordinateSystem> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialCoordinateSystem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialCoordinateSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialCoordinateSystem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialCoordinateSystem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialCoordinateSystem> for ::windows::runtime::IInspectable {
@@ -1535,7 +1535,7 @@ unsafe impl ::std::marker::Sync for SpatialCoordinateSystem {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialEntity(::windows::runtime::IInspectable);
+pub struct SpatialEntity(pub ::windows::runtime::IInspectable);
 impl SpatialEntity {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1594,22 +1594,22 @@ impl ::windows::runtime::RuntimeName for SpatialEntity {
 }
 impl ::std::convert::From<SpatialEntity> for ::windows::runtime::IUnknown {
     fn from(value: SpatialEntity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialEntity> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialEntity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialEntity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialEntity {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialEntity {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialEntity> for ::windows::runtime::IInspectable {
@@ -1637,7 +1637,7 @@ unsafe impl ::std::marker::Sync for SpatialEntity {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialEntityAddedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialEntityAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialEntityAddedEventArgs {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Entity(&self) -> ::windows::runtime::Result<SpatialEntity> {
@@ -1660,22 +1660,22 @@ impl ::windows::runtime::RuntimeName for SpatialEntityAddedEventArgs {
 }
 impl ::std::convert::From<SpatialEntityAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialEntityAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialEntityAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialEntityAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialEntityAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialEntityAddedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialEntityAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialEntityAddedEventArgs> for ::windows::runtime::IInspectable {
@@ -1703,7 +1703,7 @@ unsafe impl ::std::marker::Sync for SpatialEntityAddedEventArgs {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialEntityRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialEntityRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialEntityRemovedEventArgs {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Entity(&self) -> ::windows::runtime::Result<SpatialEntity> {
@@ -1726,22 +1726,22 @@ impl ::windows::runtime::RuntimeName for SpatialEntityRemovedEventArgs {
 }
 impl ::std::convert::From<SpatialEntityRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialEntityRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialEntityRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialEntityRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialEntityRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialEntityRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialEntityRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialEntityRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -1769,7 +1769,7 @@ unsafe impl ::std::marker::Sync for SpatialEntityRemovedEventArgs {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialEntityStore(::windows::runtime::IInspectable);
+pub struct SpatialEntityStore(pub ::windows::runtime::IInspectable);
 impl SpatialEntityStore {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation`*"]
@@ -1829,22 +1829,22 @@ impl ::windows::runtime::RuntimeName for SpatialEntityStore {
 }
 impl ::std::convert::From<SpatialEntityStore> for ::windows::runtime::IUnknown {
     fn from(value: SpatialEntityStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialEntityStore> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialEntityStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialEntityStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialEntityStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialEntityStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialEntityStore> for ::windows::runtime::IInspectable {
@@ -1872,7 +1872,7 @@ unsafe impl ::std::marker::Sync for SpatialEntityStore {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialEntityUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialEntityUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialEntityUpdatedEventArgs {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Entity(&self) -> ::windows::runtime::Result<SpatialEntity> {
@@ -1895,22 +1895,22 @@ impl ::windows::runtime::RuntimeName for SpatialEntityUpdatedEventArgs {
 }
 impl ::std::convert::From<SpatialEntityUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialEntityUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialEntityUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialEntityUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialEntityUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialEntityUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialEntityUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialEntityUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -1938,7 +1938,7 @@ unsafe impl ::std::marker::Sync for SpatialEntityUpdatedEventArgs {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialEntityWatcher(::windows::runtime::IInspectable);
+pub struct SpatialEntityWatcher(pub ::windows::runtime::IInspectable);
 impl SpatialEntityWatcher {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SpatialEntityWatcherStatus> {
@@ -2031,22 +2031,22 @@ impl ::windows::runtime::RuntimeName for SpatialEntityWatcher {
 }
 impl ::std::convert::From<SpatialEntityWatcher> for ::windows::runtime::IUnknown {
     fn from(value: SpatialEntityWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialEntityWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialEntityWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialEntityWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialEntityWatcher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialEntityWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialEntityWatcher> for ::windows::runtime::IInspectable {
@@ -2125,7 +2125,7 @@ impl ::windows::runtime::DefaultType for SpatialLocatability {
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialLocation(::windows::runtime::IInspectable);
+pub struct SpatialLocation(pub ::windows::runtime::IInspectable);
 impl SpatialLocation {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation_Numerics`*"]
@@ -2214,22 +2214,22 @@ impl ::windows::runtime::RuntimeName for SpatialLocation {
 }
 impl ::std::convert::From<SpatialLocation> for ::windows::runtime::IUnknown {
     fn from(value: SpatialLocation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialLocation> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialLocation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialLocation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialLocation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialLocation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialLocation> for ::windows::runtime::IInspectable {
@@ -2257,7 +2257,7 @@ unsafe impl ::std::marker::Sync for SpatialLocation {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialLocator(::windows::runtime::IInspectable);
+pub struct SpatialLocator(pub ::windows::runtime::IInspectable);
 impl SpatialLocator {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Locatability(&self) -> ::windows::runtime::Result<SpatialLocatability> {
@@ -2399,22 +2399,22 @@ impl ::windows::runtime::RuntimeName for SpatialLocator {
 }
 impl ::std::convert::From<SpatialLocator> for ::windows::runtime::IUnknown {
     fn from(value: SpatialLocator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialLocator> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialLocator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialLocator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialLocator> for ::windows::runtime::IInspectable {
@@ -2442,7 +2442,7 @@ unsafe impl ::std::marker::Sync for SpatialLocator {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialLocatorAttachedFrameOfReference(::windows::runtime::IInspectable);
+pub struct SpatialLocatorAttachedFrameOfReference(pub ::windows::runtime::IInspectable);
 impl SpatialLocatorAttachedFrameOfReference {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_Spatial`, `Foundation_Numerics`*"]
@@ -2509,22 +2509,22 @@ impl ::windows::runtime::RuntimeName for SpatialLocatorAttachedFrameOfReference 
 }
 impl ::std::convert::From<SpatialLocatorAttachedFrameOfReference> for ::windows::runtime::IUnknown {
     fn from(value: SpatialLocatorAttachedFrameOfReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialLocatorAttachedFrameOfReference> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialLocatorAttachedFrameOfReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialLocatorAttachedFrameOfReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialLocatorAttachedFrameOfReference {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialLocatorAttachedFrameOfReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialLocatorAttachedFrameOfReference> for ::windows::runtime::IInspectable {
@@ -2552,7 +2552,7 @@ unsafe impl ::std::marker::Sync for SpatialLocatorAttachedFrameOfReference {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn Canceled(&self) -> ::windows::runtime::Result<bool> {
@@ -2580,22 +2580,22 @@ impl ::windows::runtime::RuntimeName for SpatialLocatorPositionalTrackingDeactiv
 }
 impl ::std::convert::From<SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialLocatorPositionalTrackingDeactivatingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::runtime::IInspectable {
@@ -2733,7 +2733,7 @@ impl ::windows::runtime::DefaultType for SpatialRay {
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialStageFrameOfReference(::windows::runtime::IInspectable);
+pub struct SpatialStageFrameOfReference(pub ::windows::runtime::IInspectable);
 impl SpatialStageFrameOfReference {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<SpatialCoordinateSystem> {
@@ -2821,22 +2821,22 @@ impl ::windows::runtime::RuntimeName for SpatialStageFrameOfReference {
 }
 impl ::std::convert::From<SpatialStageFrameOfReference> for ::windows::runtime::IUnknown {
     fn from(value: SpatialStageFrameOfReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialStageFrameOfReference> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialStageFrameOfReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialStageFrameOfReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialStageFrameOfReference {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialStageFrameOfReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialStageFrameOfReference> for ::windows::runtime::IInspectable {
@@ -2864,7 +2864,7 @@ unsafe impl ::std::marker::Sync for SpatialStageFrameOfReference {}
 #[doc = "*Required features: `Perception_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialStationaryFrameOfReference(::windows::runtime::IInspectable);
+pub struct SpatialStationaryFrameOfReference(pub ::windows::runtime::IInspectable);
 impl SpatialStationaryFrameOfReference {
     #[doc = "*Required features: `Perception_Spatial`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<SpatialCoordinateSystem> {
@@ -2887,22 +2887,22 @@ impl ::windows::runtime::RuntimeName for SpatialStationaryFrameOfReference {
 }
 impl ::std::convert::From<SpatialStationaryFrameOfReference> for ::windows::runtime::IUnknown {
     fn from(value: SpatialStationaryFrameOfReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialStationaryFrameOfReference> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialStationaryFrameOfReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialStationaryFrameOfReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialStationaryFrameOfReference {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialStationaryFrameOfReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialStationaryFrameOfReference> for ::windows::runtime::IInspectable {

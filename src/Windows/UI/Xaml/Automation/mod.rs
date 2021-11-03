@@ -8,7 +8,7 @@ pub mod Text;
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AnnotationPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct AnnotationPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl AnnotationPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AnnotationTypeIdProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -62,22 +62,22 @@ impl ::windows::runtime::RuntimeName for AnnotationPatternIdentifiers {
 }
 impl ::std::convert::From<AnnotationPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: AnnotationPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AnnotationPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &AnnotationPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AnnotationPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AnnotationPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AnnotationPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AnnotationPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -199,7 +199,7 @@ impl ::windows::runtime::DefaultType for AutomationAnimationStyle {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AutomationAnnotation(::windows::runtime::IInspectable);
+pub struct AutomationAnnotation(pub ::windows::runtime::IInspectable);
 impl AutomationAnnotation {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -339,22 +339,22 @@ impl ::windows::runtime::RuntimeName for AutomationAnnotation {
 }
 impl ::std::convert::From<AutomationAnnotation> for ::windows::runtime::IUnknown {
     fn from(value: AutomationAnnotation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AutomationAnnotation> for ::windows::runtime::IUnknown {
     fn from(value: &AutomationAnnotation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationAnnotation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationAnnotation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AutomationAnnotation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AutomationAnnotation> for ::windows::runtime::IInspectable {
@@ -474,7 +474,7 @@ impl ::windows::runtime::DefaultType for AutomationCaretPosition {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AutomationElementIdentifiers(::windows::runtime::IInspectable);
+pub struct AutomationElementIdentifiers(pub ::windows::runtime::IInspectable);
 impl AutomationElementIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AcceleratorKeyProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -794,22 +794,22 @@ impl ::windows::runtime::RuntimeName for AutomationElementIdentifiers {
 }
 impl ::std::convert::From<AutomationElementIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: AutomationElementIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AutomationElementIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &AutomationElementIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationElementIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationElementIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AutomationElementIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AutomationElementIdentifiers> for ::windows::runtime::IInspectable {
@@ -886,7 +886,7 @@ impl ::windows::runtime::DefaultType for AutomationOutlineStyles {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AutomationProperties(::windows::runtime::IInspectable);
+pub struct AutomationProperties(pub ::windows::runtime::IInspectable);
 impl AutomationProperties {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AcceleratorKeyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
@@ -1454,22 +1454,22 @@ impl ::windows::runtime::RuntimeName for AutomationProperties {
 }
 impl ::std::convert::From<AutomationProperties> for ::windows::runtime::IUnknown {
     fn from(value: AutomationProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AutomationProperties> for ::windows::runtime::IUnknown {
     fn from(value: &AutomationProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AutomationProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AutomationProperties> for ::windows::runtime::IInspectable {
@@ -1497,7 +1497,7 @@ unsafe impl ::std::marker::Sync for AutomationProperties {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AutomationProperty(::windows::runtime::IInspectable);
+pub struct AutomationProperty(pub ::windows::runtime::IInspectable);
 impl AutomationProperty {}
 unsafe impl ::windows::runtime::RuntimeType for AutomationProperty {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationProperty;{b627195b-3227-4e16-9534-ddece30ddb46})");
@@ -1511,22 +1511,22 @@ impl ::windows::runtime::RuntimeName for AutomationProperty {
 }
 impl ::std::convert::From<AutomationProperty> for ::windows::runtime::IUnknown {
     fn from(value: AutomationProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AutomationProperty> for ::windows::runtime::IUnknown {
     fn from(value: &AutomationProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AutomationProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AutomationProperty> for ::windows::runtime::IInspectable {
@@ -1652,7 +1652,7 @@ impl ::windows::runtime::DefaultType for AutomationTextEditChangeType {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DockPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct DockPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl DockPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DockPositionProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -1678,22 +1678,22 @@ impl ::windows::runtime::RuntimeName for DockPatternIdentifiers {
 }
 impl ::std::convert::From<DockPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: DockPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DockPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &DockPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DockPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DockPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DockPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DockPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -1747,7 +1747,7 @@ impl ::windows::runtime::DefaultType for DockPosition {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DragPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct DragPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl DragPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DropEffectProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -1794,22 +1794,22 @@ impl ::windows::runtime::RuntimeName for DragPatternIdentifiers {
 }
 impl ::std::convert::From<DragPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: DragPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DragPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &DragPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DragPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DragPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DragPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DragPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -1837,7 +1837,7 @@ unsafe impl ::std::marker::Sync for DragPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DropTargetPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct DropTargetPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl DropTargetPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DropTargetEffectProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -1870,22 +1870,22 @@ impl ::windows::runtime::RuntimeName for DropTargetPatternIdentifiers {
 }
 impl ::std::convert::From<DropTargetPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: DropTargetPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DropTargetPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &DropTargetPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DropTargetPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DropTargetPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DropTargetPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DropTargetPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -1913,7 +1913,7 @@ unsafe impl ::std::marker::Sync for DropTargetPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ExpandCollapsePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ExpandCollapsePatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl ExpandCollapsePatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ExpandCollapseStateProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -1939,22 +1939,22 @@ impl ::windows::runtime::RuntimeName for ExpandCollapsePatternIdentifiers {
 }
 impl ::std::convert::From<ExpandCollapsePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: ExpandCollapsePatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ExpandCollapsePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &ExpandCollapsePatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExpandCollapsePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ExpandCollapsePatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ExpandCollapsePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ExpandCollapsePatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -2006,7 +2006,7 @@ impl ::windows::runtime::DefaultType for ExpandCollapseState {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GridItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct GridItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl GridItemPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -2060,22 +2060,22 @@ impl ::windows::runtime::RuntimeName for GridItemPatternIdentifiers {
 }
 impl ::std::convert::From<GridItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: GridItemPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GridItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &GridItemPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GridItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GridItemPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GridItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GridItemPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -2103,7 +2103,7 @@ unsafe impl ::std::marker::Sync for GridItemPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GridPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct GridPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl GridPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnCountProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -2136,22 +2136,22 @@ impl ::windows::runtime::RuntimeName for GridPatternIdentifiers {
 }
 impl ::std::convert::From<GridPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: GridPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GridPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &GridPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GridPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GridPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GridPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GridPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -2178,7 +2178,7 @@ unsafe impl ::std::marker::Send for GridPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for GridPatternIdentifiers {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAnnotationPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IAnnotationPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnnotationPatternIdentifiers {
     type Vtable = IAnnotationPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3564478657, 18610, 20032, [166, 207, 61, 196, 182, 56, 192, 222]);
@@ -2195,7 +2195,7 @@ pub struct IAnnotationPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAnnotationPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IAnnotationPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnnotationPatternIdentifiersStatics {
     type Vtable = IAnnotationPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3773014877, 53607, 18140, [149, 171, 51, 10, 246, 26, 235, 181]);
@@ -2217,7 +2217,7 @@ pub struct IAnnotationPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationAnnotation(::windows::runtime::IInspectable);
+pub struct IAutomationAnnotation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationAnnotation {
     type Vtable = IAutomationAnnotation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215025866, 984, 17944, [145, 191, 228, 216, 79, 74, 243, 24]);
@@ -2238,7 +2238,7 @@ pub struct IAutomationAnnotation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationAnnotationFactory(::windows::runtime::IInspectable);
+pub struct IAutomationAnnotationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationAnnotationFactory {
     type Vtable = IAutomationAnnotationFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1225194066, 56768, 20073, [183, 107, 1, 157, 146, 141, 130, 47]);
@@ -2257,7 +2257,7 @@ pub struct IAutomationAnnotationFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationAnnotationStatics(::windows::runtime::IInspectable);
+pub struct IAutomationAnnotationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationAnnotationStatics {
     type Vtable = IAutomationAnnotationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3842239159, 20197, 18635, [181, 184, 187, 205, 70, 201, 209, 218]);
@@ -2276,7 +2276,7 @@ pub struct IAutomationAnnotationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiers(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiers {
     type Vtable = IAutomationElementIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867829199, 17221, 20013, [138, 106, 73, 204, 225, 250, 45, 204]);
@@ -2293,7 +2293,7 @@ pub struct IAutomationElementIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics {
     type Vtable = IAutomationElementIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1162426783, 33600, 19815, [185, 191, 140, 42, 198, 160, 119, 58]);
@@ -2333,7 +2333,7 @@ pub struct IAutomationElementIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics2(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics2 {
     type Vtable = IAutomationElementIdentifiersStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3050025442, 54623, 18089, [158, 218, 26, 71, 66, 81, 93, 195]);
@@ -2351,7 +2351,7 @@ pub struct IAutomationElementIdentifiersStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics3(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics3 {
     type Vtable = IAutomationElementIdentifiersStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(257736381, 46059, 16515, [173, 199, 12, 47, 57, 187, 53, 67]);
@@ -2372,7 +2372,7 @@ pub struct IAutomationElementIdentifiersStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics4(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics4 {
     type Vtable = IAutomationElementIdentifiersStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526013813, 22803, 19832, [179, 48, 166, 245, 11, 115, 237, 155]);
@@ -2391,7 +2391,7 @@ pub struct IAutomationElementIdentifiersStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics5(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics5 {
     type Vtable = IAutomationElementIdentifiersStatics5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2557116934, 56921, 17145, [161, 231, 98, 184, 175, 158, 117, 109]);
@@ -2414,7 +2414,7 @@ pub struct IAutomationElementIdentifiersStatics5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics6(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics6 {
     type Vtable = IAutomationElementIdentifiersStatics6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3729960973, 33576, 20142, [128, 53, 248, 219, 153, 200, 186, 196]);
@@ -2432,7 +2432,7 @@ pub struct IAutomationElementIdentifiersStatics6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics7(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics7 {
     type Vtable = IAutomationElementIdentifiersStatics7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15838130, 29740, 17514, [168, 246, 22, 114, 177, 13, 40, 116]);
@@ -2450,7 +2450,7 @@ pub struct IAutomationElementIdentifiersStatics7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationElementIdentifiersStatics8(::windows::runtime::IInspectable);
+pub struct IAutomationElementIdentifiersStatics8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics8 {
     type Vtable = IAutomationElementIdentifiersStatics8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232922208, 32876, 24005, [188, 65, 137, 27, 181, 164, 122, 223]);
@@ -2468,7 +2468,7 @@ pub struct IAutomationElementIdentifiersStatics8_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationProperties(::windows::runtime::IInspectable);
+pub struct IAutomationProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationProperties {
     type Vtable = IAutomationProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1758929708, 58914, 18665, [175, 11, 31, 250, 51, 204, 92, 186]);
@@ -2485,7 +2485,7 @@ pub struct IAutomationProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics {
     type Vtable = IAutomationPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3055091067, 13008, 18800, [156, 66, 124, 3, 154, 199, 190, 120]);
@@ -2534,7 +2534,7 @@ pub struct IAutomationPropertiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics2(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics2 {
     type Vtable = IAutomationPropertiesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964056191, 28809, 18433, [143, 29, 170, 183, 128, 144, 209, 160]);
@@ -2559,7 +2559,7 @@ pub struct IAutomationPropertiesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics3(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics3 {
     type Vtable = IAutomationPropertiesStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071320373, 23729, 17069, [155, 87, 95, 171, 168, 193, 134, 127]);
@@ -2588,7 +2588,7 @@ pub struct IAutomationPropertiesStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics4(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics4 {
     type Vtable = IAutomationPropertiesStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4158006869, 12570, 19324, [161, 49, 82, 78, 137, 205, 60, 249]);
@@ -2613,7 +2613,7 @@ pub struct IAutomationPropertiesStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics5(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics5 {
     type Vtable = IAutomationPropertiesStatics5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(199449382, 51449, 16802, [180, 219, 230, 167, 163, 43, 12, 52]);
@@ -2651,7 +2651,7 @@ pub struct IAutomationPropertiesStatics5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics6(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics6 {
     type Vtable = IAutomationPropertiesStatics6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323855631, 60233, 20061, [176, 18, 76, 28, 150, 195, 144, 27]);
@@ -2671,7 +2671,7 @@ pub struct IAutomationPropertiesStatics6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics7(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics7 {
     type Vtable = IAutomationPropertiesStatics7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4159278067, 36753, 16488, [164, 173, 183, 180, 2, 209, 10, 44]);
@@ -2693,7 +2693,7 @@ pub struct IAutomationPropertiesStatics7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics8(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics8 {
     type Vtable = IAutomationPropertiesStatics8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127139872, 5914, 22029, [133, 36, 62, 101, 29, 58, 214, 202]);
@@ -2713,7 +2713,7 @@ pub struct IAutomationPropertiesStatics8_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationPropertiesStatics9(::windows::runtime::IInspectable);
+pub struct IAutomationPropertiesStatics9(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics9 {
     type Vtable = IAutomationPropertiesStatics9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(790671825, 34738, 21858, [128, 119, 218, 89, 62, 218, 253, 45]);
@@ -2735,7 +2735,7 @@ pub struct IAutomationPropertiesStatics9_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAutomationProperty(::windows::runtime::IInspectable);
+pub struct IAutomationProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationProperty {
     type Vtable = IAutomationProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3056015707, 12839, 19990, [149, 52, 221, 236, 227, 13, 219, 70]);
@@ -2752,7 +2752,7 @@ pub struct IAutomationProperty_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDockPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IDockPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDockPatternIdentifiers {
     type Vtable = IDockPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436704998, 58617, 18431, [189, 231, 55, 139, 17, 247, 142, 9]);
@@ -2769,7 +2769,7 @@ pub struct IDockPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDockPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IDockPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDockPatternIdentifiersStatics {
     type Vtable = IDockPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730276956, 60800, 20453, [142, 180, 112, 138, 57, 200, 65, 229]);
@@ -2787,7 +2787,7 @@ pub struct IDockPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDragPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IDragPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragPatternIdentifiers {
     type Vtable = IDragPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1650911621, 19719, 20096, [130, 235, 143, 150, 105, 10, 26, 12]);
@@ -2804,7 +2804,7 @@ pub struct IDragPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDragPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IDragPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragPatternIdentifiersStatics {
     type Vtable = IDragPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704984989, 5973, 16514, [157, 144, 70, 241, 65, 29, 121, 134]);
@@ -2825,7 +2825,7 @@ pub struct IDragPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDropTargetPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IDropTargetPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetPatternIdentifiers {
     type Vtable = IDropTargetPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294015283, 42750, 17972, [189, 24, 14, 246, 18, 183, 178, 8]);
@@ -2842,7 +2842,7 @@ pub struct IDropTargetPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDropTargetPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IDropTargetPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetPatternIdentifiersStatics {
     type Vtable = IDropTargetPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(459879172, 35323, 19210, [148, 82, 202, 44, 102, 170, 249, 243]);
@@ -2861,7 +2861,7 @@ pub struct IDropTargetPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IExpandCollapsePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IExpandCollapsePatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpandCollapsePatternIdentifiers {
     type Vtable = IExpandCollapsePatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2953231040, 29979, 19797, [146, 203, 97, 62, 193, 189, 245, 208]);
@@ -2878,7 +2878,7 @@ pub struct IExpandCollapsePatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IExpandCollapsePatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IExpandCollapsePatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpandCollapsePatternIdentifiersStatics {
     type Vtable = IExpandCollapsePatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615584212, 28384, 20280, [142, 20, 86, 239, 33, 173, 172, 253]);
@@ -2896,7 +2896,7 @@ pub struct IExpandCollapsePatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGridItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IGridItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridItemPatternIdentifiers {
     type Vtable = IGridItemPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970750705, 12933, 20401, [128, 59, 37, 69, 189, 67, 21, 153]);
@@ -2913,7 +2913,7 @@ pub struct IGridItemPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGridItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IGridItemPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridItemPatternIdentifiersStatics {
     type Vtable = IGridItemPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561849346, 24134, 19809, [135, 148, 184, 238, 142, 119, 71, 20]);
@@ -2935,7 +2935,7 @@ pub struct IGridItemPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGridPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IGridPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridPatternIdentifiers {
     type Vtable = IGridPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372390415, 38597, 17676, [144, 68, 126, 82, 194, 79, 158, 148]);
@@ -2952,7 +2952,7 @@ pub struct IGridPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGridPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IGridPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridPatternIdentifiersStatics {
     type Vtable = IGridPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076463859, 41345, 16695, [141, 233, 31, 155, 26, 131, 32, 237]);
@@ -2971,7 +2971,7 @@ pub struct IGridPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMultipleViewPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IMultipleViewPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultipleViewPatternIdentifiers {
     type Vtable = IMultipleViewPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566364600, 7698, 18571, [176, 234, 94, 108, 184, 152, 22, 225]);
@@ -2988,7 +2988,7 @@ pub struct IMultipleViewPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMultipleViewPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IMultipleViewPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultipleViewPatternIdentifiersStatics {
     type Vtable = IMultipleViewPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848958063, 27524, 19825, [158, 72, 215, 100, 211, 188, 218, 142]);
@@ -3007,7 +3007,7 @@ pub struct IMultipleViewPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRangeValuePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IRangeValuePatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRangeValuePatternIdentifiers {
     type Vtable = IRangeValuePatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168486725, 13257, 18045, [188, 158, 209, 81, 82, 99, 172, 225]);
@@ -3024,7 +3024,7 @@ pub struct IRangeValuePatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRangeValuePatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IRangeValuePatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRangeValuePatternIdentifiersStatics {
     type Vtable = IRangeValuePatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3458417935, 7207, 17791, [184, 21, 122, 94, 70, 134, 61, 187]);
@@ -3047,7 +3047,7 @@ pub struct IRangeValuePatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IScrollPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IScrollPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollPatternIdentifiers {
     type Vtable = IScrollPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(912986115, 16988, 18769, [174, 131, 213, 33, 231, 59, 198, 150]);
@@ -3064,7 +3064,7 @@ pub struct IScrollPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IScrollPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IScrollPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollPatternIdentifiersStatics {
     type Vtable = IScrollPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1274601633, 64383, 20388, [131, 179, 207, 174, 177, 3, 166, 133]);
@@ -3088,7 +3088,7 @@ pub struct IScrollPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISelectionItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ISelectionItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionItemPatternIdentifiers {
     type Vtable = ISelectionItemPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(766485530, 16120, 19381, [160, 43, 62, 225, 178, 39, 71, 64]);
@@ -3105,7 +3105,7 @@ pub struct ISelectionItemPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISelectionItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ISelectionItemPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionItemPatternIdentifiersStatics {
     type Vtable = ISelectionItemPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2836975971, 18558, 20030, [159, 134, 123, 68, 172, 190, 39, 206]);
@@ -3124,7 +3124,7 @@ pub struct ISelectionItemPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISelectionPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ISelectionPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionPatternIdentifiers {
     type Vtable = ISelectionPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1252421552, 58359, 18271, [183, 141, 248, 168, 59, 183, 48, 196]);
@@ -3141,7 +3141,7 @@ pub struct ISelectionPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISelectionPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ISelectionPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionPatternIdentifiersStatics {
     type Vtable = ISelectionPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2466470732, 27472, 16545, [178, 63, 92, 120, 221, 189, 71, 154]);
@@ -3161,7 +3161,7 @@ pub struct ISelectionPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpreadsheetItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ISpreadsheetItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemPatternIdentifiers {
     type Vtable = ISpreadsheetItemPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2218032665, 51787, 18082, [167, 148, 200, 121, 40, 163, 177, 171]);
@@ -3178,7 +3178,7 @@ pub struct ISpreadsheetItemPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpreadsheetItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ISpreadsheetItemPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemPatternIdentifiersStatics {
     type Vtable = ISpreadsheetItemPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1130727289, 21376, 20242, [180, 104, 180, 243, 104, 173, 68, 153]);
@@ -3196,7 +3196,7 @@ pub struct ISpreadsheetItemPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStylesPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IStylesPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStylesPatternIdentifiers {
     type Vtable = IStylesPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2967790081, 59549, 17259, [130, 135, 79, 121, 3, 70, 104, 121]);
@@ -3213,7 +3213,7 @@ pub struct IStylesPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStylesPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IStylesPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStylesPatternIdentifiersStatics {
     type Vtable = IStylesPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1384793466, 48188, 19784, [148, 175, 31, 104, 112, 60, 162, 150]);
@@ -3237,7 +3237,7 @@ pub struct IStylesPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITableItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ITableItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableItemPatternIdentifiers {
     type Vtable = ITableItemPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3274106285, 32887, 19556, [152, 228, 232, 59, 207, 27, 67, 137]);
@@ -3254,7 +3254,7 @@ pub struct ITableItemPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITableItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ITableItemPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableItemPatternIdentifiersStatics {
     type Vtable = ITableItemPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616872227, 59810, 19945, [178, 164, 168, 178, 45, 11, 227, 98]);
@@ -3273,7 +3273,7 @@ pub struct ITableItemPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITablePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ITablePatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITablePatternIdentifiers {
     type Vtable = ITablePatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(953222398, 3340, 16682, [191, 141, 81, 237, 230, 131, 186, 245]);
@@ -3290,7 +3290,7 @@ pub struct ITablePatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITablePatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ITablePatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITablePatternIdentifiersStatics {
     type Vtable = ITablePatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1963408677, 13001, 18691, [174, 207, 220, 53, 4, 203, 210, 68]);
@@ -3310,7 +3310,7 @@ pub struct ITablePatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITogglePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ITogglePatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITogglePatternIdentifiers {
     type Vtable = ITogglePatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2115575659, 13524, 19175, [131, 172, 41, 248, 136, 130, 217, 133]);
@@ -3327,7 +3327,7 @@ pub struct ITogglePatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITogglePatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ITogglePatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITogglePatternIdentifiersStatics {
     type Vtable = ITogglePatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3354875204, 5285, 20271, [146, 252, 118, 5, 36, 222, 6, 234]);
@@ -3345,7 +3345,7 @@ pub struct ITogglePatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITransformPattern2Identifiers(::windows::runtime::IInspectable);
+pub struct ITransformPattern2Identifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPattern2Identifiers {
     type Vtable = ITransformPattern2Identifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(145399869, 56999, 16431, [128, 151, 154, 39, 131, 214, 14, 93]);
@@ -3362,7 +3362,7 @@ pub struct ITransformPattern2Identifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITransformPattern2IdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ITransformPattern2IdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPattern2IdentifiersStatics {
     type Vtable = ITransformPattern2IdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2023110212, 4592, 18044, [167, 43, 93, 172, 65, 193, 246, 254]);
@@ -3383,7 +3383,7 @@ pub struct ITransformPattern2IdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITransformPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ITransformPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPatternIdentifiers {
     type Vtable = ITransformPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3826342796, 50120, 18999, [185, 148, 39, 9, 167, 129, 22, 101]);
@@ -3400,7 +3400,7 @@ pub struct ITransformPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITransformPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ITransformPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPatternIdentifiersStatics {
     type Vtable = ITransformPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1165028779, 55045, 16580, [161, 220, 233, 172, 252, 239, 133, 246]);
@@ -3420,7 +3420,7 @@ pub struct ITransformPatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IValuePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IValuePatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValuePatternIdentifiers {
     type Vtable = IValuePatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1113323084, 21299, 20033, [180, 112, 43, 173, 20, 236, 208, 133]);
@@ -3437,7 +3437,7 @@ pub struct IValuePatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IValuePatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IValuePatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValuePatternIdentifiersStatics {
     type Vtable = IValuePatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259492599, 44492, 17423, [177, 35, 51, 120, 138, 64, 82, 90]);
@@ -3456,7 +3456,7 @@ pub struct IValuePatternIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct IWindowPatternIdentifiers(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowPatternIdentifiers {
     type Vtable = IWindowPatternIdentifiers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972524468, 28722, 16866, [183, 158, 39, 183, 74, 134, 40, 222]);
@@ -3473,7 +3473,7 @@ pub struct IWindowPatternIdentifiers_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowPatternIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IWindowPatternIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowPatternIdentifiersStatics {
     type Vtable = IWindowPatternIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131116294, 25346, 19753, [135, 139, 25, 218, 3, 252, 34, 141]);
@@ -3497,7 +3497,7 @@ pub struct IWindowPatternIdentifiersStatics_abi(
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MultipleViewPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct MultipleViewPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl MultipleViewPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CurrentViewProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -3530,22 +3530,22 @@ impl ::windows::runtime::RuntimeName for MultipleViewPatternIdentifiers {
 }
 impl ::std::convert::From<MultipleViewPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: MultipleViewPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MultipleViewPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &MultipleViewPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MultipleViewPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MultipleViewPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MultipleViewPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MultipleViewPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -3573,7 +3573,7 @@ unsafe impl ::std::marker::Sync for MultipleViewPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RangeValuePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct RangeValuePatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl RangeValuePatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsReadOnlyProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -3634,22 +3634,22 @@ impl ::windows::runtime::RuntimeName for RangeValuePatternIdentifiers {
 }
 impl ::std::convert::From<RangeValuePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: RangeValuePatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RangeValuePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &RangeValuePatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RangeValuePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RangeValuePatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RangeValuePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RangeValuePatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -3725,7 +3725,7 @@ impl ::windows::runtime::DefaultType for ScrollAmount {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ScrollPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ScrollPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl ScrollPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HorizontallyScrollableProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -3793,22 +3793,22 @@ impl ::windows::runtime::RuntimeName for ScrollPatternIdentifiers {
 }
 impl ::std::convert::From<ScrollPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: ScrollPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ScrollPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &ScrollPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScrollPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScrollPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ScrollPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ScrollPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -3836,7 +3836,7 @@ unsafe impl ::std::marker::Sync for ScrollPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SelectionItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct SelectionItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl SelectionItemPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsSelectedProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -3869,22 +3869,22 @@ impl ::windows::runtime::RuntimeName for SelectionItemPatternIdentifiers {
 }
 impl ::std::convert::From<SelectionItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: SelectionItemPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SelectionItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &SelectionItemPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SelectionItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SelectionItemPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SelectionItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SelectionItemPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -3912,7 +3912,7 @@ unsafe impl ::std::marker::Sync for SelectionItemPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SelectionPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct SelectionPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl SelectionPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanSelectMultipleProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -3952,22 +3952,22 @@ impl ::windows::runtime::RuntimeName for SelectionPatternIdentifiers {
 }
 impl ::std::convert::From<SelectionPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: SelectionPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SelectionPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &SelectionPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SelectionPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SelectionPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SelectionPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SelectionPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -3995,7 +3995,7 @@ unsafe impl ::std::marker::Sync for SelectionPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpreadsheetItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct SpreadsheetItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl SpreadsheetItemPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FormulaProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4021,22 +4021,22 @@ impl ::windows::runtime::RuntimeName for SpreadsheetItemPatternIdentifiers {
 }
 impl ::std::convert::From<SpreadsheetItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: SpreadsheetItemPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpreadsheetItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &SpreadsheetItemPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpreadsheetItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpreadsheetItemPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpreadsheetItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpreadsheetItemPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4064,7 +4064,7 @@ unsafe impl ::std::marker::Sync for SpreadsheetItemPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StylesPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct StylesPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl StylesPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ExtendedPropertiesProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4132,22 +4132,22 @@ impl ::windows::runtime::RuntimeName for StylesPatternIdentifiers {
 }
 impl ::std::convert::From<StylesPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: StylesPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StylesPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &StylesPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StylesPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StylesPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StylesPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StylesPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4224,7 +4224,7 @@ impl ::windows::runtime::DefaultType for SynchronizedInputType {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TableItemPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct TableItemPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl TableItemPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnHeaderItemsProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4257,22 +4257,22 @@ impl ::windows::runtime::RuntimeName for TableItemPatternIdentifiers {
 }
 impl ::std::convert::From<TableItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: TableItemPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TableItemPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &TableItemPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TableItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TableItemPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TableItemPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TableItemPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4300,7 +4300,7 @@ unsafe impl ::std::marker::Sync for TableItemPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TablePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct TablePatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl TablePatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnHeadersProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4340,22 +4340,22 @@ impl ::windows::runtime::RuntimeName for TablePatternIdentifiers {
 }
 impl ::std::convert::From<TablePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: TablePatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TablePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &TablePatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TablePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TablePatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TablePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TablePatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4383,7 +4383,7 @@ unsafe impl ::std::marker::Sync for TablePatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TogglePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct TogglePatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl TogglePatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ToggleStateProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4409,22 +4409,22 @@ impl ::windows::runtime::RuntimeName for TogglePatternIdentifiers {
 }
 impl ::std::convert::From<TogglePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: TogglePatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TogglePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &TogglePatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TogglePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TogglePatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TogglePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TogglePatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4475,7 +4475,7 @@ impl ::windows::runtime::DefaultType for ToggleState {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TransformPattern2Identifiers(::windows::runtime::IInspectable);
+pub struct TransformPattern2Identifiers(pub ::windows::runtime::IInspectable);
 impl TransformPattern2Identifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanZoomProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4522,22 +4522,22 @@ impl ::windows::runtime::RuntimeName for TransformPattern2Identifiers {
 }
 impl ::std::convert::From<TransformPattern2Identifiers> for ::windows::runtime::IUnknown {
     fn from(value: TransformPattern2Identifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TransformPattern2Identifiers> for ::windows::runtime::IUnknown {
     fn from(value: &TransformPattern2Identifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TransformPattern2Identifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TransformPattern2Identifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TransformPattern2Identifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TransformPattern2Identifiers> for ::windows::runtime::IInspectable {
@@ -4565,7 +4565,7 @@ unsafe impl ::std::marker::Sync for TransformPattern2Identifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TransformPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct TransformPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl TransformPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanMoveProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4605,22 +4605,22 @@ impl ::windows::runtime::RuntimeName for TransformPatternIdentifiers {
 }
 impl ::std::convert::From<TransformPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: TransformPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TransformPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &TransformPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TransformPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TransformPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TransformPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TransformPatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4648,7 +4648,7 @@ unsafe impl ::std::marker::Sync for TransformPatternIdentifiers {}
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ValuePatternIdentifiers(::windows::runtime::IInspectable);
+pub struct ValuePatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl ValuePatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsReadOnlyProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4681,22 +4681,22 @@ impl ::windows::runtime::RuntimeName for ValuePatternIdentifiers {
 }
 impl ::std::convert::From<ValuePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: ValuePatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ValuePatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &ValuePatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ValuePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ValuePatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ValuePatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ValuePatternIdentifiers> for ::windows::runtime::IInspectable {
@@ -4749,7 +4749,7 @@ impl ::windows::runtime::DefaultType for WindowInteractionState {
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WindowPatternIdentifiers(::windows::runtime::IInspectable);
+pub struct WindowPatternIdentifiers(pub ::windows::runtime::IInspectable);
 impl WindowPatternIdentifiers {
     #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanMaximizeProperty() -> ::windows::runtime::Result<AutomationProperty> {
@@ -4810,22 +4810,22 @@ impl ::windows::runtime::RuntimeName for WindowPatternIdentifiers {
 }
 impl ::std::convert::From<WindowPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: WindowPatternIdentifiers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WindowPatternIdentifiers> for ::windows::runtime::IUnknown {
     fn from(value: &WindowPatternIdentifiers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WindowPatternIdentifiers {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowPatternIdentifiers {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WindowPatternIdentifiers> for ::windows::runtime::IInspectable {

@@ -73,7 +73,7 @@ pub const ContactManager: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContact(::windows::runtime::IUnknown);
+pub struct IContact(pub ::windows::runtime::IUnknown);
 impl IContact {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Contacts`, `Win32_Foundation`*"]
@@ -96,22 +96,22 @@ unsafe impl ::windows::runtime::Interface for IContact {
 }
 impl ::std::convert::From<IContact> for ::windows::runtime::IUnknown {
     fn from(value: IContact) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContact> for ::windows::runtime::IUnknown {
     fn from(value: &IContact) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContact {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -129,7 +129,7 @@ pub struct IContact_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationAggregate(::windows::runtime::IUnknown);
+pub struct IContactAggregationAggregate(pub ::windows::runtime::IUnknown);
 impl IContactAggregationAggregate {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Save(&self) -> ::windows::runtime::Result<()> {
@@ -183,22 +183,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationAggregate {
 }
 impl ::std::convert::From<IContactAggregationAggregate> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationAggregate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationAggregate> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationAggregate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationAggregate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationAggregate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationAggregate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -224,7 +224,7 @@ pub struct IContactAggregationAggregate_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationAggregateCollection(::windows::runtime::IUnknown);
+pub struct IContactAggregationAggregateCollection(pub ::windows::runtime::IUnknown);
 impl IContactAggregationAggregateCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn FindFirst(&self) -> ::windows::runtime::Result<IContactAggregationAggregate> {
@@ -254,22 +254,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationAggregateCollec
 }
 impl ::std::convert::From<IContactAggregationAggregateCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationAggregateCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationAggregateCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationAggregateCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationAggregateCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationAggregateCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationAggregateCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -287,7 +287,7 @@ pub struct IContactAggregationAggregateCollection_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationContact(::windows::runtime::IUnknown);
+pub struct IContactAggregationContact(pub ::windows::runtime::IUnknown);
 impl IContactAggregationContact {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
@@ -386,22 +386,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationContact {
 }
 impl ::std::convert::From<IContactAggregationContact> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationContact) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationContact> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationContact) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationContact {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -441,7 +441,7 @@ pub struct IContactAggregationContact_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationContactCollection(::windows::runtime::IUnknown);
+pub struct IContactAggregationContactCollection(pub ::windows::runtime::IUnknown);
 impl IContactAggregationContactCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn FindFirst(&self) -> ::windows::runtime::Result<IContactAggregationContact> {
@@ -477,22 +477,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationContactCollecti
 }
 impl ::std::convert::From<IContactAggregationContactCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationContactCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationContactCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationContactCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationContactCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationContactCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationContactCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -512,7 +512,7 @@ pub struct IContactAggregationContactCollection_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationGroup(::windows::runtime::IUnknown);
+pub struct IContactAggregationGroup(pub ::windows::runtime::IUnknown);
 impl IContactAggregationGroup {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
@@ -570,22 +570,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationGroup {
 }
 impl ::std::convert::From<IContactAggregationGroup> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationGroup> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -613,7 +613,7 @@ pub struct IContactAggregationGroup_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationGroupCollection(::windows::runtime::IUnknown);
+pub struct IContactAggregationGroupCollection(pub ::windows::runtime::IUnknown);
 impl IContactAggregationGroupCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn FindFirst(&self) -> ::windows::runtime::Result<IContactAggregationGroup> {
@@ -642,22 +642,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationGroupCollection
 }
 impl ::std::convert::From<IContactAggregationGroupCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationGroupCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationGroupCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationGroupCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationGroupCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationGroupCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationGroupCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -674,7 +674,7 @@ pub struct IContactAggregationGroupCollection_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationLink(::windows::runtime::IUnknown);
+pub struct IContactAggregationLink(pub ::windows::runtime::IUnknown);
 impl IContactAggregationLink {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
@@ -770,22 +770,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationLink {
 }
 impl ::std::convert::From<IContactAggregationLink> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationLink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationLink> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationLink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationLink {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -826,7 +826,7 @@ pub struct IContactAggregationLink_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationLinkCollection(::windows::runtime::IUnknown);
+pub struct IContactAggregationLinkCollection(pub ::windows::runtime::IUnknown);
 impl IContactAggregationLinkCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn FindFirst(&self) -> ::windows::runtime::Result<IContactAggregationLink> {
@@ -856,22 +856,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationLinkCollection 
 }
 impl ::std::convert::From<IContactAggregationLinkCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationLinkCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationLinkCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationLinkCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationLinkCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationLinkCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationLinkCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -889,7 +889,7 @@ pub struct IContactAggregationLinkCollection_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationManager(::windows::runtime::IUnknown);
+pub struct IContactAggregationManager(pub ::windows::runtime::IUnknown);
 impl IContactAggregationManager {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::runtime::Result<()> {
@@ -976,22 +976,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationManager {
 }
 impl ::std::convert::From<IContactAggregationManager> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationManager> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1025,7 +1025,7 @@ pub struct IContactAggregationManager_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationServerPerson(::windows::runtime::IUnknown);
+pub struct IContactAggregationServerPerson(pub ::windows::runtime::IUnknown);
 impl IContactAggregationServerPerson {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
@@ -1150,22 +1150,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationServerPerson {
 }
 impl ::std::convert::From<IContactAggregationServerPerson> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationServerPerson) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationServerPerson> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationServerPerson) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationServerPerson {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationServerPerson {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationServerPerson {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1214,7 +1214,7 @@ pub struct IContactAggregationServerPerson_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactAggregationServerPersonCollection(::windows::runtime::IUnknown);
+pub struct IContactAggregationServerPersonCollection(pub ::windows::runtime::IUnknown);
 impl IContactAggregationServerPersonCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn FindFirst(&self) -> ::windows::runtime::Result<IContactAggregationServerPerson> {
@@ -1256,22 +1256,22 @@ unsafe impl ::windows::runtime::Interface for IContactAggregationServerPersonCol
 }
 impl ::std::convert::From<IContactAggregationServerPersonCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactAggregationServerPersonCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactAggregationServerPersonCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactAggregationServerPersonCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactAggregationServerPersonCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactAggregationServerPersonCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactAggregationServerPersonCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1293,7 +1293,7 @@ pub struct IContactAggregationServerPersonCollection_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactCollection(::windows::runtime::IUnknown);
+pub struct IContactCollection(pub ::windows::runtime::IUnknown);
 impl IContactCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -1315,22 +1315,22 @@ unsafe impl ::windows::runtime::Interface for IContactCollection {
 }
 impl ::std::convert::From<IContactCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1346,7 +1346,7 @@ pub struct IContactCollection_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactManager(::windows::runtime::IUnknown);
+pub struct IContactManager(pub ::windows::runtime::IUnknown);
 impl IContactManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Contacts`, `Win32_Foundation`*"]
@@ -1385,22 +1385,22 @@ unsafe impl ::windows::runtime::Interface for IContactManager {
 }
 impl ::std::convert::From<IContactManager> for ::windows::runtime::IUnknown {
     fn from(value: IContactManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactManager> for ::windows::runtime::IUnknown {
     fn from(value: &IContactManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1422,7 +1422,7 @@ pub struct IContactManager_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactProperties(::windows::runtime::IUnknown);
+pub struct IContactProperties(pub ::windows::runtime::IUnknown);
 impl IContactProperties {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Contacts`, `Win32_Foundation`*"]
@@ -1496,22 +1496,22 @@ unsafe impl ::windows::runtime::Interface for IContactProperties {
 }
 impl ::std::convert::From<IContactProperties> for ::windows::runtime::IUnknown {
     fn from(value: IContactProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IContactProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1550,7 +1550,7 @@ pub struct IContactProperties_abi(
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IContactPropertyCollection(::windows::runtime::IUnknown);
+pub struct IContactPropertyCollection(pub ::windows::runtime::IUnknown);
 impl IContactPropertyCollection {
     #[doc = "*Required features: `Win32_System_Contacts`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -1590,22 +1590,22 @@ unsafe impl ::windows::runtime::Interface for IContactPropertyCollection {
 }
 impl ::std::convert::From<IContactPropertyCollection> for ::windows::runtime::IUnknown {
     fn from(value: IContactPropertyCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IContactPropertyCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IContactPropertyCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactPropertyCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactPropertyCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactPropertyCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

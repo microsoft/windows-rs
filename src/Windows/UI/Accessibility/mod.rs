@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IScreenReaderPositionChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IScreenReaderPositionChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScreenReaderPositionChangedEventArgs {
     type Vtable = IScreenReaderPositionChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1434367461, 21712, 23757, [159, 197, 237, 51, 53, 127, 138, 159]);
@@ -21,7 +21,7 @@ pub struct IScreenReaderPositionChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IScreenReaderService(::windows::runtime::IInspectable);
+pub struct IScreenReaderService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScreenReaderService {
     type Vtable = IScreenReaderService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424104999, 60096, 20691, [189, 217, 155, 72, 122, 34, 98, 86]);
@@ -44,7 +44,7 @@ pub struct IScreenReaderService_abi(
 #[doc = "*Required features: `UI_Accessibility`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ScreenReaderPositionChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ScreenReaderPositionChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl ScreenReaderPositionChangedEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Accessibility`, `Foundation`*"]
@@ -76,22 +76,22 @@ impl ::windows::runtime::RuntimeName for ScreenReaderPositionChangedEventArgs {
 }
 impl ::std::convert::From<ScreenReaderPositionChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ScreenReaderPositionChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ScreenReaderPositionChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ScreenReaderPositionChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScreenReaderPositionChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScreenReaderPositionChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ScreenReaderPositionChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ScreenReaderPositionChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -119,7 +119,7 @@ unsafe impl ::std::marker::Sync for ScreenReaderPositionChangedEventArgs {}
 #[doc = "*Required features: `UI_Accessibility`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ScreenReaderService(::windows::runtime::IInspectable);
+pub struct ScreenReaderService(pub ::windows::runtime::IInspectable);
 impl ScreenReaderService {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -164,22 +164,22 @@ impl ::windows::runtime::RuntimeName for ScreenReaderService {
 }
 impl ::std::convert::From<ScreenReaderService> for ::windows::runtime::IUnknown {
     fn from(value: ScreenReaderService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ScreenReaderService> for ::windows::runtime::IUnknown {
     fn from(value: &ScreenReaderService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScreenReaderService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScreenReaderService {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ScreenReaderService {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ScreenReaderService> for ::windows::runtime::IInspectable {

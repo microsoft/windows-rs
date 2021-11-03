@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreviewBuildsManager(::windows::runtime::IInspectable);
+pub struct IPreviewBuildsManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194819425, 32335, 23031, [124, 159, 222, 249, 5, 28, 95, 98]);
@@ -23,7 +23,7 @@ pub struct IPreviewBuildsManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreviewBuildsManagerStatics(::windows::runtime::IInspectable);
+pub struct IPreviewBuildsManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreviewBuildsManagerStatics {
     type Vtable = IPreviewBuildsManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1044523143, 45330, 23152, [125, 161, 151, 215, 141, 50, 170, 41]);
@@ -42,7 +42,7 @@ pub struct IPreviewBuildsManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreviewBuildsState(::windows::runtime::IInspectable);
+pub struct IPreviewBuildsState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreviewBuildsState {
     type Vtable = IPreviewBuildsState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2733805630, 45603, 24419, [117, 70, 62, 142, 172, 7, 10, 46]);
@@ -62,7 +62,7 @@ pub struct IPreviewBuildsState_abi(
 #[doc = "*Required features: `Management_Update`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PreviewBuildsManager(::windows::runtime::IInspectable);
+pub struct PreviewBuildsManager(pub ::windows::runtime::IInspectable);
 impl PreviewBuildsManager {
     #[doc = "*Required features: `Management_Update`*"]
     pub fn ArePreviewBuildsAllowed(&self) -> ::windows::runtime::Result<bool> {
@@ -125,22 +125,22 @@ impl ::windows::runtime::RuntimeName for PreviewBuildsManager {
 }
 impl ::std::convert::From<PreviewBuildsManager> for ::windows::runtime::IUnknown {
     fn from(value: PreviewBuildsManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PreviewBuildsManager> for ::windows::runtime::IUnknown {
     fn from(value: &PreviewBuildsManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PreviewBuildsManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PreviewBuildsManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PreviewBuildsManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PreviewBuildsManager> for ::windows::runtime::IInspectable {
@@ -168,7 +168,7 @@ unsafe impl ::std::marker::Sync for PreviewBuildsManager {}
 #[doc = "*Required features: `Management_Update`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PreviewBuildsState(::windows::runtime::IInspectable);
+pub struct PreviewBuildsState(pub ::windows::runtime::IInspectable);
 impl PreviewBuildsState {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Management_Update`, `Foundation_Collections`*"]
@@ -192,22 +192,22 @@ impl ::windows::runtime::RuntimeName for PreviewBuildsState {
 }
 impl ::std::convert::From<PreviewBuildsState> for ::windows::runtime::IUnknown {
     fn from(value: PreviewBuildsState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PreviewBuildsState> for ::windows::runtime::IUnknown {
     fn from(value: &PreviewBuildsState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PreviewBuildsState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PreviewBuildsState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PreviewBuildsState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PreviewBuildsState> for ::windows::runtime::IInspectable {

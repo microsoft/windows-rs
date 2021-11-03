@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DetectedFace(::windows::runtime::IInspectable);
+pub struct DetectedFace(pub ::windows::runtime::IInspectable);
 impl DetectedFace {
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
@@ -26,22 +26,22 @@ impl ::windows::runtime::RuntimeName for DetectedFace {
 }
 impl ::std::convert::From<DetectedFace> for ::windows::runtime::IUnknown {
     fn from(value: DetectedFace) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DetectedFace> for ::windows::runtime::IUnknown {
     fn from(value: &DetectedFace) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectedFace {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DetectedFace {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DetectedFace {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DetectedFace> for ::windows::runtime::IInspectable {
@@ -69,7 +69,7 @@ unsafe impl ::std::marker::Sync for DetectedFace {}
 #[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FaceDetector(::windows::runtime::IInspectable);
+pub struct FaceDetector(pub ::windows::runtime::IInspectable);
 impl FaceDetector {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`, `Foundation_Collections`, `Graphics_Imaging`*"]
@@ -167,22 +167,22 @@ impl ::windows::runtime::RuntimeName for FaceDetector {
 }
 impl ::std::convert::From<FaceDetector> for ::windows::runtime::IUnknown {
     fn from(value: FaceDetector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FaceDetector> for ::windows::runtime::IUnknown {
     fn from(value: &FaceDetector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FaceDetector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FaceDetector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FaceDetector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FaceDetector> for ::windows::runtime::IInspectable {
@@ -210,7 +210,7 @@ unsafe impl ::std::marker::Sync for FaceDetector {}
 #[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FaceTracker(::windows::runtime::IInspectable);
+pub struct FaceTracker(pub ::windows::runtime::IInspectable);
 impl FaceTracker {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`, `Foundation_Collections`*"]
@@ -299,22 +299,22 @@ impl ::windows::runtime::RuntimeName for FaceTracker {
 }
 impl ::std::convert::From<FaceTracker> for ::windows::runtime::IUnknown {
     fn from(value: FaceTracker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FaceTracker> for ::windows::runtime::IUnknown {
     fn from(value: &FaceTracker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FaceTracker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FaceTracker {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FaceTracker {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FaceTracker> for ::windows::runtime::IInspectable {
@@ -341,7 +341,7 @@ unsafe impl ::std::marker::Send for FaceTracker {}
 unsafe impl ::std::marker::Sync for FaceTracker {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDetectedFace(::windows::runtime::IInspectable);
+pub struct IDetectedFace(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectedFace {
     type Vtable = IDetectedFace_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2181092436, 26300, 13535, [148, 16, 232, 148, 0, 25, 84, 20]);
@@ -360,7 +360,7 @@ pub struct IDetectedFace_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFaceDetector(::windows::runtime::IInspectable);
+pub struct IFaceDetector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetector {
     type Vtable = IFaceDetector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(381055708, 65135, 12567, [141, 149, 195, 240, 77, 81, 99, 12]);
@@ -389,7 +389,7 @@ pub struct IFaceDetector_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFaceDetectorStatics(::windows::runtime::IInspectable);
+pub struct IFaceDetectorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectorStatics {
     type Vtable = IFaceDetectorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154390375, 36935, 13302, [136, 27, 103, 70, 193, 178, 24, 184]);
@@ -413,7 +413,7 @@ pub struct IFaceDetectorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFaceTracker(::windows::runtime::IInspectable);
+pub struct IFaceTracker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceTracker {
     type Vtable = IFaceTracker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806073228, 43073, 17440, [147, 230, 36, 32, 161, 136, 79, 207]);
@@ -440,7 +440,7 @@ pub struct IFaceTracker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFaceTrackerStatics(::windows::runtime::IInspectable);
+pub struct IFaceTrackerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceTrackerStatics {
     type Vtable = IFaceTrackerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3915551128, 6145, 16293, [147, 46, 49, 215, 103, 175, 108, 77]);

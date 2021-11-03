@@ -327,7 +327,7 @@ pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IFhConfigMgr(::windows::runtime::IUnknown);
+pub struct IFhConfigMgr(pub ::windows::runtime::IUnknown);
 impl IFhConfigMgr {
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
     pub unsafe fn LoadConfiguration(&self) -> ::windows::runtime::Result<()> {
@@ -404,22 +404,22 @@ unsafe impl ::windows::runtime::Interface for IFhConfigMgr {
 }
 impl ::std::convert::From<IFhConfigMgr> for ::windows::runtime::IUnknown {
     fn from(value: IFhConfigMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IFhConfigMgr> for ::windows::runtime::IUnknown {
     fn from(value: &IFhConfigMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhConfigMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFhConfigMgr {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhConfigMgr {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -453,7 +453,7 @@ pub struct IFhConfigMgr_abi(
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IFhReassociation(::windows::runtime::IUnknown);
+pub struct IFhReassociation(pub ::windows::runtime::IUnknown);
 impl IFhReassociation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
@@ -487,22 +487,22 @@ unsafe impl ::windows::runtime::Interface for IFhReassociation {
 }
 impl ::std::convert::From<IFhReassociation> for ::windows::runtime::IUnknown {
     fn from(value: IFhReassociation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IFhReassociation> for ::windows::runtime::IUnknown {
     fn from(value: &IFhReassociation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhReassociation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFhReassociation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhReassociation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -524,7 +524,7 @@ pub struct IFhReassociation_abi(
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IFhScopeIterator(::windows::runtime::IUnknown);
+pub struct IFhScopeIterator(pub ::windows::runtime::IUnknown);
 impl IFhScopeIterator {
     #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
     pub unsafe fn MoveToNextItem(&self) -> ::windows::runtime::Result<()> {
@@ -543,22 +543,22 @@ unsafe impl ::windows::runtime::Interface for IFhScopeIterator {
 }
 impl ::std::convert::From<IFhScopeIterator> for ::windows::runtime::IUnknown {
     fn from(value: IFhScopeIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IFhScopeIterator> for ::windows::runtime::IUnknown {
     fn from(value: &IFhScopeIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhScopeIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFhScopeIterator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhScopeIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -574,7 +574,7 @@ pub struct IFhScopeIterator_abi(
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IFhTarget(::windows::runtime::IUnknown);
+pub struct IFhTarget(pub ::windows::runtime::IUnknown);
 impl IFhTarget {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`*"]
@@ -594,22 +594,22 @@ unsafe impl ::windows::runtime::Interface for IFhTarget {
 }
 impl ::std::convert::From<IFhTarget> for ::windows::runtime::IUnknown {
     fn from(value: IFhTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IFhTarget> for ::windows::runtime::IUnknown {
     fn from(value: &IFhTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFhTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFhTarget {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFhTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

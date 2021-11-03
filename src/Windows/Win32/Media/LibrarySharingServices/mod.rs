@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsMediaLibrarySharingDevice(::windows::runtime::IUnknown);
+pub struct IWindowsMediaLibrarySharingDevice(pub ::windows::runtime::IUnknown);
 impl IWindowsMediaLibrarySharingDevice {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_LibrarySharingServices`, `Win32_Foundation`*"]
@@ -31,22 +31,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDevice 
 }
 impl ::std::convert::From<IWindowsMediaLibrarySharingDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsMediaLibrarySharingDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsMediaLibrarySharingDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsMediaLibrarySharingDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsMediaLibrarySharingDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -96,7 +96,7 @@ pub struct IWindowsMediaLibrarySharingDevice_abi(
 #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsMediaLibrarySharingDeviceProperties(::windows::runtime::IUnknown);
+pub struct IWindowsMediaLibrarySharingDeviceProperties(pub ::windows::runtime::IUnknown);
 impl IWindowsMediaLibrarySharingDeviceProperties {
     #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<IWindowsMediaLibrarySharingDeviceProperty> {
@@ -121,22 +121,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDeviceP
 }
 impl ::std::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsMediaLibrarySharingDeviceProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsMediaLibrarySharingDeviceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsMediaLibrarySharingDeviceProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsMediaLibrarySharingDeviceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -185,7 +185,7 @@ pub struct IWindowsMediaLibrarySharingDeviceProperties_abi(
 #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsMediaLibrarySharingDeviceProperty(::windows::runtime::IUnknown);
+pub struct IWindowsMediaLibrarySharingDeviceProperty(pub ::windows::runtime::IUnknown);
 impl IWindowsMediaLibrarySharingDeviceProperty {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_LibrarySharingServices`, `Win32_Foundation`*"]
@@ -206,22 +206,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDeviceP
 }
 impl ::std::convert::From<IWindowsMediaLibrarySharingDeviceProperty> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsMediaLibrarySharingDeviceProperty> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsMediaLibrarySharingDeviceProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsMediaLibrarySharingDeviceProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsMediaLibrarySharingDeviceProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -270,7 +270,7 @@ pub struct IWindowsMediaLibrarySharingDeviceProperty_abi(
 #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsMediaLibrarySharingDevices(::windows::runtime::IUnknown);
+pub struct IWindowsMediaLibrarySharingDevices(pub ::windows::runtime::IUnknown);
 impl IWindowsMediaLibrarySharingDevices {
     #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<IWindowsMediaLibrarySharingDevice> {
@@ -295,22 +295,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingDevices
 }
 impl ::std::convert::From<IWindowsMediaLibrarySharingDevices> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDevices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsMediaLibrarySharingDevices> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingDevices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsMediaLibrarySharingDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsMediaLibrarySharingDevices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsMediaLibrarySharingDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -359,7 +359,7 @@ pub struct IWindowsMediaLibrarySharingDevices_abi(
 #[doc = "*Required features: `Win32_Media_LibrarySharingServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWindowsMediaLibrarySharingServices(::windows::runtime::IUnknown);
+pub struct IWindowsMediaLibrarySharingServices(pub ::windows::runtime::IUnknown);
 impl IWindowsMediaLibrarySharingServices {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_LibrarySharingServices`, `Win32_Foundation`*"]
@@ -460,22 +460,22 @@ unsafe impl ::windows::runtime::Interface for IWindowsMediaLibrarySharingService
 }
 impl ::std::convert::From<IWindowsMediaLibrarySharingServices> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingServices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWindowsMediaLibrarySharingServices> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingServices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsMediaLibrarySharingServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsMediaLibrarySharingServices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowsMediaLibrarySharingServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

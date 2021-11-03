@@ -5,7 +5,7 @@ pub struct AppBroadcastingContract(pub u8);
 #[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppBroadcastingMonitor(::windows::runtime::IInspectable);
+pub struct AppBroadcastingMonitor(pub ::windows::runtime::IInspectable);
 impl AppBroadcastingMonitor {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -50,22 +50,22 @@ impl ::windows::runtime::RuntimeName for AppBroadcastingMonitor {
 }
 impl ::std::convert::From<AppBroadcastingMonitor> for ::windows::runtime::IUnknown {
     fn from(value: AppBroadcastingMonitor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppBroadcastingMonitor> for ::windows::runtime::IUnknown {
     fn from(value: &AppBroadcastingMonitor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppBroadcastingMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppBroadcastingMonitor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppBroadcastingMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppBroadcastingMonitor> for ::windows::runtime::IInspectable {
@@ -93,7 +93,7 @@ unsafe impl ::std::marker::Sync for AppBroadcastingMonitor {}
 #[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppBroadcastingStatus(::windows::runtime::IInspectable);
+pub struct AppBroadcastingStatus(pub ::windows::runtime::IInspectable);
 impl AppBroadcastingStatus {
     #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn CanStartBroadcast(&self) -> ::windows::runtime::Result<bool> {
@@ -124,22 +124,22 @@ impl ::windows::runtime::RuntimeName for AppBroadcastingStatus {
 }
 impl ::std::convert::From<AppBroadcastingStatus> for ::windows::runtime::IUnknown {
     fn from(value: AppBroadcastingStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppBroadcastingStatus> for ::windows::runtime::IUnknown {
     fn from(value: &AppBroadcastingStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppBroadcastingStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppBroadcastingStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppBroadcastingStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppBroadcastingStatus> for ::windows::runtime::IInspectable {
@@ -167,7 +167,7 @@ unsafe impl ::std::marker::Sync for AppBroadcastingStatus {}
 #[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppBroadcastingStatusDetails(::windows::runtime::IInspectable);
+pub struct AppBroadcastingStatusDetails(pub ::windows::runtime::IInspectable);
 impl AppBroadcastingStatusDetails {
     #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsAnyAppBroadcasting(&self) -> ::windows::runtime::Result<bool> {
@@ -246,22 +246,22 @@ impl ::windows::runtime::RuntimeName for AppBroadcastingStatusDetails {
 }
 impl ::std::convert::From<AppBroadcastingStatusDetails> for ::windows::runtime::IUnknown {
     fn from(value: AppBroadcastingStatusDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppBroadcastingStatusDetails> for ::windows::runtime::IUnknown {
     fn from(value: &AppBroadcastingStatusDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppBroadcastingStatusDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppBroadcastingStatusDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppBroadcastingStatusDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppBroadcastingStatusDetails> for ::windows::runtime::IInspectable {
@@ -289,7 +289,7 @@ unsafe impl ::std::marker::Sync for AppBroadcastingStatusDetails {}
 #[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppBroadcastingUI(::windows::runtime::IInspectable);
+pub struct AppBroadcastingUI(pub ::windows::runtime::IInspectable);
 impl AppBroadcastingUI {
     #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn GetStatus(&self) -> ::windows::runtime::Result<AppBroadcastingStatus> {
@@ -336,22 +336,22 @@ impl ::windows::runtime::RuntimeName for AppBroadcastingUI {
 }
 impl ::std::convert::From<AppBroadcastingUI> for ::windows::runtime::IUnknown {
     fn from(value: AppBroadcastingUI) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppBroadcastingUI> for ::windows::runtime::IUnknown {
     fn from(value: &AppBroadcastingUI) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppBroadcastingUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppBroadcastingUI {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppBroadcastingUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppBroadcastingUI> for ::windows::runtime::IInspectable {
@@ -378,7 +378,7 @@ unsafe impl ::std::marker::Send for AppBroadcastingUI {}
 unsafe impl ::std::marker::Sync for AppBroadcastingUI {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastingMonitor(::windows::runtime::IInspectable);
+pub struct IAppBroadcastingMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingMonitor {
     type Vtable = IAppBroadcastingMonitor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(16341608, 35079, 18592, [184, 239, 36, 210, 8, 19, 117, 66]);
@@ -400,7 +400,7 @@ pub struct IAppBroadcastingMonitor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastingStatus(::windows::runtime::IInspectable);
+pub struct IAppBroadcastingStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingStatus {
     type Vtable = IAppBroadcastingStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(304473311, 929, 17144, [139, 128, 201, 34, 140, 217, 207, 46]);
@@ -419,7 +419,7 @@ pub struct IAppBroadcastingStatus_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastingStatusDetails(::windows::runtime::IInspectable);
+pub struct IAppBroadcastingStatusDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingStatusDetails {
     type Vtable = IAppBroadcastingStatusDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110996900, 46451, 20028, [142, 25, 27, 175, 172, 208, 151, 19]);
@@ -444,7 +444,7 @@ pub struct IAppBroadcastingStatusDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastingUI(::windows::runtime::IInspectable);
+pub struct IAppBroadcastingUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingUI {
     type Vtable = IAppBroadcastingUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3849297807, 61081, 19914, [163, 195, 112, 175, 61, 180, 79, 95]);
@@ -463,7 +463,7 @@ pub struct IAppBroadcastingUI_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastingUIStatics(::windows::runtime::IInspectable);
+pub struct IAppBroadcastingUIStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingUIStatics {
     type Vtable = IAppBroadcastingUIStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1437116317, 9163, 17785, [156, 52, 136, 111, 224, 44, 4, 90]);

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynAboutData(::windows::runtime::IInspectable);
+pub struct AllJoynAboutData(pub ::windows::runtime::IInspectable);
 impl AllJoynAboutData {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -186,22 +186,22 @@ impl ::windows::runtime::RuntimeName for AllJoynAboutData {
 }
 impl ::std::convert::From<AllJoynAboutData> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynAboutData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynAboutData> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynAboutData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynAboutData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynAboutData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynAboutData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynAboutData> for ::windows::runtime::IInspectable {
@@ -229,7 +229,7 @@ unsafe impl ::std::marker::Sync for AllJoynAboutData {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynAboutDataView(::windows::runtime::IInspectable);
+pub struct AllJoynAboutDataView(pub ::windows::runtime::IInspectable);
 impl AllJoynAboutDataView {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -415,22 +415,22 @@ impl ::windows::runtime::RuntimeName for AllJoynAboutDataView {
 }
 impl ::std::convert::From<AllJoynAboutDataView> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynAboutDataView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynAboutDataView> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynAboutDataView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynAboutDataView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynAboutDataView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynAboutDataView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynAboutDataView> for ::windows::runtime::IInspectable {
@@ -458,7 +458,7 @@ unsafe impl ::std::marker::Sync for AllJoynAboutDataView {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynAcceptSessionJoinerEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynAcceptSessionJoinerEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynAcceptSessionJoinerEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -536,22 +536,22 @@ impl ::windows::runtime::RuntimeName for AllJoynAcceptSessionJoinerEventArgs {
 }
 impl ::std::convert::From<AllJoynAcceptSessionJoinerEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynAcceptSessionJoinerEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynAcceptSessionJoinerEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynAcceptSessionJoinerEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynAcceptSessionJoinerEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynAcceptSessionJoinerEventArgs> for ::windows::runtime::IInspectable {
@@ -579,7 +579,7 @@ unsafe impl ::std::marker::Sync for AllJoynAcceptSessionJoinerEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynAuthenticationCompleteEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynAuthenticationCompleteEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynAuthenticationCompleteEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -621,22 +621,22 @@ impl ::windows::runtime::RuntimeName for AllJoynAuthenticationCompleteEventArgs 
 }
 impl ::std::convert::From<AllJoynAuthenticationCompleteEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynAuthenticationCompleteEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynAuthenticationCompleteEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynAuthenticationCompleteEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynAuthenticationCompleteEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynAuthenticationCompleteEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynAuthenticationCompleteEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynAuthenticationCompleteEventArgs> for ::windows::runtime::IInspectable {
@@ -691,7 +691,7 @@ impl ::windows::runtime::DefaultType for AllJoynAuthenticationMechanism {
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynBusAttachment(::windows::runtime::IInspectable);
+pub struct AllJoynBusAttachment(pub ::windows::runtime::IInspectable);
 impl AllJoynBusAttachment {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -936,22 +936,22 @@ impl ::windows::runtime::RuntimeName for AllJoynBusAttachment {
 }
 impl ::std::convert::From<AllJoynBusAttachment> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynBusAttachment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynBusAttachment> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynBusAttachment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynBusAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynBusAttachment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynBusAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynBusAttachment> for ::windows::runtime::IInspectable {
@@ -1003,7 +1003,7 @@ impl ::windows::runtime::DefaultType for AllJoynBusAttachmentState {
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynBusAttachmentStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynBusAttachmentStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynBusAttachmentStateChangedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1036,22 +1036,22 @@ impl ::windows::runtime::RuntimeName for AllJoynBusAttachmentStateChangedEventAr
 }
 impl ::std::convert::From<AllJoynBusAttachmentStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynBusAttachmentStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynBusAttachmentStateChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynBusAttachmentStateChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynBusAttachmentStateChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynBusAttachmentStateChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -1079,7 +1079,7 @@ unsafe impl ::std::marker::Sync for AllJoynBusAttachmentStateChangedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynBusObject(::windows::runtime::IInspectable);
+pub struct AllJoynBusObject(pub ::windows::runtime::IInspectable);
 impl AllJoynBusObject {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1174,22 +1174,22 @@ impl ::windows::runtime::RuntimeName for AllJoynBusObject {
 }
 impl ::std::convert::From<AllJoynBusObject> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynBusObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynBusObject> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynBusObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynBusObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynBusObject {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynBusObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynBusObject> for ::windows::runtime::IInspectable {
@@ -1217,7 +1217,7 @@ unsafe impl ::std::marker::Sync for AllJoynBusObject {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynBusObjectStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynBusObjectStoppedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynBusObjectStoppedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1253,22 +1253,22 @@ impl ::windows::runtime::RuntimeName for AllJoynBusObjectStoppedEventArgs {
 }
 impl ::std::convert::From<AllJoynBusObjectStoppedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynBusObjectStoppedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynBusObjectStoppedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynBusObjectStoppedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynBusObjectStoppedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynBusObjectStoppedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynBusObjectStoppedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynBusObjectStoppedEventArgs> for ::windows::runtime::IInspectable {
@@ -1296,7 +1296,7 @@ unsafe impl ::std::marker::Sync for AllJoynBusObjectStoppedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynCredentials(::windows::runtime::IInspectable);
+pub struct AllJoynCredentials(pub ::windows::runtime::IInspectable);
 impl AllJoynCredentials {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1371,22 +1371,22 @@ impl ::windows::runtime::RuntimeName for AllJoynCredentials {
 }
 impl ::std::convert::From<AllJoynCredentials> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynCredentials) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynCredentials> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynCredentials) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynCredentials {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynCredentials {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynCredentials {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynCredentials> for ::windows::runtime::IInspectable {
@@ -1414,7 +1414,7 @@ unsafe impl ::std::marker::Sync for AllJoynCredentials {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynCredentialsRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynCredentialsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynCredentialsRequestedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1475,22 +1475,22 @@ impl ::windows::runtime::RuntimeName for AllJoynCredentialsRequestedEventArgs {
 }
 impl ::std::convert::From<AllJoynCredentialsRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynCredentialsRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynCredentialsRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynCredentialsRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynCredentialsRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynCredentialsRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynCredentialsRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynCredentialsRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1518,7 +1518,7 @@ unsafe impl ::std::marker::Sync for AllJoynCredentialsRequestedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynCredentialsVerificationRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynCredentialsVerificationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynCredentialsVerificationRequestedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1607,22 +1607,22 @@ impl ::windows::runtime::RuntimeName for AllJoynCredentialsVerificationRequested
 }
 impl ::std::convert::From<AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynCredentialsVerificationRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynCredentialsVerificationRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynCredentialsVerificationRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1650,7 +1650,7 @@ unsafe impl ::std::marker::Sync for AllJoynCredentialsVerificationRequestedEvent
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynMessageInfo(::windows::runtime::IInspectable);
+pub struct AllJoynMessageInfo(pub ::windows::runtime::IInspectable);
 impl AllJoynMessageInfo {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1686,22 +1686,22 @@ impl ::windows::runtime::RuntimeName for AllJoynMessageInfo {
 }
 impl ::std::convert::From<AllJoynMessageInfo> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynMessageInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynMessageInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynMessageInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynMessageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynMessageInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynMessageInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynMessageInfo> for ::windows::runtime::IInspectable {
@@ -1729,7 +1729,7 @@ unsafe impl ::std::marker::Sync for AllJoynMessageInfo {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynProducerStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynProducerStoppedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynProducerStoppedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1765,22 +1765,22 @@ impl ::windows::runtime::RuntimeName for AllJoynProducerStoppedEventArgs {
 }
 impl ::std::convert::From<AllJoynProducerStoppedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynProducerStoppedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynProducerStoppedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynProducerStoppedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynProducerStoppedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynProducerStoppedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynProducerStoppedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynProducerStoppedEventArgs> for ::windows::runtime::IInspectable {
@@ -1808,7 +1808,7 @@ unsafe impl ::std::marker::Sync for AllJoynProducerStoppedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynServiceInfo(::windows::runtime::IInspectable);
+pub struct AllJoynServiceInfo(pub ::windows::runtime::IInspectable);
 impl AllJoynServiceInfo {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1875,22 +1875,22 @@ impl ::windows::runtime::RuntimeName for AllJoynServiceInfo {
 }
 impl ::std::convert::From<AllJoynServiceInfo> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynServiceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynServiceInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynServiceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynServiceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynServiceInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynServiceInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynServiceInfo> for ::windows::runtime::IInspectable {
@@ -1918,7 +1918,7 @@ unsafe impl ::std::marker::Sync for AllJoynServiceInfo {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynServiceInfoRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynServiceInfoRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynServiceInfoRemovedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -1954,22 +1954,22 @@ impl ::windows::runtime::RuntimeName for AllJoynServiceInfoRemovedEventArgs {
 }
 impl ::std::convert::From<AllJoynServiceInfoRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynServiceInfoRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynServiceInfoRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynServiceInfoRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynServiceInfoRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynServiceInfoRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynServiceInfoRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynServiceInfoRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -1997,7 +1997,7 @@ unsafe impl ::std::marker::Sync for AllJoynServiceInfoRemovedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynSession(::windows::runtime::IInspectable);
+pub struct AllJoynSession(pub ::windows::runtime::IInspectable);
 impl AllJoynSession {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -2113,22 +2113,22 @@ impl ::windows::runtime::RuntimeName for AllJoynSession {
 }
 impl ::std::convert::From<AllJoynSession> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynSession> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynSession {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynSession> for ::windows::runtime::IInspectable {
@@ -2156,7 +2156,7 @@ unsafe impl ::std::marker::Sync for AllJoynSession {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynSessionJoinedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynSessionJoinedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynSessionJoinedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -2192,22 +2192,22 @@ impl ::windows::runtime::RuntimeName for AllJoynSessionJoinedEventArgs {
 }
 impl ::std::convert::From<AllJoynSessionJoinedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynSessionJoinedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynSessionJoinedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynSessionJoinedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynSessionJoinedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynSessionJoinedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynSessionJoinedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynSessionJoinedEventArgs> for ::windows::runtime::IInspectable {
@@ -2235,7 +2235,7 @@ unsafe impl ::std::marker::Sync for AllJoynSessionJoinedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynSessionLostEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynSessionLostEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynSessionLostEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -2271,22 +2271,22 @@ impl ::windows::runtime::RuntimeName for AllJoynSessionLostEventArgs {
 }
 impl ::std::convert::From<AllJoynSessionLostEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynSessionLostEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynSessionLostEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynSessionLostEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynSessionLostEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynSessionLostEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynSessionLostEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynSessionLostEventArgs> for ::windows::runtime::IInspectable {
@@ -2340,7 +2340,7 @@ impl ::windows::runtime::DefaultType for AllJoynSessionLostReason {
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynSessionMemberAddedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynSessionMemberAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynSessionMemberAddedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -2376,22 +2376,22 @@ impl ::windows::runtime::RuntimeName for AllJoynSessionMemberAddedEventArgs {
 }
 impl ::std::convert::From<AllJoynSessionMemberAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynSessionMemberAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynSessionMemberAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynSessionMemberAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynSessionMemberAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynSessionMemberAddedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynSessionMemberAddedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynSessionMemberAddedEventArgs> for ::windows::runtime::IInspectable {
@@ -2419,7 +2419,7 @@ unsafe impl ::std::marker::Sync for AllJoynSessionMemberAddedEventArgs {}
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynSessionMemberRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynSessionMemberRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynSessionMemberRemovedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -2455,22 +2455,22 @@ impl ::windows::runtime::RuntimeName for AllJoynSessionMemberRemovedEventArgs {
 }
 impl ::std::convert::From<AllJoynSessionMemberRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynSessionMemberRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynSessionMemberRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynSessionMemberRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynSessionMemberRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynSessionMemberRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynSessionMemberRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynSessionMemberRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -2677,7 +2677,7 @@ impl ::windows::runtime::DefaultType for AllJoynTrafficType {
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AllJoynWatcherStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct AllJoynWatcherStoppedEventArgs(pub ::windows::runtime::IInspectable);
 impl AllJoynWatcherStoppedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_AllJoyn`*"]
@@ -2713,22 +2713,22 @@ impl ::windows::runtime::RuntimeName for AllJoynWatcherStoppedEventArgs {
 }
 impl ::std::convert::From<AllJoynWatcherStoppedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AllJoynWatcherStoppedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AllJoynWatcherStoppedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AllJoynWatcherStoppedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AllJoynWatcherStoppedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AllJoynWatcherStoppedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AllJoynWatcherStoppedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AllJoynWatcherStoppedEventArgs> for ::windows::runtime::IInspectable {
@@ -2755,7 +2755,7 @@ unsafe impl ::std::marker::Send for AllJoynWatcherStoppedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynWatcherStoppedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynAboutData(::windows::runtime::IInspectable);
+pub struct IAllJoynAboutData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutData {
     type Vtable = IAllJoynAboutData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853106944, 8098, 18489, [147, 239, 249, 223, 64, 72, 144, 247]);
@@ -2800,7 +2800,7 @@ pub struct IAllJoynAboutData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynAboutDataView(::windows::runtime::IInspectable);
+pub struct IAllJoynAboutDataView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutDataView {
     type Vtable = IAllJoynAboutDataView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747128607, 25106, 18740, [156, 72, 225, 156, 164, 152, 66, 136]);
@@ -2838,7 +2838,7 @@ pub struct IAllJoynAboutDataView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynAboutDataViewStatics(::windows::runtime::IInspectable);
+pub struct IAllJoynAboutDataViewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutDataViewStatics {
     type Vtable = IAllJoynAboutDataViewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1475196552, 3166, 16750, [136, 181, 57, 179, 45, 37, 196, 125]);
@@ -2860,7 +2860,7 @@ pub struct IAllJoynAboutDataViewStatics_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_AllJoyn`*"]
-pub struct IAllJoynAcceptSessionJoiner(::windows::runtime::IInspectable);
+pub struct IAllJoynAcceptSessionJoiner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoiner {
     type Vtable = IAllJoynAcceptSessionJoiner_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1302861778, 52509, 16419, [167, 196, 22, 222, 248, 156, 40, 223]);
@@ -2878,22 +2878,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAllJoynAcceptSessionJoiner {
 }
 impl ::std::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::runtime::IUnknown {
     fn from(value: IAllJoynAcceptSessionJoiner) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAllJoynAcceptSessionJoiner> for ::windows::runtime::IUnknown {
     fn from(value: &IAllJoynAcceptSessionJoiner) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAllJoynAcceptSessionJoiner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAllJoynAcceptSessionJoiner {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAllJoynAcceptSessionJoiner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::runtime::IInspectable {
@@ -2929,7 +2929,7 @@ pub struct IAllJoynAcceptSessionJoiner_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynAcceptSessionJoinerEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynAcceptSessionJoinerEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoinerEventArgs {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325093733, 16010, 16983, [143, 16, 83, 156, 224, 213, 108, 15]);
@@ -2952,7 +2952,7 @@ pub struct IAllJoynAcceptSessionJoinerEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynAcceptSessionJoinerEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynAcceptSessionJoinerEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoinerEventArgsFactory {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024313280, 24901, 17054, [132, 219, 213, 191, 231, 114, 177, 79]);
@@ -2970,7 +2970,7 @@ pub struct IAllJoynAcceptSessionJoinerEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynAuthenticationCompleteEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynAuthenticationCompleteEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAuthenticationCompleteEventArgs {
     type Vtable = IAllJoynAuthenticationCompleteEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2545184796, 5596, 19283, [182, 164, 125, 19, 67, 0, 215, 191]);
@@ -2990,7 +2990,7 @@ pub struct IAllJoynAuthenticationCompleteEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachment(::windows::runtime::IInspectable);
+pub struct IAllJoynBusAttachment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachment {
     type Vtable = IAllJoynBusAttachment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077515091, 7917, 17091, [162, 14, 67, 109, 65, 254, 98, 246]);
@@ -3033,7 +3033,7 @@ pub struct IAllJoynBusAttachment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachment2(::windows::runtime::IInspectable);
+pub struct IAllJoynBusAttachment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachment2 {
     type Vtable = IAllJoynBusAttachment2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(880069406, 9064, 17330, [180, 62, 106, 58, 193, 39, 141, 152]);
@@ -3062,7 +3062,7 @@ pub struct IAllJoynBusAttachment2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynBusAttachmentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentFactory {
     type Vtable = IAllJoynBusAttachmentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680798116, 44421, 19935, [144, 174, 96, 68, 82, 178, 34, 136]);
@@ -3080,7 +3080,7 @@ pub struct IAllJoynBusAttachmentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynBusAttachmentStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentStateChangedEventArgs {
     type Vtable = IAllJoynBusAttachmentStateChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3626923508, 49194, 16876, [168, 213, 234, 177, 85, 137, 83, 170]);
@@ -3099,7 +3099,7 @@ pub struct IAllJoynBusAttachmentStateChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentStatics(::windows::runtime::IInspectable);
+pub struct IAllJoynBusAttachmentStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentStatics {
     type Vtable = IAllJoynBusAttachmentStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208124221, 4177, 16599, [135, 42, 141, 1, 65, 17, 91, 31]);
@@ -3119,7 +3119,7 @@ pub struct IAllJoynBusAttachmentStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusObject(::windows::runtime::IInspectable);
+pub struct IAllJoynBusObject(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObject {
     type Vtable = IAllJoynBusObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908928094, 63290, 18700, [136, 4, 4, 224, 38, 100, 48, 71]);
@@ -3145,7 +3145,7 @@ pub struct IAllJoynBusObject_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynBusObjectFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectFactory {
     type Vtable = IAllJoynBusObjectFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(741318411, 36354, 20380, [172, 39, 234, 109, 173, 93, 59, 80]);
@@ -3164,7 +3164,7 @@ pub struct IAllJoynBusObjectFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynBusObjectStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectStoppedEventArgs {
     type Vtable = IAllJoynBusObjectStoppedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3725598997, 61326, 19778, [185, 59, 162, 174, 116, 81, 151, 102]);
@@ -3182,7 +3182,7 @@ pub struct IAllJoynBusObjectStoppedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectStoppedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynBusObjectStoppedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectStoppedEventArgsFactory {
     type Vtable = IAllJoynBusObjectStoppedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1797455176, 53411, 16981, [149, 58, 71, 114, 180, 2, 128, 115]);
@@ -3200,7 +3200,7 @@ pub struct IAllJoynBusObjectStoppedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynCredentials(::windows::runtime::IInspectable);
+pub struct IAllJoynCredentials(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentials {
     type Vtable = IAllJoynCredentials_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2185646322, 41360, 16561, [171, 171, 52, 158, 194, 68, 223, 170]);
@@ -3230,7 +3230,7 @@ pub struct IAllJoynCredentials_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynCredentialsRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynCredentialsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentialsRequestedEventArgs {
     type Vtable = IAllJoynCredentialsRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1787290446, 45161, 19328, [158, 26, 65, 188, 131, 124, 101, 210]);
@@ -3253,7 +3253,7 @@ pub struct IAllJoynCredentialsRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynCredentialsVerificationRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynCredentialsVerificationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentialsVerificationRequestedEventArgs {
     type Vtable = IAllJoynCredentialsVerificationRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2148169234, 47109, 17583, [162, 225, 121, 42, 182, 85, 162, 208]);
@@ -3283,7 +3283,7 @@ pub struct IAllJoynCredentialsVerificationRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynMessageInfo(::windows::runtime::IInspectable);
+pub struct IAllJoynMessageInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynMessageInfo {
     type Vtable = IAllJoynMessageInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4281008423, 11282, 18521, [170, 58, 199, 68, 97, 238, 129, 76]);
@@ -3301,7 +3301,7 @@ pub struct IAllJoynMessageInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynMessageInfoFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynMessageInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynMessageInfoFactory {
     type Vtable = IAllJoynMessageInfoFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879119402, 33417, 17364, [180, 168, 63, 77, 227, 89, 240, 67]);
@@ -3320,7 +3320,7 @@ pub struct IAllJoynMessageInfoFactory_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_AllJoyn`*"]
-pub struct IAllJoynProducer(::windows::runtime::IInspectable);
+pub struct IAllJoynProducer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducer {
     type Vtable = IAllJoynProducer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634565241, 18075, 18778, [167, 16, 172, 80, 241, 35, 6, 159]);
@@ -3338,22 +3338,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAllJoynProducer {
 }
 impl ::std::convert::From<IAllJoynProducer> for ::windows::runtime::IUnknown {
     fn from(value: IAllJoynProducer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAllJoynProducer> for ::windows::runtime::IUnknown {
     fn from(value: &IAllJoynProducer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAllJoynProducer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAllJoynProducer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAllJoynProducer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAllJoynProducer> for ::windows::runtime::IInspectable {
@@ -3389,7 +3389,7 @@ pub struct IAllJoynProducer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynProducerStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynProducerStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducerStoppedEventArgs {
     type Vtable = IAllJoynProducerStoppedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1362138992, 18743, 18733, [128, 128, 35, 100, 57, 152, 124, 235]);
@@ -3407,7 +3407,7 @@ pub struct IAllJoynProducerStoppedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynProducerStoppedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynProducerStoppedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducerStoppedEventArgsFactory {
     type Vtable = IAllJoynProducerStoppedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1448253793, 45593, 19822, [159, 120, 250, 63, 153, 250, 143, 229]);
@@ -3425,7 +3425,7 @@ pub struct IAllJoynProducerStoppedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfo(::windows::runtime::IInspectable);
+pub struct IAllJoynServiceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfo {
     type Vtable = IAllJoynServiceInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1287553545, 47422, 16770, [153, 155, 221, 208, 0, 249, 197, 117]);
@@ -3445,7 +3445,7 @@ pub struct IAllJoynServiceInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynServiceInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoFactory {
     type Vtable = IAllJoynServiceInfoFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971444413, 65027, 20299, [148, 164, 240, 47, 220, 189, 17, 184]);
@@ -3463,7 +3463,7 @@ pub struct IAllJoynServiceInfoFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynServiceInfoRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoRemovedEventArgs {
     type Vtable = IAllJoynServiceInfoRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(811051359, 7487, 16883, [137, 105, 227, 39, 146, 98, 115, 150]);
@@ -3481,7 +3481,7 @@ pub struct IAllJoynServiceInfoRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoRemovedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynServiceInfoRemovedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoRemovedEventArgsFactory {
     type Vtable = IAllJoynServiceInfoRemovedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230655527, 39679, 18773, [146, 39, 105, 83, 186, 244, 21, 105]);
@@ -3499,7 +3499,7 @@ pub struct IAllJoynServiceInfoRemovedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoStatics(::windows::runtime::IInspectable);
+pub struct IAllJoynServiceInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoStatics {
     type Vtable = IAllJoynServiceInfoStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1450727178, 24634, 18940, [183, 80, 14, 241, 54, 9, 33, 60]);
@@ -3518,7 +3518,7 @@ pub struct IAllJoynServiceInfoStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSession(::windows::runtime::IInspectable);
+pub struct IAllJoynSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSession {
     type Vtable = IAllJoynSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3906018060, 49364, 16492, [136, 169, 169, 62, 250, 133, 212, 177]);
@@ -3551,7 +3551,7 @@ pub struct IAllJoynSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionJoinedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionJoinedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionJoinedEventArgs {
     type Vtable = IAllJoynSessionJoinedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661243856, 46551, 18373, [141, 171, 176, 64, 204, 25, 40, 113]);
@@ -3569,7 +3569,7 @@ pub struct IAllJoynSessionJoinedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionJoinedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionJoinedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionJoinedEventArgsFactory {
     type Vtable = IAllJoynSessionJoinedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747244681, 54987, 19870, [160, 158, 53, 128, 104, 112, 177, 127]);
@@ -3587,7 +3587,7 @@ pub struct IAllJoynSessionJoinedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionLostEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionLostEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionLostEventArgs {
     type Vtable = IAllJoynSessionLostEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3882263690, 35768, 18772, [174, 103, 210, 250, 67, 209, 249, 107]);
@@ -3605,7 +3605,7 @@ pub struct IAllJoynSessionLostEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionLostEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionLostEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionLostEventArgsFactory {
     type Vtable = IAllJoynSessionLostEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(331087154, 54004, 18889, [152, 14, 40, 5, 225, 53, 134, 177]);
@@ -3623,7 +3623,7 @@ pub struct IAllJoynSessionLostEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberAddedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionMemberAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberAddedEventArgs {
     type Vtable = IAllJoynSessionMemberAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1235384714, 3537, 18113, [156, 214, 39, 25, 14, 80, 58, 94]);
@@ -3641,7 +3641,7 @@ pub struct IAllJoynSessionMemberAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberAddedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionMemberAddedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberAddedEventArgsFactory {
     type Vtable = IAllJoynSessionMemberAddedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(874373970, 7475, 16545, [161, 211, 229, 119, 112, 32, 225, 241]);
@@ -3659,7 +3659,7 @@ pub struct IAllJoynSessionMemberAddedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionMemberRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberRemovedEventArgs {
     type Vtable = IAllJoynSessionMemberRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1083842975, 43594, 18579, [180, 48, 186, 161, 182, 60, 98, 25]);
@@ -3677,7 +3677,7 @@ pub struct IAllJoynSessionMemberRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberRemovedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionMemberRemovedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberRemovedEventArgsFactory {
     type Vtable = IAllJoynSessionMemberRemovedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302184424, 17080, 19303, [183, 87, 208, 207, 202, 213, 146, 128]);
@@ -3695,7 +3695,7 @@ pub struct IAllJoynSessionMemberRemovedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynSessionStatics(::windows::runtime::IInspectable);
+pub struct IAllJoynSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionStatics {
     type Vtable = IAllJoynSessionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2651182596, 41068, 18132, [180, 108, 11, 11, 84, 16, 91, 68]);
@@ -3716,7 +3716,7 @@ pub struct IAllJoynSessionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynStatusStatics(::windows::runtime::IInspectable);
+pub struct IAllJoynStatusStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynStatusStatics {
     type Vtable = IAllJoynStatusStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3501695358, 3369, 19881, [138, 198, 84, 197, 84, 190, 219, 197]);
@@ -3751,7 +3751,7 @@ pub struct IAllJoynStatusStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynWatcherStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct IAllJoynWatcherStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynWatcherStoppedEventArgs {
     type Vtable = IAllJoynWatcherStoppedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3388776507, 28701, 19112, [151, 221, 162, 187, 10, 143, 95, 163]);
@@ -3769,7 +3769,7 @@ pub struct IAllJoynWatcherStoppedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAllJoynWatcherStoppedEventArgsFactory(::windows::runtime::IInspectable);
+pub struct IAllJoynWatcherStoppedEventArgsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynWatcherStoppedEventArgsFactory {
     type Vtable = IAllJoynWatcherStoppedEventArgsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274338216, 11600, 18401, [144, 74, 32, 191, 13, 72, 199, 130]);

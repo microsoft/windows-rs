@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerIndependentInputSource(::windows::runtime::IInspectable);
+pub struct IRadialControllerIndependentInputSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144310, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
@@ -21,7 +21,7 @@ pub struct IRadialControllerIndependentInputSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerIndependentInputSource2(::windows::runtime::IInspectable);
+pub struct IRadialControllerIndependentInputSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSource2 {
     type Vtable = IRadialControllerIndependentInputSource2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1886628568, 13811, 20203, [135, 81, 190, 77, 10, 102, 250, 244]);
@@ -40,7 +40,7 @@ pub struct IRadialControllerIndependentInputSource2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadialControllerIndependentInputSourceStatics(::windows::runtime::IInspectable);
+pub struct IRadialControllerIndependentInputSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSourceStatics {
     type Vtable = IRadialControllerIndependentInputSourceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144309, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
@@ -60,7 +60,7 @@ pub struct IRadialControllerIndependentInputSourceStatics_abi(
 #[doc = "*Required features: `UI_Input_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct RadialControllerIndependentInputSource(::windows::runtime::IInspectable);
+pub struct RadialControllerIndependentInputSource(pub ::windows::runtime::IInspectable);
 impl RadialControllerIndependentInputSource {
     #[doc = "*Required features: `UI_Input_Core`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<super::RadialController> {
@@ -113,22 +113,22 @@ impl ::windows::runtime::RuntimeName for RadialControllerIndependentInputSource 
 }
 impl ::std::convert::From<RadialControllerIndependentInputSource> for ::windows::runtime::IUnknown {
     fn from(value: RadialControllerIndependentInputSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&RadialControllerIndependentInputSource> for ::windows::runtime::IUnknown {
     fn from(value: &RadialControllerIndependentInputSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RadialControllerIndependentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RadialControllerIndependentInputSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RadialControllerIndependentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<RadialControllerIndependentInputSource> for ::windows::runtime::IInspectable {

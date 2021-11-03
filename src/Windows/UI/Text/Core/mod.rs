@@ -2,7 +2,7 @@
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextCompositionCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextCompositionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextCompositionCompletedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
@@ -43,22 +43,22 @@ impl ::windows::runtime::RuntimeName for CoreTextCompositionCompletedEventArgs {
 }
 impl ::std::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextCompositionCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextCompositionCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextCompositionCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextCompositionCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -86,7 +86,7 @@ unsafe impl ::std::marker::Sync for CoreTextCompositionCompletedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextCompositionSegment(::windows::runtime::IInspectable);
+pub struct CoreTextCompositionSegment(pub ::windows::runtime::IInspectable);
 impl CoreTextCompositionSegment {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn PreconversionString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -117,22 +117,22 @@ impl ::windows::runtime::RuntimeName for CoreTextCompositionSegment {
 }
 impl ::std::convert::From<CoreTextCompositionSegment> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextCompositionSegment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextCompositionSegment> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextCompositionSegment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextCompositionSegment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextCompositionSegment {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextCompositionSegment {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextCompositionSegment> for ::windows::runtime::IInspectable {
@@ -160,7 +160,7 @@ unsafe impl ::std::marker::Sync for CoreTextCompositionSegment {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextCompositionStartedEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextCompositionStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextCompositionStartedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
@@ -192,22 +192,22 @@ impl ::windows::runtime::RuntimeName for CoreTextCompositionStartedEventArgs {
 }
 impl ::std::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextCompositionStartedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextCompositionStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextCompositionStartedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextCompositionStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::runtime::IInspectable {
@@ -235,7 +235,7 @@ unsafe impl ::std::marker::Sync for CoreTextCompositionStartedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextEditContext(::windows::runtime::IInspectable);
+pub struct CoreTextEditContext(pub ::windows::runtime::IInspectable);
 impl CoreTextEditContext {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -477,22 +477,22 @@ impl ::windows::runtime::RuntimeName for CoreTextEditContext {
 }
 impl ::std::convert::From<CoreTextEditContext> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextEditContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextEditContext> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextEditContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextEditContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextEditContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextEditContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextEditContext> for ::windows::runtime::IInspectable {
@@ -520,7 +520,7 @@ unsafe impl ::std::marker::Sync for CoreTextEditContext {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextFormatUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextFormatUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextFormatUpdatingEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
@@ -617,22 +617,22 @@ impl ::windows::runtime::RuntimeName for CoreTextFormatUpdatingEventArgs {
 }
 impl ::std::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextFormatUpdatingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextFormatUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextFormatUpdatingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextFormatUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IInspectable {
@@ -816,7 +816,7 @@ impl ::windows::runtime::DefaultType for CoreTextInputScope {
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextLayoutBounds(::windows::runtime::IInspectable);
+pub struct CoreTextLayoutBounds(pub ::windows::runtime::IInspectable);
 impl CoreTextLayoutBounds {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
@@ -861,22 +861,22 @@ impl ::windows::runtime::RuntimeName for CoreTextLayoutBounds {
 }
 impl ::std::convert::From<CoreTextLayoutBounds> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextLayoutBounds) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextLayoutBounds> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextLayoutBounds) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextLayoutBounds {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextLayoutBounds {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextLayoutBounds {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextLayoutBounds> for ::windows::runtime::IInspectable {
@@ -904,7 +904,7 @@ unsafe impl ::std::marker::Sync for CoreTextLayoutBounds {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextLayoutRequest(::windows::runtime::IInspectable);
+pub struct CoreTextLayoutRequest(pub ::windows::runtime::IInspectable);
 impl CoreTextLayoutRequest {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
@@ -960,22 +960,22 @@ impl ::windows::runtime::RuntimeName for CoreTextLayoutRequest {
 }
 impl ::std::convert::From<CoreTextLayoutRequest> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextLayoutRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextLayoutRequest> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextLayoutRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextLayoutRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextLayoutRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextLayoutRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextLayoutRequest> for ::windows::runtime::IInspectable {
@@ -1003,7 +1003,7 @@ unsafe impl ::std::marker::Sync for CoreTextLayoutRequest {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextLayoutRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextLayoutRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextLayoutRequestedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<CoreTextLayoutRequest> {
@@ -1026,22 +1026,22 @@ impl ::windows::runtime::RuntimeName for CoreTextLayoutRequestedEventArgs {
 }
 impl ::std::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextLayoutRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextLayoutRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextLayoutRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextLayoutRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1102,7 +1102,7 @@ impl ::windows::runtime::DefaultType for CoreTextRange {
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextSelectionRequest(::windows::runtime::IInspectable);
+pub struct CoreTextSelectionRequest(pub ::windows::runtime::IInspectable);
 impl CoreTextSelectionRequest {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Selection(&self) -> ::windows::runtime::Result<CoreTextRange> {
@@ -1147,22 +1147,22 @@ impl ::windows::runtime::RuntimeName for CoreTextSelectionRequest {
 }
 impl ::std::convert::From<CoreTextSelectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextSelectionRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextSelectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextSelectionRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextSelectionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextSelectionRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextSelectionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextSelectionRequest> for ::windows::runtime::IInspectable {
@@ -1190,7 +1190,7 @@ unsafe impl ::std::marker::Sync for CoreTextSelectionRequest {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextSelectionRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextSelectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextSelectionRequestedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<CoreTextSelectionRequest> {
@@ -1213,22 +1213,22 @@ impl ::windows::runtime::RuntimeName for CoreTextSelectionRequestedEventArgs {
 }
 impl ::std::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextSelectionRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextSelectionRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextSelectionRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextSelectionRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1256,7 +1256,7 @@ unsafe impl ::std::marker::Sync for CoreTextSelectionRequestedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextSelectionUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextSelectionUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextSelectionUpdatingEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Selection(&self) -> ::windows::runtime::Result<CoreTextRange> {
@@ -1309,22 +1309,22 @@ impl ::windows::runtime::RuntimeName for CoreTextSelectionUpdatingEventArgs {
 }
 impl ::std::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextSelectionUpdatingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextSelectionUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextSelectionUpdatingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextSelectionUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IInspectable {
@@ -1392,7 +1392,7 @@ impl ::windows::runtime::RuntimeName for CoreTextServicesConstants {
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextServicesManager(::windows::runtime::IInspectable);
+pub struct CoreTextServicesManager(pub ::windows::runtime::IInspectable);
 impl CoreTextServicesManager {
     #[cfg(feature = "Globalization")]
     #[doc = "*Required features: `UI_Text_Core`, `Globalization`*"]
@@ -1450,22 +1450,22 @@ impl ::windows::runtime::RuntimeName for CoreTextServicesManager {
 }
 impl ::std::convert::From<CoreTextServicesManager> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextServicesManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextServicesManager> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextServicesManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextServicesManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextServicesManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextServicesManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextServicesManager> for ::windows::runtime::IInspectable {
@@ -1493,7 +1493,7 @@ unsafe impl ::std::marker::Sync for CoreTextServicesManager {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextTextRequest(::windows::runtime::IInspectable);
+pub struct CoreTextTextRequest(pub ::windows::runtime::IInspectable);
 impl CoreTextTextRequest {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
@@ -1546,22 +1546,22 @@ impl ::windows::runtime::RuntimeName for CoreTextTextRequest {
 }
 impl ::std::convert::From<CoreTextTextRequest> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextTextRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextTextRequest> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextTextRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextTextRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextTextRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextTextRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextTextRequest> for ::windows::runtime::IInspectable {
@@ -1589,7 +1589,7 @@ unsafe impl ::std::marker::Sync for CoreTextTextRequest {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextTextRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextTextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextTextRequestedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<CoreTextTextRequest> {
@@ -1612,22 +1612,22 @@ impl ::windows::runtime::RuntimeName for CoreTextTextRequestedEventArgs {
 }
 impl ::std::convert::From<CoreTextTextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextTextRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextTextRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextTextRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextTextRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextTextRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1655,7 +1655,7 @@ unsafe impl ::std::marker::Sync for CoreTextTextRequestedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CoreTextTextUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct CoreTextTextUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextTextUpdatingEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
@@ -1733,22 +1733,22 @@ impl ::windows::runtime::RuntimeName for CoreTextTextUpdatingEventArgs {
 }
 impl ::std::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextTextUpdatingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreTextTextUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreTextTextUpdatingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreTextTextUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::runtime::IInspectable {
@@ -1797,7 +1797,7 @@ impl ::windows::runtime::DefaultType for CoreTextTextUpdatingResult {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextCompositionCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextCompositionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionCompletedEventArgs {
     type Vtable = ICoreTextCompositionCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523561910, 47007, 16673, [165, 231, 253, 169, 184, 97, 110, 48]);
@@ -1819,7 +1819,7 @@ pub struct ICoreTextCompositionCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextCompositionSegment(::windows::runtime::IInspectable);
+pub struct ICoreTextCompositionSegment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionSegment {
     type Vtable = ICoreTextCompositionSegment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2003594201, 20141, 19879, [143, 71, 58, 136, 181, 35, 204, 52]);
@@ -1838,7 +1838,7 @@ pub struct ICoreTextCompositionSegment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextCompositionStartedEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextCompositionStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionStartedEventArgs {
     type Vtable = ICoreTextCompositionStartedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(661329577, 25831, 19120, [188, 75, 160, 45, 115, 131, 91, 251]);
@@ -1858,7 +1858,7 @@ pub struct ICoreTextCompositionStartedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextEditContext(::windows::runtime::IInspectable);
+pub struct ICoreTextEditContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextEditContext {
     type Vtable = ICoreTextEditContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3211135151, 16449, 18371, [178, 99, 169, 24, 235, 94, 174, 242]);
@@ -1924,7 +1924,7 @@ pub struct ICoreTextEditContext_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextEditContext2(::windows::runtime::IInspectable);
+pub struct ICoreTextEditContext2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextEditContext2 {
     type Vtable = ICoreTextEditContext2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978381243, 2107, 18913, [178, 129, 43, 53, 214, 43, 244, 102]);
@@ -1945,7 +1945,7 @@ pub struct ICoreTextEditContext2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextFormatUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextFormatUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextFormatUpdatingEventArgs {
     type Vtable = ICoreTextFormatUpdatingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930476851, 46248, 17329, [179, 123, 7, 36, 212, 172, 167, 171]);
@@ -1977,7 +1977,7 @@ pub struct ICoreTextFormatUpdatingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutBounds(::windows::runtime::IInspectable);
+pub struct ICoreTextLayoutBounds(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutBounds {
     type Vtable = ICoreTextLayoutBounds_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916614004, 17462, 18711, [128, 208, 165, 37, 228, 202, 103, 128]);
@@ -2002,7 +2002,7 @@ pub struct ICoreTextLayoutBounds_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutRequest(::windows::runtime::IInspectable);
+pub struct ICoreTextLayoutRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequest {
     type Vtable = ICoreTextLayoutRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(626370764, 20989, 20227, [152, 191, 172, 120, 23, 77, 104, 224]);
@@ -2024,7 +2024,7 @@ pub struct ICoreTextLayoutRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutRequest2(::windows::runtime::IInspectable);
+pub struct ICoreTextLayoutRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequest2 {
     type Vtable = ICoreTextLayoutRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1735255588, 52541, 19405, [191, 1, 127, 113, 16, 149, 69, 17]);
@@ -2042,7 +2042,7 @@ pub struct ICoreTextLayoutRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextLayoutRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequestedEventArgs {
     type Vtable = ICoreTextLayoutRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2984012512, 39547, 20126, [165, 102, 74, 107, 95, 138, 214, 118]);
@@ -2060,7 +2060,7 @@ pub struct ICoreTextLayoutRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextSelectionRequest(::windows::runtime::IInspectable);
+pub struct ICoreTextSelectionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionRequest {
     type Vtable = ICoreTextSelectionRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037477379, 8331, 17153, [136, 60, 116, 202, 116, 133, 253, 141]);
@@ -2082,7 +2082,7 @@ pub struct ICoreTextSelectionRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextSelectionRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextSelectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionRequestedEventArgs {
     type Vtable = ICoreTextSelectionRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(331769899, 62996, 16922, [143, 75, 158, 200, 165, 163, 127, 205]);
@@ -2100,7 +2100,7 @@ pub struct ICoreTextSelectionRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextSelectionUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextSelectionUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionUpdatingEventArgs {
     type Vtable = ICoreTextSelectionUpdatingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3561325471, 65151, 19413, [138, 38, 9, 34, 193, 179, 230, 57]);
@@ -2123,7 +2123,7 @@ pub struct ICoreTextSelectionUpdatingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextServicesManager(::windows::runtime::IInspectable);
+pub struct ICoreTextServicesManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesManager {
     type Vtable = ICoreTextServicesManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3260054915, 28170, 19082, [189, 248, 25, 72, 135, 72, 84, 186]);
@@ -2147,7 +2147,7 @@ pub struct ICoreTextServicesManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextServicesManagerStatics(::windows::runtime::IInspectable);
+pub struct ICoreTextServicesManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesManagerStatics {
     type Vtable = ICoreTextServicesManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354460552, 58063, 19813, [174, 185, 179, 45, 134, 254, 57, 185]);
@@ -2165,7 +2165,7 @@ pub struct ICoreTextServicesManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextServicesStatics(::windows::runtime::IInspectable);
+pub struct ICoreTextServicesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesStatics {
     type Vtable = ICoreTextServicesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441452102, 60623, 18340, [138, 231, 9, 138, 156, 111, 187, 21]);
@@ -2183,7 +2183,7 @@ pub struct ICoreTextServicesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextTextRequest(::windows::runtime::IInspectable);
+pub struct ICoreTextTextRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextRequest {
     type Vtable = ICoreTextTextRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356419241, 62750, 19649, [140, 161, 230, 52, 109, 26, 97, 190]);
@@ -2206,7 +2206,7 @@ pub struct ICoreTextTextRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextTextRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextTextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextRequestedEventArgs {
     type Vtable = ICoreTextTextRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036403920, 16838, 19458, [139, 26, 217, 83, 176, 12, 171, 179]);
@@ -2224,7 +2224,7 @@ pub struct ICoreTextTextRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreTextTextUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct ICoreTextTextUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextUpdatingEventArgs {
     type Vtable = ICoreTextTextUpdatingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003959181, 52267, 20227, [143, 246, 2, 253, 33, 125, 180, 80]);

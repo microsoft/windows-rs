@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRadialControllerConfigurationInterop(::windows::runtime::IUnknown);
+pub struct IRadialControllerConfigurationInterop(pub ::windows::runtime::IUnknown);
 impl IRadialControllerConfigurationInterop {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Input_Radial`, `Win32_Foundation`*"]
@@ -17,22 +17,22 @@ unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationInte
 }
 impl ::std::convert::From<IRadialControllerConfigurationInterop> for ::windows::runtime::IUnknown {
     fn from(value: IRadialControllerConfigurationInterop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRadialControllerConfigurationInterop> for ::windows::runtime::IUnknown {
     fn from(value: &IRadialControllerConfigurationInterop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadialControllerConfigurationInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadialControllerConfigurationInterop {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRadialControllerConfigurationInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -50,7 +50,7 @@ pub struct IRadialControllerConfigurationInterop_abi(
 #[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRadialControllerIndependentInputSourceInterop(::windows::runtime::IUnknown);
+pub struct IRadialControllerIndependentInputSourceInterop(pub ::windows::runtime::IUnknown);
 impl IRadialControllerIndependentInputSourceInterop {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Input_Radial`, `Win32_Foundation`*"]
@@ -65,22 +65,22 @@ unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputS
 }
 impl ::std::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::runtime::IUnknown {
     fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRadialControllerIndependentInputSourceInterop> for ::windows::runtime::IUnknown {
     fn from(value: &IRadialControllerIndependentInputSourceInterop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadialControllerIndependentInputSourceInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadialControllerIndependentInputSourceInterop {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRadialControllerIndependentInputSourceInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -98,7 +98,7 @@ pub struct IRadialControllerIndependentInputSourceInterop_abi(
 #[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRadialControllerInterop(::windows::runtime::IUnknown);
+pub struct IRadialControllerInterop(pub ::windows::runtime::IUnknown);
 impl IRadialControllerInterop {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Input_Radial`, `Win32_Foundation`*"]
@@ -113,22 +113,22 @@ unsafe impl ::windows::runtime::Interface for IRadialControllerInterop {
 }
 impl ::std::convert::From<IRadialControllerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IRadialControllerInterop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRadialControllerInterop> for ::windows::runtime::IUnknown {
     fn from(value: &IRadialControllerInterop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadialControllerInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadialControllerInterop {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRadialControllerInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

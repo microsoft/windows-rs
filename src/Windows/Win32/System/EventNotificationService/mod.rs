@@ -4,7 +4,7 @@ pub const CONNECTION_AOL: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensLogon(::windows::runtime::IUnknown);
+pub struct ISensLogon(pub ::windows::runtime::IUnknown);
 impl ISensLogon {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
@@ -48,22 +48,22 @@ unsafe impl ::windows::runtime::Interface for ISensLogon {
 }
 impl ::std::convert::From<ISensLogon> for ::windows::runtime::IUnknown {
     fn from(value: ISensLogon) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensLogon> for ::windows::runtime::IUnknown {
     fn from(value: &ISensLogon) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensLogon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensLogon {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensLogon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -122,7 +122,7 @@ pub struct ISensLogon_abi(
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensLogon2(::windows::runtime::IUnknown);
+pub struct ISensLogon2(pub ::windows::runtime::IUnknown);
 impl ISensLogon2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
@@ -156,22 +156,22 @@ unsafe impl ::windows::runtime::Interface for ISensLogon2 {
 }
 impl ::std::convert::From<ISensLogon2> for ::windows::runtime::IUnknown {
     fn from(value: ISensLogon2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensLogon2> for ::windows::runtime::IUnknown {
     fn from(value: &ISensLogon2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensLogon2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensLogon2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensLogon2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -226,7 +226,7 @@ pub struct ISensLogon2_abi(
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensNetwork(::windows::runtime::IUnknown);
+pub struct ISensNetwork(pub ::windows::runtime::IUnknown);
 impl ISensNetwork {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
@@ -260,22 +260,22 @@ unsafe impl ::windows::runtime::Interface for ISensNetwork {
 }
 impl ::std::convert::From<ISensNetwork> for ::windows::runtime::IUnknown {
     fn from(value: ISensNetwork) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensNetwork> for ::windows::runtime::IUnknown {
     fn from(value: &ISensNetwork) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensNetwork {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensNetwork {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensNetwork {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -330,7 +330,7 @@ pub struct ISensNetwork_abi(
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensOnNow(::windows::runtime::IUnknown);
+pub struct ISensOnNow(pub ::windows::runtime::IUnknown);
 impl ISensOnNow {
     #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
     pub unsafe fn OnACPower(&self) -> ::windows::runtime::Result<()> {
@@ -351,22 +351,22 @@ unsafe impl ::windows::runtime::Interface for ISensOnNow {
 }
 impl ::std::convert::From<ISensOnNow> for ::windows::runtime::IUnknown {
     fn from(value: ISensOnNow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensOnNow> for ::windows::runtime::IUnknown {
     fn from(value: &ISensOnNow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensOnNow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensOnNow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensOnNow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

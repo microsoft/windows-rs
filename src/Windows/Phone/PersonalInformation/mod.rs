@@ -4,7 +4,7 @@ pub mod Provisioning;
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContactAddress(::windows::runtime::IInspectable);
+pub struct ContactAddress(pub ::windows::runtime::IInspectable);
 impl ContactAddress {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -91,22 +91,22 @@ impl ::windows::runtime::RuntimeName for ContactAddress {
 }
 impl ::std::convert::From<ContactAddress> for ::windows::runtime::IUnknown {
     fn from(value: ContactAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContactAddress> for ::windows::runtime::IUnknown {
     fn from(value: &ContactAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactAddress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContactAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContactAddress> for ::windows::runtime::IInspectable {
@@ -134,7 +134,7 @@ unsafe impl ::std::marker::Sync for ContactAddress {}
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContactChangeRecord(::windows::runtime::IInspectable);
+pub struct ContactChangeRecord(pub ::windows::runtime::IInspectable);
 impl ContactChangeRecord {
     #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn ChangeType(&self) -> ::windows::runtime::Result<ContactChangeType> {
@@ -181,22 +181,22 @@ impl ::windows::runtime::RuntimeName for ContactChangeRecord {
 }
 impl ::std::convert::From<ContactChangeRecord> for ::windows::runtime::IUnknown {
     fn from(value: ContactChangeRecord) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContactChangeRecord> for ::windows::runtime::IUnknown {
     fn from(value: &ContactChangeRecord) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactChangeRecord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactChangeRecord {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContactChangeRecord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContactChangeRecord> for ::windows::runtime::IInspectable {
@@ -247,7 +247,7 @@ impl ::windows::runtime::DefaultType for ContactChangeType {
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContactInformation(::windows::runtime::IInspectable);
+pub struct ContactInformation(pub ::windows::runtime::IInspectable);
 impl ContactInformation {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -400,22 +400,22 @@ impl ::windows::runtime::RuntimeName for ContactInformation {
 }
 impl ::std::convert::From<ContactInformation> for ::windows::runtime::IUnknown {
     fn from(value: ContactInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContactInformation> for ::windows::runtime::IUnknown {
     fn from(value: &ContactInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContactInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContactInformation> for ::windows::runtime::IInspectable {
@@ -463,7 +463,7 @@ unsafe impl ::std::marker::Sync for ContactInformation {}
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContactQueryOptions(::windows::runtime::IInspectable);
+pub struct ContactQueryOptions(pub ::windows::runtime::IInspectable);
 impl ContactQueryOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -507,22 +507,22 @@ impl ::windows::runtime::RuntimeName for ContactQueryOptions {
 }
 impl ::std::convert::From<ContactQueryOptions> for ::windows::runtime::IUnknown {
     fn from(value: ContactQueryOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContactQueryOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ContactQueryOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactQueryOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactQueryOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContactQueryOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContactQueryOptions> for ::windows::runtime::IInspectable {
@@ -550,7 +550,7 @@ unsafe impl ::std::marker::Sync for ContactQueryOptions {}
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContactQueryResult(::windows::runtime::IInspectable);
+pub struct ContactQueryResult(pub ::windows::runtime::IInspectable);
 impl ContactQueryResult {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
@@ -600,22 +600,22 @@ impl ::windows::runtime::RuntimeName for ContactQueryResult {
 }
 impl ::std::convert::From<ContactQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: ContactQueryResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContactQueryResult> for ::windows::runtime::IUnknown {
     fn from(value: &ContactQueryResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactQueryResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContactQueryResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContactQueryResult> for ::windows::runtime::IInspectable {
@@ -666,7 +666,7 @@ impl ::windows::runtime::DefaultType for ContactQueryResultOrdering {
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ContactStore(::windows::runtime::IInspectable);
+pub struct ContactStore(pub ::windows::runtime::IInspectable);
 impl ContactStore {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
@@ -797,22 +797,22 @@ impl ::windows::runtime::RuntimeName for ContactStore {
 }
 impl ::std::convert::From<ContactStore> for ::windows::runtime::IUnknown {
     fn from(value: ContactStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ContactStore> for ::windows::runtime::IUnknown {
     fn from(value: &ContactStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ContactStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ContactStore> for ::windows::runtime::IInspectable {
@@ -883,7 +883,7 @@ impl ::windows::runtime::DefaultType for ContactStoreSystemAccessMode {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactAddress(::windows::runtime::IInspectable);
+pub struct IContactAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAddress {
     type Vtable = IContactAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596258599, 38057, 17570, [161, 85, 45, 11, 55, 209, 220, 205]);
@@ -910,7 +910,7 @@ pub struct IContactAddress_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactChangeRecord(::windows::runtime::IInspectable);
+pub struct IContactChangeRecord(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangeRecord {
     type Vtable = IContactChangeRecord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117676431, 20795, 18242, [190, 0, 204, 92, 92, 35, 107, 4]);
@@ -932,7 +932,7 @@ pub struct IContactChangeRecord_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
-pub struct IContactInformation(::windows::runtime::IInspectable);
+pub struct IContactInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation {
     type Vtable = IContactInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803521020, 59282, 19127, [177, 91, 242, 224, 120, 102, 77, 234]);
@@ -1063,22 +1063,22 @@ unsafe impl ::windows::runtime::RuntimeType for IContactInformation {
 }
 impl ::std::convert::From<IContactInformation> for ::windows::runtime::IUnknown {
     fn from(value: IContactInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IContactInformation> for ::windows::runtime::IUnknown {
     fn from(value: &IContactInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IContactInformation> for ::windows::runtime::IInspectable {
@@ -1136,7 +1136,7 @@ pub struct IContactInformation_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
-pub struct IContactInformation2(::windows::runtime::IInspectable);
+pub struct IContactInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation2 {
     type Vtable = IContactInformation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(832090636, 25118, 18024, [172, 56, 214, 103, 184, 125, 6, 213]);
@@ -1163,22 +1163,22 @@ unsafe impl ::windows::runtime::RuntimeType for IContactInformation2 {
 }
 impl ::std::convert::From<IContactInformation2> for ::windows::runtime::IUnknown {
     fn from(value: IContactInformation2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IContactInformation2> for ::windows::runtime::IUnknown {
     fn from(value: &IContactInformation2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContactInformation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContactInformation2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IContactInformation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IContactInformation2> for ::windows::runtime::IInspectable {
@@ -1217,7 +1217,7 @@ pub struct IContactInformation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactInformationStatics(::windows::runtime::IInspectable);
+pub struct IContactInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformationStatics {
     type Vtable = IContactInformationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258456361, 976, 19430, [178, 165, 251, 19, 133, 159, 18, 2]);
@@ -1236,7 +1236,7 @@ pub struct IContactInformationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactQueryOptions(::windows::runtime::IInspectable);
+pub struct IContactQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryOptions {
     type Vtable = IContactQueryOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477225334, 16177, 18113, [154, 80, 66, 74, 83, 218, 202, 227]);
@@ -1257,7 +1257,7 @@ pub struct IContactQueryOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactQueryResult(::windows::runtime::IInspectable);
+pub struct IContactQueryResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryResult {
     type Vtable = IContactQueryResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225270050, 60635, 18176, [133, 126, 62, 120, 100, 38, 176, 75]);
@@ -1281,7 +1281,7 @@ pub struct IContactQueryResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactStore(::windows::runtime::IInspectable);
+pub struct IContactStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore {
     type Vtable = IContactStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999807983, 11261, 20397, [133, 82, 78, 105, 128, 151, 232, 235]);
@@ -1315,7 +1315,7 @@ pub struct IContactStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactStore2(::windows::runtime::IInspectable);
+pub struct IContactStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore2 {
     type Vtable = IContactStore2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1710339663, 54867, 17319, [178, 54, 179, 12, 15, 77, 114, 105]);
@@ -1334,7 +1334,7 @@ pub struct IContactStore2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactStoreStatics(::windows::runtime::IInspectable);
+pub struct IContactStoreStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStoreStatics {
     type Vtable = IContactStoreStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2818899490, 19435, 17612, [165, 114, 103, 165, 185, 46, 133, 103]);
@@ -1355,7 +1355,7 @@ pub struct IContactStoreStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownContactPropertiesStatics(::windows::runtime::IInspectable);
+pub struct IKnownContactPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownContactPropertiesStatics {
     type Vtable = IKnownContactPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582012161, 11501, 20198, [177, 214, 9, 75, 248, 142, 240, 182]);
@@ -1407,7 +1407,7 @@ pub struct IKnownContactPropertiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoredContact(::windows::runtime::IInspectable);
+pub struct IStoredContact(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoredContact {
     type Vtable = IStoredContact_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960177073, 9789, 20081, [171, 231, 89, 29, 36, 102, 87, 14]);
@@ -1434,7 +1434,7 @@ pub struct IStoredContact_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStoredContactFactory(::windows::runtime::IInspectable);
+pub struct IStoredContactFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoredContactFactory {
     type Vtable = IStoredContactFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240328481, 49701, 20441, [137, 197, 206, 204, 44, 138, 75, 121]);
@@ -1710,7 +1710,7 @@ impl ::windows::runtime::RuntimeName for KnownContactProperties {
 #[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StoredContact(::windows::runtime::IInspectable);
+pub struct StoredContact(pub ::windows::runtime::IInspectable);
 impl StoredContact {
     #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Store(&self) -> ::windows::runtime::Result<ContactStore> {
@@ -1933,22 +1933,22 @@ impl ::windows::runtime::RuntimeName for StoredContact {
 }
 impl ::std::convert::From<StoredContact> for ::windows::runtime::IUnknown {
     fn from(value: StoredContact) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StoredContact> for ::windows::runtime::IUnknown {
     fn from(value: &StoredContact) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StoredContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StoredContact {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StoredContact {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StoredContact> for ::windows::runtime::IInspectable {

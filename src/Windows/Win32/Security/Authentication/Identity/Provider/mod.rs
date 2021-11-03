@@ -17,7 +17,7 @@ unsafe impl ::windows::runtime::Abi for ACCOUNT_STATE {
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIAssociatedIdentityProvider(::windows::runtime::IUnknown);
+pub struct AsyncIAssociatedIdentityProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`*"]
@@ -55,22 +55,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIAssociatedIdentityProvider {
 }
 impl ::std::convert::From<AsyncIAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIAssociatedIdentityProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIAssociatedIdentityProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIAssociatedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIAssociatedIdentityProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIAssociatedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -93,7 +93,7 @@ pub struct AsyncIAssociatedIdentityProvider_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIConnectedIdentityProvider(::windows::runtime::IUnknown);
+pub struct AsyncIConnectedIdentityProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIConnectedIdentityProvider {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
     pub unsafe fn Begin_ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::runtime::Result<()> {
@@ -147,22 +147,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIConnectedIdentityProvider {
 }
 impl ::std::convert::From<AsyncIConnectedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIConnectedIdentityProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIConnectedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIConnectedIdentityProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIConnectedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIConnectedIdentityProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIConnectedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -188,7 +188,7 @@ pub struct AsyncIConnectedIdentityProvider_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIIdentityAdvise(::windows::runtime::IUnknown);
+pub struct AsyncIIdentityAdvise(pub ::windows::runtime::IUnknown);
 impl AsyncIIdentityAdvise {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`*"]
@@ -206,22 +206,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityAdvise {
 }
 impl ::std::convert::From<AsyncIIdentityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityAdvise) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIIdentityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIIdentityAdvise) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityAdvise {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityAdvise {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIIdentityAdvise {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -237,7 +237,7 @@ pub struct AsyncIIdentityAdvise_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIIdentityAuthentication(::windows::runtime::IUnknown);
+pub struct AsyncIIdentityAuthentication(pub ::windows::runtime::IUnknown);
 impl AsyncIIdentityAuthentication {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
     pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::runtime::Result<()> {
@@ -264,22 +264,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityAuthentication {
 }
 impl ::std::convert::From<AsyncIIdentityAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityAuthentication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIIdentityAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIIdentityAuthentication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityAuthentication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityAuthentication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIIdentityAuthentication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -298,7 +298,7 @@ pub struct AsyncIIdentityAuthentication_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIIdentityProvider(::windows::runtime::IUnknown);
+pub struct AsyncIIdentityProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
@@ -385,22 +385,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityProvider {
 }
 impl ::std::convert::From<AsyncIIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIIdentityProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -439,7 +439,7 @@ pub struct AsyncIIdentityProvider_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIIdentityStore(::windows::runtime::IUnknown);
+pub struct AsyncIIdentityStore(pub ::windows::runtime::IUnknown);
 impl AsyncIIdentityStore {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
     pub unsafe fn Begin_GetCount(&self) -> ::windows::runtime::Result<()> {
@@ -502,22 +502,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityStore {
 }
 impl ::std::convert::From<AsyncIIdentityStore> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIIdentityStore> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIIdentityStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIIdentityStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -547,7 +547,7 @@ pub struct AsyncIIdentityStore_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AsyncIIdentityStoreEx(::windows::runtime::IUnknown);
+pub struct AsyncIIdentityStoreEx(pub ::windows::runtime::IUnknown);
 impl AsyncIIdentityStoreEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`*"]
@@ -574,22 +574,22 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityStoreEx {
 }
 impl ::std::convert::From<AsyncIIdentityStoreEx> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIIdentityStoreEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&AsyncIIdentityStoreEx> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIIdentityStoreEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityStoreEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityStoreEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AsyncIIdentityStoreEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -610,7 +610,7 @@ pub const CoClassIdentityStore: ::windows::runtime::GUID = ::windows::runtime::G
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAssociatedIdentityProvider(::windows::runtime::IUnknown);
+pub struct IAssociatedIdentityProvider(pub ::windows::runtime::IUnknown);
 impl IAssociatedIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
@@ -635,22 +635,22 @@ unsafe impl ::windows::runtime::Interface for IAssociatedIdentityProvider {
 }
 impl ::std::convert::From<IAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAssociatedIdentityProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IAssociatedIdentityProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAssociatedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAssociatedIdentityProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAssociatedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -669,7 +669,7 @@ pub struct IAssociatedIdentityProvider_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IConnectedIdentityProvider(::windows::runtime::IUnknown);
+pub struct IConnectedIdentityProvider(pub ::windows::runtime::IUnknown);
 impl IConnectedIdentityProvider {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
     pub unsafe fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::runtime::Result<()> {
@@ -702,22 +702,22 @@ unsafe impl ::windows::runtime::Interface for IConnectedIdentityProvider {
 }
 impl ::std::convert::From<IConnectedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: IConnectedIdentityProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IConnectedIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IConnectedIdentityProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConnectedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConnectedIdentityProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IConnectedIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -770,7 +770,7 @@ unsafe impl ::windows::runtime::Abi for IDENTITY_URL {
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIdentityAdvise(::windows::runtime::IUnknown);
+pub struct IIdentityAdvise(pub ::windows::runtime::IUnknown);
 impl IIdentityAdvise {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`*"]
@@ -784,22 +784,22 @@ unsafe impl ::windows::runtime::Interface for IIdentityAdvise {
 }
 impl ::std::convert::From<IIdentityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityAdvise) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIdentityAdvise> for ::windows::runtime::IUnknown {
     fn from(value: &IIdentityAdvise) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityAdvise {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityAdvise {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIdentityAdvise {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -814,7 +814,7 @@ pub struct IIdentityAdvise_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIdentityAuthentication(::windows::runtime::IUnknown);
+pub struct IIdentityAuthentication(pub ::windows::runtime::IUnknown);
 impl IIdentityAuthentication {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
     pub unsafe fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::runtime::Result<()> {
@@ -832,22 +832,22 @@ unsafe impl ::windows::runtime::Interface for IIdentityAuthentication {
 }
 impl ::std::convert::From<IIdentityAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityAuthentication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIdentityAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: &IIdentityAuthentication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityAuthentication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityAuthentication {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIdentityAuthentication {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -863,7 +863,7 @@ pub struct IIdentityAuthentication_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIdentityProvider(::windows::runtime::IUnknown);
+pub struct IIdentityProvider(pub ::windows::runtime::IUnknown);
 impl IIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
@@ -914,22 +914,22 @@ unsafe impl ::windows::runtime::Interface for IIdentityProvider {
 }
 impl ::std::convert::From<IIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIdentityProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IIdentityProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIdentityProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -958,7 +958,7 @@ pub struct IIdentityProvider_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIdentityStore(::windows::runtime::IUnknown);
+pub struct IIdentityStore(pub ::windows::runtime::IUnknown);
 impl IIdentityStore {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -996,22 +996,22 @@ unsafe impl ::windows::runtime::Interface for IIdentityStore {
 }
 impl ::std::convert::From<IIdentityStore> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIdentityStore> for ::windows::runtime::IUnknown {
     fn from(value: &IIdentityStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIdentityStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1034,7 +1034,7 @@ pub struct IIdentityStore_abi(
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIdentityStoreEx(::windows::runtime::IUnknown);
+pub struct IIdentityStoreEx(pub ::windows::runtime::IUnknown);
 impl IIdentityStoreEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`, `Win32_Foundation`*"]
@@ -1053,22 +1053,22 @@ unsafe impl ::windows::runtime::Interface for IIdentityStoreEx {
 }
 impl ::std::convert::From<IIdentityStoreEx> for ::windows::runtime::IUnknown {
     fn from(value: IIdentityStoreEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIdentityStoreEx> for ::windows::runtime::IUnknown {
     fn from(value: &IIdentityStoreEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityStoreEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityStoreEx {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIdentityStoreEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

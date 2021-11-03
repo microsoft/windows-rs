@@ -62,7 +62,7 @@ impl ::windows::runtime::RuntimeName for ApplicationLanguages {
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Calendar(::windows::runtime::IInspectable);
+pub struct Calendar(pub ::windows::runtime::IInspectable);
 impl Calendar {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -852,22 +852,22 @@ impl ::windows::runtime::RuntimeName for Calendar {
 }
 impl ::std::convert::From<Calendar> for ::windows::runtime::IUnknown {
     fn from(value: Calendar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Calendar> for ::windows::runtime::IUnknown {
     fn from(value: &Calendar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Calendar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Calendar {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Calendar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Calendar> for ::windows::runtime::IInspectable {
@@ -1044,7 +1044,7 @@ impl ::windows::runtime::RuntimeName for ClockIdentifiers {
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CurrencyAmount(::windows::runtime::IInspectable);
+pub struct CurrencyAmount(pub ::windows::runtime::IInspectable);
 impl CurrencyAmount {
     #[doc = "*Required features: `Globalization`*"]
     pub fn Amount(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1086,22 +1086,22 @@ impl ::windows::runtime::RuntimeName for CurrencyAmount {
 }
 impl ::std::convert::From<CurrencyAmount> for ::windows::runtime::IUnknown {
     fn from(value: CurrencyAmount) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CurrencyAmount> for ::windows::runtime::IUnknown {
     fn from(value: &CurrencyAmount) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CurrencyAmount {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CurrencyAmount {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CurrencyAmount {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CurrencyAmount> for ::windows::runtime::IInspectable {
@@ -2309,7 +2309,7 @@ impl ::windows::runtime::DefaultType for DayOfWeek {
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct GeographicRegion(::windows::runtime::IInspectable);
+pub struct GeographicRegion(pub ::windows::runtime::IInspectable);
 impl GeographicRegion {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2410,22 +2410,22 @@ impl ::windows::runtime::RuntimeName for GeographicRegion {
 }
 impl ::std::convert::From<GeographicRegion> for ::windows::runtime::IUnknown {
     fn from(value: GeographicRegion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&GeographicRegion> for ::windows::runtime::IUnknown {
     fn from(value: &GeographicRegion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeographicRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeographicRegion {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a GeographicRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<GeographicRegion> for ::windows::runtime::IInspectable {
@@ -2455,7 +2455,7 @@ unsafe impl ::std::marker::Sync for GeographicRegion {}
 pub struct GlobalizationJapanesePhoneticAnalyzerContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationLanguagesStatics(::windows::runtime::IInspectable);
+pub struct IApplicationLanguagesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationLanguagesStatics {
     type Vtable = IApplicationLanguagesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974732871, 2636, 19090, [149, 101, 253, 99, 201, 95, 122, 237]);
@@ -2478,7 +2478,7 @@ pub struct IApplicationLanguagesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationLanguagesStatics2(::windows::runtime::IInspectable);
+pub struct IApplicationLanguagesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationLanguagesStatics2 {
     type Vtable = IApplicationLanguagesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(502324815, 1835, 19835, [143, 6, 203, 45, 180, 15, 43, 181]);
@@ -2497,7 +2497,7 @@ pub struct IApplicationLanguagesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendar(::windows::runtime::IInspectable);
+pub struct ICalendar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendar {
     type Vtable = ICalendar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3392152093, 34521, 16635, [162, 107, 212, 78, 183, 207, 8, 234]);
@@ -2616,7 +2616,7 @@ pub struct ICalendar_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendarFactory(::windows::runtime::IInspectable);
+pub struct ICalendarFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarFactory {
     type Vtable = ICalendarFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2213905426, 58731, 19573, [166, 110, 15, 99, 213, 119, 88, 166]);
@@ -2637,7 +2637,7 @@ pub struct ICalendarFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendarFactory2(::windows::runtime::IInspectable);
+pub struct ICalendarFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarFactory2 {
     type Vtable = ICalendarFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024828300, 51838, 17808, [158, 114, 234, 43, 236, 26, 81, 21]);
@@ -2656,7 +2656,7 @@ pub struct ICalendarFactory2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendarIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ICalendarIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics {
     type Vtable = ICalendarIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2154119016, 11442, 19487, [181, 144, 240, 245, 43, 244, 253, 26]);
@@ -2682,7 +2682,7 @@ pub struct ICalendarIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendarIdentifiersStatics2(::windows::runtime::IInspectable);
+pub struct ICalendarIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics2 {
     type Vtable = ICalendarIdentifiersStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2113197192, 24528, 17063, [149, 181, 125, 152, 216, 35, 7, 95]);
@@ -2700,7 +2700,7 @@ pub struct ICalendarIdentifiersStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICalendarIdentifiersStatics3(::windows::runtime::IInspectable);
+pub struct ICalendarIdentifiersStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics3 {
     type Vtable = ICalendarIdentifiersStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(740447267, 8109, 16576, [147, 52, 168, 235, 144, 219, 4, 245]);
@@ -2722,7 +2722,7 @@ pub struct ICalendarIdentifiersStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClockIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct IClockIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClockIdentifiersStatics {
     type Vtable = IClockIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1379403195, 4844, 20355, [188, 49, 177, 180, 55, 107, 8, 8]);
@@ -2741,7 +2741,7 @@ pub struct IClockIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyAmount(::windows::runtime::IInspectable);
+pub struct ICurrencyAmount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyAmount {
     type Vtable = ICurrencyAmount_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1957992770, 60277, 17466, [149, 179, 125, 114, 63, 86, 249, 60]);
@@ -2760,7 +2760,7 @@ pub struct ICurrencyAmount_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyAmountFactory(::windows::runtime::IInspectable);
+pub struct ICurrencyAmountFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyAmountFactory {
     type Vtable = ICurrencyAmountFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1222055567, 61243, 19182, [166, 161, 75, 3, 111, 224, 63, 240]);
@@ -2778,7 +2778,7 @@ pub struct ICurrencyAmountFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct ICurrencyIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics {
     type Vtable = ICurrencyIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2669480219, 54662, 18707, [155, 106, 169, 189, 45, 193, 40, 116]);
@@ -2952,7 +2952,7 @@ pub struct ICurrencyIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyIdentifiersStatics2(::windows::runtime::IInspectable);
+pub struct ICurrencyIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics2 {
     type Vtable = ICurrencyIdentifiersStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(403995007, 50098, 19507, [149, 145, 152, 0, 17, 149, 13, 55]);
@@ -2970,7 +2970,7 @@ pub struct ICurrencyIdentifiersStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyIdentifiersStatics3(::windows::runtime::IInspectable);
+pub struct ICurrencyIdentifiersStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics3 {
     type Vtable = ICurrencyIdentifiersStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1337080826, 60709, 20301, [133, 127, 35, 127, 23, 72, 194, 28]);
@@ -2991,7 +2991,7 @@ pub struct ICurrencyIdentifiersStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGeographicRegion(::windows::runtime::IInspectable);
+pub struct IGeographicRegion(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegion {
     type Vtable = IGeographicRegion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32089633, 19044, 20185, [149, 79, 158, 222, 176, 123, 217, 3]);
@@ -3016,7 +3016,7 @@ pub struct IGeographicRegion_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGeographicRegionFactory(::windows::runtime::IInspectable);
+pub struct IGeographicRegionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegionFactory {
     type Vtable = IGeographicRegionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1396855408, 30644, 17003, [133, 159, 129, 225, 157, 81, 37, 70]);
@@ -3034,7 +3034,7 @@ pub struct IGeographicRegionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGeographicRegionStatics(::windows::runtime::IInspectable);
+pub struct IGeographicRegionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegionStatics {
     type Vtable = IGeographicRegionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702712180, 31449, 20212, [135, 153, 179, 180, 79, 173, 236, 8]);
@@ -3052,7 +3052,7 @@ pub struct IGeographicRegionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJapanesePhoneme(::windows::runtime::IInspectable);
+pub struct IJapanesePhoneme(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJapanesePhoneme {
     type Vtable = IJapanesePhoneme_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795513600, 59483, 17382, [137, 125, 93, 130, 248, 98, 223, 33]);
@@ -3072,7 +3072,7 @@ pub struct IJapanesePhoneme_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJapanesePhoneticAnalyzerStatics(::windows::runtime::IInspectable);
+pub struct IJapanesePhoneticAnalyzerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJapanesePhoneticAnalyzerStatics {
     type Vtable = IJapanesePhoneticAnalyzerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292948624, 37854, 16818, [180, 213, 142, 219, 34, 127, 209, 194]);
@@ -3093,7 +3093,7 @@ pub struct IJapanesePhoneticAnalyzerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguage(::windows::runtime::IInspectable);
+pub struct ILanguage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage {
     type Vtable = ILanguage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933841234, 63426, 16997, [177, 189, 196, 222, 196, 228, 240, 128]);
@@ -3114,7 +3114,7 @@ pub struct ILanguage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguage2(::windows::runtime::IInspectable);
+pub struct ILanguage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage2 {
     type Vtable = ILanguage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1783096757, 55629, 18566, [164, 4, 165, 165, 185, 213, 180, 148]);
@@ -3132,7 +3132,7 @@ pub struct ILanguage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguage3(::windows::runtime::IInspectable);
+pub struct ILanguage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage3 {
     type Vtable = ILanguage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333373200, 25626, 23460, [187, 67, 94, 18, 174, 215, 89, 84]);
@@ -3150,7 +3150,7 @@ pub struct ILanguage3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageExtensionSubtags(::windows::runtime::IInspectable);
+pub struct ILanguageExtensionSubtags(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageExtensionSubtags {
     type Vtable = ILanguageExtensionSubtags_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2105388869, 13965, 17252, [133, 43, 222, 201, 39, 3, 123, 133]);
@@ -3169,7 +3169,7 @@ pub struct ILanguageExtensionSubtags_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageFactory(::windows::runtime::IInspectable);
+pub struct ILanguageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFactory {
     type Vtable = ILanguageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2600620716, 3111, 17656, [183, 146, 151, 147, 251, 102, 198, 62]);
@@ -3187,7 +3187,7 @@ pub struct ILanguageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageStatics(::windows::runtime::IInspectable);
+pub struct ILanguageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics {
     type Vtable = ILanguageStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990331223, 2149, 18132, [137, 184, 213, 155, 232, 153, 15, 13]);
@@ -3206,7 +3206,7 @@ pub struct ILanguageStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageStatics2(::windows::runtime::IInspectable);
+pub struct ILanguageStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics2 {
     type Vtable = ILanguageStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806985582, 37195, 19242, [157, 110, 227, 176, 226, 125, 190, 79]);
@@ -3224,7 +3224,7 @@ pub struct ILanguageStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILanguageStatics3(::windows::runtime::IInspectable);
+pub struct ILanguageStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics3 {
     type Vtable = ILanguageStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3512650586, 29150, 22354, [149, 66, 250, 197, 180, 242, 114, 97]);
@@ -3243,7 +3243,7 @@ pub struct ILanguageStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INumeralSystemIdentifiersStatics(::windows::runtime::IInspectable);
+pub struct INumeralSystemIdentifiersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemIdentifiersStatics {
     type Vtable = INumeralSystemIdentifiersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2781242051, 26825, 19773, [183, 101, 151, 32, 41, 226, 29, 236]);
@@ -3296,7 +3296,7 @@ pub struct INumeralSystemIdentifiersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INumeralSystemIdentifiersStatics2(::windows::runtime::IInspectable);
+pub struct INumeralSystemIdentifiersStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemIdentifiersStatics2 {
     type Vtable = INumeralSystemIdentifiersStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2130719272, 40411, 18996, [145, 4, 2, 96, 192, 145, 167, 199]);
@@ -3325,7 +3325,7 @@ pub struct INumeralSystemIdentifiersStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITimeZoneOnCalendar(::windows::runtime::IInspectable);
+pub struct ITimeZoneOnCalendar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneOnCalendar {
     type Vtable = ITimeZoneOnCalendar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141281253, 18127, 17175, [163, 245, 2, 98, 26, 213, 68, 120]);
@@ -3347,7 +3347,7 @@ pub struct ITimeZoneOnCalendar_abi(
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct JapanesePhoneme(::windows::runtime::IInspectable);
+pub struct JapanesePhoneme(pub ::windows::runtime::IInspectable);
 impl JapanesePhoneme {
     #[doc = "*Required features: `Globalization`*"]
     pub fn DisplayText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3386,22 +3386,22 @@ impl ::windows::runtime::RuntimeName for JapanesePhoneme {
 }
 impl ::std::convert::From<JapanesePhoneme> for ::windows::runtime::IUnknown {
     fn from(value: JapanesePhoneme) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&JapanesePhoneme> for ::windows::runtime::IUnknown {
     fn from(value: &JapanesePhoneme) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JapanesePhoneme {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JapanesePhoneme {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a JapanesePhoneme {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<JapanesePhoneme> for ::windows::runtime::IInspectable {
@@ -3454,7 +3454,7 @@ impl ::windows::runtime::RuntimeName for JapanesePhoneticAnalyzer {
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Language(::windows::runtime::IInspectable);
+pub struct Language(pub ::windows::runtime::IInspectable);
 impl Language {
     #[doc = "*Required features: `Globalization`*"]
     pub fn LanguageTag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3578,22 +3578,22 @@ impl ::windows::runtime::RuntimeName for Language {
 }
 impl ::std::convert::From<Language> for ::windows::runtime::IUnknown {
     fn from(value: Language) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Language> for ::windows::runtime::IUnknown {
     fn from(value: &Language) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Language {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Language {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Language {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Language> for ::windows::runtime::IInspectable {

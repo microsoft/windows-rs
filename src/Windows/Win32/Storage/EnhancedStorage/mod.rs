@@ -279,7 +279,7 @@ pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows::runtime::GUID = ::
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnhancedStorageACT(::windows::runtime::IUnknown);
+pub struct IEnhancedStorageACT(pub ::windows::runtime::IUnknown);
 impl IEnhancedStorageACT {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -317,22 +317,22 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT {
 }
 impl ::std::convert::From<IEnhancedStorageACT> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageACT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnhancedStorageACT> for ::windows::runtime::IUnknown {
     fn from(value: &IEnhancedStorageACT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -353,7 +353,7 @@ pub struct IEnhancedStorageACT_abi(
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnhancedStorageACT2(::windows::runtime::IUnknown);
+pub struct IEnhancedStorageACT2(pub ::windows::runtime::IUnknown);
 impl IEnhancedStorageACT2 {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -403,22 +403,22 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT2 {
 }
 impl ::std::convert::From<IEnhancedStorageACT2> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageACT2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnhancedStorageACT2> for ::windows::runtime::IUnknown {
     fn from(value: &IEnhancedStorageACT2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IEnhancedStorageACT2> for IEnhancedStorageACT {
@@ -463,7 +463,7 @@ pub struct IEnhancedStorageACT2_abi(
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnhancedStorageACT3(::windows::runtime::IUnknown);
+pub struct IEnhancedStorageACT3(pub ::windows::runtime::IUnknown);
 impl IEnhancedStorageACT3 {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
@@ -529,22 +529,22 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT3 {
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageACT3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnhancedStorageACT3> for ::windows::runtime::IUnknown {
     fn from(value: &IEnhancedStorageACT3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT2 {
@@ -614,7 +614,7 @@ pub struct IEnhancedStorageACT3_abi(
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnhancedStorageSilo(::windows::runtime::IUnknown);
+pub struct IEnhancedStorageSilo(pub ::windows::runtime::IUnknown);
 impl IEnhancedStorageSilo {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<SILO_INFO> {
@@ -648,22 +648,22 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageSilo {
 }
 impl ::std::convert::From<IEnhancedStorageSilo> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageSilo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnhancedStorageSilo> for ::windows::runtime::IUnknown {
     fn from(value: &IEnhancedStorageSilo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageSilo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageSilo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnhancedStorageSilo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -683,7 +683,7 @@ pub struct IEnhancedStorageSilo_abi(
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnhancedStorageSiloAction(::windows::runtime::IUnknown);
+pub struct IEnhancedStorageSiloAction(pub ::windows::runtime::IUnknown);
 impl IEnhancedStorageSiloAction {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_Foundation`*"]
@@ -708,22 +708,22 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageSiloAction {
 }
 impl ::std::convert::From<IEnhancedStorageSiloAction> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageSiloAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnhancedStorageSiloAction> for ::windows::runtime::IUnknown {
     fn from(value: &IEnhancedStorageSiloAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageSiloAction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageSiloAction {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnhancedStorageSiloAction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -741,7 +741,7 @@ pub struct IEnhancedStorageSiloAction_abi(
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumEnhancedStorageACT(::windows::runtime::IUnknown);
+pub struct IEnumEnhancedStorageACT(pub ::windows::runtime::IUnknown);
 impl IEnumEnhancedStorageACT {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
     pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::std::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::runtime::Result<()> {
@@ -760,22 +760,22 @@ unsafe impl ::windows::runtime::Interface for IEnumEnhancedStorageACT {
 }
 impl ::std::convert::From<IEnumEnhancedStorageACT> for ::windows::runtime::IUnknown {
     fn from(value: IEnumEnhancedStorageACT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumEnhancedStorageACT> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumEnhancedStorageACT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumEnhancedStorageACT {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Phone_Devices_Power`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Battery(::windows::runtime::IInspectable);
+pub struct Battery(pub ::windows::runtime::IInspectable);
 impl Battery {
     #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn RemainingChargePercent(&self) -> ::windows::runtime::Result<i32> {
@@ -60,22 +60,22 @@ impl ::windows::runtime::RuntimeName for Battery {
 }
 impl ::std::convert::From<Battery> for ::windows::runtime::IUnknown {
     fn from(value: Battery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Battery> for ::windows::runtime::IUnknown {
     fn from(value: &Battery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Battery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Battery {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Battery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Battery> for ::windows::runtime::IInspectable {
@@ -102,7 +102,7 @@ unsafe impl ::std::marker::Send for Battery {}
 unsafe impl ::std::marker::Sync for Battery {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBattery(::windows::runtime::IInspectable);
+pub struct IBattery(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBattery {
     type Vtable = IBattery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536168413, 26400, 18178, [164, 118, 185, 211, 138, 0, 112, 227]);
@@ -126,7 +126,7 @@ pub struct IBattery_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBatteryStatics(::windows::runtime::IInspectable);
+pub struct IBatteryStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBatteryStatics {
     type Vtable = IBatteryStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4210408560, 25449, 4577, [184, 108, 8, 0, 32, 12, 154, 102]);

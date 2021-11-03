@@ -3,7 +3,7 @@
 pub mod Provider;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentAddress(::windows::runtime::IInspectable);
+pub struct IPaymentAddress(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAddress {
     type Vtable = IPaymentAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596089577, 28474, 16742, [160, 24, 10, 11, 6, 187, 50, 181]);
@@ -46,7 +46,7 @@ pub struct IPaymentAddress_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentCanMakePaymentResult(::windows::runtime::IInspectable);
+pub struct IPaymentCanMakePaymentResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCanMakePaymentResult {
     type Vtable = IPaymentCanMakePaymentResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1989606997, 54739, 19773, [179, 69, 69, 89, 23, 89, 197, 16]);
@@ -64,7 +64,7 @@ pub struct IPaymentCanMakePaymentResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentCanMakePaymentResultFactory(::windows::runtime::IInspectable);
+pub struct IPaymentCanMakePaymentResultFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCanMakePaymentResultFactory {
     type Vtable = IPaymentCanMakePaymentResultFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3151800894, 32073, 20329, [170, 83, 42, 15, 129, 100, 183, 201]);
@@ -82,7 +82,7 @@ pub struct IPaymentCanMakePaymentResultFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentCurrencyAmount(::windows::runtime::IInspectable);
+pub struct IPaymentCurrencyAmount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCurrencyAmount {
     type Vtable = IPaymentCurrencyAmount_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3819170272, 46111, 18823, [189, 203, 7, 19, 49, 242, 218, 164]);
@@ -105,7 +105,7 @@ pub struct IPaymentCurrencyAmount_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentCurrencyAmountFactory(::windows::runtime::IInspectable);
+pub struct IPaymentCurrencyAmountFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentCurrencyAmountFactory {
     type Vtable = IPaymentCurrencyAmountFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(844616504, 5132, 17781, [133, 53, 247, 115, 23, 140, 9, 167]);
@@ -124,7 +124,7 @@ pub struct IPaymentCurrencyAmountFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentDetails(::windows::runtime::IInspectable);
+pub struct IPaymentDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetails {
     type Vtable = IPaymentDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404775805, 57579, 16467, [142, 174, 206, 124, 72, 224, 41, 69]);
@@ -155,7 +155,7 @@ pub struct IPaymentDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentDetailsFactory(::windows::runtime::IInspectable);
+pub struct IPaymentDetailsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetailsFactory {
     type Vtable = IPaymentDetailsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488133102, 49386, 19617, [139, 199, 109, 230, 123, 31, 55, 99]);
@@ -175,7 +175,7 @@ pub struct IPaymentDetailsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentDetailsModifier(::windows::runtime::IInspectable);
+pub struct IPaymentDetailsModifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetailsModifier {
     type Vtable = IPaymentDetailsModifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189538149, 17187, 16855, [179, 5, 223, 203, 118, 95, 105, 222]);
@@ -198,7 +198,7 @@ pub struct IPaymentDetailsModifier_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentDetailsModifierFactory(::windows::runtime::IInspectable);
+pub struct IPaymentDetailsModifierFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentDetailsModifierFactory {
     type Vtable = IPaymentDetailsModifierFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2030064262, 21726, 17052, [158, 79, 93, 206, 110, 16, 235, 206]);
@@ -221,7 +221,7 @@ pub struct IPaymentDetailsModifierFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentItem(::windows::runtime::IInspectable);
+pub struct IPaymentItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentItem {
     type Vtable = IPaymentItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750780043, 31154, 19318, [158, 3, 168, 118, 34, 61, 254, 114]);
@@ -244,7 +244,7 @@ pub struct IPaymentItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentItemFactory(::windows::runtime::IInspectable);
+pub struct IPaymentItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentItemFactory {
     type Vtable = IPaymentItemFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333126872, 9475, 19741, [167, 120, 2, 178, 229, 146, 123, 44]);
@@ -262,7 +262,7 @@ pub struct IPaymentItemFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentMediator(::windows::runtime::IInspectable);
+pub struct IPaymentMediator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMediator {
     type Vtable = IPaymentMediator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4212058153, 60428, 17562, [131, 218, 122, 227, 7, 51, 101, 162]);
@@ -285,7 +285,7 @@ pub struct IPaymentMediator_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentMediator2(::windows::runtime::IInspectable);
+pub struct IPaymentMediator2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMediator2 {
     type Vtable = IPaymentMediator2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3471808753, 58375, 16680, [142, 115, 217, 61, 95, 130, 39, 134]);
@@ -304,7 +304,7 @@ pub struct IPaymentMediator2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentMerchantInfo(::windows::runtime::IInspectable);
+pub struct IPaymentMerchantInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMerchantInfo {
     type Vtable = IPaymentMerchantInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665421392, 3732, 20182, [170, 203, 230, 1, 43, 211, 39, 167]);
@@ -324,7 +324,7 @@ pub struct IPaymentMerchantInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentMerchantInfoFactory(::windows::runtime::IInspectable);
+pub struct IPaymentMerchantInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMerchantInfoFactory {
     type Vtable = IPaymentMerchantInfoFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2659831507, 52407, 16743, [168, 236, 225, 10, 233, 109, 188, 209]);
@@ -343,7 +343,7 @@ pub struct IPaymentMerchantInfoFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentMethodData(::windows::runtime::IInspectable);
+pub struct IPaymentMethodData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMethodData {
     type Vtable = IPaymentMethodData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3520318196, 56984, 16681, [177, 183, 195, 173, 134, 35, 123, 244]);
@@ -363,7 +363,7 @@ pub struct IPaymentMethodData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentMethodDataFactory(::windows::runtime::IInspectable);
+pub struct IPaymentMethodDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentMethodDataFactory {
     type Vtable = IPaymentMethodDataFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2329793151, 39850, 19074, [131, 66, 168, 33, 9, 146, 163, 107]);
@@ -384,7 +384,7 @@ pub struct IPaymentMethodDataFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentOptions(::windows::runtime::IInspectable);
+pub struct IPaymentOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentOptions {
     type Vtable = IPaymentOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2862811220, 7979, 17253, [130, 81, 1, 181, 137, 21, 165, 188]);
@@ -411,7 +411,7 @@ pub struct IPaymentOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequest(::windows::runtime::IInspectable);
+pub struct IPaymentRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequest {
     type Vtable = IPaymentRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3075031777, 60795, 18411, [188, 8, 120, 204, 93, 104, 150, 182]);
@@ -433,7 +433,7 @@ pub struct IPaymentRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequest2(::windows::runtime::IInspectable);
+pub struct IPaymentRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequest2 {
     type Vtable = IPaymentRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3057438645, 22936, 18750, [160, 76, 103, 4, 138, 80, 241, 65]);
@@ -451,7 +451,7 @@ pub struct IPaymentRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequestChangedArgs(::windows::runtime::IInspectable);
+pub struct IPaymentRequestChangedArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestChangedArgs {
     type Vtable = IPaymentRequestChangedArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3323223620, 52619, 19428, [181, 85, 39, 201, 145, 148, 192, 197]);
@@ -472,7 +472,7 @@ pub struct IPaymentRequestChangedArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequestChangedResult(::windows::runtime::IInspectable);
+pub struct IPaymentRequestChangedResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestChangedResult {
     type Vtable = IPaymentRequestChangedResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3748240988, 5828, 18349, [148, 1, 132, 64, 236, 7, 87, 219]);
@@ -495,7 +495,7 @@ pub struct IPaymentRequestChangedResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequestChangedResultFactory(::windows::runtime::IInspectable);
+pub struct IPaymentRequestChangedResultFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestChangedResultFactory {
     type Vtable = IPaymentRequestChangedResultFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141823830, 7475, 17457, [129, 75, 103, 234, 36, 191, 33, 219]);
@@ -514,7 +514,7 @@ pub struct IPaymentRequestChangedResultFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequestFactory(::windows::runtime::IInspectable);
+pub struct IPaymentRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestFactory {
     type Vtable = IPaymentRequestFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049262556, 27508, 17107, [177, 3, 240, 222, 53, 251, 24, 72]);
@@ -537,7 +537,7 @@ pub struct IPaymentRequestFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequestFactory2(::windows::runtime::IInspectable);
+pub struct IPaymentRequestFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestFactory2 {
     type Vtable = IPaymentRequestFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872264997, 42246, 17266, [183, 239, 26, 3, 29, 86, 98, 209]);
@@ -556,7 +556,7 @@ pub struct IPaymentRequestFactory2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentRequestSubmitResult(::windows::runtime::IInspectable);
+pub struct IPaymentRequestSubmitResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentRequestSubmitResult {
     type Vtable = IPaymentRequestSubmitResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073835794, 12530, 20112, [178, 73, 140, 231, 215, 143, 254, 86]);
@@ -575,7 +575,7 @@ pub struct IPaymentRequestSubmitResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentResponse(::windows::runtime::IInspectable);
+pub struct IPaymentResponse(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentResponse {
     type Vtable = IPaymentResponse_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778581591, 35794, 18568, [159, 168, 151, 152, 85, 69, 16, 142]);
@@ -600,7 +600,7 @@ pub struct IPaymentResponse_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentShippingOption(::windows::runtime::IInspectable);
+pub struct IPaymentShippingOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentShippingOption {
     type Vtable = IPaymentShippingOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322382554, 38739, 17780, [137, 102, 147, 20, 90, 118, 199, 249]);
@@ -625,7 +625,7 @@ pub struct IPaymentShippingOption_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentShippingOptionFactory(::windows::runtime::IInspectable);
+pub struct IPaymentShippingOptionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentShippingOptionFactory {
     type Vtable = IPaymentShippingOptionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1575352599, 45783, 17515, [157, 115, 97, 35, 251, 202, 59, 198]);
@@ -645,7 +645,7 @@ pub struct IPaymentShippingOptionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentToken(::windows::runtime::IInspectable);
+pub struct IPaymentToken(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentToken {
     type Vtable = IPaymentToken_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3150626835, 52432, 16882, [178, 161, 10, 46, 75, 93, 206, 37]);
@@ -664,7 +664,7 @@ pub struct IPaymentToken_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentTokenFactory(::windows::runtime::IInspectable);
+pub struct IPaymentTokenFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTokenFactory {
     type Vtable = IPaymentTokenFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559367082, 18259, 18692, [131, 115, 221, 123, 8, 185, 149, 193]);
@@ -684,7 +684,7 @@ pub struct IPaymentTokenFactory_abi(
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentAddress(::windows::runtime::IInspectable);
+pub struct PaymentAddress(pub ::windows::runtime::IInspectable);
 impl PaymentAddress {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -860,22 +860,22 @@ impl ::windows::runtime::RuntimeName for PaymentAddress {
 }
 impl ::std::convert::From<PaymentAddress> for ::windows::runtime::IUnknown {
     fn from(value: PaymentAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentAddress> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentAddress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentAddress> for ::windows::runtime::IInspectable {
@@ -903,7 +903,7 @@ unsafe impl ::std::marker::Sync for PaymentAddress {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentCanMakePaymentResult(::windows::runtime::IInspectable);
+pub struct PaymentCanMakePaymentResult(pub ::windows::runtime::IInspectable);
 impl PaymentCanMakePaymentResult {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PaymentCanMakePaymentResultStatus> {
@@ -937,22 +937,22 @@ impl ::windows::runtime::RuntimeName for PaymentCanMakePaymentResult {
 }
 impl ::std::convert::From<PaymentCanMakePaymentResult> for ::windows::runtime::IUnknown {
     fn from(value: PaymentCanMakePaymentResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentCanMakePaymentResult> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentCanMakePaymentResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentCanMakePaymentResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentCanMakePaymentResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentCanMakePaymentResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentCanMakePaymentResult> for ::windows::runtime::IInspectable {
@@ -1007,7 +1007,7 @@ impl ::windows::runtime::DefaultType for PaymentCanMakePaymentResultStatus {
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentCurrencyAmount(::windows::runtime::IInspectable);
+pub struct PaymentCurrencyAmount(pub ::windows::runtime::IInspectable);
 impl PaymentCurrencyAmount {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Currency(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1079,22 +1079,22 @@ impl ::windows::runtime::RuntimeName for PaymentCurrencyAmount {
 }
 impl ::std::convert::From<PaymentCurrencyAmount> for ::windows::runtime::IUnknown {
     fn from(value: PaymentCurrencyAmount) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentCurrencyAmount> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentCurrencyAmount) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentCurrencyAmount {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentCurrencyAmount {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentCurrencyAmount {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentCurrencyAmount> for ::windows::runtime::IInspectable {
@@ -1122,7 +1122,7 @@ unsafe impl ::std::marker::Sync for PaymentCurrencyAmount {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentDetails(::windows::runtime::IInspectable);
+pub struct PaymentDetails(pub ::windows::runtime::IInspectable);
 impl PaymentDetails {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1221,22 +1221,22 @@ impl ::windows::runtime::RuntimeName for PaymentDetails {
 }
 impl ::std::convert::From<PaymentDetails> for ::windows::runtime::IUnknown {
     fn from(value: PaymentDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentDetails {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentDetails> for ::windows::runtime::IInspectable {
@@ -1264,7 +1264,7 @@ unsafe impl ::std::marker::Sync for PaymentDetails {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentDetailsModifier(::windows::runtime::IInspectable);
+pub struct PaymentDetailsModifier(pub ::windows::runtime::IInspectable);
 impl PaymentDetailsModifier {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn JsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1346,22 +1346,22 @@ impl ::windows::runtime::RuntimeName for PaymentDetailsModifier {
 }
 impl ::std::convert::From<PaymentDetailsModifier> for ::windows::runtime::IUnknown {
     fn from(value: PaymentDetailsModifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentDetailsModifier> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentDetailsModifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentDetailsModifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentDetailsModifier {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentDetailsModifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentDetailsModifier> for ::windows::runtime::IInspectable {
@@ -1389,7 +1389,7 @@ unsafe impl ::std::marker::Sync for PaymentDetailsModifier {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentItem(::windows::runtime::IInspectable);
+pub struct PaymentItem(pub ::windows::runtime::IInspectable);
 impl PaymentItem {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1454,22 +1454,22 @@ impl ::windows::runtime::RuntimeName for PaymentItem {
 }
 impl ::std::convert::From<PaymentItem> for ::windows::runtime::IUnknown {
     fn from(value: PaymentItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentItem> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentItem> for ::windows::runtime::IInspectable {
@@ -1497,7 +1497,7 @@ unsafe impl ::std::marker::Sync for PaymentItem {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentMediator(::windows::runtime::IInspectable);
+pub struct PaymentMediator(pub ::windows::runtime::IInspectable);
 impl PaymentMediator {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1555,22 +1555,22 @@ impl ::windows::runtime::RuntimeName for PaymentMediator {
 }
 impl ::std::convert::From<PaymentMediator> for ::windows::runtime::IUnknown {
     fn from(value: PaymentMediator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentMediator> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentMediator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentMediator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentMediator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentMediator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentMediator> for ::windows::runtime::IInspectable {
@@ -1598,7 +1598,7 @@ unsafe impl ::std::marker::Sync for PaymentMediator {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentMerchantInfo(::windows::runtime::IInspectable);
+pub struct PaymentMerchantInfo(pub ::windows::runtime::IInspectable);
 impl PaymentMerchantInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1649,22 +1649,22 @@ impl ::windows::runtime::RuntimeName for PaymentMerchantInfo {
 }
 impl ::std::convert::From<PaymentMerchantInfo> for ::windows::runtime::IUnknown {
     fn from(value: PaymentMerchantInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentMerchantInfo> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentMerchantInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentMerchantInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentMerchantInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentMerchantInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentMerchantInfo> for ::windows::runtime::IInspectable {
@@ -1692,7 +1692,7 @@ unsafe impl ::std::marker::Sync for PaymentMerchantInfo {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentMethodData(::windows::runtime::IInspectable);
+pub struct PaymentMethodData(pub ::windows::runtime::IInspectable);
 impl PaymentMethodData {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Payments`, `Foundation_Collections`*"]
@@ -1744,22 +1744,22 @@ impl ::windows::runtime::RuntimeName for PaymentMethodData {
 }
 impl ::std::convert::From<PaymentMethodData> for ::windows::runtime::IUnknown {
     fn from(value: PaymentMethodData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentMethodData> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentMethodData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentMethodData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentMethodData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentMethodData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentMethodData> for ::windows::runtime::IInspectable {
@@ -1810,7 +1810,7 @@ impl ::windows::runtime::DefaultType for PaymentOptionPresence {
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentOptions(::windows::runtime::IInspectable);
+pub struct PaymentOptions(pub ::windows::runtime::IInspectable);
 impl PaymentOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1897,22 +1897,22 @@ impl ::windows::runtime::RuntimeName for PaymentOptions {
 }
 impl ::std::convert::From<PaymentOptions> for ::windows::runtime::IUnknown {
     fn from(value: PaymentOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentOptions> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentOptions> for ::windows::runtime::IInspectable {
@@ -1940,7 +1940,7 @@ unsafe impl ::std::marker::Sync for PaymentOptions {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentRequest(::windows::runtime::IInspectable);
+pub struct PaymentRequest(pub ::windows::runtime::IInspectable);
 impl PaymentRequest {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn MerchantInfo(&self) -> ::windows::runtime::Result<PaymentMerchantInfo> {
@@ -2042,22 +2042,22 @@ impl ::windows::runtime::RuntimeName for PaymentRequest {
 }
 impl ::std::convert::From<PaymentRequest> for ::windows::runtime::IUnknown {
     fn from(value: PaymentRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentRequest> for ::windows::runtime::IInspectable {
@@ -2107,7 +2107,7 @@ impl ::windows::runtime::DefaultType for PaymentRequestChangeKind {
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentRequestChangedArgs(::windows::runtime::IInspectable);
+pub struct PaymentRequestChangedArgs(pub ::windows::runtime::IInspectable);
 impl PaymentRequestChangedArgs {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn ChangeKind(&self) -> ::windows::runtime::Result<PaymentRequestChangeKind> {
@@ -2151,22 +2151,22 @@ impl ::windows::runtime::RuntimeName for PaymentRequestChangedArgs {
 }
 impl ::std::convert::From<PaymentRequestChangedArgs> for ::windows::runtime::IUnknown {
     fn from(value: PaymentRequestChangedArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentRequestChangedArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentRequestChangedArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentRequestChangedArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentRequestChangedArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentRequestChangedArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentRequestChangedArgs> for ::windows::runtime::IInspectable {
@@ -2271,7 +2271,7 @@ impl<F: FnMut(&::std::option::Option<PaymentRequest>, &::std::option::Option<Pay
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentRequestChangedResult(::windows::runtime::IInspectable);
+pub struct PaymentRequestChangedResult(pub ::windows::runtime::IInspectable);
 impl PaymentRequestChangedResult {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn ChangeAcceptedByMerchant(&self) -> ::windows::runtime::Result<bool> {
@@ -2343,22 +2343,22 @@ impl ::windows::runtime::RuntimeName for PaymentRequestChangedResult {
 }
 impl ::std::convert::From<PaymentRequestChangedResult> for ::windows::runtime::IUnknown {
     fn from(value: PaymentRequestChangedResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentRequestChangedResult> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentRequestChangedResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentRequestChangedResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentRequestChangedResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentRequestChangedResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentRequestChangedResult> for ::windows::runtime::IInspectable {
@@ -2432,7 +2432,7 @@ impl ::windows::runtime::DefaultType for PaymentRequestStatus {
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentRequestSubmitResult(::windows::runtime::IInspectable);
+pub struct PaymentRequestSubmitResult(pub ::windows::runtime::IInspectable);
 impl PaymentRequestSubmitResult {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PaymentRequestStatus> {
@@ -2463,22 +2463,22 @@ impl ::windows::runtime::RuntimeName for PaymentRequestSubmitResult {
 }
 impl ::std::convert::From<PaymentRequestSubmitResult> for ::windows::runtime::IUnknown {
     fn from(value: PaymentRequestSubmitResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentRequestSubmitResult> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentRequestSubmitResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentRequestSubmitResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentRequestSubmitResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentRequestSubmitResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentRequestSubmitResult> for ::windows::runtime::IInspectable {
@@ -2506,7 +2506,7 @@ unsafe impl ::std::marker::Sync for PaymentRequestSubmitResult {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentResponse(::windows::runtime::IInspectable);
+pub struct PaymentResponse(pub ::windows::runtime::IInspectable);
 impl PaymentResponse {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn PaymentToken(&self) -> ::windows::runtime::Result<PaymentToken> {
@@ -2578,22 +2578,22 @@ impl ::windows::runtime::RuntimeName for PaymentResponse {
 }
 impl ::std::convert::From<PaymentResponse> for ::windows::runtime::IUnknown {
     fn from(value: PaymentResponse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentResponse> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentResponse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentResponse {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentResponse {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentResponse {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentResponse> for ::windows::runtime::IInspectable {
@@ -2621,7 +2621,7 @@ unsafe impl ::std::marker::Sync for PaymentResponse {}
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentShippingOption(::windows::runtime::IInspectable);
+pub struct PaymentShippingOption(pub ::windows::runtime::IInspectable);
 impl PaymentShippingOption {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2713,22 +2713,22 @@ impl ::windows::runtime::RuntimeName for PaymentShippingOption {
 }
 impl ::std::convert::From<PaymentShippingOption> for ::windows::runtime::IUnknown {
     fn from(value: PaymentShippingOption) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentShippingOption> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentShippingOption) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentShippingOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentShippingOption {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentShippingOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentShippingOption> for ::windows::runtime::IInspectable {
@@ -2779,7 +2779,7 @@ impl ::windows::runtime::DefaultType for PaymentShippingType {
 #[doc = "*Required features: `ApplicationModel_Payments`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PaymentToken(::windows::runtime::IInspectable);
+pub struct PaymentToken(pub ::windows::runtime::IInspectable);
 impl PaymentToken {
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn PaymentMethodId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2828,22 +2828,22 @@ impl ::windows::runtime::RuntimeName for PaymentToken {
 }
 impl ::std::convert::From<PaymentToken> for ::windows::runtime::IUnknown {
     fn from(value: PaymentToken) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PaymentToken> for ::windows::runtime::IUnknown {
     fn from(value: &PaymentToken) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentToken {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentToken {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentToken {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PaymentToken> for ::windows::runtime::IInspectable {

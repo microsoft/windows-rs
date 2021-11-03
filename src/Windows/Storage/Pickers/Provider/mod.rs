@@ -26,7 +26,7 @@ impl ::windows::runtime::DefaultType for AddFileResult {
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FileOpenPickerUI(::windows::runtime::IInspectable);
+pub struct FileOpenPickerUI(pub ::windows::runtime::IInspectable);
 impl FileOpenPickerUI {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn AddFile<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::IStorageFile>>(&self, id: Param0, file: Param1) -> ::windows::runtime::Result<AddFileResult> {
@@ -140,22 +140,22 @@ impl ::windows::runtime::RuntimeName for FileOpenPickerUI {
 }
 impl ::std::convert::From<FileOpenPickerUI> for ::windows::runtime::IUnknown {
     fn from(value: FileOpenPickerUI) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FileOpenPickerUI> for ::windows::runtime::IUnknown {
     fn from(value: &FileOpenPickerUI) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileOpenPickerUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileOpenPickerUI {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileOpenPickerUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FileOpenPickerUI> for ::windows::runtime::IInspectable {
@@ -181,7 +181,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FileRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct FileRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl FileRemovedEventArgs {
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
@@ -205,22 +205,22 @@ impl ::windows::runtime::RuntimeName for FileRemovedEventArgs {
 }
 impl ::std::convert::From<FileRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: FileRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FileRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &FileRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileRemovedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileRemovedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FileRemovedEventArgs> for ::windows::runtime::IInspectable {
@@ -246,7 +246,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FileSavePickerUI(::windows::runtime::IInspectable);
+pub struct FileSavePickerUI(pub ::windows::runtime::IInspectable);
 impl FileSavePickerUI {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -337,22 +337,22 @@ impl ::windows::runtime::RuntimeName for FileSavePickerUI {
 }
 impl ::std::convert::From<FileSavePickerUI> for ::windows::runtime::IUnknown {
     fn from(value: FileSavePickerUI) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FileSavePickerUI> for ::windows::runtime::IUnknown {
     fn from(value: &FileSavePickerUI) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileSavePickerUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileSavePickerUI {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileSavePickerUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FileSavePickerUI> for ::windows::runtime::IInspectable {
@@ -399,7 +399,7 @@ impl ::windows::runtime::DefaultType for FileSelectionMode {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileOpenPickerUI(::windows::runtime::IInspectable);
+pub struct IFileOpenPickerUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerUI {
     type Vtable = IFileOpenPickerUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3718535696, 63956, 16580, [138, 245, 197, 182, 181, 166, 29, 29]);
@@ -434,7 +434,7 @@ pub struct IFileOpenPickerUI_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IFileRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileRemovedEventArgs {
     type Vtable = IFileRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319045031, 32714, 19499, [158, 202, 104, 144, 249, 240, 1, 133]);
@@ -452,7 +452,7 @@ pub struct IFileRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileSavePickerUI(::windows::runtime::IInspectable);
+pub struct IFileSavePickerUI(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerUI {
     type Vtable = IFileSavePickerUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522268135, 15958, 17356, [138, 57, 51, 199, 61, 157, 84, 43]);
@@ -484,7 +484,7 @@ pub struct IFileSavePickerUI_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPickerClosingDeferral(::windows::runtime::IInspectable);
+pub struct IPickerClosingDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerClosingDeferral {
     type Vtable = IPickerClosingDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2063071006, 6759, 18993, [174, 128, 233, 7, 112, 138, 97, 155]);
@@ -502,7 +502,7 @@ pub struct IPickerClosingDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPickerClosingEventArgs(::windows::runtime::IInspectable);
+pub struct IPickerClosingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerClosingEventArgs {
     type Vtable = IPickerClosingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119823908, 45874, 20242, [139, 159, 168, 194, 240, 107, 50, 205]);
@@ -521,7 +521,7 @@ pub struct IPickerClosingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPickerClosingOperation(::windows::runtime::IInspectable);
+pub struct IPickerClosingOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerClosingOperation {
     type Vtable = IPickerClosingOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290402692, 48878, 20025, [167, 115, 252, 95, 14, 174, 50, 141]);
@@ -541,7 +541,7 @@ pub struct IPickerClosingOperation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITargetFileRequest(::windows::runtime::IInspectable);
+pub struct ITargetFileRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetFileRequest {
     type Vtable = ITargetFileRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1119695701, 32648, 18315, [142, 129, 105, 11, 32, 52, 6, 120]);
@@ -561,7 +561,7 @@ pub struct ITargetFileRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITargetFileRequestDeferral(::windows::runtime::IInspectable);
+pub struct ITargetFileRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetFileRequestDeferral {
     type Vtable = ITargetFileRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1257151889, 48917, 19881, [149, 246, 246, 183, 213, 88, 34, 91]);
@@ -579,7 +579,7 @@ pub struct ITargetFileRequestDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITargetFileRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct ITargetFileRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetFileRequestedEventArgs {
     type Vtable = ITargetFileRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2976111553, 6993, 19593, [165, 145, 15, 212, 11, 60, 87, 201]);
@@ -598,7 +598,7 @@ pub struct ITargetFileRequestedEventArgs_abi(
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PickerClosingDeferral(::windows::runtime::IInspectable);
+pub struct PickerClosingDeferral(pub ::windows::runtime::IInspectable);
 impl PickerClosingDeferral {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -618,22 +618,22 @@ impl ::windows::runtime::RuntimeName for PickerClosingDeferral {
 }
 impl ::std::convert::From<PickerClosingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: PickerClosingDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PickerClosingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &PickerClosingDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PickerClosingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PickerClosingDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PickerClosingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PickerClosingDeferral> for ::windows::runtime::IInspectable {
@@ -659,7 +659,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PickerClosingEventArgs(::windows::runtime::IInspectable);
+pub struct PickerClosingEventArgs(pub ::windows::runtime::IInspectable);
 impl PickerClosingEventArgs {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn ClosingOperation(&self) -> ::windows::runtime::Result<PickerClosingOperation> {
@@ -690,22 +690,22 @@ impl ::windows::runtime::RuntimeName for PickerClosingEventArgs {
 }
 impl ::std::convert::From<PickerClosingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PickerClosingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PickerClosingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PickerClosingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PickerClosingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PickerClosingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PickerClosingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PickerClosingEventArgs> for ::windows::runtime::IInspectable {
@@ -731,7 +731,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PickerClosingOperation(::windows::runtime::IInspectable);
+pub struct PickerClosingOperation(pub ::windows::runtime::IInspectable);
 impl PickerClosingOperation {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<PickerClosingDeferral> {
@@ -763,22 +763,22 @@ impl ::windows::runtime::RuntimeName for PickerClosingOperation {
 }
 impl ::std::convert::From<PickerClosingOperation> for ::windows::runtime::IUnknown {
     fn from(value: PickerClosingOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PickerClosingOperation> for ::windows::runtime::IUnknown {
     fn from(value: &PickerClosingOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PickerClosingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PickerClosingOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PickerClosingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PickerClosingOperation> for ::windows::runtime::IInspectable {
@@ -827,7 +827,7 @@ impl ::windows::runtime::DefaultType for SetFileNameResult {
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TargetFileRequest(::windows::runtime::IInspectable);
+pub struct TargetFileRequest(pub ::windows::runtime::IInspectable);
 impl TargetFileRequest {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn TargetFile(&self) -> ::windows::runtime::Result<super::super::IStorageFile> {
@@ -863,22 +863,22 @@ impl ::windows::runtime::RuntimeName for TargetFileRequest {
 }
 impl ::std::convert::From<TargetFileRequest> for ::windows::runtime::IUnknown {
     fn from(value: TargetFileRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TargetFileRequest> for ::windows::runtime::IUnknown {
     fn from(value: &TargetFileRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetFileRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetFileRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TargetFileRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TargetFileRequest> for ::windows::runtime::IInspectable {
@@ -904,7 +904,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TargetFileRequestDeferral(::windows::runtime::IInspectable);
+pub struct TargetFileRequestDeferral(pub ::windows::runtime::IInspectable);
 impl TargetFileRequestDeferral {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -924,22 +924,22 @@ impl ::windows::runtime::RuntimeName for TargetFileRequestDeferral {
 }
 impl ::std::convert::From<TargetFileRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: TargetFileRequestDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TargetFileRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &TargetFileRequestDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetFileRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetFileRequestDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TargetFileRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TargetFileRequestDeferral> for ::windows::runtime::IInspectable {
@@ -965,7 +965,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct TargetFileRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct TargetFileRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl TargetFileRequestedEventArgs {
     #[doc = "*Required features: `Storage_Pickers_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<TargetFileRequest> {
@@ -988,22 +988,22 @@ impl ::windows::runtime::RuntimeName for TargetFileRequestedEventArgs {
 }
 impl ::std::convert::From<TargetFileRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TargetFileRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&TargetFileRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TargetFileRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetFileRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetFileRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TargetFileRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<TargetFileRequestedEventArgs> for ::windows::runtime::IInspectable {

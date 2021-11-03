@@ -329,7 +329,7 @@ unsafe impl ::windows::runtime::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ILocationPermissions(::windows::runtime::IUnknown);
+pub struct ILocationPermissions(pub ::windows::runtime::IUnknown);
 impl ILocationPermissions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
@@ -348,22 +348,22 @@ unsafe impl ::windows::runtime::Interface for ILocationPermissions {
 }
 impl ::std::convert::From<ILocationPermissions> for ::windows::runtime::IUnknown {
     fn from(value: ILocationPermissions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ILocationPermissions> for ::windows::runtime::IUnknown {
     fn from(value: &ILocationPermissions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationPermissions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILocationPermissions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocationPermissions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -379,7 +379,7 @@ pub struct ILocationPermissions_abi(
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensor(::windows::runtime::IUnknown);
+pub struct ISensor(pub ::windows::runtime::IUnknown);
 impl ISensor {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -466,22 +466,22 @@ unsafe impl ::windows::runtime::Interface for ISensor {
 }
 impl ::std::convert::From<ISensor> for ::windows::runtime::IUnknown {
     fn from(value: ISensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensor> for ::windows::runtime::IUnknown {
     fn from(value: &ISensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -515,7 +515,7 @@ pub struct ISensor_abi(
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensorCollection(::windows::runtime::IUnknown);
+pub struct ISensorCollection(pub ::windows::runtime::IUnknown);
 impl ISensorCollection {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::runtime::Result<ISensor> {
@@ -550,22 +550,22 @@ unsafe impl ::windows::runtime::Interface for ISensorCollection {
 }
 impl ::std::convert::From<ISensorCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISensorCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensorCollection> for ::windows::runtime::IUnknown {
     fn from(value: &ISensorCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorCollection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -584,7 +584,7 @@ pub struct ISensorCollection_abi(
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensorDataReport(::windows::runtime::IUnknown);
+pub struct ISensorDataReport(pub ::windows::runtime::IUnknown);
 impl ISensorDataReport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
@@ -611,22 +611,22 @@ unsafe impl ::windows::runtime::Interface for ISensorDataReport {
 }
 impl ::std::convert::From<ISensorDataReport> for ::windows::runtime::IUnknown {
     fn from(value: ISensorDataReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensorDataReport> for ::windows::runtime::IUnknown {
     fn from(value: &ISensorDataReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorDataReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorDataReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorDataReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -645,7 +645,7 @@ pub struct ISensorDataReport_abi(
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensorEvents(::windows::runtime::IUnknown);
+pub struct ISensorEvents(pub ::windows::runtime::IUnknown);
 impl ISensorEvents {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0, state: SensorState) -> ::windows::runtime::Result<()> {
@@ -671,22 +671,22 @@ unsafe impl ::windows::runtime::Interface for ISensorEvents {
 }
 impl ::std::convert::From<ISensorEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISensorEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensorEvents> for ::windows::runtime::IUnknown {
     fn from(value: &ISensorEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -704,7 +704,7 @@ pub struct ISensorEvents_abi(
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensorManager(::windows::runtime::IUnknown);
+pub struct ISensorManager(pub ::windows::runtime::IUnknown);
 impl ISensorManager {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISensorCollection> {
@@ -737,22 +737,22 @@ unsafe impl ::windows::runtime::Interface for ISensorManager {
 }
 impl ::std::convert::From<ISensorManager> for ::windows::runtime::IUnknown {
     fn from(value: ISensorManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensorManager> for ::windows::runtime::IUnknown {
     fn from(value: &ISensorManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -771,7 +771,7 @@ pub struct ISensorManager_abi(
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISensorManagerEvents(::windows::runtime::IUnknown);
+pub struct ISensorManagerEvents(pub ::windows::runtime::IUnknown);
 impl ISensorManagerEvents {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnSensorEnter<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0, state: SensorState) -> ::windows::runtime::Result<()> {
@@ -784,22 +784,22 @@ unsafe impl ::windows::runtime::Interface for ISensorManagerEvents {
 }
 impl ::std::convert::From<ISensorManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: ISensorManagerEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISensorManagerEvents> for ::windows::runtime::IUnknown {
     fn from(value: &ISensorManagerEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorManagerEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorManagerEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorManagerEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

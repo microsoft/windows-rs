@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlaylist(::windows::runtime::IInspectable);
+pub struct IPlaylist(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaylist {
     type Vtable = IPlaylist_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151102197, 53060, 19863, [131, 179, 122, 8, 158, 154, 182, 99]);
@@ -26,7 +26,7 @@ pub struct IPlaylist_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlaylistStatics(::windows::runtime::IInspectable);
+pub struct IPlaylistStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaylistStatics {
     type Vtable = IPlaylistStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3317903821, 33273, 20467, [149, 185, 112, 182, 255, 4, 107, 104]);
@@ -46,7 +46,7 @@ pub struct IPlaylistStatics_abi(
 #[doc = "*Required features: `Media_Playlists`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Playlist(::windows::runtime::IInspectable);
+pub struct Playlist(pub ::windows::runtime::IInspectable);
 impl Playlist {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -116,22 +116,22 @@ impl ::windows::runtime::RuntimeName for Playlist {
 }
 impl ::std::convert::From<Playlist> for ::windows::runtime::IUnknown {
     fn from(value: Playlist) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Playlist> for ::windows::runtime::IUnknown {
     fn from(value: &Playlist) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Playlist {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Playlist {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Playlist {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Playlist> for ::windows::runtime::IInspectable {

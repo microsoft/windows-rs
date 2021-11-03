@@ -46,7 +46,7 @@ impl ::windows::runtime::RuntimeName for DeviceLockdownProfile {
 #[doc = "*Required features: `Embedded_DeviceLockdown`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeviceLockdownProfileInformation(::windows::runtime::IInspectable);
+pub struct DeviceLockdownProfileInformation(pub ::windows::runtime::IInspectable);
 impl DeviceLockdownProfileInformation {
     #[doc = "*Required features: `Embedded_DeviceLockdown`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -69,22 +69,22 @@ impl ::windows::runtime::RuntimeName for DeviceLockdownProfileInformation {
 }
 impl ::std::convert::From<DeviceLockdownProfileInformation> for ::windows::runtime::IUnknown {
     fn from(value: DeviceLockdownProfileInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeviceLockdownProfileInformation> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceLockdownProfileInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceLockdownProfileInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeviceLockdownProfileInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeviceLockdownProfileInformation> for ::windows::runtime::IInspectable {
@@ -111,7 +111,7 @@ unsafe impl ::std::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::std::marker::Sync for DeviceLockdownProfileInformation {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileInformation(::windows::runtime::IInspectable);
+pub struct IDeviceLockdownProfileInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2038489422, 17841, 19094, [146, 252, 98, 117, 107, 115, 150, 120]);
@@ -129,7 +129,7 @@ pub struct IDeviceLockdownProfileInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileStatics(::windows::runtime::IInspectable);
+pub struct IDeviceLockdownProfileStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceLockdownProfileStatics {
     type Vtable = IDeviceLockdownProfileStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1647274341, 63912, 16801, [166, 145, 136, 205, 128, 199, 160, 105]);

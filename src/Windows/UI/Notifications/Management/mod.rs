@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserNotificationListener(::windows::runtime::IInspectable);
+pub struct IUserNotificationListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationListener {
     type Vtable = IUserNotificationListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649753665, 35334, 19695, [130, 21, 96, 51, 165, 190, 75, 3]);
@@ -30,7 +30,7 @@ pub struct IUserNotificationListener_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserNotificationListenerStatics(::windows::runtime::IInspectable);
+pub struct IUserNotificationListenerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationListenerStatics {
     type Vtable = IUserNotificationListenerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4284556239, 17286, 19107, [183, 61, 184, 4, 229, 182, 59, 35]);
@@ -49,7 +49,7 @@ pub struct IUserNotificationListenerStatics_abi(
 #[doc = "*Required features: `UI_Notifications_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserNotificationListener(::windows::runtime::IInspectable);
+pub struct UserNotificationListener(pub ::windows::runtime::IInspectable);
 impl UserNotificationListener {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`*"]
@@ -134,22 +134,22 @@ impl ::windows::runtime::RuntimeName for UserNotificationListener {
 }
 impl ::std::convert::From<UserNotificationListener> for ::windows::runtime::IUnknown {
     fn from(value: UserNotificationListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserNotificationListener> for ::windows::runtime::IUnknown {
     fn from(value: &UserNotificationListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserNotificationListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserNotificationListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserNotificationListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserNotificationListener> for ::windows::runtime::IInspectable {

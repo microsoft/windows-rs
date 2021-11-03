@@ -2,7 +2,7 @@
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CustomMapTileDataSource(::windows::runtime::IInspectable);
+pub struct CustomMapTileDataSource(pub ::windows::runtime::IInspectable);
 impl CustomMapTileDataSource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation`*"]
@@ -99,22 +99,22 @@ impl ::windows::runtime::RuntimeName for CustomMapTileDataSource {
 }
 impl ::std::convert::From<CustomMapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: CustomMapTileDataSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CustomMapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: &CustomMapTileDataSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomMapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CustomMapTileDataSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CustomMapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CustomMapTileDataSource> for ::windows::runtime::IInspectable {
@@ -182,7 +182,7 @@ unsafe impl ::std::marker::Sync for CustomMapTileDataSource {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HttpMapTileDataSource(::windows::runtime::IInspectable);
+pub struct HttpMapTileDataSource(pub ::windows::runtime::IInspectable);
 impl HttpMapTileDataSource {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn UriFormatString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -321,22 +321,22 @@ impl ::windows::runtime::RuntimeName for HttpMapTileDataSource {
 }
 impl ::std::convert::From<HttpMapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: HttpMapTileDataSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HttpMapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: &HttpMapTileDataSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMapTileDataSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HttpMapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HttpMapTileDataSource> for ::windows::runtime::IInspectable {
@@ -403,7 +403,7 @@ unsafe impl ::std::marker::Send for HttpMapTileDataSource {}
 unsafe impl ::std::marker::Sync for HttpMapTileDataSource {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomMapTileDataSource(::windows::runtime::IInspectable);
+pub struct ICustomMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomMapTileDataSource {
     type Vtable = ICustomMapTileDataSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1708800074, 11697, 19425, [177, 85, 61, 12, 158, 207, 71, 153]);
@@ -424,7 +424,7 @@ pub struct ICustomMapTileDataSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomMapTileDataSourceFactory(::windows::runtime::IInspectable);
+pub struct ICustomMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomMapTileDataSourceFactory {
     type Vtable = ICustomMapTileDataSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3360127303, 51541, 20258, [148, 68, 161, 216, 215, 68, 175, 17]);
@@ -442,7 +442,7 @@ pub struct ICustomMapTileDataSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMapTileDataSource(::windows::runtime::IInspectable);
+pub struct IHttpMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMapTileDataSource {
     type Vtable = IHttpMapTileDataSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2634271580, 64889, 18325, [135, 190, 126, 84, 202, 11, 55, 208]);
@@ -469,7 +469,7 @@ pub struct IHttpMapTileDataSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHttpMapTileDataSourceFactory(::windows::runtime::IInspectable);
+pub struct IHttpMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMapTileDataSourceFactory {
     type Vtable = IHttpMapTileDataSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404350727, 34012, 17041, [137, 248, 109, 11, 182, 18, 160, 85]);
@@ -488,7 +488,7 @@ pub struct IHttpMapTileDataSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalMapTileDataSource(::windows::runtime::IInspectable);
+pub struct ILocalMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalMapTileDataSource {
     type Vtable = ILocalMapTileDataSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633834933, 37128, 20242, [139, 244, 187, 60, 143, 98, 116, 229]);
@@ -511,7 +511,7 @@ pub struct ILocalMapTileDataSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalMapTileDataSourceFactory(::windows::runtime::IInspectable);
+pub struct ILocalMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalMapTileDataSourceFactory {
     type Vtable = ILocalMapTileDataSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3318737404, 29356, 18489, [138, 13, 1, 31, 36, 105, 60, 121]);
@@ -530,7 +530,7 @@ pub struct ILocalMapTileDataSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapActualCameraChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapActualCameraChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangedEventArgs {
     type Vtable = IMapActualCameraChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3667951834, 47092, 16940, [166, 24, 187, 170, 124, 29, 129, 76]);
@@ -548,7 +548,7 @@ pub struct IMapActualCameraChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapActualCameraChangedEventArgs2(::windows::runtime::IInspectable);
+pub struct IMapActualCameraChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangedEventArgs2 {
     type Vtable = IMapActualCameraChangedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074396645, 4316, 17754, [157, 4, 29, 114, 251, 109, 155, 147]);
@@ -566,7 +566,7 @@ pub struct IMapActualCameraChangedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapActualCameraChangingEventArgs(::windows::runtime::IInspectable);
+pub struct IMapActualCameraChangingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangingEventArgs {
     type Vtable = IMapActualCameraChangingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796062934, 37879, 18050, [141, 229, 164, 122, 28, 199, 169, 69]);
@@ -584,7 +584,7 @@ pub struct IMapActualCameraChangingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapActualCameraChangingEventArgs2(::windows::runtime::IInspectable);
+pub struct IMapActualCameraChangingEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapActualCameraChangingEventArgs2 {
     type Vtable = IMapActualCameraChangingEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4068898967, 16556, 20106, [169, 39, 81, 15, 56, 70, 164, 126]);
@@ -602,7 +602,7 @@ pub struct IMapActualCameraChangingEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapBillboard(::windows::runtime::IInspectable);
+pub struct IMapBillboard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapBillboard {
     type Vtable = IMapBillboard_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(378807709, 2786, 20290, [160, 46, 41, 44, 168, 53, 211, 157]);
@@ -634,7 +634,7 @@ pub struct IMapBillboard_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapBillboardFactory(::windows::runtime::IInspectable);
+pub struct IMapBillboardFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapBillboardFactory {
     type Vtable = IMapBillboardFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3192235205, 36617, 19334, [174, 40, 120, 55, 64, 235, 139, 49]);
@@ -652,7 +652,7 @@ pub struct IMapBillboardFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapBillboardStatics(::windows::runtime::IInspectable);
+pub struct IMapBillboardStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapBillboardStatics {
     type Vtable = IMapBillboardStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260903422, 57847, 20400, [136, 135, 125, 166, 140, 100, 115, 51]);
@@ -672,7 +672,7 @@ pub struct IMapBillboardStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapCamera(::windows::runtime::IInspectable);
+pub struct IMapCamera(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCamera {
     type Vtable = IMapCamera_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403434531, 49400, 19851, [173, 30, 165, 149, 152, 234, 132, 11]);
@@ -701,7 +701,7 @@ pub struct IMapCamera_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapCameraFactory(::windows::runtime::IInspectable);
+pub struct IMapCameraFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCameraFactory {
     type Vtable = IMapCameraFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929739030, 33711, 19150, [142, 113, 16, 173, 159, 30, 158, 127]);
@@ -726,7 +726,7 @@ pub struct IMapCameraFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapContextRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapContextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapContextRequestedEventArgs {
     type Vtable = IMapContextRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4258378787, 51553, 19954, [187, 87, 130, 238, 15, 11, 181, 145]);
@@ -749,7 +749,7 @@ pub struct IMapContextRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl(::windows::runtime::IInspectable);
+pub struct IMapControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl {
     type Vtable = IMapControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1120974929, 21078, 18247, [158, 108, 13, 17, 233, 102, 20, 30]);
@@ -860,7 +860,7 @@ pub struct IMapControl_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl2(::windows::runtime::IInspectable);
+pub struct IMapControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl2 {
     type Vtable = IMapControl2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791479885, 38636, 16485, [176, 240, 117, 40, 29, 163, 101, 77]);
@@ -949,7 +949,7 @@ pub struct IMapControl2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl3(::windows::runtime::IInspectable);
+pub struct IMapControl3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl3 {
     type Vtable = IMapControl3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1482893560, 36061, 16558, [147, 56, 175, 42, 123, 232, 69, 229]);
@@ -970,7 +970,7 @@ pub struct IMapControl3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl4(::windows::runtime::IInspectable);
+pub struct IMapControl4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl4 {
     type Vtable = IMapControl4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110039850, 6167, 18029, [183, 206, 65, 155, 63, 142, 36, 139]);
@@ -993,7 +993,7 @@ pub struct IMapControl4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl5(::windows::runtime::IInspectable);
+pub struct IMapControl5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl5 {
     type Vtable = IMapControl5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3717926909, 30755, 18082, [130, 201, 101, 221, 172, 79, 54, 95]);
@@ -1030,7 +1030,7 @@ pub struct IMapControl5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl6(::windows::runtime::IInspectable);
+pub struct IMapControl6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl6 {
     type Vtable = IMapControl6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2967112098, 4161, 19434, [184, 138, 18, 172, 154, 130, 224, 226]);
@@ -1055,7 +1055,7 @@ pub struct IMapControl6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl7(::windows::runtime::IInspectable);
+pub struct IMapControl7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl7 {
     type Vtable = IMapControl7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226944083, 3103, 20350, [174, 102, 74, 208, 180, 152, 120, 87]);
@@ -1074,7 +1074,7 @@ pub struct IMapControl7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControl8(::windows::runtime::IInspectable);
+pub struct IMapControl8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControl8 {
     type Vtable = IMapControl8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10394694, 29261, 21450, [148, 33, 122, 72, 252, 115, 21, 35]);
@@ -1095,7 +1095,7 @@ pub struct IMapControl8_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlBusinessLandmarkClickEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlBusinessLandmarkClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkClickEventArgs {
     type Vtable = IMapControlBusinessLandmarkClickEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581664546, 18970, 18327, [190, 183, 92, 247, 117, 76, 184, 103]);
@@ -1114,7 +1114,7 @@ pub struct IMapControlBusinessLandmarkClickEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkPointerEnteredEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerEnteredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581285798, 60056, 20373, [140, 175, 91, 66, 105, 111, 245, 4]);
@@ -1133,7 +1133,7 @@ pub struct IMapControlBusinessLandmarkPointerEnteredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlBusinessLandmarkPointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlBusinessLandmarkPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkPointerExitedEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerExitedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(733293743, 62026, 18128, [180, 99, 101, 247, 25, 115, 16, 87]);
@@ -1152,7 +1152,7 @@ pub struct IMapControlBusinessLandmarkPointerExitedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlBusinessLandmarkRightTappedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlBusinessLandmarkRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlBusinessLandmarkRightTappedEventArgs {
     type Vtable = IMapControlBusinessLandmarkRightTappedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1504414439, 61828, 19121, [176, 176, 53, 200, 191, 6, 84, 178]);
@@ -1171,7 +1171,7 @@ pub struct IMapControlBusinessLandmarkRightTappedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlDataHelper(::windows::runtime::IInspectable);
+pub struct IMapControlDataHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelper {
     type Vtable = IMapControlDataHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343628956, 5291, 18540, [157, 229, 90, 93, 239, 2, 5, 162]);
@@ -1204,7 +1204,7 @@ pub struct IMapControlDataHelper_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlDataHelper2(::windows::runtime::IInspectable);
+pub struct IMapControlDataHelper2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelper2 {
     type Vtable = IMapControlDataHelper2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1506689694, 22063, 19489, [166, 116, 15, 17, 222, 207, 15, 179]);
@@ -1237,7 +1237,7 @@ pub struct IMapControlDataHelper2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlDataHelperFactory(::windows::runtime::IInspectable);
+pub struct IMapControlDataHelperFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelperFactory {
     type Vtable = IMapControlDataHelperFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(997239438, 751, 18076, [187, 175, 220, 33, 88, 212, 40, 155]);
@@ -1255,7 +1255,7 @@ pub struct IMapControlDataHelperFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlDataHelperStatics(::windows::runtime::IInspectable);
+pub struct IMapControlDataHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlDataHelperStatics {
     type Vtable = IMapControlDataHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2053518038, 59716, 16656, [131, 207, 49, 77, 7, 34, 226, 229]);
@@ -1273,7 +1273,7 @@ pub struct IMapControlDataHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics(::windows::runtime::IInspectable);
+pub struct IMapControlStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics {
     type Vtable = IMapControlStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267762069, 8519, 20234, [148, 42, 84, 147, 168, 93, 232, 7]);
@@ -1318,7 +1318,7 @@ pub struct IMapControlStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics2(::windows::runtime::IInspectable);
+pub struct IMapControlStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics2 {
     type Vtable = IMapControlStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75836307, 46150, 19761, [151, 82, 30, 198, 154, 89, 150, 174]);
@@ -1344,7 +1344,7 @@ pub struct IMapControlStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics4(::windows::runtime::IInspectable);
+pub struct IMapControlStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics4 {
     type Vtable = IMapControlStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4269301143, 23827, 20385, [191, 29, 132, 6, 23, 104, 193, 131]);
@@ -1363,7 +1363,7 @@ pub struct IMapControlStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics5(::windows::runtime::IInspectable);
+pub struct IMapControlStatics5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics5 {
     type Vtable = IMapControlStatics5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(157445888, 47069, 16777, [167, 247, 131, 12, 65, 45, 238, 163]);
@@ -1383,7 +1383,7 @@ pub struct IMapControlStatics5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics6(::windows::runtime::IInspectable);
+pub struct IMapControlStatics6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics6 {
     type Vtable = IMapControlStatics6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1020255615, 9425, 16546, [131, 81, 179, 6, 58, 140, 149, 164]);
@@ -1401,7 +1401,7 @@ pub struct IMapControlStatics6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics7(::windows::runtime::IInspectable);
+pub struct IMapControlStatics7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics7 {
     type Vtable = IMapControlStatics7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1441901645, 29378, 18098, [183, 174, 121, 2, 96, 190, 100, 27]);
@@ -1419,7 +1419,7 @@ pub struct IMapControlStatics7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlStatics8(::windows::runtime::IInspectable);
+pub struct IMapControlStatics8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlStatics8 {
     type Vtable = IMapControlStatics8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2914494384, 1541, 22828, [191, 157, 209, 11, 220, 43, 228, 123]);
@@ -1440,7 +1440,7 @@ pub struct IMapControlStatics8_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlTransitFeatureClickEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlTransitFeatureClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeatureClickEventArgs {
     type Vtable = IMapControlTransitFeatureClickEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1981258089, 46949, 17954, [176, 138, 48, 114, 116, 90, 69, 65]);
@@ -1462,7 +1462,7 @@ pub struct IMapControlTransitFeatureClickEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlTransitFeaturePointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlTransitFeaturePointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeaturePointerEnteredEventArgs {
     type Vtable = IMapControlTransitFeaturePointerEnteredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1938889294, 60495, 18334, [148, 161, 54, 224, 129, 208, 216, 151]);
@@ -1484,7 +1484,7 @@ pub struct IMapControlTransitFeaturePointerEnteredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlTransitFeaturePointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlTransitFeaturePointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeaturePointerExitedEventArgs {
     type Vtable = IMapControlTransitFeaturePointerExitedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1779508621, 17549, 17639, [188, 105, 209, 61, 73, 113, 84, 233]);
@@ -1506,7 +1506,7 @@ pub struct IMapControlTransitFeaturePointerExitedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapControlTransitFeatureRightTappedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapControlTransitFeatureRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapControlTransitFeatureRightTappedEventArgs {
     type Vtable = IMapControlTransitFeatureRightTappedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2929839177, 42793, 20142, [165, 154, 62, 201, 161, 37, 160, 40]);
@@ -1528,7 +1528,7 @@ pub struct IMapControlTransitFeatureRightTappedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapCustomExperience(::windows::runtime::IInspectable);
+pub struct IMapCustomExperience(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCustomExperience {
     type Vtable = IMapCustomExperience_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683564646, 5283, 20063, [136, 131, 142, 156, 80, 14, 238, 222]);
@@ -1545,7 +1545,7 @@ pub struct IMapCustomExperience_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapCustomExperienceChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapCustomExperienceChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCustomExperienceChangedEventArgs {
     type Vtable = IMapCustomExperienceChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118922651, 36801, 16450, [172, 52, 166, 27, 56, 187, 117, 20]);
@@ -1562,7 +1562,7 @@ pub struct IMapCustomExperienceChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapCustomExperienceFactory(::windows::runtime::IInspectable);
+pub struct IMapCustomExperienceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapCustomExperienceFactory {
     type Vtable = IMapCustomExperienceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2051030965, 41393, 20095, [146, 30, 62, 107, 141, 142, 190, 214]);
@@ -1580,7 +1580,7 @@ pub struct IMapCustomExperienceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElement(::windows::runtime::IInspectable);
+pub struct IMapElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement {
     type Vtable = IMapElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592406239, 45637, 18418, [154, 194, 67, 192, 88, 177, 201, 3]);
@@ -1601,7 +1601,7 @@ pub struct IMapElement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElement2(::windows::runtime::IInspectable);
+pub struct IMapElement2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement2 {
     type Vtable = IMapElement2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1712976481, 64422, 18788, [167, 255, 241, 175, 99, 171, 156, 176]);
@@ -1620,7 +1620,7 @@ pub struct IMapElement2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElement3(::windows::runtime::IInspectable);
+pub struct IMapElement3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement3 {
     type Vtable = IMapElement3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(334478425, 17901, 18612, [147, 173, 227, 247, 143, 140, 242, 24]);
@@ -1643,7 +1643,7 @@ pub struct IMapElement3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElement3D(::windows::runtime::IInspectable);
+pub struct IMapElement3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement3D {
     type Vtable = IMapElement3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2189097173, 14403, 18658, [189, 0, 15, 6, 68, 251, 230, 165]);
@@ -1676,7 +1676,7 @@ pub struct IMapElement3D_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElement3DStatics(::windows::runtime::IInspectable);
+pub struct IMapElement3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement3DStatics {
     type Vtable = IMapElement3DStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1630011674, 17679, 17450, [185, 217, 170, 129, 92, 113, 144, 122]);
@@ -1698,7 +1698,7 @@ pub struct IMapElement3DStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElement4(::windows::runtime::IInspectable);
+pub struct IMapElement4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElement4 {
     type Vtable = IMapElement4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683522486, 8129, 19691, [147, 189, 220, 44, 150, 0, 114, 233]);
@@ -1717,7 +1717,7 @@ pub struct IMapElement4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementClickEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementClickEventArgs {
     type Vtable = IMapElementClickEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075218961, 53376, 17689, [153, 161, 49, 73, 251, 137, 153, 208]);
@@ -1740,7 +1740,7 @@ pub struct IMapElementClickEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementFactory(::windows::runtime::IInspectable);
+pub struct IMapElementFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementFactory {
     type Vtable = IMapElementFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1244712967, 3030, 18341, [134, 11, 126, 124, 245, 240, 197, 115]);
@@ -1758,7 +1758,7 @@ pub struct IMapElementFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementPointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementPointerEnteredEventArgs {
     type Vtable = IMapElementPointerEnteredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877676878, 37335, 19249, [143, 10, 211, 144, 199, 211, 162, 239]);
@@ -1780,7 +1780,7 @@ pub struct IMapElementPointerEnteredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementPointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementPointerExitedEventArgs {
     type Vtable = IMapElementPointerExitedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248773881, 24777, 18041, [145, 25, 32, 171, 199, 93, 147, 31]);
@@ -1802,7 +1802,7 @@ pub struct IMapElementPointerExitedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementStatics(::windows::runtime::IInspectable);
+pub struct IMapElementStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics {
     type Vtable = IMapElementStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3905363186, 49135, 19273, [142, 153, 65, 181, 227, 120, 159, 210]);
@@ -1821,7 +1821,7 @@ pub struct IMapElementStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementStatics2(::windows::runtime::IInspectable);
+pub struct IMapElementStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics2 {
     type Vtable = IMapElementStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2616667952, 33022, 20272, [188, 193, 250, 137, 64, 80, 246, 118]);
@@ -1839,7 +1839,7 @@ pub struct IMapElementStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementStatics3(::windows::runtime::IInspectable);
+pub struct IMapElementStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics3 {
     type Vtable = IMapElementStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3776899375, 38722, 18858, [170, 216, 46, 70, 107, 255, 55, 150]);
@@ -1859,7 +1859,7 @@ pub struct IMapElementStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementStatics4(::windows::runtime::IInspectable);
+pub struct IMapElementStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementStatics4 {
     type Vtable = IMapElementStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2754178827, 57336, 18044, [147, 21, 111, 109, 185, 62, 226, 186]);
@@ -1877,7 +1877,7 @@ pub struct IMapElementStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementsLayer(::windows::runtime::IInspectable);
+pub struct IMapElementsLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayer {
     type Vtable = IMapElementsLayer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3732498586, 495, 18164, [172, 96, 124, 32, 11, 85, 38, 16]);
@@ -1914,7 +1914,7 @@ pub struct IMapElementsLayer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementsLayerClickEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementsLayerClickEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerClickEventArgs {
     type Vtable = IMapElementsLayerClickEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(749195110, 44827, 19461, [140, 133, 247, 74, 227, 212, 103, 127]);
@@ -1937,7 +1937,7 @@ pub struct IMapElementsLayerClickEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementsLayerContextRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementsLayerContextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerContextRequestedEventArgs {
     type Vtable = IMapElementsLayerContextRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3662008499, 31246, 18264, [128, 139, 58, 99, 118, 39, 235, 13]);
@@ -1960,7 +1960,7 @@ pub struct IMapElementsLayerContextRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementsLayerPointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementsLayerPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerPointerEnteredEventArgs {
     type Vtable = IMapElementsLayerPointerEnteredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1971306546, 18068, 17412, [140, 137, 52, 139, 107, 118, 197, 230]);
@@ -1982,7 +1982,7 @@ pub struct IMapElementsLayerPointerEnteredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementsLayerPointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapElementsLayerPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerPointerExitedEventArgs {
     type Vtable = IMapElementsLayerPointerExitedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465449645, 1005, 19513, [175, 32, 42, 7, 238, 28, 206, 166]);
@@ -2004,7 +2004,7 @@ pub struct IMapElementsLayerPointerExitedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapElementsLayerStatics(::windows::runtime::IInspectable);
+pub struct IMapElementsLayerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapElementsLayerStatics {
     type Vtable = IMapElementsLayerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872437543, 62729, 19752, [145, 128, 145, 28, 3, 65, 29, 116]);
@@ -2022,7 +2022,7 @@ pub struct IMapElementsLayerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapIcon(::windows::runtime::IInspectable);
+pub struct IMapIcon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIcon {
     type Vtable = IMapIcon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3523831922, 9177, 18987, [139, 224, 105, 243, 168, 84, 130, 171]);
@@ -2053,7 +2053,7 @@ pub struct IMapIcon_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapIcon2(::windows::runtime::IInspectable);
+pub struct IMapIcon2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIcon2 {
     type Vtable = IMapIcon2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1628591289, 55466, 19389, [163, 22, 186, 223, 6, 145, 29, 99]);
@@ -2072,7 +2072,7 @@ pub struct IMapIcon2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapIconStatics(::windows::runtime::IInspectable);
+pub struct IMapIconStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIconStatics {
     type Vtable = IMapIconStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703348822, 4496, 19293, [158, 86, 229, 182, 114, 74, 163, 40]);
@@ -2092,7 +2092,7 @@ pub struct IMapIconStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapIconStatics2(::windows::runtime::IInspectable);
+pub struct IMapIconStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapIconStatics2 {
     type Vtable = IMapIconStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283183210, 53110, 18091, [161, 47, 182, 3, 185, 134, 198, 150]);
@@ -2110,7 +2110,7 @@ pub struct IMapIconStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapInputEventArgs(::windows::runtime::IInspectable);
+pub struct IMapInputEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapInputEventArgs {
     type Vtable = IMapInputEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2680488864, 43170, 17300, [146, 233, 34, 71, 118, 79, 47, 73]);
@@ -2131,7 +2131,7 @@ pub struct IMapInputEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapItemsControl(::windows::runtime::IInspectable);
+pub struct IMapItemsControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapItemsControl {
     type Vtable = IMapItemsControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2495792339, 45877, 17093, [182, 96, 230, 160, 126, 195, 189, 220]);
@@ -2154,7 +2154,7 @@ pub struct IMapItemsControl_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapItemsControlStatics(::windows::runtime::IInspectable);
+pub struct IMapItemsControlStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapItemsControlStatics {
     type Vtable = IMapItemsControlStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866671047, 30875, 16988, [138, 10, 50, 56, 88, 150, 203, 74]);
@@ -2174,7 +2174,7 @@ pub struct IMapItemsControlStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapLayer(::windows::runtime::IInspectable);
+pub struct IMapLayer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLayer {
     type Vtable = IMapLayer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829763521, 41293, 20375, [143, 87, 70, 113, 91, 87, 104, 58]);
@@ -2197,7 +2197,7 @@ pub struct IMapLayer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapLayerFactory(::windows::runtime::IInspectable);
+pub struct IMapLayerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLayerFactory {
     type Vtable = IMapLayerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3760857607, 57059, 18376, [152, 37, 189, 2, 156, 87, 82, 247]);
@@ -2215,7 +2215,7 @@ pub struct IMapLayerFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapLayerStatics(::windows::runtime::IInspectable);
+pub struct IMapLayerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLayerStatics {
     type Vtable = IMapLayerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2628035179, 23993, 20236, [189, 213, 177, 191, 253, 204, 233, 70]);
@@ -2235,7 +2235,7 @@ pub struct IMapLayerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapModel3D(::windows::runtime::IInspectable);
+pub struct IMapModel3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapModel3D {
     type Vtable = IMapModel3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4173676961, 51751, 18792, [162, 191, 156, 32, 240, 106, 4, 104]);
@@ -2252,7 +2252,7 @@ pub struct IMapModel3D_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapModel3DFactory(::windows::runtime::IInspectable);
+pub struct IMapModel3DFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapModel3DFactory {
     type Vtable = IMapModel3DFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3749645260, 22538, 18827, [147, 155, 1, 25, 169, 218, 219, 158]);
@@ -2270,7 +2270,7 @@ pub struct IMapModel3DFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapModel3DStatics(::windows::runtime::IInspectable);
+pub struct IMapModel3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapModel3DStatics {
     type Vtable = IMapModel3DStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211409536, 36438, 19215, [135, 45, 126, 173, 16, 49, 135, 205]);
@@ -2291,7 +2291,7 @@ pub struct IMapModel3DStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapPolygon(::windows::runtime::IInspectable);
+pub struct IMapPolygon(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolygon {
     type Vtable = IMapPolygon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2883199621, 18726, 19514, [165, 249, 25, 223, 127, 105, 219, 61]);
@@ -2320,7 +2320,7 @@ pub struct IMapPolygon_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapPolygon2(::windows::runtime::IInspectable);
+pub struct IMapPolygon2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolygon2 {
     type Vtable = IMapPolygon2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2529730846, 25451, 16408, [156, 46, 172, 201, 18, 42, 1, 178]);
@@ -2339,7 +2339,7 @@ pub struct IMapPolygon2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapPolygonStatics(::windows::runtime::IInspectable);
+pub struct IMapPolygonStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolygonStatics {
     type Vtable = IMapPolygonStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(938832830, 2427, 16972, [135, 204, 46, 224, 66, 253, 166, 210]);
@@ -2359,7 +2359,7 @@ pub struct IMapPolygonStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapPolyline(::windows::runtime::IInspectable);
+pub struct IMapPolyline(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolyline {
     type Vtable = IMapPolyline_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4222428322, 9439, 19078, [143, 250, 15, 143, 77, 158, 193, 125]);
@@ -2386,7 +2386,7 @@ pub struct IMapPolyline_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapPolylineStatics(::windows::runtime::IInspectable);
+pub struct IMapPolylineStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapPolylineStatics {
     type Vtable = IMapPolylineStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1644029003, 7647, 17155, [184, 9, 236, 135, 245, 138, 208, 101]);
@@ -2405,7 +2405,7 @@ pub struct IMapPolylineStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapRightTappedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRightTappedEventArgs {
     type Vtable = IMapRightTappedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(546582897, 28648, 16550, [173, 14, 41, 115, 121, 181, 117, 167]);
@@ -2426,7 +2426,7 @@ pub struct IMapRightTappedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapRouteView(::windows::runtime::IInspectable);
+pub struct IMapRouteView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteView {
     type Vtable = IMapRouteView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1947119301, 47820, 16865, [166, 126, 221, 101, 19, 131, 32, 73]);
@@ -2449,7 +2449,7 @@ pub struct IMapRouteView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapRouteViewFactory(::windows::runtime::IInspectable);
+pub struct IMapRouteViewFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteViewFactory {
     type Vtable = IMapRouteViewFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4035161567, 102, 17960, [130, 254, 234, 120, 194, 60, 236, 30]);
@@ -2468,7 +2468,7 @@ pub struct IMapRouteViewFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapScene(::windows::runtime::IInspectable);
+pub struct IMapScene(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapScene {
     type Vtable = IMapScene_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344226985, 20711, 18476, [151, 137, 198, 136, 177, 120, 172, 36]);
@@ -2490,7 +2490,7 @@ pub struct IMapScene_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapSceneStatics(::windows::runtime::IInspectable);
+pub struct IMapSceneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapSceneStatics {
     type Vtable = IMapSceneStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65318252, 34540, 17625, [149, 151, 251, 117, 183, 222, 186, 10]);
@@ -2524,7 +2524,7 @@ pub struct IMapSceneStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapStyleSheet(::windows::runtime::IInspectable);
+pub struct IMapStyleSheet(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheet {
     type Vtable = IMapStyleSheet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2924786367, 35217, 17133, [141, 88, 32, 71, 61, 238, 222, 29]);
@@ -2541,7 +2541,7 @@ pub struct IMapStyleSheet_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapStyleSheetEntriesStatics(::windows::runtime::IInspectable);
+pub struct IMapStyleSheetEntriesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheetEntriesStatics {
     type Vtable = IMapStyleSheetEntriesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378733893, 61210, 16804, [167, 87, 189, 79, 67, 225, 228, 209]);
@@ -2622,7 +2622,7 @@ pub struct IMapStyleSheetEntriesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapStyleSheetEntryStatesStatics(::windows::runtime::IInspectable);
+pub struct IMapStyleSheetEntryStatesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheetEntryStatesStatics {
     type Vtable = IMapStyleSheetEntryStatesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(598496562, 34413, 19450, [180, 129, 57, 190, 161, 222, 53, 6]);
@@ -2642,7 +2642,7 @@ pub struct IMapStyleSheetEntryStatesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapStyleSheetStatics(::windows::runtime::IInspectable);
+pub struct IMapStyleSheetStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapStyleSheetStatics {
     type Vtable = IMapStyleSheetStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2881290413, 2588, 17205, [130, 244, 97, 217, 54, 170, 25, 125]);
@@ -2669,7 +2669,7 @@ pub struct IMapStyleSheetStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTargetCameraChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapTargetCameraChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTargetCameraChangedEventArgs {
     type Vtable = IMapTargetCameraChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3689940082, 59731, 20392, [151, 208, 234, 134, 53, 144, 87, 207]);
@@ -2687,7 +2687,7 @@ pub struct IMapTargetCameraChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTargetCameraChangedEventArgs2(::windows::runtime::IInspectable);
+pub struct IMapTargetCameraChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTargetCameraChangedEventArgs2 {
     type Vtable = IMapTargetCameraChangedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2545988402, 62134, 17931, [141, 145, 172, 2, 10, 35, 131, 221]);
@@ -2705,7 +2705,7 @@ pub struct IMapTargetCameraChangedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileBitmapRequest(::windows::runtime::IInspectable);
+pub struct IMapTileBitmapRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequest {
     type Vtable = IMapTileBitmapRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1181958076, 55453, 18219, [181, 246, 215, 6, 107, 5, 132, 244]);
@@ -2727,7 +2727,7 @@ pub struct IMapTileBitmapRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileBitmapRequestDeferral(::windows::runtime::IInspectable);
+pub struct IMapTileBitmapRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequestDeferral {
     type Vtable = IMapTileBitmapRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4265018690, 42156, 20218, [150, 101, 4, 144, 176, 202, 253, 210]);
@@ -2745,7 +2745,7 @@ pub struct IMapTileBitmapRequestDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileBitmapRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapTileBitmapRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequestedEventArgs {
     type Vtable = IMapTileBitmapRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(863987997, 39682, 19106, [139, 30, 204, 77, 145, 113, 155, 243]);
@@ -2766,7 +2766,7 @@ pub struct IMapTileBitmapRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileBitmapRequestedEventArgs2(::windows::runtime::IInspectable);
+pub struct IMapTileBitmapRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileBitmapRequestedEventArgs2 {
     type Vtable = IMapTileBitmapRequestedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39964948, 9322, 21142, [188, 133, 89, 15, 83, 170, 57, 200]);
@@ -2784,7 +2784,7 @@ pub struct IMapTileBitmapRequestedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileDataSource(::windows::runtime::IInspectable);
+pub struct IMapTileDataSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileDataSource {
     type Vtable = IMapTileDataSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225263966, 48671, 19561, [153, 105, 121, 70, 122, 81, 60, 56]);
@@ -2801,7 +2801,7 @@ pub struct IMapTileDataSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileDataSourceFactory(::windows::runtime::IInspectable);
+pub struct IMapTileDataSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileDataSourceFactory {
     type Vtable = IMapTileDataSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2744258493, 58438, 17992, [167, 77, 253, 44, 93, 85, 124, 6]);
@@ -2819,7 +2819,7 @@ pub struct IMapTileDataSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileSource(::windows::runtime::IInspectable);
+pub struct IMapTileSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSource {
     type Vtable = IMapTileSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292674126, 12255, 17767, [146, 85, 17, 0, 81, 156, 141, 98]);
@@ -2860,7 +2860,7 @@ pub struct IMapTileSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileSource2(::windows::runtime::IInspectable);
+pub struct IMapTileSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSource2 {
     type Vtable = IMapTileSource2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2389044157, 16533, 23573, [153, 241, 18, 96, 180, 232, 176, 169]);
@@ -2889,7 +2889,7 @@ pub struct IMapTileSource2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileSourceFactory(::windows::runtime::IInspectable);
+pub struct IMapTileSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSourceFactory {
     type Vtable = IMapTileSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447685407, 30714, 18475, [157, 52, 113, 211, 29, 70, 92, 72]);
@@ -2913,7 +2913,7 @@ pub struct IMapTileSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileSourceStatics(::windows::runtime::IInspectable);
+pub struct IMapTileSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSourceStatics {
     type Vtable = IMapTileSourceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2482817340, 28725, 17923, [153, 177, 230, 89, 146, 27, 96, 147]);
@@ -2941,7 +2941,7 @@ pub struct IMapTileSourceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileSourceStatics2(::windows::runtime::IInspectable);
+pub struct IMapTileSourceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileSourceStatics2 {
     type Vtable = IMapTileSourceStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1976423550, 26268, 20733, [173, 133, 94, 165, 23, 76, 245, 155]);
@@ -2962,7 +2962,7 @@ pub struct IMapTileSourceStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileUriRequest(::windows::runtime::IInspectable);
+pub struct IMapTileUriRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequest {
     type Vtable = IMapTileUriRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390079285, 12583, 17848, [135, 167, 153, 248, 125, 78, 39, 69]);
@@ -2984,7 +2984,7 @@ pub struct IMapTileUriRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileUriRequestDeferral(::windows::runtime::IInspectable);
+pub struct IMapTileUriRequestDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequestDeferral {
     type Vtable = IMapTileUriRequestDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239554528, 48958, 19537, [143, 170, 75, 89, 60, 246, 142, 178]);
@@ -3002,7 +3002,7 @@ pub struct IMapTileUriRequestDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileUriRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IMapTileUriRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequestedEventArgs {
     type Vtable = IMapTileUriRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524557635, 7103, 19352, [141, 211, 183, 131, 78, 64, 126, 13]);
@@ -3023,7 +3023,7 @@ pub struct IMapTileUriRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapTileUriRequestedEventArgs2(::windows::runtime::IInspectable);
+pub struct IMapTileUriRequestedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapTileUriRequestedEventArgs2 {
     type Vtable = IMapTileUriRequestedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587339869, 13237, 23125, [146, 245, 116, 168, 106, 34, 239, 166]);
@@ -3041,7 +3041,7 @@ pub struct IMapTileUriRequestedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStreetsideExperience(::windows::runtime::IInspectable);
+pub struct IStreetsideExperience(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsideExperience {
     type Vtable = IStreetsideExperience_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2774052553, 58124, 18120, [129, 22, 72, 70, 145, 103, 85, 88]);
@@ -3070,7 +3070,7 @@ pub struct IStreetsideExperience_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStreetsideExperienceFactory(::windows::runtime::IInspectable);
+pub struct IStreetsideExperienceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsideExperienceFactory {
     type Vtable = IStreetsideExperienceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2052837180, 25758, 17218, [153, 149, 104, 166, 207, 89, 97, 167]);
@@ -3089,7 +3089,7 @@ pub struct IStreetsideExperienceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStreetsidePanorama(::windows::runtime::IInspectable);
+pub struct IStreetsidePanorama(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsidePanorama {
     type Vtable = IStreetsidePanorama_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1876955096, 44384, 18020, [181, 57, 177, 6, 159, 22, 197, 175]);
@@ -3108,7 +3108,7 @@ pub struct IStreetsidePanorama_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStreetsidePanoramaStatics(::windows::runtime::IInspectable);
+pub struct IStreetsidePanoramaStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreetsidePanoramaStatics {
     type Vtable = IStreetsidePanoramaStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3551821673, 21683, 20165, [178, 160, 79, 130, 4, 87, 101, 7]);
@@ -3130,7 +3130,7 @@ pub struct IStreetsidePanoramaStatics_abi(
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LocalMapTileDataSource(::windows::runtime::IInspectable);
+pub struct LocalMapTileDataSource(pub ::windows::runtime::IInspectable);
 impl LocalMapTileDataSource {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn UriFormatString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3247,22 +3247,22 @@ impl ::windows::runtime::RuntimeName for LocalMapTileDataSource {
 }
 impl ::std::convert::From<LocalMapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: LocalMapTileDataSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LocalMapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: &LocalMapTileDataSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocalMapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LocalMapTileDataSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LocalMapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LocalMapTileDataSource> for ::windows::runtime::IInspectable {
@@ -3330,7 +3330,7 @@ unsafe impl ::std::marker::Sync for LocalMapTileDataSource {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapActualCameraChangedEventArgs(::windows::runtime::IInspectable);
+pub struct MapActualCameraChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapActualCameraChangedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3368,22 +3368,22 @@ impl ::windows::runtime::RuntimeName for MapActualCameraChangedEventArgs {
 }
 impl ::std::convert::From<MapActualCameraChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapActualCameraChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapActualCameraChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapActualCameraChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapActualCameraChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapActualCameraChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapActualCameraChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapActualCameraChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -3411,7 +3411,7 @@ unsafe impl ::std::marker::Sync for MapActualCameraChangedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapActualCameraChangingEventArgs(::windows::runtime::IInspectable);
+pub struct MapActualCameraChangingEventArgs(pub ::windows::runtime::IInspectable);
 impl MapActualCameraChangingEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3449,22 +3449,22 @@ impl ::windows::runtime::RuntimeName for MapActualCameraChangingEventArgs {
 }
 impl ::std::convert::From<MapActualCameraChangingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapActualCameraChangingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapActualCameraChangingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapActualCameraChangingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapActualCameraChangingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapActualCameraChangingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapActualCameraChangingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapActualCameraChangingEventArgs> for ::windows::runtime::IInspectable {
@@ -3516,7 +3516,7 @@ impl ::windows::runtime::DefaultType for MapAnimationKind {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapBillboard(::windows::runtime::IInspectable);
+pub struct MapBillboard(pub ::windows::runtime::IInspectable);
 impl MapBillboard {
     #[cfg(feature = "Devices_Geolocation")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Devices_Geolocation`*"]
@@ -3780,22 +3780,22 @@ impl ::windows::runtime::RuntimeName for MapBillboard {
 }
 impl ::std::convert::From<MapBillboard> for ::windows::runtime::IUnknown {
     fn from(value: MapBillboard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapBillboard> for ::windows::runtime::IUnknown {
     fn from(value: &MapBillboard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapBillboard {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapBillboard {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapBillboard {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapBillboard> for ::windows::runtime::IInspectable {
@@ -3863,7 +3863,7 @@ unsafe impl ::std::marker::Sync for MapBillboard {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapCamera(::windows::runtime::IInspectable);
+pub struct MapCamera(pub ::windows::runtime::IInspectable);
 impl MapCamera {
     #[cfg(feature = "Devices_Geolocation")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Devices_Geolocation`*"]
@@ -4037,22 +4037,22 @@ impl ::windows::runtime::RuntimeName for MapCamera {
 }
 impl ::std::convert::From<MapCamera> for ::windows::runtime::IUnknown {
     fn from(value: MapCamera) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapCamera> for ::windows::runtime::IUnknown {
     fn from(value: &MapCamera) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapCamera {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapCamera {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapCamera {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapCamera> for ::windows::runtime::IInspectable {
@@ -4145,7 +4145,7 @@ impl ::windows::runtime::DefaultType for MapColorScheme {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapContextRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct MapContextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapContextRequestedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4194,22 +4194,22 @@ impl ::windows::runtime::RuntimeName for MapContextRequestedEventArgs {
 }
 impl ::std::convert::From<MapContextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapContextRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapContextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapContextRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapContextRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapContextRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapContextRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapContextRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -4237,7 +4237,7 @@ unsafe impl ::std::marker::Sync for MapContextRequestedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControl(::windows::runtime::IInspectable);
+pub struct MapControl(pub ::windows::runtime::IInspectable);
 impl MapControl {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8198,22 +8198,22 @@ impl ::windows::runtime::RuntimeName for MapControl {
 }
 impl ::std::convert::From<MapControl> for ::windows::runtime::IUnknown {
     fn from(value: MapControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControl> for ::windows::runtime::IUnknown {
     fn from(value: &MapControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControl> for ::windows::runtime::IInspectable {
@@ -8373,7 +8373,7 @@ unsafe impl ::std::marker::Sync for MapControl {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlBusinessLandmarkClickEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlBusinessLandmarkClickEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlBusinessLandmarkClickEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8404,22 +8404,22 @@ impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkClickEventArg
 }
 impl ::std::convert::From<MapControlBusinessLandmarkClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlBusinessLandmarkClickEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlBusinessLandmarkClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlBusinessLandmarkClickEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlBusinessLandmarkClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlBusinessLandmarkClickEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlBusinessLandmarkClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlBusinessLandmarkClickEventArgs> for ::windows::runtime::IInspectable {
@@ -8447,7 +8447,7 @@ unsafe impl ::std::marker::Sync for MapControlBusinessLandmarkClickEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlBusinessLandmarkPointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlBusinessLandmarkPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlBusinessLandmarkPointerEnteredEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8478,22 +8478,22 @@ impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkPointerEntere
 }
 impl ::std::convert::From<MapControlBusinessLandmarkPointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlBusinessLandmarkPointerEnteredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlBusinessLandmarkPointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlBusinessLandmarkPointerEnteredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlBusinessLandmarkPointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlBusinessLandmarkPointerEnteredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlBusinessLandmarkPointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlBusinessLandmarkPointerEnteredEventArgs> for ::windows::runtime::IInspectable {
@@ -8521,7 +8521,7 @@ unsafe impl ::std::marker::Sync for MapControlBusinessLandmarkPointerEnteredEven
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlBusinessLandmarkPointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlBusinessLandmarkPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlBusinessLandmarkPointerExitedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8552,22 +8552,22 @@ impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkPointerExited
 }
 impl ::std::convert::From<MapControlBusinessLandmarkPointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlBusinessLandmarkPointerExitedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlBusinessLandmarkPointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlBusinessLandmarkPointerExitedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlBusinessLandmarkPointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlBusinessLandmarkPointerExitedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlBusinessLandmarkPointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlBusinessLandmarkPointerExitedEventArgs> for ::windows::runtime::IInspectable {
@@ -8595,7 +8595,7 @@ unsafe impl ::std::marker::Sync for MapControlBusinessLandmarkPointerExitedEvent
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlBusinessLandmarkRightTappedEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlBusinessLandmarkRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlBusinessLandmarkRightTappedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8626,22 +8626,22 @@ impl ::windows::runtime::RuntimeName for MapControlBusinessLandmarkRightTappedEv
 }
 impl ::std::convert::From<MapControlBusinessLandmarkRightTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlBusinessLandmarkRightTappedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlBusinessLandmarkRightTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlBusinessLandmarkRightTappedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlBusinessLandmarkRightTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlBusinessLandmarkRightTappedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlBusinessLandmarkRightTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlBusinessLandmarkRightTappedEventArgs> for ::windows::runtime::IInspectable {
@@ -8669,7 +8669,7 @@ unsafe impl ::std::marker::Sync for MapControlBusinessLandmarkRightTappedEventAr
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlDataHelper(::windows::runtime::IInspectable);
+pub struct MapControlDataHelper(pub ::windows::runtime::IInspectable);
 impl MapControlDataHelper {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation`*"]
@@ -8882,22 +8882,22 @@ impl ::windows::runtime::RuntimeName for MapControlDataHelper {
 }
 impl ::std::convert::From<MapControlDataHelper> for ::windows::runtime::IUnknown {
     fn from(value: MapControlDataHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlDataHelper> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlDataHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlDataHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlDataHelper {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlDataHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlDataHelper> for ::windows::runtime::IInspectable {
@@ -8945,7 +8945,7 @@ unsafe impl ::std::marker::Sync for MapControlDataHelper {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlTransitFeatureClickEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlTransitFeatureClickEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlTransitFeatureClickEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8993,22 +8993,22 @@ impl ::windows::runtime::RuntimeName for MapControlTransitFeatureClickEventArgs 
 }
 impl ::std::convert::From<MapControlTransitFeatureClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlTransitFeatureClickEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlTransitFeatureClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlTransitFeatureClickEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlTransitFeatureClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlTransitFeatureClickEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlTransitFeatureClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlTransitFeatureClickEventArgs> for ::windows::runtime::IInspectable {
@@ -9036,7 +9036,7 @@ unsafe impl ::std::marker::Sync for MapControlTransitFeatureClickEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlTransitFeaturePointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlTransitFeaturePointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlTransitFeaturePointerEnteredEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -9084,22 +9084,22 @@ impl ::windows::runtime::RuntimeName for MapControlTransitFeaturePointerEnteredE
 }
 impl ::std::convert::From<MapControlTransitFeaturePointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlTransitFeaturePointerEnteredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlTransitFeaturePointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlTransitFeaturePointerEnteredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlTransitFeaturePointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlTransitFeaturePointerEnteredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlTransitFeaturePointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlTransitFeaturePointerEnteredEventArgs> for ::windows::runtime::IInspectable {
@@ -9127,7 +9127,7 @@ unsafe impl ::std::marker::Sync for MapControlTransitFeaturePointerEnteredEventA
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlTransitFeaturePointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlTransitFeaturePointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlTransitFeaturePointerExitedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -9175,22 +9175,22 @@ impl ::windows::runtime::RuntimeName for MapControlTransitFeaturePointerExitedEv
 }
 impl ::std::convert::From<MapControlTransitFeaturePointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlTransitFeaturePointerExitedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlTransitFeaturePointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlTransitFeaturePointerExitedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlTransitFeaturePointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlTransitFeaturePointerExitedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlTransitFeaturePointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlTransitFeaturePointerExitedEventArgs> for ::windows::runtime::IInspectable {
@@ -9218,7 +9218,7 @@ unsafe impl ::std::marker::Sync for MapControlTransitFeaturePointerExitedEventAr
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapControlTransitFeatureRightTappedEventArgs(::windows::runtime::IInspectable);
+pub struct MapControlTransitFeatureRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapControlTransitFeatureRightTappedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -9266,22 +9266,22 @@ impl ::windows::runtime::RuntimeName for MapControlTransitFeatureRightTappedEven
 }
 impl ::std::convert::From<MapControlTransitFeatureRightTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapControlTransitFeatureRightTappedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapControlTransitFeatureRightTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapControlTransitFeatureRightTappedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapControlTransitFeatureRightTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapControlTransitFeatureRightTappedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapControlTransitFeatureRightTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapControlTransitFeatureRightTappedEventArgs> for ::windows::runtime::IInspectable {
@@ -9309,7 +9309,7 @@ unsafe impl ::std::marker::Sync for MapControlTransitFeatureRightTappedEventArgs
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapCustomExperience(::windows::runtime::IInspectable);
+pub struct MapCustomExperience(pub ::windows::runtime::IInspectable);
 impl MapCustomExperience {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn new() -> ::windows::runtime::Result<MapCustomExperience> {
@@ -9391,22 +9391,22 @@ impl ::windows::runtime::RuntimeName for MapCustomExperience {
 }
 impl ::std::convert::From<MapCustomExperience> for ::windows::runtime::IUnknown {
     fn from(value: MapCustomExperience) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapCustomExperience> for ::windows::runtime::IUnknown {
     fn from(value: &MapCustomExperience) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapCustomExperience {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapCustomExperience {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapCustomExperience {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapCustomExperience> for ::windows::runtime::IInspectable {
@@ -9454,7 +9454,7 @@ unsafe impl ::std::marker::Sync for MapCustomExperience {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapCustomExperienceChangedEventArgs(::windows::runtime::IInspectable);
+pub struct MapCustomExperienceChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapCustomExperienceChangedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -9476,22 +9476,22 @@ impl ::windows::runtime::RuntimeName for MapCustomExperienceChangedEventArgs {
 }
 impl ::std::convert::From<MapCustomExperienceChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapCustomExperienceChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapCustomExperienceChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapCustomExperienceChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapCustomExperienceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapCustomExperienceChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapCustomExperienceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapCustomExperienceChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -9519,7 +9519,7 @@ unsafe impl ::std::marker::Sync for MapCustomExperienceChangedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElement(::windows::runtime::IInspectable);
+pub struct MapElement(pub ::windows::runtime::IInspectable);
 impl MapElement {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
@@ -9757,22 +9757,22 @@ impl ::windows::runtime::RuntimeName for MapElement {
 }
 impl ::std::convert::From<MapElement> for ::windows::runtime::IUnknown {
     fn from(value: MapElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElement> for ::windows::runtime::IUnknown {
     fn from(value: &MapElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElement> for ::windows::runtime::IInspectable {
@@ -9820,7 +9820,7 @@ unsafe impl ::std::marker::Sync for MapElement {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElement3D(::windows::runtime::IInspectable);
+pub struct MapElement3D(pub ::windows::runtime::IInspectable);
 impl MapElement3D {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10110,22 +10110,22 @@ impl ::windows::runtime::RuntimeName for MapElement3D {
 }
 impl ::std::convert::From<MapElement3D> for ::windows::runtime::IUnknown {
     fn from(value: MapElement3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElement3D> for ::windows::runtime::IUnknown {
     fn from(value: &MapElement3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElement3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElement3D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElement3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElement3D> for ::windows::runtime::IInspectable {
@@ -10193,7 +10193,7 @@ unsafe impl ::std::marker::Sync for MapElement3D {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementClickEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementClickEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementClickEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10242,22 +10242,22 @@ impl ::windows::runtime::RuntimeName for MapElementClickEventArgs {
 }
 impl ::std::convert::From<MapElementClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementClickEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementClickEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementClickEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementClickEventArgs> for ::windows::runtime::IInspectable {
@@ -10307,7 +10307,7 @@ impl ::windows::runtime::DefaultType for MapElementCollisionBehavior {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementPointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementPointerEnteredEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10355,22 +10355,22 @@ impl ::windows::runtime::RuntimeName for MapElementPointerEnteredEventArgs {
 }
 impl ::std::convert::From<MapElementPointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementPointerEnteredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementPointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementPointerEnteredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementPointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementPointerEnteredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementPointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementPointerEnteredEventArgs> for ::windows::runtime::IInspectable {
@@ -10398,7 +10398,7 @@ unsafe impl ::std::marker::Sync for MapElementPointerEnteredEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementPointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementPointerExitedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10446,22 +10446,22 @@ impl ::windows::runtime::RuntimeName for MapElementPointerExitedEventArgs {
 }
 impl ::std::convert::From<MapElementPointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementPointerExitedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementPointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementPointerExitedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementPointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementPointerExitedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementPointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementPointerExitedEventArgs> for ::windows::runtime::IInspectable {
@@ -10489,7 +10489,7 @@ unsafe impl ::std::marker::Sync for MapElementPointerExitedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementsLayer(::windows::runtime::IInspectable);
+pub struct MapElementsLayer(pub ::windows::runtime::IInspectable);
 impl MapElementsLayer {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10692,22 +10692,22 @@ impl ::windows::runtime::RuntimeName for MapElementsLayer {
 }
 impl ::std::convert::From<MapElementsLayer> for ::windows::runtime::IUnknown {
     fn from(value: MapElementsLayer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementsLayer> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementsLayer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementsLayer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementsLayer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementsLayer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementsLayer> for ::windows::runtime::IInspectable {
@@ -10775,7 +10775,7 @@ unsafe impl ::std::marker::Sync for MapElementsLayer {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementsLayerClickEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementsLayerClickEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementsLayerClickEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10824,22 +10824,22 @@ impl ::windows::runtime::RuntimeName for MapElementsLayerClickEventArgs {
 }
 impl ::std::convert::From<MapElementsLayerClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementsLayerClickEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementsLayerClickEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementsLayerClickEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementsLayerClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementsLayerClickEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementsLayerClickEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementsLayerClickEventArgs> for ::windows::runtime::IInspectable {
@@ -10867,7 +10867,7 @@ unsafe impl ::std::marker::Sync for MapElementsLayerClickEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementsLayerContextRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementsLayerContextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementsLayerContextRequestedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -10916,22 +10916,22 @@ impl ::windows::runtime::RuntimeName for MapElementsLayerContextRequestedEventAr
 }
 impl ::std::convert::From<MapElementsLayerContextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementsLayerContextRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementsLayerContextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementsLayerContextRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementsLayerContextRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementsLayerContextRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementsLayerContextRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementsLayerContextRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -10959,7 +10959,7 @@ unsafe impl ::std::marker::Sync for MapElementsLayerContextRequestedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementsLayerPointerEnteredEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementsLayerPointerEnteredEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementsLayerPointerEnteredEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -11007,22 +11007,22 @@ impl ::windows::runtime::RuntimeName for MapElementsLayerPointerEnteredEventArgs
 }
 impl ::std::convert::From<MapElementsLayerPointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementsLayerPointerEnteredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementsLayerPointerEnteredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementsLayerPointerEnteredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementsLayerPointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementsLayerPointerEnteredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementsLayerPointerEnteredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementsLayerPointerEnteredEventArgs> for ::windows::runtime::IInspectable {
@@ -11050,7 +11050,7 @@ unsafe impl ::std::marker::Sync for MapElementsLayerPointerEnteredEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapElementsLayerPointerExitedEventArgs(::windows::runtime::IInspectable);
+pub struct MapElementsLayerPointerExitedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapElementsLayerPointerExitedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -11098,22 +11098,22 @@ impl ::windows::runtime::RuntimeName for MapElementsLayerPointerExitedEventArgs 
 }
 impl ::std::convert::From<MapElementsLayerPointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapElementsLayerPointerExitedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapElementsLayerPointerExitedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapElementsLayerPointerExitedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapElementsLayerPointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapElementsLayerPointerExitedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapElementsLayerPointerExitedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapElementsLayerPointerExitedEventArgs> for ::windows::runtime::IInspectable {
@@ -11141,7 +11141,7 @@ unsafe impl ::std::marker::Sync for MapElementsLayerPointerExitedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapIcon(::windows::runtime::IInspectable);
+pub struct MapIcon(pub ::windows::runtime::IInspectable);
 impl MapIcon {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -11417,22 +11417,22 @@ impl ::windows::runtime::RuntimeName for MapIcon {
 }
 impl ::std::convert::From<MapIcon> for ::windows::runtime::IUnknown {
     fn from(value: MapIcon) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapIcon> for ::windows::runtime::IUnknown {
     fn from(value: &MapIcon) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapIcon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapIcon {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapIcon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapIcon> for ::windows::runtime::IInspectable {
@@ -11500,7 +11500,7 @@ unsafe impl ::std::marker::Sync for MapIcon {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapInputEventArgs(::windows::runtime::IInspectable);
+pub struct MapInputEventArgs(pub ::windows::runtime::IInspectable);
 impl MapInputEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -11596,22 +11596,22 @@ impl ::windows::runtime::RuntimeName for MapInputEventArgs {
 }
 impl ::std::convert::From<MapInputEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapInputEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapInputEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapInputEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapInputEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapInputEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapInputEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapInputEventArgs> for ::windows::runtime::IInspectable {
@@ -11687,7 +11687,7 @@ impl ::windows::runtime::DefaultType for MapInteractionMode {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapItemsControl(::windows::runtime::IInspectable);
+pub struct MapItemsControl(pub ::windows::runtime::IInspectable);
 impl MapItemsControl {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -11825,22 +11825,22 @@ impl ::windows::runtime::RuntimeName for MapItemsControl {
 }
 impl ::std::convert::From<MapItemsControl> for ::windows::runtime::IUnknown {
     fn from(value: MapItemsControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapItemsControl> for ::windows::runtime::IUnknown {
     fn from(value: &MapItemsControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapItemsControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapItemsControl {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapItemsControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapItemsControl> for ::windows::runtime::IInspectable {
@@ -11888,7 +11888,7 @@ unsafe impl ::std::marker::Sync for MapItemsControl {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapLayer(::windows::runtime::IInspectable);
+pub struct MapLayer(pub ::windows::runtime::IInspectable);
 impl MapLayer {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn MapTabIndex(&self) -> ::windows::runtime::Result<i32> {
@@ -12034,22 +12034,22 @@ impl ::windows::runtime::RuntimeName for MapLayer {
 }
 impl ::std::convert::From<MapLayer> for ::windows::runtime::IUnknown {
     fn from(value: MapLayer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapLayer> for ::windows::runtime::IUnknown {
     fn from(value: &MapLayer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapLayer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapLayer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapLayer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapLayer> for ::windows::runtime::IInspectable {
@@ -12121,7 +12121,7 @@ impl ::windows::runtime::DefaultType for MapLoadingStatus {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapModel3D(::windows::runtime::IInspectable);
+pub struct MapModel3D(pub ::windows::runtime::IInspectable);
 impl MapModel3D {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation`, `Storage_Streams`*"]
@@ -12223,22 +12223,22 @@ impl ::windows::runtime::RuntimeName for MapModel3D {
 }
 impl ::std::convert::From<MapModel3D> for ::windows::runtime::IUnknown {
     fn from(value: MapModel3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapModel3D> for ::windows::runtime::IUnknown {
     fn from(value: &MapModel3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapModel3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapModel3D {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapModel3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapModel3D> for ::windows::runtime::IInspectable {
@@ -12331,7 +12331,7 @@ impl ::windows::runtime::DefaultType for MapPanInteractionMode {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapPolygon(::windows::runtime::IInspectable);
+pub struct MapPolygon(pub ::windows::runtime::IInspectable);
 impl MapPolygon {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -12601,22 +12601,22 @@ impl ::windows::runtime::RuntimeName for MapPolygon {
 }
 impl ::std::convert::From<MapPolygon> for ::windows::runtime::IUnknown {
     fn from(value: MapPolygon) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapPolygon> for ::windows::runtime::IUnknown {
     fn from(value: &MapPolygon) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapPolygon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapPolygon {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapPolygon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapPolygon> for ::windows::runtime::IInspectable {
@@ -12684,7 +12684,7 @@ unsafe impl ::std::marker::Sync for MapPolygon {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapPolyline(::windows::runtime::IInspectable);
+pub struct MapPolyline(pub ::windows::runtime::IInspectable);
 impl MapPolyline {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -12925,22 +12925,22 @@ impl ::windows::runtime::RuntimeName for MapPolyline {
 }
 impl ::std::convert::From<MapPolyline> for ::windows::runtime::IUnknown {
     fn from(value: MapPolyline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapPolyline> for ::windows::runtime::IUnknown {
     fn from(value: &MapPolyline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapPolyline {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapPolyline {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapPolyline {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapPolyline> for ::windows::runtime::IInspectable {
@@ -13030,7 +13030,7 @@ impl ::windows::runtime::DefaultType for MapProjection {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapRightTappedEventArgs(::windows::runtime::IInspectable);
+pub struct MapRightTappedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapRightTappedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -13070,22 +13070,22 @@ impl ::windows::runtime::RuntimeName for MapRightTappedEventArgs {
 }
 impl ::std::convert::From<MapRightTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapRightTappedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapRightTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapRightTappedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRightTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRightTappedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapRightTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapRightTappedEventArgs> for ::windows::runtime::IInspectable {
@@ -13113,7 +13113,7 @@ unsafe impl ::std::marker::Sync for MapRightTappedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapRouteView(::windows::runtime::IInspectable);
+pub struct MapRouteView(pub ::windows::runtime::IInspectable);
 impl MapRouteView {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn RouteColor(&self) -> ::windows::runtime::Result<super::super::super::Color> {
@@ -13231,22 +13231,22 @@ impl ::windows::runtime::RuntimeName for MapRouteView {
 }
 impl ::std::convert::From<MapRouteView> for ::windows::runtime::IUnknown {
     fn from(value: MapRouteView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapRouteView> for ::windows::runtime::IUnknown {
     fn from(value: &MapRouteView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRouteView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRouteView {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapRouteView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapRouteView> for ::windows::runtime::IInspectable {
@@ -13294,7 +13294,7 @@ unsafe impl ::std::marker::Sync for MapRouteView {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapScene(::windows::runtime::IInspectable);
+pub struct MapScene(pub ::windows::runtime::IInspectable);
 impl MapScene {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn TargetCamera(&self) -> ::windows::runtime::Result<MapCamera> {
@@ -13463,22 +13463,22 @@ impl ::windows::runtime::RuntimeName for MapScene {
 }
 impl ::std::convert::From<MapScene> for ::windows::runtime::IUnknown {
     fn from(value: MapScene) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapScene> for ::windows::runtime::IUnknown {
     fn from(value: &MapScene) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapScene {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapScene {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapScene {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapScene> for ::windows::runtime::IInspectable {
@@ -13554,7 +13554,7 @@ impl ::windows::runtime::DefaultType for MapStyle {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapStyleSheet(::windows::runtime::IInspectable);
+pub struct MapStyleSheet(pub ::windows::runtime::IInspectable);
 impl MapStyleSheet {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn Aerial() -> ::windows::runtime::Result<MapStyleSheet> {
@@ -13693,22 +13693,22 @@ impl ::windows::runtime::RuntimeName for MapStyleSheet {
 }
 impl ::std::convert::From<MapStyleSheet> for ::windows::runtime::IUnknown {
     fn from(value: MapStyleSheet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapStyleSheet> for ::windows::runtime::IUnknown {
     fn from(value: &MapStyleSheet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapStyleSheet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapStyleSheet {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapStyleSheet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapStyleSheet> for ::windows::runtime::IInspectable {
@@ -14247,7 +14247,7 @@ impl ::windows::runtime::RuntimeName for MapStyleSheetEntryStates {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTargetCameraChangedEventArgs(::windows::runtime::IInspectable);
+pub struct MapTargetCameraChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapTargetCameraChangedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -14285,22 +14285,22 @@ impl ::windows::runtime::RuntimeName for MapTargetCameraChangedEventArgs {
 }
 impl ::std::convert::From<MapTargetCameraChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapTargetCameraChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTargetCameraChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapTargetCameraChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTargetCameraChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTargetCameraChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTargetCameraChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTargetCameraChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -14351,7 +14351,7 @@ impl ::windows::runtime::DefaultType for MapTileAnimationState {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileBitmapRequest(::windows::runtime::IInspectable);
+pub struct MapTileBitmapRequest(pub ::windows::runtime::IInspectable);
 impl MapTileBitmapRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -14396,22 +14396,22 @@ impl ::windows::runtime::RuntimeName for MapTileBitmapRequest {
 }
 impl ::std::convert::From<MapTileBitmapRequest> for ::windows::runtime::IUnknown {
     fn from(value: MapTileBitmapRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileBitmapRequest> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileBitmapRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileBitmapRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileBitmapRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileBitmapRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileBitmapRequest> for ::windows::runtime::IInspectable {
@@ -14439,7 +14439,7 @@ unsafe impl ::std::marker::Sync for MapTileBitmapRequest {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileBitmapRequestDeferral(::windows::runtime::IInspectable);
+pub struct MapTileBitmapRequestDeferral(pub ::windows::runtime::IInspectable);
 impl MapTileBitmapRequestDeferral {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -14466,22 +14466,22 @@ impl ::windows::runtime::RuntimeName for MapTileBitmapRequestDeferral {
 }
 impl ::std::convert::From<MapTileBitmapRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: MapTileBitmapRequestDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileBitmapRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileBitmapRequestDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileBitmapRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileBitmapRequestDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileBitmapRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileBitmapRequestDeferral> for ::windows::runtime::IInspectable {
@@ -14509,7 +14509,7 @@ unsafe impl ::std::marker::Sync for MapTileBitmapRequestDeferral {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileBitmapRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct MapTileBitmapRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapTileBitmapRequestedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -14571,22 +14571,22 @@ impl ::windows::runtime::RuntimeName for MapTileBitmapRequestedEventArgs {
 }
 impl ::std::convert::From<MapTileBitmapRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapTileBitmapRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileBitmapRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileBitmapRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileBitmapRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileBitmapRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileBitmapRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileBitmapRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -14614,7 +14614,7 @@ unsafe impl ::std::marker::Sync for MapTileBitmapRequestedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileDataSource(::windows::runtime::IInspectable);
+pub struct MapTileDataSource(pub ::windows::runtime::IInspectable);
 impl MapTileDataSource {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn new() -> ::windows::runtime::Result<MapTileDataSource> {
@@ -14696,22 +14696,22 @@ impl ::windows::runtime::RuntimeName for MapTileDataSource {
 }
 impl ::std::convert::From<MapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: MapTileDataSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileDataSource> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileDataSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileDataSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileDataSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileDataSource> for ::windows::runtime::IInspectable {
@@ -14784,7 +14784,7 @@ impl ::windows::runtime::DefaultType for MapTileLayer {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileSource(::windows::runtime::IInspectable);
+pub struct MapTileSource(pub ::windows::runtime::IInspectable);
 impl MapTileSource {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn DataSource(&self) -> ::windows::runtime::Result<MapTileDataSource> {
@@ -15218,22 +15218,22 @@ impl ::windows::runtime::RuntimeName for MapTileSource {
 }
 impl ::std::convert::From<MapTileSource> for ::windows::runtime::IUnknown {
     fn from(value: MapTileSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileSource> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileSource> for ::windows::runtime::IInspectable {
@@ -15281,7 +15281,7 @@ unsafe impl ::std::marker::Sync for MapTileSource {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileUriRequest(::windows::runtime::IInspectable);
+pub struct MapTileUriRequest(pub ::windows::runtime::IInspectable);
 impl MapTileUriRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -15326,22 +15326,22 @@ impl ::windows::runtime::RuntimeName for MapTileUriRequest {
 }
 impl ::std::convert::From<MapTileUriRequest> for ::windows::runtime::IUnknown {
     fn from(value: MapTileUriRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileUriRequest> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileUriRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileUriRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileUriRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileUriRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileUriRequest> for ::windows::runtime::IInspectable {
@@ -15369,7 +15369,7 @@ unsafe impl ::std::marker::Sync for MapTileUriRequest {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileUriRequestDeferral(::windows::runtime::IInspectable);
+pub struct MapTileUriRequestDeferral(pub ::windows::runtime::IInspectable);
 impl MapTileUriRequestDeferral {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -15396,22 +15396,22 @@ impl ::windows::runtime::RuntimeName for MapTileUriRequestDeferral {
 }
 impl ::std::convert::From<MapTileUriRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: MapTileUriRequestDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileUriRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileUriRequestDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileUriRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileUriRequestDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileUriRequestDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileUriRequestDeferral> for ::windows::runtime::IInspectable {
@@ -15439,7 +15439,7 @@ unsafe impl ::std::marker::Sync for MapTileUriRequestDeferral {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MapTileUriRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct MapTileUriRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MapTileUriRequestedEventArgs {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -15501,22 +15501,22 @@ impl ::windows::runtime::RuntimeName for MapTileUriRequestedEventArgs {
 }
 impl ::std::convert::From<MapTileUriRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MapTileUriRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MapTileUriRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MapTileUriRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapTileUriRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapTileUriRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MapTileUriRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MapTileUriRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -15621,7 +15621,7 @@ impl ::windows::runtime::DefaultType for MapZoomLevelRange {
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StreetsideExperience(::windows::runtime::IInspectable);
+pub struct StreetsideExperience(pub ::windows::runtime::IInspectable);
 impl StreetsideExperience {
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn AddressTextVisible(&self) -> ::windows::runtime::Result<bool> {
@@ -15788,22 +15788,22 @@ impl ::windows::runtime::RuntimeName for StreetsideExperience {
 }
 impl ::std::convert::From<StreetsideExperience> for ::windows::runtime::IUnknown {
     fn from(value: StreetsideExperience) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StreetsideExperience> for ::windows::runtime::IUnknown {
     fn from(value: &StreetsideExperience) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreetsideExperience {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreetsideExperience {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StreetsideExperience {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StreetsideExperience> for ::windows::runtime::IInspectable {
@@ -15871,7 +15871,7 @@ unsafe impl ::std::marker::Sync for StreetsideExperience {}
 #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StreetsidePanorama(::windows::runtime::IInspectable);
+pub struct StreetsidePanorama(pub ::windows::runtime::IInspectable);
 impl StreetsidePanorama {
     #[cfg(feature = "Devices_Geolocation")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Devices_Geolocation`*"]
@@ -15971,22 +15971,22 @@ impl ::windows::runtime::RuntimeName for StreetsidePanorama {
 }
 impl ::std::convert::From<StreetsidePanorama> for ::windows::runtime::IUnknown {
     fn from(value: StreetsidePanorama) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StreetsidePanorama> for ::windows::runtime::IUnknown {
     fn from(value: &StreetsidePanorama) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreetsidePanorama {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreetsidePanorama {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StreetsidePanorama {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StreetsidePanorama> for ::windows::runtime::IInspectable {

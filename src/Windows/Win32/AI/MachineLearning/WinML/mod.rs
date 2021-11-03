@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorAttributes(::windows::runtime::IUnknown);
+pub struct IMLOperatorAttributes(pub ::windows::runtime::IUnknown);
 impl IMLOperatorAttributes {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -33,22 +33,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorAttributes {
 }
 impl ::std::convert::From<IMLOperatorAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorAttributes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorAttributes> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorAttributes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorAttributes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -69,7 +69,7 @@ pub struct IMLOperatorAttributes_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorKernel(::windows::runtime::IUnknown);
+pub struct IMLOperatorKernel(pub ::windows::runtime::IUnknown);
 impl IMLOperatorKernel {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn Compute<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
@@ -82,22 +82,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorKernel {
 }
 impl ::std::convert::From<IMLOperatorKernel> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorKernel> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorKernel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -111,7 +111,7 @@ pub struct IMLOperatorKernel_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorKernelContext(::windows::runtime::IUnknown);
+pub struct IMLOperatorKernelContext(pub ::windows::runtime::IUnknown);
 impl IMLOperatorKernelContext {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensor(&self, inputindex: u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
@@ -144,22 +144,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorKernelContext {
 }
 impl ::std::convert::From<IMLOperatorKernelContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorKernelContext> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorKernelContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernelContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernelContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorKernelContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -177,7 +177,7 @@ pub struct IMLOperatorKernelContext_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorKernelCreationContext(::windows::runtime::IUnknown);
+pub struct IMLOperatorKernelCreationContext(pub ::windows::runtime::IUnknown);
 impl IMLOperatorKernelCreationContext {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -247,22 +247,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorKernelCreationContext {
 }
 impl ::std::convert::From<IMLOperatorKernelCreationContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelCreationContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorKernelCreationContext> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorKernelCreationContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernelCreationContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMLOperatorKernelCreationContext> for IMLOperatorAttributes {
@@ -312,7 +312,7 @@ pub struct IMLOperatorKernelCreationContext_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorKernelFactory(::windows::runtime::IUnknown);
+pub struct IMLOperatorKernelFactory(pub ::windows::runtime::IUnknown);
 impl IMLOperatorKernelFactory {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn CreateKernel<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelCreationContext>>(&self, context: Param0) -> ::windows::runtime::Result<IMLOperatorKernel> {
@@ -326,22 +326,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorKernelFactory {
 }
 impl ::std::convert::From<IMLOperatorKernelFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorKernelFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorKernelFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernelFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernelFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorKernelFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -355,7 +355,7 @@ pub struct IMLOperatorKernelFactory_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorRegistry(::windows::runtime::IUnknown);
+pub struct IMLOperatorRegistry(pub ::windows::runtime::IUnknown);
 impl IMLOperatorRegistry {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -374,22 +374,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorRegistry {
 }
 impl ::std::convert::From<IMLOperatorRegistry> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorRegistry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorRegistry> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorRegistry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorRegistry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorRegistry {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorRegistry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -406,7 +406,7 @@ pub struct IMLOperatorRegistry_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorShapeInferenceContext(::windows::runtime::IUnknown);
+pub struct IMLOperatorShapeInferenceContext(pub ::windows::runtime::IUnknown);
 impl IMLOperatorShapeInferenceContext {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -471,22 +471,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorShapeInferenceContext {
 }
 impl ::std::convert::From<IMLOperatorShapeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorShapeInferenceContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorShapeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorShapeInferenceContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorShapeInferenceContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMLOperatorShapeInferenceContext> for IMLOperatorAttributes {
@@ -535,7 +535,7 @@ pub struct IMLOperatorShapeInferenceContext_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorShapeInferrer(::windows::runtime::IUnknown);
+pub struct IMLOperatorShapeInferrer(pub ::windows::runtime::IUnknown);
 impl IMLOperatorShapeInferrer {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn InferOutputShapes<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferenceContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
@@ -548,22 +548,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorShapeInferrer {
 }
 impl ::std::convert::From<IMLOperatorShapeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorShapeInferrer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorShapeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorShapeInferrer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorShapeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorShapeInferrer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorShapeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -577,7 +577,7 @@ pub struct IMLOperatorShapeInferrer_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorTensor(::windows::runtime::IUnknown);
+pub struct IMLOperatorTensor(pub ::windows::runtime::IUnknown);
 impl IMLOperatorTensor {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetDimensionCount(&self) -> u32 {
@@ -614,22 +614,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorTensor {
 }
 impl ::std::convert::From<IMLOperatorTensor> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorTensor> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorTensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTensor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorTensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -649,7 +649,7 @@ pub struct IMLOperatorTensor_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorTensorShapeDescription(::windows::runtime::IUnknown);
+pub struct IMLOperatorTensorShapeDescription(pub ::windows::runtime::IUnknown);
 impl IMLOperatorTensorShapeDescription {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::runtime::Result<u32> {
@@ -680,22 +680,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorTensorShapeDescription 
 }
 impl ::std::convert::From<IMLOperatorTensorShapeDescription> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTensorShapeDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorTensorShapeDescription> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorTensorShapeDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTensorShapeDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTensorShapeDescription {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorTensorShapeDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -713,7 +713,7 @@ pub struct IMLOperatorTensorShapeDescription_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorTypeInferenceContext(::windows::runtime::IUnknown);
+pub struct IMLOperatorTypeInferenceContext(pub ::windows::runtime::IUnknown);
 impl IMLOperatorTypeInferenceContext {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -769,22 +769,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorTypeInferenceContext {
 }
 impl ::std::convert::From<IMLOperatorTypeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTypeInferenceContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorTypeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorTypeInferenceContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTypeInferenceContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IMLOperatorTypeInferenceContext> for IMLOperatorAttributes {
@@ -831,7 +831,7 @@ pub struct IMLOperatorTypeInferenceContext_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMLOperatorTypeInferrer(::windows::runtime::IUnknown);
+pub struct IMLOperatorTypeInferrer(pub ::windows::runtime::IUnknown);
 impl IMLOperatorTypeInferrer {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn InferOutputTypes<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferenceContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
@@ -844,22 +844,22 @@ unsafe impl ::windows::runtime::Interface for IMLOperatorTypeInferrer {
 }
 impl ::std::convert::From<IMLOperatorTypeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTypeInferrer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMLOperatorTypeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: &IMLOperatorTypeInferrer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTypeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTypeInferrer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMLOperatorTypeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -873,7 +873,7 @@ pub struct IMLOperatorTypeInferrer_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWinMLEvaluationContext(::windows::runtime::IUnknown);
+pub struct IWinMLEvaluationContext(pub ::windows::runtime::IUnknown);
 impl IWinMLEvaluationContext {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`, `Win32_Graphics_Direct3D12`*"]
@@ -897,22 +897,22 @@ unsafe impl ::windows::runtime::Interface for IWinMLEvaluationContext {
 }
 impl ::std::convert::From<IWinMLEvaluationContext> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLEvaluationContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWinMLEvaluationContext> for ::windows::runtime::IUnknown {
     fn from(value: &IWinMLEvaluationContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLEvaluationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLEvaluationContext {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinMLEvaluationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -930,7 +930,7 @@ pub struct IWinMLEvaluationContext_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWinMLModel(::windows::runtime::IUnknown);
+pub struct IWinMLModel(pub ::windows::runtime::IUnknown);
 impl IWinMLModel {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -962,22 +962,22 @@ unsafe impl ::windows::runtime::Interface for IWinMLModel {
 }
 impl ::std::convert::From<IWinMLModel> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLModel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWinMLModel> for ::windows::runtime::IUnknown {
     fn from(value: &IWinMLModel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLModel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinMLModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -998,7 +998,7 @@ pub struct IWinMLModel_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWinMLRuntime(::windows::runtime::IUnknown);
+pub struct IWinMLRuntime(pub ::windows::runtime::IUnknown);
 impl IWinMLRuntime {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
@@ -1023,22 +1023,22 @@ unsafe impl ::windows::runtime::Interface for IWinMLRuntime {
 }
 impl ::std::convert::From<IWinMLRuntime> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLRuntime) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWinMLRuntime> for ::windows::runtime::IUnknown {
     fn from(value: &IWinMLRuntime) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLRuntime {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLRuntime {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinMLRuntime {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1056,7 +1056,7 @@ pub struct IWinMLRuntime_abi(
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IWinMLRuntimeFactory(::windows::runtime::IUnknown);
+pub struct IWinMLRuntimeFactory(pub ::windows::runtime::IUnknown);
 impl IWinMLRuntimeFactory {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::runtime::Result<IWinMLRuntime> {
@@ -1070,22 +1070,22 @@ unsafe impl ::windows::runtime::Interface for IWinMLRuntimeFactory {
 }
 impl ::std::convert::From<IWinMLRuntimeFactory> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLRuntimeFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IWinMLRuntimeFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IWinMLRuntimeFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLRuntimeFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLRuntimeFactory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWinMLRuntimeFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

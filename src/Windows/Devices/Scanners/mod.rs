@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageScanner(::windows::runtime::IInspectable);
+pub struct IImageScanner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScanner {
     type Vtable = IImageScanner_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1403555704, 21144, 18592, [141, 163, 128, 135, 81, 150, 101, 224]);
@@ -29,7 +29,7 @@ pub struct IImageScanner_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageScannerFeederConfiguration(::windows::runtime::IInspectable);
+pub struct IImageScannerFeederConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerFeederConfiguration {
     type Vtable = IImageScannerFeederConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1958587630, 64151, 19479, [130, 128, 64, 227, 156, 109, 204, 103]);
@@ -70,7 +70,7 @@ pub struct IImageScannerFeederConfiguration_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Scanners`*"]
-pub struct IImageScannerFormatConfiguration(::windows::runtime::IInspectable);
+pub struct IImageScannerFormatConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerFormatConfiguration {
     type Vtable = IImageScannerFormatConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921815313, 56031, 16400, [191, 16, 204, 165, 200, 61, 203, 176]);
@@ -111,22 +111,22 @@ unsafe impl ::windows::runtime::RuntimeType for IImageScannerFormatConfiguration
 }
 impl ::std::convert::From<IImageScannerFormatConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IImageScannerFormatConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IImageScannerFormatConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &IImageScannerFormatConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IImageScannerFormatConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IImageScannerFormatConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IImageScannerFormatConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IImageScannerFormatConfiguration> for ::windows::runtime::IInspectable {
@@ -165,7 +165,7 @@ pub struct IImageScannerFormatConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageScannerPreviewResult(::windows::runtime::IInspectable);
+pub struct IImageScannerPreviewResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(146275982, 34961, 17437, [190, 156, 23, 111, 161, 9, 200, 187]);
@@ -184,7 +184,7 @@ pub struct IImageScannerPreviewResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageScannerScanResult(::windows::runtime::IInspectable);
+pub struct IImageScannerScanResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerScanResult {
     type Vtable = IImageScannerScanResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373671629, 36919, 20040, [132, 193, 172, 9, 117, 7, 107, 197]);
@@ -204,7 +204,7 @@ pub struct IImageScannerScanResult_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Scanners`*"]
-pub struct IImageScannerSourceConfiguration(::windows::runtime::IInspectable);
+pub struct IImageScannerSourceConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerSourceConfiguration {
     type Vtable = IImageScannerSourceConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216310357, 2884, 19586, [158, 137, 32, 95, 156, 35, 78, 89]);
@@ -463,22 +463,22 @@ unsafe impl ::windows::runtime::RuntimeType for IImageScannerSourceConfiguration
 }
 impl ::std::convert::From<IImageScannerSourceConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IImageScannerSourceConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IImageScannerSourceConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &IImageScannerSourceConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IImageScannerSourceConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IImageScannerSourceConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IImageScannerSourceConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IImageScannerSourceConfiguration> for ::windows::runtime::IInspectable {
@@ -568,7 +568,7 @@ pub struct IImageScannerSourceConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageScannerStatics(::windows::runtime::IInspectable);
+pub struct IImageScannerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerStatics {
     type Vtable = IImageScannerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159877390, 55300, 17527, [159, 181, 185, 17, 181, 71, 56, 151]);
@@ -589,7 +589,7 @@ pub struct IImageScannerStatics_abi(
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageScanner(::windows::runtime::IInspectable);
+pub struct ImageScanner(pub ::windows::runtime::IInspectable);
 impl ImageScanner {
     #[doc = "*Required features: `Devices_Scanners`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -697,22 +697,22 @@ impl ::windows::runtime::RuntimeName for ImageScanner {
 }
 impl ::std::convert::From<ImageScanner> for ::windows::runtime::IUnknown {
     fn from(value: ImageScanner) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageScanner> for ::windows::runtime::IUnknown {
     fn from(value: &ImageScanner) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageScanner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageScanner {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageScanner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageScanner> for ::windows::runtime::IInspectable {
@@ -740,7 +740,7 @@ unsafe impl ::std::marker::Sync for ImageScanner {}
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageScannerAutoConfiguration(::windows::runtime::IInspectable);
+pub struct ImageScannerAutoConfiguration(pub ::windows::runtime::IInspectable);
 impl ImageScannerAutoConfiguration {
     #[doc = "*Required features: `Devices_Scanners`*"]
     pub fn DefaultFormat(&self) -> ::windows::runtime::Result<ImageScannerFormat> {
@@ -784,22 +784,22 @@ impl ::windows::runtime::RuntimeName for ImageScannerAutoConfiguration {
 }
 impl ::std::convert::From<ImageScannerAutoConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: ImageScannerAutoConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageScannerAutoConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &ImageScannerAutoConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageScannerAutoConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageScannerAutoConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageScannerAutoConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageScannerAutoConfiguration> for ::windows::runtime::IInspectable {
@@ -894,7 +894,7 @@ impl ::windows::runtime::DefaultType for ImageScannerColorMode {
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageScannerFeederConfiguration(::windows::runtime::IInspectable);
+pub struct ImageScannerFeederConfiguration(pub ::windows::runtime::IInspectable);
 impl ImageScannerFeederConfiguration {
     #[doc = "*Required features: `Devices_Scanners`*"]
     pub fn DefaultFormat(&self) -> ::windows::runtime::Result<ImageScannerFormat> {
@@ -1280,22 +1280,22 @@ impl ::windows::runtime::RuntimeName for ImageScannerFeederConfiguration {
 }
 impl ::std::convert::From<ImageScannerFeederConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: ImageScannerFeederConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageScannerFeederConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &ImageScannerFeederConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageScannerFeederConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageScannerFeederConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageScannerFeederConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageScannerFeederConfiguration> for ::windows::runtime::IInspectable {
@@ -1365,7 +1365,7 @@ unsafe impl ::std::marker::Sync for ImageScannerFeederConfiguration {}
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageScannerFlatbedConfiguration(::windows::runtime::IInspectable);
+pub struct ImageScannerFlatbedConfiguration(pub ::windows::runtime::IInspectable);
 impl ImageScannerFlatbedConfiguration {
     #[doc = "*Required features: `Devices_Scanners`*"]
     pub fn DefaultFormat(&self) -> ::windows::runtime::Result<ImageScannerFormat> {
@@ -1627,22 +1627,22 @@ impl ::windows::runtime::RuntimeName for ImageScannerFlatbedConfiguration {
 }
 impl ::std::convert::From<ImageScannerFlatbedConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: ImageScannerFlatbedConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageScannerFlatbedConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &ImageScannerFlatbedConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageScannerFlatbedConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageScannerFlatbedConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageScannerFlatbedConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageScannerFlatbedConfiguration> for ::windows::runtime::IInspectable {
@@ -1739,7 +1739,7 @@ impl ::windows::runtime::DefaultType for ImageScannerFormat {
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageScannerPreviewResult(::windows::runtime::IInspectable);
+pub struct ImageScannerPreviewResult(pub ::windows::runtime::IInspectable);
 impl ImageScannerPreviewResult {
     #[doc = "*Required features: `Devices_Scanners`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
@@ -1770,22 +1770,22 @@ impl ::windows::runtime::RuntimeName for ImageScannerPreviewResult {
 }
 impl ::std::convert::From<ImageScannerPreviewResult> for ::windows::runtime::IUnknown {
     fn from(value: ImageScannerPreviewResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageScannerPreviewResult> for ::windows::runtime::IUnknown {
     fn from(value: &ImageScannerPreviewResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageScannerPreviewResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageScannerPreviewResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageScannerPreviewResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageScannerPreviewResult> for ::windows::runtime::IInspectable {
@@ -1846,7 +1846,7 @@ impl ::windows::runtime::DefaultType for ImageScannerResolution {
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ImageScannerScanResult(::windows::runtime::IInspectable);
+pub struct ImageScannerScanResult(pub ::windows::runtime::IInspectable);
 impl ImageScannerScanResult {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     #[doc = "*Required features: `Devices_Scanners`, `Foundation_Collections`, `Storage`*"]
@@ -1870,22 +1870,22 @@ impl ::windows::runtime::RuntimeName for ImageScannerScanResult {
 }
 impl ::std::convert::From<ImageScannerScanResult> for ::windows::runtime::IUnknown {
     fn from(value: ImageScannerScanResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ImageScannerScanResult> for ::windows::runtime::IUnknown {
     fn from(value: &ImageScannerScanResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageScannerScanResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageScannerScanResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageScannerScanResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ImageScannerScanResult> for ::windows::runtime::IInspectable {

@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioDeviceInputNode(::windows::runtime::IInspectable);
+pub struct AudioDeviceInputNode(pub ::windows::runtime::IInspectable);
 impl AudioDeviceInputNode {
     #[cfg(feature = "Devices_Enumeration")]
     #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
@@ -135,22 +135,22 @@ impl ::windows::runtime::RuntimeName for AudioDeviceInputNode {
 }
 impl ::std::convert::From<AudioDeviceInputNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioDeviceInputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioDeviceInputNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioDeviceInputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioDeviceInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioDeviceInputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioDeviceInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioDeviceInputNode> for ::windows::runtime::IInspectable {
@@ -295,7 +295,7 @@ impl ::windows::runtime::DefaultType for AudioDeviceNodeCreationStatus {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioDeviceOutputNode(::windows::runtime::IInspectable);
+pub struct AudioDeviceOutputNode(pub ::windows::runtime::IInspectable);
 impl AudioDeviceOutputNode {
     #[cfg(feature = "Devices_Enumeration")]
     #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
@@ -409,22 +409,22 @@ impl ::windows::runtime::RuntimeName for AudioDeviceOutputNode {
 }
 impl ::std::convert::From<AudioDeviceOutputNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioDeviceOutputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioDeviceOutputNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioDeviceOutputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioDeviceOutputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioDeviceOutputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioDeviceOutputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioDeviceOutputNode> for ::windows::runtime::IInspectable {
@@ -522,7 +522,7 @@ unsafe impl ::std::marker::Sync for AudioDeviceOutputNode {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioFileInputNode(::windows::runtime::IInspectable);
+pub struct AudioFileInputNode(pub ::windows::runtime::IInspectable);
 impl AudioFileInputNode {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
@@ -752,22 +752,22 @@ impl ::windows::runtime::RuntimeName for AudioFileInputNode {
 }
 impl ::std::convert::From<AudioFileInputNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioFileInputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioFileInputNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioFileInputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioFileInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioFileInputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioFileInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioFileInputNode> for ::windows::runtime::IInspectable {
@@ -912,7 +912,7 @@ impl ::windows::runtime::DefaultType for AudioFileNodeCreationStatus {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioFileOutputNode(::windows::runtime::IInspectable);
+pub struct AudioFileOutputNode(pub ::windows::runtime::IInspectable);
 impl AudioFileOutputNode {
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Media_Audio`, `Storage`*"]
@@ -1031,22 +1031,22 @@ impl ::windows::runtime::RuntimeName for AudioFileOutputNode {
 }
 impl ::std::convert::From<AudioFileOutputNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioFileOutputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioFileOutputNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioFileOutputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioFileOutputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioFileOutputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioFileOutputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioFileOutputNode> for ::windows::runtime::IInspectable {
@@ -1122,7 +1122,7 @@ unsafe impl ::std::marker::Sync for AudioFileOutputNode {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioFrameCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct AudioFrameCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl AudioFrameCompletedEventArgs {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Frame(&self) -> ::windows::runtime::Result<super::AudioFrame> {
@@ -1145,22 +1145,22 @@ impl ::windows::runtime::RuntimeName for AudioFrameCompletedEventArgs {
 }
 impl ::std::convert::From<AudioFrameCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AudioFrameCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioFrameCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AudioFrameCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioFrameCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioFrameCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioFrameCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioFrameCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -1188,7 +1188,7 @@ unsafe impl ::std::marker::Sync for AudioFrameCompletedEventArgs {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioFrameInputNode(::windows::runtime::IInspectable);
+pub struct AudioFrameInputNode(pub ::windows::runtime::IInspectable);
 impl AudioFrameInputNode {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
@@ -1373,22 +1373,22 @@ impl ::windows::runtime::RuntimeName for AudioFrameInputNode {
 }
 impl ::std::convert::From<AudioFrameInputNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioFrameInputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioFrameInputNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioFrameInputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioFrameInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioFrameInputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioFrameInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioFrameInputNode> for ::windows::runtime::IInspectable {
@@ -1508,7 +1508,7 @@ unsafe impl ::std::marker::Sync for AudioFrameInputNode {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioFrameOutputNode(::windows::runtime::IInspectable);
+pub struct AudioFrameOutputNode(pub ::windows::runtime::IInspectable);
 impl AudioFrameOutputNode {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn GetFrame(&self) -> ::windows::runtime::Result<super::AudioFrame> {
@@ -1608,22 +1608,22 @@ impl ::windows::runtime::RuntimeName for AudioFrameOutputNode {
 }
 impl ::std::convert::From<AudioFrameOutputNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioFrameOutputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioFrameOutputNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioFrameOutputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioFrameOutputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioFrameOutputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioFrameOutputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioFrameOutputNode> for ::windows::runtime::IInspectable {
@@ -1699,7 +1699,7 @@ unsafe impl ::std::marker::Sync for AudioFrameOutputNode {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioGraph(::windows::runtime::IInspectable);
+pub struct AudioGraph(pub ::windows::runtime::IInspectable);
 impl AudioGraph {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateFrameInputNode(&self) -> ::windows::runtime::Result<AudioFrameInputNode> {
@@ -2025,22 +2025,22 @@ impl ::windows::runtime::RuntimeName for AudioGraph {
 }
 impl ::std::convert::From<AudioGraph> for ::windows::runtime::IUnknown {
     fn from(value: AudioGraph) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioGraph> for ::windows::runtime::IUnknown {
     fn from(value: &AudioGraph) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioGraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioGraph {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioGraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioGraph> for ::windows::runtime::IInspectable {
@@ -2095,7 +2095,7 @@ unsafe impl ::std::marker::Sync for AudioGraph {}
 #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioGraphBatchUpdater(::windows::runtime::IInspectable);
+pub struct AudioGraphBatchUpdater(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl AudioGraphBatchUpdater {
     #[cfg(feature = "Foundation")]
@@ -2121,25 +2121,25 @@ impl ::windows::runtime::RuntimeName for AudioGraphBatchUpdater {
 #[cfg(feature = "Foundation")]
 impl ::std::convert::From<AudioGraphBatchUpdater> for ::windows::runtime::IUnknown {
     fn from(value: AudioGraphBatchUpdater) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::From<&AudioGraphBatchUpdater> for ::windows::runtime::IUnknown {
     fn from(value: &AudioGraphBatchUpdater) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioGraphBatchUpdater {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2197,7 +2197,7 @@ unsafe impl ::std::marker::Sync for AudioGraphBatchUpdater {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioGraphConnection(::windows::runtime::IInspectable);
+pub struct AudioGraphConnection(pub ::windows::runtime::IInspectable);
 impl AudioGraphConnection {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Destination(&self) -> ::windows::runtime::Result<IAudioNode> {
@@ -2233,22 +2233,22 @@ impl ::windows::runtime::RuntimeName for AudioGraphConnection {
 }
 impl ::std::convert::From<AudioGraphConnection> for ::windows::runtime::IUnknown {
     fn from(value: AudioGraphConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioGraphConnection> for ::windows::runtime::IUnknown {
     fn from(value: &AudioGraphConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioGraphConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioGraphConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioGraphConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioGraphConnection> for ::windows::runtime::IInspectable {
@@ -2300,7 +2300,7 @@ impl ::windows::runtime::DefaultType for AudioGraphCreationStatus {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioGraphSettings(::windows::runtime::IInspectable);
+pub struct AudioGraphSettings(pub ::windows::runtime::IInspectable);
 impl AudioGraphSettings {
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
@@ -2424,22 +2424,22 @@ impl ::windows::runtime::RuntimeName for AudioGraphSettings {
 }
 impl ::std::convert::From<AudioGraphSettings> for ::windows::runtime::IUnknown {
     fn from(value: AudioGraphSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioGraphSettings> for ::windows::runtime::IUnknown {
     fn from(value: &AudioGraphSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioGraphSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioGraphSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioGraphSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioGraphSettings> for ::windows::runtime::IInspectable {
@@ -2491,7 +2491,7 @@ impl ::windows::runtime::DefaultType for AudioGraphUnrecoverableError {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 impl AudioGraphUnrecoverableErrorOccurredEventArgs {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<AudioGraphUnrecoverableError> {
@@ -2514,22 +2514,22 @@ impl ::windows::runtime::RuntimeName for AudioGraphUnrecoverableErrorOccurredEve
 }
 impl ::std::convert::From<AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioGraphUnrecoverableErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioGraphUnrecoverableErrorOccurredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioGraphUnrecoverableErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
@@ -2557,7 +2557,7 @@ unsafe impl ::std::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventArg
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioNodeEmitter(::windows::runtime::IInspectable);
+pub struct AudioNodeEmitter(pub ::windows::runtime::IInspectable);
 impl AudioNodeEmitter {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2711,22 +2711,22 @@ impl ::windows::runtime::RuntimeName for AudioNodeEmitter {
 }
 impl ::std::convert::From<AudioNodeEmitter> for ::windows::runtime::IUnknown {
     fn from(value: AudioNodeEmitter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioNodeEmitter> for ::windows::runtime::IUnknown {
     fn from(value: &AudioNodeEmitter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioNodeEmitter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioNodeEmitter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioNodeEmitter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioNodeEmitter> for ::windows::runtime::IInspectable {
@@ -2754,7 +2754,7 @@ unsafe impl ::std::marker::Sync for AudioNodeEmitter {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioNodeEmitterConeProperties(::windows::runtime::IInspectable);
+pub struct AudioNodeEmitterConeProperties(pub ::windows::runtime::IInspectable);
 impl AudioNodeEmitterConeProperties {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn InnerAngle(&self) -> ::windows::runtime::Result<f64> {
@@ -2793,22 +2793,22 @@ impl ::windows::runtime::RuntimeName for AudioNodeEmitterConeProperties {
 }
 impl ::std::convert::From<AudioNodeEmitterConeProperties> for ::windows::runtime::IUnknown {
     fn from(value: AudioNodeEmitterConeProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioNodeEmitterConeProperties> for ::windows::runtime::IUnknown {
     fn from(value: &AudioNodeEmitterConeProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioNodeEmitterConeProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioNodeEmitterConeProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioNodeEmitterConeProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioNodeEmitterConeProperties> for ::windows::runtime::IInspectable {
@@ -2858,7 +2858,7 @@ impl ::windows::runtime::DefaultType for AudioNodeEmitterDecayKind {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioNodeEmitterDecayModel(::windows::runtime::IInspectable);
+pub struct AudioNodeEmitterDecayModel(pub ::windows::runtime::IInspectable);
 impl AudioNodeEmitterDecayModel {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AudioNodeEmitterDecayKind> {
@@ -2923,22 +2923,22 @@ impl ::windows::runtime::RuntimeName for AudioNodeEmitterDecayModel {
 }
 impl ::std::convert::From<AudioNodeEmitterDecayModel> for ::windows::runtime::IUnknown {
     fn from(value: AudioNodeEmitterDecayModel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioNodeEmitterDecayModel> for ::windows::runtime::IUnknown {
     fn from(value: &AudioNodeEmitterDecayModel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioNodeEmitterDecayModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioNodeEmitterDecayModel {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioNodeEmitterDecayModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioNodeEmitterDecayModel> for ::windows::runtime::IInspectable {
@@ -2966,7 +2966,7 @@ unsafe impl ::std::marker::Sync for AudioNodeEmitterDecayModel {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioNodeEmitterNaturalDecayModelProperties(::windows::runtime::IInspectable);
+pub struct AudioNodeEmitterNaturalDecayModelProperties(pub ::windows::runtime::IInspectable);
 impl AudioNodeEmitterNaturalDecayModelProperties {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn UnityGainDistance(&self) -> ::windows::runtime::Result<f64> {
@@ -2997,22 +2997,22 @@ impl ::windows::runtime::RuntimeName for AudioNodeEmitterNaturalDecayModelProper
 }
 impl ::std::convert::From<AudioNodeEmitterNaturalDecayModelProperties> for ::windows::runtime::IUnknown {
     fn from(value: AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioNodeEmitterNaturalDecayModelProperties> for ::windows::runtime::IUnknown {
     fn from(value: &AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioNodeEmitterNaturalDecayModelProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioNodeEmitterNaturalDecayModelProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioNodeEmitterNaturalDecayModelProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioNodeEmitterNaturalDecayModelProperties> for ::windows::runtime::IInspectable {
@@ -3090,7 +3090,7 @@ impl ::std::ops::Not for AudioNodeEmitterSettings {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioNodeEmitterShape(::windows::runtime::IInspectable);
+pub struct AudioNodeEmitterShape(pub ::windows::runtime::IInspectable);
 impl AudioNodeEmitterShape {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AudioNodeEmitterShapeKind> {
@@ -3139,22 +3139,22 @@ impl ::windows::runtime::RuntimeName for AudioNodeEmitterShape {
 }
 impl ::std::convert::From<AudioNodeEmitterShape> for ::windows::runtime::IUnknown {
     fn from(value: AudioNodeEmitterShape) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioNodeEmitterShape> for ::windows::runtime::IUnknown {
     fn from(value: &AudioNodeEmitterShape) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioNodeEmitterShape {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioNodeEmitterShape {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioNodeEmitterShape {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioNodeEmitterShape> for ::windows::runtime::IInspectable {
@@ -3204,7 +3204,7 @@ impl ::windows::runtime::DefaultType for AudioNodeEmitterShapeKind {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioNodeListener(::windows::runtime::IInspectable);
+pub struct AudioNodeListener(pub ::windows::runtime::IInspectable);
 impl AudioNodeListener {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3284,22 +3284,22 @@ impl ::windows::runtime::RuntimeName for AudioNodeListener {
 }
 impl ::std::convert::From<AudioNodeListener> for ::windows::runtime::IUnknown {
     fn from(value: AudioNodeListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioNodeListener> for ::windows::runtime::IUnknown {
     fn from(value: &AudioNodeListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioNodeListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioNodeListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioNodeListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioNodeListener> for ::windows::runtime::IInspectable {
@@ -3327,7 +3327,7 @@ unsafe impl ::std::marker::Sync for AudioNodeListener {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioPlaybackConnection(::windows::runtime::IInspectable);
+pub struct AudioPlaybackConnection(pub ::windows::runtime::IInspectable);
 impl AudioPlaybackConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
@@ -3428,22 +3428,22 @@ impl ::windows::runtime::RuntimeName for AudioPlaybackConnection {
 }
 impl ::std::convert::From<AudioPlaybackConnection> for ::windows::runtime::IUnknown {
     fn from(value: AudioPlaybackConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioPlaybackConnection> for ::windows::runtime::IUnknown {
     fn from(value: &AudioPlaybackConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioPlaybackConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioPlaybackConnection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioPlaybackConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioPlaybackConnection> for ::windows::runtime::IInspectable {
@@ -3497,7 +3497,7 @@ unsafe impl ::std::marker::Sync for AudioPlaybackConnection {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioPlaybackConnectionOpenResult(::windows::runtime::IInspectable);
+pub struct AudioPlaybackConnectionOpenResult(pub ::windows::runtime::IInspectable);
 impl AudioPlaybackConnectionOpenResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioPlaybackConnectionOpenResultStatus> {
@@ -3528,22 +3528,22 @@ impl ::windows::runtime::RuntimeName for AudioPlaybackConnectionOpenResult {
 }
 impl ::std::convert::From<AudioPlaybackConnectionOpenResult> for ::windows::runtime::IUnknown {
     fn from(value: AudioPlaybackConnectionOpenResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioPlaybackConnectionOpenResult> for ::windows::runtime::IUnknown {
     fn from(value: &AudioPlaybackConnectionOpenResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioPlaybackConnectionOpenResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioPlaybackConnectionOpenResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioPlaybackConnectionOpenResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioPlaybackConnectionOpenResult> for ::windows::runtime::IInspectable {
@@ -3617,7 +3617,7 @@ impl ::windows::runtime::DefaultType for AudioPlaybackConnectionState {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioStateMonitor(::windows::runtime::IInspectable);
+pub struct AudioStateMonitor(pub ::windows::runtime::IInspectable);
 impl AudioStateMonitor {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
@@ -3721,22 +3721,22 @@ impl ::windows::runtime::RuntimeName for AudioStateMonitor {
 }
 impl ::std::convert::From<AudioStateMonitor> for ::windows::runtime::IUnknown {
     fn from(value: AudioStateMonitor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioStateMonitor> for ::windows::runtime::IUnknown {
     fn from(value: &AudioStateMonitor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioStateMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioStateMonitor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioStateMonitor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioStateMonitor> for ::windows::runtime::IInspectable {
@@ -3764,7 +3764,7 @@ unsafe impl ::std::marker::Sync for AudioStateMonitor {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AudioSubmixNode(::windows::runtime::IInspectable);
+pub struct AudioSubmixNode(pub ::windows::runtime::IInspectable);
 impl AudioSubmixNode {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
@@ -3888,22 +3888,22 @@ impl ::windows::runtime::RuntimeName for AudioSubmixNode {
 }
 impl ::std::convert::From<AudioSubmixNode> for ::windows::runtime::IUnknown {
     fn from(value: AudioSubmixNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AudioSubmixNode> for ::windows::runtime::IUnknown {
     fn from(value: &AudioSubmixNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioSubmixNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioSubmixNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AudioSubmixNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AudioSubmixNode> for ::windows::runtime::IInspectable {
@@ -4021,7 +4021,7 @@ unsafe impl ::std::marker::Sync for AudioSubmixNode {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateAudioDeviceInputNodeResult(::windows::runtime::IInspectable);
+pub struct CreateAudioDeviceInputNodeResult(pub ::windows::runtime::IInspectable);
 impl CreateAudioDeviceInputNodeResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioDeviceNodeCreationStatus> {
@@ -4060,22 +4060,22 @@ impl ::windows::runtime::RuntimeName for CreateAudioDeviceInputNodeResult {
 }
 impl ::std::convert::From<CreateAudioDeviceInputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateAudioDeviceInputNodeResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateAudioDeviceInputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateAudioDeviceInputNodeResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateAudioDeviceInputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateAudioDeviceInputNodeResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateAudioDeviceInputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateAudioDeviceInputNodeResult> for ::windows::runtime::IInspectable {
@@ -4103,7 +4103,7 @@ unsafe impl ::std::marker::Sync for CreateAudioDeviceInputNodeResult {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateAudioDeviceOutputNodeResult(::windows::runtime::IInspectable);
+pub struct CreateAudioDeviceOutputNodeResult(pub ::windows::runtime::IInspectable);
 impl CreateAudioDeviceOutputNodeResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioDeviceNodeCreationStatus> {
@@ -4142,22 +4142,22 @@ impl ::windows::runtime::RuntimeName for CreateAudioDeviceOutputNodeResult {
 }
 impl ::std::convert::From<CreateAudioDeviceOutputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateAudioDeviceOutputNodeResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateAudioDeviceOutputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateAudioDeviceOutputNodeResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateAudioDeviceOutputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateAudioDeviceOutputNodeResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateAudioDeviceOutputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateAudioDeviceOutputNodeResult> for ::windows::runtime::IInspectable {
@@ -4185,7 +4185,7 @@ unsafe impl ::std::marker::Sync for CreateAudioDeviceOutputNodeResult {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateAudioFileInputNodeResult(::windows::runtime::IInspectable);
+pub struct CreateAudioFileInputNodeResult(pub ::windows::runtime::IInspectable);
 impl CreateAudioFileInputNodeResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioFileNodeCreationStatus> {
@@ -4224,22 +4224,22 @@ impl ::windows::runtime::RuntimeName for CreateAudioFileInputNodeResult {
 }
 impl ::std::convert::From<CreateAudioFileInputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateAudioFileInputNodeResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateAudioFileInputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateAudioFileInputNodeResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateAudioFileInputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateAudioFileInputNodeResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateAudioFileInputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateAudioFileInputNodeResult> for ::windows::runtime::IInspectable {
@@ -4267,7 +4267,7 @@ unsafe impl ::std::marker::Sync for CreateAudioFileInputNodeResult {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateAudioFileOutputNodeResult(::windows::runtime::IInspectable);
+pub struct CreateAudioFileOutputNodeResult(pub ::windows::runtime::IInspectable);
 impl CreateAudioFileOutputNodeResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioFileNodeCreationStatus> {
@@ -4306,22 +4306,22 @@ impl ::windows::runtime::RuntimeName for CreateAudioFileOutputNodeResult {
 }
 impl ::std::convert::From<CreateAudioFileOutputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateAudioFileOutputNodeResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateAudioFileOutputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateAudioFileOutputNodeResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateAudioFileOutputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateAudioFileOutputNodeResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateAudioFileOutputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateAudioFileOutputNodeResult> for ::windows::runtime::IInspectable {
@@ -4349,7 +4349,7 @@ unsafe impl ::std::marker::Sync for CreateAudioFileOutputNodeResult {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateAudioGraphResult(::windows::runtime::IInspectable);
+pub struct CreateAudioGraphResult(pub ::windows::runtime::IInspectable);
 impl CreateAudioGraphResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioGraphCreationStatus> {
@@ -4388,22 +4388,22 @@ impl ::windows::runtime::RuntimeName for CreateAudioGraphResult {
 }
 impl ::std::convert::From<CreateAudioGraphResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateAudioGraphResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateAudioGraphResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateAudioGraphResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateAudioGraphResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateAudioGraphResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateAudioGraphResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateAudioGraphResult> for ::windows::runtime::IInspectable {
@@ -4431,7 +4431,7 @@ unsafe impl ::std::marker::Sync for CreateAudioGraphResult {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CreateMediaSourceAudioInputNodeResult(::windows::runtime::IInspectable);
+pub struct CreateMediaSourceAudioInputNodeResult(pub ::windows::runtime::IInspectable);
 impl CreateMediaSourceAudioInputNodeResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MediaSourceAudioInputNodeCreationStatus> {
@@ -4470,22 +4470,22 @@ impl ::windows::runtime::RuntimeName for CreateMediaSourceAudioInputNodeResult {
 }
 impl ::std::convert::From<CreateMediaSourceAudioInputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: CreateMediaSourceAudioInputNodeResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CreateMediaSourceAudioInputNodeResult> for ::windows::runtime::IUnknown {
     fn from(value: &CreateMediaSourceAudioInputNodeResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CreateMediaSourceAudioInputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CreateMediaSourceAudioInputNodeResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CreateMediaSourceAudioInputNodeResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CreateMediaSourceAudioInputNodeResult> for ::windows::runtime::IInspectable {
@@ -4513,7 +4513,7 @@ unsafe impl ::std::marker::Sync for CreateMediaSourceAudioInputNodeResult {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct EchoEffectDefinition(::windows::runtime::IInspectable);
+pub struct EchoEffectDefinition(pub ::windows::runtime::IInspectable);
 impl EchoEffectDefinition {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetWetDryMix(&self, value: f64) -> ::windows::runtime::Result<()> {
@@ -4596,22 +4596,22 @@ impl ::windows::runtime::RuntimeName for EchoEffectDefinition {
 }
 impl ::std::convert::From<EchoEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: EchoEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&EchoEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &EchoEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EchoEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EchoEffectDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EchoEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<EchoEffectDefinition> for ::windows::runtime::IInspectable {
@@ -4665,7 +4665,7 @@ unsafe impl ::std::marker::Sync for EchoEffectDefinition {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct EqualizerBand(::windows::runtime::IInspectable);
+pub struct EqualizerBand(pub ::windows::runtime::IInspectable);
 impl EqualizerBand {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Bandwidth(&self) -> ::windows::runtime::Result<f64> {
@@ -4719,22 +4719,22 @@ impl ::windows::runtime::RuntimeName for EqualizerBand {
 }
 impl ::std::convert::From<EqualizerBand> for ::windows::runtime::IUnknown {
     fn from(value: EqualizerBand) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&EqualizerBand> for ::windows::runtime::IUnknown {
     fn from(value: &EqualizerBand) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EqualizerBand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EqualizerBand {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EqualizerBand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<EqualizerBand> for ::windows::runtime::IInspectable {
@@ -4762,7 +4762,7 @@ unsafe impl ::std::marker::Sync for EqualizerBand {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct EqualizerEffectDefinition(::windows::runtime::IInspectable);
+pub struct EqualizerEffectDefinition(pub ::windows::runtime::IInspectable);
 impl EqualizerEffectDefinition {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
@@ -4815,22 +4815,22 @@ impl ::windows::runtime::RuntimeName for EqualizerEffectDefinition {
 }
 impl ::std::convert::From<EqualizerEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: EqualizerEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&EqualizerEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &EqualizerEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EqualizerEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EqualizerEffectDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EqualizerEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<EqualizerEffectDefinition> for ::windows::runtime::IInspectable {
@@ -4884,7 +4884,7 @@ unsafe impl ::std::marker::Sync for EqualizerEffectDefinition {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FrameInputNodeQuantumStartedEventArgs(::windows::runtime::IInspectable);
+pub struct FrameInputNodeQuantumStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl FrameInputNodeQuantumStartedEventArgs {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn RequiredSamples(&self) -> ::windows::runtime::Result<i32> {
@@ -4907,22 +4907,22 @@ impl ::windows::runtime::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
 }
 impl ::std::convert::From<FrameInputNodeQuantumStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: FrameInputNodeQuantumStartedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FrameInputNodeQuantumStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &FrameInputNodeQuantumStartedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FrameInputNodeQuantumStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FrameInputNodeQuantumStartedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FrameInputNodeQuantumStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FrameInputNodeQuantumStartedEventArgs> for ::windows::runtime::IInspectable {
@@ -4949,7 +4949,7 @@ unsafe impl ::std::marker::Send for FrameInputNodeQuantumStartedEventArgs {}
 unsafe impl ::std::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioDeviceInputNode(::windows::runtime::IInspectable);
+pub struct IAudioDeviceInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceInputNode {
     type Vtable = IAudioDeviceInputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954587105, 28494, 18914, [172, 1, 85, 157, 98, 190, 179, 169]);
@@ -4968,7 +4968,7 @@ pub struct IAudioDeviceInputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioDeviceOutputNode(::windows::runtime::IInspectable);
+pub struct IAudioDeviceOutputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceOutputNode {
     type Vtable = IAudioDeviceOutputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909040639, 65308, 17460, [158, 15, 189, 46, 245, 34, 172, 130]);
@@ -4987,7 +4987,7 @@ pub struct IAudioDeviceOutputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioFileInputNode(::windows::runtime::IInspectable);
+pub struct IAudioFileInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFileInputNode {
     type Vtable = IAudioFileInputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421909448, 28517, 19668, [136, 144, 70, 148, 132, 60, 39, 109]);
@@ -5030,7 +5030,7 @@ pub struct IAudioFileInputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioFileOutputNode(::windows::runtime::IInspectable);
+pub struct IAudioFileOutputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFileOutputNode {
     type Vtable = IAudioFileOutputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356863872, 20838, 16531, [128, 248, 173, 160, 0, 137, 233, 207]);
@@ -5053,7 +5053,7 @@ pub struct IAudioFileOutputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioFrameCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct IAudioFrameCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameCompletedEventArgs {
     type Vtable = IAudioFrameCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699147422, 520, 17668, [165, 168, 240, 242, 104, 146, 10, 101]);
@@ -5071,7 +5071,7 @@ pub struct IAudioFrameCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioFrameInputNode(::windows::runtime::IInspectable);
+pub struct IAudioFrameInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameInputNode {
     type Vtable = IAudioFrameInputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28468935, 64918, 20469, [163, 197, 210, 122, 155, 244, 66, 55]);
@@ -5101,7 +5101,7 @@ pub struct IAudioFrameInputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioFrameOutputNode(::windows::runtime::IInspectable);
+pub struct IAudioFrameOutputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameOutputNode {
     type Vtable = IAudioFrameOutputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3091674907, 12953, 17909, [136, 179, 201, 209, 42, 63, 28, 200]);
@@ -5119,7 +5119,7 @@ pub struct IAudioFrameOutputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraph(::windows::runtime::IInspectable);
+pub struct IAudioGraph(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph {
     type Vtable = IAudioGraph_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450129645, 58508, 19988, [150, 96, 44, 79, 131, 233, 205, 216]);
@@ -5182,7 +5182,7 @@ pub struct IAudioGraph_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraph2(::windows::runtime::IInspectable);
+pub struct IAudioGraph2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph2 {
     type Vtable = IAudioGraph2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313618901, 20417, 17910, [169, 71, 60, 211, 143, 79, 216, 57]);
@@ -5209,7 +5209,7 @@ pub struct IAudioGraph2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraph3(::windows::runtime::IInspectable);
+pub struct IAudioGraph3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph3 {
     type Vtable = IAudioGraph3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3721209262, 4485, 17063, [131, 29, 106, 155, 15, 200, 104, 32]);
@@ -5230,7 +5230,7 @@ pub struct IAudioGraph3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraphConnection(::windows::runtime::IInspectable);
+pub struct IAudioGraphConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphConnection {
     type Vtable = IAudioGraphConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1982886125, 53326, 20396, [178, 51, 96, 11, 66, 237, 212, 105]);
@@ -5250,7 +5250,7 @@ pub struct IAudioGraphConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraphSettings(::windows::runtime::IInspectable);
+pub struct IAudioGraphSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettings {
     type Vtable = IAudioGraphSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492397695, 59134, 17960, [132, 248, 157, 139, 219, 162, 87, 133]);
@@ -5285,7 +5285,7 @@ pub struct IAudioGraphSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraphSettings2(::windows::runtime::IInspectable);
+pub struct IAudioGraphSettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettings2 {
     type Vtable = IAudioGraphSettings2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1922144135, 19883, 18147, [180, 201, 216, 225, 162, 99, 96, 98]);
@@ -5304,7 +5304,7 @@ pub struct IAudioGraphSettings2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraphSettingsFactory(::windows::runtime::IInspectable);
+pub struct IAudioGraphSettingsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettingsFactory {
     type Vtable = IAudioGraphSettingsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782469318, 49899, 19041, [162, 20, 29, 102, 215, 95, 131, 218]);
@@ -5323,7 +5323,7 @@ pub struct IAudioGraphSettingsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraphStatics(::windows::runtime::IInspectable);
+pub struct IAudioGraphStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphStatics {
     type Vtable = IAudioGraphStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1995190578, 57689, 19127, [168, 42, 23, 190, 180, 179, 30, 148]);
@@ -5342,7 +5342,7 @@ pub struct IAudioGraphStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphUnrecoverableErrorOccurredEventArgs {
     type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3285830624, 16374, 20403, [178, 98, 80, 212, 53, 197, 84, 35]);
@@ -5361,7 +5361,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Audio`*"]
-pub struct IAudioInputNode(::windows::runtime::IInspectable);
+pub struct IAudioInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode {
     type Vtable = IAudioInputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3511156828, 33832, 18308, [183, 253, 169, 157, 70, 140, 93, 32]);
@@ -5474,22 +5474,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAudioInputNode {
 }
 impl ::std::convert::From<IAudioInputNode> for ::windows::runtime::IUnknown {
     fn from(value: IAudioInputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAudioInputNode> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioInputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioInputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAudioInputNode> for ::windows::runtime::IInspectable {
@@ -5578,7 +5578,7 @@ pub struct IAudioInputNode_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Audio`*"]
-pub struct IAudioInputNode2(::windows::runtime::IInspectable);
+pub struct IAudioInputNode2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode2 {
     type Vtable = IAudioInputNode2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2421249719, 51816, 19565, [168, 188, 227, 238, 23, 254, 63, 210]);
@@ -5699,22 +5699,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAudioInputNode2 {
 }
 impl ::std::convert::From<IAudioInputNode2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioInputNode2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAudioInputNode2> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioInputNode2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioInputNode2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioInputNode2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioInputNode2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAudioInputNode2> for ::windows::runtime::IInspectable {
@@ -5821,7 +5821,7 @@ pub struct IAudioInputNode2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Audio`*"]
-pub struct IAudioNode(::windows::runtime::IInspectable);
+pub struct IAudioNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNode {
     type Vtable = IAudioNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356031871, 56280, 18457, [191, 3, 102, 142, 147, 87, 205, 109]);
@@ -5910,22 +5910,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAudioNode {
 }
 impl ::std::convert::From<IAudioNode> for ::windows::runtime::IUnknown {
     fn from(value: IAudioNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAudioNode> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAudioNode> for ::windows::runtime::IInspectable {
@@ -6001,7 +6001,7 @@ pub struct IAudioNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitter(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitter {
     type Vtable = IAudioNodeEmitter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(913741597, 34826, 18360, [173, 247, 19, 35, 169, 217, 101, 190]);
@@ -6039,7 +6039,7 @@ pub struct IAudioNodeEmitter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitter2(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitter2 {
     type Vtable = IAudioNodeEmitter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1253502667, 60457, 18424, [129, 140, 182, 182, 96, 165, 174, 177]);
@@ -6058,7 +6058,7 @@ pub struct IAudioNodeEmitter2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterConeProperties(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterConeProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterConeProperties {
     type Vtable = IAudioNodeEmitterConeProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919260910, 714, 17269, [147, 38, 12, 106, 228, 188, 223, 181]);
@@ -6078,7 +6078,7 @@ pub struct IAudioNodeEmitterConeProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterDecayModel(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterDecayModel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterDecayModel {
     type Vtable = IAudioNodeEmitterDecayModel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488463095, 3411, 20393, [189, 132, 213, 129, 106, 134, 243, 255]);
@@ -6099,7 +6099,7 @@ pub struct IAudioNodeEmitterDecayModel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterDecayModelStatics(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterDecayModelStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterDecayModelStatics {
     type Vtable = IAudioNodeEmitterDecayModelStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346562216, 61816, 17967, [188, 129, 141, 213, 203, 229, 218, 232]);
@@ -6118,7 +6118,7 @@ pub struct IAudioNodeEmitterDecayModelStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterFactory(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterFactory {
     type Vtable = IAudioNodeEmitterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4257761434, 27350, 19684, [183, 247, 169, 147, 112, 223, 126, 233]);
@@ -6136,7 +6136,7 @@ pub struct IAudioNodeEmitterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterNaturalDecayModelProperties(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterNaturalDecayModelProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterNaturalDecayModelProperties {
     type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1217612751, 53036, 20220, [147, 49, 117, 189, 34, 223, 31, 12]);
@@ -6155,7 +6155,7 @@ pub struct IAudioNodeEmitterNaturalDecayModelProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterShape(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterShape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterShape {
     type Vtable = IAudioNodeEmitterShape_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3926069701, 59197, 17596, [133, 156, 69, 85, 59, 188, 72, 40]);
@@ -6174,7 +6174,7 @@ pub struct IAudioNodeEmitterShape_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterShapeStatics(::windows::runtime::IInspectable);
+pub struct IAudioNodeEmitterShapeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterShapeStatics {
     type Vtable = IAudioNodeEmitterShapeStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471883121, 65445, 19334, [167, 121, 226, 100, 174, 185, 20, 95]);
@@ -6193,7 +6193,7 @@ pub struct IAudioNodeEmitterShapeStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioNodeListener(::windows::runtime::IInspectable);
+pub struct IAudioNodeListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeListener {
     type Vtable = IAudioNodeListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648138774, 3082, 16858, [183, 85, 108, 119, 131, 95, 177, 235]);
@@ -6225,7 +6225,7 @@ pub struct IAudioNodeListener_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Audio`*"]
-pub struct IAudioNodeWithListener(::windows::runtime::IInspectable);
+pub struct IAudioNodeWithListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeWithListener {
     type Vtable = IAudioNodeWithListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(235901052, 31231, 17732, [158, 235, 1, 37, 123, 21, 16, 90]);
@@ -6327,22 +6327,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAudioNodeWithListener {
 }
 impl ::std::convert::From<IAudioNodeWithListener> for ::windows::runtime::IUnknown {
     fn from(value: IAudioNodeWithListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAudioNodeWithListener> for ::windows::runtime::IUnknown {
     fn from(value: &IAudioNodeWithListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioNodeWithListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioNodeWithListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAudioNodeWithListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAudioNodeWithListener> for ::windows::runtime::IInspectable {
@@ -6427,7 +6427,7 @@ pub struct IAudioNodeWithListener_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioPlaybackConnection(::windows::runtime::IInspectable);
+pub struct IAudioPlaybackConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnection {
     type Vtable = IAudioPlaybackConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(441196010, 51964, 20711, [135, 24, 234, 63, 129, 203, 250, 81]);
@@ -6456,7 +6456,7 @@ pub struct IAudioPlaybackConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioPlaybackConnectionOpenResult(::windows::runtime::IInspectable);
+pub struct IAudioPlaybackConnectionOpenResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnectionOpenResult {
     type Vtable = IAudioPlaybackConnectionOpenResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315269359, 14841, 24521, [165, 25, 165, 187, 253, 159, 233, 33]);
@@ -6475,7 +6475,7 @@ pub struct IAudioPlaybackConnectionOpenResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioPlaybackConnectionStatics(::windows::runtime::IInspectable);
+pub struct IAudioPlaybackConnectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnectionStatics {
     type Vtable = IAudioPlaybackConnectionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3859375010, 27110, 24572, [158, 19, 130, 74, 133, 33, 61, 175]);
@@ -6494,7 +6494,7 @@ pub struct IAudioPlaybackConnectionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioStateMonitor(::windows::runtime::IInspectable);
+pub struct IAudioStateMonitor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitor {
     type Vtable = IAudioStateMonitor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487838006, 409, 19676, [184, 78, 231, 44, 43, 88, 30, 206]);
@@ -6516,7 +6516,7 @@ pub struct IAudioStateMonitor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioStateMonitorStatics(::windows::runtime::IInspectable);
+pub struct IAudioStateMonitorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitorStatics {
     type Vtable = IAudioStateMonitorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1668606540, 6971, 16385, [148, 217, 221, 34, 83, 48, 250, 64]);
@@ -6547,7 +6547,7 @@ pub struct IAudioStateMonitorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceInputNodeResult(::windows::runtime::IInspectable);
+pub struct ICreateAudioDeviceInputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceInputNodeResult {
     type Vtable = ICreateAudioDeviceInputNodeResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384747432, 7335, 16623, [145, 164, 211, 70, 224, 170, 27, 186]);
@@ -6566,7 +6566,7 @@ pub struct ICreateAudioDeviceInputNodeResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceInputNodeResult2(::windows::runtime::IInspectable);
+pub struct ICreateAudioDeviceInputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceInputNodeResult2 {
     type Vtable = ICreateAudioDeviceInputNodeResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2451335630, 16181, 16839, [150, 34, 121, 246, 8, 186, 237, 194]);
@@ -6584,7 +6584,7 @@ pub struct ICreateAudioDeviceInputNodeResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceOutputNodeResult(::windows::runtime::IInspectable);
+pub struct ICreateAudioDeviceOutputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceOutputNodeResult {
     type Vtable = ICreateAudioDeviceOutputNodeResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151799079, 7578, 18423, [156, 212, 40, 89, 204, 27, 123, 255]);
@@ -6603,7 +6603,7 @@ pub struct ICreateAudioDeviceOutputNodeResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceOutputNodeResult2(::windows::runtime::IInspectable);
+pub struct ICreateAudioDeviceOutputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceOutputNodeResult2 {
     type Vtable = ICreateAudioDeviceOutputNodeResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214523039, 48590, 19121, [189, 56, 251, 174, 147, 174, 218, 202]);
@@ -6621,7 +6621,7 @@ pub struct ICreateAudioDeviceOutputNodeResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioFileInputNodeResult(::windows::runtime::IInspectable);
+pub struct ICreateAudioFileInputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileInputNodeResult {
     type Vtable = ICreateAudioFileInputNodeResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3464746524, 58007, 19536, [156, 231, 28, 122, 105, 214, 189, 9]);
@@ -6640,7 +6640,7 @@ pub struct ICreateAudioFileInputNodeResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioFileInputNodeResult2(::windows::runtime::IInspectable);
+pub struct ICreateAudioFileInputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileInputNodeResult2 {
     type Vtable = ICreateAudioFileInputNodeResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178059296, 15744, 20448, [129, 193, 118, 143, 234, 124, 167, 224]);
@@ -6658,7 +6658,7 @@ pub struct ICreateAudioFileInputNodeResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioFileOutputNodeResult(::windows::runtime::IInspectable);
+pub struct ICreateAudioFileOutputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileOutputNodeResult {
     type Vtable = ICreateAudioFileOutputNodeResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205254779, 59657, 17727, [134, 110, 85, 64, 205, 167, 52, 255]);
@@ -6677,7 +6677,7 @@ pub struct ICreateAudioFileOutputNodeResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioFileOutputNodeResult2(::windows::runtime::IInspectable);
+pub struct ICreateAudioFileOutputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileOutputNodeResult2 {
     type Vtable = ICreateAudioFileOutputNodeResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2667689229, 13080, 18355, [166, 10, 27, 73, 43, 231, 252, 13]);
@@ -6695,7 +6695,7 @@ pub struct ICreateAudioFileOutputNodeResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioGraphResult(::windows::runtime::IInspectable);
+pub struct ICreateAudioGraphResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioGraphResult {
     type Vtable = ICreateAudioGraphResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414786942, 31710, 19318, [187, 93, 72, 247, 156, 252, 140, 11]);
@@ -6714,7 +6714,7 @@ pub struct ICreateAudioGraphResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateAudioGraphResult2(::windows::runtime::IInspectable);
+pub struct ICreateAudioGraphResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioGraphResult2 {
     type Vtable = ICreateAudioGraphResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1836289532, 35014, 20427, [165, 52, 133, 206, 221, 64, 80, 161]);
@@ -6732,7 +6732,7 @@ pub struct ICreateAudioGraphResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateMediaSourceAudioInputNodeResult(::windows::runtime::IInspectable);
+pub struct ICreateMediaSourceAudioInputNodeResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateMediaSourceAudioInputNodeResult {
     type Vtable = ICreateMediaSourceAudioInputNodeResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185306787, 21440, 19801, [158, 81, 204, 29, 16, 68, 164, 196]);
@@ -6751,7 +6751,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICreateMediaSourceAudioInputNodeResult2(::windows::runtime::IInspectable);
+pub struct ICreateMediaSourceAudioInputNodeResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateMediaSourceAudioInputNodeResult2 {
     type Vtable = ICreateMediaSourceAudioInputNodeResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1666272488, 27162, 18915, [151, 236, 40, 253, 91, 225, 20, 229]);
@@ -6769,7 +6769,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEchoEffectDefinition(::windows::runtime::IInspectable);
+pub struct IEchoEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEchoEffectDefinition {
     type Vtable = IEchoEffectDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239943594, 14008, 19601, [185, 218, 17, 244, 74, 138, 102, 16]);
@@ -6792,7 +6792,7 @@ pub struct IEchoEffectDefinition_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEchoEffectDefinitionFactory(::windows::runtime::IInspectable);
+pub struct IEchoEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEchoEffectDefinitionFactory {
     type Vtable = IEchoEffectDefinitionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(223224407, 43762, 20102, [165, 76, 251, 121, 219, 143, 108, 18]);
@@ -6810,7 +6810,7 @@ pub struct IEchoEffectDefinitionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEqualizerBand(::windows::runtime::IInspectable);
+pub struct IEqualizerBand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerBand {
     type Vtable = IEqualizerBand_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3221903978, 9773, 19333, [155, 183, 67, 40, 11, 98, 237, 12]);
@@ -6833,7 +6833,7 @@ pub struct IEqualizerBand_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEqualizerEffectDefinition(::windows::runtime::IInspectable);
+pub struct IEqualizerEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerEffectDefinition {
     type Vtable = IEqualizerEffectDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37711647, 33790, 17562, [168, 34, 198, 150, 68, 45, 22, 176]);
@@ -6852,7 +6852,7 @@ pub struct IEqualizerEffectDefinition_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEqualizerEffectDefinitionFactory(::windows::runtime::IInspectable);
+pub struct IEqualizerEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerEffectDefinitionFactory {
     type Vtable = IEqualizerEffectDefinitionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3532091332, 54288, 20149, [158, 105, 201, 170, 18, 119, 234, 240]);
@@ -6870,7 +6870,7 @@ pub struct IEqualizerEffectDefinitionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFrameInputNodeQuantumStartedEventArgs(::windows::runtime::IInspectable);
+pub struct IFrameInputNodeQuantumStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameInputNodeQuantumStartedEventArgs {
     type Vtable = IFrameInputNodeQuantumStartedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1033622680, 41734, 20230, [189, 159, 233, 239, 200, 34, 99, 4]);
@@ -6888,7 +6888,7 @@ pub struct IFrameInputNodeQuantumStartedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILimiterEffectDefinition(::windows::runtime::IInspectable);
+pub struct ILimiterEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimiterEffectDefinition {
     type Vtable = ILimiterEffectDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1802853657, 9731, 18362, [189, 235, 57, 5, 94, 52, 134, 220]);
@@ -6909,7 +6909,7 @@ pub struct ILimiterEffectDefinition_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILimiterEffectDefinitionFactory(::windows::runtime::IInspectable);
+pub struct ILimiterEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimiterEffectDefinitionFactory {
     type Vtable = ILimiterEffectDefinitionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3971671793, 25087, 17903, [184, 245, 72, 101, 154, 87, 199, 45]);
@@ -6927,7 +6927,7 @@ pub struct ILimiterEffectDefinitionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaSourceAudioInputNode(::windows::runtime::IInspectable);
+pub struct IMediaSourceAudioInputNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAudioInputNode {
     type Vtable = IMediaSourceAudioInputNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2581108795, 43146, 16449, [142, 79, 221, 186, 192, 201, 31, 211]);
@@ -6970,7 +6970,7 @@ pub struct IMediaSourceAudioInputNode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReverbEffectDefinition(::windows::runtime::IInspectable);
+pub struct IReverbEffectDefinition(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReverbEffectDefinition {
     type Vtable = IReverbEffectDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1174841993, 62819, 19722, [143, 110, 240, 205, 223, 243, 93, 132]);
@@ -7033,7 +7033,7 @@ pub struct IReverbEffectDefinition_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReverbEffectDefinitionFactory(::windows::runtime::IInspectable);
+pub struct IReverbEffectDefinitionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReverbEffectDefinitionFactory {
     type Vtable = IReverbEffectDefinitionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815806462, 4107, 20464, [157, 166, 220, 78, 5, 167, 89, 240]);
@@ -7051,7 +7051,7 @@ pub struct IReverbEffectDefinitionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISetDefaultSpatialAudioFormatResult(::windows::runtime::IInspectable);
+pub struct ISetDefaultSpatialAudioFormatResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISetDefaultSpatialAudioFormatResult {
     type Vtable = ISetDefaultSpatialAudioFormatResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472556817, 5120, 24176, [158, 169, 174, 21, 18, 65, 232, 234]);
@@ -7069,7 +7069,7 @@ pub struct ISetDefaultSpatialAudioFormatResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAudioDeviceConfiguration(::windows::runtime::IInspectable);
+pub struct ISpatialAudioDeviceConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioDeviceConfiguration {
     type Vtable = ISpatialAudioDeviceConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4001562676, 25039, 22345, [157, 164, 16, 240, 254, 2, 129, 153]);
@@ -7097,7 +7097,7 @@ pub struct ISpatialAudioDeviceConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAudioDeviceConfigurationStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAudioDeviceConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioDeviceConfigurationStatics {
     type Vtable = ISpatialAudioDeviceConfigurationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052999547, 37741, 19972, [151, 40, 40, 39, 217, 247, 88, 196]);
@@ -7115,7 +7115,7 @@ pub struct ISpatialAudioDeviceConfigurationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatConfiguration(::windows::runtime::IInspectable);
+pub struct ISpatialAudioFormatConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatConfiguration {
     type Vtable = ISpatialAudioFormatConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(853477800, 20720, 21397, [153, 35, 125, 68, 202, 113, 237, 109]);
@@ -7138,7 +7138,7 @@ pub struct ISpatialAudioFormatConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatConfigurationStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAudioFormatConfigurationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatConfigurationStatics {
     type Vtable = ISpatialAudioFormatConfigurationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(727707505, 26569, 20063, [163, 91, 65, 104, 7, 17, 248, 199]);
@@ -7156,7 +7156,7 @@ pub struct ISpatialAudioFormatConfigurationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatSubtypeStatics(::windows::runtime::IInspectable);
+pub struct ISpatialAudioFormatSubtypeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatSubtypeStatics {
     type Vtable = ISpatialAudioFormatSubtypeStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3017706055, 33774, 16998, [169, 69, 190, 223, 80, 122, 254, 237]);
@@ -7179,7 +7179,7 @@ pub struct ISpatialAudioFormatSubtypeStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatSubtypeStatics2(::windows::runtime::IInspectable);
+pub struct ISpatialAudioFormatSubtypeStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatSubtypeStatics2 {
     type Vtable = ISpatialAudioFormatSubtypeStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164306123, 55643, 22049, [182, 175, 14, 136, 73, 197, 124, 128]);
@@ -7198,7 +7198,7 @@ pub struct ISpatialAudioFormatSubtypeStatics2_abi(
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LimiterEffectDefinition(::windows::runtime::IInspectable);
+pub struct LimiterEffectDefinition(pub ::windows::runtime::IInspectable);
 impl LimiterEffectDefinition {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRelease(&self, value: u32) -> ::windows::runtime::Result<()> {
@@ -7268,22 +7268,22 @@ impl ::windows::runtime::RuntimeName for LimiterEffectDefinition {
 }
 impl ::std::convert::From<LimiterEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: LimiterEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LimiterEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &LimiterEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LimiterEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LimiterEffectDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LimiterEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LimiterEffectDefinition> for ::windows::runtime::IInspectable {
@@ -7337,7 +7337,7 @@ unsafe impl ::std::marker::Sync for LimiterEffectDefinition {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MediaSourceAudioInputNode(::windows::runtime::IInspectable);
+pub struct MediaSourceAudioInputNode(pub ::windows::runtime::IInspectable);
 impl MediaSourceAudioInputNode {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
@@ -7567,22 +7567,22 @@ impl ::windows::runtime::RuntimeName for MediaSourceAudioInputNode {
 }
 impl ::std::convert::From<MediaSourceAudioInputNode> for ::windows::runtime::IUnknown {
     fn from(value: MediaSourceAudioInputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MediaSourceAudioInputNode> for ::windows::runtime::IUnknown {
     fn from(value: &MediaSourceAudioInputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaSourceAudioInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaSourceAudioInputNode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MediaSourceAudioInputNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MediaSourceAudioInputNode> for ::windows::runtime::IInspectable {
@@ -7771,7 +7771,7 @@ impl ::windows::runtime::DefaultType for QuantumSizeSelectionMode {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ReverbEffectDefinition(::windows::runtime::IInspectable);
+pub struct ReverbEffectDefinition(pub ::windows::runtime::IInspectable);
 impl ReverbEffectDefinition {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetWetDryMix(&self, value: f64) -> ::windows::runtime::Result<()> {
@@ -8114,22 +8114,22 @@ impl ::windows::runtime::RuntimeName for ReverbEffectDefinition {
 }
 impl ::std::convert::From<ReverbEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: ReverbEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ReverbEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &ReverbEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ReverbEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ReverbEffectDefinition {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ReverbEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ReverbEffectDefinition> for ::windows::runtime::IInspectable {
@@ -8183,7 +8183,7 @@ unsafe impl ::std::marker::Sync for ReverbEffectDefinition {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SetDefaultSpatialAudioFormatResult(::windows::runtime::IInspectable);
+pub struct SetDefaultSpatialAudioFormatResult(pub ::windows::runtime::IInspectable);
 impl SetDefaultSpatialAudioFormatResult {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SetDefaultSpatialAudioFormatStatus> {
@@ -8206,22 +8206,22 @@ impl ::windows::runtime::RuntimeName for SetDefaultSpatialAudioFormatResult {
 }
 impl ::std::convert::From<SetDefaultSpatialAudioFormatResult> for ::windows::runtime::IUnknown {
     fn from(value: SetDefaultSpatialAudioFormatResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SetDefaultSpatialAudioFormatResult> for ::windows::runtime::IUnknown {
     fn from(value: &SetDefaultSpatialAudioFormatResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SetDefaultSpatialAudioFormatResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SetDefaultSpatialAudioFormatResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SetDefaultSpatialAudioFormatResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SetDefaultSpatialAudioFormatResult> for ::windows::runtime::IInspectable {
@@ -8275,7 +8275,7 @@ impl ::windows::runtime::DefaultType for SetDefaultSpatialAudioFormatStatus {
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAudioDeviceConfiguration(::windows::runtime::IInspectable);
+pub struct SpatialAudioDeviceConfiguration(pub ::windows::runtime::IInspectable);
 impl SpatialAudioDeviceConfiguration {
     #[doc = "*Required features: `Media_Audio`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -8365,22 +8365,22 @@ impl ::windows::runtime::RuntimeName for SpatialAudioDeviceConfiguration {
 }
 impl ::std::convert::From<SpatialAudioDeviceConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAudioDeviceConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAudioDeviceConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAudioDeviceConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAudioDeviceConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAudioDeviceConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAudioDeviceConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAudioDeviceConfiguration> for ::windows::runtime::IInspectable {
@@ -8408,7 +8408,7 @@ unsafe impl ::std::marker::Sync for SpatialAudioDeviceConfiguration {}
 #[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialAudioFormatConfiguration(::windows::runtime::IInspectable);
+pub struct SpatialAudioFormatConfiguration(pub ::windows::runtime::IInspectable);
 impl SpatialAudioFormatConfiguration {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
@@ -8465,22 +8465,22 @@ impl ::windows::runtime::RuntimeName for SpatialAudioFormatConfiguration {
 }
 impl ::std::convert::From<SpatialAudioFormatConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: SpatialAudioFormatConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialAudioFormatConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialAudioFormatConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialAudioFormatConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialAudioFormatConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialAudioFormatConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialAudioFormatConfiguration> for ::windows::runtime::IInspectable {

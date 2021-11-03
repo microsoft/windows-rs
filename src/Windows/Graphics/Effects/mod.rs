@@ -2,7 +2,7 @@
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_Effects`*"]
-pub struct IGraphicsEffect(::windows::runtime::IInspectable);
+pub struct IGraphicsEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411132622, 36838, 17974, [178, 2, 134, 31, 170, 7, 216, 243]);
@@ -27,22 +27,22 @@ unsafe impl ::windows::runtime::RuntimeType for IGraphicsEffect {
 }
 impl ::std::convert::From<IGraphicsEffect> for ::windows::runtime::IUnknown {
     fn from(value: IGraphicsEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IGraphicsEffect> for ::windows::runtime::IUnknown {
     fn from(value: &IGraphicsEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGraphicsEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGraphicsEffect {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGraphicsEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IGraphicsEffect> for ::windows::runtime::IInspectable {
@@ -102,7 +102,7 @@ pub struct IGraphicsEffect_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_Effects`*"]
-pub struct IGraphicsEffectSource(::windows::runtime::IInspectable);
+pub struct IGraphicsEffectSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(764386780, 17209, 20153, [146, 22, 249, 222, 183, 86, 88, 162]);
@@ -113,22 +113,22 @@ unsafe impl ::windows::runtime::RuntimeType for IGraphicsEffectSource {
 }
 impl ::std::convert::From<IGraphicsEffectSource> for ::windows::runtime::IUnknown {
     fn from(value: IGraphicsEffectSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IGraphicsEffectSource> for ::windows::runtime::IUnknown {
     fn from(value: &IGraphicsEffectSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGraphicsEffectSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGraphicsEffectSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGraphicsEffectSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IGraphicsEffectSource> for ::windows::runtime::IInspectable {

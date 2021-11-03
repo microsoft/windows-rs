@@ -25,7 +25,7 @@ impl ::windows::runtime::DefaultType for DeviceAccountAuthenticationType {
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_SystemAccess`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct DeviceAccountConfiguration(::windows::runtime::IInspectable);
+pub struct DeviceAccountConfiguration(pub ::windows::runtime::IInspectable);
 impl DeviceAccountConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -630,22 +630,22 @@ impl ::windows::runtime::RuntimeName for DeviceAccountConfiguration {
 }
 impl ::std::convert::From<DeviceAccountConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: DeviceAccountConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&DeviceAccountConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceAccountConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceAccountConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceAccountConfiguration {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DeviceAccountConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<DeviceAccountConfiguration> for ::windows::runtime::IInspectable {
@@ -773,7 +773,7 @@ impl ::windows::runtime::DefaultType for DeviceAccountSyncScheduleKind {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceAccountConfiguration(::windows::runtime::IInspectable);
+pub struct IDeviceAccountConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2902533027, 64476, 19739, [190, 67, 90, 39, 234, 74, 27, 99]);
@@ -822,7 +822,7 @@ pub struct IDeviceAccountConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceAccountConfiguration2(::windows::runtime::IInspectable);
+pub struct IDeviceAccountConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccountConfiguration2 {
     type Vtable = IDeviceAccountConfiguration2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071810470, 29325, 19018, [137, 69, 43, 248, 88, 1, 54, 222]);
@@ -903,7 +903,7 @@ pub struct IDeviceAccountConfiguration2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataAccountSystemAccessManagerStatics(::windows::runtime::IInspectable);
+pub struct IUserDataAccountSystemAccessManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountSystemAccessManagerStatics {
     type Vtable = IUserDataAccountSystemAccessManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2641039801, 52197, 17909, [130, 43, 194, 103, 184, 29, 189, 182]);
@@ -922,7 +922,7 @@ pub struct IUserDataAccountSystemAccessManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataAccountSystemAccessManagerStatics2(::windows::runtime::IInspectable);
+pub struct IUserDataAccountSystemAccessManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountSystemAccessManagerStatics2 {
     type Vtable = IUserDataAccountSystemAccessManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2487190861, 19278, 17311, [131, 211, 151, 155, 39, 192, 90, 199]);

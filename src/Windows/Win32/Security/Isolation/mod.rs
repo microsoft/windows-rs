@@ -112,7 +112,7 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::
 #[doc = "*Required features: `Win32_Security_Isolation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IIsolatedAppLauncher(::windows::runtime::IUnknown);
+pub struct IIsolatedAppLauncher(pub ::windows::runtime::IUnknown);
 impl IIsolatedAppLauncher {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
@@ -126,22 +126,22 @@ unsafe impl ::windows::runtime::Interface for IIsolatedAppLauncher {
 }
 impl ::std::convert::From<IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
     fn from(value: IIsolatedAppLauncher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
     fn from(value: &IIsolatedAppLauncher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIsolatedAppLauncher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIsolatedAppLauncher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIsolatedAppLauncher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

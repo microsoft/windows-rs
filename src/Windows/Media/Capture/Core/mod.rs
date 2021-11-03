@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVariablePhotoCapturedEventArgs(::windows::runtime::IInspectable);
+pub struct IVariablePhotoCapturedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3521858652, 6995, 20042, [139, 92, 219, 120, 135, 172, 148, 155]);
@@ -24,7 +24,7 @@ pub struct IVariablePhotoCapturedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVariablePhotoSequenceCapture(::windows::runtime::IInspectable);
+pub struct IVariablePhotoSequenceCapture(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3490786589, 798, 16449, [166, 214, 189, 116, 36, 118, 168, 238]);
@@ -55,7 +55,7 @@ pub struct IVariablePhotoSequenceCapture_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVariablePhotoSequenceCapture2(::windows::runtime::IInspectable);
+pub struct IVariablePhotoSequenceCapture2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceCapture2 {
     type Vtable = IVariablePhotoSequenceCapture2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4264321724, 20656, 17379, [145, 124, 227, 185, 39, 152, 148, 47]);
@@ -75,7 +75,7 @@ pub struct IVariablePhotoSequenceCapture2_abi(
 #[doc = "*Required features: `Media_Capture_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VariablePhotoCapturedEventArgs(::windows::runtime::IInspectable);
+pub struct VariablePhotoCapturedEventArgs(pub ::windows::runtime::IInspectable);
 impl VariablePhotoCapturedEventArgs {
     #[doc = "*Required features: `Media_Capture_Core`*"]
     pub fn Frame(&self) -> ::windows::runtime::Result<super::CapturedFrame> {
@@ -124,22 +124,22 @@ impl ::windows::runtime::RuntimeName for VariablePhotoCapturedEventArgs {
 }
 impl ::std::convert::From<VariablePhotoCapturedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VariablePhotoCapturedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VariablePhotoCapturedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VariablePhotoCapturedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VariablePhotoCapturedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VariablePhotoCapturedEventArgs> for ::windows::runtime::IInspectable {
@@ -167,7 +167,7 @@ unsafe impl ::std::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[doc = "*Required features: `Media_Capture_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct VariablePhotoSequenceCapture(::windows::runtime::IInspectable);
+pub struct VariablePhotoSequenceCapture(pub ::windows::runtime::IInspectable);
 impl VariablePhotoSequenceCapture {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Core`, `Foundation`*"]
@@ -248,22 +248,22 @@ impl ::windows::runtime::RuntimeName for VariablePhotoSequenceCapture {
 }
 impl ::std::convert::From<VariablePhotoSequenceCapture> for ::windows::runtime::IUnknown {
     fn from(value: VariablePhotoSequenceCapture) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&VariablePhotoSequenceCapture> for ::windows::runtime::IUnknown {
     fn from(value: &VariablePhotoSequenceCapture) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VariablePhotoSequenceCapture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VariablePhotoSequenceCapture {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VariablePhotoSequenceCapture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<VariablePhotoSequenceCapture> for ::windows::runtime::IInspectable {

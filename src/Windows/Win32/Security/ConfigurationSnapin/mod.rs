@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISceSvcAttachmentData(::windows::runtime::IUnknown);
+pub struct ISceSvcAttachmentData(pub ::windows::runtime::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn GetData(&self, scesvchandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::Result<()> {
@@ -27,22 +27,22 @@ unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentData {
 }
 impl ::std::convert::From<ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
     fn from(value: ISceSvcAttachmentData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
     fn from(value: &ISceSvcAttachmentData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISceSvcAttachmentData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISceSvcAttachmentData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -59,7 +59,7 @@ pub struct ISceSvcAttachmentData_abi(
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ISceSvcAttachmentPersistInfo(::windows::runtime::IUnknown);
+pub struct ISceSvcAttachmentPersistInfo(pub ::windows::runtime::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
@@ -81,22 +81,22 @@ unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentPersistInfo {
 }
 impl ::std::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ISceSvcAttachmentPersistInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentPersistInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISceSvcAttachmentPersistInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISceSvcAttachmentPersistInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

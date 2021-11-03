@@ -1830,7 +1830,7 @@ pub const IMF_VERTICAL: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRichEditOle(::windows::runtime::IUnknown);
+pub struct IRichEditOle(pub ::windows::runtime::IUnknown);
 impl IRichEditOle {
     #[cfg(feature = "Win32_System_Ole")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Ole`*"]
@@ -1914,22 +1914,22 @@ unsafe impl ::windows::runtime::Interface for IRichEditOle {
 }
 impl ::std::convert::From<IRichEditOle> for ::windows::runtime::IUnknown {
     fn from(value: IRichEditOle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRichEditOle> for ::windows::runtime::IUnknown {
     fn from(value: &IRichEditOle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRichEditOle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRichEditOle {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRichEditOle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1968,7 +1968,7 @@ pub struct IRichEditOle_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRichEditOleCallback(::windows::runtime::IUnknown);
+pub struct IRichEditOleCallback(pub ::windows::runtime::IUnknown);
 impl IRichEditOleCallback {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com_StructuredStorage`*"]
@@ -2028,22 +2028,22 @@ unsafe impl ::windows::runtime::Interface for IRichEditOleCallback {
 }
 impl ::std::convert::From<IRichEditOleCallback> for ::windows::runtime::IUnknown {
     fn from(value: IRichEditOleCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRichEditOleCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IRichEditOleCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRichEditOleCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRichEditOleCallback {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRichEditOleCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2076,7 +2076,7 @@ pub struct IRichEditOleCallback_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRicheditUiaOverrides(::windows::runtime::IUnknown);
+pub struct IRicheditUiaOverrides(pub ::windows::runtime::IUnknown);
 impl IRicheditUiaOverrides {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2090,22 +2090,22 @@ unsafe impl ::windows::runtime::Interface for IRicheditUiaOverrides {
 }
 impl ::std::convert::From<IRicheditUiaOverrides> for ::windows::runtime::IUnknown {
     fn from(value: IRicheditUiaOverrides) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IRicheditUiaOverrides> for ::windows::runtime::IUnknown {
     fn from(value: &IRicheditUiaOverrides) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRicheditUiaOverrides {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRicheditUiaOverrides {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRicheditUiaOverrides {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2120,7 +2120,7 @@ pub struct IRicheditUiaOverrides_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextDisplays(::windows::runtime::IUnknown);
+pub struct ITextDisplays(pub ::windows::runtime::IUnknown);
 impl ITextDisplays {}
 unsafe impl ::windows::runtime::Interface for ITextDisplays {
     type Vtable = ITextDisplays_abi;
@@ -2128,22 +2128,22 @@ unsafe impl ::windows::runtime::Interface for ITextDisplays {
 }
 impl ::std::convert::From<ITextDisplays> for ::windows::runtime::IUnknown {
     fn from(value: ITextDisplays) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextDisplays> for ::windows::runtime::IUnknown {
     fn from(value: &ITextDisplays) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextDisplays {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextDisplays {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextDisplays {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2188,7 +2188,7 @@ pub struct ITextDisplays_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextDocument(::windows::runtime::IUnknown);
+pub struct ITextDocument(pub ::windows::runtime::IUnknown);
 impl ITextDocument {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
@@ -2288,22 +2288,22 @@ unsafe impl ::windows::runtime::Interface for ITextDocument {
 }
 impl ::std::convert::From<ITextDocument> for ::windows::runtime::IUnknown {
     fn from(value: ITextDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextDocument> for ::windows::runtime::IUnknown {
     fn from(value: &ITextDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextDocument {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2370,7 +2370,7 @@ pub struct ITextDocument_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextDocument2(::windows::runtime::IUnknown);
+pub struct ITextDocument2(pub ::windows::runtime::IUnknown);
 impl ITextDocument2 {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2704,22 +2704,22 @@ unsafe impl ::windows::runtime::Interface for ITextDocument2 {
 }
 impl ::std::convert::From<ITextDocument2> for ::windows::runtime::IUnknown {
     fn from(value: ITextDocument2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextDocument2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextDocument2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextDocument2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextDocument2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextDocument2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextDocument2> for ITextDocument {
@@ -2852,7 +2852,7 @@ pub struct ITextDocument2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextDocument2Old(::windows::runtime::IUnknown);
+pub struct ITextDocument2Old(pub ::windows::runtime::IUnknown);
 impl ITextDocument2Old {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -3080,22 +3080,22 @@ unsafe impl ::windows::runtime::Interface for ITextDocument2Old {
 }
 impl ::std::convert::From<ITextDocument2Old> for ::windows::runtime::IUnknown {
     fn from(value: ITextDocument2Old) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextDocument2Old> for ::windows::runtime::IUnknown {
     fn from(value: &ITextDocument2Old) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextDocument2Old {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextDocument2Old {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextDocument2Old {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextDocument2Old> for ITextDocument {
@@ -3207,7 +3207,7 @@ pub struct ITextDocument2Old_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextFont(::windows::runtime::IUnknown);
+pub struct ITextFont(pub ::windows::runtime::IUnknown);
 impl ITextFont {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::runtime::Result<ITextFont> {
@@ -3466,22 +3466,22 @@ unsafe impl ::windows::runtime::Interface for ITextFont {
 }
 impl ::std::convert::From<ITextFont> for ::windows::runtime::IUnknown {
     fn from(value: ITextFont) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextFont> for ::windows::runtime::IUnknown {
     fn from(value: &ITextFont) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextFont {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextFont {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextFont {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3583,7 +3583,7 @@ pub struct ITextFont_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextFont2(::windows::runtime::IUnknown);
+pub struct ITextFont2(pub ::windows::runtime::IUnknown);
 impl ITextFont2 {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4069,22 +4069,22 @@ unsafe impl ::windows::runtime::Interface for ITextFont2 {
 }
 impl ::std::convert::From<ITextFont2> for ::windows::runtime::IUnknown {
     fn from(value: ITextFont2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextFont2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextFont2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextFont2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextFont2> for ITextFont {
@@ -4252,7 +4252,7 @@ pub struct ITextFont2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextHost(::windows::runtime::IUnknown);
+pub struct ITextHost(pub ::windows::runtime::IUnknown);
 impl ITextHost {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
@@ -4449,22 +4449,22 @@ unsafe impl ::windows::runtime::Interface for ITextHost {
 }
 impl ::std::convert::From<ITextHost> for ::windows::runtime::IUnknown {
     fn from(value: ITextHost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextHost> for ::windows::runtime::IUnknown {
     fn from(value: &ITextHost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextHost {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4538,7 +4538,7 @@ pub struct ITextHost_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextHost2(::windows::runtime::IUnknown);
+pub struct ITextHost2(pub ::windows::runtime::IUnknown);
 impl ITextHost2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
@@ -4788,22 +4788,22 @@ unsafe impl ::windows::runtime::Interface for ITextHost2 {
 }
 impl ::std::convert::From<ITextHost2> for ::windows::runtime::IUnknown {
     fn from(value: ITextHost2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextHost2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextHost2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextHost2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextHost2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextHost2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextHost2> for ITextHost {
@@ -4914,7 +4914,7 @@ pub struct ITextHost2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextPara(::windows::runtime::IUnknown);
+pub struct ITextPara(pub ::windows::runtime::IUnknown);
 impl ITextPara {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::runtime::Result<ITextPara> {
@@ -5139,22 +5139,22 @@ unsafe impl ::windows::runtime::Interface for ITextPara {
 }
 impl ::std::convert::From<ITextPara> for ::windows::runtime::IUnknown {
     fn from(value: ITextPara) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextPara> for ::windows::runtime::IUnknown {
     fn from(value: &ITextPara) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextPara {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextPara {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextPara {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5247,7 +5247,7 @@ pub struct ITextPara_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextPara2(::windows::runtime::IUnknown);
+pub struct ITextPara2(pub ::windows::runtime::IUnknown);
 impl ITextPara2 {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5565,22 +5565,22 @@ unsafe impl ::windows::runtime::Interface for ITextPara2 {
 }
 impl ::std::convert::From<ITextPara2> for ::windows::runtime::IUnknown {
     fn from(value: ITextPara2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextPara2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextPara2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextPara2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextPara2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextPara2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextPara2> for ITextPara {
@@ -5709,7 +5709,7 @@ pub struct ITextPara2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextRange(::windows::runtime::IUnknown);
+pub struct ITextRange(pub ::windows::runtime::IUnknown);
 impl ITextRange {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
@@ -5972,22 +5972,22 @@ unsafe impl ::windows::runtime::Interface for ITextRange {
 }
 impl ::std::convert::From<ITextRange> for ::windows::runtime::IUnknown {
     fn from(value: ITextRange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextRange> for ::windows::runtime::IUnknown {
     fn from(value: &ITextRange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRange {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextRange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6098,7 +6098,7 @@ pub struct ITextRange_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextRange2(::windows::runtime::IUnknown);
+pub struct ITextRange2(pub ::windows::runtime::IUnknown);
 impl ITextRange2 {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6626,22 +6626,22 @@ unsafe impl ::windows::runtime::Interface for ITextRange2 {
 }
 impl ::std::convert::From<ITextRange2> for ::windows::runtime::IUnknown {
     fn from(value: ITextRange2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextRange2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextRange2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRange2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextRange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextRange2> for ITextSelection {
@@ -6849,7 +6849,7 @@ pub struct ITextRange2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextRow(::windows::runtime::IUnknown);
+pub struct ITextRow(pub ::windows::runtime::IUnknown);
 impl ITextRow {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAlignment(&self) -> ::windows::runtime::Result<i32> {
@@ -7063,22 +7063,22 @@ unsafe impl ::windows::runtime::Interface for ITextRow {
 }
 impl ::std::convert::From<ITextRow> for ::windows::runtime::IUnknown {
     fn from(value: ITextRow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextRow> for ::windows::runtime::IUnknown {
     fn from(value: &ITextRow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextRow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7169,7 +7169,7 @@ pub struct ITextRow_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextSelection(::windows::runtime::IUnknown);
+pub struct ITextSelection(pub ::windows::runtime::IUnknown);
 impl ITextSelection {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7502,22 +7502,22 @@ unsafe impl ::windows::runtime::Interface for ITextSelection {
 }
 impl ::std::convert::From<ITextSelection> for ::windows::runtime::IUnknown {
     fn from(value: ITextSelection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextSelection> for ::windows::runtime::IUnknown {
     fn from(value: &ITextSelection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextSelection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextSelection {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextSelection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextSelection> for ITextRange {
@@ -7659,7 +7659,7 @@ pub struct ITextSelection_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextSelection2(::windows::runtime::IUnknown);
+pub struct ITextSelection2(pub ::windows::runtime::IUnknown);
 impl ITextSelection2 {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8187,22 +8187,22 @@ unsafe impl ::windows::runtime::Interface for ITextSelection2 {
 }
 impl ::std::convert::From<ITextSelection2> for ::windows::runtime::IUnknown {
     fn from(value: ITextSelection2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextSelection2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextSelection2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextSelection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextSelection2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextSelection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextSelection2> for ITextRange2 {
@@ -8430,7 +8430,7 @@ pub struct ITextSelection2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextServices(::windows::runtime::IUnknown);
+pub struct ITextServices(pub ::windows::runtime::IUnknown);
 impl ITextServices {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
@@ -8600,22 +8600,22 @@ unsafe impl ::windows::runtime::Interface for ITextServices {
 }
 impl ::std::convert::From<ITextServices> for ::windows::runtime::IUnknown {
     fn from(value: ITextServices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextServices> for ::windows::runtime::IUnknown {
     fn from(value: &ITextServices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextServices {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -8674,7 +8674,7 @@ pub struct ITextServices_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextServices2(::windows::runtime::IUnknown);
+pub struct ITextServices2(pub ::windows::runtime::IUnknown);
 impl ITextServices2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
@@ -8866,22 +8866,22 @@ unsafe impl ::windows::runtime::Interface for ITextServices2 {
 }
 impl ::std::convert::From<ITextServices2> for ::windows::runtime::IUnknown {
     fn from(value: ITextServices2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextServices2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextServices2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextServices2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextServices2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextServices2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextServices2> for ITextServices {
@@ -8965,7 +8965,7 @@ pub struct ITextServices2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextStory(::windows::runtime::IUnknown);
+pub struct ITextStory(pub ::windows::runtime::IUnknown);
 impl ITextStory {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetActive(&self) -> ::windows::runtime::Result<i32> {
@@ -9031,22 +9031,22 @@ unsafe impl ::windows::runtime::Interface for ITextStory {
 }
 impl ::std::convert::From<ITextStory> for ::windows::runtime::IUnknown {
     fn from(value: ITextStory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextStory> for ::windows::runtime::IUnknown {
     fn from(value: &ITextStory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStory {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextStory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -9073,7 +9073,7 @@ pub struct ITextStory_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextStoryRanges(::windows::runtime::IUnknown);
+pub struct ITextStoryRanges(pub ::windows::runtime::IUnknown);
 impl ITextStoryRanges {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9097,22 +9097,22 @@ unsafe impl ::windows::runtime::Interface for ITextStoryRanges {
 }
 impl ::std::convert::From<ITextStoryRanges> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoryRanges) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextStoryRanges> for ::windows::runtime::IUnknown {
     fn from(value: &ITextStoryRanges) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoryRanges {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoryRanges {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextStoryRanges {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9160,7 +9160,7 @@ pub struct ITextStoryRanges_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextStoryRanges2(::windows::runtime::IUnknown);
+pub struct ITextStoryRanges2(pub ::windows::runtime::IUnknown);
 impl ITextStoryRanges2 {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9210,22 +9210,22 @@ unsafe impl ::windows::runtime::Interface for ITextStoryRanges2 {
 }
 impl ::std::convert::From<ITextStoryRanges2> for ::windows::runtime::IUnknown {
     fn from(value: ITextStoryRanges2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextStoryRanges2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextStoryRanges2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoryRanges2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoryRanges2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextStoryRanges2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<ITextStoryRanges2> for ITextStoryRanges {
@@ -9294,7 +9294,7 @@ pub struct ITextStoryRanges2_abi(
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ITextStrings(::windows::runtime::IUnknown);
+pub struct ITextStrings(pub ::windows::runtime::IUnknown);
 impl ITextStrings {
     #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<ITextRange2> {
@@ -9390,22 +9390,22 @@ unsafe impl ::windows::runtime::Interface for ITextStrings {
 }
 impl ::std::convert::From<ITextStrings> for ::windows::runtime::IUnknown {
     fn from(value: ITextStrings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&ITextStrings> for ::windows::runtime::IUnknown {
     fn from(value: &ITextStrings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStrings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStrings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextStrings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]

@@ -3,7 +3,7 @@
 pub mod DataProvider;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTask(::windows::runtime::IInspectable);
+pub struct IUserDataTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTask {
     type Vtable = IUserDataTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087028177, 57556, 20377, [174, 226, 188, 45, 93, 218, 223, 76]);
@@ -55,7 +55,7 @@ pub struct IUserDataTask_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskBatch(::windows::runtime::IInspectable);
+pub struct IUserDataTaskBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(942515710, 8373, 17180, [143, 66, 165, 210, 146, 236, 147, 12]);
@@ -74,7 +74,7 @@ pub struct IUserDataTaskBatch_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskList(::windows::runtime::IInspectable);
+pub struct IUserDataTaskList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskList {
     type Vtable = IUserDataTaskList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229008441, 31773, 19953, [190, 211, 49, 75, 124, 191, 94, 78]);
@@ -116,7 +116,7 @@ pub struct IUserDataTaskList_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListLimitedWriteOperations(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListLimitedWriteOperations(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057463794, 24696, 16771, [145, 158, 79, 41, 241, 156, 250, 233]);
@@ -141,7 +141,7 @@ pub struct IUserDataTaskListLimitedWriteOperations_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSyncManager(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListSyncManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388204181, 7631, 18079, [147, 236, 186, 72, 187, 85, 60, 107]);
@@ -174,7 +174,7 @@ pub struct IUserDataTaskListSyncManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskManager(::windows::runtime::IInspectable);
+pub struct IUserDataTaskManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManager {
     type Vtable = IUserDataTaskManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219952404, 58891, 18601, [146, 17, 127, 184, 165, 108, 184, 76]);
@@ -195,7 +195,7 @@ pub struct IUserDataTaskManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskManagerStatics(::windows::runtime::IInspectable);
+pub struct IUserDataTaskManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManagerStatics {
     type Vtable = IUserDataTaskManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3008707064, 50434, 18428, [168, 30, 16, 8, 131, 113, 157, 85]);
@@ -215,7 +215,7 @@ pub struct IUserDataTaskManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskQueryOptions(::windows::runtime::IInspectable);
+pub struct IUserDataTaskQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2510235629, 37018, 19760, [140, 27, 51, 29, 143, 230, 103, 226]);
@@ -236,7 +236,7 @@ pub struct IUserDataTaskQueryOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskReader(::windows::runtime::IInspectable);
+pub struct IUserDataTaskReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskReader {
     type Vtable = IUserDataTaskReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65439921, 19663, 17664, [136, 59, 231, 98, 144, 207, 237, 99]);
@@ -255,7 +255,7 @@ pub struct IUserDataTaskReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskRecurrenceProperties(::windows::runtime::IInspectable);
+pub struct IUserDataTaskRecurrenceProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944027312, 10182, 16590, [177, 73, 156, 212, 20, 133, 166, 158]);
@@ -300,7 +300,7 @@ pub struct IUserDataTaskRecurrenceProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskRegenerationProperties(::windows::runtime::IInspectable);
+pub struct IUserDataTaskRegenerationProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460680199, 2318, 18180, [187, 92, 132, 252, 11, 13, 156, 49]);
@@ -329,7 +329,7 @@ pub struct IUserDataTaskRegenerationProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskStore(::windows::runtime::IInspectable);
+pub struct IUserDataTaskStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskStore {
     type Vtable = IUserDataTaskStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4033518768, 61915, 17850, [138, 98, 8, 96, 4, 192, 33, 61]);
@@ -355,7 +355,7 @@ pub struct IUserDataTaskStore_abi(
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTask(::windows::runtime::IInspectable);
+pub struct UserDataTask(pub ::windows::runtime::IInspectable);
 impl UserDataTask {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -565,22 +565,22 @@ impl ::windows::runtime::RuntimeName for UserDataTask {
 }
 impl ::std::convert::From<UserDataTask> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTask> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTask {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTask> for ::windows::runtime::IInspectable {
@@ -608,7 +608,7 @@ unsafe impl ::std::marker::Sync for UserDataTask {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskBatch(::windows::runtime::IInspectable);
+pub struct UserDataTaskBatch(pub ::windows::runtime::IInspectable);
 impl UserDataTaskBatch {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`, `Foundation_Collections`*"]
@@ -632,22 +632,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskBatch {
 }
 impl ::std::convert::From<UserDataTaskBatch> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskBatch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskBatch> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskBatch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskBatch {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskBatch> for ::windows::runtime::IInspectable {
@@ -776,7 +776,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskKind {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskList(::windows::runtime::IInspectable);
+pub struct UserDataTaskList(pub ::windows::runtime::IInspectable);
 impl UserDataTaskList {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -940,22 +940,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskList {
 }
 impl ::std::convert::From<UserDataTaskList> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskList> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskList {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskList> for ::windows::runtime::IInspectable {
@@ -983,7 +983,7 @@ unsafe impl ::std::marker::Sync for UserDataTaskList {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskListLimitedWriteOperations(::windows::runtime::IInspectable);
+pub struct UserDataTaskListLimitedWriteOperations(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListLimitedWriteOperations {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`, `Foundation`*"]
@@ -1034,22 +1034,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskListLimitedWriteOperations 
 }
 impl ::std::convert::From<UserDataTaskListLimitedWriteOperations> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskListLimitedWriteOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskListLimitedWriteOperations> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskListLimitedWriteOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListLimitedWriteOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskListLimitedWriteOperations {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListLimitedWriteOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskListLimitedWriteOperations> for ::windows::runtime::IInspectable {
@@ -1122,7 +1122,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskListOtherAppWriteAccess {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskListSyncManager(::windows::runtime::IInspectable);
+pub struct UserDataTaskListSyncManager(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListSyncManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`, `Foundation`*"]
@@ -1204,22 +1204,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskListSyncManager {
 }
 impl ::std::convert::From<UserDataTaskListSyncManager> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskListSyncManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskListSyncManager> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskListSyncManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListSyncManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskListSyncManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListSyncManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskListSyncManager> for ::windows::runtime::IInspectable {
@@ -1273,7 +1273,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskListSyncStatus {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskManager(::windows::runtime::IInspectable);
+pub struct UserDataTaskManager(pub ::windows::runtime::IInspectable);
 impl UserDataTaskManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`, `Foundation`*"]
@@ -1325,22 +1325,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskManager {
 }
 impl ::std::convert::From<UserDataTaskManager> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskManager> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskManager> for ::windows::runtime::IInspectable {
@@ -1414,7 +1414,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskQueryKind {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskQueryOptions(::windows::runtime::IInspectable);
+pub struct UserDataTaskQueryOptions(pub ::windows::runtime::IInspectable);
 impl UserDataTaskQueryOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1462,22 +1462,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskQueryOptions {
 }
 impl ::std::convert::From<UserDataTaskQueryOptions> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskQueryOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskQueryOptions> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskQueryOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskQueryOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskQueryOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskQueryOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskQueryOptions> for ::windows::runtime::IInspectable {
@@ -1526,7 +1526,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskQuerySortProperty {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskReader(::windows::runtime::IInspectable);
+pub struct UserDataTaskReader(pub ::windows::runtime::IInspectable);
 impl UserDataTaskReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`, `Foundation`*"]
@@ -1550,22 +1550,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskReader {
 }
 impl ::std::convert::From<UserDataTaskReader> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskReader> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskReader> for ::windows::runtime::IInspectable {
@@ -1593,7 +1593,7 @@ unsafe impl ::std::marker::Sync for UserDataTaskReader {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskRecurrenceProperties(::windows::runtime::IInspectable);
+pub struct UserDataTaskRecurrenceProperties(pub ::windows::runtime::IInspectable);
 impl UserDataTaskRecurrenceProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1731,22 +1731,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskRecurrenceProperties {
 }
 impl ::std::convert::From<UserDataTaskRecurrenceProperties> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskRecurrenceProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskRecurrenceProperties> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskRecurrenceProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskRecurrenceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskRecurrenceProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskRecurrenceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskRecurrenceProperties> for ::windows::runtime::IInspectable {
@@ -1800,7 +1800,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskRecurrenceUnit {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskRegenerationProperties(::windows::runtime::IInspectable);
+pub struct UserDataTaskRegenerationProperties(pub ::windows::runtime::IInspectable);
 impl UserDataTaskRegenerationProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1878,22 +1878,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskRegenerationProperties {
 }
 impl ::std::convert::From<UserDataTaskRegenerationProperties> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskRegenerationProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskRegenerationProperties> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskRegenerationProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskRegenerationProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskRegenerationProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskRegenerationProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskRegenerationProperties> for ::windows::runtime::IInspectable {
@@ -1967,7 +1967,7 @@ impl ::windows::runtime::DefaultType for UserDataTaskSensitivity {
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UserDataTaskStore(::windows::runtime::IInspectable);
+pub struct UserDataTaskStore(pub ::windows::runtime::IInspectable);
 impl UserDataTaskStore {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks`, `Foundation`*"]
@@ -2018,22 +2018,22 @@ impl ::windows::runtime::RuntimeName for UserDataTaskStore {
 }
 impl ::std::convert::From<UserDataTaskStore> for ::windows::runtime::IUnknown {
     fn from(value: UserDataTaskStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UserDataTaskStore> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataTaskStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataTaskStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UserDataTaskStore> for ::windows::runtime::IInspectable {

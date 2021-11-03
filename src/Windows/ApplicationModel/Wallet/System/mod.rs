@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemSystemStore(::windows::runtime::IInspectable);
+pub struct IWalletItemSystemStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378757631, 38562, 18967, [141, 25, 254, 29, 159, 131, 117, 97]);
@@ -27,7 +27,7 @@ pub struct IWalletItemSystemStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletItemSystemStore2(::windows::runtime::IInspectable);
+pub struct IWalletItemSystemStore2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore2 {
     type Vtable = IWalletItemSystemStore2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186782286, 48640, 20445, [151, 52, 108, 17, 60, 26, 193, 203]);
@@ -48,7 +48,7 @@ pub struct IWalletItemSystemStore2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWalletManagerSystemStatics(::windows::runtime::IInspectable);
+pub struct IWalletManagerSystemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerSystemStatics {
     type Vtable = IWalletManagerSystemStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202935689, 9780, 19354, [139, 35, 238, 137, 3, 201, 31, 224]);
@@ -91,7 +91,7 @@ impl ::windows::runtime::DefaultType for WalletItemAppAssociation {
 #[doc = "*Required features: `ApplicationModel_Wallet_System`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WalletItemSystemStore(::windows::runtime::IInspectable);
+pub struct WalletItemSystemStore(pub ::windows::runtime::IInspectable);
 impl WalletItemSystemStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_Wallet_System`, `Foundation`, `Foundation_Collections`*"]
@@ -165,22 +165,22 @@ impl ::windows::runtime::RuntimeName for WalletItemSystemStore {
 }
 impl ::std::convert::From<WalletItemSystemStore> for ::windows::runtime::IUnknown {
     fn from(value: WalletItemSystemStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WalletItemSystemStore> for ::windows::runtime::IUnknown {
     fn from(value: &WalletItemSystemStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletItemSystemStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WalletItemSystemStore {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WalletItemSystemStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WalletItemSystemStore> for ::windows::runtime::IInspectable {

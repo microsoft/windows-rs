@@ -107,7 +107,7 @@ impl ::std::ops::Not for AddResourcePackageOptions {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppDisplayInfo(::windows::runtime::IInspectable);
+pub struct AppDisplayInfo(pub ::windows::runtime::IInspectable);
 impl AppDisplayInfo {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -147,22 +147,22 @@ impl ::windows::runtime::RuntimeName for AppDisplayInfo {
 }
 impl ::std::convert::From<AppDisplayInfo> for ::windows::runtime::IUnknown {
     fn from(value: AppDisplayInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppDisplayInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AppDisplayInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppDisplayInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppDisplayInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppDisplayInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppDisplayInfo> for ::windows::runtime::IInspectable {
@@ -213,7 +213,7 @@ impl ::windows::runtime::DefaultType for AppExecutionContext {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppInfo(::windows::runtime::IInspectable);
+pub struct AppInfo(pub ::windows::runtime::IInspectable);
 impl AppInfo {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -310,22 +310,22 @@ impl ::windows::runtime::RuntimeName for AppInfo {
 }
 impl ::std::convert::From<AppInfo> for ::windows::runtime::IUnknown {
     fn from(value: AppInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AppInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppInfo> for ::windows::runtime::IInspectable {
@@ -353,7 +353,7 @@ unsafe impl ::std::marker::Sync for AppInfo {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppInstallerInfo(::windows::runtime::IInspectable);
+pub struct AppInstallerInfo(pub ::windows::runtime::IInspectable);
 impl AppInstallerInfo {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
@@ -503,22 +503,22 @@ impl ::windows::runtime::RuntimeName for AppInstallerInfo {
 }
 impl ::std::convert::From<AppInstallerInfo> for ::windows::runtime::IUnknown {
     fn from(value: AppInstallerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppInstallerInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AppInstallerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallerInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppInstallerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppInstallerInfo> for ::windows::runtime::IInspectable {
@@ -568,7 +568,7 @@ impl ::windows::runtime::DefaultType for AppInstallerPolicySource {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct AppInstance(::windows::runtime::IInspectable);
+pub struct AppInstance(pub ::windows::runtime::IInspectable);
 impl AppInstance {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Key(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -642,22 +642,22 @@ impl ::windows::runtime::RuntimeName for AppInstance {
 }
 impl ::std::convert::From<AppInstance> for ::windows::runtime::IUnknown {
     fn from(value: AppInstance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&AppInstance> for ::windows::runtime::IUnknown {
     fn from(value: &AppInstance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstance {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<AppInstance> for ::windows::runtime::IInspectable {
@@ -729,7 +729,7 @@ impl ::windows::runtime::RuntimeName for DesignMode {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct EnteredBackgroundEventArgs(::windows::runtime::IInspectable);
+pub struct EnteredBackgroundEventArgs(pub ::windows::runtime::IInspectable);
 impl EnteredBackgroundEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
@@ -753,22 +753,22 @@ impl ::windows::runtime::RuntimeName for EnteredBackgroundEventArgs {
 }
 impl ::std::convert::From<EnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: EnteredBackgroundEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&EnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &EnteredBackgroundEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EnteredBackgroundEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<EnteredBackgroundEventArgs> for ::windows::runtime::IInspectable {
@@ -843,7 +843,7 @@ impl ::windows::runtime::DefaultType for FullTrustLaunchResult {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct FullTrustProcessLaunchResult(::windows::runtime::IInspectable);
+pub struct FullTrustProcessLaunchResult(pub ::windows::runtime::IInspectable);
 impl FullTrustProcessLaunchResult {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn LaunchResult(&self) -> ::windows::runtime::Result<FullTrustLaunchResult> {
@@ -874,22 +874,22 @@ impl ::windows::runtime::RuntimeName for FullTrustProcessLaunchResult {
 }
 impl ::std::convert::From<FullTrustProcessLaunchResult> for ::windows::runtime::IUnknown {
     fn from(value: FullTrustProcessLaunchResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&FullTrustProcessLaunchResult> for ::windows::runtime::IUnknown {
     fn from(value: &FullTrustProcessLaunchResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FullTrustProcessLaunchResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FullTrustProcessLaunchResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FullTrustProcessLaunchResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<FullTrustProcessLaunchResult> for ::windows::runtime::IInspectable {
@@ -979,7 +979,7 @@ impl ::windows::runtime::RuntimeName for FullTrustProcessLauncher {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppDisplayInfo(::windows::runtime::IInspectable);
+pub struct IAppDisplayInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDisplayInfo {
     type Vtable = IAppDisplayInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(451612931, 58580, 16810, [164, 246, 196, 162, 118, 231, 158, 172]);
@@ -1000,7 +1000,7 @@ pub struct IAppDisplayInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInfo(::windows::runtime::IInspectable);
+pub struct IAppInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInfo {
     type Vtable = IAppInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481229747, 27145, 19944, [166, 192, 87, 146, 213, 104, 128, 209]);
@@ -1021,7 +1021,7 @@ pub struct IAppInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInfo2(::windows::runtime::IInspectable);
+pub struct IAppInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInfo2 {
     type Vtable = IAppInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3192594266, 8344, 17179, [189, 37, 179, 8, 120, 116, 141, 71]);
@@ -1039,7 +1039,7 @@ pub struct IAppInfo2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInfo3(::windows::runtime::IInspectable);
+pub struct IAppInfo3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInfo3 {
     type Vtable = IAppInfo3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(161975878, 37796, 18142, [147, 151, 8, 67, 181, 113, 21, 234]);
@@ -1057,7 +1057,7 @@ pub struct IAppInfo3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInfo4(::windows::runtime::IInspectable);
+pub struct IAppInfo4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInfo4 {
     type Vtable = IAppInfo4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(791985643, 5641, 17748, [159, 51, 18, 225, 232, 3, 224, 212]);
@@ -1075,7 +1075,7 @@ pub struct IAppInfo4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInfoStatics(::windows::runtime::IInspectable);
+pub struct IAppInfoStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInfoStatics {
     type Vtable = IAppInfoStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3474946090, 58507, 20236, [155, 11, 121, 195, 248, 149, 125, 215]);
@@ -1096,7 +1096,7 @@ pub struct IAppInfoStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInstallerInfo(::windows::runtime::IInspectable);
+pub struct IAppInstallerInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerInfo {
     type Vtable = IAppInstallerInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(699083456, 54518, 17059, [173, 205, 214, 88, 60, 101, 149, 8]);
@@ -1115,7 +1115,7 @@ pub struct IAppInstallerInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInstallerInfo2(::windows::runtime::IInspectable);
+pub struct IAppInstallerInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerInfo2 {
     type Vtable = IAppInstallerInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524203400, 33366, 22908, [133, 17, 200, 78, 197, 13, 94, 43]);
@@ -1153,7 +1153,7 @@ pub struct IAppInstallerInfo2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInstance(::windows::runtime::IInspectable);
+pub struct IAppInstance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstance {
     type Vtable = IAppInstance_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1734290247, 62047, 17714, [159, 214, 54, 51, 224, 99, 77, 1]);
@@ -1173,7 +1173,7 @@ pub struct IAppInstance_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppInstanceStatics(::windows::runtime::IInspectable);
+pub struct IAppInstanceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstanceStatics {
     type Vtable = IAppInstanceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2635196287, 40614, 18351, [166, 236, 70, 120, 76, 91, 162, 84]);
@@ -1197,7 +1197,7 @@ pub struct IAppInstanceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICameraApplicationManagerStatics(::windows::runtime::IInspectable);
+pub struct ICameraApplicationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraApplicationManagerStatics {
     type Vtable = ICameraApplicationManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509888974, 39891, 17244, [128, 84, 193, 173, 213, 0, 40, 254]);
@@ -1215,7 +1215,7 @@ pub struct ICameraApplicationManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesignModeStatics(::windows::runtime::IInspectable);
+pub struct IDesignModeStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignModeStatics {
     type Vtable = IDesignModeStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(741905356, 63514, 20090, [184, 87, 118, 168, 8, 135, 225, 133]);
@@ -1233,7 +1233,7 @@ pub struct IDesignModeStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesignModeStatics2(::windows::runtime::IInspectable);
+pub struct IDesignModeStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignModeStatics2 {
     type Vtable = IDesignModeStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2161082679, 45156, 18520, [190, 200, 62, 186, 34, 53, 117, 53]);
@@ -1252,7 +1252,7 @@ pub struct IDesignModeStatics2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel`*"]
-pub struct IEnteredBackgroundEventArgs(::windows::runtime::IInspectable);
+pub struct IEnteredBackgroundEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146257090, 38951, 16445, [170, 237, 236, 202, 154, 193, 115, 152]);
@@ -1273,22 +1273,22 @@ unsafe impl ::windows::runtime::RuntimeType for IEnteredBackgroundEventArgs {
 }
 impl ::std::convert::From<IEnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IEnteredBackgroundEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IEnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &IEnteredBackgroundEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnteredBackgroundEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IEnteredBackgroundEventArgs> for ::windows::runtime::IInspectable {
@@ -1325,7 +1325,7 @@ pub struct IEnteredBackgroundEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFullTrustProcessLaunchResult(::windows::runtime::IInspectable);
+pub struct IFullTrustProcessLaunchResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullTrustProcessLaunchResult {
     type Vtable = IFullTrustProcessLaunchResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2300041352, 60923, 20831, [142, 34, 94, 188, 235, 105, 223, 217]);
@@ -1344,7 +1344,7 @@ pub struct IFullTrustProcessLaunchResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFullTrustProcessLauncherStatics(::windows::runtime::IInspectable);
+pub struct IFullTrustProcessLauncherStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullTrustProcessLauncherStatics {
     type Vtable = IFullTrustProcessLauncherStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615785855, 4352, 15467, [164, 85, 246, 38, 44, 195, 49, 182]);
@@ -1369,7 +1369,7 @@ pub struct IFullTrustProcessLauncherStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFullTrustProcessLauncherStatics2(::windows::runtime::IInspectable);
+pub struct IFullTrustProcessLauncherStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullTrustProcessLauncherStatics2 {
     type Vtable = IFullTrustProcessLauncherStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2341394223, 46684, 22223, [161, 167, 43, 247, 124, 188, 110, 168]);
@@ -1391,7 +1391,7 @@ pub struct IFullTrustProcessLauncherStatics2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel`*"]
-pub struct ILeavingBackgroundEventArgs(::windows::runtime::IInspectable);
+pub struct ILeavingBackgroundEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969338010, 44654, 18169, [160, 122, 207, 194, 63, 136, 115, 62]);
@@ -1412,22 +1412,22 @@ unsafe impl ::windows::runtime::RuntimeType for ILeavingBackgroundEventArgs {
 }
 impl ::std::convert::From<ILeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ILeavingBackgroundEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ILeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ILeavingBackgroundEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILeavingBackgroundEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ILeavingBackgroundEventArgs> for ::windows::runtime::IInspectable {
@@ -1464,7 +1464,7 @@ pub struct ILeavingBackgroundEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILimitedAccessFeatureRequestResult(::windows::runtime::IInspectable);
+pub struct ILimitedAccessFeatureRequestResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimitedAccessFeatureRequestResult {
     type Vtable = ILimitedAccessFeatureRequestResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562100390, 7716, 24029, [171, 180, 97, 136, 171, 164, 213, 191]);
@@ -1485,7 +1485,7 @@ pub struct ILimitedAccessFeatureRequestResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILimitedAccessFeaturesStatics(::windows::runtime::IInspectable);
+pub struct ILimitedAccessFeaturesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimitedAccessFeaturesStatics {
     type Vtable = ILimitedAccessFeaturesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347111124, 12331, 24511, [166, 50, 26, 153, 228, 62, 137, 37]);
@@ -1503,7 +1503,7 @@ pub struct ILimitedAccessFeaturesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage(::windows::runtime::IInspectable);
+pub struct IPackage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage {
     type Vtable = IPackage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(373061935, 48501, 16700, [191, 35, 177, 254, 123, 149, 216, 37]);
@@ -1526,7 +1526,7 @@ pub struct IPackage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage2(::windows::runtime::IInspectable);
+pub struct IPackage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage2 {
     type Vtable = IPackage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2791387062, 30344, 19150, [149, 251, 53, 149, 56, 231, 170, 1]);
@@ -1551,7 +1551,7 @@ pub struct IPackage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage3(::windows::runtime::IInspectable);
+pub struct IPackage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage3 {
     type Vtable = IPackage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1601407841, 63594, 18711, [147, 209, 241, 238, 157, 59, 53, 217]);
@@ -1573,7 +1573,7 @@ pub struct IPackage3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage4(::windows::runtime::IInspectable);
+pub struct IPackage4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage4 {
     type Vtable = IPackage4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1705955758, 47451, 17676, [136, 43, 98, 85, 24, 127, 57, 126]);
@@ -1594,7 +1594,7 @@ pub struct IPackage4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage5(::windows::runtime::IInspectable);
+pub struct IPackage5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage5 {
     type Vtable = IPackage5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(243543508, 55724, 17901, [154, 30, 116, 206, 5, 107, 38, 53]);
@@ -1621,7 +1621,7 @@ pub struct IPackage5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage6(::windows::runtime::IInspectable);
+pub struct IPackage6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage6 {
     type Vtable = IPackage6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2333792578, 4823, 18260, [174, 78, 99, 140, 188, 14, 58, 46]);
@@ -1641,7 +1641,7 @@ pub struct IPackage6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage7(::windows::runtime::IInspectable);
+pub struct IPackage7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage7 {
     type Vtable = IPackage7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2264894769, 41700, 17888, [151, 50, 40, 58, 109, 136, 253, 225]);
@@ -1662,7 +1662,7 @@ pub struct IPackage7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackage8(::windows::runtime::IInspectable);
+pub struct IPackage8(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackage8 {
     type Vtable = IPackage8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(743985019, 52778, 19430, [160, 147, 119, 207, 187, 42, 126, 161]);
@@ -1696,7 +1696,7 @@ pub struct IPackage8_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalog(::windows::runtime::IInspectable);
+pub struct IPackageCatalog(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalog {
     type Vtable = IPackageCatalog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587872081, 40419, 17477, [190, 116, 145, 251, 50, 90, 190, 254]);
@@ -1733,7 +1733,7 @@ pub struct IPackageCatalog_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalog2(::windows::runtime::IInspectable);
+pub struct IPackageCatalog2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalog2 {
     type Vtable = IPackageCatalog2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2527464502, 36855, 17220, [182, 191, 238, 100, 194, 32, 126, 210]);
@@ -1756,7 +1756,7 @@ pub struct IPackageCatalog2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalog3(::windows::runtime::IInspectable);
+pub struct IPackageCatalog3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalog3 {
     type Vtable = IPackageCatalog3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2531089544, 34871, 17401, [144, 21, 3, 52, 52, 186, 20, 243]);
@@ -1775,7 +1775,7 @@ pub struct IPackageCatalog3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalog4(::windows::runtime::IInspectable);
+pub struct IPackageCatalog4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalog4 {
     type Vtable = IPackageCatalog4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3279698331, 17612, 19323, [139, 175, 121, 108, 4, 234, 211, 185]);
@@ -1796,7 +1796,7 @@ pub struct IPackageCatalog4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalogAddOptionalPackageResult(::windows::runtime::IInspectable);
+pub struct IPackageCatalogAddOptionalPackageResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalogAddOptionalPackageResult {
     type Vtable = IPackageCatalogAddOptionalPackageResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1005653204, 46303, 18355, [169, 99, 226, 250, 131, 47, 125, 211]);
@@ -1815,7 +1815,7 @@ pub struct IPackageCatalogAddOptionalPackageResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalogAddResourcePackageResult(::windows::runtime::IInspectable);
+pub struct IPackageCatalogAddResourcePackageResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalogAddResourcePackageResult {
     type Vtable = IPackageCatalogAddResourcePackageResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520174093, 15895, 18751, [170, 8, 204, 236, 111, 222, 246, 153]);
@@ -1835,7 +1835,7 @@ pub struct IPackageCatalogAddResourcePackageResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalogRemoveOptionalPackagesResult(::windows::runtime::IInspectable);
+pub struct IPackageCatalogRemoveOptionalPackagesResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalogRemoveOptionalPackagesResult {
     type Vtable = IPackageCatalogRemoveOptionalPackagesResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(701692283, 55668, 20068, [147, 89, 34, 202, 223, 215, 152, 40]);
@@ -1855,7 +1855,7 @@ pub struct IPackageCatalogRemoveOptionalPackagesResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalogRemoveResourcePackagesResult(::windows::runtime::IInspectable);
+pub struct IPackageCatalogRemoveResourcePackagesResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalogRemoveResourcePackagesResult {
     type Vtable = IPackageCatalogRemoveResourcePackagesResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2926679817, 6738, 17185, [135, 179, 229, 161, 161, 121, 129, 167]);
@@ -1875,7 +1875,7 @@ pub struct IPackageCatalogRemoveResourcePackagesResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageCatalogStatics(::windows::runtime::IInspectable);
+pub struct IPackageCatalogStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageCatalogStatics {
     type Vtable = IPackageCatalogStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710345366, 58971, 17972, [186, 33, 94, 99, 235, 114, 68, 167]);
@@ -1894,7 +1894,7 @@ pub struct IPackageCatalogStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageContentGroup(::windows::runtime::IInspectable);
+pub struct IPackageContentGroup(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageContentGroup {
     type Vtable = IPackageContentGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2405591389, 4618, 18328, [181, 225, 88, 0, 221, 168, 242, 225]);
@@ -1915,7 +1915,7 @@ pub struct IPackageContentGroup_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageContentGroupStagingEventArgs(::windows::runtime::IInspectable);
+pub struct IPackageContentGroupStagingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageContentGroupStagingEventArgs {
     type Vtable = IPackageContentGroupStagingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1031520894, 28455, 17516, [152, 110, 212, 115, 61, 77, 145, 19]);
@@ -1939,7 +1939,7 @@ pub struct IPackageContentGroupStagingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageContentGroupStatics(::windows::runtime::IInspectable);
+pub struct IPackageContentGroupStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageContentGroupStatics {
     type Vtable = IPackageContentGroupStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1894675993, 24338, 19346, [185, 234, 108, 202, 218, 19, 188, 117]);
@@ -1957,7 +1957,7 @@ pub struct IPackageContentGroupStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageId(::windows::runtime::IInspectable);
+pub struct IPackageId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageId {
     type Vtable = IPackageId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450586206, 14279, 18320, [153, 128, 221, 122, 231, 78, 139, 178]);
@@ -1983,7 +1983,7 @@ pub struct IPackageId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageIdWithMetadata(::windows::runtime::IInspectable);
+pub struct IPackageIdWithMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageIdWithMetadata {
     type Vtable = IPackageIdWithMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1079474812, 3230, 17469, [144, 116, 133, 95, 92, 224, 160, 141]);
@@ -2002,7 +2002,7 @@ pub struct IPackageIdWithMetadata_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageInstallingEventArgs(::windows::runtime::IInspectable);
+pub struct IPackageInstallingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallingEventArgs {
     type Vtable = IPackageInstallingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540969655, 43898, 16410, [139, 97, 235, 14, 127, 175, 242, 55]);
@@ -2024,7 +2024,7 @@ pub struct IPackageInstallingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageStagingEventArgs(::windows::runtime::IInspectable);
+pub struct IPackageStagingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageStagingEventArgs {
     type Vtable = IPackageStagingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(272721965, 21730, 20305, [184, 40, 158, 247, 4, 108, 33, 15]);
@@ -2046,7 +2046,7 @@ pub struct IPackageStagingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageStatics(::windows::runtime::IInspectable);
+pub struct IPackageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageStatics {
     type Vtable = IPackageStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314081759, 10592, 18552, [151, 164, 150, 36, 222, 183, 47, 45]);
@@ -2064,7 +2064,7 @@ pub struct IPackageStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageStatus(::windows::runtime::IInspectable);
+pub struct IPackageStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageStatus {
     type Vtable = IPackageStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1608994673, 41829, 19465, [160, 45, 4, 109, 82, 94, 161, 218]);
@@ -2093,7 +2093,7 @@ pub struct IPackageStatus_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageStatus2(::windows::runtime::IInspectable);
+pub struct IPackageStatus2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageStatus2 {
     type Vtable = IPackageStatus2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096326291, 31830, 18530, [172, 250, 171, 174, 220, 192, 105, 77]);
@@ -2111,7 +2111,7 @@ pub struct IPackageStatus2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageStatusChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IPackageStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageStatusChangedEventArgs {
     type Vtable = IPackageStatusChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1132294477, 48512, 19056, [188, 80, 246, 231, 150, 80, 149, 117]);
@@ -2129,7 +2129,7 @@ pub struct IPackageStatusChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageUninstallingEventArgs(::windows::runtime::IInspectable);
+pub struct IPackageUninstallingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageUninstallingEventArgs {
     type Vtable = IPackageUninstallingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1145285202, 43810, 17613, [130, 187, 78, 201, 184, 39, 54, 122]);
@@ -2151,7 +2151,7 @@ pub struct IPackageUninstallingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageUpdateAvailabilityResult(::windows::runtime::IInspectable);
+pub struct IPackageUpdateAvailabilityResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageUpdateAvailabilityResult {
     type Vtable = IPackageUpdateAvailabilityResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(290344969, 6554, 18593, [160, 121, 49, 60, 69, 99, 74, 113]);
@@ -2170,7 +2170,7 @@ pub struct IPackageUpdateAvailabilityResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct IPackageUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageUpdatingEventArgs {
     type Vtable = IPackageUpdatingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447407144, 64884, 17470, [177, 20, 35, 230, 119, 176, 232, 111]);
@@ -2193,7 +2193,7 @@ pub struct IPackageUpdatingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageWithMetadata(::windows::runtime::IInspectable);
+pub struct IPackageWithMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageWithMetadata {
     type Vtable = IPackageWithMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509543296, 7657, 16626, [180, 82, 13, 233, 241, 145, 0, 18]);
@@ -2214,7 +2214,7 @@ pub struct IPackageWithMetadata_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStartupTask(::windows::runtime::IInspectable);
+pub struct IStartupTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartupTask {
     type Vtable = IStartupTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4150010824, 46578, 20332, [136, 221, 54, 203, 29, 89, 157, 23]);
@@ -2236,7 +2236,7 @@ pub struct IStartupTask_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStartupTaskStatics(::windows::runtime::IInspectable);
+pub struct IStartupTaskStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStartupTaskStatics {
     type Vtable = IStartupTaskStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3998965949, 41288, 16807, [178, 110, 232, 184, 138, 30, 98, 248]);
@@ -2258,7 +2258,7 @@ pub struct IStartupTaskStatics_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel`*"]
-pub struct ISuspendingDeferral(::windows::runtime::IInspectable);
+pub struct ISuspendingDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISuspendingDeferral {
     type Vtable = ISuspendingDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1494484233, 35785, 20148, [182, 54, 218, 189, 196, 244, 111, 102]);
@@ -2275,22 +2275,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISuspendingDeferral {
 }
 impl ::std::convert::From<ISuspendingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: ISuspendingDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISuspendingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &ISuspendingDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISuspendingDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISuspendingDeferral> for ::windows::runtime::IInspectable {
@@ -2327,7 +2327,7 @@ pub struct ISuspendingDeferral_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel`*"]
-pub struct ISuspendingEventArgs(::windows::runtime::IInspectable);
+pub struct ISuspendingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISuspendingEventArgs {
     type Vtable = ISuspendingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2516982789, 11706, 19720, [176, 189, 43, 48, 161, 49, 198, 170]);
@@ -2347,22 +2347,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISuspendingEventArgs {
 }
 impl ::std::convert::From<ISuspendingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ISuspendingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISuspendingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ISuspendingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISuspendingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISuspendingEventArgs> for ::windows::runtime::IInspectable {
@@ -2399,7 +2399,7 @@ pub struct ISuspendingEventArgs_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel`*"]
-pub struct ISuspendingOperation(::windows::runtime::IInspectable);
+pub struct ISuspendingOperation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISuspendingOperation {
     type Vtable = ISuspendingOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2644822593, 8417, 20123, [159, 101, 169, 244, 53, 52, 12, 58]);
@@ -2428,22 +2428,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISuspendingOperation {
 }
 impl ::std::convert::From<ISuspendingOperation> for ::windows::runtime::IUnknown {
     fn from(value: ISuspendingOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISuspendingOperation> for ::windows::runtime::IUnknown {
     fn from(value: &ISuspendingOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISuspendingOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISuspendingOperation> for ::windows::runtime::IInspectable {
@@ -2482,7 +2482,7 @@ pub struct ISuspendingOperation_abi(
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LeavingBackgroundEventArgs(::windows::runtime::IInspectable);
+pub struct LeavingBackgroundEventArgs(pub ::windows::runtime::IInspectable);
 impl LeavingBackgroundEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
@@ -2506,22 +2506,22 @@ impl ::windows::runtime::RuntimeName for LeavingBackgroundEventArgs {
 }
 impl ::std::convert::From<LeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: LeavingBackgroundEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &LeavingBackgroundEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LeavingBackgroundEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LeavingBackgroundEventArgs> for ::windows::runtime::IInspectable {
@@ -2569,7 +2569,7 @@ unsafe impl ::std::marker::Sync for LeavingBackgroundEventArgs {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LimitedAccessFeatureRequestResult(::windows::runtime::IInspectable);
+pub struct LimitedAccessFeatureRequestResult(pub ::windows::runtime::IInspectable);
 impl LimitedAccessFeatureRequestResult {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn FeatureId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2609,22 +2609,22 @@ impl ::windows::runtime::RuntimeName for LimitedAccessFeatureRequestResult {
 }
 impl ::std::convert::From<LimitedAccessFeatureRequestResult> for ::windows::runtime::IUnknown {
     fn from(value: LimitedAccessFeatureRequestResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LimitedAccessFeatureRequestResult> for ::windows::runtime::IUnknown {
     fn from(value: &LimitedAccessFeatureRequestResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LimitedAccessFeatureRequestResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LimitedAccessFeatureRequestResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LimitedAccessFeatureRequestResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LimitedAccessFeatureRequestResult> for ::windows::runtime::IInspectable {
@@ -2694,7 +2694,7 @@ impl ::windows::runtime::RuntimeName for LimitedAccessFeatures {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct Package(::windows::runtime::IInspectable);
+pub struct Package(pub ::windows::runtime::IInspectable);
 impl Package {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<PackageId> {
@@ -3066,22 +3066,22 @@ impl ::windows::runtime::RuntimeName for Package {
 }
 impl ::std::convert::From<Package> for ::windows::runtime::IUnknown {
     fn from(value: Package) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&Package> for ::windows::runtime::IUnknown {
     fn from(value: &Package) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Package {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Package {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Package {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<Package> for ::windows::runtime::IInspectable {
@@ -3109,7 +3109,7 @@ unsafe impl ::std::marker::Sync for Package {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageCatalog(::windows::runtime::IInspectable);
+pub struct PackageCatalog(pub ::windows::runtime::IInspectable);
 impl PackageCatalog {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
@@ -3268,22 +3268,22 @@ impl ::windows::runtime::RuntimeName for PackageCatalog {
 }
 impl ::std::convert::From<PackageCatalog> for ::windows::runtime::IUnknown {
     fn from(value: PackageCatalog) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageCatalog> for ::windows::runtime::IUnknown {
     fn from(value: &PackageCatalog) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageCatalog {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageCatalog {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageCatalog {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageCatalog> for ::windows::runtime::IInspectable {
@@ -3309,7 +3309,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageCatalogAddOptionalPackageResult(::windows::runtime::IInspectable);
+pub struct PackageCatalogAddOptionalPackageResult(pub ::windows::runtime::IInspectable);
 impl PackageCatalogAddOptionalPackageResult {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::runtime::Result<Package> {
@@ -3340,22 +3340,22 @@ impl ::windows::runtime::RuntimeName for PackageCatalogAddOptionalPackageResult 
 }
 impl ::std::convert::From<PackageCatalogAddOptionalPackageResult> for ::windows::runtime::IUnknown {
     fn from(value: PackageCatalogAddOptionalPackageResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageCatalogAddOptionalPackageResult> for ::windows::runtime::IUnknown {
     fn from(value: &PackageCatalogAddOptionalPackageResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageCatalogAddOptionalPackageResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageCatalogAddOptionalPackageResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageCatalogAddOptionalPackageResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageCatalogAddOptionalPackageResult> for ::windows::runtime::IInspectable {
@@ -3381,7 +3381,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageCatalogAddResourcePackageResult(::windows::runtime::IInspectable);
+pub struct PackageCatalogAddResourcePackageResult(pub ::windows::runtime::IInspectable);
 impl PackageCatalogAddResourcePackageResult {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::runtime::Result<Package> {
@@ -3420,22 +3420,22 @@ impl ::windows::runtime::RuntimeName for PackageCatalogAddResourcePackageResult 
 }
 impl ::std::convert::From<PackageCatalogAddResourcePackageResult> for ::windows::runtime::IUnknown {
     fn from(value: PackageCatalogAddResourcePackageResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageCatalogAddResourcePackageResult> for ::windows::runtime::IUnknown {
     fn from(value: &PackageCatalogAddResourcePackageResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageCatalogAddResourcePackageResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageCatalogAddResourcePackageResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageCatalogAddResourcePackageResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageCatalogAddResourcePackageResult> for ::windows::runtime::IInspectable {
@@ -3463,7 +3463,7 @@ unsafe impl ::std::marker::Sync for PackageCatalogAddResourcePackageResult {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageCatalogRemoveOptionalPackagesResult(::windows::runtime::IInspectable);
+pub struct PackageCatalogRemoveOptionalPackagesResult(pub ::windows::runtime::IInspectable);
 impl PackageCatalogRemoveOptionalPackagesResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation_Collections`*"]
@@ -3495,22 +3495,22 @@ impl ::windows::runtime::RuntimeName for PackageCatalogRemoveOptionalPackagesRes
 }
 impl ::std::convert::From<PackageCatalogRemoveOptionalPackagesResult> for ::windows::runtime::IUnknown {
     fn from(value: PackageCatalogRemoveOptionalPackagesResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageCatalogRemoveOptionalPackagesResult> for ::windows::runtime::IUnknown {
     fn from(value: &PackageCatalogRemoveOptionalPackagesResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageCatalogRemoveOptionalPackagesResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageCatalogRemoveOptionalPackagesResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageCatalogRemoveOptionalPackagesResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageCatalogRemoveOptionalPackagesResult> for ::windows::runtime::IInspectable {
@@ -3536,7 +3536,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageCatalogRemoveResourcePackagesResult(::windows::runtime::IInspectable);
+pub struct PackageCatalogRemoveResourcePackagesResult(pub ::windows::runtime::IInspectable);
 impl PackageCatalogRemoveResourcePackagesResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation_Collections`*"]
@@ -3568,22 +3568,22 @@ impl ::windows::runtime::RuntimeName for PackageCatalogRemoveResourcePackagesRes
 }
 impl ::std::convert::From<PackageCatalogRemoveResourcePackagesResult> for ::windows::runtime::IUnknown {
     fn from(value: PackageCatalogRemoveResourcePackagesResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageCatalogRemoveResourcePackagesResult> for ::windows::runtime::IUnknown {
     fn from(value: &PackageCatalogRemoveResourcePackagesResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageCatalogRemoveResourcePackagesResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageCatalogRemoveResourcePackagesResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageCatalogRemoveResourcePackagesResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageCatalogRemoveResourcePackagesResult> for ::windows::runtime::IInspectable {
@@ -3611,7 +3611,7 @@ unsafe impl ::std::marker::Sync for PackageCatalogRemoveResourcePackagesResult {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageContentGroup(::windows::runtime::IInspectable);
+pub struct PackageContentGroup(pub ::windows::runtime::IInspectable);
 impl PackageContentGroup {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::runtime::Result<Package> {
@@ -3669,22 +3669,22 @@ impl ::windows::runtime::RuntimeName for PackageContentGroup {
 }
 impl ::std::convert::From<PackageContentGroup> for ::windows::runtime::IUnknown {
     fn from(value: PackageContentGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageContentGroup> for ::windows::runtime::IUnknown {
     fn from(value: &PackageContentGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageContentGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageContentGroup {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageContentGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageContentGroup> for ::windows::runtime::IInspectable {
@@ -3712,7 +3712,7 @@ unsafe impl ::std::marker::Sync for PackageContentGroup {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageContentGroupStagingEventArgs(::windows::runtime::IInspectable);
+pub struct PackageContentGroupStagingEventArgs(pub ::windows::runtime::IInspectable);
 impl PackageContentGroupStagingEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3783,22 +3783,22 @@ impl ::windows::runtime::RuntimeName for PackageContentGroupStagingEventArgs {
 }
 impl ::std::convert::From<PackageContentGroupStagingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PackageContentGroupStagingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageContentGroupStagingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PackageContentGroupStagingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageContentGroupStagingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageContentGroupStagingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageContentGroupStagingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageContentGroupStagingEventArgs> for ::windows::runtime::IInspectable {
@@ -3850,7 +3850,7 @@ impl ::windows::runtime::DefaultType for PackageContentGroupState {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageId(::windows::runtime::IInspectable);
+pub struct PackageId(pub ::windows::runtime::IInspectable);
 impl PackageId {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3946,22 +3946,22 @@ impl ::windows::runtime::RuntimeName for PackageId {
 }
 impl ::std::convert::From<PackageId> for ::windows::runtime::IUnknown {
     fn from(value: PackageId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageId> for ::windows::runtime::IUnknown {
     fn from(value: &PackageId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageId {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageId {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageId> for ::windows::runtime::IInspectable {
@@ -4021,7 +4021,7 @@ impl ::windows::runtime::DefaultType for PackageInstallProgress {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageInstallingEventArgs(::windows::runtime::IInspectable);
+pub struct PackageInstallingEventArgs(pub ::windows::runtime::IInspectable);
 impl PackageInstallingEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4076,22 +4076,22 @@ impl ::windows::runtime::RuntimeName for PackageInstallingEventArgs {
 }
 impl ::std::convert::From<PackageInstallingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PackageInstallingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageInstallingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PackageInstallingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageInstallingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageInstallingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageInstallingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageInstallingEventArgs> for ::windows::runtime::IInspectable {
@@ -4144,7 +4144,7 @@ impl ::windows::runtime::DefaultType for PackageSignatureKind {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageStagingEventArgs(::windows::runtime::IInspectable);
+pub struct PackageStagingEventArgs(pub ::windows::runtime::IInspectable);
 impl PackageStagingEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4199,22 +4199,22 @@ impl ::windows::runtime::RuntimeName for PackageStagingEventArgs {
 }
 impl ::std::convert::From<PackageStagingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PackageStagingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageStagingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PackageStagingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageStagingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageStagingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageStagingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageStagingEventArgs> for ::windows::runtime::IInspectable {
@@ -4242,7 +4242,7 @@ unsafe impl ::std::marker::Sync for PackageStagingEventArgs {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageStatus(::windows::runtime::IInspectable);
+pub struct PackageStatus(pub ::windows::runtime::IInspectable);
 impl PackageStatus {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn VerifyIsOK(&self) -> ::windows::runtime::Result<bool> {
@@ -4361,22 +4361,22 @@ impl ::windows::runtime::RuntimeName for PackageStatus {
 }
 impl ::std::convert::From<PackageStatus> for ::windows::runtime::IUnknown {
     fn from(value: PackageStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageStatus> for ::windows::runtime::IUnknown {
     fn from(value: &PackageStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageStatus> for ::windows::runtime::IInspectable {
@@ -4404,7 +4404,7 @@ unsafe impl ::std::marker::Sync for PackageStatus {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageStatusChangedEventArgs(::windows::runtime::IInspectable);
+pub struct PackageStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl PackageStatusChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::runtime::Result<Package> {
@@ -4427,22 +4427,22 @@ impl ::windows::runtime::RuntimeName for PackageStatusChangedEventArgs {
 }
 impl ::std::convert::From<PackageStatusChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PackageStatusChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageStatusChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PackageStatusChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageStatusChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageStatusChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageStatusChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageStatusChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -4470,7 +4470,7 @@ unsafe impl ::std::marker::Sync for PackageStatusChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageUninstallingEventArgs(::windows::runtime::IInspectable);
+pub struct PackageUninstallingEventArgs(pub ::windows::runtime::IInspectable);
 impl PackageUninstallingEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4525,22 +4525,22 @@ impl ::windows::runtime::RuntimeName for PackageUninstallingEventArgs {
 }
 impl ::std::convert::From<PackageUninstallingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PackageUninstallingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageUninstallingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PackageUninstallingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageUninstallingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageUninstallingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageUninstallingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageUninstallingEventArgs> for ::windows::runtime::IInspectable {
@@ -4593,7 +4593,7 @@ impl ::windows::runtime::DefaultType for PackageUpdateAvailability {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageUpdateAvailabilityResult(::windows::runtime::IInspectable);
+pub struct PackageUpdateAvailabilityResult(pub ::windows::runtime::IInspectable);
 impl PackageUpdateAvailabilityResult {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Availability(&self) -> ::windows::runtime::Result<PackageUpdateAvailability> {
@@ -4624,22 +4624,22 @@ impl ::windows::runtime::RuntimeName for PackageUpdateAvailabilityResult {
 }
 impl ::std::convert::From<PackageUpdateAvailabilityResult> for ::windows::runtime::IUnknown {
     fn from(value: PackageUpdateAvailabilityResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageUpdateAvailabilityResult> for ::windows::runtime::IUnknown {
     fn from(value: &PackageUpdateAvailabilityResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageUpdateAvailabilityResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageUpdateAvailabilityResult {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageUpdateAvailabilityResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageUpdateAvailabilityResult> for ::windows::runtime::IInspectable {
@@ -4667,7 +4667,7 @@ unsafe impl ::std::marker::Sync for PackageUpdateAvailabilityResult {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PackageUpdatingEventArgs(::windows::runtime::IInspectable);
+pub struct PackageUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl PackageUpdatingEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4730,22 +4730,22 @@ impl ::windows::runtime::RuntimeName for PackageUpdatingEventArgs {
 }
 impl ::std::convert::From<PackageUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PackageUpdatingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PackageUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PackageUpdatingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PackageUpdatingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageUpdatingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PackageUpdatingEventArgs> for ::windows::runtime::IInspectable {
@@ -4808,7 +4808,7 @@ impl ::windows::runtime::DefaultType for PackageVersion {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct StartupTask(::windows::runtime::IInspectable);
+pub struct StartupTask(pub ::windows::runtime::IInspectable);
 impl StartupTask {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
@@ -4873,22 +4873,22 @@ impl ::windows::runtime::RuntimeName for StartupTask {
 }
 impl ::std::convert::From<StartupTask> for ::windows::runtime::IUnknown {
     fn from(value: StartupTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&StartupTask> for ::windows::runtime::IUnknown {
     fn from(value: &StartupTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StartupTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StartupTask {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StartupTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<StartupTask> for ::windows::runtime::IInspectable {
@@ -4944,7 +4944,7 @@ impl ::windows::runtime::DefaultType for StartupTaskState {
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SuspendingDeferral(::windows::runtime::IInspectable);
+pub struct SuspendingDeferral(pub ::windows::runtime::IInspectable);
 impl SuspendingDeferral {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -4964,22 +4964,22 @@ impl ::windows::runtime::RuntimeName for SuspendingDeferral {
 }
 impl ::std::convert::From<SuspendingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: SuspendingDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SuspendingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &SuspendingDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SuspendingDeferral {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SuspendingDeferral> for ::windows::runtime::IInspectable {
@@ -5027,7 +5027,7 @@ unsafe impl ::std::marker::Sync for SuspendingDeferral {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SuspendingEventArgs(::windows::runtime::IInspectable);
+pub struct SuspendingEventArgs(pub ::windows::runtime::IInspectable);
 impl SuspendingEventArgs {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn SuspendingOperation(&self) -> ::windows::runtime::Result<SuspendingOperation> {
@@ -5050,22 +5050,22 @@ impl ::windows::runtime::RuntimeName for SuspendingEventArgs {
 }
 impl ::std::convert::From<SuspendingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SuspendingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SuspendingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SuspendingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SuspendingEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SuspendingEventArgs> for ::windows::runtime::IInspectable {
@@ -5113,7 +5113,7 @@ unsafe impl ::std::marker::Sync for SuspendingEventArgs {}
 #[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SuspendingOperation(::windows::runtime::IInspectable);
+pub struct SuspendingOperation(pub ::windows::runtime::IInspectable);
 impl SuspendingOperation {
     #[doc = "*Required features: `ApplicationModel`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<SuspendingDeferral> {
@@ -5145,22 +5145,22 @@ impl ::windows::runtime::RuntimeName for SuspendingOperation {
 }
 impl ::std::convert::From<SuspendingOperation> for ::windows::runtime::IUnknown {
     fn from(value: SuspendingOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SuspendingOperation> for ::windows::runtime::IUnknown {
     fn from(value: &SuspendingOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SuspendingOperation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SuspendingOperation> for ::windows::runtime::IInspectable {

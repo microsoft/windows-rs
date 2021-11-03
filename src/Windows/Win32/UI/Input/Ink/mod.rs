@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkCommitRequestHandler(::windows::runtime::IUnknown);
+pub struct IInkCommitRequestHandler(pub ::windows::runtime::IUnknown);
 impl IInkCommitRequestHandler {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
     pub unsafe fn OnCommitRequested(&self) -> ::windows::runtime::Result<()> {
@@ -15,22 +15,22 @@ unsafe impl ::windows::runtime::Interface for IInkCommitRequestHandler {
 }
 impl ::std::convert::From<IInkCommitRequestHandler> for ::windows::runtime::IUnknown {
     fn from(value: IInkCommitRequestHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkCommitRequestHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IInkCommitRequestHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCommitRequestHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCommitRequestHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkCommitRequestHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -44,7 +44,7 @@ pub struct IInkCommitRequestHandler_abi(
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkD2DRenderer(::windows::runtime::IUnknown);
+pub struct IInkD2DRenderer(pub ::windows::runtime::IUnknown);
 impl IInkD2DRenderer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Input_Ink`, `Win32_Foundation`*"]
@@ -58,22 +58,22 @@ unsafe impl ::windows::runtime::Interface for IInkD2DRenderer {
 }
 impl ::std::convert::From<IInkD2DRenderer> for ::windows::runtime::IUnknown {
     fn from(value: IInkD2DRenderer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkD2DRenderer> for ::windows::runtime::IUnknown {
     fn from(value: &IInkD2DRenderer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkD2DRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkD2DRenderer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkD2DRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -88,7 +88,7 @@ pub struct IInkD2DRenderer_abi(
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkD2DRenderer2(::windows::runtime::IUnknown);
+pub struct IInkD2DRenderer2(pub ::windows::runtime::IUnknown);
 impl IInkD2DRenderer2 {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
     pub unsafe fn Draw<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pd2d1devicecontext: Param0, pinkstrokeiterable: Param1, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::runtime::Result<()> {
@@ -101,22 +101,22 @@ unsafe impl ::windows::runtime::Interface for IInkD2DRenderer2 {
 }
 impl ::std::convert::From<IInkD2DRenderer2> for ::windows::runtime::IUnknown {
     fn from(value: IInkD2DRenderer2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkD2DRenderer2> for ::windows::runtime::IUnknown {
     fn from(value: &IInkD2DRenderer2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkD2DRenderer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkD2DRenderer2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkD2DRenderer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -130,7 +130,7 @@ pub struct IInkD2DRenderer2_abi(
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkDesktopHost(::windows::runtime::IUnknown);
+pub struct IInkDesktopHost(pub ::windows::runtime::IUnknown);
 impl IInkDesktopHost {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
     pub unsafe fn QueueWorkItem<'a, Param0: ::windows::runtime::IntoParam<'a, IInkHostWorkItem>>(&self, workitem: Param0) -> ::windows::runtime::Result<()> {
@@ -153,22 +153,22 @@ unsafe impl ::windows::runtime::Interface for IInkDesktopHost {
 }
 impl ::std::convert::From<IInkDesktopHost> for ::windows::runtime::IUnknown {
     fn from(value: IInkDesktopHost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkDesktopHost> for ::windows::runtime::IUnknown {
     fn from(value: &IInkDesktopHost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDesktopHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDesktopHost {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkDesktopHost {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -184,7 +184,7 @@ pub struct IInkDesktopHost_abi(
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkHostWorkItem(::windows::runtime::IUnknown);
+pub struct IInkHostWorkItem(pub ::windows::runtime::IUnknown);
 impl IInkHostWorkItem {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
     pub unsafe fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -197,22 +197,22 @@ unsafe impl ::windows::runtime::Interface for IInkHostWorkItem {
 }
 impl ::std::convert::From<IInkHostWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: IInkHostWorkItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkHostWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: &IInkHostWorkItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkHostWorkItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkHostWorkItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkHostWorkItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -226,7 +226,7 @@ pub struct IInkHostWorkItem_abi(
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IInkPresenterDesktop(::windows::runtime::IUnknown);
+pub struct IInkPresenterDesktop(pub ::windows::runtime::IUnknown);
 impl IInkPresenterDesktop {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
     pub unsafe fn SetRootVisual<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, rootvisual: Param0, device: Param1) -> ::windows::runtime::Result<()> {
@@ -255,22 +255,22 @@ unsafe impl ::windows::runtime::Interface for IInkPresenterDesktop {
 }
 impl ::std::convert::From<IInkPresenterDesktop> for ::windows::runtime::IUnknown {
     fn from(value: IInkPresenterDesktop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IInkPresenterDesktop> for ::windows::runtime::IUnknown {
     fn from(value: &IInkPresenterDesktop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkPresenterDesktop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkPresenterDesktop {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInkPresenterDesktop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

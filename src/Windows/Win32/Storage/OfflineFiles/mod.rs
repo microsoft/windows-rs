@@ -2,7 +2,7 @@
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumOfflineFilesItems(::windows::runtime::IUnknown);
+pub struct IEnumOfflineFilesItems(pub ::windows::runtime::IUnknown);
 impl IEnumOfflineFilesItems {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IOfflineFilesItem>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -28,22 +28,22 @@ unsafe impl ::windows::runtime::Interface for IEnumOfflineFilesItems {
 }
 impl ::std::convert::From<IEnumOfflineFilesItems> for ::windows::runtime::IUnknown {
     fn from(value: IEnumOfflineFilesItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumOfflineFilesItems> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumOfflineFilesItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumOfflineFilesItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumOfflineFilesItems {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumOfflineFilesItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -60,7 +60,7 @@ pub struct IEnumOfflineFilesItems_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumOfflineFilesSettings(::windows::runtime::IUnknown);
+pub struct IEnumOfflineFilesSettings(pub ::windows::runtime::IUnknown);
 impl IEnumOfflineFilesSettings {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IOfflineFilesSetting>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -86,22 +86,22 @@ unsafe impl ::windows::runtime::Interface for IEnumOfflineFilesSettings {
 }
 impl ::std::convert::From<IEnumOfflineFilesSettings> for ::windows::runtime::IUnknown {
     fn from(value: IEnumOfflineFilesSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumOfflineFilesSettings> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumOfflineFilesSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumOfflineFilesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumOfflineFilesSettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumOfflineFilesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -118,7 +118,7 @@ pub struct IEnumOfflineFilesSettings_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesCache(::windows::runtime::IUnknown);
+pub struct IOfflineFilesCache(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesCache {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -249,22 +249,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesCache {
 }
 impl ::std::convert::From<IOfflineFilesCache> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesCache) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesCache> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesCache) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesCache {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -307,7 +307,7 @@ pub struct IOfflineFilesCache_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesCache2(::windows::runtime::IUnknown);
+pub struct IOfflineFilesCache2(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesCache2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -443,22 +443,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesCache2 {
 }
 impl ::std::convert::From<IOfflineFilesCache2> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesCache2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesCache2> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesCache2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesCache2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesCache2> for IOfflineFilesCache {
@@ -523,7 +523,7 @@ pub struct IOfflineFilesCache2_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesChangeInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesChangeInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesChangeInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -568,22 +568,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesChangeInfo {
 }
 impl ::std::convert::From<IOfflineFilesChangeInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesChangeInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesChangeInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesChangeInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesChangeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesChangeInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesChangeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -608,7 +608,7 @@ pub struct IOfflineFilesChangeInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesConnectionInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesConnectionInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesConnectionInfo {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetConnectState(&self, pconnectstate: *mut OFFLINEFILES_CONNECT_STATE, pofflinereason: *mut OFFLINEFILES_OFFLINE_REASON) -> ::windows::runtime::Result<()> {
@@ -637,22 +637,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesConnectionInfo {
 }
 impl ::std::convert::From<IOfflineFilesConnectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesConnectionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesConnectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesConnectionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesConnectionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesConnectionInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesConnectionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -672,7 +672,7 @@ pub struct IOfflineFilesConnectionInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesDirectoryItem(::windows::runtime::IUnknown);
+pub struct IOfflineFilesDirectoryItem(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesDirectoryItem {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<OFFLINEFILES_ITEM_TYPE> {
@@ -707,22 +707,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesDirectoryItem {
 }
 impl ::std::convert::From<IOfflineFilesDirectoryItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesDirectoryItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesDirectoryItem> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesDirectoryItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesDirectoryItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesDirectoryItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesDirectoryItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesDirectoryItem> for IOfflineFilesItem {
@@ -762,7 +762,7 @@ pub struct IOfflineFilesDirectoryItem_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesDirtyInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesDirtyInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesDirtyInfo {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn LocalDirtyByteCount(&self) -> ::windows::runtime::Result<i64> {
@@ -781,22 +781,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesDirtyInfo {
 }
 impl ::std::convert::From<IOfflineFilesDirtyInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesDirtyInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesDirtyInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesDirtyInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesDirtyInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesDirtyInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesDirtyInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -811,7 +811,7 @@ pub struct IOfflineFilesDirtyInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesErrorInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesErrorInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesErrorInfo {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_System_Com`*"]
@@ -832,22 +832,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesErrorInfo {
 }
 impl ::std::convert::From<IOfflineFilesErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesErrorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesErrorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesErrorInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -864,7 +864,7 @@ pub struct IOfflineFilesErrorInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesEvents(::windows::runtime::IUnknown);
+pub struct IOfflineFilesEvents(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesEvents {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -990,22 +990,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents {
 }
 impl ::std::convert::From<IOfflineFilesEvents> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesEvents> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesEvents {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -1060,7 +1060,7 @@ pub struct IOfflineFilesEvents_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesEvents2(::windows::runtime::IUnknown);
+pub struct IOfflineFilesEvents2(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesEvents2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -1222,22 +1222,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents2 {
 }
 impl ::std::convert::From<IOfflineFilesEvents2> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesEvents2> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesEvents2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesEvents2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesEvents2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesEvents2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesEvents2> for IOfflineFilesEvents {
@@ -1321,7 +1321,7 @@ pub struct IOfflineFilesEvents2_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesEvents3(::windows::runtime::IUnknown);
+pub struct IOfflineFilesEvents3(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesEvents3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -1506,22 +1506,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents3 {
 }
 impl ::std::convert::From<IOfflineFilesEvents3> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesEvents3> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesEvents3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesEvents3 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesEvents3> for IOfflineFilesEvents2 {
@@ -1631,7 +1631,7 @@ pub struct IOfflineFilesEvents3_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesEvents4(::windows::runtime::IUnknown);
+pub struct IOfflineFilesEvents4(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesEvents4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -1824,22 +1824,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesEvents4 {
 }
 impl ::std::convert::From<IOfflineFilesEvents4> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEvents4) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesEvents4> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesEvents4) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesEvents4 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents3 {
@@ -1971,7 +1971,7 @@ pub struct IOfflineFilesEvents4_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesEventsFilter(::windows::runtime::IUnknown);
+pub struct IOfflineFilesEventsFilter(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesEventsFilter {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -1993,22 +1993,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesEventsFilter {
 }
 impl ::std::convert::From<IOfflineFilesEventsFilter> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesEventsFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesEventsFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesEventsFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesEventsFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesEventsFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesEventsFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2025,7 +2025,7 @@ pub struct IOfflineFilesEventsFilter_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesFileItem(::windows::runtime::IUnknown);
+pub struct IOfflineFilesFileItem(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesFileItem {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<OFFLINEFILES_ITEM_TYPE> {
@@ -2072,22 +2072,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesFileItem {
 }
 impl ::std::convert::From<IOfflineFilesFileItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesFileItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesFileItem> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesFileItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesFileItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesFileItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesFileItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesFileItem> for IOfflineFilesItem {
@@ -2131,7 +2131,7 @@ pub struct IOfflineFilesFileItem_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesFileSysInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesFileSysInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesFileSysInfo {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::runtime::Result<u32> {
@@ -2155,22 +2155,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesFileSysInfo {
 }
 impl ::std::convert::From<IOfflineFilesFileSysInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesFileSysInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesFileSysInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesFileSysInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesFileSysInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesFileSysInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesFileSysInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2187,7 +2187,7 @@ pub struct IOfflineFilesFileSysInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesGhostInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesGhostInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesGhostInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -2202,22 +2202,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesGhostInfo {
 }
 impl ::std::convert::From<IOfflineFilesGhostInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesGhostInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesGhostInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesGhostInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesGhostInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesGhostInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesGhostInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2232,7 +2232,7 @@ pub struct IOfflineFilesGhostInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesItem(::windows::runtime::IUnknown);
+pub struct IOfflineFilesItem(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesItem {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<OFFLINEFILES_ITEM_TYPE> {
@@ -2267,22 +2267,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesItem {
 }
 impl ::std::convert::From<IOfflineFilesItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesItem> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2302,7 +2302,7 @@ pub struct IOfflineFilesItem_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesItemContainer(::windows::runtime::IUnknown);
+pub struct IOfflineFilesItemContainer(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesItemContainer {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn EnumItems(&self, dwqueryflags: u32) -> ::windows::runtime::Result<IEnumOfflineFilesItems> {
@@ -2329,22 +2329,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesItemContainer {
 }
 impl ::std::convert::From<IOfflineFilesItemContainer> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesItemContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesItemContainer> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesItemContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesItemContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesItemContainer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesItemContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2359,7 +2359,7 @@ pub struct IOfflineFilesItemContainer_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesItemFilter(::windows::runtime::IUnknown);
+pub struct IOfflineFilesItemFilter(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesItemFilter {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetFilterFlags(&self, pullflags: *mut u64, pullmask: *mut u64) -> ::windows::runtime::Result<()> {
@@ -2382,22 +2382,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesItemFilter {
 }
 impl ::std::convert::From<IOfflineFilesItemFilter> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesItemFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesItemFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesItemFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesItemFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesItemFilter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesItemFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2415,7 +2415,7 @@ pub struct IOfflineFilesItemFilter_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesPinInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesPinInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesPinInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -2450,22 +2450,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesPinInfo {
 }
 impl ::std::convert::From<IOfflineFilesPinInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesPinInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesPinInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesPinInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesPinInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesPinInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesPinInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2488,7 +2488,7 @@ pub struct IOfflineFilesPinInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesPinInfo2(::windows::runtime::IUnknown);
+pub struct IOfflineFilesPinInfo2(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesPinInfo2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -2529,22 +2529,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesPinInfo2 {
 }
 impl ::std::convert::From<IOfflineFilesPinInfo2> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesPinInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesPinInfo2> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesPinInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesPinInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesPinInfo2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesPinInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
@@ -2589,7 +2589,7 @@ pub struct IOfflineFilesPinInfo2_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesProgress(::windows::runtime::IUnknown);
+pub struct IOfflineFilesProgress(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesProgress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -2614,22 +2614,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesProgress {
 }
 impl ::std::convert::From<IOfflineFilesProgress> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesProgress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesProgress> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesProgress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesProgress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2647,7 +2647,7 @@ pub struct IOfflineFilesProgress_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesServerItem(::windows::runtime::IUnknown);
+pub struct IOfflineFilesServerItem(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesServerItem {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<OFFLINEFILES_ITEM_TYPE> {
@@ -2682,22 +2682,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesServerItem {
 }
 impl ::std::convert::From<IOfflineFilesServerItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesServerItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesServerItem> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesServerItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesServerItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesServerItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesServerItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesServerItem> for IOfflineFilesItem {
@@ -2737,7 +2737,7 @@ pub struct IOfflineFilesServerItem_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSetting(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSetting(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSetting {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -2791,22 +2791,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSetting {
 }
 impl ::std::convert::From<IOfflineFilesSetting> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSetting) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSetting> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSetting) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSetting {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSetting {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSetting {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2833,7 +2833,7 @@ pub struct IOfflineFilesSetting_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesShareInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesShareInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesShareInfo {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetShareItem(&self) -> ::windows::runtime::Result<IOfflineFilesShareItem> {
@@ -2858,22 +2858,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesShareInfo {
 }
 impl ::std::convert::From<IOfflineFilesShareInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesShareInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesShareInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesShareInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesShareInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesShareInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesShareInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2890,7 +2890,7 @@ pub struct IOfflineFilesShareInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesShareItem(::windows::runtime::IUnknown);
+pub struct IOfflineFilesShareItem(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesShareItem {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<OFFLINEFILES_ITEM_TYPE> {
@@ -2925,22 +2925,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesShareItem {
 }
 impl ::std::convert::From<IOfflineFilesShareItem> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesShareItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesShareItem> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesShareItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesShareItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesShareItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesShareItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesShareItem> for IOfflineFilesItem {
@@ -2980,7 +2980,7 @@ pub struct IOfflineFilesShareItem_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSimpleProgress(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSimpleProgress(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSimpleProgress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -3017,22 +3017,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSimpleProgress {
 }
 impl ::std::convert::From<IOfflineFilesSimpleProgress> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSimpleProgress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSimpleProgress> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSimpleProgress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSimpleProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSimpleProgress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSimpleProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesSimpleProgress> for IOfflineFilesProgress {
@@ -3074,7 +3074,7 @@ pub struct IOfflineFilesSimpleProgress_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSuspend(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSuspend(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSuspend {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -3088,22 +3088,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSuspend {
 }
 impl ::std::convert::From<IOfflineFilesSuspend> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSuspend) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSuspend> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSuspend) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSuspend {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSuspend {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSuspend {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3118,7 +3118,7 @@ pub struct IOfflineFilesSuspend_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSuspendInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSuspendInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSuspendInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -3132,22 +3132,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSuspendInfo {
 }
 impl ::std::convert::From<IOfflineFilesSuspendInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSuspendInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSuspendInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSuspendInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSuspendInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSuspendInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSuspendInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3162,7 +3162,7 @@ pub struct IOfflineFilesSuspendInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSyncConflictHandler(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSyncConflictHandler(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSyncConflictHandler {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -3176,22 +3176,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncConflictHandler {
 }
 impl ::std::convert::From<IOfflineFilesSyncConflictHandler> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncConflictHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSyncConflictHandler> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSyncConflictHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSyncConflictHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSyncConflictHandler {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSyncConflictHandler {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3206,7 +3206,7 @@ pub struct IOfflineFilesSyncConflictHandler_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSyncErrorInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSyncErrorInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSyncErrorInfo {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_System_Com`*"]
@@ -3262,22 +3262,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncErrorInfo {
 }
 impl ::std::convert::From<IOfflineFilesSyncErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncErrorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSyncErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSyncErrorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSyncErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSyncErrorInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSyncErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInfo {
@@ -3323,7 +3323,7 @@ pub struct IOfflineFilesSyncErrorInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSyncErrorItemInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSyncErrorItemInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSyncErrorItemInfo {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub unsafe fn GetFileAttributes(&self) -> ::windows::runtime::Result<u32> {
@@ -3347,22 +3347,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncErrorItemInfo {
 }
 impl ::std::convert::From<IOfflineFilesSyncErrorItemInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncErrorItemInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSyncErrorItemInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSyncErrorItemInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSyncErrorItemInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSyncErrorItemInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSyncErrorItemInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3379,7 +3379,7 @@ pub struct IOfflineFilesSyncErrorItemInfo_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesSyncProgress(::windows::runtime::IUnknown);
+pub struct IOfflineFilesSyncProgress(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesSyncProgress {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -3416,22 +3416,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesSyncProgress {
 }
 impl ::std::convert::From<IOfflineFilesSyncProgress> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesSyncProgress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesSyncProgress> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesSyncProgress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesSyncProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesSyncProgress {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesSyncProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 impl ::std::convert::From<IOfflineFilesSyncProgress> for IOfflineFilesProgress {
@@ -3473,7 +3473,7 @@ pub struct IOfflineFilesSyncProgress_abi(
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IOfflineFilesTransparentCacheInfo(::windows::runtime::IUnknown);
+pub struct IOfflineFilesTransparentCacheInfo(pub ::windows::runtime::IUnknown);
 impl IOfflineFilesTransparentCacheInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
@@ -3488,22 +3488,22 @@ unsafe impl ::windows::runtime::Interface for IOfflineFilesTransparentCacheInfo 
 }
 impl ::std::convert::From<IOfflineFilesTransparentCacheInfo> for ::windows::runtime::IUnknown {
     fn from(value: IOfflineFilesTransparentCacheInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IOfflineFilesTransparentCacheInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IOfflineFilesTransparentCacheInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOfflineFilesTransparentCacheInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOfflineFilesTransparentCacheInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOfflineFilesTransparentCacheInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

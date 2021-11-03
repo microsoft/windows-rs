@@ -4,7 +4,7 @@ pub mod Provider;
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScanner(::windows::runtime::IInspectable);
+pub struct BarcodeScanner(pub ::windows::runtime::IInspectable);
 impl BarcodeScanner {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -164,22 +164,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScanner {
 }
 impl ::std::convert::From<BarcodeScanner> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScanner) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScanner> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScanner) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScanner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScanner {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScanner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScanner> for ::windows::runtime::IInspectable {
@@ -233,7 +233,7 @@ unsafe impl ::std::marker::Sync for BarcodeScanner {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScannerCapabilities(::windows::runtime::IInspectable);
+pub struct BarcodeScannerCapabilities(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn PowerReportingType(&self) -> ::windows::runtime::Result<UnifiedPosPowerReportingType> {
@@ -296,22 +296,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScannerCapabilities {
 }
 impl ::std::convert::From<BarcodeScannerCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScannerCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScannerCapabilities> for ::windows::runtime::IInspectable {
@@ -339,7 +339,7 @@ unsafe impl ::std::marker::Sync for BarcodeScannerCapabilities {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScannerDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct BarcodeScannerDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerDataReceivedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Report(&self) -> ::windows::runtime::Result<BarcodeScannerReport> {
@@ -362,22 +362,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScannerDataReceivedEventArgs {
 }
 impl ::std::convert::From<BarcodeScannerDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerDataReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScannerDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerDataReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScannerDataReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -405,7 +405,7 @@ unsafe impl ::std::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScannerErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct BarcodeScannerErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerErrorOccurredEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn PartialInputData(&self) -> ::windows::runtime::Result<BarcodeScannerReport> {
@@ -444,22 +444,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
 }
 impl ::std::convert::From<BarcodeScannerErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerErrorOccurredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScannerErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerErrorOccurredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScannerErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
@@ -487,7 +487,7 @@ unsafe impl ::std::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScannerImagePreviewReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct BarcodeScannerImagePreviewReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_PointOfService`, `Storage_Streams`*"]
@@ -511,22 +511,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScannerImagePreviewReceivedEvent
 }
 impl ::std::convert::From<BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerImagePreviewReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerImagePreviewReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerImagePreviewReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -554,7 +554,7 @@ unsafe impl ::std::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs 
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScannerReport(::windows::runtime::IInspectable);
+pub struct BarcodeScannerReport(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerReport {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn ScanDataType(&self) -> ::windows::runtime::Result<u32> {
@@ -607,22 +607,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScannerReport {
 }
 impl ::std::convert::From<BarcodeScannerReport> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScannerReport> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScannerReport> for ::windows::runtime::IInspectable {
@@ -675,7 +675,7 @@ impl ::windows::runtime::DefaultType for BarcodeScannerStatus {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeScannerStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct BarcodeScannerStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStatusUpdatedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<BarcodeScannerStatus> {
@@ -706,22 +706,22 @@ impl ::windows::runtime::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
 }
 impl ::std::convert::From<BarcodeScannerStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerStatusUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeScannerStatusUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -1429,7 +1429,7 @@ impl ::windows::runtime::RuntimeName for BarcodeSymbologies {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct BarcodeSymbologyAttributes(::windows::runtime::IInspectable);
+pub struct BarcodeSymbologyAttributes(pub ::windows::runtime::IInspectable);
 impl BarcodeSymbologyAttributes {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn IsCheckDigitValidationEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -1533,22 +1533,22 @@ impl ::windows::runtime::RuntimeName for BarcodeSymbologyAttributes {
 }
 impl ::std::convert::From<BarcodeSymbologyAttributes> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeSymbologyAttributes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&BarcodeSymbologyAttributes> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeSymbologyAttributes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeSymbologyAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeSymbologyAttributes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeSymbologyAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<BarcodeSymbologyAttributes> for ::windows::runtime::IInspectable {
@@ -1599,7 +1599,7 @@ impl ::windows::runtime::DefaultType for BarcodeSymbologyDecodeLengthKind {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawer(::windows::runtime::IInspectable);
+pub struct CashDrawer(pub ::windows::runtime::IInspectable);
 impl CashDrawer {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1740,22 +1740,22 @@ impl ::windows::runtime::RuntimeName for CashDrawer {
 }
 impl ::std::convert::From<CashDrawer> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawer> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawer> for ::windows::runtime::IInspectable {
@@ -1809,7 +1809,7 @@ unsafe impl ::std::marker::Sync for CashDrawer {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerCapabilities(::windows::runtime::IInspectable);
+pub struct CashDrawerCapabilities(pub ::windows::runtime::IInspectable);
 impl CashDrawerCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn PowerReportingType(&self) -> ::windows::runtime::Result<UnifiedPosPowerReportingType> {
@@ -1872,22 +1872,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerCapabilities {
 }
 impl ::std::convert::From<CashDrawerCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerCapabilities> for ::windows::runtime::IInspectable {
@@ -1915,7 +1915,7 @@ unsafe impl ::std::marker::Sync for CashDrawerCapabilities {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerCloseAlarm(::windows::runtime::IInspectable);
+pub struct CashDrawerCloseAlarm(pub ::windows::runtime::IInspectable);
 impl CashDrawerCloseAlarm {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
@@ -2012,22 +2012,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerCloseAlarm {
 }
 impl ::std::convert::From<CashDrawerCloseAlarm> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerCloseAlarm) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerCloseAlarm> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerCloseAlarm) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerCloseAlarm {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerCloseAlarm {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerCloseAlarm {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerCloseAlarm> for ::windows::runtime::IInspectable {
@@ -2055,7 +2055,7 @@ unsafe impl ::std::marker::Sync for CashDrawerCloseAlarm {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerClosedEventArgs(::windows::runtime::IInspectable);
+pub struct CashDrawerClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl CashDrawerClosedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CashDrawer(&self) -> ::windows::runtime::Result<CashDrawer> {
@@ -2078,22 +2078,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerClosedEventArgs {
 }
 impl ::std::convert::From<CashDrawerClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -2141,7 +2141,7 @@ unsafe impl ::std::marker::Sync for CashDrawerClosedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerEventSource(::windows::runtime::IInspectable);
+pub struct CashDrawerEventSource(pub ::windows::runtime::IInspectable);
 impl CashDrawerEventSource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
@@ -2186,22 +2186,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerEventSource {
 }
 impl ::std::convert::From<CashDrawerEventSource> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerEventSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerEventSource> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerEventSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerEventSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerEventSource> for ::windows::runtime::IInspectable {
@@ -2229,7 +2229,7 @@ unsafe impl ::std::marker::Sync for CashDrawerEventSource {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerOpenedEventArgs(::windows::runtime::IInspectable);
+pub struct CashDrawerOpenedEventArgs(pub ::windows::runtime::IInspectable);
 impl CashDrawerOpenedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CashDrawer(&self) -> ::windows::runtime::Result<CashDrawer> {
@@ -2252,22 +2252,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerOpenedEventArgs {
 }
 impl ::std::convert::From<CashDrawerOpenedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerOpenedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerOpenedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerOpenedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerOpenedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerOpenedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerOpenedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerOpenedEventArgs> for ::windows::runtime::IInspectable {
@@ -2315,7 +2315,7 @@ unsafe impl ::std::marker::Sync for CashDrawerOpenedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerStatus(::windows::runtime::IInspectable);
+pub struct CashDrawerStatus(pub ::windows::runtime::IInspectable);
 impl CashDrawerStatus {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn StatusKind(&self) -> ::windows::runtime::Result<CashDrawerStatusKind> {
@@ -2346,22 +2346,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerStatus {
 }
 impl ::std::convert::From<CashDrawerStatus> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerStatus> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerStatus> for ::windows::runtime::IInspectable {
@@ -2414,7 +2414,7 @@ impl ::windows::runtime::DefaultType for CashDrawerStatusKind {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CashDrawerStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct CashDrawerStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl CashDrawerStatusUpdatedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<CashDrawerStatus> {
@@ -2437,22 +2437,22 @@ impl ::windows::runtime::RuntimeName for CashDrawerStatusUpdatedEventArgs {
 }
 impl ::std::convert::From<CashDrawerStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CashDrawerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CashDrawerStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CashDrawerStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CashDrawerStatusUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CashDrawerStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CashDrawerStatusUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -2480,7 +2480,7 @@ unsafe impl ::std::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedBarcodeScanner(::windows::runtime::IInspectable);
+pub struct ClaimedBarcodeScanner(pub ::windows::runtime::IInspectable);
 impl ClaimedBarcodeScanner {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2770,22 +2770,22 @@ impl ::windows::runtime::RuntimeName for ClaimedBarcodeScanner {
 }
 impl ::std::convert::From<ClaimedBarcodeScanner> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedBarcodeScanner) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedBarcodeScanner> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedBarcodeScanner) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedBarcodeScanner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedBarcodeScanner {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedBarcodeScanner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedBarcodeScanner> for ::windows::runtime::IInspectable {
@@ -2839,7 +2839,7 @@ unsafe impl ::std::marker::Sync for ClaimedBarcodeScanner {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedBarcodeScannerClosedEventArgs(::windows::runtime::IInspectable);
+pub struct ClaimedBarcodeScannerClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
@@ -2853,22 +2853,22 @@ impl ::windows::runtime::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
 }
 impl ::std::convert::From<ClaimedBarcodeScannerClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedBarcodeScannerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedBarcodeScannerClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedBarcodeScannerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedBarcodeScannerClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -2896,7 +2896,7 @@ unsafe impl ::std::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedCashDrawer(::windows::runtime::IInspectable);
+pub struct ClaimedCashDrawer(pub ::windows::runtime::IInspectable);
 impl ClaimedCashDrawer {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -3033,22 +3033,22 @@ impl ::windows::runtime::RuntimeName for ClaimedCashDrawer {
 }
 impl ::std::convert::From<ClaimedCashDrawer> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedCashDrawer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedCashDrawer> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedCashDrawer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedCashDrawer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedCashDrawer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedCashDrawer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedCashDrawer> for ::windows::runtime::IInspectable {
@@ -3102,7 +3102,7 @@ unsafe impl ::std::marker::Sync for ClaimedCashDrawer {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedCashDrawerClosedEventArgs(::windows::runtime::IInspectable);
+pub struct ClaimedCashDrawerClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
@@ -3116,22 +3116,22 @@ impl ::windows::runtime::RuntimeName for ClaimedCashDrawerClosedEventArgs {
 }
 impl ::std::convert::From<ClaimedCashDrawerClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedCashDrawerClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedCashDrawerClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedCashDrawerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedCashDrawerClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedCashDrawerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedCashDrawerClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -3159,7 +3159,7 @@ unsafe impl ::std::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedJournalPrinter(::windows::runtime::IInspectable);
+pub struct ClaimedJournalPrinter(pub ::windows::runtime::IInspectable);
 impl ClaimedJournalPrinter {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CreateJob(&self) -> ::windows::runtime::Result<JournalPrintJob> {
@@ -3319,22 +3319,22 @@ impl ::windows::runtime::RuntimeName for ClaimedJournalPrinter {
 }
 impl ::std::convert::From<ClaimedJournalPrinter> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedJournalPrinter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedJournalPrinter> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedJournalPrinter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedJournalPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedJournalPrinter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedJournalPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedJournalPrinter> for ::windows::runtime::IInspectable {
@@ -3384,7 +3384,7 @@ unsafe impl ::std::marker::Sync for ClaimedJournalPrinter {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedLineDisplay(::windows::runtime::IInspectable);
+pub struct ClaimedLineDisplay(pub ::windows::runtime::IInspectable);
 impl ClaimedLineDisplay {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
@@ -3678,22 +3678,22 @@ impl ::windows::runtime::RuntimeName for ClaimedLineDisplay {
 }
 impl ::std::convert::From<ClaimedLineDisplay> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedLineDisplay) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedLineDisplay> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedLineDisplay) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedLineDisplay {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedLineDisplay {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedLineDisplay {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedLineDisplay> for ::windows::runtime::IInspectable {
@@ -3747,7 +3747,7 @@ unsafe impl ::std::marker::Sync for ClaimedLineDisplay {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedLineDisplayClosedEventArgs(::windows::runtime::IInspectable);
+pub struct ClaimedLineDisplayClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
@@ -3761,22 +3761,22 @@ impl ::windows::runtime::RuntimeName for ClaimedLineDisplayClosedEventArgs {
 }
 impl ::std::convert::From<ClaimedLineDisplayClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedLineDisplayClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedLineDisplayClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedLineDisplayClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedLineDisplayClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedLineDisplayClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedLineDisplayClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -3804,7 +3804,7 @@ unsafe impl ::std::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedMagneticStripeReader(::windows::runtime::IInspectable);
+pub struct ClaimedMagneticStripeReader(pub ::windows::runtime::IInspectable);
 impl ClaimedMagneticStripeReader {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4086,22 +4086,22 @@ impl ::windows::runtime::RuntimeName for ClaimedMagneticStripeReader {
 }
 impl ::std::convert::From<ClaimedMagneticStripeReader> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedMagneticStripeReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedMagneticStripeReader> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedMagneticStripeReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedMagneticStripeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedMagneticStripeReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedMagneticStripeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedMagneticStripeReader> for ::windows::runtime::IInspectable {
@@ -4155,7 +4155,7 @@ unsafe impl ::std::marker::Sync for ClaimedMagneticStripeReader {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedMagneticStripeReaderClosedEventArgs(::windows::runtime::IInspectable);
+pub struct ClaimedMagneticStripeReaderClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
@@ -4169,22 +4169,22 @@ impl ::windows::runtime::RuntimeName for ClaimedMagneticStripeReaderClosedEventA
 }
 impl ::std::convert::From<ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedMagneticStripeReaderClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedMagneticStripeReaderClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedMagneticStripeReaderClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -4212,7 +4212,7 @@ unsafe impl ::std::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedPosPrinter(::windows::runtime::IInspectable);
+pub struct ClaimedPosPrinter(pub ::windows::runtime::IInspectable);
 impl ClaimedPosPrinter {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4395,22 +4395,22 @@ impl ::windows::runtime::RuntimeName for ClaimedPosPrinter {
 }
 impl ::std::convert::From<ClaimedPosPrinter> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedPosPrinter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedPosPrinter> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedPosPrinter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedPosPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedPosPrinter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedPosPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedPosPrinter> for ::windows::runtime::IInspectable {
@@ -4464,7 +4464,7 @@ unsafe impl ::std::marker::Sync for ClaimedPosPrinter {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedPosPrinterClosedEventArgs(::windows::runtime::IInspectable);
+pub struct ClaimedPosPrinterClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
@@ -4478,22 +4478,22 @@ impl ::windows::runtime::RuntimeName for ClaimedPosPrinterClosedEventArgs {
 }
 impl ::std::convert::From<ClaimedPosPrinterClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedPosPrinterClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedPosPrinterClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedPosPrinterClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedPosPrinterClosedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedPosPrinterClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedPosPrinterClosedEventArgs> for ::windows::runtime::IInspectable {
@@ -4521,7 +4521,7 @@ unsafe impl ::std::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedReceiptPrinter(::windows::runtime::IInspectable);
+pub struct ClaimedReceiptPrinter(pub ::windows::runtime::IInspectable);
 impl ClaimedReceiptPrinter {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn SidewaysMaxLines(&self) -> ::windows::runtime::Result<u32> {
@@ -4723,22 +4723,22 @@ impl ::windows::runtime::RuntimeName for ClaimedReceiptPrinter {
 }
 impl ::std::convert::From<ClaimedReceiptPrinter> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedReceiptPrinter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedReceiptPrinter> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedReceiptPrinter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedReceiptPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedReceiptPrinter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedReceiptPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedReceiptPrinter> for ::windows::runtime::IInspectable {
@@ -4788,7 +4788,7 @@ unsafe impl ::std::marker::Sync for ClaimedReceiptPrinter {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ClaimedSlipPrinter(::windows::runtime::IInspectable);
+pub struct ClaimedSlipPrinter(pub ::windows::runtime::IInspectable);
 impl ClaimedSlipPrinter {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn SidewaysMaxLines(&self) -> ::windows::runtime::Result<u32> {
@@ -5039,22 +5039,22 @@ impl ::windows::runtime::RuntimeName for ClaimedSlipPrinter {
 }
 impl ::std::convert::From<ClaimedSlipPrinter> for ::windows::runtime::IUnknown {
     fn from(value: ClaimedSlipPrinter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ClaimedSlipPrinter> for ::windows::runtime::IUnknown {
     fn from(value: &ClaimedSlipPrinter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClaimedSlipPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClaimedSlipPrinter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ClaimedSlipPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ClaimedSlipPrinter> for ::windows::runtime::IInspectable {
@@ -5103,7 +5103,7 @@ unsafe impl ::std::marker::Send for ClaimedSlipPrinter {}
 unsafe impl ::std::marker::Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScanner(::windows::runtime::IInspectable);
+pub struct IBarcodeScanner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScanner {
     type Vtable = IBarcodeScanner_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3198369286, 45668, 20227, [169, 193, 69, 178, 15, 1, 19, 79]);
@@ -5139,7 +5139,7 @@ pub struct IBarcodeScanner_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScanner2(::windows::runtime::IInspectable);
+pub struct IBarcodeScanner2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScanner2 {
     type Vtable = IBarcodeScanner2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2300662119, 36078, 17261, [137, 171, 141, 251, 67, 187, 66, 134]);
@@ -5157,7 +5157,7 @@ pub struct IBarcodeScanner2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerCapabilities(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322319332, 62152, 17440, [163, 7, 177, 46, 246, 98, 40, 87]);
@@ -5178,7 +5178,7 @@ pub struct IBarcodeScannerCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerCapabilities1(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerCapabilities1(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities1 {
     type Vtable = IBarcodeScannerCapabilities1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2388308969, 3628, 18223, [161, 204, 238, 128, 84, 182, 166, 132]);
@@ -5196,7 +5196,7 @@ pub struct IBarcodeScannerCapabilities1_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerCapabilities2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities2 {
     type Vtable = IBarcodeScannerCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061253612, 57761, 20136, [154, 188, 146, 177, 89, 98, 112, 171]);
@@ -5214,7 +5214,7 @@ pub struct IBarcodeScannerCapabilities2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110747106, 60823, 18045, [173, 43, 1, 228, 67, 19, 169, 41]);
@@ -5232,7 +5232,7 @@ pub struct IBarcodeScannerDataReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(751984687, 53050, 16386, [167, 90, 197, 236, 70, 143, 10, 32]);
@@ -5252,7 +5252,7 @@ pub struct IBarcodeScannerErrorOccurredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerImagePreviewReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerImagePreviewReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4088913541, 28299, 17230, [159, 88, 6, 239, 38, 188, 75, 175]);
@@ -5271,7 +5271,7 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerReport(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1558501552, 42121, 19350, [134, 196, 240, 191, 138, 55, 117, 61]);
@@ -5293,7 +5293,7 @@ pub struct IBarcodeScannerReport_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerReportFactory(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerReportFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerReportFactory {
     type Vtable = IBarcodeScannerReportFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723443494, 8211, 17788, [137, 99, 73, 193, 93, 202, 120, 206]);
@@ -5312,7 +5312,7 @@ pub struct IBarcodeScannerReportFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStatics(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatics {
     type Vtable = IBarcodeScannerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1561419631, 55881, 16872, [140, 140, 240, 203, 98, 169, 196, 252]);
@@ -5334,7 +5334,7 @@ pub struct IBarcodeScannerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStatics2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatics2 {
     type Vtable = IBarcodeScannerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3093636211, 41839, 16391, [177, 208, 39, 158, 190, 146, 166, 86]);
@@ -5352,7 +5352,7 @@ pub struct IBarcodeScannerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(895321478, 40003, 17963, [169, 26, 129, 109, 201, 127, 69, 44]);
@@ -5371,7 +5371,7 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologiesStatics(::windows::runtime::IInspectable);
+pub struct IBarcodeSymbologiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologiesStatics {
     type Vtable = IBarcodeSymbologiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397732795, 1746, 17396, [164, 75, 198, 32, 103, 159, 216, 208]);
@@ -5482,7 +5482,7 @@ pub struct IBarcodeSymbologiesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologiesStatics2(::windows::runtime::IInspectable);
+pub struct IBarcodeSymbologiesStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologiesStatics2 {
     type Vtable = IBarcodeSymbologiesStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2339707124, 39376, 16575, [148, 36, 185, 29, 109, 212, 198, 224]);
@@ -5500,7 +5500,7 @@ pub struct IBarcodeSymbologiesStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologyAttributes(::windows::runtime::IInspectable);
+pub struct IBarcodeSymbologyAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1715550840, 43898, 19162, [142, 206, 147, 96, 20, 178, 234, 215]);
@@ -5530,7 +5530,7 @@ pub struct IBarcodeSymbologyAttributes_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawer(::windows::runtime::IInspectable);
+pub struct ICashDrawer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawer {
     type Vtable = ICashDrawer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676553160, 56916, 19182, [168, 144, 146, 11, 203, 254, 48, 252]);
@@ -5562,7 +5562,7 @@ pub struct ICashDrawer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerCapabilities(::windows::runtime::IInspectable);
+pub struct ICashDrawerCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197582347, 59623, 19231, [177, 209, 62, 80, 26, 208, 130, 71]);
@@ -5585,7 +5585,7 @@ pub struct ICashDrawerCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerCloseAlarm(::windows::runtime::IInspectable);
+pub struct ICashDrawerCloseAlarm(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811451079, 28515, 17166, [171, 59, 149, 215, 95, 251, 232, 127]);
@@ -5622,7 +5622,7 @@ pub struct ICashDrawerCloseAlarm_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerEventSource(::windows::runtime::IInspectable);
+pub struct ICashDrawerEventSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758548076, 62201, 17455, [141, 214, 6, 193, 10, 66, 39, 186]);
@@ -5648,7 +5648,7 @@ pub struct ICashDrawerEventSource_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_PointOfService`*"]
-pub struct ICashDrawerEventSourceEventArgs(::windows::runtime::IInspectable);
+pub struct ICashDrawerEventSourceEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerEventSourceEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774926785, 5247, 16924, [156, 35, 9, 1, 35, 187, 120, 108]);
@@ -5668,22 +5668,22 @@ unsafe impl ::windows::runtime::RuntimeType for ICashDrawerEventSourceEventArgs 
 }
 impl ::std::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ICashDrawerEventSourceEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICashDrawerEventSourceEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICashDrawerEventSourceEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICashDrawerEventSourceEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::runtime::IInspectable {
@@ -5719,7 +5719,7 @@ pub struct ICashDrawerEventSourceEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerStatics(::windows::runtime::IInspectable);
+pub struct ICashDrawerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatics {
     type Vtable = ICashDrawerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3751843162, 54327, 20479, [181, 71, 221, 169, 105, 164, 248, 131]);
@@ -5741,7 +5741,7 @@ pub struct ICashDrawerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerStatics2(::windows::runtime::IInspectable);
+pub struct ICashDrawerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatics2 {
     type Vtable = ICashDrawerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048674593, 35906, 16616, [156, 14, 64, 41, 112, 72, 16, 76]);
@@ -5759,7 +5759,7 @@ pub struct ICashDrawerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerStatus(::windows::runtime::IInspectable);
+pub struct ICashDrawerStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatus {
     type Vtable = ICashDrawerStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807579327, 56481, 19974, [153, 235, 90, 246, 165, 174, 193, 8]);
@@ -5778,7 +5778,7 @@ pub struct ICashDrawerStatus_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICashDrawerStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct ICashDrawerStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(816507274, 3440, 17820, [149, 83, 135, 225, 36, 197, 36, 136]);
@@ -5796,7 +5796,7 @@ pub struct ICashDrawerStatusUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner(::windows::runtime::IInspectable);
+pub struct IClaimedBarcodeScanner(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248048284, 36772, 17202, [187, 38, 148, 93, 17, 216, 30, 15]);
@@ -5856,7 +5856,7 @@ pub struct IClaimedBarcodeScanner_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner1(::windows::runtime::IInspectable);
+pub struct IClaimedBarcodeScanner1(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner1 {
     type Vtable = IClaimedBarcodeScanner1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128943372, 34129, 17076, [153, 140, 151, 12, 32, 33, 10, 34]);
@@ -5877,7 +5877,7 @@ pub struct IClaimedBarcodeScanner1_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner2(::windows::runtime::IInspectable);
+pub struct IClaimedBarcodeScanner2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner2 {
     type Vtable = IClaimedBarcodeScanner2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820330636, 11659, 20336, [138, 243, 52, 72, 190, 221, 95, 226]);
@@ -5898,7 +5898,7 @@ pub struct IClaimedBarcodeScanner2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner3(::windows::runtime::IInspectable);
+pub struct IClaimedBarcodeScanner3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner3 {
     type Vtable = IClaimedBarcodeScanner3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872306224, 28974, 17916, [139, 134, 205, 85, 245, 174, 247, 157]);
@@ -5920,7 +5920,7 @@ pub struct IClaimedBarcodeScanner3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner4(::windows::runtime::IInspectable);
+pub struct IClaimedBarcodeScanner4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner4 {
     type Vtable = IClaimedBarcodeScanner4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565532055, 14186, 16808, [162, 48, 47, 55, 193, 148, 157, 222]);
@@ -5941,7 +5941,7 @@ pub struct IClaimedBarcodeScanner4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScannerClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IClaimedBarcodeScannerClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481097353, 41516, 19557, [169, 1, 136, 215, 125, 131, 57, 84]);
@@ -5958,7 +5958,7 @@ pub struct IClaimedBarcodeScannerClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedCashDrawer(::windows::runtime::IInspectable);
+pub struct IClaimedCashDrawer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3393165743, 43960, 17089, [138, 132, 92, 102, 81, 47, 90, 117]);
@@ -5995,7 +5995,7 @@ pub struct IClaimedCashDrawer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedCashDrawer2(::windows::runtime::IInspectable);
+pub struct IClaimedCashDrawer2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawer2 {
     type Vtable = IClaimedCashDrawer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629481890, 56898, 19803, [176, 193, 155, 87, 162, 186, 137, 195]);
@@ -6016,7 +6016,7 @@ pub struct IClaimedCashDrawer2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedCashDrawerClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IClaimedCashDrawerClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3428269875, 16180, 19548, [186, 174, 222, 173, 241, 108, 215, 250]);
@@ -6033,7 +6033,7 @@ pub struct IClaimedCashDrawerClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedJournalPrinter(::windows::runtime::IInspectable);
+pub struct IClaimedJournalPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1743390256, 20861, 18559, [159, 223, 210, 224, 160, 162, 100, 165]);
@@ -6051,7 +6051,7 @@ pub struct IClaimedJournalPrinter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplay(::windows::runtime::IInspectable);
+pub struct IClaimedLineDisplay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302696816, 39541, 19151, [170, 231, 9, 151, 43, 207, 135, 148]);
@@ -6081,7 +6081,7 @@ pub struct IClaimedLineDisplay_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplay2(::windows::runtime::IInspectable);
+pub struct IClaimedLineDisplay2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay2 {
     type Vtable = IClaimedLineDisplay2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2736551405, 16885, 20086, [160, 116, 121, 94, 71, 164, 110, 151]);
@@ -6130,7 +6130,7 @@ pub struct IClaimedLineDisplay2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplay3(::windows::runtime::IInspectable);
+pub struct IClaimedLineDisplay3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay3 {
     type Vtable = IClaimedLineDisplay3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680788882, 59860, 20172, [175, 117, 50, 156, 39, 76, 209, 143]);
@@ -6151,7 +6151,7 @@ pub struct IClaimedLineDisplay3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplayClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IClaimedLineDisplayClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4178965348, 54229, 20240, [181, 17, 144, 147, 158, 223, 172, 216]);
@@ -6168,7 +6168,7 @@ pub struct IClaimedLineDisplayClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplayStatics(::windows::runtime::IInspectable);
+pub struct IClaimedLineDisplayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplayStatics {
     type Vtable = IClaimedLineDisplayStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2026543355, 35691, 18803, [134, 240, 62, 87, 12, 53, 24, 37]);
@@ -6189,7 +6189,7 @@ pub struct IClaimedLineDisplayStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedMagneticStripeReader(::windows::runtime::IInspectable);
+pub struct IClaimedMagneticStripeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197254899, 37911, 18620, [185, 215, 65, 99, 167, 132, 76, 2]);
@@ -6257,7 +6257,7 @@ pub struct IClaimedMagneticStripeReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedMagneticStripeReader2(::windows::runtime::IInspectable);
+pub struct IClaimedMagneticStripeReader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReader2 {
     type Vtable = IClaimedMagneticStripeReader2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(594522079, 58076, 19837, [156, 120, 6, 13, 242, 191, 41, 40]);
@@ -6278,7 +6278,7 @@ pub struct IClaimedMagneticStripeReader2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedMagneticStripeReaderClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IClaimedMagneticStripeReaderClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(346925370, 44493, 19584, [172, 218, 195, 234, 237, 38, 71, 225]);
@@ -6295,7 +6295,7 @@ pub struct IClaimedMagneticStripeReaderClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedPosPrinter(::windows::runtime::IInspectable);
+pub struct IClaimedPosPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835322892, 57406, 19220, [163, 142, 194, 140, 52, 184, 99, 83]);
@@ -6338,7 +6338,7 @@ pub struct IClaimedPosPrinter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedPosPrinter2(::windows::runtime::IInspectable);
+pub struct IClaimedPosPrinter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinter2 {
     type Vtable = IClaimedPosPrinter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1542955989, 20888, 17274, [130, 223, 88, 153, 147, 250, 119, 225]);
@@ -6359,7 +6359,7 @@ pub struct IClaimedPosPrinter2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedPosPrinterClosedEventArgs(::windows::runtime::IInspectable);
+pub struct IClaimedPosPrinterClosedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803685499, 19776, 18205, [146, 237, 99, 55, 91, 24, 199, 136]);
@@ -6376,7 +6376,7 @@ pub struct IClaimedPosPrinterClosedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedReceiptPrinter(::windows::runtime::IInspectable);
+pub struct IClaimedReceiptPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2597485172, 56673, 20194, [152, 55, 91, 93, 114, 213, 56, 185]);
@@ -6401,7 +6401,7 @@ pub struct IClaimedReceiptPrinter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClaimedSlipPrinter(::windows::runtime::IInspectable);
+pub struct IClaimedSlipPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3177050098, 44944, 20106, [183, 123, 227, 174, 156, 166, 58, 127]);
@@ -6436,7 +6436,7 @@ pub struct IClaimedSlipPrinter_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_PointOfService`*"]
-pub struct ICommonClaimedPosPrinterStation(::windows::runtime::IInspectable);
+pub struct ICommonClaimedPosPrinterStation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonClaimedPosPrinterStation {
     type Vtable = ICommonClaimedPosPrinterStation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085657768, 65162, 19707, [139, 66, 227, 91, 40, 12, 178, 124]);
@@ -6585,22 +6585,22 @@ unsafe impl ::windows::runtime::RuntimeType for ICommonClaimedPosPrinterStation 
 }
 impl ::std::convert::From<ICommonClaimedPosPrinterStation> for ::windows::runtime::IUnknown {
     fn from(value: ICommonClaimedPosPrinterStation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::runtime::IUnknown {
     fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommonClaimedPosPrinterStation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommonClaimedPosPrinterStation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommonClaimedPosPrinterStation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ICommonClaimedPosPrinterStation> for ::windows::runtime::IInspectable {
@@ -6655,7 +6655,7 @@ pub struct ICommonClaimedPosPrinterStation_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_PointOfService`*"]
-pub struct ICommonPosPrintStationCapabilities(::windows::runtime::IInspectable);
+pub struct ICommonPosPrintStationCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonPosPrintStationCapabilities {
     type Vtable = ICommonPosPrintStationCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3730526922, 57390, 16617, [158, 94, 27, 72, 142, 106, 172, 252]);
@@ -6772,22 +6772,22 @@ unsafe impl ::windows::runtime::RuntimeType for ICommonPosPrintStationCapabiliti
 }
 impl ::std::convert::From<ICommonPosPrintStationCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ICommonPosPrintStationCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommonPosPrintStationCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommonPosPrintStationCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommonPosPrintStationCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ICommonPosPrintStationCapabilities> for ::windows::runtime::IInspectable {
@@ -6837,7 +6837,7 @@ pub struct ICommonPosPrintStationCapabilities_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_PointOfService`*"]
-pub struct ICommonReceiptSlipCapabilities(::windows::runtime::IInspectable);
+pub struct ICommonReceiptSlipCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommonReceiptSlipCapabilities {
     type Vtable = ICommonReceiptSlipCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(153643915, 39027, 19717, [191, 190, 71, 39, 166, 3, 143, 105]);
@@ -7028,22 +7028,22 @@ unsafe impl ::windows::runtime::RuntimeType for ICommonReceiptSlipCapabilities {
 }
 impl ::std::convert::From<ICommonReceiptSlipCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ICommonReceiptSlipCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommonReceiptSlipCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommonReceiptSlipCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICommonReceiptSlipCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ICommonReceiptSlipCapabilities> for ::windows::runtime::IInspectable {
@@ -7111,7 +7111,7 @@ pub struct ICommonReceiptSlipCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJournalPrintJob(::windows::runtime::IInspectable);
+pub struct IJournalPrintJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrintJob {
     type Vtable = IJournalPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672765028, 62448, 21968, [140, 57, 116, 204, 145, 120, 62, 237]);
@@ -7131,7 +7131,7 @@ pub struct IJournalPrintJob_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJournalPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct IJournalPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995937347, 57415, 17507, [187, 88, 23, 181, 186, 29, 128, 86]);
@@ -7148,7 +7148,7 @@ pub struct IJournalPrinterCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IJournalPrinterCapabilities2(::windows::runtime::IInspectable);
+pub struct IJournalPrinterCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrinterCapabilities2 {
     type Vtable = IJournalPrinterCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61912645, 13240, 21307, [186, 170, 164, 56, 146, 131, 171, 10]);
@@ -7171,7 +7171,7 @@ pub struct IJournalPrinterCapabilities2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplay(::windows::runtime::IInspectable);
+pub struct ILineDisplay(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplay {
     type Vtable = ILineDisplay_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620093262, 15513, 17634, [183, 63, 229, 27, 227, 99, 122, 140]);
@@ -7197,7 +7197,7 @@ pub struct ILineDisplay_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplay2(::windows::runtime::IInspectable);
+pub struct ILineDisplay2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplay2 {
     type Vtable = ILineDisplay2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3264652840, 61252, 16627, [189, 28, 176, 76, 106, 92, 220, 125]);
@@ -7216,7 +7216,7 @@ pub struct ILineDisplay2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayAttributes(::windows::runtime::IInspectable);
+pub struct ILineDisplayAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246254492, 8858, 19476, [166, 241, 180, 228, 177, 254, 173, 146]);
@@ -7251,7 +7251,7 @@ pub struct ILineDisplayAttributes_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayCapabilities(::windows::runtime::IInspectable);
+pub struct ILineDisplayCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1511372241, 36293, 19356, [145, 114, 48, 62, 71, 183, 12, 85]);
@@ -7286,7 +7286,7 @@ pub struct ILineDisplayCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayCursor(::windows::runtime::IInspectable);
+pub struct ILineDisplayCursor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCursor {
     type Vtable = ILineDisplayCursor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3974102085, 30026, 20027, [171, 43, 21, 17, 129, 8, 86, 5]);
@@ -7313,7 +7313,7 @@ pub struct ILineDisplayCursor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayCursorAttributes(::windows::runtime::IInspectable);
+pub struct ILineDisplayCursorAttributes(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1311593726, 20477, 16784, [170, 225, 206, 40, 95, 32, 200, 150]);
@@ -7340,7 +7340,7 @@ pub struct ILineDisplayCursorAttributes_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayCustomGlyphs(::windows::runtime::IInspectable);
+pub struct ILineDisplayCustomGlyphs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576190012, 62051, 17649, [161, 160, 231, 80, 166, 160, 236, 84]);
@@ -7363,7 +7363,7 @@ pub struct ILineDisplayCustomGlyphs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayMarquee(::windows::runtime::IInspectable);
+pub struct ILineDisplayMarquee(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748530238, 62570, 19322, [188, 33, 83, 235, 59, 87, 248, 180]);
@@ -7394,7 +7394,7 @@ pub struct ILineDisplayMarquee_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayStatics(::windows::runtime::IInspectable);
+pub struct ILineDisplayStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatics {
     type Vtable = ILineDisplayStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(36552886, 4528, 18064, [149, 71, 11, 57, 197, 175, 33, 20]);
@@ -7417,7 +7417,7 @@ pub struct ILineDisplayStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayStatics2(::windows::runtime::IInspectable);
+pub struct ILineDisplayStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatics2 {
     type Vtable = ILineDisplayStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1611415324, 30635, 18792, [167, 222, 192, 47, 241, 105, 242, 204]);
@@ -7435,7 +7435,7 @@ pub struct ILineDisplayStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayStatisticsCategorySelector(::windows::runtime::IInspectable);
+pub struct ILineDisplayStatisticsCategorySelector(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3038889067, 37492, 19748, [148, 243, 182, 1, 123, 131, 36, 68]);
@@ -7455,7 +7455,7 @@ pub struct ILineDisplayStatisticsCategorySelector_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct ILineDisplayStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3721755674, 34555, 20154, [147, 209, 111, 94, 218, 82, 183, 82]);
@@ -7473,7 +7473,7 @@ pub struct ILineDisplayStatusUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayStoredBitmap(::windows::runtime::IInspectable);
+pub struct ILineDisplayStoredBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4129378651, 55326, 17338, [191, 27, 188, 250, 60, 120, 91, 160]);
@@ -7493,7 +7493,7 @@ pub struct ILineDisplayStoredBitmap_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayWindow(::windows::runtime::IInspectable);
+pub struct ILineDisplayWindow(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayWindow {
     type Vtable = ILineDisplayWindow_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525308148, 9060, 19429, [190, 225, 133, 22, 128, 175, 73, 100]);
@@ -7528,7 +7528,7 @@ pub struct ILineDisplayWindow_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineDisplayWindow2(::windows::runtime::IInspectable);
+pub struct ILineDisplayWindow2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayWindow2 {
     type Vtable = ILineDisplayWindow2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2841436902, 48600, 17253, [142, 17, 222, 148, 222, 141, 255, 2]);
@@ -7561,7 +7561,7 @@ pub struct ILineDisplayWindow2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReader(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReader {
     type Vtable = IMagneticStripeReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(445820949, 18371, 18058, [147, 51, 12, 101, 23, 87, 72, 131]);
@@ -7593,7 +7593,7 @@ pub struct IMagneticStripeReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(172735825, 49942, 18704, [135, 243, 122, 98, 186, 134, 45, 49]);
@@ -7629,7 +7629,7 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781551651, 41754, 18275, [136, 44, 35, 114, 94, 57, 176, 142]);
@@ -7655,7 +7655,7 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderCapabilities(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898479772, 50240, 17570, [164, 103, 70, 145, 117, 208, 40, 150]);
@@ -7683,7 +7683,7 @@ pub struct IMagneticStripeReaderCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderCardTypesStatics(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderCardTypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderCardTypesStatics {
     type Vtable = IMagneticStripeReaderCardTypesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1385114717, 10630, 18255, [132, 84, 124, 205, 5, 146, 141, 95]);
@@ -7704,7 +7704,7 @@ pub struct IMagneticStripeReaderCardTypesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderEncryptionAlgorithmsStatics {
     type Vtable = IMagneticStripeReaderEncryptionAlgorithmsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1404400464, 50139, 18260, [156, 0, 65, 57, 35, 116, 161, 9]);
@@ -7724,7 +7724,7 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(535689565, 11396, 16813, [183, 120, 242, 53, 106, 120, 154, 177]);
@@ -7747,7 +7747,7 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderReport(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderReport(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784373319, 39344, 16776, [190, 241, 237, 223, 121, 247, 143, 230]);
@@ -7776,7 +7776,7 @@ pub struct IMagneticStripeReaderReport_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderStatics(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatics {
     type Vtable = IMagneticStripeReaderStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294604106, 61399, 18272, [165, 206, 21, 176, 228, 126, 148, 235]);
@@ -7798,7 +7798,7 @@ pub struct IMagneticStripeReaderStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderStatics2(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatics2 {
     type Vtable = IMagneticStripeReaderStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2360197986, 54887, 18682, [134, 188, 245, 174, 17, 137, 38, 43]);
@@ -7816,7 +7816,7 @@ pub struct IMagneticStripeReaderStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164391856, 12898, 16413, [158, 138, 232, 13, 99, 88, 144, 107]);
@@ -7835,7 +7835,7 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderTrackData(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderTrackData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273479281, 19101, 17518, [171, 197, 32, 64, 35, 7, 186, 54]);
@@ -7858,7 +7858,7 @@ pub struct IMagneticStripeReaderTrackData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2936689940, 22988, 19040, [153, 232, 153, 165, 61, 172, 229, 170]);
@@ -7876,7 +7876,7 @@ pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinter(::windows::runtime::IInspectable);
+pub struct IPosPrinter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinter {
     type Vtable = IPosPrinter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704889102, 39449, 18945, [153, 79, 18, 223, 173, 106, 220, 191]);
@@ -7910,7 +7910,7 @@ pub struct IPosPrinter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinter2(::windows::runtime::IInspectable);
+pub struct IPosPrinter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinter2 {
     type Vtable = IPosPrinter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(612660712, 35736, 21783, [142, 72, 118, 14, 134, 246, 137, 135]);
@@ -7930,7 +7930,7 @@ pub struct IPosPrinter2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct IPosPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3454621473, 17280, 18821, [173, 197, 57, 219, 48, 205, 147, 188]);
@@ -7957,7 +7957,7 @@ pub struct IPosPrinterCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterCharacterSetIdsStatics(::windows::runtime::IInspectable);
+pub struct IPosPrinterCharacterSetIdsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterCharacterSetIdsStatics {
     type Vtable = IPosPrinterCharacterSetIdsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550884607, 28826, 20455, [178, 21, 6, 167, 72, 163, 139, 57]);
@@ -7977,7 +7977,7 @@ pub struct IPosPrinterCharacterSetIdsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterFontProperty(::windows::runtime::IInspectable);
+pub struct IPosPrinterFontProperty(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817845562, 63660, 24324, [132, 210, 41, 177, 109, 138, 99, 60]);
@@ -7999,7 +7999,7 @@ pub struct IPosPrinterFontProperty_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_PointOfService`*"]
-pub struct IPosPrinterJob(::windows::runtime::IInspectable);
+pub struct IPosPrinterJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterJob {
     type Vtable = IPosPrinterJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593390684, 1557, 17809, [165, 143, 48, 248, 126, 223, 226, 228]);
@@ -8035,22 +8035,22 @@ unsafe impl ::windows::runtime::RuntimeType for IPosPrinterJob {
 }
 impl ::std::convert::From<IPosPrinterJob> for ::windows::runtime::IUnknown {
     fn from(value: IPosPrinterJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IPosPrinterJob> for ::windows::runtime::IUnknown {
     fn from(value: &IPosPrinterJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPosPrinterJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPosPrinterJob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPosPrinterJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IPosPrinterJob> for ::windows::runtime::IInspectable {
@@ -8090,7 +8090,7 @@ pub struct IPosPrinterJob_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterPrintOptions(::windows::runtime::IInspectable);
+pub struct IPosPrinterPrintOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170792701, 7426, 23128, [157, 89, 191, 205, 231, 111, 222, 134]);
@@ -8133,7 +8133,7 @@ pub struct IPosPrinterPrintOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterReleaseDeviceRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IPosPrinterReleaseDeviceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734765913, 7407, 16562, [158, 203, 249, 39, 248, 86, 174, 60]);
@@ -8150,7 +8150,7 @@ pub struct IPosPrinterReleaseDeviceRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterStatics(::windows::runtime::IInspectable);
+pub struct IPosPrinterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatics {
     type Vtable = IPosPrinterStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2363544810, 4911, 19679, [166, 74, 45, 13, 124, 150, 168, 91]);
@@ -8172,7 +8172,7 @@ pub struct IPosPrinterStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterStatics2(::windows::runtime::IInspectable);
+pub struct IPosPrinterStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatics2 {
     type Vtable = IPosPrinterStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4006423580, 45264, 17127, [177, 55, 184, 155, 22, 36, 77, 65]);
@@ -8190,7 +8190,7 @@ pub struct IPosPrinterStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterStatus(::windows::runtime::IInspectable);
+pub struct IPosPrinterStatus(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatus {
     type Vtable = IPosPrinterStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3522217776, 55872, 17192, [191, 118, 81, 86, 250, 51, 183, 71]);
@@ -8209,7 +8209,7 @@ pub struct IPosPrinterStatus_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPosPrinterStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IPosPrinterStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(786139103, 5030, 17037, [186, 129, 176, 231, 195, 229, 163, 205]);
@@ -8228,7 +8228,7 @@ pub struct IPosPrinterStatusUpdatedEventArgs_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_PointOfService`*"]
-pub struct IReceiptOrSlipJob(::windows::runtime::IInspectable);
+pub struct IReceiptOrSlipJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptOrSlipJob {
     type Vtable = IReceiptOrSlipJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394710974, 51395, 19906, [137, 233, 92, 74, 55, 179, 77, 220]);
@@ -8348,22 +8348,22 @@ unsafe impl ::windows::runtime::RuntimeType for IReceiptOrSlipJob {
 }
 impl ::std::convert::From<IReceiptOrSlipJob> for ::windows::runtime::IUnknown {
     fn from(value: IReceiptOrSlipJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IReceiptOrSlipJob> for ::windows::runtime::IUnknown {
     fn from(value: &IReceiptOrSlipJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IReceiptOrSlipJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IReceiptOrSlipJob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IReceiptOrSlipJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IReceiptOrSlipJob> for ::windows::runtime::IInspectable {
@@ -8444,7 +8444,7 @@ pub struct IReceiptOrSlipJob_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReceiptPrintJob(::windows::runtime::IInspectable);
+pub struct IReceiptPrintJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrintJob {
     type Vtable = IReceiptPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861958766, 44205, 19321, [157, 15, 192, 207, 192, 141, 199, 123]);
@@ -8464,7 +8464,7 @@ pub struct IReceiptPrintJob_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReceiptPrintJob2(::windows::runtime::IInspectable);
+pub struct IReceiptPrintJob2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrintJob2 {
     type Vtable = IReceiptPrintJob2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(213652195, 40489, 20857, [188, 216, 24, 17, 211, 185, 161, 14]);
@@ -8485,7 +8485,7 @@ pub struct IReceiptPrintJob2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReceiptPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct IReceiptPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3102782863, 20904, 17404, [155, 213, 141, 226, 114, 166, 65, 91]);
@@ -8505,7 +8505,7 @@ pub struct IReceiptPrinterCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IReceiptPrinterCapabilities2(::windows::runtime::IInspectable);
+pub struct IReceiptPrinterCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrinterCapabilities2 {
     type Vtable = IReceiptPrinterCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(537069112, 35372, 21932, [154, 123, 117, 118, 216, 134, 158, 153]);
@@ -8528,7 +8528,7 @@ pub struct IReceiptPrinterCapabilities2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISlipPrintJob(::windows::runtime::IInspectable);
+pub struct ISlipPrintJob(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrintJob {
     type Vtable = ISlipPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569257821, 24881, 23115, [183, 213, 142, 242, 218, 123, 65, 101]);
@@ -8548,7 +8548,7 @@ pub struct ISlipPrintJob_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISlipPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct ISlipPrinterCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2578539417, 18572, 16727, [138, 194, 159, 87, 247, 8, 211, 219]);
@@ -8567,7 +8567,7 @@ pub struct ISlipPrinterCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISlipPrinterCapabilities2(::windows::runtime::IInspectable);
+pub struct ISlipPrinterCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrinterCapabilities2 {
     type Vtable = ISlipPrinterCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878562417, 11546, 20480, [135, 194, 176, 133, 27, 253, 240, 126]);
@@ -8590,7 +8590,7 @@ pub struct ISlipPrinterCapabilities2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUnifiedPosErrorData(::windows::runtime::IInspectable);
+pub struct IUnifiedPosErrorData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(731483194, 21852, 18569, [142, 216, 197, 153, 187, 58, 113, 42]);
@@ -8611,7 +8611,7 @@ pub struct IUnifiedPosErrorData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUnifiedPosErrorDataFactory(::windows::runtime::IInspectable);
+pub struct IUnifiedPosErrorDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnifiedPosErrorDataFactory {
     type Vtable = IUnifiedPosErrorDataFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268262225, 8190, 17691, [163, 104, 99, 224, 206, 70, 95, 90]);
@@ -8630,7 +8630,7 @@ pub struct IUnifiedPosErrorDataFactory_abi(
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct JournalPrintJob(::windows::runtime::IInspectable);
+pub struct JournalPrintJob(pub ::windows::runtime::IInspectable);
 impl JournalPrintJob {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Print<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
@@ -8684,22 +8684,22 @@ impl ::windows::runtime::RuntimeName for JournalPrintJob {
 }
 impl ::std::convert::From<JournalPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: JournalPrintJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&JournalPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: &JournalPrintJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JournalPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JournalPrintJob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a JournalPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<JournalPrintJob> for ::windows::runtime::IInspectable {
@@ -8747,7 +8747,7 @@ unsafe impl ::std::marker::Sync for JournalPrintJob {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct JournalPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct JournalPrinterCapabilities(pub ::windows::runtime::IInspectable);
 impl JournalPrinterCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn IsPrinterPresent(&self) -> ::windows::runtime::Result<bool> {
@@ -8915,22 +8915,22 @@ impl ::windows::runtime::RuntimeName for JournalPrinterCapabilities {
 }
 impl ::std::convert::From<JournalPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: JournalPrinterCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&JournalPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &JournalPrinterCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JournalPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JournalPrinterCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a JournalPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<JournalPrinterCapabilities> for ::windows::runtime::IInspectable {
@@ -8980,7 +8980,7 @@ unsafe impl ::std::marker::Sync for JournalPrinterCapabilities {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplay(::windows::runtime::IInspectable);
+pub struct LineDisplay(pub ::windows::runtime::IInspectable);
 impl LineDisplay {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
@@ -9120,22 +9120,22 @@ impl ::windows::runtime::RuntimeName for LineDisplay {
 }
 impl ::std::convert::From<LineDisplay> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplay) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplay> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplay) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplay {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplay {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplay {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplay> for ::windows::runtime::IInspectable {
@@ -9189,7 +9189,7 @@ unsafe impl ::std::marker::Sync for LineDisplay {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayAttributes(::windows::runtime::IInspectable);
+pub struct LineDisplayAttributes(pub ::windows::runtime::IInspectable);
 impl LineDisplayAttributes {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn IsPowerNotifyEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -9299,22 +9299,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayAttributes {
 }
 impl ::std::convert::From<LineDisplayAttributes> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayAttributes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayAttributes> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayAttributes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayAttributes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayAttributes> for ::windows::runtime::IInspectable {
@@ -9342,7 +9342,7 @@ unsafe impl ::std::marker::Sync for LineDisplayAttributes {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayCapabilities(::windows::runtime::IInspectable);
+pub struct LineDisplayCapabilities(pub ::windows::runtime::IInspectable);
 impl LineDisplayCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn IsStatisticsReportingSupported(&self) -> ::windows::runtime::Result<bool> {
@@ -9501,22 +9501,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayCapabilities {
 }
 impl ::std::convert::From<LineDisplayCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayCapabilities> for ::windows::runtime::IInspectable {
@@ -9544,7 +9544,7 @@ unsafe impl ::std::marker::Sync for LineDisplayCapabilities {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayCursor(::windows::runtime::IInspectable);
+pub struct LineDisplayCursor(pub ::windows::runtime::IInspectable);
 impl LineDisplayCursor {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CanCustomize(&self) -> ::windows::runtime::Result<bool> {
@@ -9632,22 +9632,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayCursor {
 }
 impl ::std::convert::From<LineDisplayCursor> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayCursor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayCursor> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayCursor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayCursor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayCursor {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayCursor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayCursor> for ::windows::runtime::IInspectable {
@@ -9675,7 +9675,7 @@ unsafe impl ::std::marker::Sync for LineDisplayCursor {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayCursorAttributes(::windows::runtime::IInspectable);
+pub struct LineDisplayCursorAttributes(pub ::windows::runtime::IInspectable);
 impl LineDisplayCursorAttributes {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn IsBlinkEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -9744,22 +9744,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayCursorAttributes {
 }
 impl ::std::convert::From<LineDisplayCursorAttributes> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayCursorAttributes) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayCursorAttributes> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayCursorAttributes) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayCursorAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayCursorAttributes {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayCursorAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayCursorAttributes> for ::windows::runtime::IInspectable {
@@ -9813,7 +9813,7 @@ impl ::windows::runtime::DefaultType for LineDisplayCursorType {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayCustomGlyphs(::windows::runtime::IInspectable);
+pub struct LineDisplayCustomGlyphs(pub ::windows::runtime::IInspectable);
 impl LineDisplayCustomGlyphs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
@@ -9855,22 +9855,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayCustomGlyphs {
 }
 impl ::std::convert::From<LineDisplayCustomGlyphs> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayCustomGlyphs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayCustomGlyphs> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayCustomGlyphs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayCustomGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayCustomGlyphs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayCustomGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayCustomGlyphs> for ::windows::runtime::IInspectable {
@@ -9944,7 +9944,7 @@ impl ::windows::runtime::DefaultType for LineDisplayHorizontalAlignment {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayMarquee(::windows::runtime::IInspectable);
+pub struct LineDisplayMarquee(pub ::windows::runtime::IInspectable);
 impl LineDisplayMarquee {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<LineDisplayMarqueeFormat> {
@@ -10020,22 +10020,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayMarquee {
 }
 impl ::std::convert::From<LineDisplayMarquee> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayMarquee) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayMarquee> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayMarquee) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayMarquee {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayMarquee {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayMarquee {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayMarquee> for ::windows::runtime::IInspectable {
@@ -10135,7 +10135,7 @@ impl ::windows::runtime::DefaultType for LineDisplayScrollDirection {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayStatisticsCategorySelector(::windows::runtime::IInspectable);
+pub struct LineDisplayStatisticsCategorySelector(pub ::windows::runtime::IInspectable);
 impl LineDisplayStatisticsCategorySelector {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn AllStatistics(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -10174,22 +10174,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayStatisticsCategorySelector {
 }
 impl ::std::convert::From<LineDisplayStatisticsCategorySelector> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayStatisticsCategorySelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayStatisticsCategorySelector> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayStatisticsCategorySelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayStatisticsCategorySelector {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayStatisticsCategorySelector {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayStatisticsCategorySelector> for ::windows::runtime::IInspectable {
@@ -10217,7 +10217,7 @@ unsafe impl ::std::marker::Sync for LineDisplayStatisticsCategorySelector {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct LineDisplayStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl LineDisplayStatusUpdatedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<LineDisplayPowerStatus> {
@@ -10240,22 +10240,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayStatusUpdatedEventArgs {
 }
 impl ::std::convert::From<LineDisplayStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayStatusUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayStatusUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayStatusUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -10283,7 +10283,7 @@ unsafe impl ::std::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayStoredBitmap(::windows::runtime::IInspectable);
+pub struct LineDisplayStoredBitmap(pub ::windows::runtime::IInspectable);
 impl LineDisplayStoredBitmap {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn EscapeSequence(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -10315,22 +10315,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayStoredBitmap {
 }
 impl ::std::convert::From<LineDisplayStoredBitmap> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayStoredBitmap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayStoredBitmap> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayStoredBitmap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayStoredBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayStoredBitmap {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayStoredBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayStoredBitmap> for ::windows::runtime::IInspectable {
@@ -10428,7 +10428,7 @@ impl ::windows::runtime::DefaultType for LineDisplayVerticalAlignment {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct LineDisplayWindow(::windows::runtime::IInspectable);
+pub struct LineDisplayWindow(pub ::windows::runtime::IInspectable);
 impl LineDisplayWindow {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
@@ -10606,22 +10606,22 @@ impl ::windows::runtime::RuntimeName for LineDisplayWindow {
 }
 impl ::std::convert::From<LineDisplayWindow> for ::windows::runtime::IUnknown {
     fn from(value: LineDisplayWindow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&LineDisplayWindow> for ::windows::runtime::IUnknown {
     fn from(value: &LineDisplayWindow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineDisplayWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineDisplayWindow {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LineDisplayWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<LineDisplayWindow> for ::windows::runtime::IInspectable {
@@ -10675,7 +10675,7 @@ unsafe impl ::std::marker::Sync for LineDisplayWindow {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReader(::windows::runtime::IInspectable);
+pub struct MagneticStripeReader(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReader {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -10816,22 +10816,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReader {
 }
 impl ::std::convert::From<MagneticStripeReader> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReader> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReader> for ::windows::runtime::IInspectable {
@@ -10885,7 +10885,7 @@ unsafe impl ::std::marker::Sync for MagneticStripeReader {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Report(&self) -> ::windows::runtime::Result<MagneticStripeReaderReport> {
@@ -11052,22 +11052,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderAamvaCardDataReceiv
 }
 impl ::std::convert::From<MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderAamvaCardDataReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -11140,7 +11140,7 @@ impl ::windows::runtime::DefaultType for MagneticStripeReaderAuthenticationProto
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Report(&self) -> ::windows::runtime::Result<MagneticStripeReaderReport> {
@@ -11227,22 +11227,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderBankCardDataReceive
 }
 impl ::std::convert::From<MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderBankCardDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderBankCardDataReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderBankCardDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -11270,7 +11270,7 @@ unsafe impl ::std::marker::Sync for MagneticStripeReaderBankCardDataReceivedEven
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderCapabilities(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderCapabilities(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CardAuthentication(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -11373,22 +11373,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderCapabilities {
 }
 impl ::std::convert::From<MagneticStripeReaderCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderCapabilities> for ::windows::runtime::IInspectable {
@@ -11487,7 +11487,7 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderEncryptionAlgorithm
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderErrorOccurredEventArgs(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderErrorOccurredEventArgs(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderErrorOccurredEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Track1Status(&self) -> ::windows::runtime::Result<MagneticStripeReaderTrackErrorType> {
@@ -11550,22 +11550,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderErrorOccurredEventA
 }
 impl ::std::convert::From<MagneticStripeReaderErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderErrorOccurredEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
@@ -11615,7 +11615,7 @@ impl ::windows::runtime::DefaultType for MagneticStripeReaderErrorReportingType 
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderReport(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderReport(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderReport {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CardType(&self) -> ::windows::runtime::Result<u32> {
@@ -11705,22 +11705,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderReport {
 }
 impl ::std::convert::From<MagneticStripeReaderReport> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderReport> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderReport {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderReport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderReport> for ::windows::runtime::IInspectable {
@@ -11771,7 +11771,7 @@ impl ::windows::runtime::DefaultType for MagneticStripeReaderStatus {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MagneticStripeReaderStatus> {
@@ -11802,22 +11802,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderStatusUpdatedEventA
 }
 impl ::std::convert::From<MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderStatusUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -11845,7 +11845,7 @@ unsafe impl ::std::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderTrackData(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderTrackData(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderTrackData {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_PointOfService`, `Storage_Streams`*"]
@@ -11887,22 +11887,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderTrackData {
 }
 impl ::std::convert::From<MagneticStripeReaderTrackData> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderTrackData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderTrackData> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderTrackData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderTrackData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderTrackData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderTrackData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderTrackData> for ::windows::runtime::IInspectable {
@@ -11981,7 +11981,7 @@ impl ::windows::runtime::DefaultType for MagneticStripeReaderTrackIds {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Report(&self) -> ::windows::runtime::Result<MagneticStripeReaderReport> {
@@ -12004,22 +12004,22 @@ impl ::windows::runtime::RuntimeName for MagneticStripeReaderVendorSpecificCardD
 }
 impl ::std::convert::From<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::runtime::IInspectable {
@@ -12099,7 +12099,7 @@ impl ::std::ops::Not for PosConnectionTypes {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinter(::windows::runtime::IInspectable);
+pub struct PosPrinter(pub ::windows::runtime::IInspectable);
 impl PosPrinter {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -12259,22 +12259,22 @@ impl ::windows::runtime::RuntimeName for PosPrinter {
 }
 impl ::std::convert::From<PosPrinter> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinter> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinter {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinter> for ::windows::runtime::IInspectable {
@@ -12374,7 +12374,7 @@ impl ::windows::runtime::DefaultType for PosPrinterBarcodeTextPosition {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct PosPrinterCapabilities(pub ::windows::runtime::IInspectable);
 impl PosPrinterCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn PowerReportingType(&self) -> ::windows::runtime::Result<UnifiedPosPowerReportingType> {
@@ -12469,22 +12469,22 @@ impl ::windows::runtime::RuntimeName for PosPrinterCapabilities {
 }
 impl ::std::convert::From<PosPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinterCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinterCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinterCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinterCapabilities> for ::windows::runtime::IInspectable {
@@ -12688,7 +12688,7 @@ impl ::windows::runtime::DefaultType for PosPrinterColorCartridge {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinterFontProperty(::windows::runtime::IInspectable);
+pub struct PosPrinterFontProperty(pub ::windows::runtime::IInspectable);
 impl PosPrinterFontProperty {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn TypeFace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -12728,22 +12728,22 @@ impl ::windows::runtime::RuntimeName for PosPrinterFontProperty {
 }
 impl ::std::convert::From<PosPrinterFontProperty> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinterFontProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinterFontProperty> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinterFontProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinterFontProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinterFontProperty {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinterFontProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinterFontProperty> for ::windows::runtime::IInspectable {
@@ -12918,7 +12918,7 @@ impl ::windows::runtime::DefaultType for PosPrinterMarkFeedKind {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinterPrintOptions(::windows::runtime::IInspectable);
+pub struct PosPrinterPrintOptions(pub ::windows::runtime::IInspectable);
 impl PosPrinterPrintOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -13109,22 +13109,22 @@ impl ::windows::runtime::RuntimeName for PosPrinterPrintOptions {
 }
 impl ::std::convert::From<PosPrinterPrintOptions> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinterPrintOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinterPrintOptions> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinterPrintOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinterPrintOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinterPrintOptions {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinterPrintOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinterPrintOptions> for ::windows::runtime::IInspectable {
@@ -13175,7 +13175,7 @@ impl ::windows::runtime::DefaultType for PosPrinterPrintSide {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinterReleaseDeviceRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct PosPrinterReleaseDeviceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
@@ -13189,22 +13189,22 @@ impl ::windows::runtime::RuntimeName for PosPrinterReleaseDeviceRequestedEventAr
 }
 impl ::std::convert::From<PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinterReleaseDeviceRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinterReleaseDeviceRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinterReleaseDeviceRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -13307,7 +13307,7 @@ impl ::std::ops::Not for PosPrinterRuledLineCapabilities {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinterStatus(::windows::runtime::IInspectable);
+pub struct PosPrinterStatus(pub ::windows::runtime::IInspectable);
 impl PosPrinterStatus {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn StatusKind(&self) -> ::windows::runtime::Result<PosPrinterStatusKind> {
@@ -13338,22 +13338,22 @@ impl ::windows::runtime::RuntimeName for PosPrinterStatus {
 }
 impl ::std::convert::From<PosPrinterStatus> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinterStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinterStatus> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinterStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinterStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinterStatus {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinterStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinterStatus> for ::windows::runtime::IInspectable {
@@ -13406,7 +13406,7 @@ impl ::windows::runtime::DefaultType for PosPrinterStatusKind {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PosPrinterStatusUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct PosPrinterStatusUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl PosPrinterStatusUpdatedEventArgs {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PosPrinterStatus> {
@@ -13429,22 +13429,22 @@ impl ::windows::runtime::RuntimeName for PosPrinterStatusUpdatedEventArgs {
 }
 impl ::std::convert::From<PosPrinterStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PosPrinterStatusUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PosPrinterStatusUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PosPrinterStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PosPrinterStatusUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PosPrinterStatusUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PosPrinterStatusUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -13472,7 +13472,7 @@ unsafe impl ::std::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ReceiptPrintJob(::windows::runtime::IInspectable);
+pub struct ReceiptPrintJob(pub ::windows::runtime::IInspectable);
 impl ReceiptPrintJob {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn MarkFeed(&self, kind: PosPrinterMarkFeedKind) -> ::windows::runtime::Result<()> {
@@ -13630,22 +13630,22 @@ impl ::windows::runtime::RuntimeName for ReceiptPrintJob {
 }
 impl ::std::convert::From<ReceiptPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: ReceiptPrintJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ReceiptPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: &ReceiptPrintJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ReceiptPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ReceiptPrintJob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ReceiptPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ReceiptPrintJob> for ::windows::runtime::IInspectable {
@@ -13717,7 +13717,7 @@ unsafe impl ::std::marker::Sync for ReceiptPrintJob {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct ReceiptPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct ReceiptPrinterCapabilities(pub ::windows::runtime::IInspectable);
 impl ReceiptPrinterCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn CanCutPaper(&self) -> ::windows::runtime::Result<bool> {
@@ -13983,22 +13983,22 @@ impl ::windows::runtime::RuntimeName for ReceiptPrinterCapabilities {
 }
 impl ::std::convert::From<ReceiptPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ReceiptPrinterCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ReceiptPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &ReceiptPrinterCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ReceiptPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ReceiptPrinterCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ReceiptPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ReceiptPrinterCapabilities> for ::windows::runtime::IInspectable {
@@ -14103,7 +14103,7 @@ impl ::windows::runtime::DefaultType for SizeUInt32 {
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SlipPrintJob(::windows::runtime::IInspectable);
+pub struct SlipPrintJob(pub ::windows::runtime::IInspectable);
 impl SlipPrintJob {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::runtime::Result<()> {
@@ -14241,22 +14241,22 @@ impl ::windows::runtime::RuntimeName for SlipPrintJob {
 }
 impl ::std::convert::From<SlipPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: SlipPrintJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SlipPrintJob> for ::windows::runtime::IUnknown {
     fn from(value: &SlipPrintJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SlipPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SlipPrintJob {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SlipPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SlipPrintJob> for ::windows::runtime::IInspectable {
@@ -14326,7 +14326,7 @@ unsafe impl ::std::marker::Sync for SlipPrintJob {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SlipPrinterCapabilities(::windows::runtime::IInspectable);
+pub struct SlipPrinterCapabilities(pub ::windows::runtime::IInspectable);
 impl SlipPrinterCapabilities {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn IsFullLengthSupported(&self) -> ::windows::runtime::Result<bool> {
@@ -14584,22 +14584,22 @@ impl ::windows::runtime::RuntimeName for SlipPrinterCapabilities {
 }
 impl ::std::convert::From<SlipPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: SlipPrinterCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SlipPrinterCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &SlipPrinterCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SlipPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SlipPrinterCapabilities {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SlipPrinterCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SlipPrinterCapabilities> for ::windows::runtime::IInspectable {
@@ -14671,7 +14671,7 @@ unsafe impl ::std::marker::Sync for SlipPrinterCapabilities {}
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct UnifiedPosErrorData(::windows::runtime::IInspectable);
+pub struct UnifiedPosErrorData(pub ::windows::runtime::IInspectable);
 impl UnifiedPosErrorData {
     #[doc = "*Required features: `Devices_PointOfService`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -14729,22 +14729,22 @@ impl ::windows::runtime::RuntimeName for UnifiedPosErrorData {
 }
 impl ::std::convert::From<UnifiedPosErrorData> for ::windows::runtime::IUnknown {
     fn from(value: UnifiedPosErrorData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&UnifiedPosErrorData> for ::windows::runtime::IUnknown {
     fn from(value: &UnifiedPosErrorData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnifiedPosErrorData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UnifiedPosErrorData {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UnifiedPosErrorData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<UnifiedPosErrorData> for ::windows::runtime::IInspectable {

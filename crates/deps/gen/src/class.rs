@@ -111,7 +111,6 @@ impl Class {
                 let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-                let unknown = gen_unknown(&name, &TokenStream::new(), &cfg);
                 let inspectable = gen_inspectable(&name, &TokenStream::new(), &cfg);
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
@@ -153,7 +152,7 @@ impl Class {
                     #doc
                     #[repr(transparent)]
                     #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-                    pub struct #name(::windows::runtime::IInspectable);
+                    pub struct #name(pub ::windows::runtime::IInspectable);
                     #cfg
                     impl #name {
                         #new
@@ -175,7 +174,6 @@ impl Class {
                         const NAME: &'static str = #runtime_name;
                     }
                     #future
-                    #unknown
                     #inspectable
                     #(#conversions)*
                     #(#bases)*
@@ -206,7 +204,7 @@ impl Class {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 #[doc(hidden)]
-                pub struct #name(::windows::runtime::IInspectable);
+                pub struct #name(pub ::windows::runtime::IInspectable);
                 #cfg
                 unsafe impl ::windows::runtime::Interface for #name {
                     type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;

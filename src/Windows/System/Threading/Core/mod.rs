@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreallocatedWorkItem(::windows::runtime::IInspectable);
+pub struct IPreallocatedWorkItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067783676, 48219, 16410, [168, 178, 110, 117, 77, 20, 218, 166]);
@@ -20,7 +20,7 @@ pub struct IPreallocatedWorkItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPreallocatedWorkItemFactory(::windows::runtime::IInspectable);
+pub struct IPreallocatedWorkItemFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItemFactory {
     type Vtable = IPreallocatedWorkItemFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822267205, 57322, 18075, [130, 197, 246, 227, 206, 253, 234, 251]);
@@ -43,7 +43,7 @@ pub struct IPreallocatedWorkItemFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISignalNotifier(::windows::runtime::IInspectable);
+pub struct ISignalNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifier {
     type Vtable = ISignalNotifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338189830, 25511, 18195, [182, 217, 98, 246, 75, 86, 251, 139]);
@@ -62,7 +62,7 @@ pub struct ISignalNotifier_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISignalNotifierStatics(::windows::runtime::IInspectable);
+pub struct ISignalNotifierStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifierStatics {
     type Vtable = ISignalNotifierStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(474891622, 33792, 18131, [161, 21, 125, 12, 13, 252, 159, 98]);
@@ -86,7 +86,7 @@ pub struct ISignalNotifierStatics_abi(
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct PreallocatedWorkItem(::windows::runtime::IInspectable);
+pub struct PreallocatedWorkItem(pub ::windows::runtime::IInspectable);
 impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
@@ -138,22 +138,22 @@ impl ::windows::runtime::RuntimeName for PreallocatedWorkItem {
 }
 impl ::std::convert::From<PreallocatedWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: PreallocatedWorkItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: &PreallocatedWorkItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PreallocatedWorkItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PreallocatedWorkItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PreallocatedWorkItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<PreallocatedWorkItem> for ::windows::runtime::IInspectable {
@@ -254,7 +254,7 @@ impl<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtim
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SignalNotifier(::windows::runtime::IInspectable);
+pub struct SignalNotifier(pub ::windows::runtime::IInspectable);
 impl SignalNotifier {
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Enable(&self) -> ::windows::runtime::Result<()> {
@@ -313,22 +313,22 @@ impl ::windows::runtime::RuntimeName for SignalNotifier {
 }
 impl ::std::convert::From<SignalNotifier> for ::windows::runtime::IUnknown {
     fn from(value: SignalNotifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SignalNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &SignalNotifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SignalNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SignalNotifier {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SignalNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SignalNotifier> for ::windows::runtime::IInspectable {

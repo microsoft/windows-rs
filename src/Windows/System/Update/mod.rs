@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemUpdateItem(::windows::runtime::IInspectable);
+pub struct ISystemUpdateItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateItem {
     type Vtable = ISystemUpdateItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006401259, 22052, 20894, [168, 226, 9, 233, 23, 59, 63, 183]);
@@ -26,7 +26,7 @@ pub struct ISystemUpdateItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemUpdateLastErrorInfo(::windows::runtime::IInspectable);
+pub struct ISystemUpdateLastErrorInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2129168375, 35396, 23406, [189, 7, 122, 236, 228, 17, 110, 169]);
@@ -46,7 +46,7 @@ pub struct ISystemUpdateLastErrorInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemUpdateManagerStatics(::windows::runtime::IInspectable);
+pub struct ISystemUpdateManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateManagerStatics {
     type Vtable = ISystemUpdateManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3000237295, 10609, 20926, [180, 26, 139, 215, 3, 187, 112, 26]);
@@ -124,7 +124,7 @@ impl ::windows::runtime::DefaultType for SystemUpdateAttentionRequiredReason {
 #[doc = "*Required features: `System_Update`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SystemUpdateItem(::windows::runtime::IInspectable);
+pub struct SystemUpdateItem(pub ::windows::runtime::IInspectable);
 impl SystemUpdateItem {
     #[doc = "*Required features: `System_Update`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SystemUpdateItemState> {
@@ -203,22 +203,22 @@ impl ::windows::runtime::RuntimeName for SystemUpdateItem {
 }
 impl ::std::convert::From<SystemUpdateItem> for ::windows::runtime::IUnknown {
     fn from(value: SystemUpdateItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SystemUpdateItem> for ::windows::runtime::IUnknown {
     fn from(value: &SystemUpdateItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemUpdateItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemUpdateItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemUpdateItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SystemUpdateItem> for ::windows::runtime::IInspectable {
@@ -275,7 +275,7 @@ impl ::windows::runtime::DefaultType for SystemUpdateItemState {
 #[doc = "*Required features: `System_Update`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SystemUpdateLastErrorInfo(::windows::runtime::IInspectable);
+pub struct SystemUpdateLastErrorInfo(pub ::windows::runtime::IInspectable);
 impl SystemUpdateLastErrorInfo {
     #[doc = "*Required features: `System_Update`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SystemUpdateManagerState> {
@@ -314,22 +314,22 @@ impl ::windows::runtime::RuntimeName for SystemUpdateLastErrorInfo {
 }
 impl ::std::convert::From<SystemUpdateLastErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: SystemUpdateLastErrorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SystemUpdateLastErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &SystemUpdateLastErrorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemUpdateLastErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemUpdateLastErrorInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SystemUpdateLastErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SystemUpdateLastErrorInfo> for ::windows::runtime::IInspectable {

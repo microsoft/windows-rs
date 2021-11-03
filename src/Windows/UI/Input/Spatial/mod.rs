@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialGestureRecognizer(::windows::runtime::IInspectable);
+pub struct ISpatialGestureRecognizer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGestureRecognizer {
     type Vtable = ISpatialGestureRecognizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902140364, 3125, 18035, [173, 189, 204, 4, 202, 166, 239, 69]);
@@ -78,7 +78,7 @@ pub struct ISpatialGestureRecognizer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialGestureRecognizerFactory(::windows::runtime::IInspectable);
+pub struct ISpatialGestureRecognizerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGestureRecognizerFactory {
     type Vtable = ISpatialGestureRecognizerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1998668166, 22457, 12624, [131, 130, 105, 139, 36, 226, 100, 208]);
@@ -96,7 +96,7 @@ pub struct ISpatialGestureRecognizerFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialHoldCanceledEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialHoldCanceledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldCanceledEventArgs {
     type Vtable = ISpatialHoldCanceledEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1576842855, 19626, 16531, [140, 53, 182, 1, 168, 57, 243, 27]);
@@ -114,7 +114,7 @@ pub struct ISpatialHoldCanceledEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialHoldCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialHoldCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldCompletedEventArgs {
     type Vtable = ISpatialHoldCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1063536395, 19709, 17370, [141, 196, 230, 69, 82, 23, 57, 113]);
@@ -132,7 +132,7 @@ pub struct ISpatialHoldCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialHoldStartedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialHoldStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldStartedEventArgs {
     type Vtable = ISpatialHoldStartedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2385788281, 44214, 16708, [134, 21, 44, 251, 168, 163, 203, 63]);
@@ -152,7 +152,7 @@ pub struct ISpatialHoldStartedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteraction(::windows::runtime::IInspectable);
+pub struct ISpatialInteraction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteraction {
     type Vtable = ISpatialInteraction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4237719097, 35046, 17990, [145, 18, 67, 68, 170, 236, 157, 250]);
@@ -170,7 +170,7 @@ pub struct ISpatialInteraction_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionController(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionController(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController {
     type Vtable = ISpatialInteractionController_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1594776483, 2388, 20119, [134, 197, 231, 243, 11, 17, 77, 253]);
@@ -194,7 +194,7 @@ pub struct ISpatialInteractionController_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionController2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionController2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController2 {
     type Vtable = ISpatialInteractionController2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(901175588, 51106, 18871, [183, 46, 84, 54, 178, 251, 143, 156]);
@@ -213,7 +213,7 @@ pub struct ISpatialInteractionController2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionController3(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionController3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController3 {
     type Vtable = ISpatialInteractionController3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652844192, 40337, 18955, [136, 141, 22, 94, 103, 10, 140, 213]);
@@ -232,7 +232,7 @@ pub struct ISpatialInteractionController3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionControllerProperties(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionControllerProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionControllerProperties {
     type Vtable = ISpatialInteractionControllerProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1627746225, 31657, 20021, [185, 63, 146, 114, 203, 169, 178, 139]);
@@ -256,7 +256,7 @@ pub struct ISpatialInteractionControllerProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionDetectedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionDetectedEventArgs {
     type Vtable = ISpatialInteractionDetectedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(123238628, 22881, 15169, [157, 251, 206, 165, 216, 156, 195, 138]);
@@ -277,7 +277,7 @@ pub struct ISpatialInteractionDetectedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionDetectedEventArgs2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionDetectedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionDetectedEventArgs2 {
     type Vtable = ISpatialInteractionDetectedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066103955, 24339, 16796, [151, 213, 131, 70, 120, 38, 106, 166]);
@@ -295,7 +295,7 @@ pub struct ISpatialInteractionDetectedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionManager(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManager {
     type Vtable = ISpatialInteractionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(849759912, 41306, 14741, [184, 189, 128, 81, 60, 181, 173, 239]);
@@ -338,7 +338,7 @@ pub struct ISpatialInteractionManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionManagerStatics(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManagerStatics {
     type Vtable = ISpatialInteractionManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14884774, 36002, 12479, [145, 254, 217, 203, 74, 0, 137, 144]);
@@ -356,7 +356,7 @@ pub struct ISpatialInteractionManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionManagerStatics2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManagerStatics2 {
     type Vtable = ISpatialInteractionManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2482072658, 47242, 22825, [141, 124, 72, 203, 148, 139, 8, 28]);
@@ -374,7 +374,7 @@ pub struct ISpatialInteractionManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource {
     type Vtable = ISpatialInteractionSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216599482, 45235, 12616, [159, 59, 233, 245, 222, 86, 143, 93]);
@@ -393,7 +393,7 @@ pub struct ISpatialInteractionSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSource2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource2 {
     type Vtable = ISpatialInteractionSource2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838162700, 1136, 16424, [136, 192, 160, 235, 68, 211, 78, 254]);
@@ -416,7 +416,7 @@ pub struct ISpatialInteractionSource2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource3(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSource3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource3 {
     type Vtable = ISpatialInteractionSource3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67557881, 39677, 17657, [133, 220, 112, 0, 35, 169, 98, 227]);
@@ -434,7 +434,7 @@ pub struct ISpatialInteractionSource3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource4(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSource4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource4 {
     type Vtable = ISpatialInteractionSource4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7584845, 57190, 23185, [162, 186, 206, 163, 229, 197, 138, 25]);
@@ -455,7 +455,7 @@ pub struct ISpatialInteractionSource4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceEventArgs {
     type Vtable = ISpatialInteractionSourceEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(599230159, 60451, 14713, [178, 124, 235, 14, 18, 254, 183, 199]);
@@ -473,7 +473,7 @@ pub struct ISpatialInteractionSourceEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceEventArgs2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceEventArgs2 {
     type Vtable = ISpatialInteractionSourceEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635721319, 58952, 19794, [171, 73, 224, 210, 39, 25, 159, 99]);
@@ -491,7 +491,7 @@ pub struct ISpatialInteractionSourceEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceLocation(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation {
     type Vtable = ISpatialInteractionSourceLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3930494660, 32395, 12490, [188, 197, 199, 113, 137, 206, 163, 10]);
@@ -512,7 +512,7 @@ pub struct ISpatialInteractionSourceLocation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceLocation2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation2 {
     type Vtable = ISpatialInteractionSourceLocation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1281822789, 14615, 16636, [169, 172, 49, 201, 207, 95, 249, 27]);
@@ -531,7 +531,7 @@ pub struct ISpatialInteractionSourceLocation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceLocation3(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceLocation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation3 {
     type Vtable = ISpatialInteractionSourceLocation3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1728243294, 59669, 19707, [156, 27, 5, 56, 239, 200, 102, 135]);
@@ -552,7 +552,7 @@ pub struct ISpatialInteractionSourceLocation3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceProperties(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceProperties {
     type Vtable = ISpatialInteractionSourceProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(90195266, 16119, 12834, [159, 83, 99, 201, 203, 126, 59, 199]);
@@ -574,7 +574,7 @@ pub struct ISpatialInteractionSourceProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceState(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceState(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState {
     type Vtable = ISpatialInteractionSourceState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3586422255, 19299, 14316, [152, 185, 159, 198, 82, 185, 210, 242]);
@@ -598,7 +598,7 @@ pub struct ISpatialInteractionSourceState_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceState2(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceState2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState2 {
     type Vtable = ISpatialInteractionSourceState2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1173803197, 6003, 18734, [155, 163, 138, 193, 203, 231, 124, 8]);
@@ -620,7 +620,7 @@ pub struct ISpatialInteractionSourceState2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceState3(::windows::runtime::IInspectable);
+pub struct ISpatialInteractionSourceState3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState3 {
     type Vtable = ISpatialInteractionSourceState3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075817922, 48427, 18945, [168, 251, 50, 62, 1, 88, 82, 124]);
@@ -639,7 +639,7 @@ pub struct ISpatialInteractionSourceState3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialManipulationCanceledEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialManipulationCanceledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationCanceledEventArgs {
     type Vtable = ISpatialManipulationCanceledEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(759222731, 59354, 16928, [176, 191, 129, 147, 1, 103, 71, 128]);
@@ -657,7 +657,7 @@ pub struct ISpatialManipulationCanceledEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialManipulationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialManipulationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationCompletedEventArgs {
     type Vtable = ISpatialManipulationCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(84436994, 62209, 17219, [146, 80, 47, 186, 165, 248, 122, 55]);
@@ -677,7 +677,7 @@ pub struct ISpatialManipulationCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialManipulationDelta(::windows::runtime::IInspectable);
+pub struct ISpatialManipulationDelta(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationDelta {
     type Vtable = ISpatialManipulationDelta_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2817300090, 53539, 14977, [161, 91, 153, 41, 35, 220, 190, 145]);
@@ -696,7 +696,7 @@ pub struct ISpatialManipulationDelta_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialManipulationStartedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialManipulationStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationStartedEventArgs {
     type Vtable = ISpatialManipulationStartedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2715204558, 17061, 14203, [173, 166, 210, 142, 61, 56, 71, 55]);
@@ -716,7 +716,7 @@ pub struct ISpatialManipulationStartedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialManipulationUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialManipulationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationUpdatedEventArgs {
     type Vtable = ISpatialManipulationUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1596132251, 24774, 19910, [189, 201, 159, 74, 111, 21, 254, 73]);
@@ -736,7 +736,7 @@ pub struct ISpatialManipulationUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialNavigationCanceledEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialNavigationCanceledEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationCanceledEventArgs {
     type Vtable = ISpatialNavigationCanceledEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461365468, 59557, 18160, [146, 212, 60, 18, 43, 53, 17, 42]);
@@ -754,7 +754,7 @@ pub struct ISpatialNavigationCanceledEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialNavigationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialNavigationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationCompletedEventArgs {
     type Vtable = ISpatialNavigationCompletedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19824823, 44859, 17090, [158, 65, 186, 170, 14, 114, 31, 58]);
@@ -774,7 +774,7 @@ pub struct ISpatialNavigationCompletedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialNavigationStartedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialNavigationStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationStartedEventArgs {
     type Vtable = ISpatialNavigationStartedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1967797386, 64356, 18006, [142, 189, 157, 238, 202, 175, 228, 117]);
@@ -797,7 +797,7 @@ pub struct ISpatialNavigationStartedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialNavigationUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialNavigationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationUpdatedEventArgs {
     type Vtable = ISpatialNavigationUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607890391, 33693, 19060, [135, 50, 69, 70, 111, 192, 68, 181]);
@@ -817,7 +817,7 @@ pub struct ISpatialNavigationUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialPointerInteractionSourcePose(::windows::runtime::IInspectable);
+pub struct ISpatialPointerInteractionSourcePose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerInteractionSourcePose {
     type Vtable = ISpatialPointerInteractionSourcePose_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802860807, 11307, 19770, [146, 167, 128, 206, 215, 196, 160, 208]);
@@ -840,7 +840,7 @@ pub struct ISpatialPointerInteractionSourcePose_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialPointerInteractionSourcePose2(::windows::runtime::IInspectable);
+pub struct ISpatialPointerInteractionSourcePose2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerInteractionSourcePose2 {
     type Vtable = ISpatialPointerInteractionSourcePose2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3972892344, 21211, 18079, [158, 63, 128, 196, 127, 116, 188, 233]);
@@ -860,7 +860,7 @@ pub struct ISpatialPointerInteractionSourcePose2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialPointerPose(::windows::runtime::IInspectable);
+pub struct ISpatialPointerPose(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose {
     type Vtable = ISpatialPointerPose_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1767089198, 49534, 13693, [151, 161, 114, 105, 208, 237, 45, 16]);
@@ -881,7 +881,7 @@ pub struct ISpatialPointerPose_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialPointerPose2(::windows::runtime::IInspectable);
+pub struct ISpatialPointerPose2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose2 {
     type Vtable = ISpatialPointerPose2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2636131095, 38222, 19980, [150, 209, 182, 121, 11, 111, 194, 253]);
@@ -899,7 +899,7 @@ pub struct ISpatialPointerPose2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialPointerPose3(::windows::runtime::IInspectable);
+pub struct ISpatialPointerPose3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose3 {
     type Vtable = ISpatialPointerPose3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1665332208, 60489, 23371, [184, 209, 209, 108, 187, 22, 190, 132]);
@@ -919,7 +919,7 @@ pub struct ISpatialPointerPose3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialPointerPoseStatics(::windows::runtime::IInspectable);
+pub struct ISpatialPointerPoseStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPoseStatics {
     type Vtable = ISpatialPointerPoseStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723516841, 44193, 16096, [152, 22, 120, 92, 251, 46, 63, 184]);
@@ -938,7 +938,7 @@ pub struct ISpatialPointerPoseStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialRecognitionEndedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialRecognitionEndedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialRecognitionEndedEventArgs {
     type Vtable = ISpatialRecognitionEndedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(238417355, 16245, 17395, [172, 129, 209, 220, 45, 249, 177, 251]);
@@ -956,7 +956,7 @@ pub struct ISpatialRecognitionEndedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialRecognitionStartedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialRecognitionStartedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialRecognitionStartedEventArgs {
     type Vtable = ISpatialRecognitionStartedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618271375, 8, 19053, [170, 80, 42, 118, 249, 207, 178, 100]);
@@ -977,7 +977,7 @@ pub struct ISpatialRecognitionStartedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISpatialTappedEventArgs(::windows::runtime::IInspectable);
+pub struct ISpatialTappedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialTappedEventArgs {
     type Vtable = ISpatialTappedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(695043038, 62532, 19105, [178, 191, 157, 200, 141, 86, 125, 166]);
@@ -999,7 +999,7 @@ pub struct ISpatialTappedEventArgs_abi(
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialGestureRecognizer(::windows::runtime::IInspectable);
+pub struct SpatialGestureRecognizer(pub ::windows::runtime::IInspectable);
 impl SpatialGestureRecognizer {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
@@ -1261,22 +1261,22 @@ impl ::windows::runtime::RuntimeName for SpatialGestureRecognizer {
 }
 impl ::std::convert::From<SpatialGestureRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: SpatialGestureRecognizer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialGestureRecognizer> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialGestureRecognizer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialGestureRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialGestureRecognizer {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialGestureRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialGestureRecognizer> for ::windows::runtime::IInspectable {
@@ -1363,7 +1363,7 @@ impl ::std::ops::Not for SpatialGestureSettings {
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialHoldCanceledEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialHoldCanceledEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialHoldCanceledEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -1386,22 +1386,22 @@ impl ::windows::runtime::RuntimeName for SpatialHoldCanceledEventArgs {
 }
 impl ::std::convert::From<SpatialHoldCanceledEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialHoldCanceledEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialHoldCanceledEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialHoldCanceledEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialHoldCanceledEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialHoldCanceledEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialHoldCanceledEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialHoldCanceledEventArgs> for ::windows::runtime::IInspectable {
@@ -1429,7 +1429,7 @@ unsafe impl ::std::marker::Sync for SpatialHoldCanceledEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialHoldCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialHoldCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialHoldCompletedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -1452,22 +1452,22 @@ impl ::windows::runtime::RuntimeName for SpatialHoldCompletedEventArgs {
 }
 impl ::std::convert::From<SpatialHoldCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialHoldCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialHoldCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialHoldCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialHoldCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialHoldCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialHoldCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialHoldCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -1495,7 +1495,7 @@ unsafe impl ::std::marker::Sync for SpatialHoldCompletedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialHoldStartedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialHoldStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialHoldStartedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -1527,22 +1527,22 @@ impl ::windows::runtime::RuntimeName for SpatialHoldStartedEventArgs {
 }
 impl ::std::convert::From<SpatialHoldStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialHoldStartedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialHoldStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialHoldStartedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialHoldStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialHoldStartedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialHoldStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialHoldStartedEventArgs> for ::windows::runtime::IInspectable {
@@ -1570,7 +1570,7 @@ unsafe impl ::std::marker::Sync for SpatialHoldStartedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteraction(::windows::runtime::IInspectable);
+pub struct SpatialInteraction(pub ::windows::runtime::IInspectable);
 impl SpatialInteraction {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn SourceState(&self) -> ::windows::runtime::Result<SpatialInteractionSourceState> {
@@ -1593,22 +1593,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteraction {
 }
 impl ::std::convert::From<SpatialInteraction> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteraction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteraction> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteraction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteraction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteraction {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteraction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteraction> for ::windows::runtime::IInspectable {
@@ -1636,7 +1636,7 @@ unsafe impl ::std::marker::Sync for SpatialInteraction {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionController(::windows::runtime::IInspectable);
+pub struct SpatialInteractionController(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionController {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn HasTouchpad(&self) -> ::windows::runtime::Result<bool> {
@@ -1718,22 +1718,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionController {
 }
 impl ::std::convert::From<SpatialInteractionController> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionController> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionController {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionController {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionController> for ::windows::runtime::IInspectable {
@@ -1761,7 +1761,7 @@ unsafe impl ::std::marker::Sync for SpatialInteractionController {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionControllerProperties(::windows::runtime::IInspectable);
+pub struct SpatialInteractionControllerProperties(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionControllerProperties {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsTouchpadTouched(&self) -> ::windows::runtime::Result<bool> {
@@ -1832,22 +1832,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionControllerProperties 
 }
 impl ::std::convert::From<SpatialInteractionControllerProperties> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionControllerProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionControllerProperties> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionControllerProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionControllerProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionControllerProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionControllerProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionControllerProperties> for ::windows::runtime::IInspectable {
@@ -1875,7 +1875,7 @@ unsafe impl ::std::marker::Sync for SpatialInteractionControllerProperties {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionDetectedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialInteractionDetectedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionDetectedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -1923,22 +1923,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionDetectedEventArgs {
 }
 impl ::std::convert::From<SpatialInteractionDetectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionDetectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionDetectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionDetectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionDetectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionDetectedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionDetectedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionDetectedEventArgs> for ::windows::runtime::IInspectable {
@@ -1966,7 +1966,7 @@ unsafe impl ::std::marker::Sync for SpatialInteractionDetectedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionManager(::windows::runtime::IInspectable);
+pub struct SpatialInteractionManager(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
@@ -2102,22 +2102,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionManager {
 }
 impl ::std::convert::From<SpatialInteractionManager> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionManager> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionManager> for ::windows::runtime::IInspectable {
@@ -2171,7 +2171,7 @@ impl ::windows::runtime::DefaultType for SpatialInteractionPressKind {
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionSource(::windows::runtime::IInspectable);
+pub struct SpatialInteractionSource(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionSource {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
@@ -2269,22 +2269,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionSource {
 }
 impl ::std::convert::From<SpatialInteractionSource> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionSource> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionSource {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionSource> for ::windows::runtime::IInspectable {
@@ -2312,7 +2312,7 @@ unsafe impl ::std::marker::Sync for SpatialInteractionSource {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionSourceEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialInteractionSourceEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionSourceEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SpatialInteractionSourceState> {
@@ -2343,22 +2343,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionSourceEventArgs {
 }
 impl ::std::convert::From<SpatialInteractionSourceEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionSourceEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionSourceEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionSourceEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionSourceEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionSourceEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionSourceEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionSourceEventArgs> for ::windows::runtime::IInspectable {
@@ -2433,7 +2433,7 @@ impl ::windows::runtime::DefaultType for SpatialInteractionSourceKind {
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionSourceLocation(::windows::runtime::IInspectable);
+pub struct SpatialInteractionSourceLocation(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionSourceLocation {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`*"]
@@ -2500,22 +2500,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionSourceLocation {
 }
 impl ::std::convert::From<SpatialInteractionSourceLocation> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionSourceLocation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionSourceLocation> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionSourceLocation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionSourceLocation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionSourceLocation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionSourceLocation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionSourceLocation> for ::windows::runtime::IInspectable {
@@ -2565,7 +2565,7 @@ impl ::windows::runtime::DefaultType for SpatialInteractionSourcePositionAccurac
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionSourceProperties(::windows::runtime::IInspectable);
+pub struct SpatialInteractionSourceProperties(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionSourceProperties {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
@@ -2606,22 +2606,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionSourceProperties {
 }
 impl ::std::convert::From<SpatialInteractionSourceProperties> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionSourceProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionSourceProperties> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionSourceProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionSourceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionSourceProperties {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionSourceProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionSourceProperties> for ::windows::runtime::IInspectable {
@@ -2649,7 +2649,7 @@ unsafe impl ::std::marker::Sync for SpatialInteractionSourceProperties {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialInteractionSourceState(::windows::runtime::IInspectable);
+pub struct SpatialInteractionSourceState(pub ::windows::runtime::IInspectable);
 impl SpatialInteractionSourceState {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<SpatialInteractionSource> {
@@ -2755,22 +2755,22 @@ impl ::windows::runtime::RuntimeName for SpatialInteractionSourceState {
 }
 impl ::std::convert::From<SpatialInteractionSourceState> for ::windows::runtime::IUnknown {
     fn from(value: SpatialInteractionSourceState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialInteractionSourceState> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialInteractionSourceState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialInteractionSourceState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialInteractionSourceState {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialInteractionSourceState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialInteractionSourceState> for ::windows::runtime::IInspectable {
@@ -2798,7 +2798,7 @@ unsafe impl ::std::marker::Sync for SpatialInteractionSourceState {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialManipulationCanceledEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialManipulationCanceledEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialManipulationCanceledEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -2821,22 +2821,22 @@ impl ::windows::runtime::RuntimeName for SpatialManipulationCanceledEventArgs {
 }
 impl ::std::convert::From<SpatialManipulationCanceledEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialManipulationCanceledEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialManipulationCanceledEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialManipulationCanceledEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialManipulationCanceledEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialManipulationCanceledEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialManipulationCanceledEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialManipulationCanceledEventArgs> for ::windows::runtime::IInspectable {
@@ -2864,7 +2864,7 @@ unsafe impl ::std::marker::Sync for SpatialManipulationCanceledEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialManipulationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialManipulationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialManipulationCompletedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -2896,22 +2896,22 @@ impl ::windows::runtime::RuntimeName for SpatialManipulationCompletedEventArgs {
 }
 impl ::std::convert::From<SpatialManipulationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialManipulationCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialManipulationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialManipulationCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialManipulationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialManipulationCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialManipulationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialManipulationCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -2939,7 +2939,7 @@ unsafe impl ::std::marker::Sync for SpatialManipulationCompletedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialManipulationDelta(::windows::runtime::IInspectable);
+pub struct SpatialManipulationDelta(pub ::windows::runtime::IInspectable);
 impl SpatialManipulationDelta {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
@@ -2963,22 +2963,22 @@ impl ::windows::runtime::RuntimeName for SpatialManipulationDelta {
 }
 impl ::std::convert::From<SpatialManipulationDelta> for ::windows::runtime::IUnknown {
     fn from(value: SpatialManipulationDelta) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialManipulationDelta> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialManipulationDelta) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialManipulationDelta {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialManipulationDelta {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialManipulationDelta {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialManipulationDelta> for ::windows::runtime::IInspectable {
@@ -3006,7 +3006,7 @@ unsafe impl ::std::marker::Sync for SpatialManipulationDelta {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialManipulationStartedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialManipulationStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialManipulationStartedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3038,22 +3038,22 @@ impl ::windows::runtime::RuntimeName for SpatialManipulationStartedEventArgs {
 }
 impl ::std::convert::From<SpatialManipulationStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialManipulationStartedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialManipulationStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialManipulationStartedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialManipulationStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialManipulationStartedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialManipulationStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialManipulationStartedEventArgs> for ::windows::runtime::IInspectable {
@@ -3081,7 +3081,7 @@ unsafe impl ::std::marker::Sync for SpatialManipulationStartedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialManipulationUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialManipulationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialManipulationUpdatedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3113,22 +3113,22 @@ impl ::windows::runtime::RuntimeName for SpatialManipulationUpdatedEventArgs {
 }
 impl ::std::convert::From<SpatialManipulationUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialManipulationUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialManipulationUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialManipulationUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialManipulationUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialManipulationUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialManipulationUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialManipulationUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -3156,7 +3156,7 @@ unsafe impl ::std::marker::Sync for SpatialManipulationUpdatedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialNavigationCanceledEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialNavigationCanceledEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialNavigationCanceledEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3179,22 +3179,22 @@ impl ::windows::runtime::RuntimeName for SpatialNavigationCanceledEventArgs {
 }
 impl ::std::convert::From<SpatialNavigationCanceledEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialNavigationCanceledEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialNavigationCanceledEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialNavigationCanceledEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialNavigationCanceledEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialNavigationCanceledEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialNavigationCanceledEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialNavigationCanceledEventArgs> for ::windows::runtime::IInspectable {
@@ -3222,7 +3222,7 @@ unsafe impl ::std::marker::Sync for SpatialNavigationCanceledEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialNavigationCompletedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialNavigationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialNavigationCompletedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3254,22 +3254,22 @@ impl ::windows::runtime::RuntimeName for SpatialNavigationCompletedEventArgs {
 }
 impl ::std::convert::From<SpatialNavigationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialNavigationCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialNavigationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialNavigationCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialNavigationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialNavigationCompletedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialNavigationCompletedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialNavigationCompletedEventArgs> for ::windows::runtime::IInspectable {
@@ -3297,7 +3297,7 @@ unsafe impl ::std::marker::Sync for SpatialNavigationCompletedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialNavigationStartedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialNavigationStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialNavigationStartedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3353,22 +3353,22 @@ impl ::windows::runtime::RuntimeName for SpatialNavigationStartedEventArgs {
 }
 impl ::std::convert::From<SpatialNavigationStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialNavigationStartedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialNavigationStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialNavigationStartedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialNavigationStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialNavigationStartedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialNavigationStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialNavigationStartedEventArgs> for ::windows::runtime::IInspectable {
@@ -3396,7 +3396,7 @@ unsafe impl ::std::marker::Sync for SpatialNavigationStartedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialNavigationUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialNavigationUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialNavigationUpdatedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3428,22 +3428,22 @@ impl ::windows::runtime::RuntimeName for SpatialNavigationUpdatedEventArgs {
 }
 impl ::std::convert::From<SpatialNavigationUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialNavigationUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialNavigationUpdatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialNavigationUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialNavigationUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialNavigationUpdatedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialNavigationUpdatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialNavigationUpdatedEventArgs> for ::windows::runtime::IInspectable {
@@ -3471,7 +3471,7 @@ unsafe impl ::std::marker::Sync for SpatialNavigationUpdatedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialPointerInteractionSourcePose(::windows::runtime::IInspectable);
+pub struct SpatialPointerInteractionSourcePose(pub ::windows::runtime::IInspectable);
 impl SpatialPointerInteractionSourcePose {
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
@@ -3530,22 +3530,22 @@ impl ::windows::runtime::RuntimeName for SpatialPointerInteractionSourcePose {
 }
 impl ::std::convert::From<SpatialPointerInteractionSourcePose> for ::windows::runtime::IUnknown {
     fn from(value: SpatialPointerInteractionSourcePose) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialPointerInteractionSourcePose> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialPointerInteractionSourcePose) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialPointerInteractionSourcePose {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialPointerInteractionSourcePose {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialPointerInteractionSourcePose {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialPointerInteractionSourcePose> for ::windows::runtime::IInspectable {
@@ -3573,7 +3573,7 @@ unsafe impl ::std::marker::Sync for SpatialPointerInteractionSourcePose {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialPointerPose(::windows::runtime::IInspectable);
+pub struct SpatialPointerPose(pub ::windows::runtime::IInspectable);
 impl SpatialPointerPose {
     #[cfg(feature = "Perception")]
     #[doc = "*Required features: `UI_Input_Spatial`, `Perception`*"]
@@ -3643,22 +3643,22 @@ impl ::windows::runtime::RuntimeName for SpatialPointerPose {
 }
 impl ::std::convert::From<SpatialPointerPose> for ::windows::runtime::IUnknown {
     fn from(value: SpatialPointerPose) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialPointerPose> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialPointerPose) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialPointerPose {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialPointerPose {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialPointerPose {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialPointerPose> for ::windows::runtime::IInspectable {
@@ -3686,7 +3686,7 @@ unsafe impl ::std::marker::Sync for SpatialPointerPose {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialRecognitionEndedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialRecognitionEndedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialRecognitionEndedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3709,22 +3709,22 @@ impl ::windows::runtime::RuntimeName for SpatialRecognitionEndedEventArgs {
 }
 impl ::std::convert::From<SpatialRecognitionEndedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialRecognitionEndedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialRecognitionEndedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialRecognitionEndedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialRecognitionEndedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialRecognitionEndedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialRecognitionEndedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialRecognitionEndedEventArgs> for ::windows::runtime::IInspectable {
@@ -3752,7 +3752,7 @@ unsafe impl ::std::marker::Sync for SpatialRecognitionEndedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialRecognitionStartedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialRecognitionStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialRecognitionStartedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3792,22 +3792,22 @@ impl ::windows::runtime::RuntimeName for SpatialRecognitionStartedEventArgs {
 }
 impl ::std::convert::From<SpatialRecognitionStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialRecognitionStartedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialRecognitionStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialRecognitionStartedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialRecognitionStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialRecognitionStartedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialRecognitionStartedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialRecognitionStartedEventArgs> for ::windows::runtime::IInspectable {
@@ -3835,7 +3835,7 @@ unsafe impl ::std::marker::Sync for SpatialRecognitionStartedEventArgs {}
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct SpatialTappedEventArgs(::windows::runtime::IInspectable);
+pub struct SpatialTappedEventArgs(pub ::windows::runtime::IInspectable);
 impl SpatialTappedEventArgs {
     #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
@@ -3875,22 +3875,22 @@ impl ::windows::runtime::RuntimeName for SpatialTappedEventArgs {
 }
 impl ::std::convert::From<SpatialTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SpatialTappedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&SpatialTappedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SpatialTappedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialTappedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SpatialTappedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<SpatialTappedEventArgs> for ::windows::runtime::IInspectable {

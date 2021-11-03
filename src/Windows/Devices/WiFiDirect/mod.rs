@@ -3,7 +3,7 @@
 pub mod Services;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectAdvertisement(::windows::runtime::IInspectable);
+pub struct IWiFiDirectAdvertisement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisement {
     type Vtable = IWiFiDirectAdvertisement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874219053, 10758, 18849, [165, 132, 97, 67, 92, 121, 5, 166]);
@@ -29,7 +29,7 @@ pub struct IWiFiDirectAdvertisement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectAdvertisement2(::windows::runtime::IInspectable);
+pub struct IWiFiDirectAdvertisement2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisement2 {
     type Vtable = IWiFiDirectAdvertisement2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076106822, 55318, 18715, [145, 122, 180, 13, 125, 196, 3, 162]);
@@ -48,7 +48,7 @@ pub struct IWiFiDirectAdvertisement2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectAdvertisementPublisher(::windows::runtime::IInspectable);
+pub struct IWiFiDirectAdvertisementPublisher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisementPublisher {
     type Vtable = IWiFiDirectAdvertisementPublisher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3009031450, 39711, 17881, [146, 90, 105, 77, 102, 223, 104, 239]);
@@ -73,7 +73,7 @@ pub struct IWiFiDirectAdvertisementPublisher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2868766012, 21633, 18150, [144, 221, 50, 17, 101, 24, 241, 146]);
@@ -92,7 +92,7 @@ pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectConnectionListener(::windows::runtime::IInspectable);
+pub struct IWiFiDirectConnectionListener(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionListener {
     type Vtable = IWiFiDirectConnectionListener_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771838221, 36115, 20201, [185, 236, 156, 114, 248, 37, 31, 125]);
@@ -113,7 +113,7 @@ pub struct IWiFiDirectConnectionListener_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectConnectionParameters(::windows::runtime::IInspectable);
+pub struct IWiFiDirectConnectionParameters(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionParameters {
     type Vtable = IWiFiDirectConnectionParameters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3001373701, 22274, 19222, [160, 44, 187, 205, 33, 239, 96, 152]);
@@ -132,7 +132,7 @@ pub struct IWiFiDirectConnectionParameters_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectConnectionParameters2(::windows::runtime::IInspectable);
+pub struct IWiFiDirectConnectionParameters2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionParameters2 {
     type Vtable = IWiFiDirectConnectionParameters2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2872774590, 43650, 17588, [136, 200, 227, 5, 107, 137, 128, 29]);
@@ -153,7 +153,7 @@ pub struct IWiFiDirectConnectionParameters2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectConnectionParametersStatics(::windows::runtime::IInspectable);
+pub struct IWiFiDirectConnectionParametersStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionParametersStatics {
     type Vtable = IWiFiDirectConnectionParametersStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1502278803, 30274, 17775, [185, 216, 232, 169, 235, 31, 64, 26]);
@@ -172,7 +172,7 @@ pub struct IWiFiDirectConnectionParametersStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectConnectionRequest(::windows::runtime::IInspectable);
+pub struct IWiFiDirectConnectionRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionRequest {
     type Vtable = IWiFiDirectConnectionRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2394527237, 37199, 18883, [166, 20, 209, 141, 197, 177, 155, 67]);
@@ -191,7 +191,7 @@ pub struct IWiFiDirectConnectionRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectConnectionRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IWiFiDirectConnectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionRequestedEventArgs {
     type Vtable = IWiFiDirectConnectionRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4187824318, 54157, 18511, [130, 21, 231, 182, 90, 191, 36, 76]);
@@ -209,7 +209,7 @@ pub struct IWiFiDirectConnectionRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectDevice(::windows::runtime::IInspectable);
+pub struct IWiFiDirectDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectDevice {
     type Vtable = IWiFiDirectDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1927195304, 29419, 19886, [138, 40, 133, 19, 53, 93, 39, 119]);
@@ -234,7 +234,7 @@ pub struct IWiFiDirectDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectDeviceStatics(::windows::runtime::IInspectable);
+pub struct IWiFiDirectDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectDeviceStatics {
     type Vtable = IWiFiDirectDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3899438460, 15020, 18513, [167, 146, 72, 42, 175, 147, 27, 4]);
@@ -254,7 +254,7 @@ pub struct IWiFiDirectDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectDeviceStatics2(::windows::runtime::IInspectable);
+pub struct IWiFiDirectDeviceStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectDeviceStatics2 {
     type Vtable = IWiFiDirectDeviceStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(445988425, 45315, 17278, [146, 38, 171, 103, 151, 19, 66, 249]);
@@ -274,7 +274,7 @@ pub struct IWiFiDirectDeviceStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectInformationElement(::windows::runtime::IInspectable);
+pub struct IWiFiDirectInformationElement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectInformationElement {
     type Vtable = IWiFiDirectInformationElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2952491734, 30395, 18814, [172, 139, 220, 114, 131, 139, 195, 9]);
@@ -301,7 +301,7 @@ pub struct IWiFiDirectInformationElement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectInformationElementStatics(::windows::runtime::IInspectable);
+pub struct IWiFiDirectInformationElementStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectInformationElementStatics {
     type Vtable = IWiFiDirectInformationElementStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687853846, 4517, 20064, [140, 170, 52, 119, 33, 72, 55, 138]);
@@ -322,7 +322,7 @@ pub struct IWiFiDirectInformationElementStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWiFiDirectLegacySettings(::windows::runtime::IInspectable);
+pub struct IWiFiDirectLegacySettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectLegacySettings {
     type Vtable = IWiFiDirectLegacySettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2790251450, 62205, 17767, [169, 27, 245, 194, 245, 50, 16, 87]);
@@ -348,7 +348,7 @@ pub struct IWiFiDirectLegacySettings_abi(
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectAdvertisement(::windows::runtime::IInspectable);
+pub struct WiFiDirectAdvertisement(pub ::windows::runtime::IInspectable);
 impl WiFiDirectAdvertisement {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_WiFiDirect`, `Foundation_Collections`*"]
@@ -421,22 +421,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectAdvertisement {
 }
 impl ::std::convert::From<WiFiDirectAdvertisement> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectAdvertisement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectAdvertisement> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectAdvertisement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectAdvertisement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectAdvertisement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectAdvertisement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectAdvertisement> for ::windows::runtime::IInspectable {
@@ -487,7 +487,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectAdvertisementListenStateDisco
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectAdvertisementPublisher(::windows::runtime::IInspectable);
+pub struct WiFiDirectAdvertisementPublisher(pub ::windows::runtime::IInspectable);
 impl WiFiDirectAdvertisementPublisher {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -550,22 +550,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectAdvertisementPublisher {
 }
 impl ::std::convert::From<WiFiDirectAdvertisementPublisher> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectAdvertisementPublisher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectAdvertisementPublisher> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectAdvertisementPublisher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectAdvertisementPublisher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectAdvertisementPublisher {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectAdvertisementPublisher {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectAdvertisementPublisher> for ::windows::runtime::IInspectable {
@@ -617,7 +617,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectAdvertisementPublisherStatus 
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectAdvertisementPublisherStatusChangedEventArgs(::windows::runtime::IInspectable);
+pub struct WiFiDirectAdvertisementPublisherStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     #[doc = "*Required features: `Devices_WiFiDirect`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<WiFiDirectAdvertisementPublisherStatus> {
@@ -648,22 +648,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectAdvertisementPublisherStatusC
 }
 impl ::std::convert::From<WiFiDirectAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IInspectable {
@@ -714,7 +714,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectConfigurationMethod {
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectConnectionListener(::windows::runtime::IInspectable);
+pub struct WiFiDirectConnectionListener(pub ::windows::runtime::IInspectable);
 impl WiFiDirectConnectionListener {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -751,22 +751,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectConnectionListener {
 }
 impl ::std::convert::From<WiFiDirectConnectionListener> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectConnectionListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectConnectionListener> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectConnectionListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectConnectionListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectConnectionListener {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectConnectionListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectConnectionListener> for ::windows::runtime::IInspectable {
@@ -794,7 +794,7 @@ unsafe impl ::std::marker::Sync for WiFiDirectConnectionListener {}
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectConnectionParameters(::windows::runtime::IInspectable);
+pub struct WiFiDirectConnectionParameters(pub ::windows::runtime::IInspectable);
 impl WiFiDirectConnectionParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -863,22 +863,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectConnectionParameters {
 }
 impl ::std::convert::From<WiFiDirectConnectionParameters> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectConnectionParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectConnectionParameters> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectConnectionParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectConnectionParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectConnectionParameters {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectConnectionParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectConnectionParameters> for ::windows::runtime::IInspectable {
@@ -932,7 +932,7 @@ unsafe impl ::std::marker::Sync for WiFiDirectConnectionParameters {}
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectConnectionRequest(::windows::runtime::IInspectable);
+pub struct WiFiDirectConnectionRequest(pub ::windows::runtime::IInspectable);
 impl WiFiDirectConnectionRequest {
     #[cfg(feature = "Devices_Enumeration")]
     #[doc = "*Required features: `Devices_WiFiDirect`, `Devices_Enumeration`*"]
@@ -962,22 +962,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectConnectionRequest {
 }
 impl ::std::convert::From<WiFiDirectConnectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectConnectionRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectConnectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectConnectionRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectConnectionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectConnectionRequest {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectConnectionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectConnectionRequest> for ::windows::runtime::IInspectable {
@@ -1031,7 +1031,7 @@ unsafe impl ::std::marker::Sync for WiFiDirectConnectionRequest {}
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectConnectionRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct WiFiDirectConnectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl WiFiDirectConnectionRequestedEventArgs {
     #[doc = "*Required features: `Devices_WiFiDirect`*"]
     pub fn GetConnectionRequest(&self) -> ::windows::runtime::Result<WiFiDirectConnectionRequest> {
@@ -1054,22 +1054,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectConnectionRequestedEventArgs 
 }
 impl ::std::convert::From<WiFiDirectConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectConnectionRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectConnectionRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectConnectionRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectConnectionRequestedEventArgs {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectConnectionRequestedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
@@ -1119,7 +1119,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectConnectionStatus {
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectDevice(::windows::runtime::IInspectable);
+pub struct WiFiDirectDevice(pub ::windows::runtime::IInspectable);
 impl WiFiDirectDevice {
     #[doc = "*Required features: `Devices_WiFiDirect`*"]
     pub fn ConnectionStatus(&self) -> ::windows::runtime::Result<WiFiDirectConnectionStatus> {
@@ -1218,22 +1218,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectDevice {
 }
 impl ::std::convert::From<WiFiDirectDevice> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectDevice> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectDevice {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectDevice> for ::windows::runtime::IInspectable {
@@ -1332,7 +1332,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectError {
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectInformationElement(::windows::runtime::IInspectable);
+pub struct WiFiDirectInformationElement(pub ::windows::runtime::IInspectable);
 impl WiFiDirectInformationElement {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1417,22 +1417,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectInformationElement {
 }
 impl ::std::convert::From<WiFiDirectInformationElement> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectInformationElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectInformationElement> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectInformationElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectInformationElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectInformationElement {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectInformationElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectInformationElement> for ::windows::runtime::IInspectable {
@@ -1460,7 +1460,7 @@ unsafe impl ::std::marker::Sync for WiFiDirectInformationElement {}
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct WiFiDirectLegacySettings(::windows::runtime::IInspectable);
+pub struct WiFiDirectLegacySettings(pub ::windows::runtime::IInspectable);
 impl WiFiDirectLegacySettings {
     #[doc = "*Required features: `Devices_WiFiDirect`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -1516,22 +1516,22 @@ impl ::windows::runtime::RuntimeName for WiFiDirectLegacySettings {
 }
 impl ::std::convert::From<WiFiDirectLegacySettings> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectLegacySettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&WiFiDirectLegacySettings> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectLegacySettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WiFiDirectLegacySettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WiFiDirectLegacySettings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WiFiDirectLegacySettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<WiFiDirectLegacySettings> for ::windows::runtime::IInspectable {

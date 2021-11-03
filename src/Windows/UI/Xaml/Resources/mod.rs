@@ -2,7 +2,7 @@
 #[doc = "*Required features: `UI_Xaml_Resources`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct CustomXamlResourceLoader(::windows::runtime::IInspectable);
+pub struct CustomXamlResourceLoader(pub ::windows::runtime::IInspectable);
 impl CustomXamlResourceLoader {
     #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn Current() -> ::windows::runtime::Result<CustomXamlResourceLoader> {
@@ -43,22 +43,22 @@ impl ::windows::runtime::RuntimeName for CustomXamlResourceLoader {
 }
 impl ::std::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
     fn from(value: CustomXamlResourceLoader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
     fn from(value: &CustomXamlResourceLoader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomXamlResourceLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CustomXamlResourceLoader {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CustomXamlResourceLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
@@ -85,7 +85,7 @@ unsafe impl ::std::marker::Send for CustomXamlResourceLoader {}
 unsafe impl ::std::marker::Sync for CustomXamlResourceLoader {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoader(::windows::runtime::IInspectable);
+pub struct ICustomXamlResourceLoader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoader {
     type Vtable = ICustomXamlResourceLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1360692395, 19080, 16799, [133, 46, 84, 8, 59, 144, 176, 120]);
@@ -102,7 +102,7 @@ pub struct ICustomXamlResourceLoader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderFactory(::windows::runtime::IInspectable);
+pub struct ICustomXamlResourceLoaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoaderFactory {
     type Vtable = ICustomXamlResourceLoaderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1543339593, 30854, 17651, [142, 211, 111, 236, 4, 99, 237, 105]);
@@ -120,7 +120,7 @@ pub struct ICustomXamlResourceLoaderFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderOverrides(::windows::runtime::IInspectable);
+pub struct ICustomXamlResourceLoaderOverrides(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoaderOverrides {
     type Vtable = ICustomXamlResourceLoaderOverrides_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166117777, 44802, 18152, [154, 248, 66, 123, 126, 191, 233, 248]);
@@ -138,7 +138,7 @@ pub struct ICustomXamlResourceLoaderOverrides_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderStatics(::windows::runtime::IInspectable);
+pub struct ICustomXamlResourceLoaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoaderStatics {
     type Vtable = ICustomXamlResourceLoaderStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(575665687, 58588, 19495, [173, 50, 219, 147, 213, 208, 229, 218]);

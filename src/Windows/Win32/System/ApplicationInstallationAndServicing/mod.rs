@@ -2174,7 +2174,7 @@ impl ::std::ops::Not for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAssemblyCache(::windows::runtime::IUnknown);
+pub struct IAssemblyCache(pub ::windows::runtime::IUnknown);
 impl IAssemblyCache {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -2208,22 +2208,22 @@ unsafe impl ::windows::runtime::Interface for IAssemblyCache {
 }
 impl ::std::convert::From<IAssemblyCache> for ::windows::runtime::IUnknown {
     fn from(value: IAssemblyCache) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAssemblyCache> for ::windows::runtime::IUnknown {
     fn from(value: &IAssemblyCache) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAssemblyCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAssemblyCache {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAssemblyCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2245,7 +2245,7 @@ pub struct IAssemblyCache_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAssemblyCacheItem(::windows::runtime::IUnknown);
+pub struct IAssemblyCacheItem(pub ::windows::runtime::IUnknown);
 impl IAssemblyCacheItem {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -2267,22 +2267,22 @@ unsafe impl ::windows::runtime::Interface for IAssemblyCacheItem {
 }
 impl ::std::convert::From<IAssemblyCacheItem> for ::windows::runtime::IUnknown {
     fn from(value: IAssemblyCacheItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAssemblyCacheItem> for ::windows::runtime::IUnknown {
     fn from(value: &IAssemblyCacheItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAssemblyCacheItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAssemblyCacheItem {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAssemblyCacheItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2299,7 +2299,7 @@ pub struct IAssemblyCacheItem_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IAssemblyName(::windows::runtime::IUnknown);
+pub struct IAssemblyName(pub ::windows::runtime::IUnknown);
 impl IAssemblyName {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::std::ffi::c_void, cbproperty: u32) -> ::windows::runtime::Result<()> {
@@ -2369,22 +2369,22 @@ unsafe impl ::windows::runtime::Interface for IAssemblyName {
 }
 impl ::std::convert::From<IAssemblyName> for ::windows::runtime::IUnknown {
     fn from(value: IAssemblyName) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IAssemblyName> for ::windows::runtime::IUnknown {
     fn from(value: &IAssemblyName) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAssemblyName {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAssemblyName {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAssemblyName {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2409,7 +2409,7 @@ pub struct IAssemblyName_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumMsmDependency(::windows::runtime::IUnknown);
+pub struct IEnumMsmDependency(pub ::windows::runtime::IUnknown);
 impl IEnumMsmDependency {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::std::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2435,22 +2435,22 @@ unsafe impl ::windows::runtime::Interface for IEnumMsmDependency {
 }
 impl ::std::convert::From<IEnumMsmDependency> for ::windows::runtime::IUnknown {
     fn from(value: IEnumMsmDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumMsmDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumMsmDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumMsmDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumMsmDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumMsmDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2467,7 +2467,7 @@ pub struct IEnumMsmDependency_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumMsmError(::windows::runtime::IUnknown);
+pub struct IEnumMsmError(pub ::windows::runtime::IUnknown);
 impl IEnumMsmError {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::std::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2493,22 +2493,22 @@ unsafe impl ::windows::runtime::Interface for IEnumMsmError {
 }
 impl ::std::convert::From<IEnumMsmError> for ::windows::runtime::IUnknown {
     fn from(value: IEnumMsmError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumMsmError> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumMsmError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumMsmError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumMsmError {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumMsmError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2525,7 +2525,7 @@ pub struct IEnumMsmError_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IEnumMsmString(::windows::runtime::IUnknown);
+pub struct IEnumMsmString(pub ::windows::runtime::IUnknown);
 impl IEnumMsmString {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -2552,22 +2552,22 @@ unsafe impl ::windows::runtime::Interface for IEnumMsmString {
 }
 impl ::std::convert::From<IEnumMsmString> for ::windows::runtime::IUnknown {
     fn from(value: IEnumMsmString) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IEnumMsmString> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumMsmString) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumMsmString {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumMsmString {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumMsmString {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -2585,7 +2585,7 @@ pub struct IEnumMsmString_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmDependencies(::windows::runtime::IUnknown);
+pub struct IMsmDependencies(pub ::windows::runtime::IUnknown);
 impl IMsmDependencies {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Item(&self, item: i32) -> ::windows::runtime::Result<IMsmDependency> {
@@ -2608,22 +2608,22 @@ unsafe impl ::windows::runtime::Interface for IMsmDependencies {
 }
 impl ::std::convert::From<IMsmDependencies> for ::windows::runtime::IUnknown {
     fn from(value: IMsmDependencies) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmDependencies> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmDependencies) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmDependencies {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmDependencies {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmDependencies {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2671,7 +2671,7 @@ pub struct IMsmDependencies_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmDependency(::windows::runtime::IUnknown);
+pub struct IMsmDependency(pub ::windows::runtime::IUnknown);
 impl IMsmDependency {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -2694,22 +2694,22 @@ unsafe impl ::windows::runtime::Interface for IMsmDependency {
 }
 impl ::std::convert::From<IMsmDependency> for ::windows::runtime::IUnknown {
     fn from(value: IMsmDependency) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmDependency> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmDependency) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmDependency {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmDependency {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2759,7 +2759,7 @@ pub struct IMsmDependency_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmError(::windows::runtime::IUnknown);
+pub struct IMsmError(pub ::windows::runtime::IUnknown);
 impl IMsmError {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Type(&self, errortype: *mut msmErrorType) -> ::windows::runtime::Result<()> {
@@ -2801,22 +2801,22 @@ unsafe impl ::windows::runtime::Interface for IMsmError {
 }
 impl ::std::convert::From<IMsmError> for ::windows::runtime::IUnknown {
     fn from(value: IMsmError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmError> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmError {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2871,7 +2871,7 @@ pub struct IMsmError_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmErrors(::windows::runtime::IUnknown);
+pub struct IMsmErrors(pub ::windows::runtime::IUnknown);
 impl IMsmErrors {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Item(&self, item: i32) -> ::windows::runtime::Result<IMsmError> {
@@ -2894,22 +2894,22 @@ unsafe impl ::windows::runtime::Interface for IMsmErrors {
 }
 impl ::std::convert::From<IMsmErrors> for ::windows::runtime::IUnknown {
     fn from(value: IMsmErrors) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmErrors> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmErrors) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmErrors {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmErrors {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmErrors {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2957,7 +2957,7 @@ pub struct IMsmErrors_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmGetFiles(::windows::runtime::IUnknown);
+pub struct IMsmGetFiles(pub ::windows::runtime::IUnknown);
 impl IMsmGetFiles {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ModuleFiles(&self) -> ::windows::runtime::Result<IMsmStrings> {
@@ -2971,22 +2971,22 @@ unsafe impl ::windows::runtime::Interface for IMsmGetFiles {
 }
 impl ::std::convert::From<IMsmGetFiles> for ::windows::runtime::IUnknown {
     fn from(value: IMsmGetFiles) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmGetFiles> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmGetFiles) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmGetFiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmGetFiles {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmGetFiles {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3032,7 +3032,7 @@ pub struct IMsmGetFiles_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmMerge(::windows::runtime::IUnknown);
+pub struct IMsmMerge(pub ::windows::runtime::IUnknown);
 impl IMsmMerge {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -3103,22 +3103,22 @@ unsafe impl ::windows::runtime::Interface for IMsmMerge {
 }
 impl ::std::convert::From<IMsmMerge> for ::windows::runtime::IUnknown {
     fn from(value: IMsmMerge) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmMerge> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmMerge) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmMerge {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmMerge {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmMerge {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3184,7 +3184,7 @@ pub struct IMsmMerge_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IMsmStrings(::windows::runtime::IUnknown);
+pub struct IMsmStrings(pub ::windows::runtime::IUnknown);
 impl IMsmStrings {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -3207,22 +3207,22 @@ unsafe impl ::windows::runtime::Interface for IMsmStrings {
 }
 impl ::std::convert::From<IMsmStrings> for ::windows::runtime::IUnknown {
     fn from(value: IMsmStrings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IMsmStrings> for ::windows::runtime::IUnknown {
     fn from(value: &IMsmStrings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMsmStrings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMsmStrings {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMsmStrings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3509,7 +3509,7 @@ pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::std::f
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMApplicationInfo(::windows::runtime::IUnknown);
+pub struct IPMApplicationInfo(pub ::windows::runtime::IUnknown);
 impl IPMApplicationInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3815,22 +3815,22 @@ unsafe impl ::windows::runtime::Interface for IPMApplicationInfo {
 }
 impl ::std::convert::From<IPMApplicationInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMApplicationInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMApplicationInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMApplicationInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMApplicationInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMApplicationInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMApplicationInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3940,7 +3940,7 @@ pub struct IPMApplicationInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMApplicationInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMApplicationInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMApplicationInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMApplicationInfo> {
@@ -3954,22 +3954,22 @@ unsafe impl ::windows::runtime::Interface for IPMApplicationInfoEnumerator {
 }
 impl ::std::convert::From<IPMApplicationInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMApplicationInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMApplicationInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMApplicationInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMApplicationInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMApplicationInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMApplicationInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -3983,7 +3983,7 @@ pub struct IPMApplicationInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMBackgroundServiceAgentInfo(::windows::runtime::IUnknown);
+pub struct IPMBackgroundServiceAgentInfo(pub ::windows::runtime::IUnknown);
 impl IPMBackgroundServiceAgentInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4066,22 +4066,22 @@ unsafe impl ::windows::runtime::Interface for IPMBackgroundServiceAgentInfo {
 }
 impl ::std::convert::From<IPMBackgroundServiceAgentInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundServiceAgentInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMBackgroundServiceAgentInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMBackgroundServiceAgentInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMBackgroundServiceAgentInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMBackgroundServiceAgentInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMBackgroundServiceAgentInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4120,7 +4120,7 @@ pub struct IPMBackgroundServiceAgentInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMBackgroundServiceAgentInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMBackgroundServiceAgentInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMBackgroundServiceAgentInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMBackgroundServiceAgentInfo> {
@@ -4134,22 +4134,22 @@ unsafe impl ::windows::runtime::Interface for IPMBackgroundServiceAgentInfoEnume
 }
 impl ::std::convert::From<IPMBackgroundServiceAgentInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundServiceAgentInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMBackgroundServiceAgentInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMBackgroundServiceAgentInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMBackgroundServiceAgentInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMBackgroundServiceAgentInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMBackgroundServiceAgentInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4163,7 +4163,7 @@ pub struct IPMBackgroundServiceAgentInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMBackgroundWorkerInfo(::windows::runtime::IUnknown);
+pub struct IPMBackgroundWorkerInfo(pub ::windows::runtime::IUnknown);
 impl IPMBackgroundWorkerInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -4203,22 +4203,22 @@ unsafe impl ::windows::runtime::Interface for IPMBackgroundWorkerInfo {
 }
 impl ::std::convert::From<IPMBackgroundWorkerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundWorkerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMBackgroundWorkerInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMBackgroundWorkerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMBackgroundWorkerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMBackgroundWorkerInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMBackgroundWorkerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4240,7 +4240,7 @@ pub struct IPMBackgroundWorkerInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMBackgroundWorkerInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMBackgroundWorkerInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMBackgroundWorkerInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMBackgroundWorkerInfo> {
@@ -4254,22 +4254,22 @@ unsafe impl ::windows::runtime::Interface for IPMBackgroundWorkerInfoEnumerator 
 }
 impl ::std::convert::From<IPMBackgroundWorkerInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMBackgroundWorkerInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMBackgroundWorkerInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMBackgroundWorkerInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMBackgroundWorkerInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMBackgroundWorkerInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMBackgroundWorkerInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4283,7 +4283,7 @@ pub struct IPMBackgroundWorkerInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMDeploymentManager(::windows::runtime::IUnknown);
+pub struct IPMDeploymentManager(pub ::windows::runtime::IUnknown);
 impl IPMDeploymentManager {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReportDownloadBegin<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, productid: Param0) -> ::windows::runtime::Result<()> {
@@ -4476,22 +4476,22 @@ unsafe impl ::windows::runtime::Interface for IPMDeploymentManager {
 }
 impl ::std::convert::From<IPMDeploymentManager> for ::windows::runtime::IUnknown {
     fn from(value: IPMDeploymentManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMDeploymentManager> for ::windows::runtime::IUnknown {
     fn from(value: &IPMDeploymentManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMDeploymentManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMDeploymentManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMDeploymentManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4553,7 +4553,7 @@ pub struct IPMDeploymentManager_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMEnumerationManager(::windows::runtime::IUnknown);
+pub struct IPMEnumerationManager(pub ::windows::runtime::IUnknown);
 impl IPMEnumerationManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -4657,22 +4657,22 @@ unsafe impl ::windows::runtime::Interface for IPMEnumerationManager {
 }
 impl ::std::convert::From<IPMEnumerationManager> for ::windows::runtime::IUnknown {
     fn from(value: IPMEnumerationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMEnumerationManager> for ::windows::runtime::IUnknown {
     fn from(value: &IPMEnumerationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMEnumerationManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMEnumerationManager {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMEnumerationManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4717,7 +4717,7 @@ pub struct IPMEnumerationManager_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionCachedFileUpdaterInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionCachedFileUpdaterInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionCachedFileUpdaterInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -4732,22 +4732,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionCachedFileUpdaterInfo 
 }
 impl ::std::convert::From<IPMExtensionCachedFileUpdaterInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionCachedFileUpdaterInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionCachedFileUpdaterInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionCachedFileUpdaterInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionCachedFileUpdaterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionCachedFileUpdaterInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionCachedFileUpdaterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4762,7 +4762,7 @@ pub struct IPMExtensionCachedFileUpdaterInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionContractInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionContractInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionContractInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -4776,22 +4776,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionContractInfo {
 }
 impl ::std::convert::From<IPMExtensionContractInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionContractInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionContractInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionContractInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionContractInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionContractInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionContractInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4806,7 +4806,7 @@ pub struct IPMExtensionContractInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionFileExtensionInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionFileExtensionInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionFileExtensionInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -4850,22 +4850,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionFileExtensionInfo {
 }
 impl ::std::convert::From<IPMExtensionFileExtensionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionFileExtensionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionFileExtensionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionFileExtensionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionFileExtensionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionFileExtensionInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionFileExtensionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4892,7 +4892,7 @@ pub struct IPMExtensionFileExtensionInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionFileOpenPickerInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionFileOpenPickerInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -4912,22 +4912,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionFileOpenPickerInfo {
 }
 impl ::std::convert::From<IPMExtensionFileOpenPickerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionFileOpenPickerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionFileOpenPickerInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionFileOpenPickerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionFileOpenPickerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionFileOpenPickerInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionFileOpenPickerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4944,7 +4944,7 @@ pub struct IPMExtensionFileOpenPickerInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionFileSavePickerInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionFileSavePickerInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -4964,22 +4964,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionFileSavePickerInfo {
 }
 impl ::std::convert::From<IPMExtensionFileSavePickerInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionFileSavePickerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionFileSavePickerInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionFileSavePickerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionFileSavePickerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionFileSavePickerInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionFileSavePickerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -4996,7 +4996,7 @@ pub struct IPMExtensionFileSavePickerInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn SupplierPID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5035,22 +5035,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionInfo {
 }
 impl ::std::convert::From<IPMExtensionInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5074,7 +5074,7 @@ pub struct IPMExtensionInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMExtensionInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMExtensionInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMExtensionInfo> {
@@ -5088,22 +5088,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionInfoEnumerator {
 }
 impl ::std::convert::From<IPMExtensionInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5117,7 +5117,7 @@ pub struct IPMExtensionInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionProtocolInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionProtocolInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionProtocolInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -5136,22 +5136,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionProtocolInfo {
 }
 impl ::std::convert::From<IPMExtensionProtocolInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionProtocolInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionProtocolInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionProtocolInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionProtocolInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionProtocolInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionProtocolInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5168,7 +5168,7 @@ pub struct IPMExtensionProtocolInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMExtensionShareTargetInfo(::windows::runtime::IUnknown);
+pub struct IPMExtensionShareTargetInfo(pub ::windows::runtime::IUnknown);
 impl IPMExtensionShareTargetInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -5193,22 +5193,22 @@ unsafe impl ::windows::runtime::Interface for IPMExtensionShareTargetInfo {
 }
 impl ::std::convert::From<IPMExtensionShareTargetInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMExtensionShareTargetInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMExtensionShareTargetInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMExtensionShareTargetInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMExtensionShareTargetInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMExtensionShareTargetInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMExtensionShareTargetInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5227,7 +5227,7 @@ pub struct IPMExtensionShareTargetInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMLiveTileJobInfo(::windows::runtime::IUnknown);
+pub struct IPMLiveTileJobInfo(pub ::windows::runtime::IUnknown);
 impl IPMLiveTileJobInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5349,22 +5349,22 @@ unsafe impl ::windows::runtime::Interface for IPMLiveTileJobInfo {
 }
 impl ::std::convert::From<IPMLiveTileJobInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMLiveTileJobInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMLiveTileJobInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMLiveTileJobInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMLiveTileJobInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMLiveTileJobInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMLiveTileJobInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5408,7 +5408,7 @@ pub struct IPMLiveTileJobInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMLiveTileJobInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMLiveTileJobInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMLiveTileJobInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMLiveTileJobInfo> {
@@ -5422,22 +5422,22 @@ unsafe impl ::windows::runtime::Interface for IPMLiveTileJobInfoEnumerator {
 }
 impl ::std::convert::From<IPMLiveTileJobInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMLiveTileJobInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMLiveTileJobInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMLiveTileJobInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMLiveTileJobInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMLiveTileJobInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMLiveTileJobInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5451,7 +5451,7 @@ pub struct IPMLiveTileJobInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMTaskInfo(::windows::runtime::IUnknown);
+pub struct IPMTaskInfo(pub ::windows::runtime::IUnknown);
 impl IPMTaskInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5568,22 +5568,22 @@ unsafe impl ::windows::runtime::Interface for IPMTaskInfo {
 }
 impl ::std::convert::From<IPMTaskInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMTaskInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMTaskInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMTaskInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMTaskInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMTaskInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMTaskInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5629,7 +5629,7 @@ pub struct IPMTaskInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMTaskInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMTaskInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMTaskInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMTaskInfo> {
@@ -5643,22 +5643,22 @@ unsafe impl ::windows::runtime::Interface for IPMTaskInfoEnumerator {
 }
 impl ::std::convert::From<IPMTaskInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMTaskInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMTaskInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMTaskInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMTaskInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMTaskInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMTaskInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5672,7 +5672,7 @@ pub struct IPMTaskInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMTileInfo(::windows::runtime::IUnknown);
+pub struct IPMTileInfo(pub ::windows::runtime::IUnknown);
 impl IPMTileInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5805,22 +5805,22 @@ unsafe impl ::windows::runtime::Interface for IPMTileInfo {
 }
 impl ::std::convert::From<IPMTileInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMTileInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMTileInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMTileInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMTileInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMTileInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMTileInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5872,7 +5872,7 @@ pub struct IPMTileInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMTileInfoEnumerator(::windows::runtime::IUnknown);
+pub struct IPMTileInfoEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMTileInfoEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMTileInfo> {
@@ -5886,22 +5886,22 @@ unsafe impl ::windows::runtime::Interface for IPMTileInfoEnumerator {
 }
 impl ::std::convert::From<IPMTileInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMTileInfoEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMTileInfoEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMTileInfoEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMTileInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMTileInfoEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMTileInfoEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5915,7 +5915,7 @@ pub struct IPMTileInfoEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMTilePropertyEnumerator(::windows::runtime::IUnknown);
+pub struct IPMTilePropertyEnumerator(pub ::windows::runtime::IUnknown);
 impl IPMTilePropertyEnumerator {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::runtime::Result<IPMTilePropertyInfo> {
@@ -5929,22 +5929,22 @@ unsafe impl ::windows::runtime::Interface for IPMTilePropertyEnumerator {
 }
 impl ::std::convert::From<IPMTilePropertyEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IPMTilePropertyEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMTilePropertyEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IPMTilePropertyEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMTilePropertyEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMTilePropertyEnumerator {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMTilePropertyEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -5958,7 +5958,7 @@ pub struct IPMTilePropertyEnumerator_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IPMTilePropertyInfo(::windows::runtime::IUnknown);
+pub struct IPMTilePropertyInfo(pub ::windows::runtime::IUnknown);
 impl IPMTilePropertyInfo {
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn PropertyID(&self) -> ::windows::runtime::Result<u32> {
@@ -5982,22 +5982,22 @@ unsafe impl ::windows::runtime::Interface for IPMTilePropertyInfo {
 }
 impl ::std::convert::From<IPMTilePropertyInfo> for ::windows::runtime::IUnknown {
     fn from(value: IPMTilePropertyInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IPMTilePropertyInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IPMTilePropertyInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPMTilePropertyInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPMTilePropertyInfo {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPMTilePropertyInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]
@@ -6015,7 +6015,7 @@ pub struct IPMTilePropertyInfo_abi(
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IValidate(::windows::runtime::IUnknown);
+pub struct IValidate(pub ::windows::runtime::IUnknown);
 impl IValidate {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -6057,22 +6057,22 @@ unsafe impl ::windows::runtime::Interface for IValidate {
 }
 impl ::std::convert::From<IValidate> for ::windows::runtime::IUnknown {
     fn from(value: IValidate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0
     }
 }
 impl ::std::convert::From<&IValidate> for ::windows::runtime::IUnknown {
     fn from(value: &IValidate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IValidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IValidate {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IValidate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 #[repr(C)]

@@ -2,7 +2,7 @@
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IAnnotationProvider(::windows::runtime::IInspectable);
+pub struct IAnnotationProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512000023, 17463, 17691, [148, 97, 5, 10, 73, 181, 157, 6]);
@@ -54,22 +54,22 @@ unsafe impl ::windows::runtime::RuntimeType for IAnnotationProvider {
 }
 impl ::std::convert::From<IAnnotationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IAnnotationProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IAnnotationProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IAnnotationProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAnnotationProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAnnotationProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAnnotationProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IAnnotationProvider> for ::windows::runtime::IInspectable {
@@ -110,7 +110,7 @@ pub struct IAnnotationProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ICustomNavigationProvider(::windows::runtime::IInspectable);
+pub struct ICustomNavigationProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(735618768, 12195, 18199, [178, 140, 73, 23, 206, 84, 146, 141]);
@@ -131,22 +131,22 @@ unsafe impl ::windows::runtime::RuntimeType for ICustomNavigationProvider {
 }
 impl ::std::convert::From<ICustomNavigationProvider> for ::windows::runtime::IUnknown {
     fn from(value: ICustomNavigationProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ICustomNavigationProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ICustomNavigationProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICustomNavigationProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICustomNavigationProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICustomNavigationProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ICustomNavigationProvider> for ::windows::runtime::IInspectable {
@@ -184,7 +184,7 @@ pub struct ICustomNavigationProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IDockProvider(::windows::runtime::IInspectable);
+pub struct IDockProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDockProvider {
     type Vtable = IDockProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220690936, 30897, 17568, [172, 95, 117, 7, 87, 188, 222, 60]);
@@ -209,22 +209,22 @@ unsafe impl ::windows::runtime::RuntimeType for IDockProvider {
 }
 impl ::std::convert::From<IDockProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDockProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IDockProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IDockProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDockProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDockProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDockProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IDockProvider> for ::windows::runtime::IInspectable {
@@ -262,7 +262,7 @@ pub struct IDockProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IDragProvider(::windows::runtime::IInspectable);
+pub struct IDragProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragProvider {
     type Vtable = IDragProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(779585193, 32764, 20311, [185, 101, 30, 241, 243, 115, 245, 70]);
@@ -306,22 +306,22 @@ unsafe impl ::windows::runtime::RuntimeType for IDragProvider {
 }
 impl ::std::convert::From<IDragProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDragProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IDragProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IDragProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDragProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDragProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDragProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IDragProvider> for ::windows::runtime::IInspectable {
@@ -361,7 +361,7 @@ pub struct IDragProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IDropTargetProvider(::windows::runtime::IInspectable);
+pub struct IDropTargetProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2049203165, 46168, 20448, [152, 200, 170, 200, 157, 245, 109, 97]);
@@ -389,22 +389,22 @@ unsafe impl ::windows::runtime::RuntimeType for IDropTargetProvider {
 }
 impl ::std::convert::From<IDropTargetProvider> for ::windows::runtime::IUnknown {
     fn from(value: IDropTargetProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IDropTargetProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IDropTargetProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDropTargetProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDropTargetProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDropTargetProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IDropTargetProvider> for ::windows::runtime::IInspectable {
@@ -442,7 +442,7 @@ pub struct IDropTargetProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IExpandCollapseProvider(::windows::runtime::IInspectable);
+pub struct IExpandCollapseProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1236042649, 54822, 17731, [148, 185, 166, 217, 169, 89, 58, 246]);
@@ -472,22 +472,22 @@ unsafe impl ::windows::runtime::RuntimeType for IExpandCollapseProvider {
 }
 impl ::std::convert::From<IExpandCollapseProvider> for ::windows::runtime::IUnknown {
     fn from(value: IExpandCollapseProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IExpandCollapseProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IExpandCollapseProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IExpandCollapseProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IExpandCollapseProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IExpandCollapseProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IExpandCollapseProvider> for ::windows::runtime::IInspectable {
@@ -526,7 +526,7 @@ pub struct IExpandCollapseProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IGridItemProvider(::windows::runtime::IInspectable);
+pub struct IGridItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridItemProvider {
     type Vtable = IGridItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294142012, 29703, 17851, [169, 54, 223, 62, 214, 211, 131, 125]);
@@ -578,22 +578,22 @@ unsafe impl ::windows::runtime::RuntimeType for IGridItemProvider {
 }
 impl ::std::convert::From<IGridItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: IGridItemProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IGridItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IGridItemProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGridItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGridItemProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGridItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IGridItemProvider> for ::windows::runtime::IInspectable {
@@ -634,7 +634,7 @@ pub struct IGridItemProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IGridProvider(::windows::runtime::IInspectable);
+pub struct IGridProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridProvider {
     type Vtable = IGridProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2338502560, 37676, 17552, [154, 19, 2, 253, 179, 154, 143, 91]);
@@ -670,22 +670,22 @@ unsafe impl ::windows::runtime::RuntimeType for IGridProvider {
 }
 impl ::std::convert::From<IGridProvider> for ::windows::runtime::IUnknown {
     fn from(value: IGridProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IGridProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IGridProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGridProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGridProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGridProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IGridProvider> for ::windows::runtime::IInspectable {
@@ -723,7 +723,7 @@ pub struct IGridProvider_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIRawElementProviderSimple(::windows::runtime::IInspectable);
+pub struct IIRawElementProviderSimple(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIRawElementProviderSimple {
     type Vtable = IIRawElementProviderSimple_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967099428, 39799, 18208, [187, 33, 74, 200, 159, 219, 26, 253]);
@@ -741,7 +741,7 @@ pub struct IIRawElementProviderSimple_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IInvokeProvider(::windows::runtime::IInspectable);
+pub struct IInvokeProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInvokeProvider {
     type Vtable = IInvokeProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157710727, 45372, 17728, [176, 158, 103, 120, 226, 220, 155, 165]);
@@ -758,22 +758,22 @@ unsafe impl ::windows::runtime::RuntimeType for IInvokeProvider {
 }
 impl ::std::convert::From<IInvokeProvider> for ::windows::runtime::IUnknown {
     fn from(value: IInvokeProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IInvokeProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IInvokeProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInvokeProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInvokeProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInvokeProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IInvokeProvider> for ::windows::runtime::IInspectable {
@@ -810,7 +810,7 @@ pub struct IInvokeProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IItemContainerProvider(::windows::runtime::IInspectable);
+pub struct IItemContainerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4015839301, 57812, 16628, [186, 213, 199, 250, 212, 74, 112, 62]);
@@ -830,22 +830,22 @@ unsafe impl ::windows::runtime::RuntimeType for IItemContainerProvider {
 }
 impl ::std::convert::From<IItemContainerProvider> for ::windows::runtime::IUnknown {
     fn from(value: IItemContainerProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IItemContainerProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IItemContainerProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IItemContainerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IItemContainerProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IItemContainerProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IItemContainerProvider> for ::windows::runtime::IInspectable {
@@ -882,7 +882,7 @@ pub struct IItemContainerProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IMultipleViewProvider(::windows::runtime::IInspectable);
+pub struct IMultipleViewProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491029398, 3664, 18499, [165, 210, 194, 40, 151, 200, 132, 90]);
@@ -923,22 +923,22 @@ unsafe impl ::windows::runtime::RuntimeType for IMultipleViewProvider {
 }
 impl ::std::convert::From<IMultipleViewProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMultipleViewProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IMultipleViewProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IMultipleViewProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultipleViewProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultipleViewProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMultipleViewProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IMultipleViewProvider> for ::windows::runtime::IInspectable {
@@ -978,7 +978,7 @@ pub struct IMultipleViewProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IObjectModelProvider(::windows::runtime::IInspectable);
+pub struct IObjectModelProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284809401, 1939, 20176, [187, 244, 159, 244, 224, 249, 143, 128]);
@@ -998,22 +998,22 @@ unsafe impl ::windows::runtime::RuntimeType for IObjectModelProvider {
 }
 impl ::std::convert::From<IObjectModelProvider> for ::windows::runtime::IUnknown {
     fn from(value: IObjectModelProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IObjectModelProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IObjectModelProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IObjectModelProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IObjectModelProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IObjectModelProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IObjectModelProvider> for ::windows::runtime::IInspectable {
@@ -1050,7 +1050,7 @@ pub struct IObjectModelProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IRangeValueProvider(::windows::runtime::IInspectable);
+pub struct IRangeValueProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2206872744, 32095, 16505, [175, 3, 195, 208, 21, 233, 52, 19]);
@@ -1115,22 +1115,22 @@ unsafe impl ::windows::runtime::RuntimeType for IRangeValueProvider {
 }
 impl ::std::convert::From<IRangeValueProvider> for ::windows::runtime::IUnknown {
     fn from(value: IRangeValueProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IRangeValueProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IRangeValueProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRangeValueProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRangeValueProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRangeValueProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IRangeValueProvider> for ::windows::runtime::IInspectable {
@@ -1173,7 +1173,7 @@ pub struct IRangeValueProvider_abi(
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct IRawElementProviderSimple(::windows::runtime::IInspectable);
+pub struct IRawElementProviderSimple(pub ::windows::runtime::IInspectable);
 impl IRawElementProviderSimple {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
@@ -1244,22 +1244,22 @@ impl ::windows::runtime::RuntimeName for IRawElementProviderSimple {
 }
 impl ::std::convert::From<IRawElementProviderSimple> for ::windows::runtime::IUnknown {
     fn from(value: IRawElementProviderSimple) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IRawElementProviderSimple> for ::windows::runtime::IUnknown {
     fn from(value: &IRawElementProviderSimple) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderSimple {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderSimple {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRawElementProviderSimple {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IRawElementProviderSimple> for ::windows::runtime::IInspectable {
@@ -1307,7 +1307,7 @@ unsafe impl ::std::marker::Sync for IRawElementProviderSimple {}
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IScrollItemProvider(::windows::runtime::IInspectable);
+pub struct IScrollItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2587803792, 23852, 20034, [158, 230, 157, 88, 219, 16, 11, 85]);
@@ -1324,22 +1324,22 @@ unsafe impl ::windows::runtime::RuntimeType for IScrollItemProvider {
 }
 impl ::std::convert::From<IScrollItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: IScrollItemProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IScrollItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IScrollItemProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScrollItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IScrollItemProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IScrollItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IScrollItemProvider> for ::windows::runtime::IInspectable {
@@ -1376,7 +1376,7 @@ pub struct IScrollItemProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IScrollProvider(::windows::runtime::IInspectable);
+pub struct IScrollProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollProvider {
     type Vtable = IScrollProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(927724929, 30486, 19388, [130, 235, 217, 151, 0, 110, 169, 153]);
@@ -1446,22 +1446,22 @@ unsafe impl ::windows::runtime::RuntimeType for IScrollProvider {
 }
 impl ::std::convert::From<IScrollProvider> for ::windows::runtime::IUnknown {
     fn from(value: IScrollProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IScrollProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IScrollProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScrollProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IScrollProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IScrollProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IScrollProvider> for ::windows::runtime::IInspectable {
@@ -1505,7 +1505,7 @@ pub struct IScrollProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ISelectionItemProvider(::windows::runtime::IInspectable);
+pub struct ISelectionItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1783199681, 33549, 17106, [191, 98, 4, 46, 189, 222, 204, 25]);
@@ -1548,22 +1548,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISelectionItemProvider {
 }
 impl ::std::convert::From<ISelectionItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISelectionItemProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISelectionItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISelectionItemProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISelectionItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISelectionItemProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISelectionItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISelectionItemProvider> for ::windows::runtime::IInspectable {
@@ -1604,7 +1604,7 @@ pub struct ISelectionItemProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ISelectionProvider(::windows::runtime::IInspectable);
+pub struct ISelectionProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionProvider {
     type Vtable = ISelectionProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520196042, 47428, 17301, [141, 225, 136, 246, 116, 175, 81, 211]);
@@ -1640,22 +1640,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISelectionProvider {
 }
 impl ::std::convert::From<ISelectionProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISelectionProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISelectionProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISelectionProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISelectionProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISelectionProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISelectionProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISelectionProvider> for ::windows::runtime::IInspectable {
@@ -1694,7 +1694,7 @@ pub struct ISelectionProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ISpreadsheetItemProvider(::windows::runtime::IInspectable);
+pub struct ISpreadsheetItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3957231506, 24597, 18470, [183, 25, 71, 82, 26, 129, 198, 126]);
@@ -1730,22 +1730,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISpreadsheetItemProvider {
 }
 impl ::std::convert::From<ISpreadsheetItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISpreadsheetItemProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISpreadsheetItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISpreadsheetItemProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpreadsheetItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpreadsheetItemProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpreadsheetItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISpreadsheetItemProvider> for ::windows::runtime::IInspectable {
@@ -1784,7 +1784,7 @@ pub struct ISpreadsheetItemProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ISpreadsheetProvider(::windows::runtime::IInspectable);
+pub struct ISpreadsheetProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355831955, 48537, 19709, [159, 7, 59, 20, 179, 21, 226, 61]);
@@ -1804,22 +1804,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISpreadsheetProvider {
 }
 impl ::std::convert::From<ISpreadsheetProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISpreadsheetProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISpreadsheetProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISpreadsheetProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpreadsheetProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpreadsheetProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpreadsheetProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISpreadsheetProvider> for ::windows::runtime::IInspectable {
@@ -1856,7 +1856,7 @@ pub struct ISpreadsheetProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IStylesProvider(::windows::runtime::IInspectable);
+pub struct IStylesProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStylesProvider {
     type Vtable = IStylesProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442202647, 31745, 19436, [156, 212, 45, 250, 125, 194, 70, 205]);
@@ -1924,22 +1924,22 @@ unsafe impl ::windows::runtime::RuntimeType for IStylesProvider {
 }
 impl ::std::convert::From<IStylesProvider> for ::windows::runtime::IUnknown {
     fn from(value: IStylesProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IStylesProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IStylesProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStylesProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStylesProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStylesProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IStylesProvider> for ::windows::runtime::IInspectable {
@@ -1982,7 +1982,7 @@ pub struct IStylesProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ISynchronizedInputProvider(::windows::runtime::IInspectable);
+pub struct ISynchronizedInputProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029754571, 55892, 19107, [185, 21, 227, 36, 68, 39, 212, 172]);
@@ -2004,22 +2004,22 @@ unsafe impl ::windows::runtime::RuntimeType for ISynchronizedInputProvider {
 }
 impl ::std::convert::From<ISynchronizedInputProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISynchronizedInputProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ISynchronizedInputProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISynchronizedInputProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISynchronizedInputProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISynchronizedInputProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISynchronizedInputProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ISynchronizedInputProvider> for ::windows::runtime::IInspectable {
@@ -2057,7 +2057,7 @@ pub struct ISynchronizedInputProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITableItemProvider(::windows::runtime::IInspectable);
+pub struct ITableItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableItemProvider {
     type Vtable = ITableItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(992758221, 7650, 20194, [163, 225, 251, 85, 53, 89, 209, 93]);
@@ -2085,22 +2085,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITableItemProvider {
 }
 impl ::std::convert::From<ITableItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITableItemProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITableItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITableItemProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableItemProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITableItemProvider> for ::windows::runtime::IInspectable {
@@ -2138,7 +2138,7 @@ pub struct ITableItemProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITableProvider(::windows::runtime::IInspectable);
+pub struct ITableProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableProvider {
     type Vtable = ITableProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2056180633, 26660, 17813, [186, 179, 70, 75, 201, 160, 68, 23]);
@@ -2174,22 +2174,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITableProvider {
 }
 impl ::std::convert::From<ITableProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITableProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITableProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITableProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITableProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITableProvider> for ::windows::runtime::IInspectable {
@@ -2228,7 +2228,7 @@ pub struct ITableProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITextChildProvider(::windows::runtime::IInspectable);
+pub struct ITextChildProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextChildProvider {
     type Vtable = ITextChildProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(288604982, 43163, 16688, [155, 230, 85, 227, 51, 52, 245, 87]);
@@ -2256,22 +2256,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITextChildProvider {
 }
 impl ::std::convert::From<ITextChildProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextChildProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITextChildProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITextChildProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextChildProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextChildProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextChildProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITextChildProvider> for ::windows::runtime::IInspectable {
@@ -2309,7 +2309,7 @@ pub struct ITextChildProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITextEditProvider(::windows::runtime::IInspectable);
+pub struct ITextEditProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextEditProvider {
     type Vtable = ITextEditProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929408948, 14853, 16398, [181, 249, 78, 145, 180, 15, 97, 118]);
@@ -2386,22 +2386,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITextEditProvider {
 }
 impl ::std::convert::From<ITextEditProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextEditProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITextEditProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITextEditProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextEditProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextEditProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextEditProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITextEditProvider> for ::windows::runtime::IInspectable {
@@ -2461,7 +2461,7 @@ pub struct ITextEditProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITextProvider(::windows::runtime::IInspectable);
+pub struct ITextProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextProvider {
     type Vtable = ITextProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680222367, 18439, 20266, [134, 120, 27, 19, 243, 198, 14, 34]);
@@ -2522,22 +2522,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITextProvider {
 }
 impl ::std::convert::From<ITextProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITextProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITextProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITextProvider> for ::windows::runtime::IInspectable {
@@ -2580,7 +2580,7 @@ pub struct ITextProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITextProvider2(::windows::runtime::IInspectable);
+pub struct ITextProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextProvider2 {
     type Vtable = ITextProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3743238332, 1159, 20095, [157, 94, 240, 158, 119, 228, 18, 70]);
@@ -2657,22 +2657,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITextProvider2 {
 }
 impl ::std::convert::From<ITextProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ITextProvider2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITextProvider2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextProvider2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextProvider2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITextProvider2> for ::windows::runtime::IInspectable {
@@ -2732,7 +2732,7 @@ pub struct ITextProvider2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITextRangeProvider(::windows::runtime::IInspectable);
+pub struct ITextRangeProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41183373, 1769, 20326, [148, 70, 40, 165, 190, 152, 251, 208]);
@@ -2872,22 +2872,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITextRangeProvider {
 }
 impl ::std::convert::From<ITextRangeProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITextRangeProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITextRangeProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITextRangeProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRangeProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRangeProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextRangeProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITextRangeProvider> for ::windows::runtime::IInspectable {
@@ -2946,7 +2946,7 @@ pub struct ITextRangeProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITextRangeProvider2(::windows::runtime::IInspectable);
+pub struct ITextRangeProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3552460283, 40788, 17986, [167, 165, 92, 24, 213, 238, 42, 63]);
@@ -3091,22 +3091,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITextRangeProvider2 {
 }
 impl ::std::convert::From<ITextRangeProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ITextRangeProvider2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITextRangeProvider2> for ::windows::runtime::IUnknown {
     fn from(value: &ITextRangeProvider2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRangeProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRangeProvider2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITextRangeProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITextRangeProvider2> for ::windows::runtime::IInspectable {
@@ -3165,7 +3165,7 @@ pub struct ITextRangeProvider2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IToggleProvider(::windows::runtime::IInspectable);
+pub struct IToggleProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToggleProvider {
     type Vtable = IToggleProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2478342800, 25967, 17655, [174, 175, 120, 184, 249, 68, 208, 98]);
@@ -3190,22 +3190,22 @@ unsafe impl ::windows::runtime::RuntimeType for IToggleProvider {
 }
 impl ::std::convert::From<IToggleProvider> for ::windows::runtime::IUnknown {
     fn from(value: IToggleProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IToggleProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IToggleProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IToggleProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IToggleProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IToggleProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IToggleProvider> for ::windows::runtime::IInspectable {
@@ -3243,7 +3243,7 @@ pub struct IToggleProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITransformProvider(::windows::runtime::IInspectable);
+pub struct ITransformProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformProvider {
     type Vtable = ITransformProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036797405, 63145, 19045, [175, 23, 134, 29, 183, 153, 162, 218]);
@@ -3294,22 +3294,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITransformProvider {
 }
 impl ::std::convert::From<ITransformProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITransformProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITransformProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITransformProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransformProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransformProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITransformProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITransformProvider> for ::windows::runtime::IInspectable {
@@ -3351,7 +3351,7 @@ pub struct ITransformProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct ITransformProvider2(::windows::runtime::IInspectable);
+pub struct ITransformProvider2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2830178134, 41887, 20119, [140, 125, 193, 234, 141, 214, 51, 197]);
@@ -3444,22 +3444,22 @@ unsafe impl ::windows::runtime::RuntimeType for ITransformProvider2 {
 }
 impl ::std::convert::From<ITransformProvider2> for ::windows::runtime::IUnknown {
     fn from(value: ITransformProvider2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&ITransformProvider2> for ::windows::runtime::IUnknown {
     fn from(value: &ITransformProvider2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransformProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransformProvider2 {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITransformProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<ITransformProvider2> for ::windows::runtime::IInspectable {
@@ -3523,7 +3523,7 @@ pub struct ITransformProvider2_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IValueProvider(::windows::runtime::IInspectable);
+pub struct IValueProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValueProvider {
     type Vtable = IValueProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(545699751, 44046, 18385, [171, 155, 42, 100, 41, 42, 253, 248]);
@@ -3556,22 +3556,22 @@ unsafe impl ::windows::runtime::RuntimeType for IValueProvider {
 }
 impl ::std::convert::From<IValueProvider> for ::windows::runtime::IUnknown {
     fn from(value: IValueProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IValueProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IValueProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IValueProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IValueProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IValueProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IValueProvider> for ::windows::runtime::IInspectable {
@@ -3610,7 +3610,7 @@ pub struct IValueProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IVirtualizedItemProvider(::windows::runtime::IInspectable);
+pub struct IVirtualizedItemProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399810635, 54872, 18656, [165, 116, 90, 81, 108, 88, 223, 167]);
@@ -3627,22 +3627,22 @@ unsafe impl ::windows::runtime::RuntimeType for IVirtualizedItemProvider {
 }
 impl ::std::convert::From<IVirtualizedItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: IVirtualizedItemProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IVirtualizedItemProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IVirtualizedItemProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVirtualizedItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVirtualizedItemProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVirtualizedItemProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IVirtualizedItemProvider> for ::windows::runtime::IInspectable {
@@ -3679,7 +3679,7 @@ pub struct IVirtualizedItemProvider_abi(
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
-pub struct IWindowProvider(::windows::runtime::IInspectable);
+pub struct IWindowProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowProvider {
     type Vtable = IWindowProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464161597, 14543, 16730, [133, 211, 32, 228, 58, 14, 193, 177]);
@@ -3757,22 +3757,22 @@ unsafe impl ::windows::runtime::RuntimeType for IWindowProvider {
 }
 impl ::std::convert::From<IWindowProvider> for ::windows::runtime::IUnknown {
     fn from(value: IWindowProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&IWindowProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IWindowProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowProvider {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWindowProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<IWindowProvider> for ::windows::runtime::IInspectable {

@@ -117,7 +117,7 @@ impl ::windows::runtime::DefaultType for HdmiDisplayHdrOption {
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HdmiDisplayInformation(::windows::runtime::IInspectable);
+pub struct HdmiDisplayInformation(pub ::windows::runtime::IInspectable);
 impl HdmiDisplayInformation {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Graphics_Display_Core`, `Foundation_Collections`*"]
@@ -211,22 +211,22 @@ impl ::windows::runtime::RuntimeName for HdmiDisplayInformation {
 }
 impl ::std::convert::From<HdmiDisplayInformation> for ::windows::runtime::IUnknown {
     fn from(value: HdmiDisplayInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IUnknown {
     fn from(value: &HdmiDisplayInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HdmiDisplayInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HdmiDisplayInformation {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HdmiDisplayInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HdmiDisplayInformation> for ::windows::runtime::IInspectable {
@@ -254,7 +254,7 @@ unsafe impl ::std::marker::Sync for HdmiDisplayInformation {}
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-pub struct HdmiDisplayMode(::windows::runtime::IInspectable);
+pub struct HdmiDisplayMode(pub ::windows::runtime::IInspectable);
 impl HdmiDisplayMode {
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn ResolutionWidthInRawPixels(&self) -> ::windows::runtime::Result<u32> {
@@ -365,22 +365,22 @@ impl ::windows::runtime::RuntimeName for HdmiDisplayMode {
 }
 impl ::std::convert::From<HdmiDisplayMode> for ::windows::runtime::IUnknown {
     fn from(value: HdmiDisplayMode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        value.0 .0
     }
 }
 impl ::std::convert::From<&HdmiDisplayMode> for ::windows::runtime::IUnknown {
     fn from(value: &HdmiDisplayMode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        value.0 .0.clone()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HdmiDisplayMode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+        ::windows::runtime::Param::Owned(self.0 .0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HdmiDisplayMode {
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HdmiDisplayMode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
 impl ::std::convert::From<HdmiDisplayMode> for ::windows::runtime::IInspectable {
@@ -431,7 +431,7 @@ impl ::windows::runtime::DefaultType for HdmiDisplayPixelEncoding {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayInformation(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(319503370, 62821, 18286, [171, 213, 234, 5, 174, 231, 76, 105]);
@@ -463,7 +463,7 @@ pub struct IHdmiDisplayInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayInformationStatics(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayInformationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformationStatics {
     type Vtable = IHdmiDisplayInformationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1827058272, 62506, 18965, [145, 76, 123, 142, 42, 90, 101, 223]);
@@ -481,7 +481,7 @@ pub struct IHdmiDisplayInformationStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayMode(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayMode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201774509, 7056, 20305, [153, 129, 239, 90, 28, 13, 223, 102]);
@@ -509,7 +509,7 @@ pub struct IHdmiDisplayMode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHdmiDisplayMode2(::windows::runtime::IInspectable);
+pub struct IHdmiDisplayMode2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode2 {
     type Vtable = IHdmiDisplayMode2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(130895519, 19260, 17080, [132, 231, 137, 83, 104, 113, 138, 242]);
