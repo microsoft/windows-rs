@@ -1,7 +1,8 @@
 use super::*;
 
-pub trait DefaultType: Sized + Clone {
-    type DefaultType: Sized + Clone;
+// TODO: avoid these constraints on DefaultType entirely
+pub trait DefaultType: Sized + Clone + PartialEq {
+    type DefaultType: Sized + Clone + PartialEq;
 
     /// # Safety
     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
@@ -10,7 +11,7 @@ pub trait DefaultType: Sized + Clone {
     }
 }
 
-impl<T: Interface + Clone> DefaultType for T {
+impl<T: Interface + Clone + PartialEq> DefaultType for T {
     type DefaultType = Option<T>;
 
     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
