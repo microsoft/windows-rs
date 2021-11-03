@@ -64,12 +64,32 @@ unsafe impl ::windows::runtime::Abi for AdrEmailFlags {
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DIFsrmClassificationEvents(::windows::runtime::IUnknown);
 impl DIFsrmClassificationEvents {}
 unsafe impl ::windows::runtime::Interface for DIFsrmClassificationEvents {
     type Vtable = DIFsrmClassificationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647245232, 55999, 16856, [187, 221, 177, 41, 169, 247, 4, 36]);
+}
+impl ::std::convert::From<DIFsrmClassificationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: DIFsrmClassificationEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DIFsrmClassificationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &DIFsrmClassificationEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DIFsrmClassificationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DIFsrmClassificationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DIFsrmClassificationEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -1065,7 +1085,7 @@ unsafe impl ::windows::runtime::Abi for FsrmTemplateApplyOptions {
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmAccessDeniedRemediationClient(::windows::runtime::IUnknown);
 impl IFsrmAccessDeniedRemediationClient {
     #[cfg(feature = "Win32_Foundation")]
@@ -1078,6 +1098,26 @@ impl IFsrmAccessDeniedRemediationClient {
 unsafe impl ::windows::runtime::Interface for IFsrmAccessDeniedRemediationClient {
     type Vtable = IFsrmAccessDeniedRemediationClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1073750804, 22795, 17829, [142, 27, 140, 5, 218, 82, 126, 82]);
+}
+impl ::std::convert::From<IFsrmAccessDeniedRemediationClient> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmAccessDeniedRemediationClient) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmAccessDeniedRemediationClient> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmAccessDeniedRemediationClient) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmAccessDeniedRemediationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmAccessDeniedRemediationClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmAccessDeniedRemediationClient> for super::super::System::Ole::Automation::IDispatch {
@@ -1122,7 +1162,7 @@ pub struct IFsrmAccessDeniedRemediationClient_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmAction(::windows::runtime::IUnknown);
 impl IFsrmAction {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1152,6 +1192,26 @@ impl IFsrmAction {
 unsafe impl ::windows::runtime::Interface for IFsrmAction {
     type Vtable = IFsrmAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1825980554, 44640, 17979, [158, 241, 225, 23, 83, 77, 105, 220]);
+}
+impl ::std::convert::From<IFsrmAction> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmAction) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmAction> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmAction) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmAction> for super::super::System::Ole::Automation::IDispatch {
@@ -1199,7 +1259,7 @@ pub struct IFsrmAction_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionCommand(::windows::runtime::IUnknown);
 impl IFsrmActionCommand {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1320,6 +1380,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmActionCommand {
     type Vtable = IFsrmActionCommand_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311654281, 57927, 18711, [156, 32, 243, 238, 156, 126, 231, 131]);
 }
+impl ::std::convert::From<IFsrmActionCommand> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmActionCommand) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmActionCommand> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmActionCommand) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmActionCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmActionCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmActionCommand> for IFsrmAction {
     fn from(value: IFsrmActionCommand) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1406,7 +1486,7 @@ pub struct IFsrmActionCommand_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionEmail(::windows::runtime::IUnknown);
 impl IFsrmActionEmail {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1535,6 +1615,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmActionEmail {
     type Vtable = IFsrmActionEmail_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3594933885, 9902, 19626, [159, 132, 78, 10, 173, 32, 127, 202]);
 }
+impl ::std::convert::From<IFsrmActionEmail> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmActionEmail) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmActionEmail> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmActionEmail) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmActionEmail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmActionEmail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmActionEmail> for IFsrmAction {
     fn from(value: IFsrmActionEmail) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1629,7 +1729,7 @@ pub struct IFsrmActionEmail_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionEmail2(::windows::runtime::IUnknown);
 impl IFsrmActionEmail2 {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1767,6 +1867,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmActionEmail2 {
     type Vtable = IFsrmActionEmail2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2188800047, 9522, 18489, [137, 191, 72, 114, 96, 154, 46, 164]);
 }
+impl ::std::convert::From<IFsrmActionEmail2> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmActionEmail2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmActionEmail2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmActionEmail2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmActionEmail2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmActionEmail2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmActionEmail2> for IFsrmActionEmail {
     fn from(value: IFsrmActionEmail2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1883,7 +2003,7 @@ pub struct IFsrmActionEmail2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionEventLog(::windows::runtime::IUnknown);
 impl IFsrmActionEventLog {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1954,6 +2074,26 @@ impl IFsrmActionEventLog {
 unsafe impl ::windows::runtime::Interface for IFsrmActionEventLog {
     type Vtable = IFsrmActionEventLog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284478659, 23956, 20279, [164, 244, 245, 106, 180, 99, 84, 111]);
+}
+impl ::std::convert::From<IFsrmActionEventLog> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmActionEventLog) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmActionEventLog> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmActionEventLog) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmActionEventLog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmActionEventLog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmActionEventLog> for IFsrmAction {
     fn from(value: IFsrmActionEventLog) -> Self {
@@ -2027,7 +2167,7 @@ pub struct IFsrmActionEventLog_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionReport(::windows::runtime::IUnknown);
 impl IFsrmActionReport {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -2100,6 +2240,26 @@ impl IFsrmActionReport {
 unsafe impl ::windows::runtime::Interface for IFsrmActionReport {
     type Vtable = IFsrmActionReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(767452100, 45888, 18592, [165, 176, 21, 142, 7, 252, 86, 126]);
+}
+impl ::std::convert::From<IFsrmActionReport> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmActionReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmActionReport> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmActionReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmActionReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmActionReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmActionReport> for IFsrmAction {
     fn from(value: IFsrmActionReport) -> Self {
@@ -2175,7 +2335,7 @@ pub struct IFsrmActionReport_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmAutoApplyQuota(::windows::runtime::IUnknown);
 impl IFsrmAutoApplyQuota {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -2326,6 +2486,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmAutoApplyQuota {
     type Vtable = IFsrmAutoApplyQuota_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4163786537, 27322, 18240, [191, 199, 199, 245, 143, 117, 251, 123]);
 }
+impl ::std::convert::From<IFsrmAutoApplyQuota> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmAutoApplyQuota) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmAutoApplyQuota> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmAutoApplyQuota) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmAutoApplyQuota {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmAutoApplyQuota {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmAutoApplyQuota> for IFsrmQuotaObject {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2463,7 +2643,7 @@ pub struct IFsrmAutoApplyQuota_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassificationManager(::windows::runtime::IUnknown);
 impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
@@ -2612,6 +2792,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmClassificationManager {
     type Vtable = IFsrmClassificationManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537668570, 61073, 18592, [133, 216, 204, 114, 165, 111, 125, 4]);
 }
+impl ::std::convert::From<IFsrmClassificationManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmClassificationManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmClassificationManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmClassificationManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmClassificationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmClassificationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmClassificationManager> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsrmClassificationManager) -> Self {
@@ -2694,7 +2894,7 @@ pub struct IFsrmClassificationManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassificationManager2(::windows::runtime::IUnknown);
 impl IFsrmClassificationManager2 {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -2869,6 +3069,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmClassificationManager2 {
     type Vtable = IFsrmClassificationManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311753, 4734, 18277, [186, 7, 106, 49, 71, 188, 161, 18]);
 }
+impl ::std::convert::From<IFsrmClassificationManager2> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmClassificationManager2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmClassificationManager2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmClassificationManager2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmClassificationManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmClassificationManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmClassificationManager2> for IFsrmClassificationManager {
     fn from(value: IFsrmClassificationManager2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2973,7 +3193,7 @@ pub struct IFsrmClassificationManager2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassificationRule(::windows::runtime::IUnknown);
 impl IFsrmClassificationRule {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -3121,6 +3341,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmClassificationRule {
     type Vtable = IFsrmClassificationRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2948616898, 21269, 17835, [132, 27, 198, 219, 14, 18, 1, 72]);
 }
+impl ::std::convert::From<IFsrmClassificationRule> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmClassificationRule) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmClassificationRule> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmClassificationRule) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmClassificationRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmClassificationRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmClassificationRule> for IFsrmRule {
     fn from(value: IFsrmClassificationRule) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3240,7 +3480,7 @@ pub struct IFsrmClassificationRule_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassifierModuleDefinition(::windows::runtime::IUnknown);
 impl IFsrmClassifierModuleDefinition {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -3422,6 +3662,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmClassifierModuleDefinition {
     type Vtable = IFsrmClassifierModuleDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140938278, 25368, 19340, [133, 146, 247, 45, 214, 2, 231, 165]);
 }
+impl ::std::convert::From<IFsrmClassifierModuleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmClassifierModuleDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmClassifierModuleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmClassifierModuleDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmClassifierModuleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmClassifierModuleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmClassifierModuleDefinition> for IFsrmPipelineModuleDefinition {
     fn from(value: IFsrmClassifierModuleDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3551,7 +3811,7 @@ pub struct IFsrmClassifierModuleDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassifierModuleImplementation(::windows::runtime::IUnknown);
 impl IFsrmClassifierModuleImplementation {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -3617,6 +3877,26 @@ impl IFsrmClassifierModuleImplementation {
 unsafe impl ::windows::runtime::Interface for IFsrmClassifierModuleImplementation {
     type Vtable = IFsrmClassifierModuleImplementation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284935622, 28379, 16465, [156, 24, 115, 183, 41, 26, 225, 6]);
+}
+impl ::std::convert::From<IFsrmClassifierModuleImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmClassifierModuleImplementation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmClassifierModuleImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmClassifierModuleImplementation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmClassifierModuleImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmClassifierModuleImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmClassifierModuleImplementation> for IFsrmPipelineModuleImplementation {
     fn from(value: IFsrmClassifierModuleImplementation) -> Self {
@@ -3691,7 +3971,7 @@ pub struct IFsrmClassifierModuleImplementation_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmCollection(::windows::runtime::IUnknown);
 impl IFsrmCollection {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -3734,6 +4014,26 @@ impl IFsrmCollection {
 unsafe impl ::windows::runtime::Interface for IFsrmCollection {
     type Vtable = IFsrmCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151295803, 36317, 19266, [176, 90, 203, 28, 63, 241, 254, 232]);
+}
+impl ::std::convert::From<IFsrmCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -3785,7 +4085,7 @@ pub struct IFsrmCollection_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmCommittableCollection(::windows::runtime::IUnknown);
 impl IFsrmCommittableCollection {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -3872,6 +4172,26 @@ impl IFsrmCommittableCollection {
 unsafe impl ::windows::runtime::Interface for IFsrmCommittableCollection {
     type Vtable = IFsrmCommittableCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2531177397, 35729, 18986, [157, 147, 128, 163, 93, 138, 168, 71]);
+}
+impl ::std::convert::From<IFsrmCommittableCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmCommittableCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmCommittableCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmCommittableCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmCommittableCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmCommittableCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmCommittableCollection> for IFsrmMutableCollection {
     fn from(value: IFsrmCommittableCollection) -> Self {
@@ -3969,7 +4289,7 @@ pub struct IFsrmCommittableCollection_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmDerivedObjectsResult(::windows::runtime::IUnknown);
 impl IFsrmDerivedObjectsResult {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -3986,6 +4306,26 @@ impl IFsrmDerivedObjectsResult {
 unsafe impl ::windows::runtime::Interface for IFsrmDerivedObjectsResult {
     type Vtable = IFsrmDerivedObjectsResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959588909, 14574, 19725, [128, 149, 66, 26, 128, 132, 154, 130]);
+}
+impl ::std::convert::From<IFsrmDerivedObjectsResult> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmDerivedObjectsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmDerivedObjectsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmDerivedObjectsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmDerivedObjectsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmDerivedObjectsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmDerivedObjectsResult> for super::super::System::Ole::Automation::IDispatch {
@@ -4030,7 +4370,7 @@ pub struct IFsrmDerivedObjectsResult_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmExportImport(::windows::runtime::IUnknown);
 impl IFsrmExportImport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -4070,6 +4410,26 @@ impl IFsrmExportImport {
 unsafe impl ::windows::runtime::Interface for IFsrmExportImport {
     type Vtable = IFsrmExportImport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023061169, 5828, 19065, [129, 44, 114, 86, 20, 195, 48, 107]);
+}
+impl ::std::convert::From<IFsrmExportImport> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmExportImport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmExportImport> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmExportImport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmExportImport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmExportImport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmExportImport> for super::super::System::Ole::Automation::IDispatch {
@@ -4124,7 +4484,7 @@ pub struct IFsrmExportImport_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileCondition(::windows::runtime::IUnknown);
 impl IFsrmFileCondition {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -4140,6 +4500,26 @@ impl IFsrmFileCondition {
 unsafe impl ::windows::runtime::Interface for IFsrmFileCondition {
     type Vtable = IFsrmFileCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885884412, 26906, 18970, [185, 34, 151, 117, 46, 19, 140, 193]);
+}
+impl ::std::convert::From<IFsrmFileCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmFileCondition> for super::super::System::Ole::Automation::IDispatch {
@@ -4184,7 +4564,7 @@ pub struct IFsrmFileCondition_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileConditionProperty(::windows::runtime::IUnknown);
 impl IFsrmFileConditionProperty {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -4271,6 +4651,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmFileConditionProperty {
     type Vtable = IFsrmFileConditionProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2173855605, 47489, 17529, [152, 143, 218, 23, 29, 98, 115, 96]);
 }
+impl ::std::convert::From<IFsrmFileConditionProperty> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileConditionProperty) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileConditionProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileConditionProperty) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileConditionProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileConditionProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmFileConditionProperty> for IFsrmFileCondition {
     fn from(value: IFsrmFileConditionProperty) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4348,7 +4748,7 @@ pub struct IFsrmFileConditionProperty_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileGroup(::windows::runtime::IUnknown);
 impl IFsrmFileGroup {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -4430,6 +4830,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmFileGroup {
     type Vtable = IFsrmFileGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2379237641, 3636, 19797, [175, 170, 137, 225, 241, 161, 187, 185]);
 }
+impl ::std::convert::From<IFsrmFileGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmFileGroup> for IFsrmObject {
     fn from(value: IFsrmFileGroup) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4506,7 +4926,7 @@ pub struct IFsrmFileGroup_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileGroupImported(::windows::runtime::IUnknown);
 impl IFsrmFileGroupImported {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -4596,6 +5016,26 @@ impl IFsrmFileGroupImported {
 unsafe impl ::windows::runtime::Interface for IFsrmFileGroupImported {
     type Vtable = IFsrmFileGroupImported_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908090635, 24337, 19431, [148, 239, 217, 238, 46, 71, 13, 237]);
+}
+impl ::std::convert::From<IFsrmFileGroupImported> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileGroupImported) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileGroupImported> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileGroupImported) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileGroupImported {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileGroupImported {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmFileGroupImported> for IFsrmFileGroup {
     fn from(value: IFsrmFileGroupImported) -> Self {
@@ -4695,7 +5135,7 @@ pub struct IFsrmFileGroupImported_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileGroupManager(::windows::runtime::IUnknown);
 impl IFsrmFileGroupManager {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -4730,6 +5170,26 @@ impl IFsrmFileGroupManager {
 unsafe impl ::windows::runtime::Interface for IFsrmFileGroupManager {
     type Vtable = IFsrmFileGroupManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1114011605, 396, 18524, [138, 81, 32, 184, 109, 0, 189, 196]);
+}
+impl ::std::convert::From<IFsrmFileGroupManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileGroupManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileGroupManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileGroupManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileGroupManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileGroupManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmFileGroupManager> for super::super::System::Ole::Automation::IDispatch {
@@ -4780,7 +5240,7 @@ pub struct IFsrmFileGroupManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileManagementJob(::windows::runtime::IUnknown);
 impl IFsrmFileManagementJob {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -5077,6 +5537,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmFileManagementJob {
     type Vtable = IFsrmFileManagementJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(124807294, 40758, 19823, [135, 120, 89, 157, 24, 132, 97, 201]);
 }
+impl ::std::convert::From<IFsrmFileManagementJob> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileManagementJob) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileManagementJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileManagementJob) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileManagementJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileManagementJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmFileManagementJob> for IFsrmObject {
     fn from(value: IFsrmFileManagementJob) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5214,7 +5694,7 @@ pub struct IFsrmFileManagementJob_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileManagementJobManager(::windows::runtime::IUnknown);
 impl IFsrmFileManagementJobManager {
     #[cfg(feature = "Win32_System_Com")]
@@ -5249,6 +5729,26 @@ impl IFsrmFileManagementJobManager {
 unsafe impl ::windows::runtime::Interface for IFsrmFileManagementJobManager {
     type Vtable = IFsrmFileManagementJobManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996262091, 55646, 18665, [144, 124, 199, 104, 90, 1, 50, 53]);
+}
+impl ::std::convert::From<IFsrmFileManagementJobManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileManagementJobManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileManagementJobManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileManagementJobManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileManagementJobManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileManagementJobManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmFileManagementJobManager> for super::super::System::Ole::Automation::IDispatch {
@@ -5299,7 +5799,7 @@ pub struct IFsrmFileManagementJobManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreen(::windows::runtime::IUnknown);
 impl IFsrmFileScreen {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -5414,6 +5914,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmFileScreen {
     type Vtable = IFsrmFileScreen_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600333267, 52872, 18227, [132, 193, 45, 106, 239, 197, 234, 7]);
 }
+impl ::std::convert::From<IFsrmFileScreen> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreen) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreen> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreen) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreen {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreen {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmFileScreen> for IFsrmFileScreenBase {
     fn from(value: IFsrmFileScreen) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5519,7 +6039,7 @@ pub struct IFsrmFileScreen_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenBase(::windows::runtime::IUnknown);
 impl IFsrmFileScreenBase {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -5600,6 +6120,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmFileScreenBase {
     type Vtable = IFsrmFileScreenBase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4083383936, 23330, 18987, [166, 55, 187, 182, 66, 180, 28, 252]);
 }
+impl ::std::convert::From<IFsrmFileScreenBase> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreenBase) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreenBase> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreenBase) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreenBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreenBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmFileScreenBase> for IFsrmObject {
     fn from(value: IFsrmFileScreenBase) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5674,7 +6214,7 @@ pub struct IFsrmFileScreenBase_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenException(::windows::runtime::IUnknown);
 impl IFsrmFileScreenException {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -5741,6 +6281,26 @@ impl IFsrmFileScreenException {
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenException {
     type Vtable = IFsrmFileScreenException_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202862594, 57207, 17685, [147, 137, 120, 240, 28, 90, 252, 26]);
+}
+impl ::std::convert::From<IFsrmFileScreenException> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreenException) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreenException> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreenException) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreenException {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreenException {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmFileScreenException> for IFsrmObject {
     fn from(value: IFsrmFileScreenException) -> Self {
@@ -5814,7 +6374,7 @@ pub struct IFsrmFileScreenException_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenManager(::windows::runtime::IUnknown);
 impl IFsrmFileScreenManager {
     #[cfg(feature = "Win32_System_Com")]
@@ -5875,6 +6435,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmFileScreenManager {
     type Vtable = IFsrmFileScreenManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4283408462, 23188, 19418, [163, 160, 213, 180, 211, 197, 46, 186]);
 }
+impl ::std::convert::From<IFsrmFileScreenManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreenManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreenManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreenManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreenManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreenManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmFileScreenManager> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsrmFileScreenManager) -> Self {
@@ -5933,7 +6513,7 @@ pub struct IFsrmFileScreenManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenTemplate(::windows::runtime::IUnknown);
 impl IFsrmFileScreenTemplate {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6034,6 +6614,26 @@ impl IFsrmFileScreenTemplate {
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenTemplate {
     type Vtable = IFsrmFileScreenTemplate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542895096, 56723, 17706, [149, 166, 50, 181, 102, 179, 88, 40]);
+}
+impl ::std::convert::From<IFsrmFileScreenTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreenTemplate) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreenTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreenTemplate) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreenTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreenTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmFileScreenTemplate> for IFsrmFileScreenBase {
     fn from(value: IFsrmFileScreenTemplate) -> Self {
@@ -6136,7 +6736,7 @@ pub struct IFsrmFileScreenTemplate_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenTemplateImported(::windows::runtime::IUnknown);
 impl IFsrmFileScreenTemplateImported {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6246,6 +6846,26 @@ impl IFsrmFileScreenTemplateImported {
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenTemplateImported {
     type Vtable = IFsrmFileScreenTemplateImported_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3774939993, 15965, 20173, [159, 228, 239, 72, 98, 47, 223, 48]);
+}
+impl ::std::convert::From<IFsrmFileScreenTemplateImported> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreenTemplateImported) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreenTemplateImported> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreenTemplateImported) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreenTemplateImported {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreenTemplateImported {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmFileScreenTemplateImported> for IFsrmFileScreenTemplate {
     fn from(value: IFsrmFileScreenTemplateImported) -> Self {
@@ -6370,7 +6990,7 @@ pub struct IFsrmFileScreenTemplateImported_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenTemplateManager(::windows::runtime::IUnknown);
 impl IFsrmFileScreenTemplateManager {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6405,6 +7025,26 @@ impl IFsrmFileScreenTemplateManager {
 unsafe impl ::windows::runtime::Interface for IFsrmFileScreenTemplateManager {
     type Vtable = IFsrmFileScreenTemplateManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3487788218, 6473, 20084, [161, 79, 241, 213, 128, 206, 175, 19]);
+}
+impl ::std::convert::From<IFsrmFileScreenTemplateManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmFileScreenTemplateManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmFileScreenTemplateManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmFileScreenTemplateManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmFileScreenTemplateManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmFileScreenTemplateManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmFileScreenTemplateManager> for super::super::System::Ole::Automation::IDispatch {
@@ -6455,7 +7095,7 @@ pub struct IFsrmFileScreenTemplateManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmMutableCollection(::windows::runtime::IUnknown);
 impl IFsrmMutableCollection {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6538,6 +7178,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmMutableCollection {
     type Vtable = IFsrmMutableCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(464918456, 14470, 18908, [175, 130, 166, 201, 15, 163, 93, 218]);
 }
+impl ::std::convert::From<IFsrmMutableCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmMutableCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmMutableCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmMutableCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmMutableCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmMutableCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmMutableCollection> for IFsrmCollection {
     fn from(value: IFsrmMutableCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6613,7 +7273,7 @@ pub struct IFsrmMutableCollection_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmObject(::windows::runtime::IUnknown);
 impl IFsrmObject {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6644,6 +7304,26 @@ impl IFsrmObject {
 unsafe impl ::windows::runtime::Interface for IFsrmObject {
     type Vtable = IFsrmObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582807443, 19007, 16771, [137, 249, 47, 139, 138, 98, 138, 238]);
+}
+impl ::std::convert::From<IFsrmObject> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmObject> for super::super::System::Ole::Automation::IDispatch {
@@ -6693,7 +7373,7 @@ pub struct IFsrmObject_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPathMapper(::windows::runtime::IUnknown);
 impl IFsrmPathMapper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6706,6 +7386,26 @@ impl IFsrmPathMapper {
 unsafe impl ::windows::runtime::Interface for IFsrmPathMapper {
     type Vtable = IFsrmPathMapper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1867366399, 26912, 18465, [166, 195, 183, 233, 76, 31, 214, 12]);
+}
+impl ::std::convert::From<IFsrmPathMapper> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPathMapper) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPathMapper> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPathMapper) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPathMapper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPathMapper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmPathMapper> for super::super::System::Ole::Automation::IDispatch {
@@ -6750,7 +7450,7 @@ pub struct IFsrmPathMapper_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPipelineModuleConnector(::windows::runtime::IUnknown);
 impl IFsrmPipelineModuleConnector {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6783,6 +7483,26 @@ impl IFsrmPipelineModuleConnector {
 unsafe impl ::windows::runtime::Interface for IFsrmPipelineModuleConnector {
     type Vtable = IFsrmPipelineModuleConnector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244299507, 39585, 18099, [176, 167, 171, 20, 110, 178, 5, 242]);
+}
+impl ::std::convert::From<IFsrmPipelineModuleConnector> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPipelineModuleConnector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPipelineModuleConnector> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPipelineModuleConnector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPipelineModuleConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPipelineModuleConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmPipelineModuleConnector> for super::super::System::Ole::Automation::IDispatch {
@@ -6832,7 +7552,7 @@ pub struct IFsrmPipelineModuleConnector_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPipelineModuleDefinition(::windows::runtime::IUnknown);
 impl IFsrmPipelineModuleDefinition {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -6983,6 +7703,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmPipelineModuleDefinition {
     type Vtable = IFsrmPipelineModuleDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1364988535, 11393, 17422, [143, 207, 54, 121, 33, 237, 79, 89]);
 }
+impl ::std::convert::From<IFsrmPipelineModuleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPipelineModuleDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPipelineModuleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPipelineModuleDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPipelineModuleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPipelineModuleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmPipelineModuleDefinition> for IFsrmObject {
     fn from(value: IFsrmPipelineModuleDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7082,7 +7822,7 @@ pub struct IFsrmPipelineModuleDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPipelineModuleImplementation(::windows::runtime::IUnknown);
 impl IFsrmPipelineModuleImplementation {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -7098,6 +7838,26 @@ impl IFsrmPipelineModuleImplementation {
 unsafe impl ::windows::runtime::Interface for IFsrmPipelineModuleImplementation {
     type Vtable = IFsrmPipelineModuleImplementation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079698694, 11010, 19637, [132, 169, 253, 245, 70, 19, 214, 205]);
+}
+impl ::std::convert::From<IFsrmPipelineModuleImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPipelineModuleImplementation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPipelineModuleImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPipelineModuleImplementation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPipelineModuleImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPipelineModuleImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmPipelineModuleImplementation> for super::super::System::Ole::Automation::IDispatch {
@@ -7142,7 +7902,7 @@ pub struct IFsrmPipelineModuleImplementation_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmProperty(::windows::runtime::IUnknown);
 impl IFsrmProperty {
     #[cfg(feature = "Win32_Foundation")]
@@ -7172,6 +7932,26 @@ impl IFsrmProperty {
 unsafe impl ::windows::runtime::Interface for IFsrmProperty {
     type Vtable = IFsrmProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249115876, 16642, 20428, [159, 251, 56, 97, 79, 158, 231, 104]);
+}
+impl ::std::convert::From<IFsrmProperty> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmProperty) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmProperty) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmProperty> for super::super::System::Ole::Automation::IDispatch {
@@ -7221,7 +8001,7 @@ pub struct IFsrmProperty_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyBag(::windows::runtime::IUnknown);
 impl IFsrmPropertyBag {
     #[cfg(feature = "Win32_Foundation")]
@@ -7350,6 +8130,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmPropertyBag {
     type Vtable = IFsrmPropertyBag_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2001045969, 54016, 20346, [154, 36, 247, 183, 102, 128, 2, 80]);
 }
+impl ::std::convert::From<IFsrmPropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPropertyBag) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPropertyBag) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmPropertyBag> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsrmPropertyBag) -> Self {
@@ -7430,7 +8230,7 @@ pub struct IFsrmPropertyBag_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyBag2(::windows::runtime::IUnknown);
 impl IFsrmPropertyBag2 {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -7591,6 +8391,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmPropertyBag2 {
     type Vtable = IFsrmPropertyBag2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239517117, 9218, 20461, [156, 48, 146, 102, 230, 235, 44, 201]);
 }
+impl ::std::convert::From<IFsrmPropertyBag2> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPropertyBag2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPropertyBag2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPropertyBag2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPropertyBag2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPropertyBag2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmPropertyBag2> for IFsrmPropertyBag {
     fn from(value: IFsrmPropertyBag2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7694,7 +8514,7 @@ pub struct IFsrmPropertyBag2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyCondition(::windows::runtime::IUnknown);
 impl IFsrmPropertyCondition {
     #[cfg(feature = "Win32_Foundation")]
@@ -7736,6 +8556,26 @@ impl IFsrmPropertyCondition {
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyCondition {
     type Vtable = IFsrmPropertyCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(845870703, 10944, 20328, [191, 140, 71, 89, 240, 84, 250, 41]);
+}
+impl ::std::convert::From<IFsrmPropertyCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPropertyCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPropertyCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPropertyCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPropertyCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPropertyCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmPropertyCondition> for super::super::System::Ole::Automation::IDispatch {
@@ -7789,7 +8629,7 @@ pub struct IFsrmPropertyCondition_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyDefinition(::windows::runtime::IUnknown);
 impl IFsrmPropertyDefinition {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -7895,6 +8735,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmPropertyDefinition {
     type Vtable = IFsrmPropertyDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990885647, 59811, 16796, [135, 124, 1, 254, 93, 36, 197, 211]);
 }
+impl ::std::convert::From<IFsrmPropertyDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPropertyDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPropertyDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPropertyDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPropertyDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPropertyDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmPropertyDefinition> for IFsrmObject {
     fn from(value: IFsrmPropertyDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7981,7 +8841,7 @@ pub struct IFsrmPropertyDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyDefinition2(::windows::runtime::IUnknown);
 impl IFsrmPropertyDefinition2 {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -8113,6 +8973,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmPropertyDefinition2 {
     type Vtable = IFsrmPropertyDefinition2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1199055186, 53612, 16937, [180, 225, 13, 223, 227, 8, 185, 246]);
 }
+impl ::std::convert::From<IFsrmPropertyDefinition2> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPropertyDefinition2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPropertyDefinition2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPropertyDefinition2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPropertyDefinition2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPropertyDefinition2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmPropertyDefinition2> for IFsrmPropertyDefinition {
     fn from(value: IFsrmPropertyDefinition2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8226,7 +9106,7 @@ pub struct IFsrmPropertyDefinition2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyDefinitionValue(::windows::runtime::IUnknown);
 impl IFsrmPropertyDefinitionValue {
     #[cfg(feature = "Win32_Foundation")]
@@ -8257,6 +9137,26 @@ impl IFsrmPropertyDefinitionValue {
 unsafe impl ::windows::runtime::Interface for IFsrmPropertyDefinitionValue {
     type Vtable = IFsrmPropertyDefinitionValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3913732424, 48487, 16760, [142, 34, 28, 68, 146, 94, 215, 16]);
+}
+impl ::std::convert::From<IFsrmPropertyDefinitionValue> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmPropertyDefinitionValue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmPropertyDefinitionValue> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmPropertyDefinitionValue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmPropertyDefinitionValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmPropertyDefinitionValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmPropertyDefinitionValue> for super::super::System::Ole::Automation::IDispatch {
@@ -8307,7 +9207,7 @@ pub struct IFsrmPropertyDefinitionValue_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuota(::windows::runtime::IUnknown);
 impl IFsrmQuota {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -8467,6 +9367,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmQuota {
     type Vtable = IFsrmQuota_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931099549, 38471, 19342, [151, 210, 95, 252, 230, 215, 89, 205]);
 }
+impl ::std::convert::From<IFsrmQuota> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuota) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuota> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuota) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuota {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuota {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmQuota> for IFsrmQuotaObject {
     fn from(value: IFsrmQuota) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8606,7 +9526,7 @@ pub struct IFsrmQuota_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaBase(::windows::runtime::IUnknown);
 impl IFsrmQuotaBase {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -8707,6 +9627,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmQuotaBase {
     type Vtable = IFsrmQuotaBase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(359180181, 14628, 16664, [183, 75, 104, 216, 240, 250, 93, 175]);
 }
+impl ::std::convert::From<IFsrmQuotaBase> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaBase) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaBase> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaBase) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaBase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmQuotaBase> for IFsrmObject {
     fn from(value: IFsrmQuotaBase) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8788,7 +9728,7 @@ pub struct IFsrmQuotaBase_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaManager(::windows::runtime::IUnknown);
 impl IFsrmQuotaManager {
     #[cfg(feature = "Win32_System_Com")]
@@ -8866,6 +9806,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmQuotaManager {
     type Vtable = IFsrmQuotaManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343996541, 6616, 20475, [128, 158, 190, 79, 193, 115, 64, 20]);
 }
+impl ::std::convert::From<IFsrmQuotaManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmQuotaManager> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsrmQuotaManager) -> Self {
@@ -8930,7 +9890,7 @@ pub struct IFsrmQuotaManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaManagerEx(::windows::runtime::IUnknown);
 impl IFsrmQuotaManagerEx {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -9035,6 +9995,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmQuotaManagerEx {
     type Vtable = IFsrmQuotaManagerEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212599041, 54320, 18767, [171, 180, 177, 5, 73, 153, 251, 9]);
 }
+impl ::std::convert::From<IFsrmQuotaManagerEx> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaManagerEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaManagerEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaManagerEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaManagerEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaManagerEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmQuotaManagerEx> for IFsrmQuotaManager {
     fn from(value: IFsrmQuotaManagerEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9121,7 +10101,7 @@ pub struct IFsrmQuotaManagerEx_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaObject(::windows::runtime::IUnknown);
 impl IFsrmQuotaObject {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -9256,6 +10236,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmQuotaObject {
     type Vtable = IFsrmQuotaObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121727761, 25045, 18606, [182, 220, 89, 252, 0, 192, 168, 214]);
 }
+impl ::std::convert::From<IFsrmQuotaObject> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmQuotaObject> for IFsrmQuotaBase {
     fn from(value: IFsrmQuotaObject) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9368,7 +10368,7 @@ pub struct IFsrmQuotaObject_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaTemplate(::windows::runtime::IUnknown);
 impl IFsrmQuotaTemplate {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -9490,6 +10490,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmQuotaTemplate {
     type Vtable = IFsrmQuotaTemplate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2733615921, 10590, 18107, [185, 118, 232, 109, 88, 181, 46, 139]);
 }
+impl ::std::convert::From<IFsrmQuotaTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaTemplate) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaTemplate) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmQuotaTemplate> for IFsrmQuotaBase {
     fn from(value: IFsrmQuotaTemplate) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9598,7 +10618,7 @@ pub struct IFsrmQuotaTemplate_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaTemplateImported(::windows::runtime::IUnknown);
 impl IFsrmQuotaTemplateImported {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -9728,6 +10748,26 @@ impl IFsrmQuotaTemplateImported {
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaTemplateImported {
     type Vtable = IFsrmQuotaTemplateImported_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2586571027, 41769, 17612, [128, 154, 92, 0, 252, 232, 218, 64]);
+}
+impl ::std::convert::From<IFsrmQuotaTemplateImported> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaTemplateImported) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaTemplateImported> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaTemplateImported) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaTemplateImported {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaTemplateImported {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmQuotaTemplateImported> for IFsrmQuotaTemplate {
     fn from(value: IFsrmQuotaTemplateImported) -> Self {
@@ -9859,7 +10899,7 @@ pub struct IFsrmQuotaTemplateImported_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaTemplateManager(::windows::runtime::IUnknown);
 impl IFsrmQuotaTemplateManager {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -9894,6 +10934,26 @@ impl IFsrmQuotaTemplateManager {
 unsafe impl ::windows::runtime::Interface for IFsrmQuotaTemplateManager {
     type Vtable = IFsrmQuotaTemplateManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1098099777, 5933, 19794, [150, 60, 253, 199, 228, 21, 247, 23]);
+}
+impl ::std::convert::From<IFsrmQuotaTemplateManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmQuotaTemplateManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmQuotaTemplateManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmQuotaTemplateManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmQuotaTemplateManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmQuotaTemplateManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmQuotaTemplateManager> for super::super::System::Ole::Automation::IDispatch {
@@ -9944,7 +11004,7 @@ pub struct IFsrmQuotaTemplateManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReport(::windows::runtime::IUnknown);
 impl IFsrmReport {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -9999,6 +11059,26 @@ impl IFsrmReport {
 unsafe impl ::windows::runtime::Interface for IFsrmReport {
     type Vtable = IFsrmReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637281241, 18104, 20388, [191, 165, 74, 169, 222, 201, 182, 56]);
+}
+impl ::std::convert::From<IFsrmReport> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmReport> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmReport> for super::super::System::Ole::Automation::IDispatch {
@@ -10057,7 +11137,7 @@ pub struct IFsrmReport_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReportJob(::windows::runtime::IUnknown);
 impl IFsrmReportJob {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -10199,6 +11279,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmReportJob {
     type Vtable = IFsrmReportJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954757760, 29020, 19581, [162, 128, 234, 22, 81, 161, 159, 239]);
 }
+impl ::std::convert::From<IFsrmReportJob> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmReportJob) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmReportJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmReportJob) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmReportJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmReportJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmReportJob> for IFsrmObject {
     fn from(value: IFsrmReportJob) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10294,7 +11394,7 @@ pub struct IFsrmReportJob_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReportManager(::windows::runtime::IUnknown);
 impl IFsrmReportManager {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -10356,6 +11456,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmReportManager {
     type Vtable = IFsrmReportManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(666409470, 28666, 17537, [161, 132, 211, 218, 173, 232, 160, 43]);
 }
+impl ::std::convert::From<IFsrmReportManager> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmReportManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmReportManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmReportManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmReportManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmReportManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmReportManager> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsrmReportManager) -> Self {
@@ -10414,7 +11534,7 @@ pub struct IFsrmReportManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReportScheduler(::windows::runtime::IUnknown);
 impl IFsrmReportScheduler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -10441,6 +11561,26 @@ impl IFsrmReportScheduler {
 unsafe impl ::windows::runtime::Interface for IFsrmReportScheduler {
     type Vtable = IFsrmReportScheduler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752812281, 26135, 17540, [135, 25, 113, 195, 216, 100, 95, 148]);
+}
+impl ::std::convert::From<IFsrmReportScheduler> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmReportScheduler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmReportScheduler> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmReportScheduler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmReportScheduler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmReportScheduler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmReportScheduler> for super::super::System::Ole::Automation::IDispatch {
@@ -10491,7 +11631,7 @@ pub struct IFsrmReportScheduler_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmRule(::windows::runtime::IUnknown);
 impl IFsrmRule {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -10608,6 +11748,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmRule {
     type Vtable = IFsrmRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3406690656, 5877, 17557, [144, 121, 63, 147, 96, 216, 49, 223]);
 }
+impl ::std::convert::From<IFsrmRule> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmRule) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmRule> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmRule) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmRule> for IFsrmObject {
     fn from(value: IFsrmRule) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10697,7 +11857,7 @@ pub struct IFsrmRule_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmSetting(::windows::runtime::IUnknown);
 impl IFsrmSetting {
     #[cfg(feature = "Win32_Foundation")]
@@ -10770,6 +11930,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmSetting {
     type Vtable = IFsrmSetting_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4094809341, 5310, 16992, [140, 64, 3, 183, 201, 94, 96, 138]);
 }
+impl ::std::convert::From<IFsrmSetting> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmSetting) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmSetting> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmSetting) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmSetting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmSetting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsrmSetting> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsrmSetting) -> Self {
@@ -10831,7 +12011,7 @@ pub struct IFsrmSetting_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmStorageModuleDefinition(::windows::runtime::IUnknown);
 impl IFsrmStorageModuleDefinition {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -11009,6 +12189,26 @@ unsafe impl ::windows::runtime::Interface for IFsrmStorageModuleDefinition {
     type Vtable = IFsrmStorageModuleDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(363336528, 18813, 19130, [128, 233, 212, 219, 204, 85, 33, 254]);
 }
+impl ::std::convert::From<IFsrmStorageModuleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmStorageModuleDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmStorageModuleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmStorageModuleDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmStorageModuleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmStorageModuleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IFsrmStorageModuleDefinition> for IFsrmPipelineModuleDefinition {
     fn from(value: IFsrmStorageModuleDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11134,7 +12334,7 @@ pub struct IFsrmStorageModuleDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmStorageModuleImplementation(::windows::runtime::IUnknown);
 impl IFsrmStorageModuleImplementation {
     #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -11183,6 +12383,26 @@ impl IFsrmStorageModuleImplementation {
 unsafe impl ::windows::runtime::Interface for IFsrmStorageModuleImplementation {
     type Vtable = IFsrmStorageModuleImplementation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(183804122, 35162, 20048, [135, 18, 169, 103, 36, 188, 236, 100]);
+}
+impl ::std::convert::From<IFsrmStorageModuleImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: IFsrmStorageModuleImplementation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFsrmStorageModuleImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: &IFsrmStorageModuleImplementation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsrmStorageModuleImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsrmStorageModuleImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IFsrmStorageModuleImplementation> for IFsrmPipelineModuleImplementation {
     fn from(value: IFsrmStorageModuleImplementation) -> Self {

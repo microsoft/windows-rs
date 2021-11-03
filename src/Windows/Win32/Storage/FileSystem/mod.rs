@@ -7688,7 +7688,7 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDiskQuotaControl(::windows::runtime::IUnknown);
 impl IDiskQuotaControl {
     #[cfg(feature = "Win32_System_Com")]
@@ -7805,6 +7805,26 @@ unsafe impl ::windows::runtime::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002482, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
+impl ::std::convert::From<IDiskQuotaControl> for ::windows::runtime::IUnknown {
+    fn from(value: IDiskQuotaControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDiskQuotaControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IDiskQuotaControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiskQuotaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
     fn from(value: IDiskQuotaControl) -> Self {
@@ -7871,7 +7891,7 @@ pub struct IDiskQuotaControl_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDiskQuotaEvents(::windows::runtime::IUnknown);
 impl IDiskQuotaEvents {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -7883,6 +7903,26 @@ unsafe impl ::windows::runtime::Interface for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002489, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
+impl ::std::convert::From<IDiskQuotaEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IDiskQuotaEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDiskQuotaEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IDiskQuotaEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiskQuotaEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaEvents_abi(
@@ -7893,7 +7933,7 @@ pub struct IDiskQuotaEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDiskQuotaUser(::windows::runtime::IUnknown);
 impl IDiskQuotaUser {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -7967,6 +8007,26 @@ unsafe impl ::windows::runtime::Interface for IDiskQuotaUser {
     type Vtable = IDiskQuotaUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002484, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
+impl ::std::convert::From<IDiskQuotaUser> for ::windows::runtime::IUnknown {
+    fn from(value: IDiskQuotaUser) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDiskQuotaUser> for ::windows::runtime::IUnknown {
+    fn from(value: &IDiskQuotaUser) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiskQuotaUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUser_abi(
@@ -7997,7 +8057,7 @@ pub struct IDiskQuotaUser_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDiskQuotaUserBatch(::windows::runtime::IUnknown);
 impl IDiskQuotaUserBatch {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8021,6 +8081,26 @@ unsafe impl ::windows::runtime::Interface for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002486, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
+impl ::std::convert::From<IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
+    fn from(value: IDiskQuotaUserBatch) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
+    fn from(value: &IDiskQuotaUserBatch) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiskQuotaUserBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiskQuotaUserBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUserBatch_abi(
@@ -8034,7 +8114,7 @@ pub struct IDiskQuotaUserBatch_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumDiskQuotaUsers(::windows::runtime::IUnknown);
 impl IEnumDiskQuotaUsers {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
@@ -8058,6 +8138,26 @@ impl IEnumDiskQuotaUsers {
 unsafe impl ::windows::runtime::Interface for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002487, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
+}
+impl ::std::convert::From<IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumDiskQuotaUsers) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumDiskQuotaUsers) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDiskQuotaUsers {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDiskQuotaUsers {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

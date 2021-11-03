@@ -244,7 +244,7 @@ impl ::std::ops::Not for PlatformDiagnosticEventBufferLatencies {
 }
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlatformDiagnosticTraceInfo(::windows::runtime::IInspectable);
 impl PlatformDiagnosticTraceInfo {
     #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
@@ -306,6 +306,46 @@ unsafe impl ::windows::runtime::Interface for PlatformDiagnosticTraceInfo {
 impl ::windows::runtime::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
 }
+impl ::std::convert::From<PlatformDiagnosticTraceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: PlatformDiagnosticTraceInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PlatformDiagnosticTraceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &PlatformDiagnosticTraceInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlatformDiagnosticTraceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlatformDiagnosticTraceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PlatformDiagnosticTraceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: PlatformDiagnosticTraceInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlatformDiagnosticTraceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &PlatformDiagnosticTraceInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlatformDiagnosticTraceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlatformDiagnosticTraceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::std::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
@@ -332,7 +372,7 @@ impl ::windows::runtime::DefaultType for PlatformDiagnosticTracePriority {
 }
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(::windows::runtime::IInspectable);
 impl PlatformDiagnosticTraceRuntimeInfo {
     #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
@@ -361,6 +401,46 @@ unsafe impl ::windows::runtime::Interface for PlatformDiagnosticTraceRuntimeInfo
 }
 impl ::windows::runtime::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";
+}
+impl ::std::convert::From<PlatformDiagnosticTraceRuntimeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: PlatformDiagnosticTraceRuntimeInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &PlatformDiagnosticTraceRuntimeInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlatformDiagnosticTraceRuntimeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlatformDiagnosticTraceRuntimeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PlatformDiagnosticTraceRuntimeInfo> for ::windows::runtime::IInspectable {
+    fn from(value: PlatformDiagnosticTraceRuntimeInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &PlatformDiagnosticTraceRuntimeInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlatformDiagnosticTraceRuntimeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlatformDiagnosticTraceRuntimeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::std::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}

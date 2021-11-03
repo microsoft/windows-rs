@@ -38,7 +38,7 @@ pub struct IInkWorkspaceHostedAppManagerStatics_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InkWorkspaceHostedAppManager(::windows::runtime::IInspectable);
 impl InkWorkspaceHostedAppManager {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
@@ -71,6 +71,46 @@ unsafe impl ::windows::runtime::Interface for InkWorkspaceHostedAppManager {
 }
 impl ::windows::runtime::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
+}
+impl ::std::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: InkWorkspaceHostedAppManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: InkWorkspaceHostedAppManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InkWorkspaceHostedAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::std::marker::Sync for InkWorkspaceHostedAppManager {}

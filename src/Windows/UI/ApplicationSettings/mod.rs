@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AccountsSettingsPane(::windows::runtime::IInspectable);
 impl AccountsSettingsPane {
     #[cfg(feature = "Foundation")]
@@ -85,9 +85,49 @@ unsafe impl ::windows::runtime::Interface for AccountsSettingsPane {
 impl ::windows::runtime::RuntimeName for AccountsSettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPane";
 }
+impl ::std::convert::From<AccountsSettingsPane> for ::windows::runtime::IUnknown {
+    fn from(value: AccountsSettingsPane) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AccountsSettingsPane> for ::windows::runtime::IUnknown {
+    fn from(value: &AccountsSettingsPane) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccountsSettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccountsSettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AccountsSettingsPane> for ::windows::runtime::IInspectable {
+    fn from(value: AccountsSettingsPane) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AccountsSettingsPane> for ::windows::runtime::IInspectable {
+    fn from(value: &AccountsSettingsPane) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccountsSettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccountsSettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(::windows::runtime::IInspectable);
 impl AccountsSettingsPaneCommandsRequestedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -167,9 +207,49 @@ unsafe impl ::windows::runtime::Interface for AccountsSettingsPaneCommandsReques
 impl ::windows::runtime::RuntimeName for AccountsSettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs";
 }
+impl ::std::convert::From<AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccountsSettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccountsSettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccountsSettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccountsSettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AccountsSettingsPaneEventDeferral(::windows::runtime::IInspectable);
 impl AccountsSettingsPaneEventDeferral {
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
@@ -188,12 +268,52 @@ unsafe impl ::windows::runtime::Interface for AccountsSettingsPaneEventDeferral 
 impl ::windows::runtime::RuntimeName for AccountsSettingsPaneEventDeferral {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral";
 }
+impl ::std::convert::From<AccountsSettingsPaneEventDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: AccountsSettingsPaneEventDeferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AccountsSettingsPaneEventDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &AccountsSettingsPaneEventDeferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccountsSettingsPaneEventDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccountsSettingsPaneEventDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AccountsSettingsPaneEventDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: AccountsSettingsPaneEventDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AccountsSettingsPaneEventDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &AccountsSettingsPaneEventDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccountsSettingsPaneEventDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccountsSettingsPaneEventDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct ApplicationsSettingsContract(pub u8);
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CredentialCommand(::windows::runtime::IInspectable);
 impl CredentialCommand {
     #[cfg(feature = "Security_Credentials")]
@@ -243,6 +363,46 @@ unsafe impl ::windows::runtime::Interface for CredentialCommand {
 }
 impl ::windows::runtime::RuntimeName for CredentialCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.CredentialCommand";
+}
+impl ::std::convert::From<CredentialCommand> for ::windows::runtime::IUnknown {
+    fn from(value: CredentialCommand) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CredentialCommand> for ::windows::runtime::IUnknown {
+    fn from(value: &CredentialCommand) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CredentialCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CredentialCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CredentialCommand> for ::windows::runtime::IInspectable {
+    fn from(value: CredentialCommand) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CredentialCommand> for ::windows::runtime::IInspectable {
+    fn from(value: &CredentialCommand) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CredentialCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CredentialCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
@@ -721,7 +881,7 @@ pub struct IWebAccountProviderCommandFactory_abi(
 #[cfg(feature = "UI_Popups")]
 #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SettingsCommand(::windows::runtime::IInspectable);
 #[cfg(feature = "UI_Popups")]
 impl SettingsCommand {
@@ -809,6 +969,54 @@ impl ::windows::runtime::RuntimeName for SettingsCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsCommand";
 }
 #[cfg(feature = "UI_Popups")]
+impl ::std::convert::From<SettingsCommand> for ::windows::runtime::IUnknown {
+    fn from(value: SettingsCommand) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl ::std::convert::From<&SettingsCommand> for ::windows::runtime::IUnknown {
+    fn from(value: &SettingsCommand) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SettingsCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SettingsCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl ::std::convert::From<SettingsCommand> for ::windows::runtime::IInspectable {
+    fn from(value: SettingsCommand) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl ::std::convert::From<&SettingsCommand> for ::windows::runtime::IInspectable {
+    fn from(value: &SettingsCommand) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SettingsCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "UI_Popups")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SettingsCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "UI_Popups")]
 impl ::std::convert::From<SettingsCommand> for super::Popups::IUICommand {
     fn from(value: SettingsCommand) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -856,7 +1064,7 @@ impl ::windows::runtime::DefaultType for SettingsEdgeLocation {
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SettingsPane(::windows::runtime::IInspectable);
 impl SettingsPane {
     #[cfg(feature = "deprecated")]
@@ -912,9 +1120,49 @@ unsafe impl ::windows::runtime::Interface for SettingsPane {
 impl ::windows::runtime::RuntimeName for SettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPane";
 }
+impl ::std::convert::From<SettingsPane> for ::windows::runtime::IUnknown {
+    fn from(value: SettingsPane) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SettingsPane> for ::windows::runtime::IUnknown {
+    fn from(value: &SettingsPane) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SettingsPane> for ::windows::runtime::IInspectable {
+    fn from(value: SettingsPane) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SettingsPane> for ::windows::runtime::IInspectable {
+    fn from(value: &SettingsPane) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SettingsPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SettingsPaneCommandsRequest(::windows::runtime::IInspectable);
 impl SettingsPaneCommandsRequest {
     #[cfg(feature = "deprecated")]
@@ -938,9 +1186,49 @@ unsafe impl ::windows::runtime::Interface for SettingsPaneCommandsRequest {
 impl ::windows::runtime::RuntimeName for SettingsPaneCommandsRequest {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest";
 }
+impl ::std::convert::From<SettingsPaneCommandsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: SettingsPaneCommandsRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SettingsPaneCommandsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &SettingsPaneCommandsRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SettingsPaneCommandsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SettingsPaneCommandsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SettingsPaneCommandsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: SettingsPaneCommandsRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SettingsPaneCommandsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &SettingsPaneCommandsRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SettingsPaneCommandsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SettingsPaneCommandsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SettingsPaneCommandsRequestedEventArgs(::windows::runtime::IInspectable);
 impl SettingsPaneCommandsRequestedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -962,6 +1250,46 @@ unsafe impl ::windows::runtime::Interface for SettingsPaneCommandsRequestedEvent
 }
 impl ::windows::runtime::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs";
+}
+impl ::std::convert::From<SettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SettingsPaneCommandsRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SettingsPaneCommandsRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SettingsPaneCommandsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SettingsPaneCommandsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1044,7 +1372,7 @@ impl ::windows::runtime::DefaultType for WebAccountAction {
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebAccountCommand(::windows::runtime::IInspectable);
 impl WebAccountCommand {
     #[cfg(feature = "Security_Credentials")]
@@ -1094,6 +1422,46 @@ unsafe impl ::windows::runtime::Interface for WebAccountCommand {
 }
 impl ::windows::runtime::RuntimeName for WebAccountCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountCommand";
+}
+impl ::std::convert::From<WebAccountCommand> for ::windows::runtime::IUnknown {
+    fn from(value: WebAccountCommand) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebAccountCommand> for ::windows::runtime::IUnknown {
+    fn from(value: &WebAccountCommand) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAccountCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebAccountCommand> for ::windows::runtime::IInspectable {
+    fn from(value: WebAccountCommand) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebAccountCommand> for ::windows::runtime::IInspectable {
+    fn from(value: &WebAccountCommand) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
@@ -1174,7 +1542,7 @@ impl<F: FnMut(&::std::option::Option<WebAccountCommand>, &::std::option::Option<
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebAccountInvokedArgs(::windows::runtime::IInspectable);
 impl WebAccountInvokedArgs {
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
@@ -1196,9 +1564,49 @@ unsafe impl ::windows::runtime::Interface for WebAccountInvokedArgs {
 impl ::windows::runtime::RuntimeName for WebAccountInvokedArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountInvokedArgs";
 }
+impl ::std::convert::From<WebAccountInvokedArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebAccountInvokedArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebAccountInvokedArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebAccountInvokedArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountInvokedArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAccountInvokedArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebAccountInvokedArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebAccountInvokedArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebAccountInvokedArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebAccountInvokedArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountInvokedArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountInvokedArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebAccountProviderCommand(::windows::runtime::IInspectable);
 impl WebAccountProviderCommand {
     #[cfg(feature = "Security_Credentials")]
@@ -1240,6 +1648,46 @@ unsafe impl ::windows::runtime::Interface for WebAccountProviderCommand {
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountProviderCommand";
+}
+impl ::std::convert::From<WebAccountProviderCommand> for ::windows::runtime::IUnknown {
+    fn from(value: WebAccountProviderCommand) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebAccountProviderCommand> for ::windows::runtime::IUnknown {
+    fn from(value: &WebAccountProviderCommand) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountProviderCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAccountProviderCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebAccountProviderCommand> for ::windows::runtime::IInspectable {
+    fn from(value: WebAccountProviderCommand) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebAccountProviderCommand> for ::windows::runtime::IInspectable {
+    fn from(value: &WebAccountProviderCommand) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountProviderCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountProviderCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]

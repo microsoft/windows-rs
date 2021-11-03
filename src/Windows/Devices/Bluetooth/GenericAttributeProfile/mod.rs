@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattCharacteristic(::windows::runtime::IInspectable);
 impl GattCharacteristic {
     #[cfg(feature = "deprecated")]
@@ -240,6 +240,46 @@ unsafe impl ::windows::runtime::Interface for GattCharacteristic {
 }
 impl ::windows::runtime::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
+}
+impl ::std::convert::From<GattCharacteristic> for ::windows::runtime::IUnknown {
+    fn from(value: GattCharacteristic) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattCharacteristic> for ::windows::runtime::IUnknown {
+    fn from(value: &GattCharacteristic) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattCharacteristic> for ::windows::runtime::IInspectable {
+    fn from(value: GattCharacteristic) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattCharacteristic> for ::windows::runtime::IInspectable {
+    fn from(value: &GattCharacteristic) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GattCharacteristic {}
 unsafe impl ::std::marker::Sync for GattCharacteristic {}
@@ -886,7 +926,7 @@ impl ::windows::runtime::RuntimeName for GattCharacteristicUuids {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattCharacteristicsResult(::windows::runtime::IInspectable);
 impl GattCharacteristicsResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -926,6 +966,46 @@ unsafe impl ::windows::runtime::Interface for GattCharacteristicsResult {
 impl ::windows::runtime::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
 }
+impl ::std::convert::From<GattCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattCharacteristicsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattCharacteristicsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattCharacteristicsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattCharacteristicsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::std::marker::Sync for GattCharacteristicsResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -953,7 +1033,7 @@ impl ::windows::runtime::DefaultType for GattClientCharacteristicConfigurationDe
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattClientNotificationResult(::windows::runtime::IInspectable);
 impl GattClientNotificationResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1000,6 +1080,46 @@ unsafe impl ::windows::runtime::Interface for GattClientNotificationResult {
 impl ::windows::runtime::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
 }
+impl ::std::convert::From<GattClientNotificationResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattClientNotificationResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattClientNotificationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattClientNotificationResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattClientNotificationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattClientNotificationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattClientNotificationResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattClientNotificationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattClientNotificationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattClientNotificationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattClientNotificationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattClientNotificationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattClientNotificationResult {}
 unsafe impl ::std::marker::Sync for GattClientNotificationResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1028,7 +1148,7 @@ impl ::windows::runtime::DefaultType for GattCommunicationStatus {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattDescriptor(::windows::runtime::IInspectable);
 impl GattDescriptor {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1119,6 +1239,46 @@ unsafe impl ::windows::runtime::Interface for GattDescriptor {
 impl ::windows::runtime::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
 }
+impl ::std::convert::From<GattDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: GattDescriptor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &GattDescriptor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: GattDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &GattDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattDescriptor {}
 unsafe impl ::std::marker::Sync for GattDescriptor {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1176,7 +1336,7 @@ impl ::windows::runtime::RuntimeName for GattDescriptorUuids {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattDescriptorsResult(::windows::runtime::IInspectable);
 impl GattDescriptorsResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1216,11 +1376,51 @@ unsafe impl ::windows::runtime::Interface for GattDescriptorsResult {
 impl ::windows::runtime::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
 }
+impl ::std::convert::From<GattDescriptorsResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattDescriptorsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattDescriptorsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattDescriptorsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattDescriptorsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattDescriptorsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattDescriptorsResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattDescriptorsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattDescriptorsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattDescriptorsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattDescriptorsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattDescriptorsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattDescriptorsResult {}
 unsafe impl ::std::marker::Sync for GattDescriptorsResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattDeviceService(::windows::runtime::IInspectable);
 impl GattDeviceService {
     #[cfg(feature = "deprecated")]
@@ -1513,6 +1713,46 @@ unsafe impl ::windows::runtime::Interface for GattDeviceService {
 impl ::windows::runtime::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
 }
+impl ::std::convert::From<GattDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: GattDeviceService) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: &GattDeviceService) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattDeviceService> for ::windows::runtime::IInspectable {
+    fn from(value: GattDeviceService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattDeviceService> for ::windows::runtime::IInspectable {
+    fn from(value: &GattDeviceService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<GattDeviceService> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1543,7 +1783,7 @@ unsafe impl ::std::marker::Send for GattDeviceService {}
 unsafe impl ::std::marker::Sync for GattDeviceService {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattDeviceServicesResult(::windows::runtime::IInspectable);
 impl GattDeviceServicesResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1583,11 +1823,51 @@ unsafe impl ::windows::runtime::Interface for GattDeviceServicesResult {
 impl ::windows::runtime::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
 }
+impl ::std::convert::From<GattDeviceServicesResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattDeviceServicesResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattDeviceServicesResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattDeviceServicesResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattDeviceServicesResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattDeviceServicesResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattDeviceServicesResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattDeviceServicesResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattDeviceServicesResult {}
 unsafe impl ::std::marker::Sync for GattDeviceServicesResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalCharacteristic(::windows::runtime::IInspectable);
 impl GattLocalCharacteristic {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1749,11 +2029,51 @@ unsafe impl ::windows::runtime::Interface for GattLocalCharacteristic {
 impl ::windows::runtime::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
 }
+impl ::std::convert::From<GattLocalCharacteristic> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalCharacteristic) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalCharacteristic> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalCharacteristic) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalCharacteristic> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalCharacteristic) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalCharacteristic> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalCharacteristic) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalCharacteristic {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalCharacteristic {}
 unsafe impl ::std::marker::Sync for GattLocalCharacteristic {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalCharacteristicParameters(::windows::runtime::IInspectable);
 impl GattLocalCharacteristicParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1850,11 +2170,51 @@ unsafe impl ::windows::runtime::Interface for GattLocalCharacteristicParameters 
 impl ::windows::runtime::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
 }
+impl ::std::convert::From<GattLocalCharacteristicParameters> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalCharacteristicParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalCharacteristicParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalCharacteristicParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalCharacteristicParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalCharacteristicParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalCharacteristicParameters> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalCharacteristicParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalCharacteristicParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalCharacteristicParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalCharacteristicParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalCharacteristicParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalCharacteristicParameters {}
 unsafe impl ::std::marker::Sync for GattLocalCharacteristicParameters {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalCharacteristicResult(::windows::runtime::IInspectable);
 impl GattLocalCharacteristicResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1884,11 +2244,51 @@ unsafe impl ::windows::runtime::Interface for GattLocalCharacteristicResult {
 impl ::windows::runtime::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
 }
+impl ::std::convert::From<GattLocalCharacteristicResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalCharacteristicResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalCharacteristicResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalCharacteristicResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalCharacteristicResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalCharacteristicResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalCharacteristicResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalCharacteristicResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalCharacteristicResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalCharacteristicResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalCharacteristicResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalCharacteristicResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalCharacteristicResult {}
 unsafe impl ::std::marker::Sync for GattLocalCharacteristicResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalDescriptor(::windows::runtime::IInspectable);
 impl GattLocalDescriptor {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -1965,11 +2365,51 @@ unsafe impl ::windows::runtime::Interface for GattLocalDescriptor {
 impl ::windows::runtime::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
 }
+impl ::std::convert::From<GattLocalDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalDescriptor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalDescriptor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalDescriptor {}
 unsafe impl ::std::marker::Sync for GattLocalDescriptor {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalDescriptorParameters(::windows::runtime::IInspectable);
 impl GattLocalDescriptorParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2031,11 +2471,51 @@ unsafe impl ::windows::runtime::Interface for GattLocalDescriptorParameters {
 impl ::windows::runtime::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
 }
+impl ::std::convert::From<GattLocalDescriptorParameters> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalDescriptorParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalDescriptorParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalDescriptorParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalDescriptorParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalDescriptorParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalDescriptorParameters> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalDescriptorParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalDescriptorParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalDescriptorParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalDescriptorParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalDescriptorParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalDescriptorParameters {}
 unsafe impl ::std::marker::Sync for GattLocalDescriptorParameters {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalDescriptorResult(::windows::runtime::IInspectable);
 impl GattLocalDescriptorResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2065,11 +2545,51 @@ unsafe impl ::windows::runtime::Interface for GattLocalDescriptorResult {
 impl ::windows::runtime::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
 }
+impl ::std::convert::From<GattLocalDescriptorResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalDescriptorResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalDescriptorResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalDescriptorResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalDescriptorResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalDescriptorResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalDescriptorResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalDescriptorResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalDescriptorResult {}
 unsafe impl ::std::marker::Sync for GattLocalDescriptorResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattLocalService(::windows::runtime::IInspectable);
 impl GattLocalService {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2109,6 +2629,46 @@ unsafe impl ::windows::runtime::Interface for GattLocalService {
 impl ::windows::runtime::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
 }
+impl ::std::convert::From<GattLocalService> for ::windows::runtime::IUnknown {
+    fn from(value: GattLocalService) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattLocalService> for ::windows::runtime::IUnknown {
+    fn from(value: &GattLocalService) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattLocalService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattLocalService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattLocalService> for ::windows::runtime::IInspectable {
+    fn from(value: GattLocalService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattLocalService> for ::windows::runtime::IInspectable {
+    fn from(value: &GattLocalService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattLocalService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattLocalService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattLocalService {}
 unsafe impl ::std::marker::Sync for GattLocalService {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2139,7 +2699,7 @@ impl ::windows::runtime::DefaultType for GattOpenStatus {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattPresentationFormat(::windows::runtime::IInspectable);
 impl GattPresentationFormat {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2214,6 +2774,46 @@ unsafe impl ::windows::runtime::Interface for GattPresentationFormat {
 }
 impl ::windows::runtime::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
+}
+impl ::std::convert::From<GattPresentationFormat> for ::windows::runtime::IUnknown {
+    fn from(value: GattPresentationFormat) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattPresentationFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &GattPresentationFormat) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattPresentationFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattPresentationFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattPresentationFormat> for ::windows::runtime::IInspectable {
+    fn from(value: GattPresentationFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattPresentationFormat> for ::windows::runtime::IInspectable {
+    fn from(value: &GattPresentationFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattPresentationFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattPresentationFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GattPresentationFormat {}
 unsafe impl ::std::marker::Sync for GattPresentationFormat {}
@@ -2573,7 +3173,7 @@ impl ::windows::runtime::RuntimeName for GattProtocolError {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(::windows::runtime::IInspectable);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2612,11 +3212,51 @@ unsafe impl ::windows::runtime::Interface for GattReadClientCharacteristicConfig
 impl ::windows::runtime::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
 }
+impl ::std::convert::From<GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattReadClientCharacteristicConfigurationDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattReadClientCharacteristicConfigurationDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattReadClientCharacteristicConfigurationDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattReadClientCharacteristicConfigurationDescriptorResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl ::std::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattReadRequest(::windows::runtime::IInspectable);
 impl GattReadRequest {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2680,11 +3320,51 @@ unsafe impl ::windows::runtime::Interface for GattReadRequest {
 impl ::windows::runtime::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
 }
+impl ::std::convert::From<GattReadRequest> for ::windows::runtime::IUnknown {
+    fn from(value: GattReadRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattReadRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &GattReadRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattReadRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattReadRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattReadRequest> for ::windows::runtime::IInspectable {
+    fn from(value: GattReadRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattReadRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &GattReadRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattReadRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattReadRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattReadRequest {}
 unsafe impl ::std::marker::Sync for GattReadRequest {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattReadRequestedEventArgs(::windows::runtime::IInspectable);
 impl GattReadRequestedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2724,11 +3404,51 @@ unsafe impl ::windows::runtime::Interface for GattReadRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
 }
+impl ::std::convert::From<GattReadRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GattReadRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattReadRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GattReadRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattReadRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattReadRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattReadRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GattReadRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattReadRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GattReadRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattReadRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattReadRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattReadRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for GattReadRequestedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattReadResult(::windows::runtime::IInspectable);
 impl GattReadResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2768,11 +3488,51 @@ unsafe impl ::windows::runtime::Interface for GattReadResult {
 impl ::windows::runtime::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
 }
+impl ::std::convert::From<GattReadResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattReadResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattReadResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattReadResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattReadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattReadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattReadResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattReadResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattReadResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattReadResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattReadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattReadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattReadResult {}
 unsafe impl ::std::marker::Sync for GattReadResult {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattReliableWriteTransaction(::windows::runtime::IInspectable);
 impl GattReliableWriteTransaction {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2817,6 +3577,46 @@ unsafe impl ::windows::runtime::Interface for GattReliableWriteTransaction {
 impl ::windows::runtime::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
 }
+impl ::std::convert::From<GattReliableWriteTransaction> for ::windows::runtime::IUnknown {
+    fn from(value: GattReliableWriteTransaction) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattReliableWriteTransaction> for ::windows::runtime::IUnknown {
+    fn from(value: &GattReliableWriteTransaction) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattReliableWriteTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattReliableWriteTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattReliableWriteTransaction> for ::windows::runtime::IInspectable {
+    fn from(value: GattReliableWriteTransaction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattReliableWriteTransaction> for ::windows::runtime::IInspectable {
+    fn from(value: &GattReliableWriteTransaction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattReliableWriteTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattReliableWriteTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::std::marker::Sync for GattReliableWriteTransaction {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2844,7 +3644,7 @@ impl ::windows::runtime::DefaultType for GattRequestState {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattRequestStateChangedEventArgs(::windows::runtime::IInspectable);
 impl GattRequestStateChangedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2874,11 +3674,51 @@ unsafe impl ::windows::runtime::Interface for GattRequestStateChangedEventArgs {
 impl ::windows::runtime::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
 }
+impl ::std::convert::From<GattRequestStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GattRequestStateChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattRequestStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GattRequestStateChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattRequestStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattRequestStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattRequestStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GattRequestStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattRequestStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GattRequestStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattRequestStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattRequestStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattRequestStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GattRequestStateChangedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProvider(::windows::runtime::IInspectable);
 impl GattServiceProvider {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2950,6 +3790,46 @@ unsafe impl ::windows::runtime::Interface for GattServiceProvider {
 impl ::windows::runtime::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
 }
+impl ::std::convert::From<GattServiceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattServiceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattServiceProvider> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattServiceProvider {}
 unsafe impl ::std::marker::Sync for GattServiceProvider {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -2979,7 +3859,7 @@ impl ::windows::runtime::DefaultType for GattServiceProviderAdvertisementStatus 
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(::windows::runtime::IInspectable);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3009,11 +3889,51 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderAdvertisementSt
 impl ::windows::runtime::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
 }
+impl ::std::convert::From<GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderAdvertisementStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattServiceProviderAdvertisementStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderAdvertisementStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderAdvertisementStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderAdvertisingParameters(::windows::runtime::IInspectable);
 impl GattServiceProviderAdvertisingParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3075,11 +3995,51 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderAdvertisingPara
 impl ::windows::runtime::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
 }
+impl ::std::convert::From<GattServiceProviderAdvertisingParameters> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderAdvertisingParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattServiceProviderAdvertisingParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderAdvertisingParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderAdvertisingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattServiceProviderAdvertisingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattServiceProviderAdvertisingParameters> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderAdvertisingParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderAdvertisingParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderAdvertisingParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderAdvertisingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderAdvertisingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl ::std::marker::Sync for GattServiceProviderAdvertisingParameters {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderResult(::windows::runtime::IInspectable);
 impl GattServiceProviderResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3108,6 +4068,46 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderResult {
 }
 impl ::windows::runtime::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
+}
+impl ::std::convert::From<GattServiceProviderResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattServiceProviderResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattServiceProviderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattServiceProviderResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GattServiceProviderResult {}
 unsafe impl ::std::marker::Sync for GattServiceProviderResult {}
@@ -3282,7 +4282,7 @@ impl ::windows::runtime::RuntimeName for GattServiceUuids {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattSession(::windows::runtime::IInspectable);
 impl GattSession {
     #[cfg(feature = "Foundation")]
@@ -3389,6 +4389,46 @@ unsafe impl ::windows::runtime::Interface for GattSession {
 impl ::windows::runtime::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
 }
+impl ::std::convert::From<GattSession> for ::windows::runtime::IUnknown {
+    fn from(value: GattSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattSession> for ::windows::runtime::IUnknown {
+    fn from(value: &GattSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattSession> for ::windows::runtime::IInspectable {
+    fn from(value: GattSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattSession> for ::windows::runtime::IInspectable {
+    fn from(value: &GattSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<GattSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3441,7 +4481,7 @@ impl ::windows::runtime::DefaultType for GattSessionStatus {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattSessionStatusChangedEventArgs(::windows::runtime::IInspectable);
 impl GattSessionStatusChangedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3471,6 +4511,46 @@ unsafe impl ::windows::runtime::Interface for GattSessionStatusChangedEventArgs 
 impl ::windows::runtime::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
 }
+impl ::std::convert::From<GattSessionStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GattSessionStatusChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattSessionStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GattSessionStatusChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattSessionStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattSessionStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattSessionStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GattSessionStatusChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattSessionStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GattSessionStatusChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattSessionStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattSessionStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3499,7 +4579,7 @@ impl ::windows::runtime::DefaultType for GattSharingMode {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattSubscribedClient(::windows::runtime::IInspectable);
 impl GattSubscribedClient {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3544,11 +4624,51 @@ unsafe impl ::windows::runtime::Interface for GattSubscribedClient {
 impl ::windows::runtime::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
 }
+impl ::std::convert::From<GattSubscribedClient> for ::windows::runtime::IUnknown {
+    fn from(value: GattSubscribedClient) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattSubscribedClient> for ::windows::runtime::IUnknown {
+    fn from(value: &GattSubscribedClient) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattSubscribedClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattSubscribedClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattSubscribedClient> for ::windows::runtime::IInspectable {
+    fn from(value: GattSubscribedClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattSubscribedClient> for ::windows::runtime::IInspectable {
+    fn from(value: &GattSubscribedClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattSubscribedClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattSubscribedClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattSubscribedClient {}
 unsafe impl ::std::marker::Sync for GattSubscribedClient {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattValueChangedEventArgs(::windows::runtime::IInspectable);
 impl GattValueChangedEventArgs {
     #[cfg(feature = "Storage_Streams")]
@@ -3580,6 +4700,46 @@ unsafe impl ::windows::runtime::Interface for GattValueChangedEventArgs {
 impl ::windows::runtime::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
 }
+impl ::std::convert::From<GattValueChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GattValueChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattValueChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GattValueChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattValueChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattValueChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattValueChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GattValueChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattValueChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GattValueChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattValueChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattValueChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GattValueChangedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3606,7 +4766,7 @@ impl ::windows::runtime::DefaultType for GattWriteOption {
 }
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattWriteRequest(::windows::runtime::IInspectable);
 impl GattWriteRequest {
     #[cfg(feature = "Storage_Streams")]
@@ -3678,11 +4838,51 @@ unsafe impl ::windows::runtime::Interface for GattWriteRequest {
 impl ::windows::runtime::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
 }
+impl ::std::convert::From<GattWriteRequest> for ::windows::runtime::IUnknown {
+    fn from(value: GattWriteRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattWriteRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &GattWriteRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattWriteRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattWriteRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattWriteRequest> for ::windows::runtime::IInspectable {
+    fn from(value: GattWriteRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattWriteRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &GattWriteRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattWriteRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattWriteRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattWriteRequest {}
 unsafe impl ::std::marker::Sync for GattWriteRequest {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattWriteRequestedEventArgs(::windows::runtime::IInspectable);
 impl GattWriteRequestedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3722,11 +4922,51 @@ unsafe impl ::windows::runtime::Interface for GattWriteRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
 }
+impl ::std::convert::From<GattWriteRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GattWriteRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattWriteRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GattWriteRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattWriteRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattWriteRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattWriteRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GattWriteRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattWriteRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GattWriteRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattWriteRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattWriteRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattWriteRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for GattWriteRequestedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattWriteResult(::windows::runtime::IInspectable);
 impl GattWriteResult {
     #[doc = "*Required features: `Devices_Bluetooth_GenericAttributeProfile`*"]
@@ -3756,6 +4996,46 @@ unsafe impl ::windows::runtime::Interface for GattWriteResult {
 }
 impl ::windows::runtime::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
+}
+impl ::std::convert::From<GattWriteResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattWriteResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattWriteResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattWriteResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattWriteResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattWriteResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattWriteResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattWriteResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattWriteResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattWriteResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattWriteResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattWriteResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GattWriteResult {}
 unsafe impl ::std::marker::Sync for GattWriteResult {}

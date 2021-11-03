@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumNetworkConnections(::windows::runtime::IUnknown);
 impl IEnumNetworkConnections {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -31,6 +31,26 @@ impl IEnumNetworkConnections {
 unsafe impl ::windows::runtime::Interface for IEnumNetworkConnections {
     type Vtable = IEnumNetworkConnections_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521862, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+}
+impl ::std::convert::From<IEnumNetworkConnections> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetworkConnections) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumNetworkConnections> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetworkConnections) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetworkConnections {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetworkConnections {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IEnumNetworkConnections> for super::super::System::Ole::Automation::IDispatch {
@@ -79,7 +99,7 @@ pub struct IEnumNetworkConnections_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumNetworks(::windows::runtime::IUnknown);
 impl IEnumNetworks {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -109,6 +129,26 @@ impl IEnumNetworks {
 unsafe impl ::windows::runtime::Interface for IEnumNetworks {
     type Vtable = IEnumNetworks_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521859, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+}
+impl ::std::convert::From<IEnumNetworks> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetworks) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumNetworks> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetworks) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetworks {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetworks {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IEnumNetworks> for super::super::System::Ole::Automation::IDispatch {
@@ -157,7 +197,7 @@ pub struct IEnumNetworks_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetwork(::windows::runtime::IUnknown);
 impl INetwork {
     #[cfg(feature = "Win32_Foundation")]
@@ -230,6 +270,26 @@ unsafe impl ::windows::runtime::Interface for INetwork {
     type Vtable = INetwork_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521858, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetwork> for ::windows::runtime::IUnknown {
+    fn from(value: INetwork) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetwork> for ::windows::runtime::IUnknown {
+    fn from(value: &INetwork) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetwork {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetwork {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetwork> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetwork) -> Self {
@@ -288,7 +348,7 @@ pub struct INetwork_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnection(::windows::runtime::IUnknown);
 impl INetworkConnection {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -330,6 +390,26 @@ impl INetworkConnection {
 unsafe impl ::windows::runtime::Interface for INetworkConnection {
     type Vtable = INetworkConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521861, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+}
+impl ::std::convert::From<INetworkConnection> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetworkConnection> for super::super::System::Ole::Automation::IDispatch {
@@ -379,7 +459,7 @@ pub struct INetworkConnection_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnectionCost(::windows::runtime::IUnknown);
 impl INetworkConnectionCost {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -398,6 +478,26 @@ unsafe impl ::windows::runtime::Interface for INetworkConnectionCost {
     type Vtable = INetworkConnectionCost_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521866, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetworkConnectionCost> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkConnectionCost) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkConnectionCost> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkConnectionCost) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkConnectionCost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkConnectionCost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkConnectionCost_abi(
@@ -410,7 +510,7 @@ pub struct INetworkConnectionCost_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnectionCostEvents(::windows::runtime::IUnknown);
 impl INetworkConnectionCostEvents {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -426,6 +526,26 @@ unsafe impl ::windows::runtime::Interface for INetworkConnectionCostEvents {
     type Vtable = INetworkConnectionCostEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521867, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetworkConnectionCostEvents> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkConnectionCostEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkConnectionCostEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkConnectionCostEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkConnectionCostEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkConnectionCostEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkConnectionCostEvents_abi(
@@ -437,7 +557,7 @@ pub struct INetworkConnectionCostEvents_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnectionEvents(::windows::runtime::IUnknown);
 impl INetworkConnectionEvents {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -453,6 +573,26 @@ unsafe impl ::windows::runtime::Interface for INetworkConnectionEvents {
     type Vtable = INetworkConnectionEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521863, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetworkConnectionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkConnectionEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkConnectionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkConnectionEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkConnectionEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkConnectionEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkConnectionEvents_abi(
@@ -464,7 +604,7 @@ pub struct INetworkConnectionEvents_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkCostManager(::windows::runtime::IUnknown);
 impl INetworkCostManager {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -485,6 +625,26 @@ unsafe impl ::windows::runtime::Interface for INetworkCostManager {
     type Vtable = INetworkCostManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521864, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetworkCostManager> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkCostManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkCostManager> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkCostManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkCostManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkCostManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkCostManager_abi(
@@ -498,7 +658,7 @@ pub struct INetworkCostManager_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkCostManagerEvents(::windows::runtime::IUnknown);
 impl INetworkCostManagerEvents {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -514,6 +674,26 @@ unsafe impl ::windows::runtime::Interface for INetworkCostManagerEvents {
     type Vtable = INetworkCostManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521865, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetworkCostManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkCostManagerEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkCostManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkCostManagerEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkCostManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkCostManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkCostManagerEvents_abi(
@@ -525,7 +705,7 @@ pub struct INetworkCostManagerEvents_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkEvents(::windows::runtime::IUnknown);
 impl INetworkEvents {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -549,6 +729,26 @@ unsafe impl ::windows::runtime::Interface for INetworkEvents {
     type Vtable = INetworkEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521860, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
 }
+impl ::std::convert::From<INetworkEvents> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetworkEvents_abi(
@@ -562,7 +762,7 @@ pub struct INetworkEvents_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkListManager(::windows::runtime::IUnknown);
 impl INetworkListManager {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -612,6 +812,26 @@ impl INetworkListManager {
 unsafe impl ::windows::runtime::Interface for INetworkListManager {
     type Vtable = INetworkListManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521856, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+}
+impl ::std::convert::From<INetworkListManager> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkListManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkListManager> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkListManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkListManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkListManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetworkListManager> for super::super::System::Ole::Automation::IDispatch {
@@ -663,7 +883,7 @@ pub struct INetworkListManager_abi(
 );
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkListManagerEvents(::windows::runtime::IUnknown);
 impl INetworkListManagerEvents {
     #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
@@ -674,6 +894,26 @@ impl INetworkListManagerEvents {
 unsafe impl ::windows::runtime::Interface for INetworkListManagerEvents {
     type Vtable = INetworkListManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702521857, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);
+}
+impl ::std::convert::From<INetworkListManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: INetworkListManagerEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INetworkListManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &INetworkListManagerEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkListManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkListManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

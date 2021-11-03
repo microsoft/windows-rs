@@ -18,7 +18,7 @@ impl ::windows::runtime::RuntimeName for AdaptiveCardBuilder {
     const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCard(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCard {
@@ -38,6 +38,46 @@ impl IAdaptiveCard {
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
+impl ::std::convert::From<IAdaptiveCard> for ::windows::runtime::IUnknown {
+    fn from(value: IAdaptiveCard) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAdaptiveCard> for ::windows::runtime::IUnknown {
+    fn from(value: &IAdaptiveCard) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdaptiveCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdaptiveCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IAdaptiveCard> for ::windows::runtime::IInspectable {
+    fn from(value: IAdaptiveCard) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAdaptiveCard> for ::windows::runtime::IInspectable {
+    fn from(value: &IAdaptiveCard) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdaptiveCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdaptiveCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveCard_abi(
@@ -50,7 +90,7 @@ pub struct IAdaptiveCard_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCardBuilderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCardBuilderStatics {
@@ -69,6 +109,46 @@ impl IAdaptiveCardBuilderStatics {
 }
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
+}
+impl ::std::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
+    fn from(value: IAdaptiveCardBuilderStatics) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
+    fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdaptiveCardBuilderStatics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdaptiveCardBuilderStatics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
+    fn from(value: IAdaptiveCardBuilderStatics) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
+    fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdaptiveCardBuilderStatics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdaptiveCardBuilderStatics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -260,7 +340,7 @@ impl ::windows::runtime::DefaultType for SecurityAppKind {
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SecurityAppManager(::windows::runtime::IInspectable);
 impl SecurityAppManager {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -300,6 +380,46 @@ unsafe impl ::windows::runtime::Interface for SecurityAppManager {
 }
 impl ::windows::runtime::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
+}
+impl ::std::convert::From<SecurityAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: SecurityAppManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SecurityAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: &SecurityAppManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecurityAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecurityAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SecurityAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: SecurityAppManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SecurityAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: &SecurityAppManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SecurityAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SecurityAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SecurityAppManager {}
 unsafe impl ::std::marker::Sync for SecurityAppManager {}
@@ -377,7 +497,7 @@ impl ::windows::runtime::DefaultType for ShareWindowCommand {
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ShareWindowCommandEventArgs(::windows::runtime::IInspectable);
 impl ShareWindowCommandEventArgs {
     #[doc = "*Required features: `UI_Shell`*"]
@@ -412,11 +532,51 @@ unsafe impl ::windows::runtime::Interface for ShareWindowCommandEventArgs {
 impl ::windows::runtime::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
 }
+impl ::std::convert::From<ShareWindowCommandEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ShareWindowCommandEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ShareWindowCommandEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ShareWindowCommandEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareWindowCommandEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareWindowCommandEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ShareWindowCommandEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ShareWindowCommandEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ShareWindowCommandEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ShareWindowCommandEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareWindowCommandEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareWindowCommandEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ShareWindowCommandEventArgs {}
 unsafe impl ::std::marker::Sync for ShareWindowCommandEventArgs {}
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ShareWindowCommandSource(::windows::runtime::IInspectable);
 impl ShareWindowCommandSource {
     #[doc = "*Required features: `UI_Shell`*"]
@@ -486,11 +646,51 @@ unsafe impl ::windows::runtime::Interface for ShareWindowCommandSource {
 impl ::windows::runtime::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
 }
+impl ::std::convert::From<ShareWindowCommandSource> for ::windows::runtime::IUnknown {
+    fn from(value: ShareWindowCommandSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ShareWindowCommandSource> for ::windows::runtime::IUnknown {
+    fn from(value: &ShareWindowCommandSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareWindowCommandSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareWindowCommandSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ShareWindowCommandSource> for ::windows::runtime::IInspectable {
+    fn from(value: ShareWindowCommandSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ShareWindowCommandSource> for ::windows::runtime::IInspectable {
+    fn from(value: &ShareWindowCommandSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareWindowCommandSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareWindowCommandSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ShareWindowCommandSource {}
 unsafe impl ::std::marker::Sync for ShareWindowCommandSource {}
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TaskbarManager(::windows::runtime::IInspectable);
 impl TaskbarManager {
     #[doc = "*Required features: `UI_Shell`*"]
@@ -593,6 +793,46 @@ unsafe impl ::windows::runtime::Interface for TaskbarManager {
 }
 impl ::windows::runtime::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";
+}
+impl ::std::convert::From<TaskbarManager> for ::windows::runtime::IUnknown {
+    fn from(value: TaskbarManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TaskbarManager> for ::windows::runtime::IUnknown {
+    fn from(value: &TaskbarManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TaskbarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TaskbarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TaskbarManager> for ::windows::runtime::IInspectable {
+    fn from(value: TaskbarManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TaskbarManager> for ::windows::runtime::IInspectable {
+    fn from(value: &TaskbarManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TaskbarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TaskbarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TaskbarManager {}
 unsafe impl ::std::marker::Sync for TaskbarManager {}

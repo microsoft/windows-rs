@@ -105,7 +105,7 @@ unsafe impl ::windows::runtime::Abi for HTHREAD_NETWORK_CONTEXT {
 }
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectionPolicyManagerInterop(::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
@@ -125,6 +125,26 @@ unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInterop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179804957, 49662, 19361, [159, 10, 192, 245, 101, 150, 247, 33]);
 }
+impl ::std::convert::From<IProtectionPolicyManagerInterop> for ::windows::runtime::IUnknown {
+    fn from(value: IProtectionPolicyManagerInterop) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IProtectionPolicyManagerInterop> for ::windows::runtime::IUnknown {
+    fn from(value: &IProtectionPolicyManagerInterop) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtectionPolicyManagerInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop_abi(
@@ -141,7 +161,7 @@ pub struct IProtectionPolicyManagerInterop_abi(
 );
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectionPolicyManagerInterop2(::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -205,6 +225,26 @@ unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360512484, 42893, 16726, [179, 132, 97, 253, 172, 65, 230, 134]);
 }
+impl ::std::convert::From<IProtectionPolicyManagerInterop2> for ::windows::runtime::IUnknown {
+    fn from(value: IProtectionPolicyManagerInterop2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::runtime::IUnknown {
+    fn from(value: &IProtectionPolicyManagerInterop2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtectionPolicyManagerInterop2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop2_abi(
@@ -229,7 +269,7 @@ pub struct IProtectionPolicyManagerInterop2_abi(
 );
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectionPolicyManagerInterop3(::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop3 {
     #[cfg(feature = "Win32_Foundation")]
@@ -354,6 +394,26 @@ impl IProtectionPolicyManagerInterop3 {
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3250600243, 45976, 19859, [176, 253, 41, 114, 173, 248, 2, 194]);
+}
+impl ::std::convert::From<IProtectionPolicyManagerInterop3> for ::windows::runtime::IUnknown {
+    fn from(value: IProtectionPolicyManagerInterop3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::runtime::IUnknown {
+    fn from(value: &IProtectionPolicyManagerInterop3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtectionPolicyManagerInterop3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

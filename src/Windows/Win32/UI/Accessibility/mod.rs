@@ -1118,7 +1118,7 @@ pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::runtime::GUID = 
 pub const Hyperlink_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2320892460, 45069, 19733, [143, 240, 91, 107, 38, 110, 94, 2]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccIdentity(::windows::runtime::IUnknown);
 impl IAccIdentity {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1130,6 +1130,26 @@ unsafe impl ::windows::runtime::Interface for IAccIdentity {
     type Vtable = IAccIdentity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2018686861, 7421, 16833, [166, 21, 156, 12, 133, 150, 11, 95]);
 }
+impl ::std::convert::From<IAccIdentity> for ::windows::runtime::IUnknown {
+    fn from(value: IAccIdentity) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccIdentity> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccIdentity) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccIdentity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccIdentity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccIdentity_abi(
@@ -1140,7 +1160,7 @@ pub struct IAccIdentity_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccPropServer(::windows::runtime::IUnknown);
 impl IAccPropServer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -1153,6 +1173,26 @@ unsafe impl ::windows::runtime::Interface for IAccPropServer {
     type Vtable = IAccPropServer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1992350651, 5600, 20091, [182, 27, 32, 238, 234, 32, 1, 224]);
 }
+impl ::std::convert::From<IAccPropServer> for ::windows::runtime::IUnknown {
+    fn from(value: IAccPropServer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccPropServer> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccPropServer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccPropServer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccPropServer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccPropServer_abi(
@@ -1164,7 +1204,7 @@ pub struct IAccPropServer_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccPropServices(::windows::runtime::IUnknown);
 impl IAccPropServices {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -1245,6 +1285,26 @@ unsafe impl ::windows::runtime::Interface for IAccPropServices {
     type Vtable = IAccPropServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848043382, 1264, 18781, [128, 228, 51, 48, 53, 46, 49, 105]);
 }
+impl ::std::convert::From<IAccPropServices> for ::windows::runtime::IUnknown {
+    fn from(value: IAccPropServices) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccPropServices> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccPropServices) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccPropServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccPropServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccPropServices_abi(
@@ -1282,7 +1342,7 @@ pub struct IAccPropServices_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccessible(::windows::runtime::IUnknown);
 impl IAccessible {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1409,6 +1469,26 @@ unsafe impl ::windows::runtime::Interface for IAccessible {
     type Vtable = IAccessible_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1636251360, 15421, 4559, [129, 12, 0, 170, 0, 56, 155, 113]);
 }
+impl ::std::convert::From<IAccessible> for ::windows::runtime::IUnknown {
+    fn from(value: IAccessible) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccessible> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccessible) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessible {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessible {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAccessible> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAccessible) -> Self {
@@ -1491,7 +1571,7 @@ pub struct IAccessible_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccessibleEx(::windows::runtime::IUnknown);
 impl IAccessibleEx {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1519,6 +1599,26 @@ unsafe impl ::windows::runtime::Interface for IAccessibleEx {
     type Vtable = IAccessibleEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4172810970, 11332, 18640, [137, 190, 95, 242, 60, 156, 216, 117]);
 }
+impl ::std::convert::From<IAccessibleEx> for ::windows::runtime::IUnknown {
+    fn from(value: IAccessibleEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccessibleEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccessibleEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessibleEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessibleEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleEx_abi(
@@ -1533,7 +1633,7 @@ pub struct IAccessibleEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccessibleHandler(::windows::runtime::IUnknown);
 impl IAccessibleHandler {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1546,6 +1646,26 @@ unsafe impl ::windows::runtime::Interface for IAccessibleHandler {
     type Vtable = IAccessibleHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50471984, 43972, 4560, [189, 226, 0, 170, 0, 26, 25, 83]);
 }
+impl ::std::convert::From<IAccessibleHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IAccessibleHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccessibleHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccessibleHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessibleHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessibleHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleHandler_abi(
@@ -1556,7 +1676,7 @@ pub struct IAccessibleHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccessibleHostingElementProviders(::windows::runtime::IUnknown);
 impl IAccessibleHostingElementProviders {
     #[cfg(feature = "Win32_System_Com")]
@@ -1575,6 +1695,26 @@ unsafe impl ::windows::runtime::Interface for IAccessibleHostingElementProviders
     type Vtable = IAccessibleHostingElementProviders_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866923291, 37950, 16416, [178, 149, 219, 55, 120, 73, 116, 163]);
 }
+impl ::std::convert::From<IAccessibleHostingElementProviders> for ::windows::runtime::IUnknown {
+    fn from(value: IAccessibleHostingElementProviders) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccessibleHostingElementProviders> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccessibleHostingElementProviders) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessibleHostingElementProviders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessibleHostingElementProviders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleHostingElementProviders_abi(
@@ -1587,7 +1727,7 @@ pub struct IAccessibleHostingElementProviders_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccessibleWindowlessSite(::windows::runtime::IUnknown);
 impl IAccessibleWindowlessSite {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1615,6 +1755,26 @@ unsafe impl ::windows::runtime::Interface for IAccessibleWindowlessSite {
     type Vtable = IAccessibleWindowlessSite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3208297884, 30426, 17289, [158, 182, 20, 39, 210, 90, 186, 183]);
 }
+impl ::std::convert::From<IAccessibleWindowlessSite> for ::windows::runtime::IUnknown {
+    fn from(value: IAccessibleWindowlessSite) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccessibleWindowlessSite> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccessibleWindowlessSite) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccessibleWindowlessSite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccessibleWindowlessSite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleWindowlessSite_abi(
@@ -1629,7 +1789,7 @@ pub struct IAccessibleWindowlessSite_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAnnotationProvider(::windows::runtime::IUnknown);
 impl IAnnotationProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1665,6 +1825,26 @@ unsafe impl ::windows::runtime::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4183588480, 48483, 17921, [151, 130, 68, 94, 191, 240, 17, 252]);
 }
+impl ::std::convert::From<IAnnotationProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IAnnotationProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAnnotationProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IAnnotationProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAnnotationProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAnnotationProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationProvider_abi(
@@ -1682,7 +1862,7 @@ pub struct IAnnotationProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICustomNavigationProvider(::windows::runtime::IUnknown);
 impl ICustomNavigationProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1695,6 +1875,26 @@ unsafe impl ::windows::runtime::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(543335050, 35847, 19348, [142, 18, 112, 55, 198, 34, 174, 184]);
 }
+impl ::std::convert::From<ICustomNavigationProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ICustomNavigationProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICustomNavigationProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ICustomNavigationProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICustomNavigationProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICustomNavigationProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomNavigationProvider_abi(
@@ -1705,7 +1905,7 @@ pub struct ICustomNavigationProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDockProvider(::windows::runtime::IUnknown);
 impl IDockProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1722,6 +1922,26 @@ unsafe impl ::windows::runtime::Interface for IDockProvider {
     type Vtable = IDockProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(362530604, 19155, 18526, [150, 55, 215, 5, 46, 223, 1, 70]);
 }
+impl ::std::convert::From<IDockProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IDockProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDockProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IDockProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDockProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDockProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDockProvider_abi(
@@ -1733,7 +1953,7 @@ pub struct IDockProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDragProvider(::windows::runtime::IUnknown);
 impl IDragProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -1765,6 +1985,26 @@ unsafe impl ::windows::runtime::Interface for IDragProvider {
     type Vtable = IDragProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1789377467, 32761, 18813, [144, 79, 210, 11, 137, 121, 41, 216]);
 }
+impl ::std::convert::From<IDragProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IDragProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDragProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IDragProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDragProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDragProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragProvider_abi(
@@ -1782,7 +2022,7 @@ pub struct IDragProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDropTargetProvider(::windows::runtime::IUnknown);
 impl IDropTargetProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -1802,6 +2042,26 @@ unsafe impl ::windows::runtime::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3135777789, 13706, 18460, [133, 160, 216, 180, 217, 10, 93, 97]);
 }
+impl ::std::convert::From<IDropTargetProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IDropTargetProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDropTargetProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IDropTargetProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDropTargetProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDropTargetProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetProvider_abi(
@@ -1815,7 +2075,7 @@ pub struct IDropTargetProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IExpandCollapseProvider(::windows::runtime::IUnknown);
 impl IExpandCollapseProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1836,6 +2096,26 @@ unsafe impl ::windows::runtime::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3628585893, 51888, 19096, [140, 50, 236, 180, 92, 89, 173, 36]);
 }
+impl ::std::convert::From<IExpandCollapseProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IExpandCollapseProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IExpandCollapseProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IExpandCollapseProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IExpandCollapseProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IExpandCollapseProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExpandCollapseProvider_abi(
@@ -1848,7 +2128,7 @@ pub struct IExpandCollapseProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGridItemProvider(::windows::runtime::IUnknown);
 impl IGridItemProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1881,6 +2161,26 @@ unsafe impl ::windows::runtime::Interface for IGridItemProvider {
     type Vtable = IGridItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3492102641, 64385, 19812, [174, 50, 245, 32, 248, 166, 219, 209]);
 }
+impl ::std::convert::From<IGridItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IGridItemProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IGridItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IGridItemProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGridItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGridItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemProvider_abi(
@@ -1895,7 +2195,7 @@ pub struct IGridItemProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGridProvider(::windows::runtime::IUnknown);
 impl IGridProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1918,6 +2218,26 @@ unsafe impl ::windows::runtime::Interface for IGridProvider {
     type Vtable = IGridProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977784199, 2311, 17995, [161, 104, 14, 241, 122, 21, 114, 177]);
 }
+impl ::std::convert::From<IGridProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IGridProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IGridProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IGridProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGridProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGridProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridProvider_abi(
@@ -1932,7 +2252,7 @@ pub const IIS_ControlAccessible: ::windows::runtime::GUID = ::windows::runtime::
 pub const IIS_IsOleaccProxy: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2418448378, 32996, 17760, [128, 42, 161, 63, 34, 166, 71, 9]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInvokeProvider(::windows::runtime::IUnknown);
 impl IInvokeProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1944,6 +2264,26 @@ unsafe impl ::windows::runtime::Interface for IInvokeProvider {
     type Vtable = IInvokeProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425846859, 57742, 18338, [180, 211, 236, 203, 231, 117, 153, 162]);
 }
+impl ::std::convert::From<IInvokeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IInvokeProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInvokeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IInvokeProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInvokeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInvokeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInvokeProvider_abi(
@@ -1954,7 +2294,7 @@ pub struct IInvokeProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IItemContainerProvider(::windows::runtime::IUnknown);
 impl IItemContainerProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -1968,6 +2308,26 @@ unsafe impl ::windows::runtime::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880220427, 14798, 17282, [171, 48, 216, 251, 63, 51, 111, 36]);
 }
+impl ::std::convert::From<IItemContainerProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IItemContainerProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IItemContainerProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IItemContainerProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IItemContainerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IItemContainerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemContainerProvider_abi(
@@ -1979,7 +2339,7 @@ pub struct IItemContainerProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILegacyIAccessibleProvider(::windows::runtime::IUnknown);
 impl ILegacyIAccessibleProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2062,6 +2422,26 @@ unsafe impl ::windows::runtime::Interface for ILegacyIAccessibleProvider {
     type Vtable = ILegacyIAccessibleProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3830199654, 37213, 16496, [153, 198, 4, 123, 255, 90, 8, 245]);
 }
+impl ::std::convert::From<ILegacyIAccessibleProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ILegacyIAccessibleProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILegacyIAccessibleProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ILegacyIAccessibleProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILegacyIAccessibleProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILegacyIAccessibleProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILegacyIAccessibleProvider_abi(
@@ -2093,7 +2473,7 @@ pub struct ILegacyIAccessibleProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMultipleViewProvider(::windows::runtime::IUnknown);
 impl IMultipleViewProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -2122,6 +2502,26 @@ unsafe impl ::windows::runtime::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652083377, 46422, 18970, [180, 224, 65, 138, 204, 82, 50, 1]);
 }
+impl ::std::convert::From<IMultipleViewProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IMultipleViewProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMultipleViewProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IMultipleViewProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultipleViewProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultipleViewProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewProvider_abi(
@@ -2137,7 +2537,7 @@ pub struct IMultipleViewProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IObjectModelProvider(::windows::runtime::IUnknown);
 impl IObjectModelProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2150,6 +2550,26 @@ unsafe impl ::windows::runtime::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(987262653, 62959, 18493, [187, 24, 177, 4, 42, 71, 93, 100]);
 }
+impl ::std::convert::From<IObjectModelProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IObjectModelProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IObjectModelProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IObjectModelProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IObjectModelProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IObjectModelProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectModelProvider_abi(
@@ -2160,7 +2580,7 @@ pub struct IObjectModelProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProxyProviderWinEventHandler(::windows::runtime::IUnknown);
 impl IProxyProviderWinEventHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -2173,6 +2593,26 @@ unsafe impl ::windows::runtime::Interface for IProxyProviderWinEventHandler {
     type Vtable = IProxyProviderWinEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2304322260, 62688, 17365, [163, 182, 186, 215, 225, 17, 180, 53]);
 }
+impl ::std::convert::From<IProxyProviderWinEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IProxyProviderWinEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IProxyProviderWinEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IProxyProviderWinEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProxyProviderWinEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProxyProviderWinEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProxyProviderWinEventHandler_abi(
@@ -2184,7 +2624,7 @@ pub struct IProxyProviderWinEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProxyProviderWinEventSink(::windows::runtime::IUnknown);
 impl IProxyProviderWinEventSink {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -2206,6 +2646,26 @@ unsafe impl ::windows::runtime::Interface for IProxyProviderWinEventSink {
     type Vtable = IProxyProviderWinEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1339566968, 42046, 18092, [152, 3, 10, 105, 105, 199, 193, 131]);
 }
+impl ::std::convert::From<IProxyProviderWinEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: IProxyProviderWinEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IProxyProviderWinEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IProxyProviderWinEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProxyProviderWinEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProxyProviderWinEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProxyProviderWinEventSink_abi(
@@ -2220,7 +2680,7 @@ pub struct IProxyProviderWinEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRangeValueProvider(::windows::runtime::IUnknown);
 impl IRangeValueProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2263,6 +2723,26 @@ unsafe impl ::windows::runtime::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(920419055, 13286, 18065, [175, 225, 43, 231, 39, 75, 61, 51]);
 }
+impl ::std::convert::From<IRangeValueProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IRangeValueProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRangeValueProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IRangeValueProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRangeValueProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRangeValueProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeValueProvider_abi(
@@ -2280,7 +2760,7 @@ pub struct IRangeValueProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderAdviseEvents(::windows::runtime::IUnknown);
 impl IRawElementProviderAdviseEvents {
     #[cfg(feature = "Win32_System_Com")]
@@ -2298,6 +2778,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderAdviseEvents {
     type Vtable = IRawElementProviderAdviseEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2751967867, 3949, 17447, [146, 146, 71, 60, 123, 249, 50, 88]);
 }
+impl ::std::convert::From<IRawElementProviderAdviseEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderAdviseEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderAdviseEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderAdviseEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderAdviseEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderAdviseEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderAdviseEvents_abi(
@@ -2311,7 +2811,7 @@ pub struct IRawElementProviderAdviseEvents_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderFragment(::windows::runtime::IUnknown);
 impl IRawElementProviderFragment {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2350,6 +2850,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderFragment {
     type Vtable = IRawElementProviderFragment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4144381352, 33625, 17308, [146, 151, 187, 197, 41, 154, 125, 135]);
 }
+impl ::std::convert::From<IRawElementProviderFragment> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderFragment) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderFragment> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderFragment) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderFragment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderFragment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderFragment_abi(
@@ -2367,7 +2887,7 @@ pub struct IRawElementProviderFragment_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderFragmentRoot(::windows::runtime::IUnknown);
 impl IRawElementProviderFragmentRoot {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2385,6 +2905,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderFragmentRoot {
     type Vtable = IRawElementProviderFragmentRoot_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645011621, 43919, 16553, [134, 203, 222, 60, 117, 89, 155, 88]);
 }
+impl ::std::convert::From<IRawElementProviderFragmentRoot> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderFragmentRoot) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderFragmentRoot> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderFragmentRoot) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderFragmentRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderFragmentRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderFragmentRoot_abi(
@@ -2396,7 +2936,7 @@ pub struct IRawElementProviderFragmentRoot_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderHostingAccessibles(::windows::runtime::IUnknown);
 impl IRawElementProviderHostingAccessibles {
     #[cfg(feature = "Win32_System_Com")]
@@ -2410,6 +2950,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderHostingAccessib
     type Vtable = IRawElementProviderHostingAccessibles_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616434439, 54141, 18554, [152, 207, 161, 62, 212, 101, 233, 179]);
 }
+impl ::std::convert::From<IRawElementProviderHostingAccessibles> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderHostingAccessibles) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderHostingAccessibles> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderHostingAccessibles) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderHostingAccessibles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderHostingAccessibles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderHostingAccessibles_abi(
@@ -2421,7 +2981,7 @@ pub struct IRawElementProviderHostingAccessibles_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderHwndOverride(::windows::runtime::IUnknown);
 impl IRawElementProviderHwndOverride {
     #[cfg(feature = "Win32_Foundation")]
@@ -2435,6 +2995,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderHwndOverride {
     type Vtable = IRawElementProviderHwndOverride_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(492696188, 35143, 17445, [184, 217, 121, 120, 123, 180, 96, 184]);
 }
+impl ::std::convert::From<IRawElementProviderHwndOverride> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderHwndOverride) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderHwndOverride> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderHwndOverride) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderHwndOverride {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderHwndOverride {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderHwndOverride_abi(
@@ -2446,7 +3026,7 @@ pub struct IRawElementProviderHwndOverride_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderSimple(::windows::runtime::IUnknown);
 impl IRawElementProviderSimple {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2475,6 +3055,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple {
     type Vtable = IRawElementProviderSimple_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3604834513, 34557, 17202, [134, 102, 154, 190, 222, 162, 210, 76]);
 }
+impl ::std::convert::From<IRawElementProviderSimple> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderSimple) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderSimple> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderSimple) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderSimple {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderSimple {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderSimple_abi(
@@ -2489,7 +3089,7 @@ pub struct IRawElementProviderSimple_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderSimple2(::windows::runtime::IUnknown);
 impl IRawElementProviderSimple2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2521,6 +3121,26 @@ impl IRawElementProviderSimple2 {
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple2 {
     type Vtable = IRawElementProviderSimple2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2695379369, 36257, 19074, [128, 106, 142, 13, 68, 231, 159, 86]);
+}
+impl ::std::convert::From<IRawElementProviderSimple2> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderSimple2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderSimple2> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderSimple2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderSimple2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderSimple2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IRawElementProviderSimple2> for IRawElementProviderSimple {
     fn from(value: IRawElementProviderSimple2) -> Self {
@@ -2557,7 +3177,7 @@ pub struct IRawElementProviderSimple2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderSimple3(::windows::runtime::IUnknown);
 impl IRawElementProviderSimple3 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2595,6 +3215,26 @@ impl IRawElementProviderSimple3 {
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple3 {
     type Vtable = IRawElementProviderSimple3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4243970080, 55276, 17939, [189, 246, 66, 168, 76, 231, 218, 175]);
+}
+impl ::std::convert::From<IRawElementProviderSimple3> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderSimple3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderSimple3> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderSimple3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderSimple3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderSimple3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IRawElementProviderSimple3> for IRawElementProviderSimple2 {
     fn from(value: IRawElementProviderSimple3) -> Self {
@@ -2653,7 +3293,7 @@ pub struct IRawElementProviderSimple3_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRawElementProviderWindowlessSite(::windows::runtime::IUnknown);
 impl IRawElementProviderWindowlessSite {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2672,6 +3312,26 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderWindowlessSite 
     type Vtable = IRawElementProviderWindowlessSite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(170562508, 49069, 17068, [155, 46, 9, 145, 251, 13, 62, 160]);
 }
+impl ::std::convert::From<IRawElementProviderWindowlessSite> for ::windows::runtime::IUnknown {
+    fn from(value: IRawElementProviderWindowlessSite) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRawElementProviderWindowlessSite> for ::windows::runtime::IUnknown {
+    fn from(value: &IRawElementProviderWindowlessSite) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderWindowlessSite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderWindowlessSite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderWindowlessSite_abi(
@@ -2684,7 +3344,7 @@ pub struct IRawElementProviderWindowlessSite_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRichEditUiaInformation(::windows::runtime::IUnknown);
 impl IRichEditUiaInformation {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2700,6 +3360,26 @@ unsafe impl ::windows::runtime::Interface for IRichEditUiaInformation {
     type Vtable = IRichEditUiaInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IRichEditUiaInformation> for ::windows::runtime::IUnknown {
+    fn from(value: IRichEditUiaInformation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRichEditUiaInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &IRichEditUiaInformation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRichEditUiaInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRichEditUiaInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditUiaInformation_abi(
@@ -2711,7 +3391,7 @@ pub struct IRichEditUiaInformation_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRicheditWindowlessAccessibility(::windows::runtime::IUnknown);
 impl IRicheditWindowlessAccessibility {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2724,6 +3404,26 @@ unsafe impl ::windows::runtime::Interface for IRicheditWindowlessAccessibility {
     type Vtable = IRicheditWindowlessAccessibility_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IRicheditWindowlessAccessibility> for ::windows::runtime::IUnknown {
+    fn from(value: IRicheditWindowlessAccessibility) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRicheditWindowlessAccessibility> for ::windows::runtime::IUnknown {
+    fn from(value: &IRicheditWindowlessAccessibility) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRicheditWindowlessAccessibility {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRicheditWindowlessAccessibility {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRicheditWindowlessAccessibility_abi(
@@ -2734,7 +3434,7 @@ pub struct IRicheditWindowlessAccessibility_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IScrollItemProvider(::windows::runtime::IUnknown);
 impl IScrollItemProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2746,6 +3446,26 @@ unsafe impl ::windows::runtime::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593544980, 19441, 19238, [186, 101, 155, 33, 49, 97, 39, 235]);
 }
+impl ::std::convert::From<IScrollItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IScrollItemProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IScrollItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IScrollItemProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScrollItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IScrollItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollItemProvider_abi(
@@ -2756,7 +3476,7 @@ pub struct IScrollItemProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IScrollProvider(::windows::runtime::IUnknown);
 impl IScrollProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2804,6 +3524,26 @@ unsafe impl ::windows::runtime::Interface for IScrollProvider {
     type Vtable = IScrollProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3012264055, 8131, 17061, [140, 174, 212, 12, 34, 21, 5, 90]);
 }
+impl ::std::convert::From<IScrollProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IScrollProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IScrollProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IScrollProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScrollProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IScrollProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollProvider_abi(
@@ -2823,7 +3563,7 @@ pub struct IScrollProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISelectionItemProvider(::windows::runtime::IUnknown);
 impl ISelectionItemProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -2854,6 +3594,26 @@ unsafe impl ::windows::runtime::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(717936648, 45780, 17709, [164, 7, 145, 255, 26, 209, 103, 178]);
 }
+impl ::std::convert::From<ISelectionItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ISelectionItemProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISelectionItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ISelectionItemProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISelectionItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISelectionItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemProvider_abi(
@@ -2869,7 +3629,7 @@ pub struct ISelectionItemProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISelectionProvider(::windows::runtime::IUnknown);
 impl ISelectionProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -2895,6 +3655,26 @@ unsafe impl ::windows::runtime::Interface for ISelectionProvider {
     type Vtable = ISelectionProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4220191663, 15327, 18644, [189, 54, 26, 101, 121, 59, 225, 104]);
 }
+impl ::std::convert::From<ISelectionProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ISelectionProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISelectionProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ISelectionProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISelectionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISelectionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionProvider_abi(
@@ -2910,7 +3690,7 @@ pub struct ISelectionProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISelectionProvider2(::windows::runtime::IUnknown);
 impl ISelectionProvider2 {
     #[cfg(feature = "Win32_System_Com")]
@@ -2956,6 +3736,26 @@ unsafe impl ::windows::runtime::Interface for ISelectionProvider2 {
     type Vtable = ISelectionProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(351700085, 60956, 17654, [168, 105, 210, 57, 56, 31, 15, 231]);
 }
+impl ::std::convert::From<ISelectionProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: ISelectionProvider2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISelectionProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISelectionProvider2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISelectionProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISelectionProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISelectionProvider2> for ISelectionProvider {
     fn from(value: ISelectionProvider2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2995,7 +3795,7 @@ pub struct ISelectionProvider2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISpreadsheetItemProvider(::windows::runtime::IUnknown);
 impl ISpreadsheetItemProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -3021,6 +3821,26 @@ unsafe impl ::windows::runtime::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941418592, 31549, 18553, [162, 230, 54, 92, 230, 3, 243, 208]);
 }
+impl ::std::convert::From<ISpreadsheetItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ISpreadsheetItemProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISpreadsheetItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpreadsheetItemProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpreadsheetItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpreadsheetItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemProvider_abi(
@@ -3036,7 +3856,7 @@ pub struct ISpreadsheetItemProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISpreadsheetProvider(::windows::runtime::IUnknown);
 impl ISpreadsheetProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -3050,6 +3870,26 @@ unsafe impl ::windows::runtime::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869307189, 21797, 20352, [183, 88, 133, 71, 56, 50, 255, 199]);
 }
+impl ::std::convert::From<ISpreadsheetProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ISpreadsheetProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISpreadsheetProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpreadsheetProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpreadsheetProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpreadsheetProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetProvider_abi(
@@ -3061,7 +3901,7 @@ pub struct ISpreadsheetProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStylesProvider(::windows::runtime::IUnknown);
 impl IStylesProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3108,6 +3948,26 @@ unsafe impl ::windows::runtime::Interface for IStylesProvider {
     type Vtable = IStylesProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(431404617, 62935, 19053, [189, 203, 18, 146, 82, 190, 88, 138]);
 }
+impl ::std::convert::From<IStylesProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IStylesProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IStylesProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IStylesProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStylesProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStylesProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesProvider_abi(
@@ -3128,7 +3988,7 @@ pub struct IStylesProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISynchronizedInputProvider(::windows::runtime::IUnknown);
 impl ISynchronizedInputProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3144,6 +4004,26 @@ unsafe impl ::windows::runtime::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(702224902, 718, 19703, [155, 66, 86, 93, 79, 171, 32, 238]);
 }
+impl ::std::convert::From<ISynchronizedInputProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ISynchronizedInputProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISynchronizedInputProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ISynchronizedInputProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISynchronizedInputProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISynchronizedInputProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISynchronizedInputProvider_abi(
@@ -3155,7 +4035,7 @@ pub struct ISynchronizedInputProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITableItemProvider(::windows::runtime::IUnknown);
 impl ITableItemProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -3175,6 +4055,26 @@ unsafe impl ::windows::runtime::Interface for ITableItemProvider {
     type Vtable = ITableItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3111341990, 30495, 19832, [156, 144, 37, 23, 153, 147, 73, 205]);
 }
+impl ::std::convert::From<ITableItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITableItemProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITableItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITableItemProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableItemProvider_abi(
@@ -3188,7 +4088,7 @@ pub struct ITableItemProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITableProvider(::windows::runtime::IUnknown);
 impl ITableProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -3213,6 +4113,26 @@ unsafe impl ::windows::runtime::Interface for ITableProvider {
     type Vtable = ITableProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2626028437, 38835, 18698, [181, 42, 133, 140, 194, 42, 241, 102]);
 }
+impl ::std::convert::From<ITableProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITableProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITableProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITableProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITableProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITableProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableProvider_abi(
@@ -3227,7 +4147,7 @@ pub struct ITableProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextChildProvider(::windows::runtime::IUnknown);
 impl ITextChildProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3245,6 +4165,26 @@ unsafe impl ::windows::runtime::Interface for ITextChildProvider {
     type Vtable = ITextChildProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1278075577, 51343, 20360, [161, 17, 241, 211, 54, 183, 209, 169]);
 }
+impl ::std::convert::From<ITextChildProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITextChildProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextChildProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextChildProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextChildProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextChildProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextChildProvider_abi(
@@ -3256,7 +4196,7 @@ pub struct ITextChildProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextEditProvider(::windows::runtime::IUnknown);
 impl ITextEditProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -3306,6 +4246,26 @@ unsafe impl ::windows::runtime::Interface for ITextEditProvider {
     type Vtable = ITextEditProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3929408948, 14853, 16398, [181, 249, 78, 145, 180, 15, 97, 118]);
 }
+impl ::std::convert::From<ITextEditProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITextEditProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextEditProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextEditProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextEditProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextEditProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITextEditProvider> for ITextProvider {
     fn from(value: ITextEditProvider) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3345,7 +4305,7 @@ pub struct ITextEditProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextProvider(::windows::runtime::IUnknown);
 impl ITextProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -3385,6 +4345,26 @@ unsafe impl ::windows::runtime::Interface for ITextProvider {
     type Vtable = ITextProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(898222380, 25587, 17255, [153, 187, 173, 166, 83, 183, 124, 242]);
 }
+impl ::std::convert::From<ITextProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITextProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextProvider_abi(
@@ -3402,7 +4382,7 @@ pub struct ITextProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextProvider2(::windows::runtime::IUnknown);
 impl ITextProvider2 {
     #[cfg(feature = "Win32_System_Com")]
@@ -3452,6 +4432,26 @@ unsafe impl ::windows::runtime::Interface for ITextProvider2 {
     type Vtable = ITextProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(231073517, 15894, 19441, [143, 154, 169, 121, 135, 139, 193, 149]);
 }
+impl ::std::convert::From<ITextProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: ITextProvider2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextProvider2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITextProvider2> for ITextProvider {
     fn from(value: ITextProvider2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3492,7 +4492,7 @@ pub struct ITextProvider2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextRangeProvider(::windows::runtime::IUnknown);
 impl ITextRangeProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3592,6 +4592,26 @@ unsafe impl ::windows::runtime::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397206395, 50005, 18168, [175, 245, 144, 144, 51, 88, 47, 99]);
 }
+impl ::std::convert::From<ITextRangeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITextRangeProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextRangeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextRangeProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRangeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRangeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRangeProvider_abi(
@@ -3627,7 +4647,7 @@ pub struct ITextRangeProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextRangeProvider2(::windows::runtime::IUnknown);
 impl ITextRangeProvider2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3731,6 +4751,26 @@ unsafe impl ::windows::runtime::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2612847660, 6433, 20248, [137, 202, 219, 161, 145, 10, 3, 134]);
 }
+impl ::std::convert::From<ITextRangeProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: ITextRangeProvider2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextRangeProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextRangeProvider2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextRangeProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextRangeProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITextRangeProvider2> for ITextRangeProvider {
     fn from(value: ITextRangeProvider2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3787,7 +4827,7 @@ pub struct ITextRangeProvider2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IToggleProvider(::windows::runtime::IUnknown);
 impl IToggleProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3804,6 +4844,26 @@ unsafe impl ::windows::runtime::Interface for IToggleProvider {
     type Vtable = IToggleProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1456475088, 50420, 17212, [168, 54, 26, 82, 165, 126, 8, 146]);
 }
+impl ::std::convert::From<IToggleProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IToggleProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IToggleProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IToggleProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IToggleProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IToggleProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleProvider_abi(
@@ -3815,7 +4875,7 @@ pub struct IToggleProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransformProvider(::windows::runtime::IUnknown);
 impl ITransformProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3853,6 +4913,26 @@ unsafe impl ::windows::runtime::Interface for ITransformProvider {
     type Vtable = ITransformProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747574212, 20369, 20474, [184, 111, 189, 62, 41, 135, 203, 76]);
 }
+impl ::std::convert::From<ITransformProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITransformProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITransformProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITransformProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransformProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransformProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformProvider_abi(
@@ -3871,7 +4951,7 @@ pub struct ITransformProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransformProvider2(::windows::runtime::IUnknown);
 impl ITransformProvider2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -3938,6 +5018,26 @@ unsafe impl ::windows::runtime::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1196979247, 31426, 17932, [188, 72, 9, 252, 9, 48, 138, 147]);
 }
+impl ::std::convert::From<ITransformProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: ITransformProvider2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITransformProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITransformProvider2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITransformProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITransformProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITransformProvider2> for ITransformProvider {
     fn from(value: ITransformProvider2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3983,7 +5083,7 @@ pub struct ITransformProvider2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomation(::windows::runtime::IUnknown);
 impl IUIAutomation {
     #[cfg(feature = "Win32_Foundation")]
@@ -4273,6 +5373,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomation {
     type Vtable = IUIAutomation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(818668925, 55760, 17706, [171, 19, 122, 197, 172, 72, 37, 238]);
 }
+impl ::std::convert::From<IUIAutomation> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomation> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomation_abi(
@@ -4358,7 +5478,7 @@ pub struct IUIAutomation_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomation2(::windows::runtime::IUnknown);
 impl IUIAutomation2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -4677,6 +5797,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomation2 {
     type Vtable = IUIAutomation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879901439, 3229, 18896, [152, 150, 122, 181, 45, 248, 205, 138]);
 }
+impl ::std::convert::From<IUIAutomation2> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomation2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomation2> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomation2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomation2> for IUIAutomation {
     fn from(value: IUIAutomation2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4790,7 +5930,7 @@ pub struct IUIAutomation2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomation3(::windows::runtime::IUnknown);
 impl IUIAutomation3 {
     #[cfg(feature = "Win32_Foundation")]
@@ -5117,6 +6257,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomation3 {
     type Vtable = IUIAutomation3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943496922, 39761, 19337, [147, 110, 194, 9, 41, 9, 115, 231]);
 }
+impl ::std::convert::From<IUIAutomation3> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomation3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomation3> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomation3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomation3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomation3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomation3> for IUIAutomation2 {
     fn from(value: IUIAutomation3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5252,7 +6412,7 @@ pub struct IUIAutomation3_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomation4(::windows::runtime::IUnknown);
 impl IUIAutomation4 {
     #[cfg(feature = "Win32_Foundation")]
@@ -5587,6 +6747,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomation4 {
     type Vtable = IUIAutomation4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294240298, 1528, 17177, [142, 33, 232, 23, 227, 219, 40, 96]);
 }
+impl ::std::convert::From<IUIAutomation4> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomation4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomation4> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomation4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomation4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomation4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomation4> for IUIAutomation3 {
     fn from(value: IUIAutomation4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5744,7 +6924,7 @@ pub struct IUIAutomation4_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomation5(::windows::runtime::IUnknown);
 impl IUIAutomation5 {
     #[cfg(feature = "Win32_Foundation")]
@@ -6087,6 +7267,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomation5 {
     type Vtable = IUIAutomation5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(636944584, 55318, 16471, [169, 220, 60, 189, 238, 119, 226, 86]);
 }
+impl ::std::convert::From<IUIAutomation5> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomation5) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomation5> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomation5) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomation5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomation5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomation5> for IUIAutomation4 {
     fn from(value: IUIAutomation5) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6266,7 +7466,7 @@ pub struct IUIAutomation5_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomation6(::windows::runtime::IUnknown);
 impl IUIAutomation6 {
     #[cfg(feature = "Win32_Foundation")]
@@ -6648,6 +7848,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomation6 {
     type Vtable = IUIAutomation6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2866836186, 10723, 16701, [135, 167, 25, 45, 191, 129, 237, 16]);
 }
+impl ::std::convert::From<IUIAutomation6> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomation6) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomation6> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomation6) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomation6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomation6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomation6> for IUIAutomation5 {
     fn from(value: IUIAutomation6) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6856,7 +8076,7 @@ pub struct IUIAutomation6_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationActiveTextPositionChangedEventHandler {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -6868,6 +8088,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationActiveTextPositionCha
     type Vtable = IUIAutomationActiveTextPositionChangedEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4185469872, 36270, 17558, [137, 151, 91, 160, 21, 254, 13, 130]);
 }
+impl ::std::convert::From<IUIAutomationActiveTextPositionChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationActiveTextPositionChangedEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationActiveTextPositionChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationActiveTextPositionChangedEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationActiveTextPositionChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationActiveTextPositionChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler_abi(
@@ -6878,7 +8118,7 @@ pub struct IUIAutomationActiveTextPositionChangedEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationAndCondition(::windows::runtime::IUnknown);
 impl IUIAutomationAndCondition {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -6900,6 +8140,26 @@ impl IUIAutomationAndCondition {
 unsafe impl ::windows::runtime::Interface for IUIAutomationAndCondition {
     type Vtable = IUIAutomationAndCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2815471414, 47378, 17918, [152, 85, 9, 29, 220, 23, 74, 236]);
+}
+impl ::std::convert::From<IUIAutomationAndCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationAndCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationAndCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationAndCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationAndCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationAndCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IUIAutomationAndCondition> for IUIAutomationCondition {
     fn from(value: IUIAutomationAndCondition) -> Self {
@@ -6934,7 +8194,7 @@ pub struct IUIAutomationAndCondition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationAnnotationPattern(::windows::runtime::IUnknown);
 impl IUIAutomationAnnotationPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -6998,6 +8258,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationAnnotationPattern {
     type Vtable = IUIAutomationAnnotationPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2585221921, 13214, 16817, [142, 139, 98, 63, 107, 104, 16, 152]);
 }
+impl ::std::convert::From<IUIAutomationAnnotationPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationAnnotationPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationAnnotationPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationAnnotationPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationAnnotationPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationAnnotationPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationAnnotationPattern_abi(
@@ -7023,7 +8303,7 @@ pub struct IUIAutomationAnnotationPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationBoolCondition(::windows::runtime::IUnknown);
 impl IUIAutomationBoolCondition {
     #[cfg(feature = "Win32_Foundation")]
@@ -7036,6 +8316,26 @@ impl IUIAutomationBoolCondition {
 unsafe impl ::windows::runtime::Interface for IUIAutomationBoolCondition {
     type Vtable = IUIAutomationBoolCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(458104622, 30187, 19723, [137, 82, 90, 105, 152, 142, 35, 7]);
+}
+impl ::std::convert::From<IUIAutomationBoolCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationBoolCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationBoolCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationBoolCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationBoolCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationBoolCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IUIAutomationBoolCondition> for IUIAutomationCondition {
     fn from(value: IUIAutomationBoolCondition) -> Self {
@@ -7068,7 +8368,7 @@ pub struct IUIAutomationBoolCondition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationCacheRequest(::windows::runtime::IUnknown);
 impl IUIAutomationCacheRequest {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -7116,6 +8416,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationCacheRequest {
     type Vtable = IUIAutomationCacheRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005911733, 48165, 16504, [156, 8, 215, 238, 149, 196, 142, 3]);
 }
+impl ::std::convert::From<IUIAutomationCacheRequest> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationCacheRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationCacheRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationCacheRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationCacheRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationCacheRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationCacheRequest_abi(
@@ -7134,7 +8454,7 @@ pub struct IUIAutomationCacheRequest_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationChangesEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationChangesEventHandler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -7147,6 +8467,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationChangesEventHandler {
     type Vtable = IUIAutomationChangesEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491978837, 11326, 18816, [177, 185, 86, 193, 127, 39, 162, 160]);
 }
+impl ::std::convert::From<IUIAutomationChangesEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationChangesEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationChangesEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationChangesEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationChangesEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationChangesEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationChangesEventHandler_abi(
@@ -7158,12 +8498,32 @@ pub struct IUIAutomationChangesEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationCondition(::windows::runtime::IUnknown);
 impl IUIAutomationCondition {}
 unsafe impl ::windows::runtime::Interface for IUIAutomationCondition {
     type Vtable = IUIAutomationCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892337064, 2419, 17276, [166, 31, 246, 76, 175, 216, 29, 249]);
+}
+impl ::std::convert::From<IUIAutomationCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7174,7 +8534,7 @@ pub struct IUIAutomationCondition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationCustomNavigationPattern(::windows::runtime::IUnknown);
 impl IUIAutomationCustomNavigationPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -7187,6 +8547,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationCustomNavigationPatte
     type Vtable = IUIAutomationCustomNavigationPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(32121210, 5990, 18413, [166, 204, 172, 244, 146, 133, 75, 31]);
 }
+impl ::std::convert::From<IUIAutomationCustomNavigationPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationCustomNavigationPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationCustomNavigationPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationCustomNavigationPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationCustomNavigationPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationCustomNavigationPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationCustomNavigationPattern_abi(
@@ -7197,7 +8577,7 @@ pub struct IUIAutomationCustomNavigationPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationDockPattern(::windows::runtime::IUnknown);
 impl IUIAutomationDockPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -7219,6 +8599,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationDockPattern {
     type Vtable = IUIAutomationDockPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259704727, 5220, 18678, [144, 191, 67, 208, 148, 142, 134, 236]);
 }
+impl ::std::convert::From<IUIAutomationDockPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationDockPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationDockPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationDockPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationDockPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationDockPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDockPattern_abi(
@@ -7231,7 +8631,7 @@ pub struct IUIAutomationDockPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationDragPattern(::windows::runtime::IUnknown);
 impl IUIAutomationDragPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -7285,6 +8685,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationDragPattern {
     type Vtable = IUIAutomationDragPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499627376, 8020, 19373, [188, 218, 211, 106, 114, 47, 183, 189]);
 }
+impl ::std::convert::From<IUIAutomationDragPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationDragPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationDragPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationDragPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationDragPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationDragPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDragPattern_abi(
@@ -7308,7 +8728,7 @@ pub struct IUIAutomationDragPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationDropTargetPattern(::windows::runtime::IUnknown);
 impl IUIAutomationDropTargetPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -7340,6 +8760,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationDropTargetPattern {
     type Vtable = IUIAutomationDropTargetPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772131831, 61156, 17166, [164, 107, 251, 115, 177, 174, 57, 165]);
 }
+impl ::std::convert::From<IUIAutomationDropTargetPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationDropTargetPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationDropTargetPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationDropTargetPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationDropTargetPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationDropTargetPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDropTargetPattern_abi(
@@ -7357,7 +8797,7 @@ pub struct IUIAutomationDropTargetPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement(::windows::runtime::IUnknown);
 impl IUIAutomationElement {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -7825,6 +9265,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement {
     type Vtable = IUIAutomationElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525380266, 35525, 18853, [131, 123, 55, 187, 179, 215, 89, 30]);
 }
+impl ::std::convert::From<IUIAutomationElement> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationElement_abi(
@@ -7970,7 +9430,7 @@ pub struct IUIAutomationElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement2(::windows::runtime::IUnknown);
 impl IUIAutomationElement2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -8470,6 +9930,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement2 {
     type Vtable = IUIAutomationElement2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1732888195, 63245, 17543, [166, 152, 95, 121, 213, 82, 144, 214]);
 }
+impl ::std::convert::From<IUIAutomationElement2> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement2> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement2> for IUIAutomationElement {
     fn from(value: IUIAutomationElement2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8643,7 +10123,7 @@ pub struct IUIAutomationElement2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement3(::windows::runtime::IUnknown);
 impl IUIAutomationElement3 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -9159,6 +10639,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement3 {
     type Vtable = IUIAutomationElement3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2222055220, 44768, 18945, [167, 222, 125, 185, 175, 18, 194, 150]);
 }
+impl ::std::convert::From<IUIAutomationElement3> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement3> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement3> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9357,7 +10857,7 @@ pub struct IUIAutomationElement3_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement4(::windows::runtime::IUnknown);
 impl IUIAutomationElement4 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -9925,6 +11425,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement4 {
     type Vtable = IUIAutomationElement4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(997073724, 21243, 16483, [164, 201, 119, 192, 117, 194, 160, 107]);
 }
+impl ::std::convert::From<IUIAutomationElement4> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement4> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement4> for IUIAutomationElement3 {
     fn from(value: IUIAutomationElement4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10155,7 +11675,7 @@ pub struct IUIAutomationElement4_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement5(::windows::runtime::IUnknown);
 impl IUIAutomationElement5 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -10745,6 +12265,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement5 {
     type Vtable = IUIAutomationElement5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2551454749, 3342, 16757, [187, 226, 107, 255, 69, 88, 66, 167]);
 }
+impl ::std::convert::From<IUIAutomationElement5> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement5) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement5> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement5) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement5> for IUIAutomationElement4 {
     fn from(value: IUIAutomationElement5) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11001,7 +12541,7 @@ pub struct IUIAutomationElement5_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement6(::windows::runtime::IUnknown);
 impl IUIAutomationElement6 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -11603,6 +13143,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement6 {
     type Vtable = IUIAutomationElement6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1199625296, 35786, 18807, [175, 165, 164, 165, 23, 245, 85, 227]);
 }
+impl ::std::convert::From<IUIAutomationElement6> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement6) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement6> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement6) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement6> for IUIAutomationElement5 {
     fn from(value: IUIAutomationElement6) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11883,7 +13443,7 @@ pub struct IUIAutomationElement6_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement7(::windows::runtime::IUnknown);
 impl IUIAutomationElement7 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -12511,6 +14071,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement7 {
     type Vtable = IUIAutomationElement7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(542016882, 53187, 19473, [176, 200, 125, 167, 66, 7, 80, 183]);
 }
+impl ::std::convert::From<IUIAutomationElement7> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement7) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement7> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement7) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement7> for IUIAutomationElement6 {
     fn from(value: IUIAutomationElement7) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12817,7 +14397,7 @@ pub struct IUIAutomationElement7_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement8(::windows::runtime::IUnknown);
 impl IUIAutomationElement8 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -13455,6 +15035,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement8 {
     type Vtable = IUIAutomationElement8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2355110269, 21521, 19678, [188, 192, 28, 237, 162, 35, 131, 12]);
 }
+impl ::std::convert::From<IUIAutomationElement8> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement8) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement8> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement8) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement7 {
     fn from(value: IUIAutomationElement8) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13783,7 +15383,7 @@ pub struct IUIAutomationElement8_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElement9(::windows::runtime::IUnknown);
 impl IUIAutomationElement9 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -14433,6 +16033,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElement9 {
     type Vtable = IUIAutomationElement9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(959602604, 925, 17422, [163, 163, 94, 184, 26, 92, 236, 195]);
 }
+impl ::std::convert::From<IUIAutomationElement9> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElement9> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement8 {
     fn from(value: IUIAutomationElement9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14785,7 +16405,7 @@ pub struct IUIAutomationElement9_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationElementArray(::windows::runtime::IUnknown);
 impl IUIAutomationElementArray {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -14803,6 +16423,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationElementArray {
     type Vtable = IUIAutomationElementArray_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(338773397, 46268, 16469, [149, 242, 88, 242, 228, 44, 152, 85]);
 }
+impl ::std::convert::From<IUIAutomationElementArray> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationElementArray) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationElementArray> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationElementArray) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationElementArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationElementArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationElementArray_abi(
@@ -14814,7 +16454,7 @@ pub struct IUIAutomationElementArray_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationEventHandler {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -14826,6 +16466,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationEventHandler {
     type Vtable = IUIAutomationEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(342637591, 61742, 20002, [140, 39, 248, 148, 185, 183, 156, 105]);
 }
+impl ::std::convert::From<IUIAutomationEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationEventHandler_abi(
@@ -14836,7 +16496,7 @@ pub struct IUIAutomationEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationEventHandlerGroup(::windows::runtime::IUnknown);
 impl IUIAutomationEventHandlerGroup {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -14872,6 +16532,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationEventHandlerGroup {
     type Vtable = IUIAutomationEventHandlerGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387822834, 49467, 17416, [153, 124, 99, 153, 20, 55, 127, 78]);
 }
+impl ::std::convert::From<IUIAutomationEventHandlerGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationEventHandlerGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationEventHandlerGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationEventHandlerGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationEventHandlerGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationEventHandlerGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationEventHandlerGroup_abi(
@@ -14888,7 +16568,7 @@ pub struct IUIAutomationEventHandlerGroup_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationExpandCollapsePattern(::windows::runtime::IUnknown);
 impl IUIAutomationExpandCollapsePattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -14914,6 +16594,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationExpandCollapsePattern
     type Vtable = IUIAutomationExpandCollapsePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637605510, 8014, 20196, [186, 250, 33, 1, 40, 115, 135, 48]);
 }
+impl ::std::convert::From<IUIAutomationExpandCollapsePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationExpandCollapsePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationExpandCollapsePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationExpandCollapsePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationExpandCollapsePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationExpandCollapsePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationExpandCollapsePattern_abi(
@@ -14927,7 +16627,7 @@ pub struct IUIAutomationExpandCollapsePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationFocusChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationFocusChangedEventHandler {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -14939,6 +16639,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationFocusChangedEventHand
     type Vtable = IUIAutomationFocusChangedEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3262183093, 23657, 17040, [151, 69, 122, 127, 151, 22, 148, 104]);
 }
+impl ::std::convert::From<IUIAutomationFocusChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationFocusChangedEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationFocusChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationFocusChangedEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationFocusChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationFocusChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationFocusChangedEventHandler_abi(
@@ -14949,7 +16669,7 @@ pub struct IUIAutomationFocusChangedEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationGridItemPattern(::windows::runtime::IUnknown);
 impl IUIAutomationGridItemPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15007,6 +16727,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationGridItemPattern {
     type Vtable = IUIAutomationGridItemPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2029580119, 26307, 19977, [189, 124, 231, 155, 32, 4, 137, 77]);
 }
+impl ::std::convert::From<IUIAutomationGridItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationGridItemPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationGridItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationGridItemPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationGridItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationGridItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationGridItemPattern_abi(
@@ -15026,7 +16766,7 @@ pub struct IUIAutomationGridItemPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationGridPattern(::windows::runtime::IUnknown);
 impl IUIAutomationGridPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15059,6 +16799,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationGridPattern {
     type Vtable = IUIAutomationGridPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1095515356, 34155, 20315, [133, 56, 49, 49, 198, 48, 37, 80]);
 }
+impl ::std::convert::From<IUIAutomationGridPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationGridPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationGridPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationGridPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationGridPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationGridPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationGridPattern_abi(
@@ -15073,7 +16833,7 @@ pub struct IUIAutomationGridPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationInvokePattern(::windows::runtime::IUnknown);
 impl IUIAutomationInvokePattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15085,6 +16845,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationInvokePattern {
     type Vtable = IUIAutomationInvokePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4214718398, 36518, 18133, [156, 115, 100, 153, 100, 45, 48, 89]);
 }
+impl ::std::convert::From<IUIAutomationInvokePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationInvokePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationInvokePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationInvokePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationInvokePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationInvokePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationInvokePattern_abi(
@@ -15095,7 +16875,7 @@ pub struct IUIAutomationInvokePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationItemContainerPattern(::windows::runtime::IUnknown);
 impl IUIAutomationItemContainerPattern {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -15109,6 +16889,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationItemContainerPattern 
     type Vtable = IUIAutomationItemContainerPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3331390898, 10152, 16956, [129, 45, 66, 151, 115, 201, 8, 78]);
 }
+impl ::std::convert::From<IUIAutomationItemContainerPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationItemContainerPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationItemContainerPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationItemContainerPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationItemContainerPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationItemContainerPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationItemContainerPattern_abi(
@@ -15120,7 +16920,7 @@ pub struct IUIAutomationItemContainerPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationLegacyIAccessiblePattern(::windows::runtime::IUnknown);
 impl IUIAutomationLegacyIAccessiblePattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15258,6 +17058,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationLegacyIAccessiblePatt
     type Vtable = IUIAutomationLegacyIAccessiblePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2189448621, 13659, 17461, [134, 213, 59, 81, 193, 74, 155, 27]);
 }
+impl ::std::convert::From<IUIAutomationLegacyIAccessiblePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationLegacyIAccessiblePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationLegacyIAccessiblePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationLegacyIAccessiblePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationLegacyIAccessiblePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationLegacyIAccessiblePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationLegacyIAccessiblePattern_abi(
@@ -15304,7 +17124,7 @@ pub struct IUIAutomationLegacyIAccessiblePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationMultipleViewPattern(::windows::runtime::IUnknown);
 impl IUIAutomationMultipleViewPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -15344,6 +17164,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationMultipleViewPattern {
     type Vtable = IUIAutomationMultipleViewPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2368027793, 7621, 19381, [177, 143, 173, 225, 111, 164, 149, 232]);
 }
+impl ::std::convert::From<IUIAutomationMultipleViewPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationMultipleViewPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationMultipleViewPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationMultipleViewPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationMultipleViewPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationMultipleViewPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationMultipleViewPattern_abi(
@@ -15362,7 +17202,7 @@ pub struct IUIAutomationMultipleViewPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationNotCondition(::windows::runtime::IUnknown);
 impl IUIAutomationNotCondition {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15374,6 +17214,26 @@ impl IUIAutomationNotCondition {
 unsafe impl ::windows::runtime::Interface for IUIAutomationNotCondition {
     type Vtable = IUIAutomationNotCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113086039, 33915, 18828, [136, 150, 213, 43, 86, 84, 7, 161]);
+}
+impl ::std::convert::From<IUIAutomationNotCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationNotCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationNotCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationNotCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationNotCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationNotCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IUIAutomationNotCondition> for IUIAutomationCondition {
     fn from(value: IUIAutomationNotCondition) -> Self {
@@ -15405,7 +17265,7 @@ pub struct IUIAutomationNotCondition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationNotificationEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationNotificationEventHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -15418,6 +17278,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationNotificationEventHand
     type Vtable = IUIAutomationNotificationEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351979575, 59074, 19724, [133, 222, 73, 72, 192, 33, 117, 199]);
 }
+impl ::std::convert::From<IUIAutomationNotificationEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationNotificationEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationNotificationEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationNotificationEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationNotificationEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationNotificationEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationNotificationEventHandler_abi(
@@ -15429,7 +17309,7 @@ pub struct IUIAutomationNotificationEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationObjectModelPattern(::windows::runtime::IUnknown);
 impl IUIAutomationObjectModelPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15442,6 +17322,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationObjectModelPattern {
     type Vtable = IUIAutomationObjectModelPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908573363, 49485, 19732, [152, 30, 25, 117, 27, 13, 117, 109]);
 }
+impl ::std::convert::From<IUIAutomationObjectModelPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationObjectModelPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationObjectModelPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationObjectModelPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationObjectModelPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationObjectModelPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationObjectModelPattern_abi(
@@ -15452,7 +17352,7 @@ pub struct IUIAutomationObjectModelPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationOrCondition(::windows::runtime::IUnknown);
 impl IUIAutomationOrCondition {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15474,6 +17374,26 @@ impl IUIAutomationOrCondition {
 unsafe impl ::windows::runtime::Interface for IUIAutomationOrCondition {
     type Vtable = IUIAutomationOrCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2270425138, 15793, 18357, [161, 252, 110, 52, 162, 102, 199, 18]);
+}
+impl ::std::convert::From<IUIAutomationOrCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationOrCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationOrCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationOrCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationOrCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationOrCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IUIAutomationOrCondition> for IUIAutomationCondition {
     fn from(value: IUIAutomationOrCondition) -> Self {
@@ -15508,7 +17428,7 @@ pub struct IUIAutomationOrCondition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationPatternHandler(::windows::runtime::IUnknown);
 impl IUIAutomationPatternHandler {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15525,6 +17445,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationPatternHandler {
     type Vtable = IUIAutomationPatternHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648004851, 43335, 18014, [139, 42, 172, 67, 21, 250, 84, 232]);
 }
+impl ::std::convert::From<IUIAutomationPatternHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationPatternHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationPatternHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationPatternHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationPatternHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationPatternHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPatternHandler_abi(
@@ -15536,7 +17476,7 @@ pub struct IUIAutomationPatternHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationPatternInstance(::windows::runtime::IUnknown);
 impl IUIAutomationPatternInstance {
     #[cfg(feature = "Win32_Foundation")]
@@ -15553,6 +17493,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationPatternInstance {
     type Vtable = IUIAutomationPatternInstance_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225059300, 37937, 16543, [190, 216, 174, 124, 34, 153, 188, 141]);
 }
+impl ::std::convert::From<IUIAutomationPatternInstance> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationPatternInstance) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationPatternInstance> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationPatternInstance) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationPatternInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationPatternInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPatternInstance_abi(
@@ -15565,7 +17525,7 @@ pub struct IUIAutomationPatternInstance_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationPropertyChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -15578,6 +17538,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationPropertyChangedEventH
     type Vtable = IUIAutomationPropertyChangedEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087190996, 51030, 19212, [140, 111, 189, 223, 238, 177, 59, 80]);
 }
+impl ::std::convert::From<IUIAutomationPropertyChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationPropertyChangedEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationPropertyChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationPropertyChangedEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationPropertyChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationPropertyChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPropertyChangedEventHandler_abi(
@@ -15589,7 +17569,7 @@ pub struct IUIAutomationPropertyChangedEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationPropertyCondition(::windows::runtime::IUnknown);
 impl IUIAutomationPropertyCondition {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15612,6 +17592,26 @@ impl IUIAutomationPropertyCondition {
 unsafe impl ::windows::runtime::Interface for IUIAutomationPropertyCondition {
     type Vtable = IUIAutomationPropertyCondition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2582377163, 21880, 16999, [154, 212, 175, 214, 234, 119, 233, 75]);
+}
+impl ::std::convert::From<IUIAutomationPropertyCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationPropertyCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationPropertyCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationPropertyCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationPropertyCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationPropertyCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IUIAutomationPropertyCondition> for IUIAutomationCondition {
     fn from(value: IUIAutomationPropertyCondition) -> Self {
@@ -15646,7 +17646,7 @@ pub struct IUIAutomationPropertyCondition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationProxyFactory(::windows::runtime::IUnknown);
 impl IUIAutomationProxyFactory {
     #[cfg(feature = "Win32_Foundation")]
@@ -15666,6 +17666,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactory {
     type Vtable = IUIAutomationProxyFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243514061, 33949, 17078, [185, 77, 214, 219, 35, 253, 245, 164]);
 }
+impl ::std::convert::From<IUIAutomationProxyFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationProxyFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationProxyFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationProxyFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationProxyFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationProxyFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactory_abi(
@@ -15679,7 +17699,7 @@ pub struct IUIAutomationProxyFactory_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationProxyFactoryEntry(::windows::runtime::IUnknown);
 impl IUIAutomationProxyFactoryEntry {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15758,6 +17778,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactoryEntry {
     type Vtable = IUIAutomationProxyFactoryEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3574482734, 46667, 18700, [188, 161, 211, 6, 150, 249, 242, 137]);
 }
+impl ::std::convert::From<IUIAutomationProxyFactoryEntry> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationProxyFactoryEntry) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationProxyFactoryEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationProxyFactoryEntry) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationProxyFactoryEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationProxyFactoryEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactoryEntry_abi(
@@ -15792,7 +17832,7 @@ pub struct IUIAutomationProxyFactoryEntry_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationProxyFactoryMapping(::windows::runtime::IUnknown);
 impl IUIAutomationProxyFactoryMapping {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15842,6 +17882,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactoryMapping {
     type Vtable = IUIAutomationProxyFactoryMapping_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(165879320, 34605, 18547, [147, 209, 30, 84, 30, 193, 51, 253]);
 }
+impl ::std::convert::From<IUIAutomationProxyFactoryMapping> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationProxyFactoryMapping) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationProxyFactoryMapping> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationProxyFactoryMapping) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationProxyFactoryMapping {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationProxyFactoryMapping {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactoryMapping_abi(
@@ -15863,7 +17923,7 @@ pub struct IUIAutomationProxyFactoryMapping_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationRangeValuePattern(::windows::runtime::IUnknown);
 impl IUIAutomationRangeValuePattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -15937,6 +17997,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationRangeValuePattern {
     type Vtable = IUIAutomationRangeValuePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1495351119, 29510, 18917, [177, 32, 128, 85, 89, 135, 161, 72]);
 }
+impl ::std::convert::From<IUIAutomationRangeValuePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationRangeValuePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationRangeValuePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationRangeValuePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationRangeValuePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationRangeValuePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationRangeValuePattern_abi(
@@ -15961,7 +18041,7 @@ pub struct IUIAutomationRangeValuePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationRegistrar(::windows::runtime::IUnknown);
 impl IUIAutomationRegistrar {
     #[cfg(feature = "Win32_Foundation")]
@@ -15986,6 +18066,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationRegistrar {
     type Vtable = IUIAutomationRegistrar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2248787180, 18970, 19848, [163, 87, 90, 102, 224, 96, 225, 207]);
 }
+impl ::std::convert::From<IUIAutomationRegistrar> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationRegistrar) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationRegistrar> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationRegistrar) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationRegistrar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationRegistrar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationRegistrar_abi(
@@ -16001,7 +18101,7 @@ pub struct IUIAutomationRegistrar_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationScrollItemPattern(::windows::runtime::IUnknown);
 impl IUIAutomationScrollItemPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16013,6 +18113,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationScrollItemPattern {
     type Vtable = IUIAutomationScrollItemPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3028824079, 53269, 20249, [156, 41, 187, 89, 94, 54, 69, 239]);
 }
+impl ::std::convert::From<IUIAutomationScrollItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationScrollItemPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationScrollItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationScrollItemPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationScrollItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationScrollItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationScrollItemPattern_abi(
@@ -16023,7 +18143,7 @@ pub struct IUIAutomationScrollItemPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationScrollPattern(::windows::runtime::IUnknown);
 impl IUIAutomationScrollPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16103,6 +18223,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationScrollPattern {
     type Vtable = IUIAutomationScrollPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297746474, 59521, 17821, [167, 124, 115, 187, 187, 126, 2, 220]);
 }
+impl ::std::convert::From<IUIAutomationScrollPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationScrollPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationScrollPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationScrollPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationScrollPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationScrollPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationScrollPattern_abi(
@@ -16130,7 +18270,7 @@ pub struct IUIAutomationScrollPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationSelectionItemPattern(::windows::runtime::IUnknown);
 impl IUIAutomationSelectionItemPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16172,6 +18312,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationSelectionItemPattern 
     type Vtable = IUIAutomationSelectionItemPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2834277994, 4058, 16922, [145, 148, 56, 2, 31, 53, 120, 234]);
 }
+impl ::std::convert::From<IUIAutomationSelectionItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationSelectionItemPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationSelectionItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationSelectionItemPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationSelectionItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationSelectionItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSelectionItemPattern_abi(
@@ -16190,7 +18350,7 @@ pub struct IUIAutomationSelectionItemPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationSelectionPattern(::windows::runtime::IUnknown);
 impl IUIAutomationSelectionPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16232,6 +18392,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationSelectionPattern {
     type Vtable = IUIAutomationSelectionPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1591025710, 45740, 18342, [182, 56, 75, 11, 241, 64, 215, 142]);
 }
+impl ::std::convert::From<IUIAutomationSelectionPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationSelectionPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationSelectionPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationSelectionPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationSelectionPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationSelectionPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSelectionPattern_abi(
@@ -16251,7 +18431,7 @@ pub struct IUIAutomationSelectionPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationSelectionPattern2(::windows::runtime::IUnknown);
 impl IUIAutomationSelectionPattern2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16333,6 +18513,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationSelectionPattern2 {
     type Vtable = IUIAutomationSelectionPattern2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(87211950, 49169, 20018, [163, 67, 109, 100, 45, 121, 133, 85]);
 }
+impl ::std::convert::From<IUIAutomationSelectionPattern2> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationSelectionPattern2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationSelectionPattern2> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationSelectionPattern2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationSelectionPattern2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationSelectionPattern2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationSelectionPattern2> for IUIAutomationSelectionPattern {
     fn from(value: IUIAutomationSelectionPattern2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16380,7 +18580,7 @@ pub struct IUIAutomationSelectionPattern2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationSpreadsheetItemPattern(::windows::runtime::IUnknown);
 impl IUIAutomationSpreadsheetItemPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -16422,6 +18622,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationSpreadsheetItemPatter
     type Vtable = IUIAutomationSpreadsheetItemPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2102376556, 36148, 16609, [142, 131, 98, 193, 82, 4, 227, 53]);
 }
+impl ::std::convert::From<IUIAutomationSpreadsheetItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationSpreadsheetItemPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationSpreadsheetItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationSpreadsheetItemPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationSpreadsheetItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationSpreadsheetItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSpreadsheetItemPattern_abi(
@@ -16441,7 +18661,7 @@ pub struct IUIAutomationSpreadsheetItemPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationSpreadsheetPattern(::windows::runtime::IUnknown);
 impl IUIAutomationSpreadsheetPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -16455,6 +18675,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationSpreadsheetPattern {
     type Vtable = IUIAutomationSpreadsheetPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964484552, 64174, 19945, [159, 8, 41, 185, 30, 133, 149, 193]);
 }
+impl ::std::convert::From<IUIAutomationSpreadsheetPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationSpreadsheetPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationSpreadsheetPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationSpreadsheetPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationSpreadsheetPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationSpreadsheetPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSpreadsheetPattern_abi(
@@ -16466,7 +18706,7 @@ pub struct IUIAutomationSpreadsheetPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationStructureChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationStructureChangedEventHandler {
     #[cfg(feature = "Win32_System_Com")]
@@ -16479,6 +18719,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationStructureChangedEvent
     type Vtable = IUIAutomationStructureChangedEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3894221646, 4549, 17144, [151, 84, 231, 3, 108, 121, 240, 84]);
 }
+impl ::std::convert::From<IUIAutomationStructureChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationStructureChangedEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationStructureChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationStructureChangedEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationStructureChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationStructureChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationStructureChangedEventHandler_abi(
@@ -16490,7 +18750,7 @@ pub struct IUIAutomationStructureChangedEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationStylesPattern(::windows::runtime::IUnknown);
 impl IUIAutomationStylesPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16586,6 +18846,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationStylesPattern {
     type Vtable = IUIAutomationStylesPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243293346, 48505, 18506, [173, 43, 56, 140, 152, 56, 213, 251]);
 }
+impl ::std::convert::From<IUIAutomationStylesPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationStylesPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationStylesPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationStylesPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationStylesPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationStylesPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationStylesPattern_abi(
@@ -16621,7 +18901,7 @@ pub struct IUIAutomationStylesPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationSynchronizedInputPattern(::windows::runtime::IUnknown);
 impl IUIAutomationSynchronizedInputPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16637,6 +18917,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationSynchronizedInputPatt
     type Vtable = IUIAutomationSynchronizedInputPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(573816331, 44983, 17547, [159, 218, 59, 55, 138, 165, 234, 225]);
 }
+impl ::std::convert::From<IUIAutomationSynchronizedInputPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationSynchronizedInputPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationSynchronizedInputPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationSynchronizedInputPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationSynchronizedInputPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationSynchronizedInputPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSynchronizedInputPattern_abi(
@@ -16648,7 +18948,7 @@ pub struct IUIAutomationSynchronizedInputPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTableItemPattern(::windows::runtime::IUnknown);
 impl IUIAutomationTableItemPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16676,6 +18976,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTableItemPattern {
     type Vtable = IUIAutomationTableItemPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(194399923, 61230, 17508, [156, 121, 97, 214, 23, 55, 162, 126]);
 }
+impl ::std::convert::From<IUIAutomationTableItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTableItemPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTableItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTableItemPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTableItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTableItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTableItemPattern_abi(
@@ -16689,7 +19009,7 @@ pub struct IUIAutomationTableItemPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTablePattern(::windows::runtime::IUnknown);
 impl IUIAutomationTablePattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16727,6 +19047,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTablePattern {
     type Vtable = IUIAutomationTablePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1645111580, 60054, 18192, [168, 80, 117, 75, 36, 206, 36, 23]);
 }
+impl ::std::convert::From<IUIAutomationTablePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTablePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTablePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTablePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTablePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTablePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTablePattern_abi(
@@ -16742,7 +19082,7 @@ pub struct IUIAutomationTablePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextChildPattern(::windows::runtime::IUnknown);
 impl IUIAutomationTextChildPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -16760,6 +19100,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextChildPattern {
     type Vtable = IUIAutomationTextChildPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1699917880, 44549, 16584, [171, 253, 170, 8, 53, 42, 171, 134]);
 }
+impl ::std::convert::From<IUIAutomationTextChildPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextChildPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextChildPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextChildPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextChildPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextChildPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextChildPattern_abi(
@@ -16771,7 +19131,7 @@ pub struct IUIAutomationTextChildPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextEditPattern(::windows::runtime::IUnknown);
 impl IUIAutomationTextEditPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -16820,6 +19180,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextEditPattern {
     type Vtable = IUIAutomationTextEditPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400692598, 39276, 18544, [153, 217, 191, 243, 35, 56, 12, 6]);
 }
+impl ::std::convert::From<IUIAutomationTextEditPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextEditPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextEditPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextEditPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextEditPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextEditPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationTextEditPattern> for IUIAutomationTextPattern {
     fn from(value: IUIAutomationTextEditPattern) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16858,7 +19238,7 @@ pub struct IUIAutomationTextEditPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextEditTextChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationTextEditTextChangedEventHandler {
     #[cfg(feature = "Win32_System_Com")]
@@ -16871,6 +19251,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextEditTextChangedEv
     type Vtable = IUIAutomationTextEditTextChangedEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2465900160, 59140, 16726, [147, 26, 227, 45, 91, 179, 143, 63]);
 }
+impl ::std::convert::From<IUIAutomationTextEditTextChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextEditTextChangedEventHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextEditTextChangedEventHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextEditTextChangedEventHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextEditTextChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextEditTextChangedEventHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextEditTextChangedEventHandler_abi(
@@ -16882,7 +19282,7 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextPattern(::windows::runtime::IUnknown);
 impl IUIAutomationTextPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -16921,6 +19321,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextPattern {
     type Vtable = IUIAutomationTextPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(854303369, 13699, 17097, [156, 89, 59, 109, 154, 30, 155, 106]);
 }
+impl ::std::convert::From<IUIAutomationTextPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextPattern_abi(
@@ -16937,7 +19357,7 @@ pub struct IUIAutomationTextPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextPattern2(::windows::runtime::IUnknown);
 impl IUIAutomationTextPattern2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -16986,6 +19406,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextPattern2 {
     type Vtable = IUIAutomationTextPattern2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349161498, 64713, 16543, [178, 59, 55, 235, 116, 16, 104, 114]);
 }
+impl ::std::convert::From<IUIAutomationTextPattern2> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextPattern2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextPattern2> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextPattern2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextPattern2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextPattern2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationTextPattern2> for IUIAutomationTextPattern {
     fn from(value: IUIAutomationTextPattern2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17025,7 +19465,7 @@ pub struct IUIAutomationTextPattern2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextRange(::windows::runtime::IUnknown);
 impl IUIAutomationTextRange {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17124,6 +19564,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange {
     type Vtable = IUIAutomationTextRange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2772683882, 62638, 18763, [130, 57, 200, 20, 72, 17, 135, 168]);
 }
+impl ::std::convert::From<IUIAutomationTextRange> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextRange) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextRange> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextRange) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextRange_abi(
@@ -17158,7 +19618,7 @@ pub struct IUIAutomationTextRange_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextRange2(::windows::runtime::IUnknown);
 impl IUIAutomationTextRange2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17261,6 +19721,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange2 {
     type Vtable = IUIAutomationTextRange2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3147514080, 24068, 18109, [155, 224, 75, 96, 27, 154, 250, 212]);
 }
+impl ::std::convert::From<IUIAutomationTextRange2> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextRange2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextRange2> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextRange2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextRange2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextRange2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationTextRange2> for IUIAutomationTextRange {
     fn from(value: IUIAutomationTextRange2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17316,7 +19796,7 @@ pub struct IUIAutomationTextRange2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextRange3(::windows::runtime::IUnknown);
 impl IUIAutomationTextRange3 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17435,6 +19915,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange3 {
     type Vtable = IUIAutomationTextRange3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781620073, 21778, 19502, [133, 240, 83, 252, 230, 221, 75, 194]);
 }
+impl ::std::convert::From<IUIAutomationTextRange3> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextRange3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextRange3> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextRange3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextRange3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextRange3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationTextRange3> for IUIAutomationTextRange2 {
     fn from(value: IUIAutomationTextRange3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17514,7 +20014,7 @@ pub struct IUIAutomationTextRange3_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTextRangeArray(::windows::runtime::IUnknown);
 impl IUIAutomationTextRangeArray {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17532,6 +20032,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTextRangeArray {
     type Vtable = IUIAutomationTextRangeArray_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461015402, 59159, 19608, [129, 234, 71, 55, 29, 2, 142, 182]);
 }
+impl ::std::convert::From<IUIAutomationTextRangeArray> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTextRangeArray) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTextRangeArray> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTextRangeArray) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTextRangeArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTextRangeArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextRangeArray_abi(
@@ -17543,7 +20063,7 @@ pub struct IUIAutomationTextRangeArray_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTogglePattern(::windows::runtime::IUnknown);
 impl IUIAutomationTogglePattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17565,6 +20085,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTogglePattern {
     type Vtable = IUIAutomationTogglePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2496626776, 39821, 19129, [139, 253, 76, 208, 163, 60, 140, 112]);
 }
+impl ::std::convert::From<IUIAutomationTogglePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTogglePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTogglePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTogglePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTogglePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTogglePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTogglePattern_abi(
@@ -17577,7 +20117,7 @@ pub struct IUIAutomationTogglePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTransformPattern(::windows::runtime::IUnknown);
 impl IUIAutomationTransformPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17633,6 +20173,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTransformPattern {
     type Vtable = IUIAutomationTransformPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847234116, 42333, 20208, [146, 109, 86, 156, 22, 255, 137, 187]);
 }
+impl ::std::convert::From<IUIAutomationTransformPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTransformPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTransformPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTransformPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTransformPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTransformPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTransformPattern_abi(
@@ -17657,7 +20217,7 @@ pub struct IUIAutomationTransformPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTransformPattern2(::windows::runtime::IUnknown);
 impl IUIAutomationTransformPattern2 {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17763,6 +20323,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTransformPattern2 {
     type Vtable = IUIAutomationTransformPattern2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1836371991, 28363, 17281, [179, 139, 60, 23, 164, 143, 241, 194]);
 }
+impl ::std::convert::From<IUIAutomationTransformPattern2> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTransformPattern2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTransformPattern2> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTransformPattern2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTransformPattern2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTransformPattern2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IUIAutomationTransformPattern2> for IUIAutomationTransformPattern {
     fn from(value: IUIAutomationTransformPattern2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17819,7 +20399,7 @@ pub struct IUIAutomationTransformPattern2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationTreeWalker(::windows::runtime::IUnknown);
 impl IUIAutomationTreeWalker {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17892,6 +20472,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationTreeWalker {
     type Vtable = IUIAutomationTreeWalker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078117924, 14492, 19196, [166, 48, 157, 248, 84, 165, 65, 252]);
 }
+impl ::std::convert::From<IUIAutomationTreeWalker> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationTreeWalker) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationTreeWalker> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationTreeWalker) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationTreeWalker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationTreeWalker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTreeWalker_abi(
@@ -17914,7 +20514,7 @@ pub struct IUIAutomationTreeWalker_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationValuePattern(::windows::runtime::IUnknown);
 impl IUIAutomationValuePattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -17951,6 +20551,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationValuePattern {
     type Vtable = IUIAutomationValuePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2840385713, 2116, 19670, [157, 45, 100, 5, 55, 171, 57, 233]);
 }
+impl ::std::convert::From<IUIAutomationValuePattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationValuePattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationValuePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationValuePattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationValuePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationValuePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationValuePattern_abi(
@@ -17970,7 +20590,7 @@ pub struct IUIAutomationValuePattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationVirtualizedItemPattern(::windows::runtime::IUnknown);
 impl IUIAutomationVirtualizedItemPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -17982,6 +20602,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationVirtualizedItemPatter
     type Vtable = IUIAutomationVirtualizedItemPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1805899686, 1231, 20241, [135, 147, 168, 209, 205, 233, 150, 159]);
 }
+impl ::std::convert::From<IUIAutomationVirtualizedItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationVirtualizedItemPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationVirtualizedItemPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationVirtualizedItemPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationVirtualizedItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationVirtualizedItemPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationVirtualizedItemPattern_abi(
@@ -17992,7 +20632,7 @@ pub struct IUIAutomationVirtualizedItemPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIAutomationWindowPattern(::windows::runtime::IUnknown);
 impl IUIAutomationWindowPattern {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -18082,6 +20722,26 @@ unsafe impl ::windows::runtime::Interface for IUIAutomationWindowPattern {
     type Vtable = IUIAutomationWindowPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(263124051, 37384, 17391, [187, 178, 59, 72, 81, 119, 134, 79]);
 }
+impl ::std::convert::From<IUIAutomationWindowPattern> for ::windows::runtime::IUnknown {
+    fn from(value: IUIAutomationWindowPattern) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIAutomationWindowPattern> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIAutomationWindowPattern) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAutomationWindowPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAutomationWindowPattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationWindowPattern_abi(
@@ -18115,7 +20775,7 @@ pub struct IUIAutomationWindowPattern_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IValueProvider(::windows::runtime::IUnknown);
 impl IValueProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -18140,6 +20800,26 @@ unsafe impl ::windows::runtime::Interface for IValueProvider {
     type Vtable = IValueProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3348320640, 28595, 16897, [177, 116, 125, 247, 58, 219, 246, 74]);
 }
+impl ::std::convert::From<IValueProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IValueProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IValueProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IValueProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IValueProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IValueProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueProvider_abi(
@@ -18155,7 +20835,7 @@ pub struct IValueProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVirtualizedItemProvider(::windows::runtime::IUnknown);
 impl IVirtualizedItemProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -18167,6 +20847,26 @@ unsafe impl ::windows::runtime::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415783013, 11573, 20396, [173, 53, 243, 198, 13, 12, 11, 139]);
 }
+impl ::std::convert::From<IVirtualizedItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IVirtualizedItemProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVirtualizedItemProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IVirtualizedItemProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVirtualizedItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVirtualizedItemProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualizedItemProvider_abi(
@@ -18177,7 +20877,7 @@ pub struct IVirtualizedItemProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowProvider(::windows::runtime::IUnknown);
 impl IWindowProvider {
     #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -18232,6 +20932,26 @@ impl IWindowProvider {
 unsafe impl ::windows::runtime::Interface for IWindowProvider {
     type Vtable = IWindowProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2558392187, 56070, 19831, [143, 138, 134, 169, 195, 187, 144, 185]);
+}
+impl ::std::convert::From<IWindowProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWindowProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWindowProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWindowProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

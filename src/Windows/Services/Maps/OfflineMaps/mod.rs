@@ -89,7 +89,7 @@ pub struct IOfflineMapPackageStatics_abi(
 );
 #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OfflineMapPackage(::windows::runtime::IInspectable);
 impl OfflineMapPackage {
     #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
@@ -187,11 +187,51 @@ unsafe impl ::windows::runtime::Interface for OfflineMapPackage {
 impl ::windows::runtime::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
 }
+impl ::std::convert::From<OfflineMapPackage> for ::windows::runtime::IUnknown {
+    fn from(value: OfflineMapPackage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&OfflineMapPackage> for ::windows::runtime::IUnknown {
+    fn from(value: &OfflineMapPackage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OfflineMapPackage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OfflineMapPackage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<OfflineMapPackage> for ::windows::runtime::IInspectable {
+    fn from(value: OfflineMapPackage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OfflineMapPackage> for ::windows::runtime::IInspectable {
+    fn from(value: &OfflineMapPackage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OfflineMapPackage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OfflineMapPackage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for OfflineMapPackage {}
 unsafe impl ::std::marker::Sync for OfflineMapPackage {}
 #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OfflineMapPackageQueryResult(::windows::runtime::IInspectable);
 impl OfflineMapPackageQueryResult {
     #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
@@ -222,6 +262,46 @@ unsafe impl ::windows::runtime::Interface for OfflineMapPackageQueryResult {
 impl ::windows::runtime::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
 }
+impl ::std::convert::From<OfflineMapPackageQueryResult> for ::windows::runtime::IUnknown {
+    fn from(value: OfflineMapPackageQueryResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&OfflineMapPackageQueryResult> for ::windows::runtime::IUnknown {
+    fn from(value: &OfflineMapPackageQueryResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OfflineMapPackageQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OfflineMapPackageQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<OfflineMapPackageQueryResult> for ::windows::runtime::IInspectable {
+    fn from(value: OfflineMapPackageQueryResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OfflineMapPackageQueryResult> for ::windows::runtime::IInspectable {
+    fn from(value: &OfflineMapPackageQueryResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OfflineMapPackageQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OfflineMapPackageQueryResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::std::marker::Sync for OfflineMapPackageQueryResult {}
 #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
@@ -250,7 +330,7 @@ impl ::windows::runtime::DefaultType for OfflineMapPackageQueryStatus {
 }
 #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OfflineMapPackageStartDownloadResult(::windows::runtime::IInspectable);
 impl OfflineMapPackageStartDownloadResult {
     #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
@@ -271,6 +351,46 @@ unsafe impl ::windows::runtime::Interface for OfflineMapPackageStartDownloadResu
 }
 impl ::windows::runtime::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";
+}
+impl ::std::convert::From<OfflineMapPackageStartDownloadResult> for ::windows::runtime::IUnknown {
+    fn from(value: OfflineMapPackageStartDownloadResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&OfflineMapPackageStartDownloadResult> for ::windows::runtime::IUnknown {
+    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OfflineMapPackageStartDownloadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OfflineMapPackageStartDownloadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<OfflineMapPackageStartDownloadResult> for ::windows::runtime::IInspectable {
+    fn from(value: OfflineMapPackageStartDownloadResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OfflineMapPackageStartDownloadResult> for ::windows::runtime::IInspectable {
+    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OfflineMapPackageStartDownloadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OfflineMapPackageStartDownloadResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::std::marker::Sync for OfflineMapPackageStartDownloadResult {}

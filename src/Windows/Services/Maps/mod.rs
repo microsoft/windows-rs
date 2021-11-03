@@ -7,7 +7,7 @@ pub mod LocalSearch;
 pub mod OfflineMaps;
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EnhancedWaypoint(::windows::runtime::IInspectable);
 impl EnhancedWaypoint {
     #[cfg(feature = "Devices_Geolocation")]
@@ -49,6 +49,46 @@ unsafe impl ::windows::runtime::Interface for EnhancedWaypoint {
 }
 impl ::windows::runtime::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
+}
+impl ::std::convert::From<EnhancedWaypoint> for ::windows::runtime::IUnknown {
+    fn from(value: EnhancedWaypoint) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&EnhancedWaypoint> for ::windows::runtime::IUnknown {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EnhancedWaypoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EnhancedWaypoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<EnhancedWaypoint> for ::windows::runtime::IInspectable {
+    fn from(value: EnhancedWaypoint) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EnhancedWaypoint> for ::windows::runtime::IInspectable {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EnhancedWaypoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EnhancedWaypoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EnhancedWaypoint {}
 unsafe impl ::std::marker::Sync for EnhancedWaypoint {}
@@ -793,7 +833,7 @@ pub struct IPlaceInfoStatics2_abi(
 pub struct LocalSearchContract(pub u8);
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ManeuverWarning(::windows::runtime::IInspectable);
 impl ManeuverWarning {
     #[doc = "*Required features: `Services_Maps`*"]
@@ -822,6 +862,46 @@ unsafe impl ::windows::runtime::Interface for ManeuverWarning {
 }
 impl ::windows::runtime::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
+}
+impl ::std::convert::From<ManeuverWarning> for ::windows::runtime::IUnknown {
+    fn from(value: ManeuverWarning) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ManeuverWarning> for ::windows::runtime::IUnknown {
+    fn from(value: &ManeuverWarning) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ManeuverWarning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ManeuverWarning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ManeuverWarning> for ::windows::runtime::IInspectable {
+    fn from(value: ManeuverWarning) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ManeuverWarning> for ::windows::runtime::IInspectable {
+    fn from(value: &ManeuverWarning) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ManeuverWarning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ManeuverWarning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ManeuverWarning {}
 unsafe impl ::std::marker::Sync for ManeuverWarning {}
@@ -908,7 +988,7 @@ impl ::windows::runtime::DefaultType for ManeuverWarningSeverity {
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapAddress(::windows::runtime::IInspectable);
 impl MapAddress {
     #[doc = "*Required features: `Services_Maps`*"]
@@ -1050,11 +1130,51 @@ unsafe impl ::windows::runtime::Interface for MapAddress {
 impl ::windows::runtime::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
 }
+impl ::std::convert::From<MapAddress> for ::windows::runtime::IUnknown {
+    fn from(value: MapAddress) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &MapAddress) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapAddress> for ::windows::runtime::IInspectable {
+    fn from(value: MapAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapAddress> for ::windows::runtime::IInspectable {
+    fn from(value: &MapAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MapAddress {}
 unsafe impl ::std::marker::Sync for MapAddress {}
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapLocation(::windows::runtime::IInspectable);
 impl MapLocation {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1100,6 +1220,46 @@ unsafe impl ::windows::runtime::Interface for MapLocation {
 }
 impl ::windows::runtime::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
+}
+impl ::std::convert::From<MapLocation> for ::windows::runtime::IUnknown {
+    fn from(value: MapLocation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapLocation> for ::windows::runtime::IUnknown {
+    fn from(value: &MapLocation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapLocation> for ::windows::runtime::IInspectable {
+    fn from(value: MapLocation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapLocation> for ::windows::runtime::IInspectable {
+    fn from(value: &MapLocation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MapLocation {}
 unsafe impl ::std::marker::Sync for MapLocation {}
@@ -1174,7 +1334,7 @@ impl ::windows::runtime::RuntimeName for MapLocationFinder {
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapLocationFinderResult(::windows::runtime::IInspectable);
 impl MapLocationFinderResult {
     #[cfg(feature = "Foundation_Collections")]
@@ -1204,6 +1364,46 @@ unsafe impl ::windows::runtime::Interface for MapLocationFinderResult {
 }
 impl ::windows::runtime::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
+}
+impl ::std::convert::From<MapLocationFinderResult> for ::windows::runtime::IUnknown {
+    fn from(value: MapLocationFinderResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapLocationFinderResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MapLocationFinderResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapLocationFinderResult> for ::windows::runtime::IInspectable {
+    fn from(value: MapLocationFinderResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapLocationFinderResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MapLocationFinderResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MapLocationFinderResult {}
 unsafe impl ::std::marker::Sync for MapLocationFinderResult {}
@@ -1306,7 +1506,7 @@ impl ::std::ops::Not for MapManeuverNotices {
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapRoute(::windows::runtime::IInspectable);
 impl MapRoute {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1413,11 +1613,51 @@ unsafe impl ::windows::runtime::Interface for MapRoute {
 impl ::windows::runtime::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
 }
+impl ::std::convert::From<MapRoute> for ::windows::runtime::IUnknown {
+    fn from(value: MapRoute) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapRoute> for ::windows::runtime::IUnknown {
+    fn from(value: &MapRoute) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRoute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRoute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapRoute> for ::windows::runtime::IInspectable {
+    fn from(value: MapRoute) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapRoute> for ::windows::runtime::IInspectable {
+    fn from(value: &MapRoute) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapRoute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapRoute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MapRoute {}
 unsafe impl ::std::marker::Sync for MapRoute {}
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapRouteDrivingOptions(::windows::runtime::IInspectable);
 impl MapRouteDrivingOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1506,6 +1746,46 @@ unsafe impl ::windows::runtime::Interface for MapRouteDrivingOptions {
 }
 impl ::windows::runtime::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
+}
+impl ::std::convert::From<MapRouteDrivingOptions> for ::windows::runtime::IUnknown {
+    fn from(value: MapRouteDrivingOptions) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapRouteDrivingOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &MapRouteDrivingOptions) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRouteDrivingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRouteDrivingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapRouteDrivingOptions> for ::windows::runtime::IInspectable {
+    fn from(value: MapRouteDrivingOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapRouteDrivingOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &MapRouteDrivingOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapRouteDrivingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapRouteDrivingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MapRouteDrivingOptions {}
 unsafe impl ::std::marker::Sync for MapRouteDrivingOptions {}
@@ -1634,7 +1914,7 @@ impl ::windows::runtime::RuntimeName for MapRouteFinder {
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapRouteFinderResult(::windows::runtime::IInspectable);
 impl MapRouteFinderResult {
     #[doc = "*Required features: `Services_Maps`*"]
@@ -1673,6 +1953,46 @@ unsafe impl ::windows::runtime::Interface for MapRouteFinderResult {
 impl ::windows::runtime::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
 }
+impl ::std::convert::From<MapRouteFinderResult> for ::windows::runtime::IUnknown {
+    fn from(value: MapRouteFinderResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapRouteFinderResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MapRouteFinderResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRouteFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRouteFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapRouteFinderResult> for ::windows::runtime::IInspectable {
+    fn from(value: MapRouteFinderResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapRouteFinderResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MapRouteFinderResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapRouteFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapRouteFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MapRouteFinderResult {}
 unsafe impl ::std::marker::Sync for MapRouteFinderResult {}
 #[doc = "*Required features: `Services_Maps`*"]
@@ -1707,7 +2027,7 @@ impl ::windows::runtime::DefaultType for MapRouteFinderStatus {
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapRouteLeg(::windows::runtime::IInspectable);
 impl MapRouteLeg {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1782,11 +2102,51 @@ unsafe impl ::windows::runtime::Interface for MapRouteLeg {
 impl ::windows::runtime::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
 }
+impl ::std::convert::From<MapRouteLeg> for ::windows::runtime::IUnknown {
+    fn from(value: MapRouteLeg) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapRouteLeg> for ::windows::runtime::IUnknown {
+    fn from(value: &MapRouteLeg) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRouteLeg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRouteLeg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapRouteLeg> for ::windows::runtime::IInspectable {
+    fn from(value: MapRouteLeg) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapRouteLeg> for ::windows::runtime::IInspectable {
+    fn from(value: &MapRouteLeg) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapRouteLeg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapRouteLeg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MapRouteLeg {}
 unsafe impl ::std::marker::Sync for MapRouteLeg {}
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapRouteManeuver(::windows::runtime::IInspectable);
 impl MapRouteManeuver {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1881,6 +2241,46 @@ unsafe impl ::windows::runtime::Interface for MapRouteManeuver {
 }
 impl ::windows::runtime::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
+}
+impl ::std::convert::From<MapRouteManeuver> for ::windows::runtime::IUnknown {
+    fn from(value: MapRouteManeuver) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MapRouteManeuver> for ::windows::runtime::IUnknown {
+    fn from(value: &MapRouteManeuver) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MapRouteManeuver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MapRouteManeuver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MapRouteManeuver> for ::windows::runtime::IInspectable {
+    fn from(value: MapRouteManeuver) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MapRouteManeuver> for ::windows::runtime::IInspectable {
+    fn from(value: &MapRouteManeuver) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MapRouteManeuver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MapRouteManeuver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MapRouteManeuver {}
 unsafe impl ::std::marker::Sync for MapRouteManeuver {}
@@ -2091,7 +2491,7 @@ impl ::windows::runtime::DefaultType for MapServiceDataUsagePreference {
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlaceInfo(::windows::runtime::IInspectable);
 impl PlaceInfo {
     #[cfg(feature = "Foundation")]
@@ -2217,11 +2617,51 @@ unsafe impl ::windows::runtime::Interface for PlaceInfo {
 impl ::windows::runtime::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
 }
+impl ::std::convert::From<PlaceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: PlaceInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PlaceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &PlaceInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlaceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlaceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PlaceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: PlaceInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlaceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &PlaceInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlaceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlaceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlaceInfo {}
 unsafe impl ::std::marker::Sync for PlaceInfo {}
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlaceInfoCreateOptions(::windows::runtime::IInspectable);
 impl PlaceInfoCreateOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2267,6 +2707,46 @@ unsafe impl ::windows::runtime::Interface for PlaceInfoCreateOptions {
 }
 impl ::windows::runtime::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";
+}
+impl ::std::convert::From<PlaceInfoCreateOptions> for ::windows::runtime::IUnknown {
+    fn from(value: PlaceInfoCreateOptions) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PlaceInfoCreateOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &PlaceInfoCreateOptions) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlaceInfoCreateOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlaceInfoCreateOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PlaceInfoCreateOptions> for ::windows::runtime::IInspectable {
+    fn from(value: PlaceInfoCreateOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlaceInfoCreateOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &PlaceInfoCreateOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlaceInfoCreateOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlaceInfoCreateOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::std::marker::Sync for PlaceInfoCreateOptions {}

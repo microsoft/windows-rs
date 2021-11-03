@@ -2,7 +2,7 @@
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web_UI`*"]
 pub struct IWebViewControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControl {
@@ -432,6 +432,46 @@ impl IWebViewControl {
 unsafe impl ::windows::runtime::RuntimeType for IWebViewControl {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3f921316-bc70-4bda-9136-c94370899fab}");
 }
+impl ::std::convert::From<IWebViewControl> for ::windows::runtime::IUnknown {
+    fn from(value: IWebViewControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWebViewControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IWebViewControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebViewControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebViewControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IWebViewControl> for ::windows::runtime::IInspectable {
+    fn from(value: IWebViewControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWebViewControl> for ::windows::runtime::IInspectable {
+    fn from(value: &IWebViewControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebViewControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebViewControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebViewControl_abi(
@@ -546,7 +586,7 @@ pub struct IWebViewControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Web_UI`*"]
 pub struct IWebViewControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebViewControl2 {
@@ -562,6 +602,46 @@ impl IWebViewControl2 {
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebViewControl2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4d3c06f9-c8df-41cc-8bd5-2a947b204503}");
+}
+impl ::std::convert::From<IWebViewControl2> for ::windows::runtime::IUnknown {
+    fn from(value: IWebViewControl2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWebViewControl2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWebViewControl2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebViewControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebViewControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IWebViewControl2> for ::windows::runtime::IInspectable {
+    fn from(value: IWebViewControl2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWebViewControl2> for ::windows::runtime::IInspectable {
+    fn from(value: &IWebViewControl2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebViewControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebViewControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -898,7 +978,7 @@ pub struct IWebViewControlWebResourceRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlContentLoadingEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlContentLoadingEventArgs {
     #[cfg(feature = "Foundation")]
@@ -921,9 +1001,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlContentLoadingEventA
 impl ::windows::runtime::RuntimeName for WebViewControlContentLoadingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlContentLoadingEventArgs";
 }
+impl ::std::convert::From<WebViewControlContentLoadingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlContentLoadingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlContentLoadingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlContentLoadingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlContentLoadingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlContentLoadingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlContentLoadingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlContentLoadingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlContentLoadingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlContentLoadingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlContentLoadingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlContentLoadingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlDOMContentLoadedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlDOMContentLoadedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -946,9 +1066,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlDOMContentLoadedEven
 impl ::windows::runtime::RuntimeName for WebViewControlDOMContentLoadedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs";
 }
+impl ::std::convert::From<WebViewControlDOMContentLoadedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlDOMContentLoadedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlDOMContentLoadedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlDOMContentLoadedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlDOMContentLoadedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlDOMContentLoadedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlDOMContentLoadedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlDOMContentLoadedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlDOMContentLoadedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlDOMContentLoadedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlDOMContentLoadedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlDOMContentLoadedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlDeferredPermissionRequest(::windows::runtime::IInspectable);
 impl WebViewControlDeferredPermissionRequest {
     #[doc = "*Required features: `Web_UI`*"]
@@ -997,9 +1157,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlDeferredPermissionRe
 impl ::windows::runtime::RuntimeName for WebViewControlDeferredPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlDeferredPermissionRequest";
 }
+impl ::std::convert::From<WebViewControlDeferredPermissionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlDeferredPermissionRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlDeferredPermissionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlDeferredPermissionRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlDeferredPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlDeferredPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlDeferredPermissionRequest> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlDeferredPermissionRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlDeferredPermissionRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlDeferredPermissionRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlDeferredPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlDeferredPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlLongRunningScriptDetectedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlLongRunningScriptDetectedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1035,9 +1235,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlLongRunningScriptDet
 impl ::windows::runtime::RuntimeName for WebViewControlLongRunningScriptDetectedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs";
 }
+impl ::std::convert::From<WebViewControlLongRunningScriptDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlLongRunningScriptDetectedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlLongRunningScriptDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlLongRunningScriptDetectedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlLongRunningScriptDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlLongRunningScriptDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlLongRunningScriptDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlLongRunningScriptDetectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlLongRunningScriptDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlLongRunningScriptDetectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlLongRunningScriptDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlLongRunningScriptDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlNavigationCompletedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlNavigationCompletedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1076,9 +1316,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlNavigationCompletedE
 impl ::windows::runtime::RuntimeName for WebViewControlNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationCompletedEventArgs";
 }
+impl ::std::convert::From<WebViewControlNavigationCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlNavigationCompletedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlNavigationCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlNavigationCompletedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlNavigationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlNavigationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlNavigationCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlNavigationCompletedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlNavigationCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlNavigationCompletedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlNavigationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlNavigationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlNavigationStartingEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlNavigationStartingEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1114,9 +1394,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlNavigationStartingEv
 impl ::windows::runtime::RuntimeName for WebViewControlNavigationStartingEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNavigationStartingEventArgs";
 }
+impl ::std::convert::From<WebViewControlNavigationStartingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlNavigationStartingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlNavigationStartingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlNavigationStartingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlNavigationStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlNavigationStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlNavigationStartingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlNavigationStartingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlNavigationStartingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlNavigationStartingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlNavigationStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlNavigationStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlNewWindowRequestedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlNewWindowRequestedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1183,9 +1503,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlNewWindowRequestedEv
 impl ::windows::runtime::RuntimeName for WebViewControlNewWindowRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs";
 }
+impl ::std::convert::From<WebViewControlNewWindowRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlNewWindowRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlNewWindowRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlNewWindowRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlNewWindowRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlNewWindowRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlNewWindowRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlNewWindowRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlNewWindowRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlNewWindowRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlNewWindowRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlNewWindowRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlPermissionRequest(::windows::runtime::IInspectable);
 impl WebViewControlPermissionRequest {
     #[doc = "*Required features: `Web_UI`*"]
@@ -1247,9 +1607,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlPermissionRequest {
 impl ::windows::runtime::RuntimeName for WebViewControlPermissionRequest {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequest";
 }
+impl ::std::convert::From<WebViewControlPermissionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlPermissionRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlPermissionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlPermissionRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlPermissionRequest> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlPermissionRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlPermissionRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlPermissionRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlPermissionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlPermissionRequestedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlPermissionRequestedEventArgs {
     #[doc = "*Required features: `Web_UI`*"]
@@ -1270,6 +1670,46 @@ unsafe impl ::windows::runtime::Interface for WebViewControlPermissionRequestedE
 }
 impl ::windows::runtime::RuntimeName for WebViewControlPermissionRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlPermissionRequestedEventArgs";
+}
+impl ::std::convert::From<WebViewControlPermissionRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlPermissionRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlPermissionRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlPermissionRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlPermissionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlPermissionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlPermissionRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlPermissionRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlPermissionRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlPermissionRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlPermissionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlPermissionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Web_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1324,7 +1764,7 @@ impl ::windows::runtime::DefaultType for WebViewControlPermissionType {
 }
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlScriptNotifyEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlScriptNotifyEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1355,9 +1795,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlScriptNotifyEventArg
 impl ::windows::runtime::RuntimeName for WebViewControlScriptNotifyEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlScriptNotifyEventArgs";
 }
+impl ::std::convert::From<WebViewControlScriptNotifyEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlScriptNotifyEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlScriptNotifyEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlScriptNotifyEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlScriptNotifyEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlScriptNotifyEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlScriptNotifyEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlScriptNotifyEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlScriptNotifyEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlScriptNotifyEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlScriptNotifyEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlScriptNotifyEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlSettings(::windows::runtime::IInspectable);
 impl WebViewControlSettings {
     #[doc = "*Required features: `Web_UI`*"]
@@ -1410,9 +1890,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlSettings {
 impl ::windows::runtime::RuntimeName for WebViewControlSettings {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlSettings";
 }
+impl ::std::convert::From<WebViewControlSettings> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlSettings) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlSettings) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlSettings> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1448,9 +1968,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlUnsupportedUriScheme
 impl ::windows::runtime::RuntimeName for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
 }
+impl ::std::convert::From<WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlUnsupportedUriSchemeIdentifiedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlUnsupportedUriSchemeIdentifiedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlUnsupportedUriSchemeIdentifiedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlUnsupportedUriSchemeIdentifiedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlUnviewableContentIdentifiedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlUnviewableContentIdentifiedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1490,9 +2050,49 @@ unsafe impl ::windows::runtime::Interface for WebViewControlUnviewableContentIde
 impl ::windows::runtime::RuntimeName for WebViewControlUnviewableContentIdentifiedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs";
 }
+impl ::std::convert::From<WebViewControlUnviewableContentIdentifiedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlUnviewableContentIdentifiedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlUnviewableContentIdentifiedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlUnviewableContentIdentifiedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlUnviewableContentIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlUnviewableContentIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlUnviewableContentIdentifiedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlUnviewableContentIdentifiedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlUnviewableContentIdentifiedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlUnviewableContentIdentifiedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlUnviewableContentIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlUnviewableContentIdentifiedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Web_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlWebResourceRequestedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlWebResourceRequestedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1538,4 +2138,44 @@ unsafe impl ::windows::runtime::Interface for WebViewControlWebResourceRequested
 }
 impl ::windows::runtime::RuntimeName for WebViewControlWebResourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs";
+}
+impl ::std::convert::From<WebViewControlWebResourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebViewControlWebResourceRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebViewControlWebResourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebViewControlWebResourceRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebViewControlWebResourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebViewControlWebResourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebViewControlWebResourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebViewControlWebResourceRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebViewControlWebResourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebViewControlWebResourceRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebViewControlWebResourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebViewControlWebResourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }

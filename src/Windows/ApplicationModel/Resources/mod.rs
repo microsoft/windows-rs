@@ -137,7 +137,7 @@ pub struct IResourceLoaderStatics4_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Resources`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceLoader(::windows::runtime::IInspectable);
 impl ResourceLoader {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -252,6 +252,46 @@ unsafe impl ::windows::runtime::Interface for ResourceLoader {
 }
 impl ::windows::runtime::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";
+}
+impl ::std::convert::From<ResourceLoader> for ::windows::runtime::IUnknown {
+    fn from(value: ResourceLoader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ResourceLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &ResourceLoader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ResourceLoader> for ::windows::runtime::IInspectable {
+    fn from(value: ResourceLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ResourceLoader> for ::windows::runtime::IInspectable {
+    fn from(value: &ResourceLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ResourceLoader {}
 unsafe impl ::std::marker::Sync for ResourceLoader {}

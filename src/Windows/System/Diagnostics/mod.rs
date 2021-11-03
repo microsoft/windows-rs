@@ -7,7 +7,7 @@ pub mod Telemetry;
 pub mod TraceReporting;
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DiagnosticActionResult(::windows::runtime::IInspectable);
 impl DiagnosticActionResult {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -37,6 +37,46 @@ unsafe impl ::windows::runtime::Interface for DiagnosticActionResult {
 }
 impl ::windows::runtime::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
+}
+impl ::std::convert::From<DiagnosticActionResult> for ::windows::runtime::IUnknown {
+    fn from(value: DiagnosticActionResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DiagnosticActionResult> for ::windows::runtime::IUnknown {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiagnosticActionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiagnosticActionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DiagnosticActionResult> for ::windows::runtime::IInspectable {
+    fn from(value: DiagnosticActionResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DiagnosticActionResult> for ::windows::runtime::IInspectable {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiagnosticActionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiagnosticActionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for DiagnosticActionResult {}
 unsafe impl ::std::marker::Sync for DiagnosticActionResult {}
@@ -69,7 +109,7 @@ impl ::windows::runtime::DefaultType for DiagnosticActionState {
 }
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DiagnosticInvoker(::windows::runtime::IInspectable);
 impl DiagnosticInvoker {
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
@@ -125,6 +165,46 @@ unsafe impl ::windows::runtime::Interface for DiagnosticInvoker {
 }
 impl ::windows::runtime::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
+}
+impl ::std::convert::From<DiagnosticInvoker> for ::windows::runtime::IUnknown {
+    fn from(value: DiagnosticInvoker) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DiagnosticInvoker> for ::windows::runtime::IUnknown {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiagnosticInvoker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiagnosticInvoker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DiagnosticInvoker> for ::windows::runtime::IInspectable {
+    fn from(value: DiagnosticInvoker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DiagnosticInvoker> for ::windows::runtime::IInspectable {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiagnosticInvoker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiagnosticInvoker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for DiagnosticInvoker {}
 unsafe impl ::std::marker::Sync for DiagnosticInvoker {}
@@ -553,7 +633,7 @@ pub struct ISystemMemoryUsageReport_abi(
 );
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessCpuUsage(::windows::runtime::IInspectable);
 impl ProcessCpuUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -575,11 +655,51 @@ unsafe impl ::windows::runtime::Interface for ProcessCpuUsage {
 impl ::windows::runtime::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
 }
+impl ::std::convert::From<ProcessCpuUsage> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessCpuUsage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessCpuUsage> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessCpuUsage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessCpuUsage> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessCpuUsage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessCpuUsage> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessCpuUsage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessCpuUsage {}
 unsafe impl ::std::marker::Sync for ProcessCpuUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessCpuUsageReport(::windows::runtime::IInspectable);
 impl ProcessCpuUsageReport {
     #[cfg(feature = "Foundation")]
@@ -611,11 +731,51 @@ unsafe impl ::windows::runtime::Interface for ProcessCpuUsageReport {
 impl ::windows::runtime::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
 }
+impl ::std::convert::From<ProcessCpuUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessCpuUsageReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessCpuUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessCpuUsageReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessCpuUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessCpuUsageReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessCpuUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessCpuUsageReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::std::marker::Sync for ProcessCpuUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessDiagnosticInfo(::windows::runtime::IInspectable);
 impl ProcessDiagnosticInfo {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -733,11 +893,51 @@ unsafe impl ::windows::runtime::Interface for ProcessDiagnosticInfo {
 impl ::windows::runtime::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
 }
+impl ::std::convert::From<ProcessDiagnosticInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessDiagnosticInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessDiagnosticInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessDiagnosticInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessDiagnosticInfo> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessDiagnosticInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessDiagnosticInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessDiagnosticInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::std::marker::Sync for ProcessDiagnosticInfo {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessDiskUsage(::windows::runtime::IInspectable);
 impl ProcessDiskUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -759,11 +959,51 @@ unsafe impl ::windows::runtime::Interface for ProcessDiskUsage {
 impl ::windows::runtime::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
 }
+impl ::std::convert::From<ProcessDiskUsage> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessDiskUsage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessDiskUsage> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessDiskUsage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessDiskUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessDiskUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessDiskUsage> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessDiskUsage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessDiskUsage> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessDiskUsage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessDiskUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessDiskUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessDiskUsage {}
 unsafe impl ::std::marker::Sync for ProcessDiskUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessDiskUsageReport(::windows::runtime::IInspectable);
 impl ProcessDiskUsageReport {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -825,11 +1065,51 @@ unsafe impl ::windows::runtime::Interface for ProcessDiskUsageReport {
 impl ::windows::runtime::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
 }
+impl ::std::convert::From<ProcessDiskUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessDiskUsageReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessDiskUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessDiskUsageReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessDiskUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessDiskUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessDiskUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessDiskUsageReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessDiskUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessDiskUsageReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessDiskUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessDiskUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::std::marker::Sync for ProcessDiskUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessMemoryUsage(::windows::runtime::IInspectable);
 impl ProcessMemoryUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -851,11 +1131,51 @@ unsafe impl ::windows::runtime::Interface for ProcessMemoryUsage {
 impl ::windows::runtime::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
 }
+impl ::std::convert::From<ProcessMemoryUsage> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessMemoryUsage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessMemoryUsage> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessMemoryUsage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessMemoryUsage> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessMemoryUsage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessMemoryUsage> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessMemoryUsage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::std::marker::Sync for ProcessMemoryUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProcessMemoryUsageReport(::windows::runtime::IInspectable);
 impl ProcessMemoryUsageReport {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -965,11 +1285,51 @@ unsafe impl ::windows::runtime::Interface for ProcessMemoryUsageReport {
 impl ::windows::runtime::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
 }
+impl ::std::convert::From<ProcessMemoryUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: ProcessMemoryUsageReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProcessMemoryUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ProcessMemoryUsageReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProcessMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProcessMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProcessMemoryUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: ProcessMemoryUsageReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProcessMemoryUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: &ProcessMemoryUsageReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProcessMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProcessMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::std::marker::Sync for ProcessMemoryUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemCpuUsage(::windows::runtime::IInspectable);
 impl SystemCpuUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -991,11 +1351,51 @@ unsafe impl ::windows::runtime::Interface for SystemCpuUsage {
 impl ::windows::runtime::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
 }
+impl ::std::convert::From<SystemCpuUsage> for ::windows::runtime::IUnknown {
+    fn from(value: SystemCpuUsage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemCpuUsage> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemCpuUsage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemCpuUsage> for ::windows::runtime::IInspectable {
+    fn from(value: SystemCpuUsage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemCpuUsage> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemCpuUsage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemCpuUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SystemCpuUsage {}
 unsafe impl ::std::marker::Sync for SystemCpuUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemCpuUsageReport(::windows::runtime::IInspectable);
 impl SystemCpuUsageReport {
     #[cfg(feature = "Foundation")]
@@ -1036,11 +1436,51 @@ unsafe impl ::windows::runtime::Interface for SystemCpuUsageReport {
 impl ::windows::runtime::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
 }
+impl ::std::convert::From<SystemCpuUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: SystemCpuUsageReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemCpuUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemCpuUsageReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemCpuUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: SystemCpuUsageReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemCpuUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemCpuUsageReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemCpuUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::std::marker::Sync for SystemCpuUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemDiagnosticInfo(::windows::runtime::IInspectable);
 impl SystemDiagnosticInfo {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -1099,11 +1539,51 @@ unsafe impl ::windows::runtime::Interface for SystemDiagnosticInfo {
 impl ::windows::runtime::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
 }
+impl ::std::convert::From<SystemDiagnosticInfo> for ::windows::runtime::IUnknown {
+    fn from(value: SystemDiagnosticInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemDiagnosticInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemDiagnosticInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemDiagnosticInfo> for ::windows::runtime::IInspectable {
+    fn from(value: SystemDiagnosticInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemDiagnosticInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemDiagnosticInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemDiagnosticInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::std::marker::Sync for SystemDiagnosticInfo {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMemoryUsage(::windows::runtime::IInspectable);
 impl SystemMemoryUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -1125,11 +1605,51 @@ unsafe impl ::windows::runtime::Interface for SystemMemoryUsage {
 impl ::windows::runtime::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
 }
+impl ::std::convert::From<SystemMemoryUsage> for ::windows::runtime::IUnknown {
+    fn from(value: SystemMemoryUsage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemMemoryUsage> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemMemoryUsage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemMemoryUsage> for ::windows::runtime::IInspectable {
+    fn from(value: SystemMemoryUsage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemMemoryUsage> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemMemoryUsage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemMemoryUsage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SystemMemoryUsage {}
 unsafe impl ::std::marker::Sync for SystemMemoryUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMemoryUsageReport(::windows::runtime::IInspectable);
 impl SystemMemoryUsageReport {
     #[doc = "*Required features: `System_Diagnostics`*"]
@@ -1166,6 +1686,46 @@ unsafe impl ::windows::runtime::Interface for SystemMemoryUsageReport {
 }
 impl ::windows::runtime::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";
+}
+impl ::std::convert::From<SystemMemoryUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: SystemMemoryUsageReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemMemoryUsageReport> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemMemoryUsageReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemMemoryUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: SystemMemoryUsageReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemMemoryUsageReport> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemMemoryUsageReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemMemoryUsageReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::std::marker::Sync for SystemMemoryUsageReport {}

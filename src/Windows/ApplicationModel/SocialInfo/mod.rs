@@ -192,7 +192,7 @@ pub struct ISocialUserInfo_abi(
 );
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocialFeedChildItem(::windows::runtime::IInspectable);
 impl SocialFeedChildItem {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -299,11 +299,51 @@ unsafe impl ::windows::runtime::Interface for SocialFeedChildItem {
 impl ::windows::runtime::RuntimeName for SocialFeedChildItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedChildItem";
 }
+impl ::std::convert::From<SocialFeedChildItem> for ::windows::runtime::IUnknown {
+    fn from(value: SocialFeedChildItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocialFeedChildItem> for ::windows::runtime::IUnknown {
+    fn from(value: &SocialFeedChildItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedChildItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialFeedChildItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocialFeedChildItem> for ::windows::runtime::IInspectable {
+    fn from(value: SocialFeedChildItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocialFeedChildItem> for ::windows::runtime::IInspectable {
+    fn from(value: &SocialFeedChildItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedChildItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedChildItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SocialFeedChildItem {}
 unsafe impl ::std::marker::Sync for SocialFeedChildItem {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocialFeedContent(::windows::runtime::IInspectable);
 impl SocialFeedContent {
     #[cfg(feature = "deprecated")]
@@ -364,11 +404,51 @@ unsafe impl ::windows::runtime::Interface for SocialFeedContent {
 impl ::windows::runtime::RuntimeName for SocialFeedContent {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedContent";
 }
+impl ::std::convert::From<SocialFeedContent> for ::windows::runtime::IUnknown {
+    fn from(value: SocialFeedContent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocialFeedContent> for ::windows::runtime::IUnknown {
+    fn from(value: &SocialFeedContent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialFeedContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocialFeedContent> for ::windows::runtime::IInspectable {
+    fn from(value: SocialFeedContent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocialFeedContent> for ::windows::runtime::IInspectable {
+    fn from(value: &SocialFeedContent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedContent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SocialFeedContent {}
 unsafe impl ::std::marker::Sync for SocialFeedContent {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocialFeedItem(::windows::runtime::IInspectable);
 impl SocialFeedItem {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -550,6 +630,46 @@ unsafe impl ::windows::runtime::Interface for SocialFeedItem {
 impl ::windows::runtime::RuntimeName for SocialFeedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedItem";
 }
+impl ::std::convert::From<SocialFeedItem> for ::windows::runtime::IUnknown {
+    fn from(value: SocialFeedItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocialFeedItem> for ::windows::runtime::IUnknown {
+    fn from(value: &SocialFeedItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialFeedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocialFeedItem> for ::windows::runtime::IInspectable {
+    fn from(value: SocialFeedItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocialFeedItem> for ::windows::runtime::IInspectable {
+    fn from(value: &SocialFeedItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SocialFeedItem {}
 unsafe impl ::std::marker::Sync for SocialFeedItem {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
@@ -599,7 +719,7 @@ impl ::windows::runtime::DefaultType for SocialFeedKind {
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocialFeedSharedItem(::windows::runtime::IInspectable);
 impl SocialFeedSharedItem {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -695,6 +815,46 @@ unsafe impl ::windows::runtime::Interface for SocialFeedSharedItem {
 impl ::windows::runtime::RuntimeName for SocialFeedSharedItem {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem";
 }
+impl ::std::convert::From<SocialFeedSharedItem> for ::windows::runtime::IUnknown {
+    fn from(value: SocialFeedSharedItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocialFeedSharedItem> for ::windows::runtime::IUnknown {
+    fn from(value: &SocialFeedSharedItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocialFeedSharedItem> for ::windows::runtime::IInspectable {
+    fn from(value: SocialFeedSharedItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocialFeedSharedItem> for ::windows::runtime::IInspectable {
+    fn from(value: &SocialFeedSharedItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialFeedSharedItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SocialFeedSharedItem {}
 unsafe impl ::std::marker::Sync for SocialFeedSharedItem {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
@@ -747,7 +907,7 @@ impl ::windows::runtime::DefaultType for SocialItemBadgeStyle {
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocialItemThumbnail(::windows::runtime::IInspectable);
 impl SocialItemThumbnail {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -829,11 +989,51 @@ unsafe impl ::windows::runtime::Interface for SocialItemThumbnail {
 impl ::windows::runtime::RuntimeName for SocialItemThumbnail {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialItemThumbnail";
 }
+impl ::std::convert::From<SocialItemThumbnail> for ::windows::runtime::IUnknown {
+    fn from(value: SocialItemThumbnail) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocialItemThumbnail> for ::windows::runtime::IUnknown {
+    fn from(value: &SocialItemThumbnail) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocialItemThumbnail> for ::windows::runtime::IInspectable {
+    fn from(value: SocialItemThumbnail) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocialItemThumbnail> for ::windows::runtime::IInspectable {
+    fn from(value: &SocialItemThumbnail) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SocialItemThumbnail {}
 unsafe impl ::std::marker::Sync for SocialItemThumbnail {}
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocialUserInfo(::windows::runtime::IInspectable);
 impl SocialUserInfo {
     #[cfg(feature = "deprecated")]
@@ -908,6 +1108,46 @@ unsafe impl ::windows::runtime::Interface for SocialUserInfo {
 }
 impl ::windows::runtime::RuntimeName for SocialUserInfo {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.SocialUserInfo";
+}
+impl ::std::convert::From<SocialUserInfo> for ::windows::runtime::IUnknown {
+    fn from(value: SocialUserInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocialUserInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &SocialUserInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocialUserInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocialUserInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocialUserInfo> for ::windows::runtime::IInspectable {
+    fn from(value: SocialUserInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocialUserInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &SocialUserInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocialUserInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocialUserInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SocialUserInfo {}
 unsafe impl ::std::marker::Sync for SocialUserInfo {}

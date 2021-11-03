@@ -642,7 +642,7 @@ impl ::windows::runtime::DefaultType for SceneAttributeSemantic {
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneBoundingBox(::windows::runtime::IInspectable);
 impl SceneBoundingBox {
     #[cfg(feature = "Foundation_Numerics")]
@@ -800,6 +800,46 @@ unsafe impl ::windows::runtime::Interface for SceneBoundingBox {
 impl ::windows::runtime::RuntimeName for SceneBoundingBox {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneBoundingBox";
 }
+impl ::std::convert::From<SceneBoundingBox> for ::windows::runtime::IUnknown {
+    fn from(value: SceneBoundingBox) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneBoundingBox> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneBoundingBox) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneBoundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneBoundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneBoundingBox> for ::windows::runtime::IInspectable {
+    fn from(value: SceneBoundingBox) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneBoundingBox> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneBoundingBox) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneBoundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneBoundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneBoundingBox> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -892,7 +932,7 @@ unsafe impl ::std::marker::Send for SceneBoundingBox {}
 unsafe impl ::std::marker::Sync for SceneBoundingBox {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneComponent(::windows::runtime::IInspectable);
 impl SceneComponent {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -1013,6 +1053,46 @@ unsafe impl ::windows::runtime::Interface for SceneComponent {
 impl ::windows::runtime::RuntimeName for SceneComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponent";
 }
+impl ::std::convert::From<SceneComponent> for ::windows::runtime::IUnknown {
+    fn from(value: SceneComponent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneComponent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneComponent> for ::windows::runtime::IInspectable {
+    fn from(value: SceneComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneComponent> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneComponent> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1106,7 +1186,7 @@ unsafe impl ::std::marker::Sync for SceneComponent {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Composition_Scenes`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneComponentCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneComponentCollection {
@@ -1320,6 +1400,54 @@ impl ::windows::runtime::RuntimeName for SceneComponentCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponentCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<SceneComponentCollection> for ::windows::runtime::IUnknown {
+    fn from(value: SceneComponentCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&SceneComponentCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneComponentCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneComponentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneComponentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<SceneComponentCollection> for ::windows::runtime::IInspectable {
+    fn from(value: SceneComponentCollection) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&SceneComponentCollection> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneComponentCollection) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneComponentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneComponentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SceneComponentCollection> for super::super::super::Foundation::Collections::IVector<SceneComponent> {
     fn from(value: SceneComponentCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1512,7 +1640,7 @@ impl ::windows::runtime::DefaultType for SceneComponentType {
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneMaterial(::windows::runtime::IInspectable);
 impl SceneMaterial {
     #[cfg(feature = "Foundation")]
@@ -1625,6 +1753,46 @@ unsafe impl ::windows::runtime::Interface for SceneMaterial {
 impl ::windows::runtime::RuntimeName for SceneMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterial";
 }
+impl ::std::convert::From<SceneMaterial> for ::windows::runtime::IUnknown {
+    fn from(value: SceneMaterial) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneMaterial> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneMaterial) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneMaterial> for ::windows::runtime::IInspectable {
+    fn from(value: SceneMaterial) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneMaterial> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneMaterial) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneMaterial> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1717,7 +1885,7 @@ unsafe impl ::std::marker::Send for SceneMaterial {}
 unsafe impl ::std::marker::Sync for SceneMaterial {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneMaterialInput(::windows::runtime::IInspectable);
 impl SceneMaterialInput {
     #[cfg(feature = "Foundation")]
@@ -1830,6 +1998,46 @@ unsafe impl ::windows::runtime::Interface for SceneMaterialInput {
 impl ::windows::runtime::RuntimeName for SceneMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterialInput";
 }
+impl ::std::convert::From<SceneMaterialInput> for ::windows::runtime::IUnknown {
+    fn from(value: SceneMaterialInput) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneMaterialInput> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneMaterialInput) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneMaterialInput> for ::windows::runtime::IInspectable {
+    fn from(value: SceneMaterialInput) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneMaterialInput> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneMaterialInput) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneMaterialInput> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1922,7 +2130,7 @@ unsafe impl ::std::marker::Send for SceneMaterialInput {}
 unsafe impl ::std::marker::Sync for SceneMaterialInput {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneMesh(::windows::runtime::IInspectable);
 impl SceneMesh {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -2075,6 +2283,46 @@ unsafe impl ::windows::runtime::Interface for SceneMesh {
 impl ::windows::runtime::RuntimeName for SceneMesh {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMesh";
 }
+impl ::std::convert::From<SceneMesh> for ::windows::runtime::IUnknown {
+    fn from(value: SceneMesh) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneMesh> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneMesh) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneMesh {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneMesh {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneMesh> for ::windows::runtime::IInspectable {
+    fn from(value: SceneMesh) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneMesh> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneMesh) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneMesh {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneMesh {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneMesh> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2167,7 +2415,7 @@ unsafe impl ::std::marker::Send for SceneMesh {}
 unsafe impl ::std::marker::Sync for SceneMesh {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneMeshMaterialAttributeMap(::windows::runtime::IInspectable);
 impl SceneMeshMaterialAttributeMap {
     #[cfg(feature = "Foundation_Collections")]
@@ -2346,6 +2594,46 @@ unsafe impl ::windows::runtime::Interface for SceneMeshMaterialAttributeMap {
 impl ::windows::runtime::RuntimeName for SceneMeshMaterialAttributeMap {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap";
 }
+impl ::std::convert::From<SceneMeshMaterialAttributeMap> for ::windows::runtime::IUnknown {
+    fn from(value: SceneMeshMaterialAttributeMap) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneMeshMaterialAttributeMap> for ::windows::runtime::IInspectable {
+    fn from(value: SceneMeshMaterialAttributeMap) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<SceneMeshMaterialAttributeMap> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, SceneAttributeSemantic>> {
     type Error = ::windows::runtime::Error;
@@ -2506,7 +2794,7 @@ impl ::std::iter::IntoIterator for &SceneMeshMaterialAttributeMap {
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneMeshRendererComponent(::windows::runtime::IInspectable);
 impl SceneMeshRendererComponent {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -2672,6 +2960,46 @@ unsafe impl ::windows::runtime::Interface for SceneMeshRendererComponent {
 impl ::windows::runtime::RuntimeName for SceneMeshRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshRendererComponent";
 }
+impl ::std::convert::From<SceneMeshRendererComponent> for ::windows::runtime::IUnknown {
+    fn from(value: SceneMeshRendererComponent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneMeshRendererComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneMeshRendererComponent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneMeshRendererComponent> for ::windows::runtime::IInspectable {
+    fn from(value: SceneMeshRendererComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneMeshRendererComponent> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneMeshRendererComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneMeshRendererComponent> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2804,7 +3132,7 @@ unsafe impl ::std::marker::Send for SceneMeshRendererComponent {}
 unsafe impl ::std::marker::Sync for SceneMeshRendererComponent {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneMetallicRoughnessMaterial(::windows::runtime::IInspectable);
 impl SceneMetallicRoughnessMaterial {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -3114,6 +3442,46 @@ unsafe impl ::windows::runtime::Interface for SceneMetallicRoughnessMaterial {
 impl ::windows::runtime::RuntimeName for SceneMetallicRoughnessMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial";
 }
+impl ::std::convert::From<SceneMetallicRoughnessMaterial> for ::windows::runtime::IUnknown {
+    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneMetallicRoughnessMaterial> for ::windows::runtime::IInspectable {
+    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneMetallicRoughnessMaterial> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3246,7 +3614,7 @@ unsafe impl ::std::marker::Send for SceneMetallicRoughnessMaterial {}
 unsafe impl ::std::marker::Sync for SceneMetallicRoughnessMaterial {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneModelTransform(::windows::runtime::IInspectable);
 impl SceneModelTransform {
     #[cfg(feature = "Foundation_Numerics")]
@@ -3445,6 +3813,46 @@ unsafe impl ::windows::runtime::Interface for SceneModelTransform {
 impl ::windows::runtime::RuntimeName for SceneModelTransform {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneModelTransform";
 }
+impl ::std::convert::From<SceneModelTransform> for ::windows::runtime::IUnknown {
+    fn from(value: SceneModelTransform) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneModelTransform> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneModelTransform) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneModelTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneModelTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneModelTransform> for ::windows::runtime::IInspectable {
+    fn from(value: SceneModelTransform) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneModelTransform> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneModelTransform) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneModelTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneModelTransform {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneModelTransform> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3537,7 +3945,7 @@ unsafe impl ::std::marker::Send for SceneModelTransform {}
 unsafe impl ::std::marker::Sync for SceneModelTransform {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneNode(::windows::runtime::IInspectable);
 impl SceneNode {
     #[cfg(feature = "Foundation_Collections")]
@@ -3703,6 +4111,46 @@ unsafe impl ::windows::runtime::Interface for SceneNode {
 impl ::windows::runtime::RuntimeName for SceneNode {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNode";
 }
+impl ::std::convert::From<SceneNode> for ::windows::runtime::IUnknown {
+    fn from(value: SceneNode) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneNode> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneNode) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneNode> for ::windows::runtime::IInspectable {
+    fn from(value: SceneNode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneNode> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneNode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneNode> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3796,7 +4244,7 @@ unsafe impl ::std::marker::Sync for SceneNode {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Composition_Scenes`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneNodeCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneNodeCollection {
@@ -4010,6 +4458,54 @@ impl ::windows::runtime::RuntimeName for SceneNodeCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNodeCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<SceneNodeCollection> for ::windows::runtime::IUnknown {
+    fn from(value: SceneNodeCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&SceneNodeCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneNodeCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneNodeCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneNodeCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<SceneNodeCollection> for ::windows::runtime::IInspectable {
+    fn from(value: SceneNodeCollection) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&SceneNodeCollection> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneNodeCollection) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneNodeCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneNodeCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SceneNodeCollection> for super::super::super::Foundation::Collections::IVector<SceneNode> {
     fn from(value: SceneNodeCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4181,7 +4677,7 @@ impl ::std::iter::IntoIterator for &SceneNodeCollection {
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneObject(::windows::runtime::IInspectable);
 impl SceneObject {
     #[cfg(feature = "Foundation")]
@@ -4294,6 +4790,46 @@ unsafe impl ::windows::runtime::Interface for SceneObject {
 impl ::windows::runtime::RuntimeName for SceneObject {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
 }
+impl ::std::convert::From<SceneObject> for ::windows::runtime::IUnknown {
+    fn from(value: SceneObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneObject> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneObject> for ::windows::runtime::IInspectable {
+    fn from(value: SceneObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneObject> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneObject> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4366,7 +4902,7 @@ unsafe impl ::std::marker::Send for SceneObject {}
 unsafe impl ::std::marker::Sync for SceneObject {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ScenePbrMaterial(::windows::runtime::IInspectable);
 impl ScenePbrMaterial {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -4598,6 +5134,46 @@ unsafe impl ::windows::runtime::Interface for ScenePbrMaterial {
 impl ::windows::runtime::RuntimeName for ScenePbrMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
 }
+impl ::std::convert::From<ScenePbrMaterial> for ::windows::runtime::IUnknown {
+    fn from(value: ScenePbrMaterial) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ScenePbrMaterial> for ::windows::runtime::IUnknown {
+    fn from(value: &ScenePbrMaterial) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScenePbrMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScenePbrMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ScenePbrMaterial> for ::windows::runtime::IInspectable {
+    fn from(value: ScenePbrMaterial) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ScenePbrMaterial> for ::windows::runtime::IInspectable {
+    fn from(value: &ScenePbrMaterial) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ScenePbrMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScenePbrMaterial {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ScenePbrMaterial> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4710,7 +5286,7 @@ unsafe impl ::std::marker::Send for ScenePbrMaterial {}
 unsafe impl ::std::marker::Sync for ScenePbrMaterial {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneRendererComponent(::windows::runtime::IInspectable);
 impl SceneRendererComponent {
     #[cfg(feature = "Foundation")]
@@ -4831,6 +5407,46 @@ unsafe impl ::windows::runtime::Interface for SceneRendererComponent {
 impl ::windows::runtime::RuntimeName for SceneRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
 }
+impl ::std::convert::From<SceneRendererComponent> for ::windows::runtime::IUnknown {
+    fn from(value: SceneRendererComponent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneRendererComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneRendererComponent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneRendererComponent> for ::windows::runtime::IInspectable {
+    fn from(value: SceneRendererComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneRendererComponent> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneRendererComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneRendererComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneRendererComponent> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4943,7 +5559,7 @@ unsafe impl ::std::marker::Send for SceneRendererComponent {}
 unsafe impl ::std::marker::Sync for SceneRendererComponent {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneSurfaceMaterialInput(::windows::runtime::IInspectable);
 impl SceneSurfaceMaterialInput {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -5119,6 +5735,46 @@ unsafe impl ::windows::runtime::Interface for SceneSurfaceMaterialInput {
 impl ::windows::runtime::RuntimeName for SceneSurfaceMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput";
 }
+impl ::std::convert::From<SceneSurfaceMaterialInput> for ::windows::runtime::IUnknown {
+    fn from(value: SceneSurfaceMaterialInput) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneSurfaceMaterialInput> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneSurfaceMaterialInput) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneSurfaceMaterialInput> for ::windows::runtime::IInspectable {
+    fn from(value: SceneSurfaceMaterialInput) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneSurfaceMaterialInput> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneSurfaceMaterialInput) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneSurfaceMaterialInput> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5231,7 +5887,7 @@ unsafe impl ::std::marker::Send for SceneSurfaceMaterialInput {}
 unsafe impl ::std::marker::Sync for SceneSurfaceMaterialInput {}
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneVisual(::windows::runtime::IInspectable);
 impl SceneVisual {
     #[doc = "*Required features: `UI_Composition_Scenes`*"]
@@ -5676,6 +6332,46 @@ unsafe impl ::windows::runtime::Interface for SceneVisual {
 }
 impl ::windows::runtime::RuntimeName for SceneVisual {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneVisual";
+}
+impl ::std::convert::From<SceneVisual> for ::windows::runtime::IUnknown {
+    fn from(value: SceneVisual) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneVisual> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneVisual) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneVisual {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneVisual {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneVisual> for ::windows::runtime::IInspectable {
+    fn from(value: SceneVisual) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneVisual> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneVisual) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneVisual {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneVisual {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneVisual> for super::super::super::Foundation::IClosable {

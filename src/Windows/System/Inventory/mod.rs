@@ -41,7 +41,7 @@ pub struct IInstalledDesktopAppStatics_abi(
 );
 #[doc = "*Required features: `System_Inventory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InstalledDesktopApp(::windows::runtime::IInspectable);
 impl InstalledDesktopApp {
     #[cfg(feature = "Foundation")]
@@ -107,6 +107,46 @@ unsafe impl ::windows::runtime::Interface for InstalledDesktopApp {
 }
 impl ::windows::runtime::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
+}
+impl ::std::convert::From<InstalledDesktopApp> for ::windows::runtime::IUnknown {
+    fn from(value: InstalledDesktopApp) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InstalledDesktopApp> for ::windows::runtime::IUnknown {
+    fn from(value: &InstalledDesktopApp) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InstalledDesktopApp> for ::windows::runtime::IInspectable {
+    fn from(value: InstalledDesktopApp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InstalledDesktopApp> for ::windows::runtime::IInspectable {
+    fn from(value: &InstalledDesktopApp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InstalledDesktopApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InstalledDesktopApp> for super::super::Foundation::IStringable {

@@ -9482,7 +9482,7 @@ pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
 pub const HEAPALIASINFO_MAPPEDREAL: i32 = 1i32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDDVideoPortContainer(::windows::runtime::IUnknown);
 impl IDDVideoPortContainer {
     #[cfg(feature = "Win32_UI_DisplayDevices")]
@@ -9509,6 +9509,26 @@ unsafe impl ::windows::runtime::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813260128, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDDVideoPortContainer> for ::windows::runtime::IUnknown {
+    fn from(value: IDDVideoPortContainer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDDVideoPortContainer> for ::windows::runtime::IUnknown {
+    fn from(value: &IDDVideoPortContainer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDDVideoPortContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDDVideoPortContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDDVideoPortContainer_abi(
@@ -9528,7 +9548,7 @@ pub struct IDDVideoPortContainer_abi(
 pub struct IDDVideoPortContainerVtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDraw(::windows::runtime::IUnknown);
 impl IDirectDraw {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -9621,6 +9641,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDraw {
     type Vtable = IDirectDraw_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306240, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectDraw> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDraw) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDraw> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDraw) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDraw {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDraw {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw_abi(
@@ -9653,7 +9693,7 @@ pub struct IDirectDraw_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDraw2(::windows::runtime::IUnknown);
 impl IDirectDraw2 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -9750,6 +9790,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014063072, 11075, 4559, [162, 222, 0, 170, 0, 185, 51, 86]);
 }
+impl ::std::convert::From<IDirectDraw2> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDraw2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDraw2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDraw2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDraw2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDraw2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw2_abi(
@@ -9786,7 +9846,7 @@ pub struct IDirectDraw2_abi(
 pub struct IDirectDraw2Vtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDraw4(::windows::runtime::IUnknown);
 impl IDirectDraw4 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -9902,6 +9962,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623099034, 14781, 4561, [140, 74, 0, 192, 79, 217, 48, 197]);
 }
+impl ::std::convert::From<IDirectDraw4> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDraw4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDraw4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDraw4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDraw4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDraw4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw4_abi(
@@ -9944,7 +10024,7 @@ pub struct IDirectDraw4_abi(
 pub struct IDirectDraw4Vtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDraw7(::windows::runtime::IUnknown);
 impl IDirectDraw7 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10069,6 +10149,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367419072, 15260, 4562, [185, 47, 0, 96, 151, 151, 234, 91]);
 }
+impl ::std::convert::From<IDirectDraw7> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDraw7) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDraw7> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDraw7) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDraw7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDraw7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw7_abi(
@@ -10114,7 +10214,7 @@ pub struct IDirectDraw7_abi(
 pub struct IDirectDraw7Vtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawClipper(::windows::runtime::IUnknown);
 impl IDirectDrawClipper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10151,6 +10251,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306245, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectDrawClipper> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawClipper) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawClipper> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawClipper) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawClipper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawClipper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawClipper_abi(
@@ -10174,7 +10294,7 @@ pub struct IDirectDrawClipper_abi(
 pub struct IDirectDrawClipperVtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawColorControl(::windows::runtime::IUnknown);
 impl IDirectDrawColorControl {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10190,6 +10310,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268715232, 3454, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
 }
+impl ::std::convert::From<IDirectDrawColorControl> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawColorControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawColorControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawColorControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawColorControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawColorControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawColorControl_abi(
@@ -10204,7 +10344,7 @@ pub struct IDirectDrawColorControl_abi(
 pub struct IDirectDrawColorControlVtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawGammaControl(::windows::runtime::IUnknown);
 impl IDirectDrawGammaControl {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10219,6 +10359,26 @@ impl IDirectDrawGammaControl {
 unsafe impl ::windows::runtime::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1774263358, 46187, 4561, [173, 122, 0, 192, 79, 194, 155, 78]);
+}
+impl ::std::convert::From<IDirectDrawGammaControl> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawGammaControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawGammaControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawGammaControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawGammaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawGammaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10237,7 +10397,7 @@ pub struct IDirectDrawGammaControlVtbl(pub u8);
 pub struct IDirectDrawKernelVtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawPalette(::windows::runtime::IUnknown);
 impl IDirectDrawPalette {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10264,6 +10424,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPalette_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306244, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectDrawPalette> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawPalette) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawPalette> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawPalette) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawPalette {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawPalette {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawPalette_abi(
@@ -10283,7 +10463,7 @@ pub struct IDirectDrawPalette_abi(
 pub struct IDirectDrawPaletteVtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurface(::windows::runtime::IUnknown);
 impl IDirectDrawSurface {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10433,6 +10613,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813306241, 42803, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
+impl ::std::convert::From<IDirectDrawSurface> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawSurface) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawSurface> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawSurface) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawSurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface_abi(
@@ -10483,7 +10683,7 @@ pub struct IDirectDrawSurface_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurface2(::windows::runtime::IUnknown);
 impl IDirectDrawSurface2 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10645,6 +10845,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468029061, 28396, 4559, [148, 65, 168, 35, 3, 193, 14, 39]);
 }
+impl ::std::convert::From<IDirectDrawSurface2> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawSurface2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawSurface2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawSurface2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurface2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawSurface2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface2_abi(
@@ -10701,7 +10921,7 @@ pub struct IDirectDrawSurface2_abi(
 pub struct IDirectDrawSurface2Vtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurface3(::windows::runtime::IUnknown);
 impl IDirectDrawSurface3 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -10867,6 +11087,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3657715200, 27058, 4560, [161, 213, 0, 170, 0, 184, 223, 187]);
 }
+impl ::std::convert::From<IDirectDrawSurface3> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawSurface3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawSurface3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawSurface3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurface3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawSurface3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface3_abi(
@@ -10924,7 +11164,7 @@ pub struct IDirectDrawSurface3_abi(
 pub struct IDirectDrawSurface3Vtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurface4(::windows::runtime::IUnknown);
 impl IDirectDrawSurface4 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -11111,6 +11351,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(187401776, 44341, 4560, [142, 166, 0, 96, 151, 151, 234, 91]);
 }
+impl ::std::convert::From<IDirectDrawSurface4> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawSurface4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawSurface4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawSurface4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurface4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawSurface4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface4_abi(
@@ -11174,7 +11434,7 @@ pub struct IDirectDrawSurface4_abi(
 pub struct IDirectDrawSurface4Vtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurface7(::windows::runtime::IUnknown);
 impl IDirectDrawSurface7 {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -11377,6 +11637,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107436672, 15259, 4562, [185, 47, 0, 96, 151, 151, 234, 91]);
 }
+impl ::std::convert::From<IDirectDrawSurface7> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawSurface7) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawSurface7> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawSurface7) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurface7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawSurface7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface7_abi(
@@ -11450,7 +11730,7 @@ pub struct IDirectDrawSurfaceKernelVtbl(pub u8);
 pub struct IDirectDrawSurfaceVtbl(pub u8);
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawVideoPort(::windows::runtime::IUnknown);
 impl IDirectDrawVideoPort {
     #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -11517,6 +11797,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010302944, 11075, 4559, [162, 222, 0, 170, 0, 185, 51, 86]);
 }
+impl ::std::convert::From<IDirectDrawVideoPort> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawVideoPort) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawVideoPort> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawVideoPort) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawVideoPort {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawVideoPort {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawVideoPort_abi(
@@ -11543,7 +11843,7 @@ pub struct IDirectDrawVideoPort_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawVideoPortNotify(::windows::runtime::IUnknown);
 impl IDirectDrawVideoPortNotify {
     #[cfg(feature = "Win32_Foundation")]
@@ -11560,6 +11860,26 @@ impl IDirectDrawVideoPortNotify {
 unsafe impl ::windows::runtime::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2790652820, 1417, 20055, [179, 51, 86, 122, 137, 70, 140, 136]);
+}
+impl ::std::convert::From<IDirectDrawVideoPortNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawVideoPortNotify) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectDrawVideoPortNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawVideoPortNotify) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawVideoPortNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawVideoPortNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

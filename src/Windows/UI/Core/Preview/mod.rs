@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Core_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreAppWindowPreview(::windows::runtime::IInspectable);
 impl CoreAppWindowPreview {
     #[cfg(feature = "UI_WindowManagement")]
@@ -26,6 +26,46 @@ unsafe impl ::windows::runtime::Interface for CoreAppWindowPreview {
 }
 impl ::windows::runtime::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
+}
+impl ::std::convert::From<CoreAppWindowPreview> for ::windows::runtime::IUnknown {
+    fn from(value: CoreAppWindowPreview) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreAppWindowPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreAppWindowPreview) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreAppWindowPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreAppWindowPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreAppWindowPreview> for ::windows::runtime::IInspectable {
+    fn from(value: CoreAppWindowPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreAppWindowPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreAppWindowPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreAppWindowPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreAppWindowPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CoreAppWindowPreview {}
 unsafe impl ::std::marker::Sync for CoreAppWindowPreview {}
@@ -127,7 +167,7 @@ pub struct ISystemNavigationManagerPreviewStatics_abi(
 );
 #[doc = "*Required features: `UI_Core_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(::windows::runtime::IInspectable);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
     #[doc = "*Required features: `UI_Core_Preview`*"]
@@ -163,11 +203,51 @@ unsafe impl ::windows::runtime::Interface for SystemNavigationCloseRequestedPrev
 impl ::windows::runtime::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
 }
+impl ::std::convert::From<SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemNavigationCloseRequestedPreviewEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemNavigationCloseRequestedPreviewEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemNavigationCloseRequestedPreviewEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemNavigationCloseRequestedPreviewEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::std::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[doc = "*Required features: `UI_Core_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemNavigationManagerPreview(::windows::runtime::IInspectable);
 impl SystemNavigationManagerPreview {
     #[cfg(feature = "Foundation")]
@@ -206,6 +286,46 @@ unsafe impl ::windows::runtime::Interface for SystemNavigationManagerPreview {
 }
 impl ::windows::runtime::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";
+}
+impl ::std::convert::From<SystemNavigationManagerPreview> for ::windows::runtime::IUnknown {
+    fn from(value: SystemNavigationManagerPreview) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemNavigationManagerPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemNavigationManagerPreview) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemNavigationManagerPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemNavigationManagerPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemNavigationManagerPreview> for ::windows::runtime::IInspectable {
+    fn from(value: SystemNavigationManagerPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemNavigationManagerPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemNavigationManagerPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemNavigationManagerPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemNavigationManagerPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SystemNavigationManagerPreview {}
 unsafe impl ::std::marker::Sync for SystemNavigationManagerPreview {}

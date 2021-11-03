@@ -76,7 +76,7 @@ unsafe impl ::windows::runtime::Abi for GETPROPERTYSTOREFLAGS {
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICreateObject(::windows::runtime::IUnknown);
 impl ICreateObject {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -89,6 +89,26 @@ unsafe impl ::windows::runtime::Interface for ICreateObject {
     type Vtable = ICreateObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964120402, 57552, 17381, [147, 128, 29, 128, 72, 58, 207, 114]);
 }
+impl ::std::convert::From<ICreateObject> for ::windows::runtime::IUnknown {
+    fn from(value: ICreateObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICreateObject> for ::windows::runtime::IUnknown {
+    fn from(value: &ICreateObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICreateObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICreateObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateObject_abi(
@@ -99,7 +119,7 @@ pub struct ICreateObject_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDelayedPropertyStoreFactory(::windows::runtime::IUnknown);
 impl IDelayedPropertyStoreFactory {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -121,6 +141,26 @@ impl IDelayedPropertyStoreFactory {
 unsafe impl ::windows::runtime::Interface for IDelayedPropertyStoreFactory {
     type Vtable = IDelayedPropertyStoreFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1087657855, 57911, 19419, [189, 105, 88, 240, 137, 67, 27, 106]);
+}
+impl ::std::convert::From<IDelayedPropertyStoreFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IDelayedPropertyStoreFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDelayedPropertyStoreFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IDelayedPropertyStoreFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDelayedPropertyStoreFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDelayedPropertyStoreFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDelayedPropertyStoreFactory> for IPropertyStoreFactory {
     fn from(value: IDelayedPropertyStoreFactory) -> Self {
@@ -154,7 +194,7 @@ pub struct IDelayedPropertyStoreFactory_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInitializeWithFile(::windows::runtime::IUnknown);
 impl IInitializeWithFile {
     #[cfg(feature = "Win32_Foundation")]
@@ -167,6 +207,26 @@ unsafe impl ::windows::runtime::Interface for IInitializeWithFile {
     type Vtable = IInitializeWithFile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083945318, 1289, 19662, [167, 31, 10, 85, 66, 51, 189, 155]);
 }
+impl ::std::convert::From<IInitializeWithFile> for ::windows::runtime::IUnknown {
+    fn from(value: IInitializeWithFile) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInitializeWithFile> for ::windows::runtime::IUnknown {
+    fn from(value: &IInitializeWithFile) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInitializeWithFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInitializeWithFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitializeWithFile_abi(
@@ -178,7 +238,7 @@ pub struct IInitializeWithFile_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInitializeWithStream(::windows::runtime::IUnknown);
 impl IInitializeWithStream {
     #[cfg(feature = "Win32_System_Com")]
@@ -191,6 +251,26 @@ unsafe impl ::windows::runtime::Interface for IInitializeWithStream {
     type Vtable = IInitializeWithStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3089413277, 8876, 16737, [172, 138, 153, 22, 232, 250, 63, 127]);
 }
+impl ::std::convert::From<IInitializeWithStream> for ::windows::runtime::IUnknown {
+    fn from(value: IInitializeWithStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInitializeWithStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IInitializeWithStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInitializeWithStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInitializeWithStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitializeWithStream_abi(
@@ -202,7 +282,7 @@ pub struct IInitializeWithStream_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INamedPropertyStore(::windows::runtime::IUnknown);
 impl INamedPropertyStore {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
@@ -232,6 +312,26 @@ unsafe impl ::windows::runtime::Interface for INamedPropertyStore {
     type Vtable = INamedPropertyStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902136079, 38832, 18276, [133, 119, 47, 19, 233, 138, 20, 34]);
 }
+impl ::std::convert::From<INamedPropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: INamedPropertyStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&INamedPropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: &INamedPropertyStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INamedPropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INamedPropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedPropertyStore_abi(
@@ -248,7 +348,7 @@ pub struct INamedPropertyStore_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IObjectWithPropertyKey(::windows::runtime::IUnknown);
 impl IObjectWithPropertyKey {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -265,6 +365,26 @@ unsafe impl ::windows::runtime::Interface for IObjectWithPropertyKey {
     type Vtable = IObjectWithPropertyKey_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228685991, 49942, 20434, [144, 49, 62, 98, 142, 109, 79, 35]);
 }
+impl ::std::convert::From<IObjectWithPropertyKey> for ::windows::runtime::IUnknown {
+    fn from(value: IObjectWithPropertyKey) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IObjectWithPropertyKey> for ::windows::runtime::IUnknown {
+    fn from(value: &IObjectWithPropertyKey) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IObjectWithPropertyKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IObjectWithPropertyKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectWithPropertyKey_abi(
@@ -276,7 +396,7 @@ pub struct IObjectWithPropertyKey_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistSerializedPropStorage(::windows::runtime::IUnknown);
 impl IPersistSerializedPropStorage {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -296,6 +416,26 @@ unsafe impl ::windows::runtime::Interface for IPersistSerializedPropStorage {
     type Vtable = IPersistSerializedPropStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3810045271, 2720, 17679, [172, 165, 111, 171, 113, 3, 217, 23]);
 }
+impl ::std::convert::From<IPersistSerializedPropStorage> for ::windows::runtime::IUnknown {
+    fn from(value: IPersistSerializedPropStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPersistSerializedPropStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &IPersistSerializedPropStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistSerializedPropStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPersistSerializedPropStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistSerializedPropStorage_abi(
@@ -308,7 +448,7 @@ pub struct IPersistSerializedPropStorage_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistSerializedPropStorage2(::windows::runtime::IUnknown);
 impl IPersistSerializedPropStorage2 {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -336,6 +476,26 @@ impl IPersistSerializedPropStorage2 {
 unsafe impl ::windows::runtime::Interface for IPersistSerializedPropStorage2 {
     type Vtable = IPersistSerializedPropStorage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012215912, 20376, 17254, [186, 114, 87, 59, 61, 136, 5, 113]);
+}
+impl ::std::convert::From<IPersistSerializedPropStorage2> for ::windows::runtime::IUnknown {
+    fn from(value: IPersistSerializedPropStorage2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPersistSerializedPropStorage2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPersistSerializedPropStorage2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistSerializedPropStorage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPersistSerializedPropStorage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPersistSerializedPropStorage2> for IPersistSerializedPropStorage {
     fn from(value: IPersistSerializedPropStorage2) -> Self {
@@ -371,7 +531,7 @@ pub struct IPersistSerializedPropStorage2_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyChange(::windows::runtime::IUnknown);
 impl IPropertyChange {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -393,6 +553,26 @@ impl IPropertyChange {
 unsafe impl ::windows::runtime::Interface for IPropertyChange {
     type Vtable = IPropertyChange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179082378, 7098, 17528, [162, 69, 27, 222, 3, 235, 148, 49]);
+}
+impl ::std::convert::From<IPropertyChange> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyChange) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyChange> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyChange) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPropertyChange> for IObjectWithPropertyKey {
     fn from(value: IPropertyChange) -> Self {
@@ -427,7 +607,7 @@ pub struct IPropertyChange_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyChangeArray(::windows::runtime::IUnknown);
 impl IPropertyChangeArray {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -465,6 +645,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyChangeArray {
     type Vtable = IPropertyChangeArray_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(940530861, 7006, 17138, [128, 93, 99, 127, 211, 146, 211, 30]);
 }
+impl ::std::convert::From<IPropertyChangeArray> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyChangeArray) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyChangeArray> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyChangeArray) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyChangeArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyChangeArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyChangeArray_abi(
@@ -481,7 +681,7 @@ pub struct IPropertyChangeArray_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyDescription(::windows::runtime::IUnknown);
 impl IPropertyDescription {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -599,6 +799,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyDescription {
     type Vtable = IPropertyDescription_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1870255448, 16022, 17737, [161, 209, 125, 117, 210, 40, 136, 20]);
 }
+impl ::std::convert::From<IPropertyDescription> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyDescription) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyDescription> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyDescription) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyDescription {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyDescription {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyDescription_abi(
@@ -639,7 +859,7 @@ pub struct IPropertyDescription_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyDescription2(::windows::runtime::IUnknown);
 impl IPropertyDescription2 {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -763,6 +983,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyDescription2 {
     type Vtable = IPropertyDescription2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473441261, 20578, 16398, [177, 7, 93, 174, 121, 254, 87, 166]);
 }
+impl ::std::convert::From<IPropertyDescription2> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyDescription2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyDescription2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyDescription2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyDescription2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyDescription2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPropertyDescription2> for IPropertyDescription {
     fn from(value: IPropertyDescription2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -825,7 +1065,7 @@ pub struct IPropertyDescription2_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyDescriptionAliasInfo(::windows::runtime::IUnknown);
 impl IPropertyDescriptionAliasInfo {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -953,6 +1193,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyDescriptionAliasInfo {
     type Vtable = IPropertyDescriptionAliasInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134601980, 11001, 18173, [179, 45, 36, 60, 20, 4, 243, 209]);
 }
+impl ::std::convert::From<IPropertyDescriptionAliasInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyDescriptionAliasInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyDescriptionAliasInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyDescriptionAliasInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyDescriptionAliasInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyDescriptionAliasInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPropertyDescriptionAliasInfo> for IPropertyDescription {
     fn from(value: IPropertyDescriptionAliasInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1015,7 +1275,7 @@ pub struct IPropertyDescriptionAliasInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyDescriptionList(::windows::runtime::IUnknown);
 impl IPropertyDescriptionList {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1033,6 +1293,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyDescriptionList {
     type Vtable = IPropertyDescriptionList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(530563536, 50075, 19238, [129, 127, 1, 25, 103, 211, 68, 14]);
 }
+impl ::std::convert::From<IPropertyDescriptionList> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyDescriptionList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyDescriptionList> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyDescriptionList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyDescriptionList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyDescriptionList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyDescriptionList_abi(
@@ -1044,7 +1324,7 @@ pub struct IPropertyDescriptionList_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyDescriptionRelatedPropertyInfo(::windows::runtime::IUnknown);
 impl IPropertyDescriptionRelatedPropertyInfo {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1168,6 +1448,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyDescriptionRelatedPropert
     type Vtable = IPropertyDescriptionRelatedPropertyInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349751796, 10813, 19040, [181, 158, 217, 199, 87, 22, 194, 221]);
 }
+impl ::std::convert::From<IPropertyDescriptionRelatedPropertyInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyDescriptionRelatedPropertyInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyDescriptionRelatedPropertyInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyDescriptionRelatedPropertyInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyDescriptionRelatedPropertyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyDescriptionRelatedPropertyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPropertyDescriptionRelatedPropertyInfo> for IPropertyDescription {
     fn from(value: IPropertyDescriptionRelatedPropertyInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1230,7 +1530,7 @@ pub struct IPropertyDescriptionRelatedPropertyInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyDescriptionSearchInfo(::windows::runtime::IUnknown);
 impl IPropertyDescriptionSearchInfo {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1369,6 +1669,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyDescriptionSearchInfo {
     type Vtable = IPropertyDescriptionSearchInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(126849469, 10658, 17423, [146, 78, 70, 162, 145, 82, 69, 32]);
 }
+impl ::std::convert::From<IPropertyDescriptionSearchInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyDescriptionSearchInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyDescriptionSearchInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyDescriptionSearchInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyDescriptionSearchInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyDescriptionSearchInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPropertyDescriptionSearchInfo> for IPropertyDescription {
     fn from(value: IPropertyDescriptionSearchInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1434,7 +1754,7 @@ pub struct IPropertyDescriptionSearchInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyEnumType(::windows::runtime::IUnknown);
 impl IPropertyEnumType {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1471,6 +1791,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyEnumType {
     type Vtable = IPropertyEnumType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(300022777, 11606, 19051, [141, 179, 124, 209, 147, 164, 113, 242]);
 }
+impl ::std::convert::From<IPropertyEnumType> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyEnumType) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyEnumType> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyEnumType) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyEnumType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyEnumType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyEnumType_abi(
@@ -1489,7 +1829,7 @@ pub struct IPropertyEnumType_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyEnumType2(::windows::runtime::IUnknown);
 impl IPropertyEnumType2 {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1532,6 +1872,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyEnumType2 {
     type Vtable = IPropertyEnumType2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607678748, 24029, 17185, [144, 112, 254, 42, 203, 85, 231, 148]);
 }
+impl ::std::convert::From<IPropertyEnumType2> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyEnumType2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyEnumType2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyEnumType2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyEnumType2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyEnumType2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPropertyEnumType2> for IPropertyEnumType {
     fn from(value: IPropertyEnumType2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1572,7 +1932,7 @@ pub struct IPropertyEnumType2_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyEnumTypeList(::windows::runtime::IUnknown);
 impl IPropertyEnumTypeList {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1601,6 +1961,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyEnumTypeList {
     type Vtable = IPropertyEnumTypeList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2845049076, 15748, 17751, [148, 186, 18, 66, 251, 44, 201, 166]);
 }
+impl ::std::convert::From<IPropertyEnumTypeList> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyEnumTypeList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyEnumTypeList> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyEnumTypeList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyEnumTypeList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyEnumTypeList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyEnumTypeList_abi(
@@ -1615,7 +1995,7 @@ pub struct IPropertyEnumTypeList_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyStore(::windows::runtime::IUnknown);
 impl IPropertyStore {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1648,6 +2028,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyStore {
     type Vtable = IPropertyStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2288881387, 36082, 17478, [141, 2, 205, 186, 29, 189, 207, 153]);
 }
+impl ::std::convert::From<IPropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStore_abi(
@@ -1664,7 +2064,7 @@ pub struct IPropertyStore_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyStoreCache(::windows::runtime::IUnknown);
 impl IPropertyStoreCache {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1716,6 +2116,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyStoreCache {
     type Vtable = IPropertyStoreCache_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(806815085, 39569, 20112, [147, 125, 116, 108, 114, 171, 191, 79]);
 }
+impl ::std::convert::From<IPropertyStoreCache> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyStoreCache) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyStoreCache> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyStoreCache) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyStoreCache {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyStoreCache {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPropertyStoreCache> for IPropertyStore {
     fn from(value: IPropertyStoreCache) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1758,7 +2178,7 @@ pub struct IPropertyStoreCache_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyStoreCapabilities(::windows::runtime::IUnknown);
 impl IPropertyStoreCapabilities {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1770,6 +2190,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyStoreCapabilities {
     type Vtable = IPropertyStoreCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3370308966, 6254, 19785, [191, 65, 105, 9, 234, 213, 106, 204]);
 }
+impl ::std::convert::From<IPropertyStoreCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyStoreCapabilities) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyStoreCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyStoreCapabilities) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyStoreCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyStoreCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStoreCapabilities_abi(
@@ -1780,7 +2220,7 @@ pub struct IPropertyStoreCapabilities_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyStoreFactory(::windows::runtime::IUnknown);
 impl IPropertyStoreFactory {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1798,6 +2238,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyStoreFactory {
     type Vtable = IPropertyStoreFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3155233645, 22504, 16712, [169, 198, 145, 1, 90, 178, 243, 165]);
 }
+impl ::std::convert::From<IPropertyStoreFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyStoreFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyStoreFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyStoreFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyStoreFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyStoreFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStoreFactory_abi(
@@ -1809,7 +2269,7 @@ pub struct IPropertyStoreFactory_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertySystem(::windows::runtime::IUnknown);
 impl IPropertySystem {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1864,6 +2324,26 @@ unsafe impl ::windows::runtime::Interface for IPropertySystem {
     type Vtable = IPropertySystem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396488842, 50150, 17451, [136, 164, 111, 176, 219, 128, 53, 163]);
 }
+impl ::std::convert::From<IPropertySystem> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertySystem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertySystem> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertySystem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertySystem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertySystem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySystem_abi(
@@ -1888,7 +2368,7 @@ pub struct IPropertySystem_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertySystemChangeNotify(::windows::runtime::IUnknown);
 impl IPropertySystemChangeNotify {
     #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
@@ -1900,6 +2380,26 @@ unsafe impl ::windows::runtime::Interface for IPropertySystemChangeNotify {
     type Vtable = IPropertySystemChangeNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4204093401, 14526, 18553, [166, 206, 130, 76, 245, 45, 96, 159]);
 }
+impl ::std::convert::From<IPropertySystemChangeNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertySystemChangeNotify) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertySystemChangeNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertySystemChangeNotify) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertySystemChangeNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertySystemChangeNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySystemChangeNotify_abi(
@@ -1910,7 +2410,7 @@ pub struct IPropertySystemChangeNotify_abi(
 );
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyUI(::windows::runtime::IUnknown);
 impl IPropertyUI {
     #[cfg(feature = "Win32_Foundation")]
@@ -1957,6 +2457,26 @@ impl IPropertyUI {
 unsafe impl ::windows::runtime::Interface for IPropertyUI {
     type Vtable = IPropertyUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970961823, 37274, 16664, [153, 215, 219, 178, 8, 200, 204, 102]);
+}
+impl ::std::convert::From<IPropertyUI> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyUI) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyUI) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

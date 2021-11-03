@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppListEntry(::windows::runtime::IInspectable);
 impl AppListEntry {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
@@ -56,6 +56,46 @@ unsafe impl ::windows::runtime::Interface for AppListEntry {
 }
 impl ::windows::runtime::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
+}
+impl ::std::convert::From<AppListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: AppListEntry) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &AppListEntry) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: AppListEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: &AppListEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AppListEntry {}
 unsafe impl ::std::marker::Sync for AppListEntry {}
@@ -318,7 +358,7 @@ impl ::windows::runtime::RuntimeName for CoreApplication {
 }
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreApplicationView(::windows::runtime::IInspectable);
 impl CoreApplicationView {
     #[cfg(feature = "UI_Core")]
@@ -430,9 +470,49 @@ unsafe impl ::windows::runtime::Interface for CoreApplicationView {
 impl ::windows::runtime::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
 }
+impl ::std::convert::From<CoreApplicationView> for ::windows::runtime::IUnknown {
+    fn from(value: CoreApplicationView) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreApplicationView> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreApplicationView) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreApplicationView> for ::windows::runtime::IInspectable {
+    fn from(value: CoreApplicationView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreApplicationView> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreApplicationView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreApplicationViewTitleBar(::windows::runtime::IInspectable);
 impl CoreApplicationViewTitleBar {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
@@ -521,9 +601,49 @@ unsafe impl ::windows::runtime::Interface for CoreApplicationViewTitleBar {
 impl ::windows::runtime::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
 }
+impl ::std::convert::From<CoreApplicationViewTitleBar> for ::windows::runtime::IUnknown {
+    fn from(value: CoreApplicationViewTitleBar) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreApplicationViewTitleBar> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreApplicationViewTitleBar) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreApplicationViewTitleBar> for ::windows::runtime::IInspectable {
+    fn from(value: CoreApplicationViewTitleBar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreApplicationViewTitleBar> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreApplicationViewTitleBar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HostedViewClosingEventArgs(::windows::runtime::IInspectable);
 impl HostedViewClosingEventArgs {
     #[cfg(feature = "Foundation")]
@@ -545,6 +665,46 @@ unsafe impl ::windows::runtime::Interface for HostedViewClosingEventArgs {
 }
 impl ::windows::runtime::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
+}
+impl ::std::convert::From<HostedViewClosingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: HostedViewClosingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HostedViewClosingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &HostedViewClosingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HostedViewClosingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: HostedViewClosingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HostedViewClosingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &HostedViewClosingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HostedViewClosingEventArgs {}
 unsafe impl ::std::marker::Sync for HostedViewClosingEventArgs {}
@@ -729,7 +889,7 @@ pub struct ICoreApplicationExit_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 pub struct ICoreApplicationUnhandledError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationUnhandledError {
@@ -755,6 +915,46 @@ impl ICoreApplicationUnhandledError {
 }
 unsafe impl ::windows::runtime::RuntimeType for ICoreApplicationUnhandledError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
+}
+impl ::std::convert::From<ICoreApplicationUnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: ICoreApplicationUnhandledError) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICoreApplicationUnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: &ICoreApplicationUnhandledError) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ICoreApplicationUnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: ICoreApplicationUnhandledError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICoreApplicationUnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: &ICoreApplicationUnhandledError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -983,7 +1183,7 @@ pub struct ICoreImmersiveApplication3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, viewsource: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 pub struct IFrameworkView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameworkView {
@@ -1021,6 +1221,46 @@ impl IFrameworkView {
 unsafe impl ::windows::runtime::RuntimeType for IFrameworkView {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
 }
+impl ::std::convert::From<IFrameworkView> for ::windows::runtime::IUnknown {
+    fn from(value: IFrameworkView) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFrameworkView> for ::windows::runtime::IUnknown {
+    fn from(value: &IFrameworkView) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IFrameworkView> for ::windows::runtime::IInspectable {
+    fn from(value: IFrameworkView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFrameworkView> for ::windows::runtime::IInspectable {
+    fn from(value: &IFrameworkView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkView_abi(
@@ -1038,7 +1278,7 @@ pub struct IFrameworkView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 pub struct IFrameworkViewSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameworkViewSource {
@@ -1057,6 +1297,46 @@ impl IFrameworkViewSource {
 }
 unsafe impl ::windows::runtime::RuntimeType for IFrameworkViewSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{cd770614-65c4-426c-9494-34fc43554862}");
+}
+impl ::std::convert::From<IFrameworkViewSource> for ::windows::runtime::IUnknown {
+    fn from(value: IFrameworkViewSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFrameworkViewSource> for ::windows::runtime::IUnknown {
+    fn from(value: &IFrameworkViewSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IFrameworkViewSource> for ::windows::runtime::IInspectable {
+    fn from(value: IFrameworkViewSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFrameworkViewSource> for ::windows::runtime::IInspectable {
+    fn from(value: &IFrameworkViewSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1127,7 +1407,7 @@ pub struct IUnhandledErrorDetectedEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UnhandledError(::windows::runtime::IInspectable);
 impl UnhandledError {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
@@ -1154,11 +1434,51 @@ unsafe impl ::windows::runtime::Interface for UnhandledError {
 impl ::windows::runtime::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
 }
+impl ::std::convert::From<UnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: UnhandledError) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&UnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: &UnhandledError) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<UnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: UnhandledError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: &UnhandledError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UnhandledError {}
 unsafe impl ::std::marker::Sync for UnhandledError {}
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UnhandledErrorDetectedEventArgs(::windows::runtime::IInspectable);
 impl UnhandledErrorDetectedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
@@ -1179,6 +1499,46 @@ unsafe impl ::windows::runtime::Interface for UnhandledErrorDetectedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
+}
+impl ::std::convert::From<UnhandledErrorDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UnhandledErrorDetectedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&UnhandledErrorDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<UnhandledErrorDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UnhandledErrorDetectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UnhandledErrorDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl ::std::marker::Sync for UnhandledErrorDetectedEventArgs {}

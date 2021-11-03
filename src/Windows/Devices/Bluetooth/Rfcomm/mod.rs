@@ -236,7 +236,7 @@ pub struct IRfcommServiceProviderStatics_abi(
 );
 #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommDeviceService(::windows::runtime::IInspectable);
 impl RfcommDeviceService {
     #[cfg(feature = "Networking")]
@@ -394,6 +394,46 @@ unsafe impl ::windows::runtime::Interface for RfcommDeviceService {
 impl ::windows::runtime::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
 }
+impl ::std::convert::From<RfcommDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommDeviceService) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RfcommDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommDeviceService) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RfcommDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RfcommDeviceService> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommDeviceService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommDeviceService> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommDeviceService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<RfcommDeviceService> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -424,7 +464,7 @@ unsafe impl ::std::marker::Send for RfcommDeviceService {}
 unsafe impl ::std::marker::Sync for RfcommDeviceService {}
 #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommDeviceServicesResult(::windows::runtime::IInspectable);
 impl RfcommDeviceServicesResult {
     #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
@@ -455,11 +495,51 @@ unsafe impl ::windows::runtime::Interface for RfcommDeviceServicesResult {
 impl ::windows::runtime::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
 }
+impl ::std::convert::From<RfcommDeviceServicesResult> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommDeviceServicesResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RfcommDeviceServicesResult> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommDeviceServicesResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RfcommDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RfcommDeviceServicesResult> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommDeviceServicesResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommDeviceServicesResult> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommDeviceServicesResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommDeviceServicesResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::std::marker::Sync for RfcommDeviceServicesResult {}
 #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommServiceId(::windows::runtime::IInspectable);
 impl RfcommServiceId {
     #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
@@ -557,11 +637,51 @@ unsafe impl ::windows::runtime::Interface for RfcommServiceId {
 impl ::windows::runtime::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
 }
+impl ::std::convert::From<RfcommServiceId> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommServiceId) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RfcommServiceId> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommServiceId) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommServiceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RfcommServiceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RfcommServiceId> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommServiceId) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommServiceId> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommServiceId) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommServiceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommServiceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RfcommServiceId {}
 unsafe impl ::std::marker::Sync for RfcommServiceId {}
 #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommServiceProvider(::windows::runtime::IInspectable);
 impl RfcommServiceProvider {
     #[doc = "*Required features: `Devices_Bluetooth_Rfcomm`*"]
@@ -620,6 +740,46 @@ unsafe impl ::windows::runtime::Interface for RfcommServiceProvider {
 }
 impl ::windows::runtime::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";
+}
+impl ::std::convert::From<RfcommServiceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommServiceProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RfcommServiceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommServiceProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RfcommServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RfcommServiceProvider> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommServiceProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommServiceProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommServiceProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommServiceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for RfcommServiceProvider {}
 unsafe impl ::std::marker::Sync for RfcommServiceProvider {}

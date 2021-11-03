@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInkCommitRequestHandler(::windows::runtime::IUnknown);
 impl IInkCommitRequestHandler {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
@@ -13,6 +13,26 @@ unsafe impl ::windows::runtime::Interface for IInkCommitRequestHandler {
     type Vtable = IInkCommitRequestHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4206797820, 45320, 17846, [169, 252, 141, 8, 250, 159, 133, 207]);
 }
+impl ::std::convert::From<IInkCommitRequestHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IInkCommitRequestHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInkCommitRequestHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IInkCommitRequestHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkCommitRequestHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkCommitRequestHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkCommitRequestHandler_abi(
@@ -23,7 +43,7 @@ pub struct IInkCommitRequestHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInkD2DRenderer(::windows::runtime::IUnknown);
 impl IInkD2DRenderer {
     #[cfg(feature = "Win32_Foundation")]
@@ -36,6 +56,26 @@ unsafe impl ::windows::runtime::Interface for IInkD2DRenderer {
     type Vtable = IInkD2DRenderer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082110430, 63578, 16720, [151, 207, 183, 251, 39, 79, 180, 248]);
 }
+impl ::std::convert::From<IInkD2DRenderer> for ::windows::runtime::IUnknown {
+    fn from(value: IInkD2DRenderer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInkD2DRenderer> for ::windows::runtime::IUnknown {
+    fn from(value: &IInkD2DRenderer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkD2DRenderer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkD2DRenderer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkD2DRenderer_abi(
@@ -47,7 +87,7 @@ pub struct IInkD2DRenderer_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInkD2DRenderer2(::windows::runtime::IUnknown);
 impl IInkD2DRenderer2 {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
@@ -59,6 +99,26 @@ unsafe impl ::windows::runtime::Interface for IInkD2DRenderer2 {
     type Vtable = IInkD2DRenderer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(177593561, 17784, 19313, [178, 11, 191, 102, 77, 75, 254, 238]);
 }
+impl ::std::convert::From<IInkD2DRenderer2> for ::windows::runtime::IUnknown {
+    fn from(value: IInkD2DRenderer2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInkD2DRenderer2> for ::windows::runtime::IUnknown {
+    fn from(value: &IInkD2DRenderer2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkD2DRenderer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkD2DRenderer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkD2DRenderer2_abi(
@@ -69,7 +129,7 @@ pub struct IInkD2DRenderer2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInkDesktopHost(::windows::runtime::IUnknown);
 impl IInkDesktopHost {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
@@ -91,6 +151,26 @@ unsafe impl ::windows::runtime::Interface for IInkDesktopHost {
     type Vtable = IInkDesktopHost_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290262645, 43393, 16704, [161, 255, 173, 147, 37, 142, 141, 89]);
 }
+impl ::std::convert::From<IInkDesktopHost> for ::windows::runtime::IUnknown {
+    fn from(value: IInkDesktopHost) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInkDesktopHost> for ::windows::runtime::IUnknown {
+    fn from(value: &IInkDesktopHost) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkDesktopHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkDesktopHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkDesktopHost_abi(
@@ -103,7 +183,7 @@ pub struct IInkDesktopHost_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInkHostWorkItem(::windows::runtime::IUnknown);
 impl IInkHostWorkItem {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
@@ -115,6 +195,26 @@ unsafe impl ::windows::runtime::Interface for IInkHostWorkItem {
     type Vtable = IInkHostWorkItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3436841626, 7032, 17970, [187, 150, 151, 128, 6, 98, 226, 108]);
 }
+impl ::std::convert::From<IInkHostWorkItem> for ::windows::runtime::IUnknown {
+    fn from(value: IInkHostWorkItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInkHostWorkItem> for ::windows::runtime::IUnknown {
+    fn from(value: &IInkHostWorkItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkHostWorkItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkHostWorkItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkHostWorkItem_abi(
@@ -125,7 +225,7 @@ pub struct IInkHostWorkItem_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInkPresenterDesktop(::windows::runtime::IUnknown);
 impl IInkPresenterDesktop {
     #[doc = "*Required features: `Win32_UI_Input_Ink`*"]
@@ -152,6 +252,26 @@ impl IInkPresenterDesktop {
 unsafe impl ::windows::runtime::Interface for IInkPresenterDesktop {
     type Vtable = IInkPresenterDesktop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1945354457, 11915, 18675, [137, 94, 32, 203, 210, 123, 114, 59]);
+}
+impl ::std::convert::From<IInkPresenterDesktop> for ::windows::runtime::IUnknown {
+    fn from(value: IInkPresenterDesktop) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInkPresenterDesktop> for ::windows::runtime::IUnknown {
+    fn from(value: &IInkPresenterDesktop) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInkPresenterDesktop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInkPresenterDesktop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

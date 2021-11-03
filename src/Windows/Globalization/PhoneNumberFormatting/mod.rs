@@ -130,7 +130,7 @@ impl ::windows::runtime::DefaultType for PhoneNumberFormat {
 }
 #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneNumberFormatter(::windows::runtime::IInspectable);
 impl PhoneNumberFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -220,11 +220,51 @@ unsafe impl ::windows::runtime::Interface for PhoneNumberFormatter {
 impl ::windows::runtime::RuntimeName for PhoneNumberFormatter {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
 }
+impl ::std::convert::From<PhoneNumberFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: PhoneNumberFormatter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PhoneNumberFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &PhoneNumberFormatter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneNumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneNumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PhoneNumberFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: PhoneNumberFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PhoneNumberFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &PhoneNumberFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneNumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneNumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PhoneNumberFormatter {}
 unsafe impl ::std::marker::Sync for PhoneNumberFormatter {}
 #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneNumberInfo(::windows::runtime::IInspectable);
 impl PhoneNumberInfo {
     #[cfg(feature = "Foundation")]
@@ -339,6 +379,46 @@ unsafe impl ::windows::runtime::Interface for PhoneNumberInfo {
 }
 impl ::windows::runtime::RuntimeName for PhoneNumberInfo {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";
+}
+impl ::std::convert::From<PhoneNumberInfo> for ::windows::runtime::IUnknown {
+    fn from(value: PhoneNumberInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PhoneNumberInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &PhoneNumberInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneNumberInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneNumberInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PhoneNumberInfo> for ::windows::runtime::IInspectable {
+    fn from(value: PhoneNumberInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PhoneNumberInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &PhoneNumberInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneNumberInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneNumberInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PhoneNumberInfo> for super::super::Foundation::IStringable {

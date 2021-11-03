@@ -50,7 +50,7 @@ impl ::windows::runtime::DefaultType for AudioDecoderDegradationReason {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioStreamDescriptor(::windows::runtime::IInspectable);
 impl AudioStreamDescriptor {
     #[cfg(feature = "Media_MediaProperties")]
@@ -170,6 +170,46 @@ unsafe impl ::windows::runtime::Interface for AudioStreamDescriptor {
 impl ::windows::runtime::RuntimeName for AudioStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.AudioStreamDescriptor";
 }
+impl ::std::convert::From<AudioStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: AudioStreamDescriptor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AudioStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &AudioStreamDescriptor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AudioStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: AudioStreamDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AudioStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &AudioStreamDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AudioStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AudioStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<AudioStreamDescriptor> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AudioStreamDescriptor) -> ::windows::runtime::Result<Self> {
@@ -218,7 +258,7 @@ unsafe impl ::std::marker::Send for AudioStreamDescriptor {}
 unsafe impl ::std::marker::Sync for AudioStreamDescriptor {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioTrack(::windows::runtime::IInspectable);
 impl AudioTrack {
     #[doc = "*Required features: `Media_Core`*"]
@@ -318,6 +358,46 @@ unsafe impl ::windows::runtime::Interface for AudioTrack {
 impl ::windows::runtime::RuntimeName for AudioTrack {
     const NAME: &'static str = "Windows.Media.Core.AudioTrack";
 }
+impl ::std::convert::From<AudioTrack> for ::windows::runtime::IUnknown {
+    fn from(value: AudioTrack) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AudioTrack> for ::windows::runtime::IUnknown {
+    fn from(value: &AudioTrack) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AudioTrack> for ::windows::runtime::IInspectable {
+    fn from(value: AudioTrack) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AudioTrack> for ::windows::runtime::IInspectable {
+    fn from(value: &AudioTrack) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AudioTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<AudioTrack> for IMediaTrack {
     fn from(value: AudioTrack) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -342,7 +422,7 @@ unsafe impl ::std::marker::Send for AudioTrack {}
 unsafe impl ::std::marker::Sync for AudioTrack {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioTrackOpenFailedEventArgs(::windows::runtime::IInspectable);
 impl AudioTrackOpenFailedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -364,11 +444,51 @@ unsafe impl ::windows::runtime::Interface for AudioTrackOpenFailedEventArgs {
 impl ::windows::runtime::RuntimeName for AudioTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackOpenFailedEventArgs";
 }
+impl ::std::convert::From<AudioTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AudioTrackOpenFailedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AudioTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AudioTrackOpenFailedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AudioTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AudioTrackOpenFailedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AudioTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AudioTrackOpenFailedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AudioTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AudioTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AudioTrackOpenFailedEventArgs {}
 unsafe impl ::std::marker::Sync for AudioTrackOpenFailedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioTrackSupportInfo(::windows::runtime::IInspectable);
 impl AudioTrackSupportInfo {
     #[doc = "*Required features: `Media_Core`*"]
@@ -414,11 +534,51 @@ unsafe impl ::windows::runtime::Interface for AudioTrackSupportInfo {
 impl ::windows::runtime::RuntimeName for AudioTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackSupportInfo";
 }
+impl ::std::convert::From<AudioTrackSupportInfo> for ::windows::runtime::IUnknown {
+    fn from(value: AudioTrackSupportInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AudioTrackSupportInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &AudioTrackSupportInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AudioTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AudioTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AudioTrackSupportInfo> for ::windows::runtime::IInspectable {
+    fn from(value: AudioTrackSupportInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AudioTrackSupportInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &AudioTrackSupportInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AudioTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AudioTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AudioTrackSupportInfo {}
 unsafe impl ::std::marker::Sync for AudioTrackSupportInfo {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ChapterCue(::windows::runtime::IInspectable);
 impl ChapterCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -495,6 +655,46 @@ unsafe impl ::windows::runtime::Interface for ChapterCue {
 impl ::windows::runtime::RuntimeName for ChapterCue {
     const NAME: &'static str = "Windows.Media.Core.ChapterCue";
 }
+impl ::std::convert::From<ChapterCue> for ::windows::runtime::IUnknown {
+    fn from(value: ChapterCue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ChapterCue> for ::windows::runtime::IUnknown {
+    fn from(value: &ChapterCue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChapterCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChapterCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ChapterCue> for ::windows::runtime::IInspectable {
+    fn from(value: ChapterCue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ChapterCue> for ::windows::runtime::IInspectable {
+    fn from(value: &ChapterCue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChapterCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChapterCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ChapterCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ChapterCue) -> ::windows::runtime::Result<Self> {
@@ -543,7 +743,7 @@ impl ::windows::runtime::DefaultType for CodecCategory {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CodecInfo(::windows::runtime::IInspectable);
 impl CodecInfo {
     #[doc = "*Required features: `Media_Core`*"]
@@ -598,6 +798,46 @@ unsafe impl ::windows::runtime::Interface for CodecInfo {
 impl ::windows::runtime::RuntimeName for CodecInfo {
     const NAME: &'static str = "Windows.Media.Core.CodecInfo";
 }
+impl ::std::convert::From<CodecInfo> for ::windows::runtime::IUnknown {
+    fn from(value: CodecInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CodecInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &CodecInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CodecInfo> for ::windows::runtime::IInspectable {
+    fn from(value: CodecInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CodecInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &CodecInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CodecInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CodecInfo {}
 unsafe impl ::std::marker::Sync for CodecInfo {}
 #[doc = "*Required features: `Media_Core`*"]
@@ -624,7 +864,7 @@ impl ::windows::runtime::DefaultType for CodecKind {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CodecQuery(::windows::runtime::IInspectable);
 impl CodecQuery {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -653,6 +893,46 @@ unsafe impl ::windows::runtime::Interface for CodecQuery {
 }
 impl ::windows::runtime::RuntimeName for CodecQuery {
     const NAME: &'static str = "Windows.Media.Core.CodecQuery";
+}
+impl ::std::convert::From<CodecQuery> for ::windows::runtime::IUnknown {
+    fn from(value: CodecQuery) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CodecQuery> for ::windows::runtime::IUnknown {
+    fn from(value: &CodecQuery) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CodecQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CodecQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CodecQuery> for ::windows::runtime::IInspectable {
+    fn from(value: CodecQuery) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CodecQuery> for ::windows::runtime::IInspectable {
+    fn from(value: &CodecQuery) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CodecQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CodecQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CodecQuery {}
 unsafe impl ::std::marker::Sync for CodecQuery {}
@@ -1026,7 +1306,7 @@ impl ::windows::runtime::RuntimeName for CodecSubtypes {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DataCue(::windows::runtime::IInspectable);
 impl DataCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1114,6 +1394,46 @@ unsafe impl ::windows::runtime::Interface for DataCue {
 impl ::windows::runtime::RuntimeName for DataCue {
     const NAME: &'static str = "Windows.Media.Core.DataCue";
 }
+impl ::std::convert::From<DataCue> for ::windows::runtime::IUnknown {
+    fn from(value: DataCue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DataCue> for ::windows::runtime::IUnknown {
+    fn from(value: &DataCue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DataCue> for ::windows::runtime::IInspectable {
+    fn from(value: DataCue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DataCue> for ::windows::runtime::IInspectable {
+    fn from(value: &DataCue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<DataCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DataCue) -> ::windows::runtime::Result<Self> {
@@ -1140,7 +1460,7 @@ unsafe impl ::std::marker::Send for DataCue {}
 unsafe impl ::std::marker::Sync for DataCue {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FaceDetectedEventArgs(::windows::runtime::IInspectable);
 impl FaceDetectedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -1162,11 +1482,51 @@ unsafe impl ::windows::runtime::Interface for FaceDetectedEventArgs {
 impl ::windows::runtime::RuntimeName for FaceDetectedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectedEventArgs";
 }
+impl ::std::convert::From<FaceDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: FaceDetectedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FaceDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &FaceDetectedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FaceDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FaceDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FaceDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: FaceDetectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FaceDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &FaceDetectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FaceDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FaceDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for FaceDetectedEventArgs {}
 unsafe impl ::std::marker::Sync for FaceDetectedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FaceDetectionEffect(::windows::runtime::IInspectable);
 impl FaceDetectionEffect {
     #[doc = "*Required features: `Media_Core`*"]
@@ -1229,6 +1589,46 @@ unsafe impl ::windows::runtime::Interface for FaceDetectionEffect {
 impl ::windows::runtime::RuntimeName for FaceDetectionEffect {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffect";
 }
+impl ::std::convert::From<FaceDetectionEffect> for ::windows::runtime::IUnknown {
+    fn from(value: FaceDetectionEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FaceDetectionEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &FaceDetectionEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FaceDetectionEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FaceDetectionEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FaceDetectionEffect> for ::windows::runtime::IInspectable {
+    fn from(value: FaceDetectionEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FaceDetectionEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &FaceDetectionEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FaceDetectionEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FaceDetectionEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<FaceDetectionEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: FaceDetectionEffect) -> ::windows::runtime::Result<Self> {
@@ -1256,7 +1656,7 @@ unsafe impl ::std::marker::Sync for FaceDetectionEffect {}
 #[cfg(feature = "Media_Effects")]
 #[doc = "*Required features: `Media_Core`, `Media_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FaceDetectionEffectDefinition(::windows::runtime::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl FaceDetectionEffectDefinition {
@@ -1326,6 +1726,54 @@ impl ::windows::runtime::RuntimeName for FaceDetectionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffectDefinition";
 }
 #[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<FaceDetectionEffectDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: FaceDetectionEffectDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<&FaceDetectionEffectDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &FaceDetectionEffectDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FaceDetectionEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FaceDetectionEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<FaceDetectionEffectDefinition> for ::windows::runtime::IInspectable {
+    fn from(value: FaceDetectionEffectDefinition) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<&FaceDetectionEffectDefinition> for ::windows::runtime::IInspectable {
+    fn from(value: &FaceDetectionEffectDefinition) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FaceDetectionEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FaceDetectionEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Media_Effects")]
 impl ::std::convert::From<FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: FaceDetectionEffectDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1355,7 +1803,7 @@ unsafe impl ::std::marker::Send for FaceDetectionEffectDefinition {}
 unsafe impl ::std::marker::Sync for FaceDetectionEffectDefinition {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FaceDetectionEffectFrame(::windows::runtime::IInspectable);
 impl FaceDetectionEffectFrame {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))]
@@ -1467,6 +1915,46 @@ unsafe impl ::windows::runtime::Interface for FaceDetectionEffectFrame {
 impl ::windows::runtime::RuntimeName for FaceDetectionEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffectFrame";
 }
+impl ::std::convert::From<FaceDetectionEffectFrame> for ::windows::runtime::IUnknown {
+    fn from(value: FaceDetectionEffectFrame) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FaceDetectionEffectFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &FaceDetectionEffectFrame) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FaceDetectionEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FaceDetectionEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FaceDetectionEffectFrame> for ::windows::runtime::IInspectable {
+    fn from(value: FaceDetectionEffectFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FaceDetectionEffectFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &FaceDetectionEffectFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FaceDetectionEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FaceDetectionEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<FaceDetectionEffectFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1542,7 +2030,7 @@ impl ::windows::runtime::DefaultType for FaceDetectionMode {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HighDynamicRangeControl(::windows::runtime::IInspectable);
 impl HighDynamicRangeControl {
     #[doc = "*Required features: `Media_Core`*"]
@@ -1569,11 +2057,51 @@ unsafe impl ::windows::runtime::Interface for HighDynamicRangeControl {
 impl ::windows::runtime::RuntimeName for HighDynamicRangeControl {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeControl";
 }
+impl ::std::convert::From<HighDynamicRangeControl> for ::windows::runtime::IUnknown {
+    fn from(value: HighDynamicRangeControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HighDynamicRangeControl> for ::windows::runtime::IUnknown {
+    fn from(value: &HighDynamicRangeControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HighDynamicRangeControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HighDynamicRangeControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HighDynamicRangeControl> for ::windows::runtime::IInspectable {
+    fn from(value: HighDynamicRangeControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HighDynamicRangeControl> for ::windows::runtime::IInspectable {
+    fn from(value: &HighDynamicRangeControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HighDynamicRangeControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HighDynamicRangeControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HighDynamicRangeControl {}
 unsafe impl ::std::marker::Sync for HighDynamicRangeControl {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HighDynamicRangeOutput(::windows::runtime::IInspectable);
 impl HighDynamicRangeOutput {
     #[doc = "*Required features: `Media_Core`*"]
@@ -1603,6 +2131,46 @@ unsafe impl ::windows::runtime::Interface for HighDynamicRangeOutput {
 }
 impl ::windows::runtime::RuntimeName for HighDynamicRangeOutput {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeOutput";
+}
+impl ::std::convert::From<HighDynamicRangeOutput> for ::windows::runtime::IUnknown {
+    fn from(value: HighDynamicRangeOutput) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HighDynamicRangeOutput> for ::windows::runtime::IUnknown {
+    fn from(value: &HighDynamicRangeOutput) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HighDynamicRangeOutput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HighDynamicRangeOutput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HighDynamicRangeOutput> for ::windows::runtime::IInspectable {
+    fn from(value: HighDynamicRangeOutput) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HighDynamicRangeOutput> for ::windows::runtime::IInspectable {
+    fn from(value: &HighDynamicRangeOutput) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HighDynamicRangeOutput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HighDynamicRangeOutput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HighDynamicRangeOutput {}
 unsafe impl ::std::marker::Sync for HighDynamicRangeOutput {}
@@ -2229,7 +2797,7 @@ pub struct IMediaBindingEventArgs3_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCue {
@@ -2284,6 +2852,46 @@ impl IMediaCue {
 unsafe impl ::windows::runtime::RuntimeType for IMediaCue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c7d15e5d-59dc-431f-a0ee-27744323b36d}");
 }
+impl ::std::convert::From<IMediaCue> for ::windows::runtime::IUnknown {
+    fn from(value: IMediaCue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMediaCue> for ::windows::runtime::IUnknown {
+    fn from(value: &IMediaCue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IMediaCue> for ::windows::runtime::IInspectable {
+    fn from(value: IMediaCue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMediaCue> for ::windows::runtime::IInspectable {
+    fn from(value: &IMediaCue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCue_abi(
@@ -2323,7 +2931,7 @@ pub struct IMediaCueEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource {
@@ -2333,6 +2941,46 @@ unsafe impl ::windows::runtime::Interface for IMediaSource {
 impl IMediaSource {}
 unsafe impl ::windows::runtime::RuntimeType for IMediaSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e7bfb599-a09d-4c21-bcdf-20af4f86b3d9}");
+}
+impl ::std::convert::From<IMediaSource> for ::windows::runtime::IUnknown {
+    fn from(value: IMediaSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMediaSource> for ::windows::runtime::IUnknown {
+    fn from(value: &IMediaSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IMediaSource> for ::windows::runtime::IInspectable {
+    fn from(value: IMediaSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMediaSource> for ::windows::runtime::IInspectable {
+    fn from(value: &IMediaSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2624,7 +3272,7 @@ pub struct IMediaSourceStatics4_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaStreamDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor {
@@ -2670,6 +3318,46 @@ impl IMediaStreamDescriptor {
 unsafe impl ::windows::runtime::RuntimeType for IMediaStreamDescriptor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{80f16e6e-92f7-451e-97d2-afd80742da70}");
 }
+impl ::std::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: IMediaStreamDescriptor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &IMediaStreamDescriptor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: IMediaStreamDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &IMediaStreamDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamDescriptor_abi(
@@ -2686,7 +3374,7 @@ pub struct IMediaStreamDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaStreamDescriptor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor2 {
@@ -2744,6 +3432,46 @@ impl IMediaStreamDescriptor2 {
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaStreamDescriptor2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5073010f-e8b2-4071-b00b-ebf337a76b58}");
+}
+impl ::std::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
+    fn from(value: IMediaStreamDescriptor2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
+    fn from(value: &IMediaStreamDescriptor2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaStreamDescriptor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaStreamDescriptor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
+    fn from(value: IMediaStreamDescriptor2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
+    fn from(value: &IMediaStreamDescriptor2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaStreamDescriptor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaStreamDescriptor2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<IMediaStreamDescriptor2> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
@@ -3273,7 +4001,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTrack {
@@ -3321,6 +4049,46 @@ impl IMediaTrack {
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaTrack {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{03e1fafc-c931-491a-b46b-c10ee8c256b7}");
+}
+impl ::std::convert::From<IMediaTrack> for ::windows::runtime::IUnknown {
+    fn from(value: IMediaTrack) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMediaTrack> for ::windows::runtime::IUnknown {
+    fn from(value: &IMediaTrack) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IMediaTrack> for ::windows::runtime::IInspectable {
+    fn from(value: IMediaTrack) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMediaTrack> for ::windows::runtime::IInspectable {
+    fn from(value: &IMediaTrack) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3588,7 +4356,7 @@ pub struct ISceneAnalyzedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct ISingleSelectMediaTrackList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISingleSelectMediaTrackList {
@@ -3627,6 +4395,46 @@ impl ISingleSelectMediaTrackList {
 }
 unsafe impl ::windows::runtime::RuntimeType for ISingleSelectMediaTrackList {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{77206f1f-c34f-494f-8077-2bad9ff4ecf1}");
+}
+impl ::std::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
+    fn from(value: ISingleSelectMediaTrackList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
+    fn from(value: &ISingleSelectMediaTrackList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISingleSelectMediaTrackList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISingleSelectMediaTrackList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
+    fn from(value: ISingleSelectMediaTrackList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
+    fn from(value: &ISingleSelectMediaTrackList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISingleSelectMediaTrackList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISingleSelectMediaTrackList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3823,7 +4631,7 @@ pub struct ITimedMetadataTrackFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct ITimedMetadataTrackProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackProvider {
@@ -3843,6 +4651,46 @@ impl ITimedMetadataTrackProvider {
 }
 unsafe impl ::windows::runtime::RuntimeType for ITimedMetadataTrackProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3b7f2024-f74e-4ade-93c5-219da05b6856}");
+}
+impl ::std::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITimedMetadataTrackProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITimedMetadataTrackProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITimedMetadataTrackProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITimedMetadataTrackProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
+    fn from(value: ITimedMetadataTrackProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &ITimedMetadataTrackProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ITimedMetadataTrackProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ITimedMetadataTrackProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4367,7 +5215,7 @@ pub struct IVideoTrackSupportInfo_abi(
 );
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ImageCue(::windows::runtime::IInspectable);
 impl ImageCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4472,6 +5320,46 @@ unsafe impl ::windows::runtime::Interface for ImageCue {
 impl ::windows::runtime::RuntimeName for ImageCue {
     const NAME: &'static str = "Windows.Media.Core.ImageCue";
 }
+impl ::std::convert::From<ImageCue> for ::windows::runtime::IUnknown {
+    fn from(value: ImageCue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ImageCue> for ::windows::runtime::IUnknown {
+    fn from(value: &ImageCue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ImageCue> for ::windows::runtime::IInspectable {
+    fn from(value: ImageCue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ImageCue> for ::windows::runtime::IInspectable {
+    fn from(value: &ImageCue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ImageCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ImageCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ImageCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ImageCue) -> ::windows::runtime::Result<Self> {
@@ -4498,7 +5386,7 @@ unsafe impl ::std::marker::Send for ImageCue {}
 unsafe impl ::std::marker::Sync for ImageCue {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InitializeMediaStreamSourceRequestedEventArgs(::windows::runtime::IInspectable);
 impl InitializeMediaStreamSourceRequestedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -4538,6 +5426,46 @@ unsafe impl ::windows::runtime::Interface for InitializeMediaStreamSourceRequest
 impl ::windows::runtime::RuntimeName for InitializeMediaStreamSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs";
 }
+impl ::std::convert::From<InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: InitializeMediaStreamSourceRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &InitializeMediaStreamSourceRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InitializeMediaStreamSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InitializeMediaStreamSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: InitializeMediaStreamSourceRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &InitializeMediaStreamSourceRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InitializeMediaStreamSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InitializeMediaStreamSourceRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for InitializeMediaStreamSourceRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for InitializeMediaStreamSourceRequestedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
@@ -4576,7 +5504,7 @@ impl ::windows::runtime::RuntimeName for LowLightFusion {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LowLightFusionResult(::windows::runtime::IInspectable);
 impl LowLightFusionResult {
     #[cfg(feature = "Foundation")]
@@ -4604,6 +5532,46 @@ unsafe impl ::windows::runtime::Interface for LowLightFusionResult {
 }
 impl ::windows::runtime::RuntimeName for LowLightFusionResult {
     const NAME: &'static str = "Windows.Media.Core.LowLightFusionResult";
+}
+impl ::std::convert::From<LowLightFusionResult> for ::windows::runtime::IUnknown {
+    fn from(value: LowLightFusionResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&LowLightFusionResult> for ::windows::runtime::IUnknown {
+    fn from(value: &LowLightFusionResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LowLightFusionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LowLightFusionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<LowLightFusionResult> for ::windows::runtime::IInspectable {
+    fn from(value: LowLightFusionResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LowLightFusionResult> for ::windows::runtime::IInspectable {
+    fn from(value: &LowLightFusionResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LowLightFusionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LowLightFusionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<LowLightFusionResult> for super::super::Foundation::IClosable {
@@ -4635,7 +5603,7 @@ unsafe impl ::std::marker::Send for LowLightFusionResult {}
 unsafe impl ::std::marker::Sync for LowLightFusionResult {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaBinder(::windows::runtime::IInspectable);
 impl MediaBinder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4692,11 +5660,51 @@ unsafe impl ::windows::runtime::Interface for MediaBinder {
 impl ::windows::runtime::RuntimeName for MediaBinder {
     const NAME: &'static str = "Windows.Media.Core.MediaBinder";
 }
+impl ::std::convert::From<MediaBinder> for ::windows::runtime::IUnknown {
+    fn from(value: MediaBinder) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaBinder> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaBinder) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaBinder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaBinder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaBinder> for ::windows::runtime::IInspectable {
+    fn from(value: MediaBinder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaBinder> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaBinder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaBinder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaBinder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaBinder {}
 unsafe impl ::std::marker::Sync for MediaBinder {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaBindingEventArgs(::windows::runtime::IInspectable);
 impl MediaBindingEventArgs {
     #[cfg(feature = "Foundation")]
@@ -4778,11 +5786,51 @@ unsafe impl ::windows::runtime::Interface for MediaBindingEventArgs {
 impl ::windows::runtime::RuntimeName for MediaBindingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaBindingEventArgs";
 }
+impl ::std::convert::From<MediaBindingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaBindingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaBindingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaBindingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaBindingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaBindingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaBindingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaBindingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaBindingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaBindingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaBindingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaBindingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaBindingEventArgs {}
 unsafe impl ::std::marker::Sync for MediaBindingEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaCueEventArgs(::windows::runtime::IInspectable);
 impl MediaCueEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -4803,6 +5851,46 @@ unsafe impl ::windows::runtime::Interface for MediaCueEventArgs {
 }
 impl ::windows::runtime::RuntimeName for MediaCueEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaCueEventArgs";
+}
+impl ::std::convert::From<MediaCueEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaCueEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaCueEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaCueEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaCueEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaCueEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaCueEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaCueEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaCueEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaCueEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaCueEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaCueEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaCueEventArgs {}
 unsafe impl ::std::marker::Sync for MediaCueEventArgs {}
@@ -4832,7 +5920,7 @@ impl ::windows::runtime::DefaultType for MediaDecoderStatus {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaSource(::windows::runtime::IInspectable);
 impl MediaSource {
     #[cfg(feature = "Foundation")]
@@ -5091,6 +6179,46 @@ unsafe impl ::windows::runtime::Interface for MediaSource {
 impl ::windows::runtime::RuntimeName for MediaSource {
     const NAME: &'static str = "Windows.Media.Core.MediaSource";
 }
+impl ::std::convert::From<MediaSource> for ::windows::runtime::IUnknown {
+    fn from(value: MediaSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaSource> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaSource> for ::windows::runtime::IInspectable {
+    fn from(value: MediaSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaSource> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MediaSource> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5147,7 +6275,7 @@ unsafe impl ::std::marker::Send for MediaSource {}
 unsafe impl ::std::marker::Sync for MediaSource {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaSourceAppServiceConnection(::windows::runtime::IInspectable);
 impl MediaSourceAppServiceConnection {
     #[cfg(feature = "Foundation")]
@@ -5193,9 +6321,49 @@ unsafe impl ::windows::runtime::Interface for MediaSourceAppServiceConnection {
 impl ::windows::runtime::RuntimeName for MediaSourceAppServiceConnection {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceAppServiceConnection";
 }
+impl ::std::convert::From<MediaSourceAppServiceConnection> for ::windows::runtime::IUnknown {
+    fn from(value: MediaSourceAppServiceConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaSourceAppServiceConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaSourceAppServiceConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaSourceAppServiceConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaSourceAppServiceConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaSourceAppServiceConnection> for ::windows::runtime::IInspectable {
+    fn from(value: MediaSourceAppServiceConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaSourceAppServiceConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaSourceAppServiceConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaSourceAppServiceConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaSourceAppServiceConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaSourceError(::windows::runtime::IInspectable);
 impl MediaSourceError {
     #[doc = "*Required features: `Media_Core`*"]
@@ -5217,11 +6385,51 @@ unsafe impl ::windows::runtime::Interface for MediaSourceError {
 impl ::windows::runtime::RuntimeName for MediaSourceError {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceError";
 }
+impl ::std::convert::From<MediaSourceError> for ::windows::runtime::IUnknown {
+    fn from(value: MediaSourceError) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaSourceError> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaSourceError) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaSourceError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaSourceError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaSourceError> for ::windows::runtime::IInspectable {
+    fn from(value: MediaSourceError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaSourceError> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaSourceError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaSourceError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaSourceError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaSourceError {}
 unsafe impl ::std::marker::Sync for MediaSourceError {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaSourceOpenOperationCompletedEventArgs(::windows::runtime::IInspectable);
 impl MediaSourceOpenOperationCompletedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -5242,6 +6450,46 @@ unsafe impl ::windows::runtime::Interface for MediaSourceOpenOperationCompletedE
 }
 impl ::windows::runtime::RuntimeName for MediaSourceOpenOperationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs";
+}
+impl ::std::convert::From<MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaSourceOpenOperationCompletedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaSourceOpenOperationCompletedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaSourceOpenOperationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaSourceOpenOperationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaSourceOpenOperationCompletedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaSourceOpenOperationCompletedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaSourceOpenOperationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaSourceOpenOperationCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaSourceOpenOperationCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaSourceOpenOperationCompletedEventArgs {}
@@ -5272,7 +6520,7 @@ impl ::windows::runtime::DefaultType for MediaSourceState {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaSourceStateChangedEventArgs(::windows::runtime::IInspectable);
 impl MediaSourceStateChangedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -5302,6 +6550,46 @@ unsafe impl ::windows::runtime::Interface for MediaSourceStateChangedEventArgs {
 impl ::windows::runtime::RuntimeName for MediaSourceStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceStateChangedEventArgs";
 }
+impl ::std::convert::From<MediaSourceStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaSourceStateChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaSourceStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaSourceStateChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaSourceStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaSourceStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaSourceStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaSourceStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaSourceStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaSourceStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaSourceStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaSourceStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaSourceStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaSourceStateChangedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
@@ -5328,7 +6616,7 @@ impl ::windows::runtime::DefaultType for MediaSourceStatus {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSample(::windows::runtime::IInspectable);
 impl MediaStreamSample {
     #[cfg(feature = "Foundation")]
@@ -5489,12 +6777,52 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSample {
 impl ::windows::runtime::RuntimeName for MediaStreamSample {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSample";
 }
+impl ::std::convert::From<MediaStreamSample> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSample) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSample> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSample) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSample {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSample {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSample> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSample) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSample> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSample) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSample {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSample {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSample {}
 unsafe impl ::std::marker::Sync for MediaStreamSample {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSamplePropertySet(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaStreamSamplePropertySet {
@@ -5579,6 +6907,54 @@ impl ::windows::runtime::RuntimeName for MediaStreamSamplePropertySet {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSamplePropertySet";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<MediaStreamSamplePropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSamplePropertySet) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&MediaStreamSamplePropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSamplePropertySet) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSamplePropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSamplePropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<MediaStreamSamplePropertySet> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSamplePropertySet) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::std::convert::From<&MediaStreamSamplePropertySet> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSamplePropertySet) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSamplePropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSamplePropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable> {
     fn from(value: MediaStreamSamplePropertySet) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5650,7 +7026,7 @@ impl ::std::iter::IntoIterator for &MediaStreamSamplePropertySet {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSampleProtectionProperties(::windows::runtime::IInspectable);
 impl MediaStreamSampleProtectionProperties {
     #[doc = "*Required features: `Media_Core`*"]
@@ -5694,11 +7070,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSampleProtectionPropert
 impl ::windows::runtime::RuntimeName for MediaStreamSampleProtectionProperties {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSampleProtectionProperties";
 }
+impl ::std::convert::From<MediaStreamSampleProtectionProperties> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSampleProtectionProperties) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSampleProtectionProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSampleProtectionProperties) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSampleProtectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSampleProtectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSampleProtectionProperties> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSampleProtectionProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSampleProtectionProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSampleProtectionProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSampleProtectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSampleProtectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSampleProtectionProperties {}
 unsafe impl ::std::marker::Sync for MediaStreamSampleProtectionProperties {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSource(::windows::runtime::IInspectable);
 impl MediaStreamSource {
     #[cfg(feature = "Foundation")]
@@ -5960,6 +7376,46 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSource {
 impl ::windows::runtime::RuntimeName for MediaStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSource";
 }
+impl ::std::convert::From<MediaStreamSource> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSource> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSource> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSource> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<MediaStreamSource> for IMediaSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MediaStreamSource) -> ::windows::runtime::Result<Self> {
@@ -5986,7 +7442,7 @@ unsafe impl ::std::marker::Send for MediaStreamSource {}
 unsafe impl ::std::marker::Sync for MediaStreamSource {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceClosedEventArgs(::windows::runtime::IInspectable);
 impl MediaStreamSourceClosedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6007,6 +7463,46 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceClosedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceClosedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedEventArgs";
+}
+impl ::std::convert::From<MediaStreamSourceClosedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceClosedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceClosedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceClosedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceClosedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceClosedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceClosedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceClosedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceClosedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceClosedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceClosedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceClosedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaStreamSourceClosedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceClosedEventArgs {}
@@ -6039,7 +7535,7 @@ impl ::windows::runtime::DefaultType for MediaStreamSourceClosedReason {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceClosedRequest(::windows::runtime::IInspectable);
 impl MediaStreamSourceClosedRequest {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6060,6 +7556,46 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceClosedRequest {
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceClosedRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedRequest";
+}
+impl ::std::convert::From<MediaStreamSourceClosedRequest> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceClosedRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceClosedRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceClosedRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceClosedRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceClosedRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceClosedRequest> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceClosedRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceClosedRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceClosedRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceClosedRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceClosedRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaStreamSourceClosedRequest {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceClosedRequest {}
@@ -6093,7 +7629,7 @@ impl ::windows::runtime::DefaultType for MediaStreamSourceErrorStatus {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRenderedEventArgs(::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRenderedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -6116,11 +7652,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRenderedEve
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRenderedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs";
 }
+impl ::std::convert::From<MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSampleRenderedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSampleRenderedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSampleRenderedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSampleRenderedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSampleRenderedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSampleRenderedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSampleRenderedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSampleRenderedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceSampleRenderedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRenderedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRequest(::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRequest {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6168,11 +7744,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequest {
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequest";
 }
+impl ::std::convert::From<MediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSampleRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSampleRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSampleRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSampleRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSampleRequest> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSampleRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSampleRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSampleRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSampleRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceSampleRequest {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRequest {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRequestDeferral(::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRequestDeferral {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6191,11 +7807,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequestDefe
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestDeferral";
 }
+impl ::std::convert::From<MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSampleRequestDeferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSampleRequestDeferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSampleRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSampleRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSampleRequestDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSampleRequestDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSampleRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSampleRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceSampleRequestDeferral {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRequestDeferral {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRequestedEventArgs(::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRequestedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6217,11 +7873,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequestedEv
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs";
 }
+impl ::std::convert::From<MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSampleRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSampleRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSampleRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSampleRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSampleRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSampleRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSampleRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSampleRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceSampleRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRequestedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceStartingEventArgs(::windows::runtime::IInspectable);
 impl MediaStreamSourceStartingEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6243,11 +7939,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingEventArgs
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingEventArgs";
 }
+impl ::std::convert::From<MediaStreamSourceStartingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceStartingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceStartingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceStartingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceStartingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceStartingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceStartingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceStartingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceStartingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceStartingEventArgs {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceStartingEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceStartingRequest(::windows::runtime::IInspectable);
 impl MediaStreamSourceStartingRequest {
     #[cfg(feature = "Foundation")]
@@ -6284,11 +8020,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingRequest {
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequest";
 }
+impl ::std::convert::From<MediaStreamSourceStartingRequest> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceStartingRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceStartingRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceStartingRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceStartingRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceStartingRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceStartingRequest> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceStartingRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceStartingRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceStartingRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceStartingRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceStartingRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceStartingRequest {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceStartingRequest {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceStartingRequestDeferral(::windows::runtime::IInspectable);
 impl MediaStreamSourceStartingRequestDeferral {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6307,11 +8083,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingRequestDe
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequestDeferral";
 }
+impl ::std::convert::From<MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceStartingRequestDeferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceStartingRequestDeferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceStartingRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceStartingRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceStartingRequestDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceStartingRequestDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceStartingRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceStartingRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceStartingRequestDeferral {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceStartingRequestDeferral {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSwitchStreamsRequest(::windows::runtime::IInspectable);
 impl MediaStreamSourceSwitchStreamsRequest {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6349,11 +8165,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequ
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest";
 }
+impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSwitchStreamsRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSwitchStreamsRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSwitchStreamsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSwitchStreamsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSwitchStreamsRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSwitchStreamsRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSwitchStreamsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSwitchStreamsRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceSwitchStreamsRequest {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSwitchStreamsRequest {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSwitchStreamsRequestDeferral(::windows::runtime::IInspectable);
 impl MediaStreamSourceSwitchStreamsRequestDeferral {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6372,11 +8228,51 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequ
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral";
 }
+impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSwitchStreamsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSwitchStreamsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSwitchStreamsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSwitchStreamsRequestDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaStreamSourceSwitchStreamsRequestDeferral {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSwitchStreamsRequestDeferral {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaStreamSourceSwitchStreamsRequestedEventArgs(::windows::runtime::IInspectable);
 impl MediaStreamSourceSwitchStreamsRequestedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -6397,6 +8293,46 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequ
 }
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs";
+}
+impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaStreamSourceSwitchStreamsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaStreamSourceSwitchStreamsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaStreamSourceSwitchStreamsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaStreamSourceSwitchStreamsRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
@@ -6494,7 +8430,7 @@ impl ::windows::runtime::DefaultType for MseReadyState {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MseSourceBuffer(::windows::runtime::IInspectable);
 impl MseSourceBuffer {
     #[cfg(feature = "Foundation")]
@@ -6687,11 +8623,51 @@ unsafe impl ::windows::runtime::Interface for MseSourceBuffer {
 impl ::windows::runtime::RuntimeName for MseSourceBuffer {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBuffer";
 }
+impl ::std::convert::From<MseSourceBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: MseSourceBuffer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MseSourceBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &MseSourceBuffer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MseSourceBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MseSourceBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MseSourceBuffer> for ::windows::runtime::IInspectable {
+    fn from(value: MseSourceBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MseSourceBuffer> for ::windows::runtime::IInspectable {
+    fn from(value: &MseSourceBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MseSourceBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MseSourceBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MseSourceBuffer {}
 unsafe impl ::std::marker::Sync for MseSourceBuffer {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MseSourceBufferList(::windows::runtime::IInspectable);
 impl MseSourceBufferList {
     #[cfg(feature = "Foundation")]
@@ -6744,11 +8720,51 @@ unsafe impl ::windows::runtime::Interface for MseSourceBufferList {
 impl ::windows::runtime::RuntimeName for MseSourceBufferList {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBufferList";
 }
+impl ::std::convert::From<MseSourceBufferList> for ::windows::runtime::IUnknown {
+    fn from(value: MseSourceBufferList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MseSourceBufferList> for ::windows::runtime::IUnknown {
+    fn from(value: &MseSourceBufferList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MseSourceBufferList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MseSourceBufferList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MseSourceBufferList> for ::windows::runtime::IInspectable {
+    fn from(value: MseSourceBufferList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MseSourceBufferList> for ::windows::runtime::IInspectable {
+    fn from(value: &MseSourceBufferList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MseSourceBufferList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MseSourceBufferList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MseSourceBufferList {}
 unsafe impl ::std::marker::Sync for MseSourceBufferList {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MseStreamSource(::windows::runtime::IInspectable);
 impl MseStreamSource {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6897,6 +8913,46 @@ unsafe impl ::windows::runtime::Interface for MseStreamSource {
 impl ::windows::runtime::RuntimeName for MseStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MseStreamSource";
 }
+impl ::std::convert::From<MseStreamSource> for ::windows::runtime::IUnknown {
+    fn from(value: MseStreamSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MseStreamSource> for ::windows::runtime::IUnknown {
+    fn from(value: &MseStreamSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MseStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MseStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MseStreamSource> for ::windows::runtime::IInspectable {
+    fn from(value: MseStreamSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MseStreamSource> for ::windows::runtime::IInspectable {
+    fn from(value: &MseStreamSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MseStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MseStreamSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<MseStreamSource> for IMediaSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MseStreamSource) -> ::windows::runtime::Result<Self> {
@@ -6965,7 +9021,7 @@ impl ::windows::runtime::DefaultType for MseTimeRange {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneAnalysisEffect(::windows::runtime::IInspectable);
 impl SceneAnalysisEffect {
     #[doc = "*Required features: `Media_Core`*"]
@@ -7023,6 +9079,46 @@ unsafe impl ::windows::runtime::Interface for SceneAnalysisEffect {
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffect {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffect";
 }
+impl ::std::convert::From<SceneAnalysisEffect> for ::windows::runtime::IUnknown {
+    fn from(value: SceneAnalysisEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneAnalysisEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneAnalysisEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneAnalysisEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneAnalysisEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneAnalysisEffect> for ::windows::runtime::IInspectable {
+    fn from(value: SceneAnalysisEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneAnalysisEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneAnalysisEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneAnalysisEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneAnalysisEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SceneAnalysisEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SceneAnalysisEffect) -> ::windows::runtime::Result<Self> {
@@ -7050,7 +9146,7 @@ unsafe impl ::std::marker::Sync for SceneAnalysisEffect {}
 #[cfg(feature = "Media_Effects")]
 #[doc = "*Required features: `Media_Core`, `Media_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneAnalysisEffectDefinition(::windows::runtime::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl SceneAnalysisEffectDefinition {
@@ -7094,6 +9190,54 @@ impl ::windows::runtime::RuntimeName for SceneAnalysisEffectDefinition {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffectDefinition";
 }
 #[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<SceneAnalysisEffectDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: SceneAnalysisEffectDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<&SceneAnalysisEffectDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneAnalysisEffectDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneAnalysisEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneAnalysisEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<SceneAnalysisEffectDefinition> for ::windows::runtime::IInspectable {
+    fn from(value: SceneAnalysisEffectDefinition) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<&SceneAnalysisEffectDefinition> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneAnalysisEffectDefinition) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneAnalysisEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneAnalysisEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Media_Effects")]
 impl ::std::convert::From<SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: SceneAnalysisEffectDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7123,7 +9267,7 @@ unsafe impl ::std::marker::Send for SceneAnalysisEffectDefinition {}
 unsafe impl ::std::marker::Sync for SceneAnalysisEffectDefinition {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneAnalysisEffectFrame(::windows::runtime::IInspectable);
 impl SceneAnalysisEffectFrame {
     #[cfg(feature = "Media_Capture")]
@@ -7251,6 +9395,46 @@ unsafe impl ::windows::runtime::Interface for SceneAnalysisEffectFrame {
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffectFrame";
 }
+impl ::std::convert::From<SceneAnalysisEffectFrame> for ::windows::runtime::IUnknown {
+    fn from(value: SceneAnalysisEffectFrame) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneAnalysisEffectFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneAnalysisEffectFrame) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneAnalysisEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneAnalysisEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneAnalysisEffectFrame> for ::windows::runtime::IInspectable {
+    fn from(value: SceneAnalysisEffectFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneAnalysisEffectFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneAnalysisEffectFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneAnalysisEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneAnalysisEffectFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SceneAnalysisEffectFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -7326,7 +9510,7 @@ impl ::windows::runtime::DefaultType for SceneAnalysisRecommendation {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneAnalyzedEventArgs(::windows::runtime::IInspectable);
 impl SceneAnalyzedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -7348,11 +9532,51 @@ unsafe impl ::windows::runtime::Interface for SceneAnalyzedEventArgs {
 impl ::windows::runtime::RuntimeName for SceneAnalyzedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalyzedEventArgs";
 }
+impl ::std::convert::From<SceneAnalyzedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SceneAnalyzedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SceneAnalyzedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SceneAnalyzedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SceneAnalyzedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SceneAnalyzedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SceneAnalyzedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SceneAnalyzedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SceneAnalyzedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SceneAnalyzedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SceneAnalyzedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SceneAnalyzedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SceneAnalyzedEventArgs {}
 unsafe impl ::std::marker::Sync for SceneAnalyzedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechCue(::windows::runtime::IInspectable);
 impl SpeechCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -7459,6 +9683,46 @@ unsafe impl ::windows::runtime::Interface for SpeechCue {
 impl ::windows::runtime::RuntimeName for SpeechCue {
     const NAME: &'static str = "Windows.Media.Core.SpeechCue";
 }
+impl ::std::convert::From<SpeechCue> for ::windows::runtime::IUnknown {
+    fn from(value: SpeechCue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SpeechCue> for ::windows::runtime::IUnknown {
+    fn from(value: &SpeechCue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpeechCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpeechCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SpeechCue> for ::windows::runtime::IInspectable {
+    fn from(value: SpeechCue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SpeechCue> for ::windows::runtime::IInspectable {
+    fn from(value: &SpeechCue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpeechCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpeechCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SpeechCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechCue) -> ::windows::runtime::Result<Self> {
@@ -7513,7 +9777,7 @@ impl ::windows::runtime::DefaultType for TimedMetadataKind {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedMetadataStreamDescriptor(::windows::runtime::IInspectable);
 impl TimedMetadataStreamDescriptor {
     #[doc = "*Required features: `Media_Core`*"]
@@ -7603,6 +9867,46 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataStreamDescriptor {
 impl ::windows::runtime::RuntimeName for TimedMetadataStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataStreamDescriptor";
 }
+impl ::std::convert::From<TimedMetadataStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: TimedMetadataStreamDescriptor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedMetadataStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedMetadataStreamDescriptor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedMetadataStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedMetadataStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedMetadataStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: TimedMetadataStreamDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedMetadataStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedMetadataStreamDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedMetadataStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedMetadataStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<TimedMetadataStreamDescriptor> for IMediaStreamDescriptor {
     fn from(value: TimedMetadataStreamDescriptor) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7649,7 +9953,7 @@ unsafe impl ::std::marker::Send for TimedMetadataStreamDescriptor {}
 unsafe impl ::std::marker::Sync for TimedMetadataStreamDescriptor {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedMetadataTrack(::windows::runtime::IInspectable);
 impl TimedMetadataTrack {
     #[cfg(feature = "Foundation")]
@@ -7817,6 +10121,46 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataTrack {
 impl ::windows::runtime::RuntimeName for TimedMetadataTrack {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrack";
 }
+impl ::std::convert::From<TimedMetadataTrack> for ::windows::runtime::IUnknown {
+    fn from(value: TimedMetadataTrack) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedMetadataTrack> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedMetadataTrack) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedMetadataTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedMetadataTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedMetadataTrack> for ::windows::runtime::IInspectable {
+    fn from(value: TimedMetadataTrack) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedMetadataTrack> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedMetadataTrack) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedMetadataTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedMetadataTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<TimedMetadataTrack> for IMediaTrack {
     type Error = ::windows::runtime::Error;
     fn try_from(value: TimedMetadataTrack) -> ::windows::runtime::Result<Self> {
@@ -7843,7 +10187,7 @@ unsafe impl ::std::marker::Send for TimedMetadataTrack {}
 unsafe impl ::std::marker::Sync for TimedMetadataTrack {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedMetadataTrackError(::windows::runtime::IInspectable);
 impl TimedMetadataTrackError {
     #[doc = "*Required features: `Media_Core`*"]
@@ -7873,6 +10217,46 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataTrackError {
 impl ::windows::runtime::RuntimeName for TimedMetadataTrackError {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackError";
 }
+impl ::std::convert::From<TimedMetadataTrackError> for ::windows::runtime::IUnknown {
+    fn from(value: TimedMetadataTrackError) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedMetadataTrackError> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedMetadataTrackError) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedMetadataTrackError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedMetadataTrackError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedMetadataTrackError> for ::windows::runtime::IInspectable {
+    fn from(value: TimedMetadataTrackError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedMetadataTrackError> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedMetadataTrackError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedMetadataTrackError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedMetadataTrackError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TimedMetadataTrackError {}
 unsafe impl ::std::marker::Sync for TimedMetadataTrackError {}
 #[doc = "*Required features: `Media_Core`*"]
@@ -7901,7 +10285,7 @@ impl ::windows::runtime::DefaultType for TimedMetadataTrackErrorCode {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedMetadataTrackFailedEventArgs(::windows::runtime::IInspectable);
 impl TimedMetadataTrackFailedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -7923,11 +10307,51 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataTrackFailedEventArgs 
 impl ::windows::runtime::RuntimeName for TimedMetadataTrackFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackFailedEventArgs";
 }
+impl ::std::convert::From<TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TimedMetadataTrackFailedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedMetadataTrackFailedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedMetadataTrackFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedMetadataTrackFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TimedMetadataTrackFailedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedMetadataTrackFailedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedMetadataTrackFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedMetadataTrackFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TimedMetadataTrackFailedEventArgs {}
 unsafe impl ::std::marker::Sync for TimedMetadataTrackFailedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextBouten(::windows::runtime::IInspectable);
 impl TimedTextBouten {
     #[doc = "*Required features: `Media_Core`*"]
@@ -7981,6 +10405,46 @@ unsafe impl ::windows::runtime::Interface for TimedTextBouten {
 }
 impl ::windows::runtime::RuntimeName for TimedTextBouten {
     const NAME: &'static str = "Windows.Media.Core.TimedTextBouten";
+}
+impl ::std::convert::From<TimedTextBouten> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextBouten) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextBouten> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextBouten) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextBouten {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextBouten {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextBouten> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextBouten) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextBouten> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextBouten) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextBouten {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextBouten {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TimedTextBouten {}
 unsafe impl ::std::marker::Sync for TimedTextBouten {}
@@ -8037,7 +10501,7 @@ impl ::windows::runtime::DefaultType for TimedTextBoutenType {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextCue(::windows::runtime::IInspectable);
 impl TimedTextCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8135,6 +10599,46 @@ unsafe impl ::windows::runtime::Interface for TimedTextCue {
 }
 impl ::windows::runtime::RuntimeName for TimedTextCue {
     const NAME: &'static str = "Windows.Media.Core.TimedTextCue";
+}
+impl ::std::convert::From<TimedTextCue> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextCue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextCue> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextCue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextCue> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextCue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextCue> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextCue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextCue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<TimedTextCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
@@ -8263,7 +10767,7 @@ impl ::windows::runtime::DefaultType for TimedTextFontStyle {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextLine(::windows::runtime::IInspectable);
 impl TimedTextLine {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8305,6 +10809,46 @@ unsafe impl ::windows::runtime::Interface for TimedTextLine {
 }
 impl ::windows::runtime::RuntimeName for TimedTextLine {
     const NAME: &'static str = "Windows.Media.Core.TimedTextLine";
+}
+impl ::std::convert::From<TimedTextLine> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextLine) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextLine> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextLine) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextLine> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextLine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextLine> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextLine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextLine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TimedTextLine {}
 unsafe impl ::std::marker::Sync for TimedTextLine {}
@@ -8403,7 +10947,7 @@ impl ::windows::runtime::DefaultType for TimedTextPoint {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextRegion(::windows::runtime::IInspectable);
 impl TimedTextRegion {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8582,11 +11126,51 @@ unsafe impl ::windows::runtime::Interface for TimedTextRegion {
 impl ::windows::runtime::RuntimeName for TimedTextRegion {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRegion";
 }
+impl ::std::convert::From<TimedTextRegion> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextRegion) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextRegion> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextRegion) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextRegion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextRegion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextRegion> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextRegion) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextRegion> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextRegion) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextRegion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextRegion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TimedTextRegion {}
 unsafe impl ::std::marker::Sync for TimedTextRegion {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextRuby(::windows::runtime::IInspectable);
 impl TimedTextRuby {
     #[doc = "*Required features: `Media_Core`*"]
@@ -8651,6 +11235,46 @@ unsafe impl ::windows::runtime::Interface for TimedTextRuby {
 }
 impl ::windows::runtime::RuntimeName for TimedTextRuby {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRuby";
+}
+impl ::std::convert::From<TimedTextRuby> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextRuby) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextRuby> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextRuby) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextRuby {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextRuby {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextRuby> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextRuby) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextRuby> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextRuby) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextRuby {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextRuby {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TimedTextRuby {}
 unsafe impl ::std::marker::Sync for TimedTextRuby {}
@@ -8786,7 +11410,7 @@ impl ::windows::runtime::DefaultType for TimedTextSize {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextSource(::windows::runtime::IInspectable);
 impl TimedTextSource {
     #[cfg(feature = "Foundation")]
@@ -8887,11 +11511,51 @@ unsafe impl ::windows::runtime::Interface for TimedTextSource {
 impl ::windows::runtime::RuntimeName for TimedTextSource {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSource";
 }
+impl ::std::convert::From<TimedTextSource> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextSource> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextSource> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextSource> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TimedTextSource {}
 unsafe impl ::std::marker::Sync for TimedTextSource {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextSourceResolveResultEventArgs(::windows::runtime::IInspectable);
 impl TimedTextSourceResolveResultEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -8922,11 +11586,51 @@ unsafe impl ::windows::runtime::Interface for TimedTextSourceResolveResultEventA
 impl ::windows::runtime::RuntimeName for TimedTextSourceResolveResultEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSourceResolveResultEventArgs";
 }
+impl ::std::convert::From<TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextSourceResolveResultEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextSourceResolveResultEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextSourceResolveResultEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextSourceResolveResultEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextSourceResolveResultEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextSourceResolveResultEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextSourceResolveResultEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextSourceResolveResultEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TimedTextSourceResolveResultEventArgs {}
 unsafe impl ::std::marker::Sync for TimedTextSourceResolveResultEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextStyle(::windows::runtime::IInspectable);
 impl TimedTextStyle {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9203,11 +11907,51 @@ unsafe impl ::windows::runtime::Interface for TimedTextStyle {
 impl ::windows::runtime::RuntimeName for TimedTextStyle {
     const NAME: &'static str = "Windows.Media.Core.TimedTextStyle";
 }
+impl ::std::convert::From<TimedTextStyle> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextStyle) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextStyle> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextStyle) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextStyle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextStyle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextStyle> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextStyle) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextStyle> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextStyle) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextStyle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextStyle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TimedTextStyle {}
 unsafe impl ::std::marker::Sync for TimedTextStyle {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedTextSubformat(::windows::runtime::IInspectable);
 impl TimedTextSubformat {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9266,6 +12010,46 @@ unsafe impl ::windows::runtime::Interface for TimedTextSubformat {
 }
 impl ::windows::runtime::RuntimeName for TimedTextSubformat {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSubformat";
+}
+impl ::std::convert::From<TimedTextSubformat> for ::windows::runtime::IUnknown {
+    fn from(value: TimedTextSubformat) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimedTextSubformat> for ::windows::runtime::IUnknown {
+    fn from(value: &TimedTextSubformat) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimedTextSubformat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimedTextSubformat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimedTextSubformat> for ::windows::runtime::IInspectable {
+    fn from(value: TimedTextSubformat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimedTextSubformat> for ::windows::runtime::IInspectable {
+    fn from(value: &TimedTextSubformat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimedTextSubformat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimedTextSubformat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TimedTextSubformat {}
 unsafe impl ::std::marker::Sync for TimedTextSubformat {}
@@ -9364,7 +12148,7 @@ impl ::windows::runtime::DefaultType for TimedTextWritingMode {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoStabilizationEffect(::windows::runtime::IInspectable);
 impl VideoStabilizationEffect {
     #[doc = "*Required features: `Media_Core`*"]
@@ -9421,6 +12205,46 @@ unsafe impl ::windows::runtime::Interface for VideoStabilizationEffect {
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffect {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffect";
 }
+impl ::std::convert::From<VideoStabilizationEffect> for ::windows::runtime::IUnknown {
+    fn from(value: VideoStabilizationEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VideoStabilizationEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoStabilizationEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoStabilizationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoStabilizationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VideoStabilizationEffect> for ::windows::runtime::IInspectable {
+    fn from(value: VideoStabilizationEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoStabilizationEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoStabilizationEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoStabilizationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoStabilizationEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<VideoStabilizationEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VideoStabilizationEffect) -> ::windows::runtime::Result<Self> {
@@ -9448,7 +12272,7 @@ unsafe impl ::std::marker::Sync for VideoStabilizationEffect {}
 #[cfg(feature = "Media_Effects")]
 #[doc = "*Required features: `Media_Core`, `Media_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoStabilizationEffectDefinition(::windows::runtime::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl VideoStabilizationEffectDefinition {
@@ -9492,6 +12316,54 @@ impl ::windows::runtime::RuntimeName for VideoStabilizationEffectDefinition {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffectDefinition";
 }
 #[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<VideoStabilizationEffectDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: VideoStabilizationEffectDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<&VideoStabilizationEffectDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoStabilizationEffectDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoStabilizationEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoStabilizationEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<VideoStabilizationEffectDefinition> for ::windows::runtime::IInspectable {
+    fn from(value: VideoStabilizationEffectDefinition) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl ::std::convert::From<&VideoStabilizationEffectDefinition> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoStabilizationEffectDefinition) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoStabilizationEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Media_Effects")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoStabilizationEffectDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Media_Effects")]
 impl ::std::convert::From<VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: VideoStabilizationEffectDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9521,7 +12393,7 @@ unsafe impl ::std::marker::Send for VideoStabilizationEffectDefinition {}
 unsafe impl ::std::marker::Sync for VideoStabilizationEffectDefinition {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoStabilizationEffectEnabledChangedEventArgs(::windows::runtime::IInspectable);
 impl VideoStabilizationEffectEnabledChangedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -9542,6 +12414,46 @@ unsafe impl ::windows::runtime::Interface for VideoStabilizationEffectEnabledCha
 }
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffectEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs";
+}
+impl ::std::convert::From<VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoStabilizationEffectEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoStabilizationEffectEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoStabilizationEffectEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoStabilizationEffectEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for VideoStabilizationEffectEnabledChangedEventArgs {}
 unsafe impl ::std::marker::Sync for VideoStabilizationEffectEnabledChangedEventArgs {}
@@ -9570,7 +12482,7 @@ impl ::windows::runtime::DefaultType for VideoStabilizationEffectEnabledChangedR
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoStreamDescriptor(::windows::runtime::IInspectable);
 impl VideoStreamDescriptor {
     #[cfg(feature = "Media_MediaProperties")]
@@ -9660,6 +12572,46 @@ unsafe impl ::windows::runtime::Interface for VideoStreamDescriptor {
 impl ::windows::runtime::RuntimeName for VideoStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.VideoStreamDescriptor";
 }
+impl ::std::convert::From<VideoStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: VideoStreamDescriptor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VideoStreamDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoStreamDescriptor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VideoStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: VideoStreamDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoStreamDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoStreamDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoStreamDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<VideoStreamDescriptor> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VideoStreamDescriptor) -> ::windows::runtime::Result<Self> {
@@ -9708,7 +12660,7 @@ unsafe impl ::std::marker::Send for VideoStreamDescriptor {}
 unsafe impl ::std::marker::Sync for VideoStreamDescriptor {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoTrack(::windows::runtime::IInspectable);
 impl VideoTrack {
     #[doc = "*Required features: `Media_Core`*"]
@@ -9808,6 +12760,46 @@ unsafe impl ::windows::runtime::Interface for VideoTrack {
 impl ::windows::runtime::RuntimeName for VideoTrack {
     const NAME: &'static str = "Windows.Media.Core.VideoTrack";
 }
+impl ::std::convert::From<VideoTrack> for ::windows::runtime::IUnknown {
+    fn from(value: VideoTrack) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VideoTrack> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoTrack) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VideoTrack> for ::windows::runtime::IInspectable {
+    fn from(value: VideoTrack) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoTrack> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoTrack) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<VideoTrack> for IMediaTrack {
     fn from(value: VideoTrack) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9832,7 +12824,7 @@ unsafe impl ::std::marker::Send for VideoTrack {}
 unsafe impl ::std::marker::Sync for VideoTrack {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoTrackOpenFailedEventArgs(::windows::runtime::IInspectable);
 impl VideoTrackOpenFailedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
@@ -9854,11 +12846,51 @@ unsafe impl ::windows::runtime::Interface for VideoTrackOpenFailedEventArgs {
 impl ::windows::runtime::RuntimeName for VideoTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackOpenFailedEventArgs";
 }
+impl ::std::convert::From<VideoTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: VideoTrackOpenFailedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VideoTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoTrackOpenFailedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VideoTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: VideoTrackOpenFailedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoTrackOpenFailedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoTrackOpenFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for VideoTrackOpenFailedEventArgs {}
 unsafe impl ::std::marker::Sync for VideoTrackOpenFailedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoTrackSupportInfo(::windows::runtime::IInspectable);
 impl VideoTrackSupportInfo {
     #[doc = "*Required features: `Media_Core`*"]
@@ -9887,6 +12919,46 @@ unsafe impl ::windows::runtime::Interface for VideoTrackSupportInfo {
 }
 impl ::windows::runtime::RuntimeName for VideoTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackSupportInfo";
+}
+impl ::std::convert::From<VideoTrackSupportInfo> for ::windows::runtime::IUnknown {
+    fn from(value: VideoTrackSupportInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VideoTrackSupportInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoTrackSupportInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VideoTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VideoTrackSupportInfo> for ::windows::runtime::IInspectable {
+    fn from(value: VideoTrackSupportInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoTrackSupportInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoTrackSupportInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoTrackSupportInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for VideoTrackSupportInfo {}
 unsafe impl ::std::marker::Sync for VideoTrackSupportInfo {}

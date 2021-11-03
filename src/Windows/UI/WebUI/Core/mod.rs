@@ -110,7 +110,7 @@ pub struct IWebUICommandBarConfirmationButton_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 pub struct IWebUICommandBarElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarElement {
@@ -120,6 +120,46 @@ unsafe impl ::windows::runtime::Interface for IWebUICommandBarElement {
 impl IWebUICommandBarElement {}
 unsafe impl ::windows::runtime::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
+}
+impl ::std::convert::From<IWebUICommandBarElement> for ::windows::runtime::IUnknown {
+    fn from(value: IWebUICommandBarElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWebUICommandBarElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IWebUICommandBarElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebUICommandBarElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebUICommandBarElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IWebUICommandBarElement> for ::windows::runtime::IInspectable {
+    fn from(value: IWebUICommandBarElement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWebUICommandBarElement> for ::windows::runtime::IInspectable {
+    fn from(value: &IWebUICommandBarElement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebUICommandBarElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebUICommandBarElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,7 +172,7 @@ pub struct IWebUICommandBarElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 pub struct IWebUICommandBarIcon(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarIcon {
@@ -142,6 +182,46 @@ unsafe impl ::windows::runtime::Interface for IWebUICommandBarIcon {
 impl IWebUICommandBarIcon {}
 unsafe impl ::windows::runtime::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d587655d-2014-42be-969a-7d14ca6c8a49}");
+}
+impl ::std::convert::From<IWebUICommandBarIcon> for ::windows::runtime::IUnknown {
+    fn from(value: IWebUICommandBarIcon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWebUICommandBarIcon> for ::windows::runtime::IUnknown {
+    fn from(value: &IWebUICommandBarIcon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebUICommandBarIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebUICommandBarIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IWebUICommandBarIcon> for ::windows::runtime::IInspectable {
+    fn from(value: IWebUICommandBarIcon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWebUICommandBarIcon> for ::windows::runtime::IInspectable {
+    fn from(value: &IWebUICommandBarIcon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebUICommandBarIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebUICommandBarIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -497,7 +577,7 @@ impl<F: FnMut(&::std::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::
 }
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBar(::windows::runtime::IInspectable);
 impl WebUICommandBar {
     #[doc = "*Required features: `UI_WebUI_Core`*"]
@@ -672,11 +752,51 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBar {
 impl ::windows::runtime::RuntimeName for WebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBar";
 }
+impl ::std::convert::From<WebUICommandBar> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBar) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBar> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBar) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBar> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBar> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WebUICommandBar {}
 unsafe impl ::std::marker::Sync for WebUICommandBar {}
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarBitmapIcon(::windows::runtime::IInspectable);
 impl WebUICommandBarBitmapIcon {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -723,6 +843,46 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBarBitmapIcon {
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon";
+}
+impl ::std::convert::From<WebUICommandBarBitmapIcon> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBarBitmapIcon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBarBitmapIcon> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBarBitmapIcon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBarBitmapIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBarBitmapIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBarBitmapIcon> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBarBitmapIcon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBarBitmapIcon> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBarBitmapIcon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBarBitmapIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBarBitmapIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<WebUICommandBarBitmapIcon> for IWebUICommandBarIcon {
     type Error = ::windows::runtime::Error;
@@ -773,7 +933,7 @@ impl ::windows::runtime::DefaultType for WebUICommandBarClosedDisplayMode {
 }
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarConfirmationButton(::windows::runtime::IInspectable);
 impl WebUICommandBarConfirmationButton {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -822,6 +982,46 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBarConfirmationButton 
 impl ::windows::runtime::RuntimeName for WebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton";
 }
+impl ::std::convert::From<WebUICommandBarConfirmationButton> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBarConfirmationButton) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBarConfirmationButton> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBarConfirmationButton) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBarConfirmationButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBarConfirmationButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBarConfirmationButton> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBarConfirmationButton) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBarConfirmationButton> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBarConfirmationButton) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBarConfirmationButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBarConfirmationButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<WebUICommandBarConfirmationButton> for IWebUICommandBarElement {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICommandBarConfirmationButton) -> ::windows::runtime::Result<Self> {
@@ -851,7 +1051,7 @@ unsafe impl ::std::marker::Sync for WebUICommandBarConfirmationButton {}
 pub struct WebUICommandBarContract(pub u8);
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarIconButton(::windows::runtime::IInspectable);
 impl WebUICommandBarIconButton {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -952,6 +1152,46 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBarIconButton {
 impl ::windows::runtime::RuntimeName for WebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarIconButton";
 }
+impl ::std::convert::From<WebUICommandBarIconButton> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBarIconButton) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBarIconButton> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBarIconButton) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBarIconButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBarIconButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBarIconButton> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBarIconButton) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBarIconButton> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBarIconButton) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBarIconButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBarIconButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<WebUICommandBarIconButton> for IWebUICommandBarElement {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICommandBarIconButton) -> ::windows::runtime::Result<Self> {
@@ -978,7 +1218,7 @@ unsafe impl ::std::marker::Send for WebUICommandBarIconButton {}
 unsafe impl ::std::marker::Sync for WebUICommandBarIconButton {}
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarItemInvokedEventArgs(::windows::runtime::IInspectable);
 impl WebUICommandBarItemInvokedEventArgs {
     #[doc = "*Required features: `UI_WebUI_Core`*"]
@@ -1000,11 +1240,51 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBarItemInvokedEventArg
 impl ::windows::runtime::RuntimeName for WebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs";
 }
+impl ::std::convert::From<WebUICommandBarItemInvokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBarItemInvokedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBarItemInvokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBarItemInvokedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBarItemInvokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBarItemInvokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBarItemInvokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBarItemInvokedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBarItemInvokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBarItemInvokedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBarItemInvokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBarItemInvokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WebUICommandBarItemInvokedEventArgs {}
 unsafe impl ::std::marker::Sync for WebUICommandBarItemInvokedEventArgs {}
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarSizeChangedEventArgs(::windows::runtime::IInspectable);
 impl WebUICommandBarSizeChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1027,11 +1307,51 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBarSizeChangedEventArg
 impl ::windows::runtime::RuntimeName for WebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs";
 }
+impl ::std::convert::From<WebUICommandBarSizeChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBarSizeChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBarSizeChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBarSizeChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBarSizeChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBarSizeChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBarSizeChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBarSizeChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBarSizeChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBarSizeChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBarSizeChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBarSizeChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for WebUICommandBarSizeChangedEventArgs {}
 unsafe impl ::std::marker::Sync for WebUICommandBarSizeChangedEventArgs {}
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarSymbolIcon(::windows::runtime::IInspectable);
 impl WebUICommandBarSymbolIcon {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1075,6 +1395,46 @@ unsafe impl ::windows::runtime::Interface for WebUICommandBarSymbolIcon {
 }
 impl ::windows::runtime::RuntimeName for WebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon";
+}
+impl ::std::convert::From<WebUICommandBarSymbolIcon> for ::windows::runtime::IUnknown {
+    fn from(value: WebUICommandBarSymbolIcon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&WebUICommandBarSymbolIcon> for ::windows::runtime::IUnknown {
+    fn from(value: &WebUICommandBarSymbolIcon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebUICommandBarSymbolIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebUICommandBarSymbolIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<WebUICommandBarSymbolIcon> for ::windows::runtime::IInspectable {
+    fn from(value: WebUICommandBarSymbolIcon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebUICommandBarSymbolIcon> for ::windows::runtime::IInspectable {
+    fn from(value: &WebUICommandBarSymbolIcon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebUICommandBarSymbolIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebUICommandBarSymbolIcon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<WebUICommandBarSymbolIcon> for IWebUICommandBarIcon {
     type Error = ::windows::runtime::Error;

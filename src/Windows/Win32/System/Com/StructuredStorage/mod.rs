@@ -847,7 +847,7 @@ pub unsafe fn GetHGlobalFromStream<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectWriterLock(::windows::runtime::IUnknown);
 impl IDirectWriterLock {
     #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
@@ -867,6 +867,26 @@ unsafe impl ::windows::runtime::Interface for IDirectWriterLock {
     type Vtable = IDirectWriterLock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242044306, 26424, 4559, [150, 8, 0, 170, 0, 104, 13, 180]);
 }
+impl ::std::convert::From<IDirectWriterLock> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectWriterLock) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDirectWriterLock> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectWriterLock) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectWriterLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectWriterLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectWriterLock_abi(
@@ -879,7 +899,7 @@ pub struct IDirectWriterLock_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumSTATPROPSETSTG(::windows::runtime::IUnknown);
 impl IEnumSTATPROPSETSTG {
     #[cfg(feature = "Win32_Foundation")]
@@ -905,6 +925,26 @@ unsafe impl ::windows::runtime::Interface for IEnumSTATPROPSETSTG {
     type Vtable = IEnumSTATPROPSETSTG_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(315, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IEnumSTATPROPSETSTG> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumSTATPROPSETSTG) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumSTATPROPSETSTG> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumSTATPROPSETSTG) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSTATPROPSETSTG {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSTATPROPSETSTG {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSTATPROPSETSTG_abi(
@@ -919,7 +959,7 @@ pub struct IEnumSTATPROPSETSTG_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumSTATPROPSTG(::windows::runtime::IUnknown);
 impl IEnumSTATPROPSTG {
     #[cfg(feature = "Win32_Foundation")]
@@ -945,6 +985,26 @@ unsafe impl ::windows::runtime::Interface for IEnumSTATPROPSTG {
     type Vtable = IEnumSTATPROPSTG_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(313, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IEnumSTATPROPSTG> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumSTATPROPSTG) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumSTATPROPSTG> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumSTATPROPSTG) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSTATPROPSTG {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSTATPROPSTG {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSTATPROPSTG_abi(
@@ -959,7 +1019,7 @@ pub struct IEnumSTATPROPSTG_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumSTATSTG(::windows::runtime::IUnknown);
 impl IEnumSTATSTG {
     #[cfg(feature = "Win32_Foundation")]
@@ -985,6 +1045,26 @@ unsafe impl ::windows::runtime::Interface for IEnumSTATSTG {
     type Vtable = IEnumSTATSTG_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(13, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IEnumSTATSTG> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumSTATSTG) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumSTATSTG> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumSTATSTG) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSTATSTG {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSTATSTG {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSTATSTG_abi(
@@ -999,7 +1079,7 @@ pub struct IEnumSTATSTG_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFillLockBytes(::windows::runtime::IUnknown);
 impl IFillLockBytes {
     #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
@@ -1026,6 +1106,26 @@ unsafe impl ::windows::runtime::Interface for IFillLockBytes {
     type Vtable = IFillLockBytes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2580213776, 16734, 4559, [136, 20, 0, 170, 0, 181, 105, 245]);
 }
+impl ::std::convert::From<IFillLockBytes> for ::windows::runtime::IUnknown {
+    fn from(value: IFillLockBytes) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IFillLockBytes> for ::windows::runtime::IUnknown {
+    fn from(value: &IFillLockBytes) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFillLockBytes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFillLockBytes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFillLockBytes_abi(
@@ -1040,7 +1140,7 @@ pub struct IFillLockBytes_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILayoutStorage(::windows::runtime::IUnknown);
 impl ILayoutStorage {
     #[cfg(feature = "Win32_Foundation")]
@@ -1070,6 +1170,26 @@ unsafe impl ::windows::runtime::Interface for ILayoutStorage {
     type Vtable = ILayoutStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242044304, 26424, 4559, [150, 8, 0, 170, 0, 104, 13, 180]);
 }
+impl ::std::convert::From<ILayoutStorage> for ::windows::runtime::IUnknown {
+    fn from(value: ILayoutStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILayoutStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &ILayoutStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILayoutStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILayoutStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILayoutStorage_abi(
@@ -1086,7 +1206,7 @@ pub struct ILayoutStorage_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILockBytes(::windows::runtime::IUnknown);
 impl ILockBytes {
     #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
@@ -1124,6 +1244,26 @@ unsafe impl ::windows::runtime::Interface for ILockBytes {
     type Vtable = ILockBytes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<ILockBytes> for ::windows::runtime::IUnknown {
+    fn from(value: ILockBytes) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILockBytes> for ::windows::runtime::IUnknown {
+    fn from(value: &ILockBytes) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILockBytes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILockBytes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILockBytes_abi(
@@ -1141,7 +1281,7 @@ pub struct ILockBytes_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistStorage(::windows::runtime::IUnknown);
 impl IPersistStorage {
     #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
@@ -1178,6 +1318,26 @@ impl IPersistStorage {
 unsafe impl ::windows::runtime::Interface for IPersistStorage {
     type Vtable = IPersistStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(266, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+}
+impl ::std::convert::From<IPersistStorage> for ::windows::runtime::IUnknown {
+    fn from(value: IPersistStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPersistStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &IPersistStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPersistStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPersistStorage> for super::IPersist {
     fn from(value: IPersistStorage) -> Self {
@@ -1216,7 +1376,7 @@ pub struct IPersistStorage_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertySetStorage(::windows::runtime::IUnknown);
 impl IPropertySetStorage {
     #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
@@ -1243,6 +1403,26 @@ unsafe impl ::windows::runtime::Interface for IPropertySetStorage {
     type Vtable = IPropertySetStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IPropertySetStorage> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertySetStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertySetStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertySetStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertySetStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertySetStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySetStorage_abi(
@@ -1256,7 +1436,7 @@ pub struct IPropertySetStorage_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyStorage(::windows::runtime::IUnknown);
 impl IPropertyStorage {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
@@ -1321,6 +1501,26 @@ unsafe impl ::windows::runtime::Interface for IPropertyStorage {
     type Vtable = IPropertyStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IPropertyStorage> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertyStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertyStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertyStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyStorage_abi(
@@ -1349,7 +1549,7 @@ pub struct IPropertyStorage_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRootStorage(::windows::runtime::IUnknown);
 impl IRootStorage {
     #[cfg(feature = "Win32_Foundation")]
@@ -1362,6 +1562,26 @@ unsafe impl ::windows::runtime::Interface for IRootStorage {
     type Vtable = IRootStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(18, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IRootStorage> for ::windows::runtime::IUnknown {
+    fn from(value: IRootStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRootStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &IRootStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRootStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRootStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRootStorage_abi(
@@ -1373,7 +1593,7 @@ pub struct IRootStorage_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStorage(::windows::runtime::IUnknown);
 impl IStorage {
     #[cfg(feature = "Win32_Foundation")]
@@ -1452,6 +1672,26 @@ impl IStorage {
 unsafe impl ::windows::runtime::Interface for IStorage {
     type Vtable = IStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(11, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+}
+impl ::std::convert::From<IStorage> for ::windows::runtime::IUnknown {
+    fn from(value: IStorage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IStorage> for ::windows::runtime::IUnknown {
+    fn from(value: &IStorage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStorage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

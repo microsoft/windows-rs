@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geofence(::windows::runtime::IInspectable);
 impl Geofence {
     #[cfg(feature = "Foundation")]
@@ -116,11 +116,51 @@ unsafe impl ::windows::runtime::Interface for Geofence {
 impl ::windows::runtime::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
 }
+impl ::std::convert::From<Geofence> for ::windows::runtime::IUnknown {
+    fn from(value: Geofence) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geofence> for ::windows::runtime::IUnknown {
+    fn from(value: &Geofence) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geofence {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geofence {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geofence> for ::windows::runtime::IInspectable {
+    fn from(value: Geofence) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geofence> for ::windows::runtime::IInspectable {
+    fn from(value: &Geofence) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geofence {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geofence {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Geofence {}
 unsafe impl ::std::marker::Sync for Geofence {}
 #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeofenceMonitor(::windows::runtime::IInspectable);
 impl GeofenceMonitor {
     #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
@@ -208,6 +248,46 @@ unsafe impl ::windows::runtime::Interface for GeofenceMonitor {
 }
 impl ::windows::runtime::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
+}
+impl ::std::convert::From<GeofenceMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: GeofenceMonitor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeofenceMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &GeofenceMonitor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeofenceMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeofenceMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeofenceMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: GeofenceMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeofenceMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: &GeofenceMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeofenceMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeofenceMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GeofenceMonitor {}
 unsafe impl ::std::marker::Sync for GeofenceMonitor {}
@@ -313,7 +393,7 @@ impl ::std::ops::Not for GeofenceState {
 }
 #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeofenceStateChangeReport(::windows::runtime::IInspectable);
 impl GeofenceStateChangeReport {
     #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
@@ -358,6 +438,46 @@ unsafe impl ::windows::runtime::Interface for GeofenceStateChangeReport {
 }
 impl ::windows::runtime::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
+}
+impl ::std::convert::From<GeofenceStateChangeReport> for ::windows::runtime::IUnknown {
+    fn from(value: GeofenceStateChangeReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeofenceStateChangeReport> for ::windows::runtime::IUnknown {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeofenceStateChangeReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeofenceStateChangeReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeofenceStateChangeReport> for ::windows::runtime::IInspectable {
+    fn from(value: GeofenceStateChangeReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeofenceStateChangeReport> for ::windows::runtime::IInspectable {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeofenceStateChangeReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeofenceStateChangeReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GeofenceStateChangeReport {}
 unsafe impl ::std::marker::Sync for GeofenceStateChangeReport {}

@@ -84,7 +84,7 @@ impl ::windows::runtime::RuntimeName for PlatformTelemetryClient {
 }
 #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlatformTelemetryRegistrationResult(::windows::runtime::IInspectable);
 impl PlatformTelemetryRegistrationResult {
     #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
@@ -106,11 +106,51 @@ unsafe impl ::windows::runtime::Interface for PlatformTelemetryRegistrationResul
 impl ::windows::runtime::RuntimeName for PlatformTelemetryRegistrationResult {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult";
 }
+impl ::std::convert::From<PlatformTelemetryRegistrationResult> for ::windows::runtime::IUnknown {
+    fn from(value: PlatformTelemetryRegistrationResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlatformTelemetryRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlatformTelemetryRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PlatformTelemetryRegistrationResult> for ::windows::runtime::IInspectable {
+    fn from(value: PlatformTelemetryRegistrationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlatformTelemetryRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlatformTelemetryRegistrationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PlatformTelemetryRegistrationResult {}
 unsafe impl ::std::marker::Sync for PlatformTelemetryRegistrationResult {}
 #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlatformTelemetryRegistrationSettings(::windows::runtime::IInspectable);
 impl PlatformTelemetryRegistrationSettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -156,6 +196,46 @@ unsafe impl ::windows::runtime::Interface for PlatformTelemetryRegistrationSetti
 }
 impl ::windows::runtime::RuntimeName for PlatformTelemetryRegistrationSettings {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings";
+}
+impl ::std::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::runtime::IUnknown {
+    fn from(value: PlatformTelemetryRegistrationSettings) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlatformTelemetryRegistrationSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlatformTelemetryRegistrationSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::runtime::IInspectable {
+    fn from(value: PlatformTelemetryRegistrationSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlatformTelemetryRegistrationSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlatformTelemetryRegistrationSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl ::std::marker::Sync for PlatformTelemetryRegistrationSettings {}

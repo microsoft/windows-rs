@@ -62,7 +62,7 @@ impl ::windows::runtime::DefaultType for BasicGeoposition {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CivicAddress(::windows::runtime::IInspectable);
 impl CivicAddress {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -117,11 +117,51 @@ unsafe impl ::windows::runtime::Interface for CivicAddress {
 impl ::windows::runtime::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
 }
+impl ::std::convert::From<CivicAddress> for ::windows::runtime::IUnknown {
+    fn from(value: CivicAddress) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CivicAddress> for ::windows::runtime::IUnknown {
+    fn from(value: &CivicAddress) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CivicAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CivicAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CivicAddress> for ::windows::runtime::IInspectable {
+    fn from(value: CivicAddress) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CivicAddress> for ::windows::runtime::IInspectable {
+    fn from(value: &CivicAddress) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CivicAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CivicAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CivicAddress {}
 unsafe impl ::std::marker::Sync for CivicAddress {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeoboundingBox(::windows::runtime::IInspectable);
 impl GeoboundingBox {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -252,6 +292,46 @@ unsafe impl ::windows::runtime::Interface for GeoboundingBox {
 impl ::windows::runtime::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
 }
+impl ::std::convert::From<GeoboundingBox> for ::windows::runtime::IUnknown {
+    fn from(value: GeoboundingBox) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeoboundingBox> for ::windows::runtime::IUnknown {
+    fn from(value: &GeoboundingBox) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeoboundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeoboundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeoboundingBox> for ::windows::runtime::IInspectable {
+    fn from(value: GeoboundingBox) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeoboundingBox> for ::windows::runtime::IInspectable {
+    fn from(value: &GeoboundingBox) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeoboundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeoboundingBox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<GeoboundingBox> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GeoboundingBox) -> ::windows::runtime::Result<Self> {
@@ -278,7 +358,7 @@ unsafe impl ::std::marker::Send for GeoboundingBox {}
 unsafe impl ::std::marker::Sync for GeoboundingBox {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geocircle(::windows::runtime::IInspectable);
 impl Geocircle {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -357,6 +437,46 @@ unsafe impl ::windows::runtime::Interface for Geocircle {
 impl ::windows::runtime::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
 }
+impl ::std::convert::From<Geocircle> for ::windows::runtime::IUnknown {
+    fn from(value: Geocircle) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geocircle> for ::windows::runtime::IUnknown {
+    fn from(value: &Geocircle) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geocircle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geocircle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geocircle> for ::windows::runtime::IInspectable {
+    fn from(value: Geocircle) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geocircle> for ::windows::runtime::IInspectable {
+    fn from(value: &Geocircle) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geocircle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geocircle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<Geocircle> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Geocircle) -> ::windows::runtime::Result<Self> {
@@ -383,7 +503,7 @@ unsafe impl ::std::marker::Send for Geocircle {}
 unsafe impl ::std::marker::Sync for Geocircle {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geocoordinate(::windows::runtime::IInspectable);
 impl Geocoordinate {
     #[cfg(feature = "deprecated")]
@@ -510,11 +630,51 @@ unsafe impl ::windows::runtime::Interface for Geocoordinate {
 impl ::windows::runtime::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
 }
+impl ::std::convert::From<Geocoordinate> for ::windows::runtime::IUnknown {
+    fn from(value: Geocoordinate) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geocoordinate> for ::windows::runtime::IUnknown {
+    fn from(value: &Geocoordinate) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geocoordinate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geocoordinate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geocoordinate> for ::windows::runtime::IInspectable {
+    fn from(value: Geocoordinate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geocoordinate> for ::windows::runtime::IInspectable {
+    fn from(value: &Geocoordinate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geocoordinate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geocoordinate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Geocoordinate {}
 unsafe impl ::std::marker::Sync for Geocoordinate {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeocoordinateSatelliteData(::windows::runtime::IInspectable);
 impl GeocoordinateSatelliteData {
     #[cfg(feature = "Foundation")]
@@ -573,6 +733,46 @@ unsafe impl ::windows::runtime::Interface for GeocoordinateSatelliteData {
 impl ::windows::runtime::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
 }
+impl ::std::convert::From<GeocoordinateSatelliteData> for ::windows::runtime::IUnknown {
+    fn from(value: GeocoordinateSatelliteData) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeocoordinateSatelliteData> for ::windows::runtime::IUnknown {
+    fn from(value: &GeocoordinateSatelliteData) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeocoordinateSatelliteData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeocoordinateSatelliteData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeocoordinateSatelliteData> for ::windows::runtime::IInspectable {
+    fn from(value: GeocoordinateSatelliteData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeocoordinateSatelliteData> for ::windows::runtime::IInspectable {
+    fn from(value: &GeocoordinateSatelliteData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeocoordinateSatelliteData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeocoordinateSatelliteData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::std::marker::Sync for GeocoordinateSatelliteData {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -600,7 +800,7 @@ impl ::windows::runtime::DefaultType for GeolocationAccessStatus {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geolocator(::windows::runtime::IInspectable);
 impl Geolocator {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -788,11 +988,51 @@ unsafe impl ::windows::runtime::Interface for Geolocator {
 impl ::windows::runtime::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
 }
+impl ::std::convert::From<Geolocator> for ::windows::runtime::IUnknown {
+    fn from(value: Geolocator) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geolocator> for ::windows::runtime::IUnknown {
+    fn from(value: &Geolocator) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geolocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geolocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geolocator> for ::windows::runtime::IInspectable {
+    fn from(value: Geolocator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geolocator> for ::windows::runtime::IInspectable {
+    fn from(value: &Geolocator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geolocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geolocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Geolocator {}
 unsafe impl ::std::marker::Sync for Geolocator {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geopath(::windows::runtime::IInspectable);
 impl Geopath {
     #[cfg(feature = "Foundation_Collections")]
@@ -867,6 +1107,46 @@ unsafe impl ::windows::runtime::Interface for Geopath {
 impl ::windows::runtime::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
 }
+impl ::std::convert::From<Geopath> for ::windows::runtime::IUnknown {
+    fn from(value: Geopath) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geopath> for ::windows::runtime::IUnknown {
+    fn from(value: &Geopath) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geopath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geopath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geopath> for ::windows::runtime::IInspectable {
+    fn from(value: Geopath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geopath> for ::windows::runtime::IInspectable {
+    fn from(value: &Geopath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geopath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geopath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<Geopath> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Geopath) -> ::windows::runtime::Result<Self> {
@@ -893,7 +1173,7 @@ unsafe impl ::std::marker::Send for Geopath {}
 unsafe impl ::std::marker::Sync for Geopath {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geopoint(::windows::runtime::IInspectable);
 impl Geopoint {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -964,6 +1244,46 @@ unsafe impl ::windows::runtime::Interface for Geopoint {
 impl ::windows::runtime::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
 }
+impl ::std::convert::From<Geopoint> for ::windows::runtime::IUnknown {
+    fn from(value: Geopoint) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geopoint> for ::windows::runtime::IUnknown {
+    fn from(value: &Geopoint) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geopoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geopoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geopoint> for ::windows::runtime::IInspectable {
+    fn from(value: Geopoint) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geopoint> for ::windows::runtime::IInspectable {
+    fn from(value: &Geopoint) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geopoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geopoint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<Geopoint> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Geopoint) -> ::windows::runtime::Result<Self> {
@@ -990,7 +1310,7 @@ unsafe impl ::std::marker::Send for Geopoint {}
 unsafe impl ::std::marker::Sync for Geopoint {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geoposition(::windows::runtime::IInspectable);
 impl Geoposition {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -1028,6 +1348,46 @@ unsafe impl ::windows::runtime::Interface for Geoposition {
 impl ::windows::runtime::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
 }
+impl ::std::convert::From<Geoposition> for ::windows::runtime::IUnknown {
+    fn from(value: Geoposition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geoposition> for ::windows::runtime::IUnknown {
+    fn from(value: &Geoposition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geoposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geoposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geoposition> for ::windows::runtime::IInspectable {
+    fn from(value: Geoposition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geoposition> for ::windows::runtime::IInspectable {
+    fn from(value: &Geoposition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geoposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geoposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Geoposition {}
 unsafe impl ::std::marker::Sync for Geoposition {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -1056,7 +1416,7 @@ impl ::windows::runtime::DefaultType for GeoshapeType {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Geovisit(::windows::runtime::IInspectable);
 impl Geovisit {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -1095,11 +1455,51 @@ unsafe impl ::windows::runtime::Interface for Geovisit {
 impl ::windows::runtime::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
 }
+impl ::std::convert::From<Geovisit> for ::windows::runtime::IUnknown {
+    fn from(value: Geovisit) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Geovisit> for ::windows::runtime::IUnknown {
+    fn from(value: &Geovisit) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Geovisit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Geovisit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Geovisit> for ::windows::runtime::IInspectable {
+    fn from(value: Geovisit) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Geovisit> for ::windows::runtime::IInspectable {
+    fn from(value: &Geovisit) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Geovisit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Geovisit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Geovisit {}
 unsafe impl ::std::marker::Sync for Geovisit {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeovisitMonitor(::windows::runtime::IInspectable);
 impl GeovisitMonitor {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1165,11 +1565,51 @@ unsafe impl ::windows::runtime::Interface for GeovisitMonitor {
 impl ::windows::runtime::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
 }
+impl ::std::convert::From<GeovisitMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: GeovisitMonitor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeovisitMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &GeovisitMonitor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeovisitMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeovisitMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeovisitMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: GeovisitMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeovisitMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: &GeovisitMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeovisitMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeovisitMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GeovisitMonitor {}
 unsafe impl ::std::marker::Sync for GeovisitMonitor {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeovisitStateChangedEventArgs(::windows::runtime::IInspectable);
 impl GeovisitStateChangedEventArgs {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -1191,11 +1631,51 @@ unsafe impl ::windows::runtime::Interface for GeovisitStateChangedEventArgs {
 impl ::windows::runtime::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
 }
+impl ::std::convert::From<GeovisitStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: GeovisitStateChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeovisitStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &GeovisitStateChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeovisitStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeovisitStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeovisitStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: GeovisitStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeovisitStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &GeovisitStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeovisitStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeovisitStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GeovisitStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GeovisitStateChangedEventArgs {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeovisitTriggerDetails(::windows::runtime::IInspectable);
 impl GeovisitTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
@@ -1217,6 +1697,46 @@ unsafe impl ::windows::runtime::Interface for GeovisitTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
+}
+impl ::std::convert::From<GeovisitTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: GeovisitTriggerDetails) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeovisitTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &GeovisitTriggerDetails) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeovisitTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeovisitTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeovisitTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: GeovisitTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeovisitTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &GeovisitTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeovisitTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeovisitTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for GeovisitTriggerDetails {}
 unsafe impl ::std::marker::Sync for GeovisitTriggerDetails {}
@@ -1733,7 +2253,7 @@ pub struct IGeoposition2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Geolocation`*"]
 pub struct IGeoshape(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoshape {
@@ -1768,6 +2288,46 @@ impl IGeoshape {
 }
 unsafe impl ::windows::runtime::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
+}
+impl ::std::convert::From<IGeoshape> for ::windows::runtime::IUnknown {
+    fn from(value: IGeoshape) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IGeoshape> for ::windows::runtime::IUnknown {
+    fn from(value: &IGeoshape) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGeoshape {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGeoshape {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IGeoshape> for ::windows::runtime::IInspectable {
+    fn from(value: IGeoshape) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IGeoshape> for ::windows::runtime::IInspectable {
+    fn from(value: &IGeoshape) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGeoshape {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGeoshape {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1962,7 +2522,7 @@ impl ::windows::runtime::DefaultType for PositionAccuracy {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PositionChangedEventArgs(::windows::runtime::IInspectable);
 impl PositionChangedEventArgs {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -1983,6 +2543,46 @@ unsafe impl ::windows::runtime::Interface for PositionChangedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
+}
+impl ::std::convert::From<PositionChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: PositionChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PositionChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &PositionChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PositionChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PositionChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PositionChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: PositionChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PositionChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &PositionChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PositionChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PositionChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PositionChangedEventArgs {}
@@ -2041,7 +2641,7 @@ impl ::windows::runtime::DefaultType for PositionStatus {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StatusChangedEventArgs(::windows::runtime::IInspectable);
 impl StatusChangedEventArgs {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -2063,11 +2663,51 @@ unsafe impl ::windows::runtime::Interface for StatusChangedEventArgs {
 impl ::windows::runtime::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
 }
+impl ::std::convert::From<StatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: StatusChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&StatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &StatusChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<StatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: StatusChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &StatusChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StatusChangedEventArgs {}
 unsafe impl ::std::marker::Sync for StatusChangedEventArgs {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VenueData(::windows::runtime::IInspectable);
 impl VenueData {
     #[doc = "*Required features: `Devices_Geolocation`*"]
@@ -2096,6 +2736,46 @@ unsafe impl ::windows::runtime::Interface for VenueData {
 }
 impl ::windows::runtime::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
+}
+impl ::std::convert::From<VenueData> for ::windows::runtime::IUnknown {
+    fn from(value: VenueData) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&VenueData> for ::windows::runtime::IUnknown {
+    fn from(value: &VenueData) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VenueData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VenueData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<VenueData> for ::windows::runtime::IInspectable {
+    fn from(value: VenueData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VenueData> for ::windows::runtime::IInspectable {
+    fn from(value: &VenueData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VenueData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VenueData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for VenueData {}
 unsafe impl ::std::marker::Sync for VenueData {}

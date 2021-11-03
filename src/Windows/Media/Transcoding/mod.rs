@@ -83,7 +83,7 @@ pub struct IPrepareTranscodeResult_abi(
 );
 #[doc = "*Required features: `Media_Transcoding`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaTranscoder(::windows::runtime::IInspectable);
 impl MediaTranscoder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -227,6 +227,46 @@ unsafe impl ::windows::runtime::Interface for MediaTranscoder {
 impl ::windows::runtime::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
 }
+impl ::std::convert::From<MediaTranscoder> for ::windows::runtime::IUnknown {
+    fn from(value: MediaTranscoder) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaTranscoder> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaTranscoder) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaTranscoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaTranscoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaTranscoder> for ::windows::runtime::IInspectable {
+    fn from(value: MediaTranscoder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaTranscoder> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaTranscoder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaTranscoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaTranscoder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MediaTranscoder {}
 unsafe impl ::std::marker::Sync for MediaTranscoder {}
 #[doc = "*Required features: `Media_Transcoding`*"]
@@ -253,7 +293,7 @@ impl ::windows::runtime::DefaultType for MediaVideoProcessingAlgorithm {
 }
 #[doc = "*Required features: `Media_Transcoding`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrepareTranscodeResult(::windows::runtime::IInspectable);
 impl PrepareTranscodeResult {
     #[doc = "*Required features: `Media_Transcoding`*"]
@@ -291,6 +331,46 @@ unsafe impl ::windows::runtime::Interface for PrepareTranscodeResult {
 }
 impl ::windows::runtime::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";
+}
+impl ::std::convert::From<PrepareTranscodeResult> for ::windows::runtime::IUnknown {
+    fn from(value: PrepareTranscodeResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PrepareTranscodeResult> for ::windows::runtime::IUnknown {
+    fn from(value: &PrepareTranscodeResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrepareTranscodeResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrepareTranscodeResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PrepareTranscodeResult> for ::windows::runtime::IInspectable {
+    fn from(value: PrepareTranscodeResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PrepareTranscodeResult> for ::windows::runtime::IInspectable {
+    fn from(value: &PrepareTranscodeResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrepareTranscodeResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrepareTranscodeResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::std::marker::Sync for PrepareTranscodeResult {}

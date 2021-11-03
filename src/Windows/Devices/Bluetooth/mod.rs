@@ -9,7 +9,7 @@ pub mod GenericAttributeProfile;
 pub mod Rfcomm;
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothAdapter(::windows::runtime::IInspectable);
 impl BluetoothAdapter {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -147,6 +147,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothAdapter {
 impl ::windows::runtime::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
 }
+impl ::std::convert::From<BluetoothAdapter> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothAdapter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothAdapter> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothAdapter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothAdapter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothAdapter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothAdapter> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothAdapter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothAdapter> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothAdapter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothAdapter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothAdapter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothAdapter {}
 unsafe impl ::std::marker::Sync for BluetoothAdapter {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -196,7 +236,7 @@ impl ::windows::runtime::DefaultType for BluetoothCacheMode {
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothClassOfDevice(::windows::runtime::IInspectable);
 impl BluetoothClassOfDevice {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -260,6 +300,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothClassOfDevice {
 impl ::windows::runtime::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
 }
+impl ::std::convert::From<BluetoothClassOfDevice> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothClassOfDevice) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothClassOfDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothClassOfDevice) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothClassOfDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothClassOfDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothClassOfDevice> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothClassOfDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothClassOfDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothClassOfDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothClassOfDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothClassOfDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::std::marker::Sync for BluetoothClassOfDevice {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -286,7 +366,7 @@ impl ::windows::runtime::DefaultType for BluetoothConnectionStatus {
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothDevice(::windows::runtime::IInspectable);
 impl BluetoothDevice {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -572,6 +652,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothDevice {
 impl ::windows::runtime::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
 }
+impl ::std::convert::From<BluetoothDevice> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothDevice) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothDevice) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothDevice> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BluetoothDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -602,7 +722,7 @@ unsafe impl ::std::marker::Send for BluetoothDevice {}
 unsafe impl ::std::marker::Sync for BluetoothDevice {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothDeviceId(::windows::runtime::IInspectable);
 impl BluetoothDeviceId {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -651,6 +771,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothDeviceId {
 impl ::windows::runtime::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
 }
+impl ::std::convert::From<BluetoothDeviceId> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothDeviceId) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothDeviceId> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothDeviceId) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothDeviceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothDeviceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothDeviceId> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothDeviceId) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothDeviceId> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothDeviceId) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothDeviceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothDeviceId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothDeviceId {}
 unsafe impl ::std::marker::Sync for BluetoothDeviceId {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -685,7 +845,7 @@ impl ::windows::runtime::DefaultType for BluetoothError {
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEAppearance(::windows::runtime::IInspectable);
 impl BluetoothLEAppearance {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -740,6 +900,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAppearance {
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
+}
+impl ::std::convert::From<BluetoothLEAppearance> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAppearance) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEAppearance> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAppearance) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAppearance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEAppearance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEAppearance> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAppearance) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAppearance> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAppearance) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAppearance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAppearance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for BluetoothLEAppearance {}
 unsafe impl ::std::marker::Sync for BluetoothLEAppearance {}
@@ -1117,7 +1317,7 @@ impl ::windows::runtime::RuntimeName for BluetoothLEAppearanceSubcategories {
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEConnectionParameters(::windows::runtime::IInspectable);
 impl BluetoothLEConnectionParameters {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -1155,11 +1355,51 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEConnectionParameters {
 impl ::windows::runtime::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
 }
+impl ::std::convert::From<BluetoothLEConnectionParameters> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEConnectionParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEConnectionParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEConnectionParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEConnectionParameters> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEConnectionParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEConnectionParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEConnectionParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEConnectionParameters {}
 unsafe impl ::std::marker::Sync for BluetoothLEConnectionParameters {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEConnectionPhy(::windows::runtime::IInspectable);
 impl BluetoothLEConnectionPhy {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -1189,11 +1429,51 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEConnectionPhy {
 impl ::windows::runtime::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
 }
+impl ::std::convert::From<BluetoothLEConnectionPhy> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEConnectionPhy) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEConnectionPhy> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEConnectionPhy) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEConnectionPhy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEConnectionPhy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEConnectionPhy> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEConnectionPhy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEConnectionPhy> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEConnectionPhy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEConnectionPhy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEConnectionPhy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEConnectionPhy {}
 unsafe impl ::std::marker::Sync for BluetoothLEConnectionPhy {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEConnectionPhyInfo(::windows::runtime::IInspectable);
 impl BluetoothLEConnectionPhyInfo {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -1231,11 +1511,51 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEConnectionPhyInfo {
 impl ::windows::runtime::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
 }
+impl ::std::convert::From<BluetoothLEConnectionPhyInfo> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEConnectionPhyInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEConnectionPhyInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEConnectionPhyInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEConnectionPhyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEConnectionPhyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEConnectionPhyInfo> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEConnectionPhyInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEConnectionPhyInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEConnectionPhyInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEConnectionPhyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEConnectionPhyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl ::std::marker::Sync for BluetoothLEConnectionPhyInfo {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEDevice(::windows::runtime::IInspectable);
 impl BluetoothLEDevice {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -1582,6 +1902,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEDevice {
 impl ::windows::runtime::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
 }
+impl ::std::convert::From<BluetoothLEDevice> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEDevice) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEDevice) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEDevice> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BluetoothLEDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1612,7 +1972,7 @@ unsafe impl ::std::marker::Send for BluetoothLEDevice {}
 unsafe impl ::std::marker::Sync for BluetoothLEDevice {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEPreferredConnectionParameters(::windows::runtime::IInspectable);
 impl BluetoothLEPreferredConnectionParameters {
     #[doc = "*Required features: `Devices_Bluetooth`*"]
@@ -1683,11 +2043,51 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEPreferredConnectionPara
 impl ::windows::runtime::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
 }
+impl ::std::convert::From<BluetoothLEPreferredConnectionParameters> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEPreferredConnectionParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEPreferredConnectionParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEPreferredConnectionParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEPreferredConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEPreferredConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEPreferredConnectionParameters> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEPreferredConnectionParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEPreferredConnectionParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEPreferredConnectionParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEPreferredConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEPreferredConnectionParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl ::std::marker::Sync for BluetoothLEPreferredConnectionParameters {}
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(::windows::runtime::IInspectable);
 impl BluetoothLEPreferredConnectionParametersRequest {
     #[cfg(feature = "Foundation")]
@@ -1714,6 +2114,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEPreferredConnectionPara
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
+}
+impl ::std::convert::From<BluetoothLEPreferredConnectionParametersRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEPreferredConnectionParametersRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEPreferredConnectionParametersRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEPreferredConnectionParametersRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEPreferredConnectionParametersRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEPreferredConnectionParametersRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEPreferredConnectionParametersRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEPreferredConnectionParametersRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEPreferredConnectionParametersRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEPreferredConnectionParametersRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEPreferredConnectionParametersRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEPreferredConnectionParametersRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BluetoothLEPreferredConnectionParametersRequest> for super::super::Foundation::IClosable {
@@ -1948,7 +2388,7 @@ impl ::std::ops::Not for BluetoothServiceCapabilities {
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothSignalStrengthFilter(::windows::runtime::IInspectable);
 impl BluetoothSignalStrengthFilter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2028,6 +2468,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothSignalStrengthFilter {
 }
 impl ::windows::runtime::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
+}
+impl ::std::convert::From<BluetoothSignalStrengthFilter> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothSignalStrengthFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothSignalStrengthFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothSignalStrengthFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothSignalStrengthFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothSignalStrengthFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothSignalStrengthFilter> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothSignalStrengthFilter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothSignalStrengthFilter> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothSignalStrengthFilter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothSignalStrengthFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothSignalStrengthFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for BluetoothSignalStrengthFilter {}
 unsafe impl ::std::marker::Sync for BluetoothSignalStrengthFilter {}

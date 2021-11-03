@@ -6489,7 +6489,7 @@ pub unsafe fn GetSpoolFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, s
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAsyncGetSendNotificationCookie(::windows::runtime::IUnknown);
 impl IAsyncGetSendNotificationCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -6509,6 +6509,26 @@ impl IAsyncGetSendNotificationCookie {
 unsafe impl ::windows::runtime::Interface for IAsyncGetSendNotificationCookie {
     type Vtable = IAsyncGetSendNotificationCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IAsyncGetSendNotificationCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IAsyncGetSendNotificationCookie) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAsyncGetSendNotificationCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IAsyncGetSendNotificationCookie) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAsyncGetSendNotificationCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAsyncGetSendNotificationCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IAsyncGetSendNotificationCookie> for IPrintAsyncCookie {
     fn from(value: IAsyncGetSendNotificationCookie) -> Self {
@@ -6543,7 +6563,7 @@ pub struct IAsyncGetSendNotificationCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAsyncGetSrvReferralCookie(::windows::runtime::IUnknown);
 impl IAsyncGetSrvReferralCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -6564,6 +6584,26 @@ unsafe impl ::windows::runtime::Interface for IAsyncGetSrvReferralCookie {
     type Vtable = IAsyncGetSrvReferralCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IAsyncGetSrvReferralCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IAsyncGetSrvReferralCookie) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAsyncGetSrvReferralCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IAsyncGetSrvReferralCookie) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAsyncGetSrvReferralCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAsyncGetSrvReferralCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncGetSrvReferralCookie_abi(
@@ -6577,7 +6617,7 @@ pub struct IAsyncGetSrvReferralCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IBidiAsyncNotifyChannel(::windows::runtime::IUnknown);
 impl IBidiAsyncNotifyChannel {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -6612,6 +6652,26 @@ impl IBidiAsyncNotifyChannel {
 unsafe impl ::windows::runtime::Interface for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395136759, 37403, 20402, [191, 248, 47, 79, 213, 46, 190, 191]);
+}
+impl ::std::convert::From<IBidiAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IBidiAsyncNotifyChannel) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBidiAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IBidiAsyncNotifyChannel) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBidiAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBidiAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IBidiAsyncNotifyChannel> for IPrintAsyncNotifyChannel {
     fn from(value: IBidiAsyncNotifyChannel) -> Self {
@@ -8650,7 +8710,7 @@ unsafe impl ::windows::runtime::Abi for IPartThumbnailVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncCookie(::windows::runtime::IUnknown);
 impl IPrintAsyncCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8666,6 +8726,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncCookie {
     type Vtable = IPrintAsyncCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintAsyncCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncCookie) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncCookie) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncCookie_abi(
@@ -8677,7 +8757,7 @@ pub struct IPrintAsyncCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNewChannelCookie(::windows::runtime::IUnknown);
 impl IPrintAsyncNewChannelCookie {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8696,6 +8776,26 @@ impl IPrintAsyncNewChannelCookie {
 unsafe impl ::windows::runtime::Interface for IPrintAsyncNewChannelCookie {
     type Vtable = IPrintAsyncNewChannelCookie_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IPrintAsyncNewChannelCookie> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNewChannelCookie) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNewChannelCookie> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNewChannelCookie) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNewChannelCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNewChannelCookie {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintAsyncNewChannelCookie> for IPrintAsyncCookie {
     fn from(value: IPrintAsyncNewChannelCookie) -> Self {
@@ -8729,7 +8829,7 @@ pub struct IPrintAsyncNewChannelCookie_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNotify(::windows::runtime::IUnknown);
 impl IPrintAsyncNotify {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8747,6 +8847,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1395136759, 37403, 20402, [191, 248, 47, 79, 213, 46, 190, 191]);
 }
+impl ::std::convert::From<IPrintAsyncNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotify) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotify) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotify_abi(
@@ -8758,7 +8878,7 @@ pub struct IPrintAsyncNotify_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNotifyCallback(::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyCallback {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8774,6 +8894,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112828609, 40338, 19609, [179, 179, 219, 148, 169, 212, 25, 27]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyCallback) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyCallback) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNotifyCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyCallback_abi(
@@ -8785,7 +8925,7 @@ pub struct IPrintAsyncNotifyCallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNotifyChannel(::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyChannel {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8801,6 +8941,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1246769585, 7999, 19888, [164, 98, 69, 48, 237, 139, 4, 81]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyChannel) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyChannel) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNotifyChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyChannel_abi(
@@ -8812,7 +8972,7 @@ pub struct IPrintAsyncNotifyChannel_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNotifyDataObject(::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyDataObject {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8828,6 +8988,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010075454, 23881, 18313, [159, 48, 208, 130, 43, 51, 92, 13]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyDataObject> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyDataObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyDataObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyDataObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyDataObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNotifyDataObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyDataObject_abi(
@@ -8839,7 +9019,7 @@ pub struct IPrintAsyncNotifyDataObject_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNotifyRegistration(::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyRegistration {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8855,6 +9035,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258942902, 28550, 17809, [146, 3, 100, 195, 191, 173, 237, 254]);
 }
+impl ::std::convert::From<IPrintAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyRegistration_abi(
@@ -8866,7 +9066,7 @@ pub struct IPrintAsyncNotifyRegistration_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintAsyncNotifyServerReferral(::windows::runtime::IUnknown);
 impl IPrintAsyncNotifyServerReferral {
     #[cfg(feature = "Win32_Foundation")]
@@ -8889,6 +9089,26 @@ unsafe impl ::windows::runtime::Interface for IPrintAsyncNotifyServerReferral {
     type Vtable = IPrintAsyncNotifyServerReferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IPrintAsyncNotifyServerReferral> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintAsyncNotifyServerReferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintAsyncNotifyServerReferral> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintAsyncNotifyServerReferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintAsyncNotifyServerReferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintAsyncNotifyServerReferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyServerReferral_abi(
@@ -8903,7 +9123,7 @@ pub struct IPrintAsyncNotifyServerReferral_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintBidiAsyncNotifyRegistration(::windows::runtime::IUnknown);
 impl IPrintBidiAsyncNotifyRegistration {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -8922,6 +9142,26 @@ impl IPrintBidiAsyncNotifyRegistration {
 unsafe impl ::windows::runtime::Interface for IPrintBidiAsyncNotifyRegistration {
     type Vtable = IPrintBidiAsyncNotifyRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IPrintBidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintBidiAsyncNotifyRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintBidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintBidiAsyncNotifyRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintBidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintBidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintBidiAsyncNotifyRegistration> for IPrintAsyncNotifyRegistration {
     fn from(value: IPrintBidiAsyncNotifyRegistration) -> Self {
@@ -9010,7 +9250,7 @@ unsafe impl ::windows::runtime::Abi for IPrintClassObjectFactoryVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintCoreHelper(::windows::runtime::IUnknown);
 impl IPrintCoreHelper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9063,6 +9303,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelper {
     type Vtable = IPrintCoreHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828977470, 14597, 18886, [156, 26, 192, 168, 129, 23, 253, 182]);
 }
+impl ::std::convert::From<IPrintCoreHelper> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelper) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelper) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintCoreHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCoreHelper_abi(
@@ -9089,7 +9349,7 @@ pub struct IPrintCoreHelper_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintCoreHelperPS(::windows::runtime::IUnknown);
 impl IPrintCoreHelperPS {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9157,6 +9417,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPS_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3267448687, 38355, 19811, [150, 207, 107, 217, 230, 201, 7, 194]);
 }
+impl ::std::convert::From<IPrintCoreHelperPS> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelperPS) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelperPS> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelperPS) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelperPS {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintCoreHelperPS {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintCoreHelperPS> for IPrintCoreHelper {
     fn from(value: IPrintCoreHelperPS) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9209,7 +9489,7 @@ pub struct IPrintCoreHelperPS_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintCoreHelperUni(::windows::runtime::IUnknown);
 impl IPrintCoreHelperUni {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9273,6 +9553,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUni_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2123256278, 58862, 17446, [129, 123, 149, 139, 148, 68, 235, 121]);
 }
+impl ::std::convert::From<IPrintCoreHelperUni> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelperUni) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelperUni> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelperUni) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelperUni {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintCoreHelperUni {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintCoreHelperUni> for IPrintCoreHelper {
     fn from(value: IPrintCoreHelperUni) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9323,7 +9623,7 @@ pub struct IPrintCoreHelperUni_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintCoreHelperUni2(::windows::runtime::IUnknown);
 impl IPrintCoreHelperUni2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9391,6 +9691,26 @@ impl IPrintCoreHelperUni2 {
 unsafe impl ::windows::runtime::Interface for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1821048316, 60112, 19757, [128, 113, 155, 240, 23, 90, 108, 58]);
+}
+impl ::std::convert::From<IPrintCoreHelperUni2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreHelperUni2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintCoreHelperUni2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreHelperUni2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreHelperUni2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintCoreHelperUni2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintCoreHelperUni2> for IPrintCoreHelperUni {
     fn from(value: IPrintCoreHelperUni2) -> Self {
@@ -9464,7 +9784,7 @@ pub struct IPrintCoreHelperUni2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintCoreUI2(::windows::runtime::IUnknown);
 impl IPrintCoreUI2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -9560,6 +9880,26 @@ unsafe impl ::windows::runtime::Interface for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140300234, 15071, 19614, [180, 145, 216, 81, 166, 237, 201, 151]);
 }
+impl ::std::convert::From<IPrintCoreUI2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintCoreUI2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintCoreUI2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintCoreUI2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintCoreUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintCoreUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintCoreUI2> for IPrintOemDriverUI {
     fn from(value: IPrintCoreUI2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9614,7 +9954,7 @@ pub struct IPrintCoreUI2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintJob(::windows::runtime::IUnknown);
 impl IPrintJob {
     #[cfg(feature = "Win32_Foundation")]
@@ -9657,6 +9997,26 @@ unsafe impl ::windows::runtime::Interface for IPrintJob {
     type Vtable = IPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077692088, 4738, 16823, [133, 140, 242, 6, 228, 210, 5, 119]);
 }
+impl ::std::convert::From<IPrintJob> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintJob) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintJob) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintJob_abi(
@@ -9674,7 +10034,7 @@ pub struct IPrintJob_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintJobCollection(::windows::runtime::IUnknown);
 impl IPrintJobCollection {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -9696,6 +10056,26 @@ impl IPrintJobCollection {
 unsafe impl ::windows::runtime::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924672036, 42392, 20103, [137, 95, 205, 178, 58, 73, 233, 220]);
+}
+impl ::std::convert::From<IPrintJobCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintJobCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintJobCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintJobCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintJobCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintJobCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintJobCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -9741,7 +10121,7 @@ pub struct IPrintJobCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintOemCommon(::windows::runtime::IUnknown);
 impl IPrintOemCommon {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -9758,6 +10138,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemCommon {
     type Vtable = IPrintOemCommon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2135042142, 37333, 4561, [136, 32, 0, 192, 79, 185, 97, 236]);
 }
+impl ::std::convert::From<IPrintOemCommon> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemCommon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintOemCommon> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemCommon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemCommon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintOemCommon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemCommon_abi(
@@ -9770,7 +10170,7 @@ pub struct IPrintOemCommon_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintOemDriverUI(::windows::runtime::IUnknown);
 impl IPrintOemDriverUI {
     #[cfg(feature = "Win32_Foundation")]
@@ -9792,6 +10192,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2461031760, 30908, 4561, [148, 128, 0, 160, 201, 6, 64, 184]);
 }
+impl ::std::convert::From<IPrintOemDriverUI> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemDriverUI) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintOemDriverUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemDriverUI) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemDriverUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintOemDriverUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemDriverUI_abi(
@@ -9806,7 +10226,7 @@ pub struct IPrintOemDriverUI_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintOemUI(::windows::runtime::IUnknown);
 impl IPrintOemUI {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -9904,6 +10324,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemUI {
     type Vtable = IPrintOemUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3332876752, 30540, 4561, [148, 127, 0, 160, 201, 6, 64, 184]);
 }
+impl ::std::convert::From<IPrintOemUI> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemUI) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintOemUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemUI) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintOemUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintOemUI> for IPrintOemCommon {
     fn from(value: IPrintOemUI) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9958,7 +10398,7 @@ pub struct IPrintOemUI_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintOemUI2(::windows::runtime::IUnknown);
 impl IPrintOemUI2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -10070,6 +10510,26 @@ unsafe impl ::windows::runtime::Interface for IPrintOemUI2 {
     type Vtable = IPrintOemUI2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(690296313, 46411, 18587, [146, 117, 186, 181, 104, 33, 57, 94]);
 }
+impl ::std::convert::From<IPrintOemUI2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemUI2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintOemUI2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemUI2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintOemUI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintOemUI2> for IPrintOemUI {
     fn from(value: IPrintOemUI2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10149,7 +10609,7 @@ pub struct IPrintOemUI2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintOemUIMXDC(::windows::runtime::IUnknown);
 impl IPrintOemUIMXDC {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10171,6 +10631,26 @@ impl IPrintOemUIMXDC {
 unsafe impl ::windows::runtime::Interface for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDC_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934219045, 58049, 19914, [175, 181, 193, 62, 145, 188, 147, 6]);
+}
+impl ::std::convert::From<IPrintOemUIMXDC> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintOemUIMXDC) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintOemUIMXDC> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintOemUIMXDC) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintOemUIMXDC {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintOemUIMXDC {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10419,7 +10899,7 @@ unsafe impl ::windows::runtime::Abi for IPrintPipelinePropertyBagVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintPreviewDxgiPackageTarget(::windows::runtime::IUnknown);
 impl IPrintPreviewDxgiPackageTarget {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -10439,6 +10919,26 @@ impl IPrintPreviewDxgiPackageTarget {
 unsafe impl ::windows::runtime::Interface for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(443404461, 7722, 20121, [165, 186, 145, 241, 120, 24, 41, 14]);
+}
+impl ::std::convert::From<IPrintPreviewDxgiPackageTarget> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintPreviewDxgiPackageTarget) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintPreviewDxgiPackageTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintPreviewDxgiPackageTarget) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintPreviewDxgiPackageTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintPreviewDxgiPackageTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10564,7 +11064,7 @@ unsafe impl ::windows::runtime::Abi for IPrintReadStreamVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaAsyncOperation(::windows::runtime::IUnknown);
 impl IPrintSchemaAsyncOperation {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -10579,6 +11079,26 @@ impl IPrintSchemaAsyncOperation {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(339512779, 54143, 18423, [136, 232, 107, 29, 33, 242, 197, 247]);
+}
+impl ::std::convert::From<IPrintSchemaAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaAsyncOperation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaAsyncOperation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaAsyncOperation> for super::super::System::Ole::Automation::IDispatch {
@@ -10623,7 +11143,7 @@ pub struct IPrintSchemaAsyncOperation_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaAsyncOperationEvent(::windows::runtime::IUnknown);
 impl IPrintSchemaAsyncOperationEvent {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -10634,6 +11154,26 @@ impl IPrintSchemaAsyncOperationEvent {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(598588182, 307, 18694, [178, 154, 29, 206, 29, 2, 99, 121]);
+}
+impl ::std::convert::From<IPrintSchemaAsyncOperationEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaAsyncOperationEvent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaAsyncOperationEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaAsyncOperationEvent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaAsyncOperationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaAsyncOperationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaAsyncOperationEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -10677,7 +11217,7 @@ pub struct IPrintSchemaAsyncOperationEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaCapabilities(::windows::runtime::IUnknown);
 impl IPrintSchemaCapabilities {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -10760,6 +11300,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515681344, 20509, 18727, [188, 208, 94, 245, 122, 126, 209, 117]);
 }
+impl ::std::convert::From<IPrintSchemaCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaCapabilities) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaCapabilities) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintSchemaCapabilities> for IPrintSchemaElement {
     fn from(value: IPrintSchemaCapabilities) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10835,7 +11395,7 @@ pub struct IPrintSchemaCapabilities_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaCapabilities2(::windows::runtime::IUnknown);
 impl IPrintSchemaCapabilities2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -10923,6 +11483,26 @@ impl IPrintSchemaCapabilities2 {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045606900, 39280, 19847, [166, 54, 22, 159, 184, 46, 214, 66]);
+}
+impl ::std::convert::From<IPrintSchemaCapabilities2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaCapabilities2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaCapabilities2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaCapabilities2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaCapabilities2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaCapabilities2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaCapabilities2> for IPrintSchemaCapabilities {
     fn from(value: IPrintSchemaCapabilities2) -> Self {
@@ -11021,7 +11601,7 @@ pub struct IPrintSchemaCapabilities2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaDisplayableElement(::windows::runtime::IUnknown);
 impl IPrintSchemaDisplayableElement {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11072,6 +11652,26 @@ impl IPrintSchemaDisplayableElement {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940579657, 54954, 16509, [191, 135, 57, 18, 35, 110, 157, 148]);
+}
+impl ::std::convert::From<IPrintSchemaDisplayableElement> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaDisplayableElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaDisplayableElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaDisplayableElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaDisplayableElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaDisplayableElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaDisplayableElement> for IPrintSchemaElement {
     fn from(value: IPrintSchemaDisplayableElement) -> Self {
@@ -11141,7 +11741,7 @@ pub struct IPrintSchemaDisplayableElement_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaElement(::windows::runtime::IUnknown);
 impl IPrintSchemaElement {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11165,6 +11765,26 @@ impl IPrintSchemaElement {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1917589062, 58955, 19391, [142, 180, 212, 94, 79, 213, 128, 218]);
+}
+impl ::std::convert::From<IPrintSchemaElement> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaElement> for super::super::System::Ole::Automation::IDispatch {
@@ -11212,7 +11832,7 @@ pub struct IPrintSchemaElement_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaFeature(::windows::runtime::IUnknown);
 impl IPrintSchemaFeature {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11289,6 +11909,26 @@ impl IPrintSchemaFeature {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeature_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011365473, 23906, 17958, [142, 87, 255, 131, 88, 60, 72, 38]);
+}
+impl ::std::convert::From<IPrintSchemaFeature> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaFeature) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaFeature> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaFeature) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaFeature {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaFeature {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaFeature> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaFeature) -> Self {
@@ -11385,7 +12025,7 @@ pub struct IPrintSchemaFeature_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaNUpOption(::windows::runtime::IUnknown);
 impl IPrintSchemaNUpOption {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11458,6 +12098,26 @@ impl IPrintSchemaNUpOption {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526598898, 55368, 17123, [137, 149, 193, 10, 158, 249, 163, 186]);
+}
+impl ::std::convert::From<IPrintSchemaNUpOption> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaNUpOption) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaNUpOption> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaNUpOption) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaNUpOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaNUpOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaNUpOption> for IPrintSchemaOption {
     fn from(value: IPrintSchemaNUpOption) -> Self {
@@ -11573,7 +12233,7 @@ pub struct IPrintSchemaNUpOption_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaOption(::windows::runtime::IUnknown);
 impl IPrintSchemaOption {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11641,6 +12301,26 @@ impl IPrintSchemaOption {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1723543377, 22596, 18839, [141, 112, 75, 124, 194, 33, 207, 146]);
+}
+impl ::std::convert::From<IPrintSchemaOption> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaOption) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaOption> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaOption) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaOption> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaOption) -> Self {
@@ -11735,7 +12415,7 @@ pub struct IPrintSchemaOption_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaOptionCollection(::windows::runtime::IUnknown);
 impl IPrintSchemaOptionCollection {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11757,6 +12437,26 @@ impl IPrintSchemaOptionCollection {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136073917, 43334, 18289, [188, 48, 232, 178, 79, 141, 69, 193]);
+}
+impl ::std::convert::From<IPrintSchemaOptionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaOptionCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaOptionCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaOptionCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaOptionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaOptionCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintSchemaOptionCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -11802,7 +12502,7 @@ pub struct IPrintSchemaOptionCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaPageImageableSize(::windows::runtime::IUnknown);
 impl IPrintSchemaPageImageableSize {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -11878,6 +12578,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSize_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089140062, 56444, 20321, [131, 155, 65, 7, 225, 201, 182, 142]);
 }
+impl ::std::convert::From<IPrintSchemaPageImageableSize> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaPageImageableSize) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaPageImageableSize> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaPageImageableSize) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaPageImageableSize {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaPageImageableSize {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintSchemaPageImageableSize> for IPrintSchemaElement {
     fn from(value: IPrintSchemaPageImageableSize) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11950,7 +12670,7 @@ pub struct IPrintSchemaPageImageableSize_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaPageMediaSizeOption(::windows::runtime::IUnknown);
 impl IPrintSchemaPageMediaSizeOption {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -12028,6 +12748,26 @@ impl IPrintSchemaPageMediaSizeOption {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752459049, 62611, 18480, [161, 15, 105, 2, 135, 116, 96, 93]);
+}
+impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaPageMediaSizeOption) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaPageMediaSizeOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaPageMediaSizeOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaOption {
     fn from(value: IPrintSchemaPageMediaSizeOption) -> Self {
@@ -12144,7 +12884,7 @@ pub struct IPrintSchemaPageMediaSizeOption_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaParameterDefinition(::windows::runtime::IUnknown);
 impl IPrintSchemaParameterDefinition {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -12222,6 +12962,26 @@ impl IPrintSchemaParameterDefinition {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3048073246, 3681, 20449, [129, 198, 195, 51, 228, 255, 224, 241]);
+}
+impl ::std::convert::From<IPrintSchemaParameterDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaParameterDefinition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaParameterDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaParameterDefinition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaParameterDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaParameterDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaParameterDefinition> for IPrintSchemaDisplayableElement {
     fn from(value: IPrintSchemaParameterDefinition) -> Self {
@@ -12318,7 +13078,7 @@ pub struct IPrintSchemaParameterDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaParameterInitializer(::windows::runtime::IUnknown);
 impl IPrintSchemaParameterInitializer {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -12374,6 +13134,26 @@ impl IPrintSchemaParameterInitializer {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1375891586, 2932, 17992, [149, 100, 130, 140, 198, 203, 101, 108]);
+}
+impl ::std::convert::From<IPrintSchemaParameterInitializer> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaParameterInitializer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaParameterInitializer> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaParameterInitializer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaParameterInitializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaParameterInitializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaParameterInitializer> for IPrintSchemaElement {
     fn from(value: IPrintSchemaParameterInitializer) -> Self {
@@ -12445,7 +13225,7 @@ pub struct IPrintSchemaParameterInitializer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaTicket(::windows::runtime::IUnknown);
 impl IPrintSchemaTicket {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -12531,6 +13311,26 @@ unsafe impl ::windows::runtime::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicket_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833641057, 18184, 20077, [165, 180, 162, 180, 238, 185, 186, 164]);
 }
+impl ::std::convert::From<IPrintSchemaTicket> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaTicket) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaTicket> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaTicket) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaTicket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaTicket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintSchemaTicket> for IPrintSchemaElement {
     fn from(value: IPrintSchemaTicket) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12607,7 +13407,7 @@ pub struct IPrintSchemaTicket_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintSchemaTicket2(::windows::runtime::IUnknown);
 impl IPrintSchemaTicket2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -12698,6 +13498,26 @@ impl IPrintSchemaTicket2 {
 unsafe impl ::windows::runtime::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784463940, 30314, 18337, [145, 244, 46, 235, 97, 144, 248, 12]);
+}
+impl ::std::convert::From<IPrintSchemaTicket2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintSchemaTicket2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintSchemaTicket2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintSchemaTicket2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintSchemaTicket2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintSchemaTicket2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintSchemaTicket2> for IPrintSchemaTicket {
     fn from(value: IPrintSchemaTicket2) -> Self {
@@ -12797,7 +13617,7 @@ pub struct IPrintSchemaTicket2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintTicketProvider(::windows::runtime::IUnknown);
 impl IPrintTicketProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -12841,6 +13661,26 @@ unsafe impl ::windows::runtime::Interface for IPrintTicketProvider {
     type Vtable = IPrintTicketProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142653659, 2595, 19514, [166, 182, 137, 229, 85, 141, 251, 93]);
 }
+impl ::std::convert::From<IPrintTicketProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintTicketProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintTicketProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintTicketProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintTicketProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintTicketProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketProvider_abi(
@@ -12864,7 +13704,7 @@ pub struct IPrintTicketProvider_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintTicketProvider2(::windows::runtime::IUnknown);
 impl IPrintTicketProvider2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -12920,6 +13760,26 @@ unsafe impl ::windows::runtime::Interface for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3097954994, 15868, 20460, [160, 116, 81, 27, 19, 198, 81, 203]);
 }
+impl ::std::convert::From<IPrintTicketProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintTicketProvider2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintTicketProvider2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintTicketProvider2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintTicketProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintTicketProvider2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrintTicketProvider2> for IPrintTicketProvider {
     fn from(value: IPrintTicketProvider2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12967,7 +13827,7 @@ pub struct IPrintTicketProvider2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintUnidiAsyncNotifyRegistration(::windows::runtime::IUnknown);
 impl IPrintUnidiAsyncNotifyRegistration {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -12986,6 +13846,26 @@ impl IPrintUnidiAsyncNotifyRegistration {
 unsafe impl ::windows::runtime::Interface for IPrintUnidiAsyncNotifyRegistration {
     type Vtable = IPrintUnidiAsyncNotifyRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IPrintUnidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IPrintUnidiAsyncNotifyRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrintUnidiAsyncNotifyRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrintUnidiAsyncNotifyRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintUnidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintUnidiAsyncNotifyRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrintUnidiAsyncNotifyRegistration> for IPrintAsyncNotifyRegistration {
     fn from(value: IPrintUnidiAsyncNotifyRegistration) -> Self {
@@ -13130,7 +14010,7 @@ unsafe impl ::windows::runtime::Abi for IPrintWriteStreamVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterBidiSetRequestCallback(::windows::runtime::IUnknown);
 impl IPrinterBidiSetRequestCallback {
     #[cfg(feature = "Win32_Foundation")]
@@ -13143,6 +14023,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3308073693, 62132, 16466, [133, 2, 236, 67, 5, 236, 183, 31]);
 }
+impl ::std::convert::From<IPrinterBidiSetRequestCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterBidiSetRequestCallback) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterBidiSetRequestCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterBidiSetRequestCallback) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterBidiSetRequestCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterBidiSetRequestCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterBidiSetRequestCallback_abi(
@@ -13154,7 +14054,7 @@ pub struct IPrinterBidiSetRequestCallback_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionAsyncOperation(::windows::runtime::IUnknown);
 impl IPrinterExtensionAsyncOperation {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13166,6 +14066,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(277703203, 27211, 17746, [148, 72, 104, 180, 39, 24, 106, 205]);
 }
+impl ::std::convert::From<IPrinterExtensionAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionAsyncOperation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionAsyncOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionAsyncOperation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionAsyncOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionAsyncOperation_abi(
@@ -13176,7 +14096,7 @@ pub struct IPrinterExtensionAsyncOperation_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionContext(::windows::runtime::IUnknown);
 impl IPrinterExtensionContext {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13203,6 +14123,26 @@ impl IPrinterExtensionContext {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967410, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
+}
+impl ::std::convert::From<IPrinterExtensionContext> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionContext> for super::super::System::Ole::Automation::IDispatch {
@@ -13249,7 +14189,7 @@ pub struct IPrinterExtensionContext_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionContextCollection(::windows::runtime::IUnknown);
 impl IPrinterExtensionContextCollection {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13271,6 +14211,26 @@ impl IPrinterExtensionContextCollection {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4215761264, 39851, 18529, [129, 30, 62, 152, 176, 197, 173, 223]);
+}
+impl ::std::convert::From<IPrinterExtensionContextCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionContextCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionContextCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionContextCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionContextCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionContextCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionContextCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -13316,7 +14276,7 @@ pub struct IPrinterExtensionContextCollection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionEvent(::windows::runtime::IUnknown);
 impl IPrinterExtensionEvent {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13331,6 +14291,26 @@ impl IPrinterExtensionEvent {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230911331, 24309, 17797, [175, 142, 77, 86, 55, 72, 123, 87]);
+}
+impl ::std::convert::From<IPrinterExtensionEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionEvent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionEvent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -13375,7 +14355,7 @@ pub struct IPrinterExtensionEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionEventArgs(::windows::runtime::IUnknown);
 impl IPrinterExtensionEventArgs {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13463,6 +14443,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967412, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
 }
+impl ::std::convert::From<IPrinterExtensionEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrinterExtensionEventArgs> for IPrinterExtensionContext {
     fn from(value: IPrinterExtensionEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13539,7 +14539,7 @@ pub struct IPrinterExtensionEventArgs_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionManager(::windows::runtime::IUnknown);
 impl IPrinterExtensionManager {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13555,6 +14555,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2479287180, 45057, 17237, [150, 41, 142, 138, 27, 63, 142, 119]);
 }
+impl ::std::convert::From<IPrinterExtensionManager> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionManager_abi(
@@ -13566,7 +14586,7 @@ pub struct IPrinterExtensionManager_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterExtensionRequest(::windows::runtime::IUnknown);
 impl IPrinterExtensionRequest {
     #[cfg(feature = "Win32_Foundation")]
@@ -13582,6 +14602,26 @@ impl IPrinterExtensionRequest {
 unsafe impl ::windows::runtime::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(964967411, 50386, 16893, [180, 178, 174, 219, 238, 94, 25, 0]);
+}
+impl ::std::convert::From<IPrinterExtensionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterExtensionRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterExtensionRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterExtensionRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterExtensionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterExtensionRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterExtensionRequest> for super::super::System::Ole::Automation::IDispatch {
@@ -13627,7 +14667,7 @@ pub struct IPrinterExtensionRequest_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterPropertyBag(::windows::runtime::IUnknown);
 impl IPrinterPropertyBag {
     #[cfg(feature = "Win32_Foundation")]
@@ -13690,6 +14730,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBag_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272386916, 57237, 18979, [169, 5, 1, 155, 121, 168, 228, 129]);
 }
+impl ::std::convert::From<IPrinterPropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterPropertyBag) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterPropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterPropertyBag) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterPropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterPropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterPropertyBag> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterPropertyBag) -> Self {
@@ -13751,7 +14811,7 @@ pub struct IPrinterPropertyBag_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterQueue(::windows::runtime::IUnknown);
 impl IPrinterQueue {
     #[cfg(feature = "Win32_Foundation")]
@@ -13780,6 +14840,26 @@ impl IPrinterQueue {
 unsafe impl ::windows::runtime::Interface for IPrinterQueue {
     type Vtable = IPrinterQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(897624104, 2046, 19348, [172, 26, 117, 125, 157, 45, 48, 86]);
+}
+impl ::std::convert::From<IPrinterQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueue> for super::super::System::Ole::Automation::IDispatch {
@@ -13829,7 +14909,7 @@ pub struct IPrinterQueue_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterQueue2(::windows::runtime::IUnknown);
 impl IPrinterQueue2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -13890,6 +14970,26 @@ impl IPrinterQueue2 {
 unsafe impl ::windows::runtime::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2362721512, 51643, 18867, [142, 56, 224, 50, 9, 65, 97, 49]);
+}
+impl ::std::convert::From<IPrinterQueue2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueue2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterQueue2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueue2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueue2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterQueue2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrinterQueue2> for IPrinterQueue {
     fn from(value: IPrinterQueue2) -> Self {
@@ -13962,7 +15062,7 @@ pub struct IPrinterQueue2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterQueueEvent(::windows::runtime::IUnknown);
 impl IPrinterQueueEvent {
     #[cfg(feature = "Win32_Foundation")]
@@ -13974,6 +15074,26 @@ impl IPrinterQueueEvent {
 unsafe impl ::windows::runtime::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558269942, 31608, 18049, [135, 224, 73, 95, 115, 146, 115, 209]);
+}
+impl ::std::convert::From<IPrinterQueueEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueueEvent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterQueueEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueueEvent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueueEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterQueueEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueueEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -14018,7 +15138,7 @@ pub struct IPrinterQueueEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterQueueView(::windows::runtime::IUnknown);
 impl IPrinterQueueView {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -14029,6 +15149,26 @@ impl IPrinterQueueView {
 unsafe impl ::windows::runtime::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198401897, 15147, 19263, [130, 119, 207, 246, 5, 96, 66, 170]);
+}
+impl ::std::convert::From<IPrinterQueueView> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueueView) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterQueueView> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueueView) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueueView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterQueueView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueueView> for super::super::System::Ole::Automation::IDispatch {
@@ -14072,7 +15212,7 @@ pub struct IPrinterQueueView_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterQueueViewEvent(::windows::runtime::IUnknown);
 impl IPrinterQueueViewEvent {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -14083,6 +15223,26 @@ impl IPrinterQueueViewEvent {
 unsafe impl ::windows::runtime::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3317040171, 64801, 16458, [160, 239, 226, 251, 181, 43, 144, 128]);
+}
+impl ::std::convert::From<IPrinterQueueViewEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterQueueViewEvent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterQueueViewEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterQueueViewEvent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterQueueViewEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterQueueViewEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterQueueViewEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -14126,7 +15286,7 @@ pub struct IPrinterQueueViewEvent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterScriptContext(::windows::runtime::IUnknown);
 impl IPrinterScriptContext {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -14148,6 +15308,26 @@ impl IPrinterScriptContext {
 unsafe impl ::windows::runtime::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107662282, 34945, 18889, [187, 152, 250, 225, 107, 72, 137, 225]);
+}
+impl ::std::convert::From<IPrinterScriptContext> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterScriptContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterScriptContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterScriptContext> for super::super::System::Ole::Automation::IDispatch {
@@ -14193,7 +15373,7 @@ pub struct IPrinterScriptContext_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterScriptablePropertyBag(::windows::runtime::IUnknown);
 impl IPrinterScriptablePropertyBag {
     #[cfg(feature = "Win32_Foundation")]
@@ -14257,6 +15437,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBag_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2445768287, 60759, 18861, [139, 1, 220, 36, 129, 106, 82, 148]);
 }
+impl ::std::convert::From<IPrinterScriptablePropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptablePropertyBag) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterScriptablePropertyBag> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptablePropertyBag) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptablePropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterScriptablePropertyBag {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterScriptablePropertyBag> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IPrinterScriptablePropertyBag) -> Self {
@@ -14318,7 +15518,7 @@ pub struct IPrinterScriptablePropertyBag_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterScriptablePropertyBag2(::windows::runtime::IUnknown);
 impl IPrinterScriptablePropertyBag2 {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -14409,6 +15609,26 @@ unsafe impl ::windows::runtime::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(706499524, 34360, 19262, [181, 24, 39, 115, 201, 69, 86, 163]);
 }
+impl ::std::convert::From<IPrinterScriptablePropertyBag2> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptablePropertyBag2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterScriptablePropertyBag2> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptablePropertyBag2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptablePropertyBag2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterScriptablePropertyBag2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IPrinterScriptablePropertyBag2> for IPrinterScriptablePropertyBag {
     fn from(value: IPrinterScriptablePropertyBag2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14492,7 +15712,7 @@ pub struct IPrinterScriptablePropertyBag2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterScriptableSequentialStream(::windows::runtime::IUnknown);
 impl IPrinterScriptableSequentialStream {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -14511,6 +15731,26 @@ impl IPrinterScriptableSequentialStream {
 unsafe impl ::windows::runtime::Interface for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544375690, 12655, 18042, [169, 73, 39, 246, 140, 68, 168, 84]);
+}
+impl ::std::convert::From<IPrinterScriptableSequentialStream> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptableSequentialStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterScriptableSequentialStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptableSequentialStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptableSequentialStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterScriptableSequentialStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrinterScriptableSequentialStream> for super::super::System::Ole::Automation::IDispatch {
@@ -14557,7 +15797,7 @@ pub struct IPrinterScriptableSequentialStream_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinterScriptableStream(::windows::runtime::IUnknown);
 impl IPrinterScriptableStream {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -14611,6 +15851,26 @@ impl IPrinterScriptableStream {
 unsafe impl ::windows::runtime::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2128583314, 18256, 16805, [161, 127, 135, 154, 111, 79, 125, 203]);
+}
+impl ::std::convert::From<IPrinterScriptableStream> for ::windows::runtime::IUnknown {
+    fn from(value: IPrinterScriptableStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPrinterScriptableStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IPrinterScriptableStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrinterScriptableStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrinterScriptableStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IPrinterScriptableStream> for IPrinterScriptableSequentialStream {
     fn from(value: IPrinterScriptableStream) -> Self {
@@ -14922,7 +16182,7 @@ unsafe impl ::windows::runtime::Abi for IXpsPartIteratorVtbl {
 }
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsRasterizationFactory(::windows::runtime::IUnknown);
 impl IXpsRasterizationFactory {
     #[cfg(feature = "Win32_Storage_Xps")]
@@ -14936,6 +16196,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767828618, 9414, 18475, [163, 167, 194, 26, 201, 181, 95, 23]);
 }
+impl ::std::convert::From<IXpsRasterizationFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizationFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXpsRasterizationFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizationFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizationFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsRasterizationFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory_abi(
@@ -14947,7 +16227,7 @@ pub struct IXpsRasterizationFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsRasterizationFactory1(::windows::runtime::IUnknown);
 impl IXpsRasterizationFactory1 {
     #[cfg(feature = "Win32_Storage_Xps")]
@@ -14961,6 +16241,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(762208119, 25620, 18974, [168, 224, 212, 25, 76, 230, 162, 111]);
 }
+impl ::std::convert::From<IXpsRasterizationFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizationFactory1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXpsRasterizationFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizationFactory1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizationFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsRasterizationFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory1_abi(
@@ -14972,7 +16272,7 @@ pub struct IXpsRasterizationFactory1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsRasterizationFactory2(::windows::runtime::IUnknown);
 impl IXpsRasterizationFactory2 {
     #[cfg(feature = "Win32_Storage_Xps")]
@@ -14986,6 +16286,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618740286, 4341, 16893, [157, 220, 104, 38, 102, 156, 47, 246]);
 }
+impl ::std::convert::From<IXpsRasterizationFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizationFactory2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXpsRasterizationFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizationFactory2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizationFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsRasterizationFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory2_abi(
@@ -14997,7 +16317,7 @@ pub struct IXpsRasterizationFactory2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsRasterizer(::windows::runtime::IUnknown);
 impl IXpsRasterizer {
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -15015,6 +16335,26 @@ unsafe impl ::windows::runtime::Interface for IXpsRasterizer {
     type Vtable = IXpsRasterizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969737672, 49494, 18344, [157, 172, 17, 162, 174, 91, 221, 107]);
 }
+impl ::std::convert::From<IXpsRasterizer> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXpsRasterizer> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsRasterizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizer_abi(
@@ -15027,7 +16367,7 @@ pub struct IXpsRasterizer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsRasterizerNotificationCallback(::windows::runtime::IUnknown);
 impl IXpsRasterizerNotificationCallback {
     #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -15038,6 +16378,26 @@ impl IXpsRasterizerNotificationCallback {
 unsafe impl ::windows::runtime::Interface for IXpsRasterizerNotificationCallback {
     type Vtable = IXpsRasterizerNotificationCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595814669, 52116, 18882, [156, 176, 151, 236, 29, 84, 105, 210]);
+}
+impl ::std::convert::From<IXpsRasterizerNotificationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IXpsRasterizerNotificationCallback) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXpsRasterizerNotificationCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IXpsRasterizerNotificationCallback) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsRasterizerNotificationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsRasterizerNotificationCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

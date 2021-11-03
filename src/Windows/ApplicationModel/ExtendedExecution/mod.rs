@@ -48,7 +48,7 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionResult {
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ExtendedExecutionRevokedEventArgs(::windows::runtime::IInspectable);
 impl ExtendedExecutionRevokedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
@@ -69,6 +69,46 @@ unsafe impl ::windows::runtime::Interface for ExtendedExecutionRevokedEventArgs 
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
+}
+impl ::std::convert::From<ExtendedExecutionRevokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ExtendedExecutionRevokedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionRevokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ExtendedExecutionRevokedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExtendedExecutionRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ExtendedExecutionRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ExtendedExecutionRevokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ExtendedExecutionRevokedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionRevokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ExtendedExecutionRevokedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExtendedExecutionRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExtendedExecutionRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionRevokedEventArgs {}
@@ -96,7 +136,7 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionRevokedReason {
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ExtendedExecutionSession(::windows::runtime::IInspectable);
 impl ExtendedExecutionSession {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -185,6 +225,46 @@ unsafe impl ::windows::runtime::Interface for ExtendedExecutionSession {
 }
 impl ::windows::runtime::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
+}
+impl ::std::convert::From<ExtendedExecutionSession> for ::windows::runtime::IUnknown {
+    fn from(value: ExtendedExecutionSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionSession> for ::windows::runtime::IUnknown {
+    fn from(value: &ExtendedExecutionSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExtendedExecutionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ExtendedExecutionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ExtendedExecutionSession> for ::windows::runtime::IInspectable {
+    fn from(value: ExtendedExecutionSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ExtendedExecutionSession> for ::windows::runtime::IInspectable {
+    fn from(value: &ExtendedExecutionSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExtendedExecutionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExtendedExecutionSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ExtendedExecutionSession> for super::super::Foundation::IClosable {

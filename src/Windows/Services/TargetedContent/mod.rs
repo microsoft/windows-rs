@@ -350,7 +350,7 @@ pub struct ITargetedContentValue_abi(
 );
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentAction(::windows::runtime::IInspectable);
 impl TargetedContentAction {
     #[cfg(feature = "Foundation")]
@@ -372,6 +372,46 @@ unsafe impl ::windows::runtime::Interface for TargetedContentAction {
 }
 impl ::windows::runtime::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
+}
+impl ::std::convert::From<TargetedContentAction> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentAction) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentAction> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentAction) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentAction> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentAction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentAction> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentAction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TargetedContentAction {}
 unsafe impl ::std::marker::Sync for TargetedContentAction {}
@@ -423,7 +463,7 @@ impl ::windows::runtime::DefaultType for TargetedContentAvailability {
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 impl TargetedContentAvailabilityChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -446,11 +486,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentAvailabilityChanged
 impl ::windows::runtime::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
 }
+impl ::std::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentAvailabilityChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentAvailabilityChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentAvailabilityChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentChangedEventArgs(::windows::runtime::IInspectable);
 impl TargetedContentChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -481,11 +561,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentChangedEventArgs {
 impl ::windows::runtime::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
 }
+impl ::std::convert::From<TargetedContentChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TargetedContentChangedEventArgs {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentCollection(::windows::runtime::IInspectable);
 impl TargetedContentCollection {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -552,11 +672,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentCollection {
 impl ::windows::runtime::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
 }
+impl ::std::convert::From<TargetedContentCollection> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentCollection> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentCollection> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentCollection {}
 unsafe impl ::std::marker::Sync for TargetedContentCollection {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentContainer(::windows::runtime::IInspectable);
 impl TargetedContentContainer {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -623,6 +783,46 @@ unsafe impl ::windows::runtime::Interface for TargetedContentContainer {
 impl ::windows::runtime::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
 }
+impl ::std::convert::From<TargetedContentContainer> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentContainer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentContainer> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentContainer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentContainer> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentContainer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentContainer> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentContainer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentContainer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentContainer {}
 unsafe impl ::std::marker::Sync for TargetedContentContainer {}
 #[repr(C)]
@@ -631,7 +831,7 @@ pub struct TargetedContentContract(pub u8);
 #[cfg(feature = "Storage_Streams")]
 #[doc = "*Required features: `Services_TargetedContent`, `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentFile(::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
@@ -657,6 +857,54 @@ unsafe impl ::windows::runtime::Interface for TargetedContentFile {
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for TargetedContentFile {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentFile";
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<TargetedContentFile> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentFile) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<&TargetedContentFile> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentFile) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<TargetedContentFile> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentFile) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<&TargetedContentFile> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentFile) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::std::convert::From<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
@@ -688,7 +936,7 @@ unsafe impl ::std::marker::Send for TargetedContentFile {}
 unsafe impl ::std::marker::Sync for TargetedContentFile {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentImage(::windows::runtime::IInspectable);
 impl TargetedContentImage {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -726,6 +974,46 @@ unsafe impl ::windows::runtime::Interface for TargetedContentImage {
 }
 impl ::windows::runtime::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
+}
+impl ::std::convert::From<TargetedContentImage> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentImage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentImage> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentImage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentImage> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentImage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentImage> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentImage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::std::convert::TryFrom<TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
@@ -790,7 +1078,7 @@ impl ::windows::runtime::DefaultType for TargetedContentInteraction {
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentItem(::windows::runtime::IInspectable);
 impl TargetedContentItem {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -848,11 +1136,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentItem {
 impl ::windows::runtime::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
 }
+impl ::std::convert::From<TargetedContentItem> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentItem> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentItem> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentItem> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentItem {}
 unsafe impl ::std::marker::Sync for TargetedContentItem {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentItemState(::windows::runtime::IInspectable);
 impl TargetedContentItemState {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -882,11 +1210,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentItemState {
 impl ::windows::runtime::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
 }
+impl ::std::convert::From<TargetedContentItemState> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentItemState) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentItemState> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentItemState) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentItemState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentItemState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentItemState> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentItemState) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentItemState> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentItemState) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentItemState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentItemState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentItemState {}
 unsafe impl ::std::marker::Sync for TargetedContentItemState {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentObject(::windows::runtime::IInspectable);
 impl TargetedContentObject {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -932,6 +1300,46 @@ unsafe impl ::windows::runtime::Interface for TargetedContentObject {
 impl ::windows::runtime::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
 }
+impl ::std::convert::From<TargetedContentObject> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentObject> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentObject> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentObject> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentObject {}
 unsafe impl ::std::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -959,7 +1367,7 @@ impl ::windows::runtime::DefaultType for TargetedContentObjectKind {
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentStateChangedEventArgs(::windows::runtime::IInspectable);
 impl TargetedContentStateChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -982,11 +1390,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentStateChangedEventAr
 impl ::windows::runtime::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
 }
+impl ::std::convert::From<TargetedContentStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentStateChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TargetedContentStateChangedEventArgs {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentSubscription(::windows::runtime::IInspectable);
 impl TargetedContentSubscription {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -1081,11 +1529,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentSubscription {
 impl ::windows::runtime::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
 }
+impl ::std::convert::From<TargetedContentSubscription> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentSubscription) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentSubscription> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentSubscription) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentSubscription {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentSubscription {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentSubscription> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentSubscription) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentSubscription> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentSubscription) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentSubscription {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentSubscription {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentSubscription {}
 unsafe impl ::std::marker::Sync for TargetedContentSubscription {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentSubscriptionOptions(::windows::runtime::IInspectable);
 impl TargetedContentSubscriptionOptions {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -1143,11 +1631,51 @@ unsafe impl ::windows::runtime::Interface for TargetedContentSubscriptionOptions
 impl ::windows::runtime::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
 }
+impl ::std::convert::From<TargetedContentSubscriptionOptions> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentSubscriptionOptions) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentSubscriptionOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentSubscriptionOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentSubscriptionOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentSubscriptionOptions> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentSubscriptionOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentSubscriptionOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentSubscriptionOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentSubscriptionOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for TargetedContentSubscriptionOptions {}
 unsafe impl ::std::marker::Sync for TargetedContentSubscriptionOptions {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TargetedContentValue(::windows::runtime::IInspectable);
 impl TargetedContentValue {
     #[doc = "*Required features: `Services_TargetedContent`*"]
@@ -1297,6 +1825,46 @@ unsafe impl ::windows::runtime::Interface for TargetedContentValue {
 }
 impl ::windows::runtime::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";
+}
+impl ::std::convert::From<TargetedContentValue> for ::windows::runtime::IUnknown {
+    fn from(value: TargetedContentValue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TargetedContentValue> for ::windows::runtime::IUnknown {
+    fn from(value: &TargetedContentValue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetedContentValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetedContentValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TargetedContentValue> for ::windows::runtime::IInspectable {
+    fn from(value: TargetedContentValue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TargetedContentValue> for ::windows::runtime::IInspectable {
+    fn from(value: &TargetedContentValue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetedContentValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetedContentValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TargetedContentValue {}
 unsafe impl ::std::marker::Sync for TargetedContentValue {}

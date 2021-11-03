@@ -207,7 +207,7 @@ unsafe impl ::windows::runtime::Abi for HKL {
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccClientDocMgr(::windows::runtime::IUnknown);
 impl IAccClientDocMgr {
     #[cfg(feature = "Win32_System_Com")]
@@ -238,6 +238,26 @@ unsafe impl ::windows::runtime::Interface for IAccClientDocMgr {
     type Vtable = IAccClientDocMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284071481, 31597, 18918, [168, 193, 69, 17, 106, 152, 41, 43]);
 }
+impl ::std::convert::From<IAccClientDocMgr> for ::windows::runtime::IUnknown {
+    fn from(value: IAccClientDocMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccClientDocMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccClientDocMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccClientDocMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccClientDocMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccClientDocMgr_abi(
@@ -254,7 +274,7 @@ pub struct IAccClientDocMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccDictionary(::windows::runtime::IUnknown);
 impl IAccDictionary {
     #[cfg(feature = "Win32_Foundation")]
@@ -289,6 +309,26 @@ unsafe impl ::windows::runtime::Interface for IAccDictionary {
     type Vtable = IAccDictionary_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499436383, 55095, 18253, [173, 233, 92, 207, 201, 188, 28, 201]);
 }
+impl ::std::convert::From<IAccDictionary> for ::windows::runtime::IUnknown {
+    fn from(value: IAccDictionary) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccDictionary> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccDictionary) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccDictionary {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccDictionary {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccDictionary_abi(
@@ -307,7 +347,7 @@ pub struct IAccDictionary_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccServerDocMgr(::windows::runtime::IUnknown);
 impl IAccServerDocMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -327,6 +367,26 @@ unsafe impl ::windows::runtime::Interface for IAccServerDocMgr {
     type Vtable = IAccServerDocMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910614479, 28117, 18517, [171, 194, 176, 75, 173, 91, 145, 83]);
 }
+impl ::std::convert::From<IAccServerDocMgr> for ::windows::runtime::IUnknown {
+    fn from(value: IAccServerDocMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccServerDocMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccServerDocMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccServerDocMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccServerDocMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccServerDocMgr_abi(
@@ -339,7 +399,7 @@ pub struct IAccServerDocMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccStore(::windows::runtime::IUnknown);
 impl IAccStore {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -382,6 +442,26 @@ unsafe impl ::windows::runtime::Interface for IAccStore {
     type Vtable = IAccStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805104739, 11122, 19784, [183, 57, 149, 228, 118, 81, 149, 186]);
 }
+impl ::std::convert::From<IAccStore> for ::windows::runtime::IUnknown {
+    fn from(value: IAccStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccStore> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccStore_abi(
@@ -401,7 +481,7 @@ pub struct IAccStore_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAnchor(::windows::runtime::IUnknown);
 impl IAnchor {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -461,6 +541,26 @@ unsafe impl ::windows::runtime::Interface for IAnchor {
     type Vtable = IAnchor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(267091508, 23136, 17238, [142, 247, 171, 222, 194, 255, 124, 248]);
 }
+impl ::std::convert::From<IAnchor> for ::windows::runtime::IUnknown {
+    fn from(value: IAnchor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAnchor> for ::windows::runtime::IUnknown {
+    fn from(value: &IAnchor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAnchor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAnchor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnchor_abi(
@@ -483,7 +583,7 @@ pub struct IAnchor_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IClonableWrapper(::windows::runtime::IUnknown);
 impl IClonableWrapper {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -496,6 +596,26 @@ unsafe impl ::windows::runtime::Interface for IClonableWrapper {
     type Vtable = IClonableWrapper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3007215103, 59468, 19914, [162, 92, 51, 184, 220, 0, 51, 116]);
 }
+impl ::std::convert::From<IClonableWrapper> for ::windows::runtime::IUnknown {
+    fn from(value: IClonableWrapper) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IClonableWrapper> for ::windows::runtime::IUnknown {
+    fn from(value: &IClonableWrapper) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IClonableWrapper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IClonableWrapper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClonableWrapper_abi(
@@ -506,7 +626,7 @@ pub struct IClonableWrapper_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICoCreateLocally(::windows::runtime::IUnknown);
 impl ICoCreateLocally {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -518,6 +638,26 @@ impl ICoCreateLocally {
 unsafe impl ::windows::runtime::Interface for ICoCreateLocally {
     type Vtable = ICoCreateLocally_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64880810, 62066, 16867, [153, 203, 3, 197, 232, 17, 78, 160]);
+}
+impl ::std::convert::From<ICoCreateLocally> for ::windows::runtime::IUnknown {
+    fn from(value: ICoCreateLocally) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICoCreateLocally> for ::windows::runtime::IUnknown {
+    fn from(value: &ICoCreateLocally) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoCreateLocally {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICoCreateLocally {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -531,7 +671,7 @@ pub struct ICoCreateLocally_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICoCreatedLocally(::windows::runtime::IUnknown);
 impl ICoCreatedLocally {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -544,6 +684,26 @@ unsafe impl ::windows::runtime::Interface for ICoCreatedLocally {
     type Vtable = ICoCreatedLocally_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173271916, 6408, 18242, [140, 255, 44, 238, 46, 147, 249, 76]);
 }
+impl ::std::convert::From<ICoCreatedLocally> for ::windows::runtime::IUnknown {
+    fn from(value: ICoCreatedLocally) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICoCreatedLocally> for ::windows::runtime::IUnknown {
+    fn from(value: &ICoCreatedLocally) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoCreatedLocally {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICoCreatedLocally {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoCreatedLocally_abi(
@@ -555,7 +715,7 @@ pub struct ICoCreatedLocally_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDocWrap(::windows::runtime::IUnknown);
 impl IDocWrap {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -572,6 +732,26 @@ unsafe impl ::windows::runtime::Interface for IDocWrap {
     type Vtable = IDocWrap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704784382, 3040, 17341, [153, 201, 170, 174, 197, 19, 197, 85]);
 }
+impl ::std::convert::From<IDocWrap> for ::windows::runtime::IUnknown {
+    fn from(value: IDocWrap) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDocWrap> for ::windows::runtime::IUnknown {
+    fn from(value: &IDocWrap) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDocWrap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDocWrap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDocWrap_abi(
@@ -583,7 +763,7 @@ pub struct IDocWrap_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumITfCompositionView(::windows::runtime::IUnknown);
 impl IEnumITfCompositionView {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -608,6 +788,26 @@ unsafe impl ::windows::runtime::Interface for IEnumITfCompositionView {
     type Vtable = IEnumITfCompositionView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593647802, 30776, 18123, [136, 226, 202, 219, 20, 18, 79, 143]);
 }
+impl ::std::convert::From<IEnumITfCompositionView> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumITfCompositionView) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumITfCompositionView> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumITfCompositionView) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumITfCompositionView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumITfCompositionView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumITfCompositionView_abi(
@@ -621,7 +821,7 @@ pub struct IEnumITfCompositionView_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumSpeechCommands(::windows::runtime::IUnknown);
 impl IEnumSpeechCommands {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -646,6 +846,26 @@ unsafe impl ::windows::runtime::Interface for IEnumSpeechCommands {
     type Vtable = IEnumSpeechCommands_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2354949199, 2108, 19333, [164, 201, 113, 116, 96, 72, 173, 202]);
 }
+impl ::std::convert::From<IEnumSpeechCommands> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumSpeechCommands) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumSpeechCommands> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumSpeechCommands) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSpeechCommands {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSpeechCommands {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSpeechCommands_abi(
@@ -659,7 +879,7 @@ pub struct IEnumSpeechCommands_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfCandidates(::windows::runtime::IUnknown);
 impl IEnumTfCandidates {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -684,6 +904,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfCandidates {
     type Vtable = IEnumTfCandidates_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740997926, 27776, 19688, [135, 212, 214, 183, 43, 129, 43, 222]);
 }
+impl ::std::convert::From<IEnumTfCandidates> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfCandidates) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfCandidates> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfCandidates) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfCandidates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfCandidates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfCandidates_abi(
@@ -697,7 +937,7 @@ pub struct IEnumTfCandidates_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfContextViews(::windows::runtime::IUnknown);
 impl IEnumTfContextViews {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -722,6 +962,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfContextViews {
     type Vtable = IEnumTfContextViews_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4039178461, 53048, 17633, [187, 15, 104, 207, 13, 85, 28, 120]);
 }
+impl ::std::convert::From<IEnumTfContextViews> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfContextViews) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfContextViews> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfContextViews) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfContextViews {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfContextViews {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfContextViews_abi(
@@ -735,7 +995,7 @@ pub struct IEnumTfContextViews_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfContexts(::windows::runtime::IUnknown);
 impl IEnumTfContexts {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -760,6 +1020,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfContexts {
     type Vtable = IEnumTfContexts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400878246, 5716, 17666, [168, 110, 178, 144, 35, 68, 213, 7]);
 }
+impl ::std::convert::From<IEnumTfContexts> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfContexts) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfContexts> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfContexts) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfContexts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfContexts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfContexts_abi(
@@ -773,7 +1053,7 @@ pub struct IEnumTfContexts_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfDisplayAttributeInfo(::windows::runtime::IUnknown);
 impl IEnumTfDisplayAttributeInfo {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -798,6 +1078,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfDisplayAttributeInfo {
     type Vtable = IEnumTfDisplayAttributeInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2096039127, 52085, 20096, [167, 171, 95, 91, 199, 211, 50, 222]);
 }
+impl ::std::convert::From<IEnumTfDisplayAttributeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfDisplayAttributeInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfDisplayAttributeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfDisplayAttributeInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfDisplayAttributeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfDisplayAttributeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfDisplayAttributeInfo_abi(
@@ -811,7 +1111,7 @@ pub struct IEnumTfDisplayAttributeInfo_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfDocumentMgrs(::windows::runtime::IUnknown);
 impl IEnumTfDocumentMgrs {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -836,6 +1136,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfDocumentMgrs {
     type Vtable = IEnumTfDocumentMgrs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574728, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<IEnumTfDocumentMgrs> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfDocumentMgrs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfDocumentMgrs> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfDocumentMgrs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfDocumentMgrs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfDocumentMgrs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfDocumentMgrs_abi(
@@ -849,7 +1169,7 @@ pub struct IEnumTfDocumentMgrs_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfFunctionProviders(::windows::runtime::IUnknown);
 impl IEnumTfFunctionProviders {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -874,6 +1194,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfFunctionProviders {
     type Vtable = IEnumTfFunctionProviders_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3836890544, 2448, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<IEnumTfFunctionProviders> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfFunctionProviders) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfFunctionProviders> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfFunctionProviders) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfFunctionProviders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfFunctionProviders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfFunctionProviders_abi(
@@ -887,7 +1227,7 @@ pub struct IEnumTfFunctionProviders_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfInputProcessorProfiles(::windows::runtime::IUnknown);
 impl IEnumTfInputProcessorProfiles {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -912,6 +1252,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfInputProcessorProfiles {
     type Vtable = IEnumTfInputProcessorProfiles_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908860749, 3880, 4568, [168, 42, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<IEnumTfInputProcessorProfiles> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfInputProcessorProfiles) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfInputProcessorProfiles> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfInputProcessorProfiles) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfInputProcessorProfiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfInputProcessorProfiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfInputProcessorProfiles_abi(
@@ -925,7 +1285,7 @@ pub struct IEnumTfInputProcessorProfiles_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfLangBarItems(::windows::runtime::IUnknown);
 impl IEnumTfLangBarItems {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -950,6 +1310,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfLangBarItems {
     type Vtable = IEnumTfLangBarItems_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1480537296, 56869, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<IEnumTfLangBarItems> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfLangBarItems) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfLangBarItems> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfLangBarItems) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfLangBarItems {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfLangBarItems {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfLangBarItems_abi(
@@ -963,7 +1343,7 @@ pub struct IEnumTfLangBarItems_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfLanguageProfiles(::windows::runtime::IUnknown);
 impl IEnumTfLanguageProfiles {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -989,6 +1369,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfLanguageProfiles {
     type Vtable = IEnumTfLanguageProfiles_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029816081, 44127, 17096, [164, 203, 147, 27, 204, 40, 199, 68]);
 }
+impl ::std::convert::From<IEnumTfLanguageProfiles> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfLanguageProfiles) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfLanguageProfiles> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfLanguageProfiles) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfLanguageProfiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfLanguageProfiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfLanguageProfiles_abi(
@@ -1003,7 +1403,7 @@ pub struct IEnumTfLanguageProfiles_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfLatticeElements(::windows::runtime::IUnknown);
 impl IEnumTfLatticeElements {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1029,6 +1429,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfLatticeElements {
     type Vtable = IEnumTfLatticeElements_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1452834898, 18394, 18949, [145, 26, 227, 217, 65, 241, 113, 69]);
 }
+impl ::std::convert::From<IEnumTfLatticeElements> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfLatticeElements) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfLatticeElements> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfLatticeElements) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfLatticeElements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfLatticeElements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfLatticeElements_abi(
@@ -1043,7 +1463,7 @@ pub struct IEnumTfLatticeElements_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfProperties(::windows::runtime::IUnknown);
 impl IEnumTfProperties {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1068,6 +1488,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfProperties {
     type Vtable = IEnumTfProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(421039280, 44201, 4562, [175, 197, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<IEnumTfProperties> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfProperties) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfProperties) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfProperties_abi(
@@ -1081,7 +1521,7 @@ pub struct IEnumTfProperties_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfPropertyValue(::windows::runtime::IUnknown);
 impl IEnumTfPropertyValue {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1107,6 +1547,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfPropertyValue {
     type Vtable = IEnumTfPropertyValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2396559387, 31760, 19837, [159, 179, 171, 114, 233, 199, 95, 114]);
 }
+impl ::std::convert::From<IEnumTfPropertyValue> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfPropertyValue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfPropertyValue> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfPropertyValue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfPropertyValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfPropertyValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfPropertyValue_abi(
@@ -1121,7 +1581,7 @@ pub struct IEnumTfPropertyValue_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfRanges(::windows::runtime::IUnknown);
 impl IEnumTfRanges {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1146,6 +1606,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfRanges {
     type Vtable = IEnumTfRanges_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4187832128, 36402, 4562, [191, 70, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<IEnumTfRanges> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfRanges) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfRanges> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfRanges) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfRanges {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfRanges {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfRanges_abi(
@@ -1159,7 +1639,7 @@ pub struct IEnumTfRanges_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfUIElements(::windows::runtime::IUnknown);
 impl IEnumTfUIElements {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1184,6 +1664,26 @@ unsafe impl ::windows::runtime::Interface for IEnumTfUIElements {
     type Vtable = IEnumTfUIElements_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2289740062, 44218, 18737, [132, 218, 60, 82, 8, 207, 84, 63]);
 }
+impl ::std::convert::From<IEnumTfUIElements> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumTfUIElements) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEnumTfUIElements> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumTfUIElements) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTfUIElements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTfUIElements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTfUIElements_abi(
@@ -1197,7 +1697,7 @@ pub struct IEnumTfUIElements_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInternalDocWrap(::windows::runtime::IUnknown);
 impl IInternalDocWrap {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1208,6 +1708,26 @@ impl IInternalDocWrap {
 unsafe impl ::windows::runtime::Interface for IInternalDocWrap {
     type Vtable = IInternalDocWrap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3786040422, 40372, 16570, [190, 3, 119, 195, 142, 142, 96, 178]);
+}
+impl ::std::convert::From<IInternalDocWrap> for ::windows::runtime::IUnknown {
+    fn from(value: IInternalDocWrap) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInternalDocWrap> for ::windows::runtime::IUnknown {
+    fn from(value: &IInternalDocWrap) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInternalDocWrap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInternalDocWrap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1266,7 +1786,7 @@ impl ::std::ops::Not for INSERT_TEXT_AT_SELECTION_FLAGS {
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISpeechCommandProvider(::windows::runtime::IUnknown);
 impl ISpeechCommandProvider {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1284,6 +1804,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechCommandProvider {
     type Vtable = ISpeechCommandProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(954244428, 22637, 17242, [181, 146, 200, 168, 102, 145, 222, 198]);
 }
+impl ::std::convert::From<ISpeechCommandProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechCommandProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISpeechCommandProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechCommandProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechCommandProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpeechCommandProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechCommandProvider_abi(
@@ -1296,7 +1836,7 @@ pub struct ISpeechCommandProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACP(::windows::runtime::IUnknown);
 impl ITextStoreACP {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1458,6 +1998,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreACP {
     type Vtable = ITextStoreACP_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680038371, 49824, 18490, [163, 234, 140, 177, 206, 81, 255, 61]);
 }
+impl ::std::convert::From<ITextStoreACP> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreACP) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreACP> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreACP) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACP_abi(
@@ -1508,7 +2068,7 @@ pub struct ITextStoreACP_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACP2(::windows::runtime::IUnknown);
 impl ITextStoreACP2 {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1664,6 +2224,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreACP2 {
     type Vtable = ITextStoreACP2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4167751839, 24548, 19341, [187, 159, 239, 55, 151, 168, 79, 31]);
 }
+impl ::std::convert::From<ITextStoreACP2> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreACP2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreACP2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreACP2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreACP2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreACP2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACP2_abi(
@@ -1712,7 +2292,7 @@ pub struct ITextStoreACP2_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPEx(::windows::runtime::IUnknown);
 impl ITextStoreACPEx {
     #[cfg(feature = "Win32_Foundation")]
@@ -1725,6 +2305,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreACPEx {
     type Vtable = ITextStoreACPEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732473282, 15758, 4563, [129, 169, 247, 83, 251, 230, 26, 0]);
 }
+impl ::std::convert::From<ITextStoreACPEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreACPEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreACPEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreACPEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreACPEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreACPEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACPEx_abi(
@@ -1736,7 +2336,7 @@ pub struct ITextStoreACPEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPServices(::windows::runtime::IUnknown);
 impl ITextStoreACPServices {
     #[cfg(feature = "Win32_System_Com")]
@@ -1763,6 +2363,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreACPServices {
     type Vtable = ITextStoreACPServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574977, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITextStoreACPServices> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreACPServices) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreACPServices> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreACPServices) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreACPServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreACPServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACPServices_abi(
@@ -1778,7 +2398,7 @@ pub struct ITextStoreACPServices_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPSink(::windows::runtime::IUnknown);
 impl ITextStoreACPSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1818,6 +2438,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreACPSink {
     type Vtable = ITextStoreACPSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(584338580, 42009, 17730, [162, 114, 174, 38, 9, 62, 206, 207]);
 }
+impl ::std::convert::From<ITextStoreACPSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreACPSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreACPSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreACPSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreACPSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreACPSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreACPSink_abi(
@@ -1835,7 +2475,7 @@ pub struct ITextStoreACPSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPSinkEx(::windows::runtime::IUnknown);
 impl ITextStoreACPSinkEx {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1879,6 +2519,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreACPSinkEx {
     type Vtable = ITextStoreACPSinkEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(736072804, 16866, 17379, [149, 12, 166, 134, 91, 162, 92, 212]);
 }
+impl ::std::convert::From<ITextStoreACPSinkEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreACPSinkEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreACPSinkEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreACPSinkEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreACPSinkEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreACPSinkEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITextStoreACPSinkEx> for ITextStoreACPSink {
     fn from(value: ITextStoreACPSinkEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1917,7 +2577,7 @@ pub struct ITextStoreACPSinkEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreAnchor(::windows::runtime::IUnknown);
 impl ITextStoreAnchor {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2059,6 +2719,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreAnchor {
     type Vtable = ITextStoreAnchor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2602596272, 24344, 19948, [190, 233, 60, 199, 34, 245, 223, 224]);
 }
+impl ::std::convert::From<ITextStoreAnchor> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreAnchor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreAnchor> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreAnchor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreAnchor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreAnchor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreAnchor_abi(
@@ -2110,7 +2790,7 @@ pub struct ITextStoreAnchor_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreAnchorEx(::windows::runtime::IUnknown);
 impl ITextStoreAnchorEx {
     #[cfg(feature = "Win32_Foundation")]
@@ -2123,6 +2803,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreAnchorEx {
     type Vtable = ITextStoreAnchorEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732473281, 15758, 4563, [129, 169, 247, 83, 251, 230, 26, 0]);
 }
+impl ::std::convert::From<ITextStoreAnchorEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreAnchorEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreAnchorEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreAnchorEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreAnchorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreAnchorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreAnchorEx_abi(
@@ -2134,7 +2834,7 @@ pub struct ITextStoreAnchorEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreAnchorSink(::windows::runtime::IUnknown);
 impl ITextStoreAnchorSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2174,6 +2874,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreAnchorSink {
     type Vtable = ITextStoreAnchorSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574981, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITextStoreAnchorSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreAnchorSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreAnchorSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreAnchorSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreAnchorSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreAnchorSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoreAnchorSink_abi(
@@ -2191,7 +2911,7 @@ pub struct ITextStoreAnchorSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreSinkAnchorEx(::windows::runtime::IUnknown);
 impl ITextStoreSinkAnchorEx {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2235,6 +2955,26 @@ unsafe impl ::windows::runtime::Interface for ITextStoreSinkAnchorEx {
     type Vtable = ITextStoreSinkAnchorEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(627319846, 653, 17524, [151, 123, 17, 27, 177, 20, 254, 62]);
 }
+impl ::std::convert::From<ITextStoreSinkAnchorEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITextStoreSinkAnchorEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITextStoreSinkAnchorEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITextStoreSinkAnchorEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITextStoreSinkAnchorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITextStoreSinkAnchorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITextStoreSinkAnchorEx> for ITextStoreAnchorSink {
     fn from(value: ITextStoreSinkAnchorEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2273,7 +3013,7 @@ pub struct ITextStoreSinkAnchorEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfActiveLanguageProfileNotifySink(::windows::runtime::IUnknown);
 impl ITfActiveLanguageProfileNotifySink {
     #[cfg(feature = "Win32_Foundation")]
@@ -2286,6 +3026,26 @@ unsafe impl ::windows::runtime::Interface for ITfActiveLanguageProfileNotifySink
     type Vtable = ITfActiveLanguageProfileNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990984053, 43326, 18002, [191, 140, 179, 254, 12, 253, 126, 87]);
 }
+impl ::std::convert::From<ITfActiveLanguageProfileNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfActiveLanguageProfileNotifySink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfActiveLanguageProfileNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfActiveLanguageProfileNotifySink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfActiveLanguageProfileNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfActiveLanguageProfileNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfActiveLanguageProfileNotifySink_abi(
@@ -2297,7 +3057,7 @@ pub struct ITfActiveLanguageProfileNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateList(::windows::runtime::IUnknown);
 impl ITfCandidateList {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2324,6 +3084,26 @@ unsafe impl ::windows::runtime::Interface for ITfCandidateList {
     type Vtable = ITfCandidateList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2746044667, 39899, 18915, [168, 67, 108, 118, 82, 15, 191, 93]);
 }
+impl ::std::convert::From<ITfCandidateList> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCandidateList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCandidateList> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCandidateList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCandidateList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCandidateList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCandidateList_abi(
@@ -2337,7 +3117,7 @@ pub struct ITfCandidateList_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateListUIElement(::windows::runtime::IUnknown);
 impl ITfCandidateListUIElement {
     #[cfg(feature = "Win32_Foundation")]
@@ -2406,6 +3186,26 @@ unsafe impl ::windows::runtime::Interface for ITfCandidateListUIElement {
     type Vtable = ITfCandidateListUIElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875896, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfCandidateListUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCandidateListUIElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCandidateListUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCandidateListUIElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCandidateListUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCandidateListUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfCandidateListUIElement> for ITfUIElement {
     fn from(value: ITfCandidateListUIElement) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2451,7 +3251,7 @@ pub struct ITfCandidateListUIElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateListUIElementBehavior(::windows::runtime::IUnknown);
 impl ITfCandidateListUIElementBehavior {
     #[cfg(feature = "Win32_Foundation")]
@@ -2532,6 +3332,26 @@ unsafe impl ::windows::runtime::Interface for ITfCandidateListUIElementBehavior 
     type Vtable = ITfCandidateListUIElementBehavior_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2247807365, 22734, 18810, [148, 96, 53, 83, 102, 182, 75, 154]);
 }
+impl ::std::convert::From<ITfCandidateListUIElementBehavior> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCandidateListUIElementBehavior) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCandidateListUIElementBehavior> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCandidateListUIElementBehavior) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCandidateListUIElementBehavior {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCandidateListUIElementBehavior {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfCandidateListUIElementBehavior> for ITfCandidateListUIElement {
     fn from(value: ITfCandidateListUIElementBehavior) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2600,7 +3420,7 @@ pub struct ITfCandidateListUIElementBehavior_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateString(::windows::runtime::IUnknown);
 impl ITfCandidateString {
     #[cfg(feature = "Win32_Foundation")]
@@ -2619,6 +3439,26 @@ unsafe impl ::windows::runtime::Interface for ITfCandidateString {
     type Vtable = ITfCandidateString_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1478439294, 64925, 17471, [185, 114, 237, 0, 70, 124, 93, 64]);
 }
+impl ::std::convert::From<ITfCandidateString> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCandidateString) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCandidateString> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCandidateString) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCandidateString {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCandidateString {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCandidateString_abi(
@@ -2631,7 +3471,7 @@ pub struct ITfCandidateString_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCategoryMgr(::windows::runtime::IUnknown);
 impl ITfCategoryMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2707,6 +3547,26 @@ unsafe impl ::windows::runtime::Interface for ITfCategoryMgr {
     type Vtable = ITfCategoryMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3282890677, 63133, 18693, [147, 143, 252, 173, 207, 75, 232, 48]);
 }
+impl ::std::convert::From<ITfCategoryMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCategoryMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCategoryMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCategoryMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCategoryMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCategoryMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCategoryMgr_abi(
@@ -2735,7 +3595,7 @@ pub struct ITfCategoryMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCleanupContextDurationSink(::windows::runtime::IUnknown);
 impl ITfCleanupContextDurationSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2751,6 +3611,26 @@ unsafe impl ::windows::runtime::Interface for ITfCleanupContextDurationSink {
     type Vtable = ITfCleanupContextDurationSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1170428228, 5454, 18327, [190, 216, 211, 58, 231, 191, 135, 148]);
 }
+impl ::std::convert::From<ITfCleanupContextDurationSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCleanupContextDurationSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCleanupContextDurationSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCleanupContextDurationSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCleanupContextDurationSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCleanupContextDurationSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCleanupContextDurationSink_abi(
@@ -2762,7 +3642,7 @@ pub struct ITfCleanupContextDurationSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCleanupContextSink(::windows::runtime::IUnknown);
 impl ITfCleanupContextSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2774,6 +3654,26 @@ unsafe impl ::windows::runtime::Interface for ITfCleanupContextSink {
     type Vtable = ITfCleanupContextSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(23631497, 31435, 20123, [171, 124, 126, 164, 107, 18, 181, 34]);
 }
+impl ::std::convert::From<ITfCleanupContextSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCleanupContextSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCleanupContextSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCleanupContextSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCleanupContextSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCleanupContextSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCleanupContextSink_abi(
@@ -2784,7 +3684,7 @@ pub struct ITfCleanupContextSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfClientId(::windows::runtime::IUnknown);
 impl ITfClientId {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2797,6 +3697,26 @@ unsafe impl ::windows::runtime::Interface for ITfClientId {
     type Vtable = ITfClientId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3591011145, 7071, 19426, [183, 2, 71, 233, 220, 5, 222, 195]);
 }
+impl ::std::convert::From<ITfClientId> for ::windows::runtime::IUnknown {
+    fn from(value: ITfClientId) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfClientId> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfClientId) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfClientId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfClientId {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfClientId_abi(
@@ -2807,7 +3727,7 @@ pub struct ITfClientId_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompartment(::windows::runtime::IUnknown);
 impl ITfCompartment {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -2826,6 +3746,26 @@ unsafe impl ::windows::runtime::Interface for ITfCompartment {
     type Vtable = ITfCompartment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137927081, 24698, 17284, [134, 35, 5, 104, 146, 182, 67, 113]);
 }
+impl ::std::convert::From<ITfCompartment> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCompartment) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCompartment> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCompartment) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCompartment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCompartment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompartment_abi(
@@ -2839,7 +3779,7 @@ pub struct ITfCompartment_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompartmentEventSink(::windows::runtime::IUnknown);
 impl ITfCompartmentEventSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2851,6 +3791,26 @@ unsafe impl ::windows::runtime::Interface for ITfCompartmentEventSink {
     type Vtable = ITfCompartmentEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950006623, 62061, 18655, [140, 197, 35, 132, 146, 65, 155, 100]);
 }
+impl ::std::convert::From<ITfCompartmentEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCompartmentEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCompartmentEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCompartmentEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCompartmentEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCompartmentEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompartmentEventSink_abi(
@@ -2861,7 +3821,7 @@ pub struct ITfCompartmentEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompartmentMgr(::windows::runtime::IUnknown);
 impl ITfCompartmentMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2884,6 +3844,26 @@ unsafe impl ::windows::runtime::Interface for ITfCompartmentMgr {
     type Vtable = ITfCompartmentMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2110740396, 6317, 17291, [130, 77, 151, 155, 255, 183, 75, 124]);
 }
+impl ::std::convert::From<ITfCompartmentMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCompartmentMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCompartmentMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCompartmentMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCompartmentMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCompartmentMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompartmentMgr_abi(
@@ -2897,7 +3877,7 @@ pub struct ITfCompartmentMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfComposition(::windows::runtime::IUnknown);
 impl ITfComposition {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2922,6 +3902,26 @@ unsafe impl ::windows::runtime::Interface for ITfComposition {
     type Vtable = ITfComposition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(538348900, 23183, 19034, [183, 189, 207, 162, 159, 77, 15, 217]);
 }
+impl ::std::convert::From<ITfComposition> for ::windows::runtime::IUnknown {
+    fn from(value: ITfComposition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfComposition> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfComposition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfComposition_abi(
@@ -2935,7 +3935,7 @@ pub struct ITfComposition_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompositionSink(::windows::runtime::IUnknown);
 impl ITfCompositionSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2947,6 +3947,26 @@ unsafe impl ::windows::runtime::Interface for ITfCompositionSink {
     type Vtable = ITfCompositionSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2810278284, 22426, 19221, [162, 128, 50, 184, 87, 122, 204, 94]);
 }
+impl ::std::convert::From<ITfCompositionSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCompositionSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCompositionSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCompositionSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCompositionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCompositionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompositionSink_abi(
@@ -2957,7 +3977,7 @@ pub struct ITfCompositionSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompositionView(::windows::runtime::IUnknown);
 impl ITfCompositionView {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -2975,6 +3995,26 @@ unsafe impl ::windows::runtime::Interface for ITfCompositionView {
     type Vtable = ITfCompositionView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3612607041, 63905, 17252, [190, 252, 219, 205, 44, 67, 149, 183]);
 }
+impl ::std::convert::From<ITfCompositionView> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCompositionView) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCompositionView> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCompositionView) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCompositionView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCompositionView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCompositionView_abi(
@@ -2986,7 +4026,7 @@ pub struct ITfCompositionView_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfConfigureSystemKeystrokeFeed(::windows::runtime::IUnknown);
 impl ITfConfigureSystemKeystrokeFeed {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3002,6 +4042,26 @@ unsafe impl ::windows::runtime::Interface for ITfConfigureSystemKeystrokeFeed {
     type Vtable = ITfConfigureSystemKeystrokeFeed_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(221025946, 48284, 17276, [132, 238, 149, 28, 73, 177, 167, 100]);
 }
+impl ::std::convert::From<ITfConfigureSystemKeystrokeFeed> for ::windows::runtime::IUnknown {
+    fn from(value: ITfConfigureSystemKeystrokeFeed) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfConfigureSystemKeystrokeFeed> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfConfigureSystemKeystrokeFeed) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfConfigureSystemKeystrokeFeed {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfConfigureSystemKeystrokeFeed {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfConfigureSystemKeystrokeFeed_abi(
@@ -3013,7 +4073,7 @@ pub struct ITfConfigureSystemKeystrokeFeed_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContext(::windows::runtime::IUnknown);
 impl ITfContext {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3097,6 +4157,26 @@ unsafe impl ::windows::runtime::Interface for ITfContext {
     type Vtable = ITfContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574717, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfContext> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContext> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContext_abi(
@@ -3124,7 +4204,7 @@ pub struct ITfContext_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextComposition(::windows::runtime::IUnknown);
 impl ITfContextComposition {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3152,6 +4232,26 @@ unsafe impl ::windows::runtime::Interface for ITfContextComposition {
     type Vtable = ITfContextComposition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557591726, 44178, 20423, [154, 17, 14, 224, 226, 58, 163, 155]);
 }
+impl ::std::convert::From<ITfContextComposition> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextComposition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextComposition> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextComposition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextComposition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextComposition_abi(
@@ -3165,7 +4265,7 @@ pub struct ITfContextComposition_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextKeyEventSink(::windows::runtime::IUnknown);
 impl ITfContextKeyEventSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -3197,6 +4297,26 @@ unsafe impl ::windows::runtime::Interface for ITfContextKeyEventSink {
     type Vtable = ITfContextKeyEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89307741, 51253, 18740, [191, 80, 132, 106, 170, 103, 67, 47]);
 }
+impl ::std::convert::From<ITfContextKeyEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextKeyEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextKeyEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextKeyEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextKeyEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextKeyEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextKeyEventSink_abi(
@@ -3214,7 +4334,7 @@ pub struct ITfContextKeyEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwner(::windows::runtime::IUnknown);
 impl ITfContextOwner {
     #[cfg(feature = "Win32_Foundation")]
@@ -3256,6 +4376,26 @@ unsafe impl ::windows::runtime::Interface for ITfContextOwner {
     type Vtable = ITfContextOwner_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574732, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfContextOwner> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextOwner) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextOwner> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextOwner) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextOwner {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextOwner {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextOwner_abi(
@@ -3276,7 +4416,7 @@ pub struct ITfContextOwner_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwnerCompositionServices(::windows::runtime::IUnknown);
 impl ITfContextOwnerCompositionServices {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3307,6 +4447,26 @@ impl ITfContextOwnerCompositionServices {
 unsafe impl ::windows::runtime::Interface for ITfContextOwnerCompositionServices {
     type Vtable = ITfContextOwnerCompositionServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252744720, 22843, 18710, [151, 100, 25, 192, 142, 156, 225, 16]);
+}
+impl ::std::convert::From<ITfContextOwnerCompositionServices> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextOwnerCompositionServices) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextOwnerCompositionServices> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextOwnerCompositionServices) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextOwnerCompositionServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextOwnerCompositionServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfContextOwnerCompositionServices> for ITfContextComposition {
     fn from(value: ITfContextOwnerCompositionServices) -> Self {
@@ -3342,7 +4502,7 @@ pub struct ITfContextOwnerCompositionServices_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwnerCompositionSink(::windows::runtime::IUnknown);
 impl ITfContextOwnerCompositionSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -3364,6 +4524,26 @@ unsafe impl ::windows::runtime::Interface for ITfContextOwnerCompositionSink {
     type Vtable = ITfContextOwnerCompositionSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1595976256, 46458, 20276, [150, 171, 53, 118, 243, 119, 204, 121]);
 }
+impl ::std::convert::From<ITfContextOwnerCompositionSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextOwnerCompositionSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextOwnerCompositionSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextOwnerCompositionSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextOwnerCompositionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextOwnerCompositionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextOwnerCompositionSink_abi(
@@ -3377,7 +4557,7 @@ pub struct ITfContextOwnerCompositionSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwnerServices(::windows::runtime::IUnknown);
 impl ITfContextOwnerServices {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3416,6 +4596,26 @@ unsafe impl ::windows::runtime::Interface for ITfContextOwnerServices {
     type Vtable = ITfContextOwnerServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990454320, 15900, 4563, [167, 69, 0, 80, 4, 10, 180, 7]);
 }
+impl ::std::convert::From<ITfContextOwnerServices> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextOwnerServices) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextOwnerServices> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextOwnerServices) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextOwnerServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextOwnerServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextOwnerServices_abi(
@@ -3434,7 +4634,7 @@ pub struct ITfContextOwnerServices_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextView(::windows::runtime::IUnknown);
 impl ITfContextView {
     #[cfg(feature = "Win32_Foundation")]
@@ -3465,6 +4665,26 @@ unsafe impl ::windows::runtime::Interface for ITfContextView {
     type Vtable = ITfContextView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607371150, 3995, 17244, [186, 44, 24, 6, 17, 151, 140, 48]);
 }
+impl ::std::convert::From<ITfContextView> for ::windows::runtime::IUnknown {
+    fn from(value: ITfContextView) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfContextView> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfContextView) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfContextView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfContextView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfContextView_abi(
@@ -3482,7 +4702,7 @@ pub struct ITfContextView_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCreatePropertyStore(::windows::runtime::IUnknown);
 impl ITfCreatePropertyStore {
     #[cfg(feature = "Win32_Foundation")]
@@ -3502,6 +4722,26 @@ unsafe impl ::windows::runtime::Interface for ITfCreatePropertyStore {
     type Vtable = ITfCreatePropertyStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610532336, 45231, 4562, [175, 197, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfCreatePropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: ITfCreatePropertyStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfCreatePropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfCreatePropertyStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfCreatePropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfCreatePropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfCreatePropertyStore_abi(
@@ -3515,7 +4755,7 @@ pub struct ITfCreatePropertyStore_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeInfo(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeInfo {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3549,6 +4789,26 @@ unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeInfo {
     type Vtable = ITfDisplayAttributeInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884457042, 12070, 19178, [140, 150, 33, 81, 80, 87, 137, 50]);
 }
+impl ::std::convert::From<ITfDisplayAttributeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ITfDisplayAttributeInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfDisplayAttributeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfDisplayAttributeInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfDisplayAttributeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfDisplayAttributeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeInfo_abi(
@@ -3566,7 +4826,7 @@ pub struct ITfDisplayAttributeInfo_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeMgr(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3587,6 +4847,26 @@ unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeMgr {
     type Vtable = ITfDisplayAttributeMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2381149075, 23985, 18268, [158, 113, 163, 145, 17, 176, 255, 103]);
 }
+impl ::std::convert::From<ITfDisplayAttributeMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfDisplayAttributeMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfDisplayAttributeMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfDisplayAttributeMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfDisplayAttributeMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfDisplayAttributeMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeMgr_abi(
@@ -3599,7 +4879,7 @@ pub struct ITfDisplayAttributeMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeNotifySink(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeNotifySink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3611,6 +4891,26 @@ unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeNotifySink {
     type Vtable = ITfDisplayAttributeNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908156930, 57698, 20261, [144, 143, 125, 87, 124, 249, 189, 169]);
 }
+impl ::std::convert::From<ITfDisplayAttributeNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfDisplayAttributeNotifySink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfDisplayAttributeNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfDisplayAttributeNotifySink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfDisplayAttributeNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfDisplayAttributeNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeNotifySink_abi(
@@ -3621,7 +4921,7 @@ pub struct ITfDisplayAttributeNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeProvider(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeProvider {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3639,6 +4939,26 @@ unsafe impl ::windows::runtime::Interface for ITfDisplayAttributeProvider {
     type Vtable = ITfDisplayAttributeProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276385655, 5692, 18281, [153, 106, 110, 156, 80, 173, 143, 84]);
 }
+impl ::std::convert::From<ITfDisplayAttributeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITfDisplayAttributeProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfDisplayAttributeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfDisplayAttributeProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfDisplayAttributeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfDisplayAttributeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDisplayAttributeProvider_abi(
@@ -3650,7 +4970,7 @@ pub struct ITfDisplayAttributeProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDocumentMgr(::windows::runtime::IUnknown);
 impl ITfDocumentMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3685,6 +5005,26 @@ unsafe impl ::windows::runtime::Interface for ITfDocumentMgr {
     type Vtable = ITfDocumentMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574708, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfDocumentMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfDocumentMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfDocumentMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfDocumentMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfDocumentMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfDocumentMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfDocumentMgr_abi(
@@ -3700,7 +5040,7 @@ pub struct ITfDocumentMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfEditRecord(::windows::runtime::IUnknown);
 impl ITfEditRecord {
     #[cfg(feature = "Win32_Foundation")]
@@ -3719,6 +5059,26 @@ unsafe impl ::windows::runtime::Interface for ITfEditRecord {
     type Vtable = ITfEditRecord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1121243289, 31770, 19081, [184, 54, 108, 111, 34, 22, 13, 240]);
 }
+impl ::std::convert::From<ITfEditRecord> for ::windows::runtime::IUnknown {
+    fn from(value: ITfEditRecord) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfEditRecord> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfEditRecord) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfEditRecord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfEditRecord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfEditRecord_abi(
@@ -3731,7 +5091,7 @@ pub struct ITfEditRecord_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfEditSession(::windows::runtime::IUnknown);
 impl ITfEditSession {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3743,6 +5103,26 @@ unsafe impl ::windows::runtime::Interface for ITfEditSession {
     type Vtable = ITfEditSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574723, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfEditSession> for ::windows::runtime::IUnknown {
+    fn from(value: ITfEditSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfEditSession> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfEditSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfEditSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfEditSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfEditSession_abi(
@@ -3753,7 +5133,7 @@ pub struct ITfEditSession_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfEditTransactionSink(::windows::runtime::IUnknown);
 impl ITfEditTransactionSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -3769,6 +5149,26 @@ unsafe impl ::windows::runtime::Interface for ITfEditTransactionSink {
     type Vtable = ITfEditTransactionSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1888468848, 46368, 16747, [176, 108, 44, 65, 171, 68, 248, 186]);
 }
+impl ::std::convert::From<ITfEditTransactionSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfEditTransactionSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfEditTransactionSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfEditTransactionSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfEditTransactionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfEditTransactionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfEditTransactionSink_abi(
@@ -3780,7 +5180,7 @@ pub struct ITfEditTransactionSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnAdviseText(::windows::runtime::IUnknown);
 impl ITfFnAdviseText {
     #[cfg(feature = "Win32_Foundation")]
@@ -3802,6 +5202,26 @@ impl ITfFnAdviseText {
 unsafe impl ::windows::runtime::Interface for ITfFnAdviseText {
     type Vtable = ITfFnAdviseText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(891758219, 32083, 19929, [146, 183, 114, 150, 174, 70, 18, 73]);
+}
+impl ::std::convert::From<ITfFnAdviseText> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnAdviseText) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnAdviseText> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnAdviseText) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnAdviseText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnAdviseText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnAdviseText> for ITfFunction {
     fn from(value: ITfFnAdviseText) -> Self {
@@ -3837,7 +5257,7 @@ pub struct ITfFnAdviseText_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnBalloon(::windows::runtime::IUnknown);
 impl ITfFnBalloon {
     #[cfg(feature = "Win32_Foundation")]
@@ -3850,6 +5270,26 @@ unsafe impl ::windows::runtime::Interface for ITfFnBalloon {
     type Vtable = ITfFnBalloon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001097700, 24510, 17908, [165, 188, 220, 163, 106, 210, 37, 168]);
 }
+impl ::std::convert::From<ITfFnBalloon> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnBalloon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnBalloon> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnBalloon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnBalloon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnBalloon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFnBalloon_abi(
@@ -3861,7 +5301,7 @@ pub struct ITfFnBalloon_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnConfigure(::windows::runtime::IUnknown);
 impl ITfFnConfigure {
     #[cfg(feature = "Win32_Foundation")]
@@ -3879,6 +5319,26 @@ impl ITfFnConfigure {
 unsafe impl ::windows::runtime::Interface for ITfFnConfigure {
     type Vtable = ITfFnConfigure_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297784262, 5975, 18936, [161, 178, 137, 35, 76, 30, 239, 249]);
+}
+impl ::std::convert::From<ITfFnConfigure> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnConfigure) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnConfigure> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnConfigure) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnConfigure {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnConfigure {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnConfigure> for ITfFunction {
     fn from(value: ITfFnConfigure) -> Self {
@@ -3913,7 +5373,7 @@ pub struct ITfFnConfigure_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnConfigureRegisterEudc(::windows::runtime::IUnknown);
 impl ITfFnConfigureRegisterEudc {
     #[cfg(feature = "Win32_Foundation")]
@@ -3931,6 +5391,26 @@ impl ITfFnConfigureRegisterEudc {
 unsafe impl ::windows::runtime::Interface for ITfFnConfigureRegisterEudc {
     type Vtable = ITfFnConfigureRegisterEudc_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051515893, 55213, 17156, [145, 63, 33, 162, 237, 149, 161, 176]);
+}
+impl ::std::convert::From<ITfFnConfigureRegisterEudc> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnConfigureRegisterEudc) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnConfigureRegisterEudc> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnConfigureRegisterEudc) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnConfigureRegisterEudc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnConfigureRegisterEudc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnConfigureRegisterEudc> for ITfFunction {
     fn from(value: ITfFnConfigureRegisterEudc) -> Self {
@@ -3965,7 +5445,7 @@ pub struct ITfFnConfigureRegisterEudc_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnConfigureRegisterWord(::windows::runtime::IUnknown);
 impl ITfFnConfigureRegisterWord {
     #[cfg(feature = "Win32_Foundation")]
@@ -3983,6 +5463,26 @@ impl ITfFnConfigureRegisterWord {
 unsafe impl ::windows::runtime::Interface for ITfFnConfigureRegisterWord {
     type Vtable = ITfFnConfigureRegisterWord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3147137162, 28047, 19402, [132, 0, 83, 144, 181, 134, 174, 223]);
+}
+impl ::std::convert::From<ITfFnConfigureRegisterWord> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnConfigureRegisterWord) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnConfigureRegisterWord> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnConfigureRegisterWord) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnConfigureRegisterWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnConfigureRegisterWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnConfigureRegisterWord> for ITfFunction {
     fn from(value: ITfFnConfigureRegisterWord) -> Self {
@@ -4017,7 +5517,7 @@ pub struct ITfFnConfigureRegisterWord_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnCustomSpeechCommand(::windows::runtime::IUnknown);
 impl ITfFnCustomSpeechCommand {
     #[cfg(feature = "Win32_Foundation")]
@@ -4034,6 +5534,26 @@ impl ITfFnCustomSpeechCommand {
 unsafe impl ::windows::runtime::Interface for ITfFnCustomSpeechCommand {
     type Vtable = ITfFnCustomSpeechCommand_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238787401, 41263, 17315, [141, 214, 90, 90, 66, 130, 87, 123]);
+}
+impl ::std::convert::From<ITfFnCustomSpeechCommand> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnCustomSpeechCommand) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnCustomSpeechCommand> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnCustomSpeechCommand) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnCustomSpeechCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnCustomSpeechCommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnCustomSpeechCommand> for ITfFunction {
     fn from(value: ITfFnCustomSpeechCommand) -> Self {
@@ -4067,7 +5587,7 @@ pub struct ITfFnCustomSpeechCommand_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnGetLinguisticAlternates(::windows::runtime::IUnknown);
 impl ITfFnGetLinguisticAlternates {
     #[cfg(feature = "Win32_Foundation")]
@@ -4085,6 +5605,26 @@ impl ITfFnGetLinguisticAlternates {
 unsafe impl ::windows::runtime::Interface for ITfFnGetLinguisticAlternates {
     type Vtable = ITfFnGetLinguisticAlternates_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927325922, 31333, 17670, [130, 163, 197, 40, 33, 93, 166, 78]);
+}
+impl ::std::convert::From<ITfFnGetLinguisticAlternates> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnGetLinguisticAlternates) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnGetLinguisticAlternates> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnGetLinguisticAlternates) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnGetLinguisticAlternates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnGetLinguisticAlternates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnGetLinguisticAlternates> for ITfFunction {
     fn from(value: ITfFnGetLinguisticAlternates) -> Self {
@@ -4118,7 +5658,7 @@ pub struct ITfFnGetLinguisticAlternates_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnGetPreferredTouchKeyboardLayout(::windows::runtime::IUnknown);
 impl ITfFnGetPreferredTouchKeyboardLayout {
     #[cfg(feature = "Win32_Foundation")]
@@ -4135,6 +5675,26 @@ impl ITfFnGetPreferredTouchKeyboardLayout {
 unsafe impl ::windows::runtime::Interface for ITfFnGetPreferredTouchKeyboardLayout {
     type Vtable = ITfFnGetPreferredTouchKeyboardLayout_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1597020737, 22794, 19148, [169, 127, 216, 239, 255, 19, 253, 252]);
+}
+impl ::std::convert::From<ITfFnGetPreferredTouchKeyboardLayout> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnGetPreferredTouchKeyboardLayout) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnGetPreferredTouchKeyboardLayout> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnGetPreferredTouchKeyboardLayout) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnGetPreferredTouchKeyboardLayout {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnGetPreferredTouchKeyboardLayout {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnGetPreferredTouchKeyboardLayout> for ITfFunction {
     fn from(value: ITfFnGetPreferredTouchKeyboardLayout) -> Self {
@@ -4168,7 +5728,7 @@ pub struct ITfFnGetPreferredTouchKeyboardLayout_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnGetSAPIObject(::windows::runtime::IUnknown);
 impl ITfFnGetSAPIObject {
     #[cfg(feature = "Win32_Foundation")]
@@ -4186,6 +5746,26 @@ impl ITfFnGetSAPIObject {
 unsafe impl ::windows::runtime::Interface for ITfFnGetSAPIObject {
     type Vtable = ITfFnGetSAPIObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1544206314, 5757, 20313, [191, 181, 70, 147, 117, 94, 144, 202]);
+}
+impl ::std::convert::From<ITfFnGetSAPIObject> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnGetSAPIObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnGetSAPIObject> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnGetSAPIObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnGetSAPIObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnGetSAPIObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnGetSAPIObject> for ITfFunction {
     fn from(value: ITfFnGetSAPIObject) -> Self {
@@ -4219,7 +5799,7 @@ pub struct ITfFnGetSAPIObject_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnLMInternal(::windows::runtime::IUnknown);
 impl ITfFnLMInternal {
     #[cfg(feature = "Win32_Foundation")]
@@ -4271,6 +5851,26 @@ impl ITfFnLMInternal {
 unsafe impl ::windows::runtime::Interface for ITfFnLMInternal {
     type Vtable = ITfFnLMInternal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(79177137, 44186, 20347, [181, 173, 199, 22, 143, 30, 228, 69]);
+}
+impl ::std::convert::From<ITfFnLMInternal> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnLMInternal) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnLMInternal> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnLMInternal) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnLMInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnLMInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnLMInternal> for ITfFnLMProcessor {
     fn from(value: ITfFnLMInternal) -> Self {
@@ -4335,7 +5935,7 @@ pub struct ITfFnLMInternal_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnLMProcessor(::windows::runtime::IUnknown);
 impl ITfFnLMProcessor {
     #[cfg(feature = "Win32_Foundation")]
@@ -4384,6 +5984,26 @@ unsafe impl ::windows::runtime::Interface for ITfFnLMProcessor {
     type Vtable = ITfFnLMProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2063333607, 44107, 16514, [176, 88, 137, 8, 153, 211, 160, 16]);
 }
+impl ::std::convert::From<ITfFnLMProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnLMProcessor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnLMProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnLMProcessor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnLMProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnLMProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfFnLMProcessor> for ITfFunction {
     fn from(value: ITfFnLMProcessor) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4426,7 +6046,7 @@ pub struct ITfFnLMProcessor_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnLangProfileUtil(::windows::runtime::IUnknown);
 impl ITfFnLangProfileUtil {
     #[cfg(feature = "Win32_Foundation")]
@@ -4449,6 +6069,26 @@ impl ITfFnLangProfileUtil {
 unsafe impl ::windows::runtime::Interface for ITfFnLangProfileUtil {
     type Vtable = ITfFnLangProfileUtil_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826601844, 42689, 19989, [153, 240, 61, 57, 101, 245, 72, 235]);
+}
+impl ::std::convert::From<ITfFnLangProfileUtil> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnLangProfileUtil) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnLangProfileUtil> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnLangProfileUtil) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnLangProfileUtil {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnLangProfileUtil {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnLangProfileUtil> for ITfFunction {
     fn from(value: ITfFnLangProfileUtil) -> Self {
@@ -4484,7 +6124,7 @@ pub struct ITfFnLangProfileUtil_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnPlayBack(::windows::runtime::IUnknown);
 impl ITfFnPlayBack {
     #[cfg(feature = "Win32_Foundation")]
@@ -4506,6 +6146,26 @@ impl ITfFnPlayBack {
 unsafe impl ::windows::runtime::Interface for ITfFnPlayBack {
     type Vtable = ITfFnPlayBack_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745439908, 3940, 4563, [181, 183, 0, 192, 79, 195, 36, 161]);
+}
+impl ::std::convert::From<ITfFnPlayBack> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnPlayBack) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnPlayBack> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnPlayBack) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnPlayBack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnPlayBack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnPlayBack> for ITfFunction {
     fn from(value: ITfFnPlayBack) -> Self {
@@ -4541,7 +6201,7 @@ pub struct ITfFnPlayBack_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnPropertyUIStatus(::windows::runtime::IUnknown);
 impl ITfFnPropertyUIStatus {
     #[cfg(feature = "Win32_Foundation")]
@@ -4563,6 +6223,26 @@ impl ITfFnPropertyUIStatus {
 unsafe impl ::windows::runtime::Interface for ITfFnPropertyUIStatus {
     type Vtable = ITfFnPropertyUIStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(590916718, 11165, 17600, [167, 94, 238, 100, 242, 86, 179, 189]);
+}
+impl ::std::convert::From<ITfFnPropertyUIStatus> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnPropertyUIStatus) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnPropertyUIStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnPropertyUIStatus) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnPropertyUIStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnPropertyUIStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnPropertyUIStatus> for ITfFunction {
     fn from(value: ITfFnPropertyUIStatus) -> Self {
@@ -4597,7 +6277,7 @@ pub struct ITfFnPropertyUIStatus_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnReconversion(::windows::runtime::IUnknown);
 impl ITfFnReconversion {
     #[cfg(feature = "Win32_Foundation")]
@@ -4624,6 +6304,26 @@ impl ITfFnReconversion {
 unsafe impl ::windows::runtime::Interface for ITfFnReconversion {
     type Vtable = ITfFnReconversion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290441664, 2648, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
+}
+impl ::std::convert::From<ITfFnReconversion> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnReconversion) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnReconversion> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnReconversion) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnReconversion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnReconversion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnReconversion> for ITfFunction {
     fn from(value: ITfFnReconversion) -> Self {
@@ -4660,7 +6360,7 @@ pub struct ITfFnReconversion_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnSearchCandidateProvider(::windows::runtime::IUnknown);
 impl ITfFnSearchCandidateProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -4684,6 +6384,26 @@ impl ITfFnSearchCandidateProvider {
 unsafe impl ::windows::runtime::Interface for ITfFnSearchCandidateProvider {
     type Vtable = ITfFnSearchCandidateProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275585423, 62075, 18720, [133, 1, 103, 96, 34, 128, 23, 93]);
+}
+impl ::std::convert::From<ITfFnSearchCandidateProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnSearchCandidateProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnSearchCandidateProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnSearchCandidateProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnSearchCandidateProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnSearchCandidateProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnSearchCandidateProvider> for ITfFunction {
     fn from(value: ITfFnSearchCandidateProvider) -> Self {
@@ -4720,7 +6440,7 @@ pub struct ITfFnSearchCandidateProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnShowHelp(::windows::runtime::IUnknown);
 impl ITfFnShowHelp {
     #[cfg(feature = "Win32_Foundation")]
@@ -4738,6 +6458,26 @@ impl ITfFnShowHelp {
 unsafe impl ::windows::runtime::Interface for ITfFnShowHelp {
     type Vtable = ITfFnShowHelp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1521603340, 2381, 19497, [142, 165, 11, 245, 155, 232, 123, 243]);
+}
+impl ::std::convert::From<ITfFnShowHelp> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFnShowHelp) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFnShowHelp> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFnShowHelp) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFnShowHelp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFnShowHelp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfFnShowHelp> for ITfFunction {
     fn from(value: ITfFnShowHelp) -> Self {
@@ -4772,7 +6512,7 @@ pub struct ITfFnShowHelp_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFunction(::windows::runtime::IUnknown);
 impl ITfFunction {
     #[cfg(feature = "Win32_Foundation")]
@@ -4786,6 +6526,26 @@ unsafe impl ::windows::runtime::Interface for ITfFunction {
     type Vtable = ITfFunction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680056464, 2447, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfFunction> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFunction) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFunction> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFunction) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFunction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFunction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFunction_abi(
@@ -4797,7 +6557,7 @@ pub struct ITfFunction_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFunctionProvider(::windows::runtime::IUnknown);
 impl ITfFunctionProvider {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -4821,6 +6581,26 @@ unsafe impl ::windows::runtime::Interface for ITfFunctionProvider {
     type Vtable = ITfFunctionProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(270362128, 2448, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfFunctionProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ITfFunctionProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfFunctionProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfFunctionProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfFunctionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfFunctionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfFunctionProvider_abi(
@@ -4834,7 +6614,7 @@ pub struct ITfFunctionProvider_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfileActivationSink(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfileActivationSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -4846,6 +6626,26 @@ unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfileActivation
     type Vtable = ITfInputProcessorProfileActivationSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908860750, 3880, 4568, [168, 42, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfInputProcessorProfileActivationSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputProcessorProfileActivationSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputProcessorProfileActivationSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputProcessorProfileActivationSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputProcessorProfileActivationSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputProcessorProfileActivationSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileActivationSink_abi(
@@ -4856,7 +6656,7 @@ pub struct ITfInputProcessorProfileActivationSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfileMgr(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfileMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -4929,6 +6729,26 @@ unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfileMgr {
     type Vtable = ITfInputProcessorProfileMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1908860748, 3880, 4568, [168, 42, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfInputProcessorProfileMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputProcessorProfileMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputProcessorProfileMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputProcessorProfileMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputProcessorProfileMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputProcessorProfileMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileMgr_abi(
@@ -4947,7 +6767,7 @@ pub struct ITfInputProcessorProfileMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfileSubstituteLayout(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfileSubstituteLayout {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -4960,6 +6780,26 @@ unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfileSubstitute
     type Vtable = ITfInputProcessorProfileSubstituteLayout_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1339453844, 4098, 17683, [191, 242, 192, 221, 246, 37, 133, 82]);
 }
+impl ::std::convert::From<ITfInputProcessorProfileSubstituteLayout> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputProcessorProfileSubstituteLayout) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputProcessorProfileSubstituteLayout> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputProcessorProfileSubstituteLayout) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputProcessorProfileSubstituteLayout {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputProcessorProfileSubstituteLayout {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputProcessorProfileSubstituteLayout_abi(
@@ -4970,7 +6810,7 @@ pub struct ITfInputProcessorProfileSubstituteLayout_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfiles(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfiles {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5061,6 +6901,26 @@ unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfiles {
     type Vtable = ITfInputProcessorProfiles_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520271557, 30786, 20198, [138, 11, 154, 36, 24, 58, 149, 202]);
 }
+impl ::std::convert::From<ITfInputProcessorProfiles> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputProcessorProfiles) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputProcessorProfiles> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputProcessorProfiles) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputProcessorProfiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputProcessorProfiles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputProcessorProfiles_abi(
@@ -5094,7 +6954,7 @@ pub struct ITfInputProcessorProfiles_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfilesEx(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfilesEx {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5190,6 +7050,26 @@ unsafe impl ::windows::runtime::Interface for ITfInputProcessorProfilesEx {
     type Vtable = ITfInputProcessorProfilesEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2301567759, 65024, 19009, [169, 142, 252, 214, 222, 13, 53, 239]);
 }
+impl ::std::convert::From<ITfInputProcessorProfilesEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputProcessorProfilesEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputProcessorProfilesEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputProcessorProfilesEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputProcessorProfilesEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputProcessorProfilesEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfInputProcessorProfilesEx> for ITfInputProcessorProfiles {
     fn from(value: ITfInputProcessorProfilesEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5245,7 +7125,7 @@ pub struct ITfInputProcessorProfilesEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputScope(::windows::runtime::IUnknown);
 impl ITfInputScope {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5280,6 +7160,26 @@ unsafe impl ::windows::runtime::Interface for ITfInputScope {
     type Vtable = ITfInputScope_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259441390, 26916, 19679, [145, 231, 218, 56, 207, 245, 85, 157]);
 }
+impl ::std::convert::From<ITfInputScope> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputScope) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputScope> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputScope) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputScope {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputScope {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInputScope_abi(
@@ -5298,7 +7198,7 @@ pub struct ITfInputScope_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputScope2(::windows::runtime::IUnknown);
 impl ITfInputScope2 {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5338,6 +7238,26 @@ impl ITfInputScope2 {
 unsafe impl ::windows::runtime::Interface for ITfInputScope2 {
     type Vtable = ITfInputScope2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1462889120, 27586, 18049, [165, 50, 146, 251, 183, 77, 124, 65]);
+}
+impl ::std::convert::From<ITfInputScope2> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInputScope2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInputScope2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInputScope2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInputScope2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInputScope2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfInputScope2> for ITfInputScope {
     fn from(value: ITfInputScope2) -> Self {
@@ -5379,7 +7299,7 @@ pub struct ITfInputScope2_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInsertAtSelection(::windows::runtime::IUnknown);
 impl ITfInsertAtSelection {
     #[cfg(feature = "Win32_Foundation")]
@@ -5399,6 +7319,26 @@ unsafe impl ::windows::runtime::Interface for ITfInsertAtSelection {
     type Vtable = ITfInsertAtSelection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1439569594, 12308, 16833, [156, 235, 250, 222, 20, 70, 172, 108]);
 }
+impl ::std::convert::From<ITfInsertAtSelection> for ::windows::runtime::IUnknown {
+    fn from(value: ITfInsertAtSelection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfInsertAtSelection> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfInsertAtSelection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfInsertAtSelection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfInsertAtSelection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfInsertAtSelection_abi(
@@ -5412,7 +7352,7 @@ pub struct ITfInsertAtSelection_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfIntegratableCandidateListUIElement(::windows::runtime::IUnknown);
 impl ITfIntegratableCandidateListUIElement {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5445,6 +7385,26 @@ unsafe impl ::windows::runtime::Interface for ITfIntegratableCandidateListUIElem
     type Vtable = ITfIntegratableCandidateListUIElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349607759, 45440, 16751, [178, 191, 123, 242, 228, 104, 61, 123]);
 }
+impl ::std::convert::From<ITfIntegratableCandidateListUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: ITfIntegratableCandidateListUIElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfIntegratableCandidateListUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfIntegratableCandidateListUIElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfIntegratableCandidateListUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfIntegratableCandidateListUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfIntegratableCandidateListUIElement_abi(
@@ -5461,7 +7421,7 @@ pub struct ITfIntegratableCandidateListUIElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfKeyEventSink(::windows::runtime::IUnknown);
 impl ITfKeyEventSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -5504,6 +7464,26 @@ unsafe impl ::windows::runtime::Interface for ITfKeyEventSink {
     type Vtable = ITfKeyEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574709, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfKeyEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfKeyEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfKeyEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfKeyEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfKeyEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfKeyEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfKeyEventSink_abi(
@@ -5525,7 +7505,7 @@ pub struct ITfKeyEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfKeyTraceEventSink(::windows::runtime::IUnknown);
 impl ITfKeyTraceEventSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -5543,6 +7523,26 @@ unsafe impl ::windows::runtime::Interface for ITfKeyTraceEventSink {
     type Vtable = ITfKeyTraceEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483705147, 7222, 16785, [167, 10, 127, 62, 97, 31, 54, 125]);
 }
+impl ::std::convert::From<ITfKeyTraceEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfKeyTraceEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfKeyTraceEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfKeyTraceEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfKeyTraceEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfKeyTraceEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfKeyTraceEventSink_abi(
@@ -5556,7 +7556,7 @@ pub struct ITfKeyTraceEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfKeystrokeMgr(::windows::runtime::IUnknown);
 impl ITfKeystrokeMgr {
     #[cfg(feature = "Win32_Foundation")]
@@ -5639,6 +7639,26 @@ unsafe impl ::windows::runtime::Interface for ITfKeystrokeMgr {
     type Vtable = ITfKeystrokeMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574704, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfKeystrokeMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfKeystrokeMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfKeystrokeMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfKeystrokeMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfKeystrokeMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfKeystrokeMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfKeystrokeMgr_abi(
@@ -5672,7 +7692,7 @@ pub struct ITfKeystrokeMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLMLattice(::windows::runtime::IUnknown);
 impl ITfLMLattice {
     #[cfg(feature = "Win32_Foundation")]
@@ -5691,6 +7711,26 @@ unsafe impl ::windows::runtime::Interface for ITfLMLattice {
     type Vtable = ITfLMLattice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559089781, 42431, 17776, [157, 66, 93, 109, 123, 2, 213, 155]);
 }
+impl ::std::convert::From<ITfLMLattice> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLMLattice) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLMLattice> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLMLattice) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLMLattice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLMLattice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLMLattice_abi(
@@ -5703,7 +7743,7 @@ pub struct ITfLMLattice_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarEventSink(::windows::runtime::IUnknown);
 impl ITfLangBarEventSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5738,6 +7778,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarEventSink {
     type Vtable = ITfLangBarEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(413460736, 57518, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfLangBarEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarEventSink_abi(
@@ -5755,7 +7815,7 @@ pub struct ITfLangBarEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItem(::windows::runtime::IUnknown);
 impl ITfLangBarItem {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5784,6 +7844,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItem {
     type Vtable = ITfLangBarItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1934888297, 60907, 20201, [150, 201, 35, 170, 48, 178, 89, 22]);
 }
+impl ::std::convert::From<ITfLangBarItem> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarItem_abi(
@@ -5799,7 +7879,7 @@ pub struct ITfLangBarItem_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemBalloon(::windows::runtime::IUnknown);
 impl ITfLangBarItemBalloon {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5845,6 +7925,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItemBalloon {
     type Vtable = ITfLangBarItemBalloon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29545093, 54215, 19323, [181, 181, 217, 116, 17, 208, 194, 131]);
 }
+impl ::std::convert::From<ITfLangBarItemBalloon> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItemBalloon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItemBalloon> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItemBalloon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItemBalloon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItemBalloon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfLangBarItemBalloon> for ITfLangBarItem {
     fn from(value: ITfLangBarItemBalloon) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5886,7 +7986,7 @@ pub struct ITfLangBarItemBalloon_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemBitmap(::windows::runtime::IUnknown);
 impl ITfLangBarItemBitmap {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -5931,6 +8031,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItemBitmap {
     type Vtable = ITfLangBarItemBitmap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1937965906, 55074, 16761, [173, 165, 240, 69, 201, 141, 243, 85]);
 }
+impl ::std::convert::From<ITfLangBarItemBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItemBitmap) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItemBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItemBitmap) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItemBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItemBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfLangBarItemBitmap> for ITfLangBarItem {
     fn from(value: ITfLangBarItemBitmap) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5972,7 +8092,7 @@ pub struct ITfLangBarItemBitmap_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemBitmapButton(::windows::runtime::IUnknown);
 impl ITfLangBarItemBitmapButton {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6031,6 +8151,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItemBitmapButton {
     type Vtable = ITfLangBarItemBitmapButton_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2724857125, 16302, 20384, [137, 238, 136, 169, 100, 249, 241, 181]);
 }
+impl ::std::convert::From<ITfLangBarItemBitmapButton> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItemBitmapButton) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItemBitmapButton> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItemBitmapButton) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItemBitmapButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItemBitmapButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfLangBarItemBitmapButton> for ITfLangBarItem {
     fn from(value: ITfLangBarItemBitmapButton) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6076,7 +8216,7 @@ pub struct ITfLangBarItemBitmapButton_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemButton(::windows::runtime::IUnknown);
 impl ITfLangBarItemButton {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6130,6 +8270,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItemButton {
     type Vtable = ITfLangBarItemButton_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(684192208, 56869, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfLangBarItemButton> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItemButton) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItemButton> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItemButton) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItemButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItemButton {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfLangBarItemButton> for ITfLangBarItem {
     fn from(value: ITfLangBarItemButton) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6173,7 +8333,7 @@ pub struct ITfLangBarItemButton_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemMgr(::windows::runtime::IUnknown);
 impl ITfLangBarItemMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6234,6 +8394,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItemMgr {
     type Vtable = ITfLangBarItemMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125185621, 39254, 20401, [165, 157, 82, 167, 221, 124, 198, 170]);
 }
+impl ::std::convert::From<ITfLangBarItemMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItemMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItemMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItemMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItemMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItemMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarItemMgr_abi(
@@ -6256,7 +8436,7 @@ pub struct ITfLangBarItemMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemSink(::windows::runtime::IUnknown);
 impl ITfLangBarItemSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6268,6 +8448,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarItemSink {
     type Vtable = ITfLangBarItemSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1474027936, 56869, 4562, [175, 221, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfLangBarItemSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarItemSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarItemSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarItemSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarItemSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarItemSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarItemSink_abi(
@@ -6278,7 +8478,7 @@ pub struct ITfLangBarItemSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarMgr(::windows::runtime::IUnknown);
 impl ITfLangBarMgr {
     #[cfg(feature = "Win32_Foundation")]
@@ -6326,6 +8526,26 @@ unsafe impl ::windows::runtime::Interface for ITfLangBarMgr {
     type Vtable = ITfLangBarMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274711184, 58919, 4562, [141, 219, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfLangBarMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLangBarMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLangBarMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLangBarMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLangBarMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLangBarMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLangBarMgr_abi(
@@ -6346,7 +8566,7 @@ pub struct ITfLangBarMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLanguageProfileNotifySink(::windows::runtime::IUnknown);
 impl ITfLanguageProfileNotifySink {
     #[cfg(feature = "Win32_Foundation")]
@@ -6364,6 +8584,26 @@ unsafe impl ::windows::runtime::Interface for ITfLanguageProfileNotifySink {
     type Vtable = ITfLanguageProfileNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137311253, 62612, 19479, [157, 226, 184, 164, 172, 53, 10, 168]);
 }
+impl ::std::convert::From<ITfLanguageProfileNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfLanguageProfileNotifySink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfLanguageProfileNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfLanguageProfileNotifySink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfLanguageProfileNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfLanguageProfileNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfLanguageProfileNotifySink_abi(
@@ -6376,7 +8616,7 @@ pub struct ITfLanguageProfileNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMSAAControl(::windows::runtime::IUnknown);
 impl ITfMSAAControl {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6392,6 +8632,26 @@ unsafe impl ::windows::runtime::Interface for ITfMSAAControl {
     type Vtable = ITfMSAAControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052993339, 14655, 20348, [132, 203, 80, 73, 36, 194, 112, 90]);
 }
+impl ::std::convert::From<ITfMSAAControl> for ::windows::runtime::IUnknown {
+    fn from(value: ITfMSAAControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfMSAAControl> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfMSAAControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfMSAAControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfMSAAControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMSAAControl_abi(
@@ -6403,7 +8663,7 @@ pub struct ITfMSAAControl_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMenu(::windows::runtime::IUnknown);
 impl ITfMenu {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6416,6 +8676,26 @@ unsafe impl ::windows::runtime::Interface for ITfMenu {
     type Vtable = ITfMenu_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1871354084, 43680, 20245, [140, 91, 7, 224, 223, 10, 61, 216]);
 }
+impl ::std::convert::From<ITfMenu> for ::windows::runtime::IUnknown {
+    fn from(value: ITfMenu) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfMenu> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfMenu) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfMenu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfMenu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMenu_abi(
@@ -6427,7 +8707,7 @@ pub struct ITfMenu_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMessagePump(::windows::runtime::IUnknown);
 impl ITfMessagePump {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -6455,6 +8735,26 @@ unsafe impl ::windows::runtime::Interface for ITfMessagePump {
     type Vtable = ITfMessagePump_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400946904, 2923, 18548, [144, 197, 189, 118, 1, 30, 143, 124]);
 }
+impl ::std::convert::From<ITfMessagePump> for ::windows::runtime::IUnknown {
+    fn from(value: ITfMessagePump) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfMessagePump> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfMessagePump) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfMessagePump {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfMessagePump {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMessagePump_abi(
@@ -6472,7 +8772,7 @@ pub struct ITfMessagePump_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMouseSink(::windows::runtime::IUnknown);
 impl ITfMouseSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -6486,6 +8786,26 @@ unsafe impl ::windows::runtime::Interface for ITfMouseSink {
     type Vtable = ITfMouseSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2712513186, 14884, 17565, [172, 150, 81, 131, 231, 245, 194, 23]);
 }
+impl ::std::convert::From<ITfMouseSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfMouseSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfMouseSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfMouseSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfMouseSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfMouseSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMouseSink_abi(
@@ -6497,7 +8817,7 @@ pub struct ITfMouseSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMouseTracker(::windows::runtime::IUnknown);
 impl ITfMouseTracker {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6514,6 +8834,26 @@ unsafe impl ::windows::runtime::Interface for ITfMouseTracker {
     type Vtable = ITfMouseTracker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164710093, 42308, 16690, [146, 91, 122, 250, 142, 243, 34, 208]);
 }
+impl ::std::convert::From<ITfMouseTracker> for ::windows::runtime::IUnknown {
+    fn from(value: ITfMouseTracker) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfMouseTracker> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfMouseTracker) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfMouseTracker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfMouseTracker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMouseTracker_abi(
@@ -6525,7 +8865,7 @@ pub struct ITfMouseTracker_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMouseTrackerACP(::windows::runtime::IUnknown);
 impl ITfMouseTrackerACP {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6542,6 +8882,26 @@ unsafe impl ::windows::runtime::Interface for ITfMouseTrackerACP {
     type Vtable = ITfMouseTrackerACP_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1004370146, 49518, 18429, [184, 131, 206, 111, 172, 193, 162, 8]);
 }
+impl ::std::convert::From<ITfMouseTrackerACP> for ::windows::runtime::IUnknown {
+    fn from(value: ITfMouseTrackerACP) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfMouseTrackerACP> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfMouseTrackerACP) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfMouseTrackerACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfMouseTrackerACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfMouseTrackerACP_abi(
@@ -6553,7 +8913,7 @@ pub struct ITfMouseTrackerACP_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfPersistentPropertyLoaderACP(::windows::runtime::IUnknown);
 impl ITfPersistentPropertyLoaderACP {
     #[cfg(feature = "Win32_System_Com")]
@@ -6567,6 +8927,26 @@ unsafe impl ::windows::runtime::Interface for ITfPersistentPropertyLoaderACP {
     type Vtable = ITfPersistentPropertyLoaderACP_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1324912976, 2055, 4563, [141, 240, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfPersistentPropertyLoaderACP> for ::windows::runtime::IUnknown {
+    fn from(value: ITfPersistentPropertyLoaderACP) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfPersistentPropertyLoaderACP> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfPersistentPropertyLoaderACP) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfPersistentPropertyLoaderACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfPersistentPropertyLoaderACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfPersistentPropertyLoaderACP_abi(
@@ -6578,7 +8958,7 @@ pub struct ITfPersistentPropertyLoaderACP_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfPreservedKeyNotifySink(::windows::runtime::IUnknown);
 impl ITfPreservedKeyNotifySink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6590,6 +8970,26 @@ unsafe impl ::windows::runtime::Interface for ITfPreservedKeyNotifySink {
     type Vtable = ITfPreservedKeyNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1870121363, 53937, 17518, [133, 62, 89, 18, 239, 200, 162, 134]);
 }
+impl ::std::convert::From<ITfPreservedKeyNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfPreservedKeyNotifySink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfPreservedKeyNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfPreservedKeyNotifySink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfPreservedKeyNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfPreservedKeyNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfPreservedKeyNotifySink_abi(
@@ -6600,7 +9000,7 @@ pub struct ITfPreservedKeyNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfProperty(::windows::runtime::IUnknown);
 impl ITfProperty {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6645,6 +9045,26 @@ unsafe impl ::windows::runtime::Interface for ITfProperty {
     type Vtable = ITfProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796145760, 38210, 4562, [191, 70, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfProperty> for ::windows::runtime::IUnknown {
+    fn from(value: ITfProperty) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfProperty) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfProperty> for ITfReadOnlyProperty {
     fn from(value: ITfProperty) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6684,7 +9104,7 @@ pub struct ITfProperty_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfPropertyStore(::windows::runtime::IUnknown);
 impl ITfPropertyStore {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -6741,6 +9161,26 @@ unsafe impl ::windows::runtime::Interface for ITfPropertyStore {
     type Vtable = ITfPropertyStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1748283680, 35019, 4562, [191, 69, 0, 16, 90, 39, 153, 181]);
 }
+impl ::std::convert::From<ITfPropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: ITfPropertyStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfPropertyStore> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfPropertyStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfPropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfPropertyStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfPropertyStore_abi(
@@ -6763,7 +9203,7 @@ pub struct ITfPropertyStore_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfQueryEmbedded(::windows::runtime::IUnknown);
 impl ITfQueryEmbedded {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6777,6 +9217,26 @@ unsafe impl ::windows::runtime::Interface for ITfQueryEmbedded {
     type Vtable = ITfQueryEmbedded_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(262904795, 53840, 16745, [132, 229, 107, 225, 24, 253, 215, 168]);
 }
+impl ::std::convert::From<ITfQueryEmbedded> for ::windows::runtime::IUnknown {
+    fn from(value: ITfQueryEmbedded) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfQueryEmbedded> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfQueryEmbedded) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfQueryEmbedded {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfQueryEmbedded {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfQueryEmbedded_abi(
@@ -6788,7 +9248,7 @@ pub struct ITfQueryEmbedded_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfRange(::windows::runtime::IUnknown);
 impl ITfRange {
     #[cfg(feature = "Win32_Foundation")]
@@ -6906,6 +9366,26 @@ unsafe impl ::windows::runtime::Interface for ITfRange {
     type Vtable = ITfRange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574719, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfRange> for ::windows::runtime::IUnknown {
+    fn from(value: ITfRange) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfRange> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfRange) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfRange_abi(
@@ -6947,7 +9427,7 @@ pub struct ITfRange_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfRangeACP(::windows::runtime::IUnknown);
 impl ITfRangeACP {
     #[cfg(feature = "Win32_Foundation")]
@@ -7073,6 +9553,26 @@ unsafe impl ::windows::runtime::Interface for ITfRangeACP {
     type Vtable = ITfRangeACP_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91906710, 667, 16724, [183, 154, 13, 70, 29, 78, 169, 76]);
 }
+impl ::std::convert::From<ITfRangeACP> for ::windows::runtime::IUnknown {
+    fn from(value: ITfRangeACP) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfRangeACP> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfRangeACP) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfRangeACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfRangeACP {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfRangeACP> for ITfRange {
     fn from(value: ITfRangeACP) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7136,7 +9636,7 @@ pub struct ITfRangeACP_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfRangeBackup(::windows::runtime::IUnknown);
 impl ITfRangeBackup {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7148,6 +9648,26 @@ unsafe impl ::windows::runtime::Interface for ITfRangeBackup {
     type Vtable = ITfRangeBackup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178226797, 27026, 18898, [155, 136, 147, 213, 94, 112, 187, 22]);
 }
+impl ::std::convert::From<ITfRangeBackup> for ::windows::runtime::IUnknown {
+    fn from(value: ITfRangeBackup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfRangeBackup> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfRangeBackup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfRangeBackup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfRangeBackup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfRangeBackup_abi(
@@ -7158,7 +9678,7 @@ pub struct ITfRangeBackup_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReadOnlyProperty(::windows::runtime::IUnknown);
 impl ITfReadOnlyProperty {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7186,6 +9706,26 @@ unsafe impl ::windows::runtime::Interface for ITfReadOnlyProperty {
     type Vtable = ITfReadOnlyProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(399809085, 63672, 19247, [178, 84, 82, 49, 157, 214, 76, 83]);
 }
+impl ::std::convert::From<ITfReadOnlyProperty> for ::windows::runtime::IUnknown {
+    fn from(value: ITfReadOnlyProperty) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfReadOnlyProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfReadOnlyProperty) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfReadOnlyProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfReadOnlyProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReadOnlyProperty_abi(
@@ -7200,7 +9740,7 @@ pub struct ITfReadOnlyProperty_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReadingInformationUIElement(::windows::runtime::IUnknown);
 impl ITfReadingInformationUIElement {
     #[cfg(feature = "Win32_Foundation")]
@@ -7262,6 +9802,26 @@ unsafe impl ::windows::runtime::Interface for ITfReadingInformationUIElement {
     type Vtable = ITfReadingInformationUIElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875897, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfReadingInformationUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: ITfReadingInformationUIElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfReadingInformationUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfReadingInformationUIElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfReadingInformationUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfReadingInformationUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfReadingInformationUIElement> for ITfUIElement {
     fn from(value: ITfReadingInformationUIElement) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7306,7 +9866,7 @@ pub struct ITfReadingInformationUIElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReverseConversion(::windows::runtime::IUnknown);
 impl ITfReverseConversion {
     #[cfg(feature = "Win32_Foundation")]
@@ -7320,6 +9880,26 @@ unsafe impl ::windows::runtime::Interface for ITfReverseConversion {
     type Vtable = ITfReverseConversion_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2752897378, 5501, 16765, [138, 140, 10, 178, 108, 125, 39, 129]);
 }
+impl ::std::convert::From<ITfReverseConversion> for ::windows::runtime::IUnknown {
+    fn from(value: ITfReverseConversion) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfReverseConversion> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfReverseConversion) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfReverseConversion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfReverseConversion {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReverseConversion_abi(
@@ -7331,7 +9911,7 @@ pub struct ITfReverseConversion_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReverseConversionList(::windows::runtime::IUnknown);
 impl ITfReverseConversionList {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7350,6 +9930,26 @@ unsafe impl ::windows::runtime::Interface for ITfReverseConversionList {
     type Vtable = ITfReverseConversionList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354249200, 34548, 18036, [183, 33, 86, 145, 30, 121, 127, 71]);
 }
+impl ::std::convert::From<ITfReverseConversionList> for ::windows::runtime::IUnknown {
+    fn from(value: ITfReverseConversionList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfReverseConversionList> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfReverseConversionList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfReverseConversionList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfReverseConversionList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReverseConversionList_abi(
@@ -7362,7 +9962,7 @@ pub struct ITfReverseConversionList_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReverseConversionMgr(::windows::runtime::IUnknown);
 impl ITfReverseConversionMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7375,6 +9975,26 @@ unsafe impl ::windows::runtime::Interface for ITfReverseConversionMgr {
     type Vtable = ITfReverseConversionMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3057893942, 50323, 16822, [171, 179, 105, 36, 18, 119, 92, 196]);
 }
+impl ::std::convert::From<ITfReverseConversionMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfReverseConversionMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfReverseConversionMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfReverseConversionMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfReverseConversionMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfReverseConversionMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfReverseConversionMgr_abi(
@@ -7385,7 +10005,7 @@ pub struct ITfReverseConversionMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSource(::windows::runtime::IUnknown);
 impl ITfSource {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7402,6 +10022,26 @@ unsafe impl ::windows::runtime::Interface for ITfSource {
     type Vtable = ITfSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1319406133, 24750, 17519, [143, 214, 230, 168, 216, 36, 89, 247]);
 }
+impl ::std::convert::From<ITfSource> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSource> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSource_abi(
@@ -7413,7 +10053,7 @@ pub struct ITfSource_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSourceSingle(::windows::runtime::IUnknown);
 impl ITfSourceSingle {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7429,6 +10069,26 @@ unsafe impl ::windows::runtime::Interface for ITfSourceSingle {
     type Vtable = ITfSourceSingle_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930633116, 22185, 18909, [176, 238, 208, 70, 99, 63, 117, 40]);
 }
+impl ::std::convert::From<ITfSourceSingle> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSourceSingle) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSourceSingle> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSourceSingle) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSourceSingle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSourceSingle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSourceSingle_abi(
@@ -7440,7 +10100,7 @@ pub struct ITfSourceSingle_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSpeechUIServer(::windows::runtime::IUnknown);
 impl ITfSpeechUIServer {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7462,6 +10122,26 @@ unsafe impl ::windows::runtime::Interface for ITfSpeechUIServer {
     type Vtable = ITfSpeechUIServer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431232324, 37444, 18591, [167, 143, 222, 103, 175, 192, 19, 167]);
 }
+impl ::std::convert::From<ITfSpeechUIServer> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSpeechUIServer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSpeechUIServer> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSpeechUIServer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSpeechUIServer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSpeechUIServer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSpeechUIServer_abi(
@@ -7476,7 +10156,7 @@ pub struct ITfSpeechUIServer_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfStatusSink(::windows::runtime::IUnknown);
 impl ITfStatusSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7488,6 +10168,26 @@ unsafe impl ::windows::runtime::Interface for ITfStatusSink {
     type Vtable = ITfStatusSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1803390323, 45671, 20329, [179, 46, 28, 163, 33, 206, 79, 69]);
 }
+impl ::std::convert::From<ITfStatusSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfStatusSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfStatusSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfStatusSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfStatusSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfStatusSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfStatusSink_abi(
@@ -7498,7 +10198,7 @@ pub struct ITfStatusSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemDeviceTypeLangBarItem(::windows::runtime::IUnknown);
 impl ITfSystemDeviceTypeLangBarItem {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7515,6 +10215,26 @@ unsafe impl ::windows::runtime::Interface for ITfSystemDeviceTypeLangBarItem {
     type Vtable = ITfSystemDeviceTypeLangBarItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164390073, 36953, 18082, [131, 141, 69, 48, 53, 95, 106, 119]);
 }
+impl ::std::convert::From<ITfSystemDeviceTypeLangBarItem> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSystemDeviceTypeLangBarItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSystemDeviceTypeLangBarItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSystemDeviceTypeLangBarItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSystemDeviceTypeLangBarItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSystemDeviceTypeLangBarItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSystemDeviceTypeLangBarItem_abi(
@@ -7526,7 +10246,7 @@ pub struct ITfSystemDeviceTypeLangBarItem_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemLangBarItem(::windows::runtime::IUnknown);
 impl ITfSystemLangBarItem {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -7544,6 +10264,26 @@ unsafe impl ::windows::runtime::Interface for ITfSystemLangBarItem {
     type Vtable = ITfSystemLangBarItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(504621548, 27443, 19786, [181, 235, 138, 146, 240, 41, 243, 86]);
 }
+impl ::std::convert::From<ITfSystemLangBarItem> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSystemLangBarItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSystemLangBarItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSystemLangBarItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSystemLangBarItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSystemLangBarItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSystemLangBarItem_abi(
@@ -7557,7 +10297,7 @@ pub struct ITfSystemLangBarItem_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemLangBarItemSink(::windows::runtime::IUnknown);
 impl ITfSystemLangBarItemSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7573,6 +10313,26 @@ unsafe impl ::windows::runtime::Interface for ITfSystemLangBarItemSink {
     type Vtable = ITfSystemLangBarItemSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(340384171, 5071, 18055, [170, 62, 141, 139, 24, 87, 67, 150]);
 }
+impl ::std::convert::From<ITfSystemLangBarItemSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSystemLangBarItemSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSystemLangBarItemSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSystemLangBarItemSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSystemLangBarItemSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSystemLangBarItemSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSystemLangBarItemSink_abi(
@@ -7584,7 +10344,7 @@ pub struct ITfSystemLangBarItemSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemLangBarItemText(::windows::runtime::IUnknown);
 impl ITfSystemLangBarItemText {
     #[cfg(feature = "Win32_Foundation")]
@@ -7603,6 +10363,26 @@ unsafe impl ::windows::runtime::Interface for ITfSystemLangBarItemText {
     type Vtable = ITfSystemLangBarItemText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1548542181, 47689, 19282, [172, 107, 59, 57, 123, 79, 112, 31]);
 }
+impl ::std::convert::From<ITfSystemLangBarItemText> for ::windows::runtime::IUnknown {
+    fn from(value: ITfSystemLangBarItemText) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfSystemLangBarItemText> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfSystemLangBarItemText) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfSystemLangBarItemText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfSystemLangBarItemText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfSystemLangBarItemText_abi(
@@ -7616,7 +10396,7 @@ pub struct ITfSystemLangBarItemText_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextEditSink(::windows::runtime::IUnknown);
 impl ITfTextEditSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7628,6 +10408,26 @@ unsafe impl ::windows::runtime::Interface for ITfTextEditSink {
     type Vtable = ITfTextEditSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2166871049, 52435, 18051, [150, 122, 180, 61, 91, 72, 43, 247]);
 }
+impl ::std::convert::From<ITfTextEditSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfTextEditSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfTextEditSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfTextEditSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfTextEditSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfTextEditSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTextEditSink_abi(
@@ -7638,7 +10438,7 @@ pub struct ITfTextEditSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextInputProcessor(::windows::runtime::IUnknown);
 impl ITfTextInputProcessor {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7654,6 +10454,26 @@ unsafe impl ::windows::runtime::Interface for ITfTextInputProcessor {
     type Vtable = ITfTextInputProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574711, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfTextInputProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: ITfTextInputProcessor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfTextInputProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfTextInputProcessor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfTextInputProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfTextInputProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTextInputProcessor_abi(
@@ -7665,7 +10485,7 @@ pub struct ITfTextInputProcessor_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextInputProcessorEx(::windows::runtime::IUnknown);
 impl ITfTextInputProcessorEx {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7684,6 +10504,26 @@ impl ITfTextInputProcessorEx {
 unsafe impl ::windows::runtime::Interface for ITfTextInputProcessorEx {
     type Vtable = ITfTextInputProcessorEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1850614018, 63949, 17213, [180, 150, 48, 60, 224, 58, 101, 7]);
+}
+impl ::std::convert::From<ITfTextInputProcessorEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITfTextInputProcessorEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfTextInputProcessorEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfTextInputProcessorEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfTextInputProcessorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfTextInputProcessorEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfTextInputProcessorEx> for ITfTextInputProcessor {
     fn from(value: ITfTextInputProcessorEx) -> Self {
@@ -7717,7 +10557,7 @@ pub struct ITfTextInputProcessorEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextLayoutSink(::windows::runtime::IUnknown);
 impl ITfTextLayoutSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7729,6 +10569,26 @@ unsafe impl ::windows::runtime::Interface for ITfTextLayoutSink {
     type Vtable = ITfTextLayoutSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(720556138, 56667, 18727, [160, 180, 84, 241, 156, 145, 250, 222]);
 }
+impl ::std::convert::From<ITfTextLayoutSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfTextLayoutSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfTextLayoutSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfTextLayoutSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfTextLayoutSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfTextLayoutSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTextLayoutSink_abi(
@@ -7739,7 +10599,7 @@ pub struct ITfTextLayoutSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadFocusSink(::windows::runtime::IUnknown);
 impl ITfThreadFocusSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7755,6 +10615,26 @@ unsafe impl ::windows::runtime::Interface for ITfThreadFocusSink {
     type Vtable = ITfThreadFocusSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3237075724, 14880, 16476, [163, 3, 150, 182, 1, 10, 136, 95]);
 }
+impl ::std::convert::From<ITfThreadFocusSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfThreadFocusSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfThreadFocusSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfThreadFocusSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfThreadFocusSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfThreadFocusSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfThreadFocusSink_abi(
@@ -7766,7 +10646,7 @@ pub struct ITfThreadFocusSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgr(::windows::runtime::IUnknown);
 impl ITfThreadMgr {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7829,6 +10709,26 @@ unsafe impl ::windows::runtime::Interface for ITfThreadMgr {
     type Vtable = ITfThreadMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574721, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfThreadMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfThreadMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfThreadMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfThreadMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfThreadMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfThreadMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfThreadMgr_abi(
@@ -7851,7 +10751,7 @@ pub struct ITfThreadMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgr2(::windows::runtime::IUnknown);
 impl ITfThreadMgr2 {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7925,6 +10825,26 @@ unsafe impl ::windows::runtime::Interface for ITfThreadMgr2 {
     type Vtable = ITfThreadMgr2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179411183, 25719, 20200, [136, 18, 103, 128, 237, 184, 45, 94]);
 }
+impl ::std::convert::From<ITfThreadMgr2> for ::windows::runtime::IUnknown {
+    fn from(value: ITfThreadMgr2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfThreadMgr2> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfThreadMgr2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfThreadMgr2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfThreadMgr2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfThreadMgr2_abi(
@@ -7949,7 +10869,7 @@ pub struct ITfThreadMgr2_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgrEventSink(::windows::runtime::IUnknown);
 impl ITfThreadMgrEventSink {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -7977,6 +10897,26 @@ unsafe impl ::windows::runtime::Interface for ITfThreadMgrEventSink {
     type Vtable = ITfThreadMgrEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860574734, 8225, 4562, [147, 224, 0, 96, 176, 103, 184, 110]);
 }
+impl ::std::convert::From<ITfThreadMgrEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfThreadMgrEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfThreadMgrEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfThreadMgrEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfThreadMgrEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfThreadMgrEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfThreadMgrEventSink_abi(
@@ -7991,7 +10931,7 @@ pub struct ITfThreadMgrEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgrEx(::windows::runtime::IUnknown);
 impl ITfThreadMgrEx {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -8063,6 +11003,26 @@ unsafe impl ::windows::runtime::Interface for ITfThreadMgrEx {
     type Vtable = ITfThreadMgrEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1049669091, 30100, 19632, [187, 88, 105, 98, 143, 95, 69, 140]);
 }
+impl ::std::convert::From<ITfThreadMgrEx> for ::windows::runtime::IUnknown {
+    fn from(value: ITfThreadMgrEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfThreadMgrEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfThreadMgrEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfThreadMgrEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfThreadMgrEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ITfThreadMgrEx> for ITfThreadMgr {
     fn from(value: ITfThreadMgrEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8107,7 +11067,7 @@ pub struct ITfThreadMgrEx_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfToolTipUIElement(::windows::runtime::IUnknown);
 impl ITfToolTipUIElement {
     #[cfg(feature = "Win32_Foundation")]
@@ -8142,6 +11102,26 @@ impl ITfToolTipUIElement {
 unsafe impl ::windows::runtime::Interface for ITfToolTipUIElement {
     type Vtable = ITfToolTipUIElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387367260, 21853, 18098, [176, 10, 250, 104, 1, 68, 251, 219]);
+}
+impl ::std::convert::From<ITfToolTipUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: ITfToolTipUIElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfToolTipUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfToolTipUIElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfToolTipUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfToolTipUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfToolTipUIElement> for ITfUIElement {
     fn from(value: ITfToolTipUIElement) -> Self {
@@ -8181,7 +11161,7 @@ pub struct ITfToolTipUIElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTransitoryExtensionSink(::windows::runtime::IUnknown);
 impl ITfTransitoryExtensionSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -8195,6 +11175,26 @@ unsafe impl ::windows::runtime::Interface for ITfTransitoryExtensionSink {
     type Vtable = ITfTransitoryExtensionSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2786396527, 7255, 18451, [138, 21, 85, 238, 110, 90, 131, 156]);
 }
+impl ::std::convert::From<ITfTransitoryExtensionSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfTransitoryExtensionSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfTransitoryExtensionSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfTransitoryExtensionSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfTransitoryExtensionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfTransitoryExtensionSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfTransitoryExtensionSink_abi(
@@ -8206,7 +11206,7 @@ pub struct ITfTransitoryExtensionSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTransitoryExtensionUIElement(::windows::runtime::IUnknown);
 impl ITfTransitoryExtensionUIElement {
     #[cfg(feature = "Win32_Foundation")]
@@ -8240,6 +11240,26 @@ impl ITfTransitoryExtensionUIElement {
 unsafe impl ::windows::runtime::Interface for ITfTransitoryExtensionUIElement {
     type Vtable = ITfTransitoryExtensionUIElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2240779626, 38703, 17058, [162, 242, 3, 33, 225, 171, 226, 9]);
+}
+impl ::std::convert::From<ITfTransitoryExtensionUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: ITfTransitoryExtensionUIElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfTransitoryExtensionUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfTransitoryExtensionUIElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfTransitoryExtensionUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfTransitoryExtensionUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITfTransitoryExtensionUIElement> for ITfUIElement {
     fn from(value: ITfTransitoryExtensionUIElement) -> Self {
@@ -8278,7 +11298,7 @@ pub struct ITfTransitoryExtensionUIElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfUIElement(::windows::runtime::IUnknown);
 impl ITfUIElement {
     #[cfg(feature = "Win32_Foundation")]
@@ -8308,6 +11328,26 @@ unsafe impl ::windows::runtime::Interface for ITfUIElement {
     type Vtable = ITfUIElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875895, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: ITfUIElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfUIElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfUIElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfUIElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfUIElement_abi(
@@ -8324,7 +11364,7 @@ pub struct ITfUIElement_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfUIElementMgr(::windows::runtime::IUnknown);
 impl ITfUIElementMgr {
     #[cfg(feature = "Win32_Foundation")]
@@ -8355,6 +11395,26 @@ unsafe impl ::windows::runtime::Interface for ITfUIElementMgr {
     type Vtable = ITfUIElementMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875893, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfUIElementMgr> for ::windows::runtime::IUnknown {
+    fn from(value: ITfUIElementMgr) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfUIElementMgr> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfUIElementMgr) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfUIElementMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfUIElementMgr {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfUIElementMgr_abi(
@@ -8370,7 +11430,7 @@ pub struct ITfUIElementMgr_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfUIElementSink(::windows::runtime::IUnknown);
 impl ITfUIElementSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -8391,6 +11451,26 @@ unsafe impl ::windows::runtime::Interface for ITfUIElementSink {
     type Vtable = ITfUIElementSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927875894, 6623, 4567, [166, 210, 0, 6, 91, 132, 67, 92]);
 }
+impl ::std::convert::From<ITfUIElementSink> for ::windows::runtime::IUnknown {
+    fn from(value: ITfUIElementSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITfUIElementSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ITfUIElementSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITfUIElementSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITfUIElementSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITfUIElementSink_abi(
@@ -8404,7 +11484,7 @@ pub struct ITfUIElementSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIManagerEventSink(::windows::runtime::IUnknown);
 impl IUIManagerEventSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -8440,6 +11520,26 @@ unsafe impl ::windows::runtime::Interface for IUIManagerEventSink {
     type Vtable = IUIManagerEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448886928, 42984, 16997, [155, 56, 139, 179, 187, 171, 167, 222]);
 }
+impl ::std::convert::From<IUIManagerEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: IUIManagerEventSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIManagerEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIManagerEventSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIManagerEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIManagerEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIManagerEventSink_abi(
@@ -8459,7 +11559,7 @@ pub struct IUIManagerEventSink_abi(
 );
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVersionInfo(::windows::runtime::IUnknown);
 impl IVersionInfo {
     #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -8492,6 +11592,26 @@ impl IVersionInfo {
 unsafe impl ::windows::runtime::Interface for IVersionInfo {
     type Vtable = IVersionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1075124460, 56064, 17937, [155, 41, 42, 14, 75, 154, 250, 133]);
+}
+impl ::std::convert::From<IVersionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IVersionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVersionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IVersionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVersionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVersionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

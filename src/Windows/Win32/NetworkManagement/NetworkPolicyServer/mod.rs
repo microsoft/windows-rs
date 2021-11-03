@@ -625,7 +625,7 @@ unsafe impl ::windows::runtime::Abi for IPFILTERPROPERTIES {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdo(::windows::runtime::IUnknown);
 impl ISdo {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
@@ -665,6 +665,26 @@ impl ISdo {
 unsafe impl ::windows::runtime::Interface for ISdo {
     type Vtable = ISdo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455182814, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
+}
+impl ::std::convert::From<ISdo> for ::windows::runtime::IUnknown {
+    fn from(value: ISdo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISdo> for ::windows::runtime::IUnknown {
+    fn from(value: &ISdo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISdo> for super::super::System::Ole::Automation::IDispatch {
@@ -716,7 +736,7 @@ pub struct ISdo_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoCollection(::windows::runtime::IUnknown);
 impl ISdoCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
@@ -763,6 +783,26 @@ impl ISdoCollection {
 unsafe impl ::windows::runtime::Interface for ISdoCollection {
     type Vtable = ISdoCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455182818, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
+}
+impl ::std::convert::From<ISdoCollection> for ::windows::runtime::IUnknown {
+    fn from(value: ISdoCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISdoCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &ISdoCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISdoCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -817,7 +857,7 @@ pub struct ISdoCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoDictionaryOld(::windows::runtime::IUnknown);
 impl ISdoDictionaryOld {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -852,6 +892,26 @@ impl ISdoDictionaryOld {
 unsafe impl ::windows::runtime::Interface for ISdoDictionaryOld {
     type Vtable = ISdoDictionaryOld_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3560105460, 21464, 4562, [154, 58, 0, 192, 79, 185, 152, 172]);
+}
+impl ::std::convert::From<ISdoDictionaryOld> for ::windows::runtime::IUnknown {
+    fn from(value: ISdoDictionaryOld) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISdoDictionaryOld> for ::windows::runtime::IUnknown {
+    fn from(value: &ISdoDictionaryOld) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoDictionaryOld {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoDictionaryOld {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISdoDictionaryOld> for super::super::System::Ole::Automation::IDispatch {
@@ -904,7 +964,7 @@ pub struct ISdoDictionaryOld_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoMachine(::windows::runtime::IUnknown);
 impl ISdoMachine {
     #[cfg(feature = "Win32_Foundation")]
@@ -960,6 +1020,26 @@ unsafe impl ::windows::runtime::Interface for ISdoMachine {
     type Vtable = ISdoMachine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201630837, 18850, 4562, [142, 202, 0, 192, 79, 194, 245, 25]);
 }
+impl ::std::convert::From<ISdoMachine> for ::windows::runtime::IUnknown {
+    fn from(value: ISdoMachine) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISdoMachine> for ::windows::runtime::IUnknown {
+    fn from(value: &ISdoMachine) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoMachine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoMachine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISdoMachine> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISdoMachine) -> Self {
@@ -1014,7 +1094,7 @@ pub struct ISdoMachine_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoMachine2(::windows::runtime::IUnknown);
 impl ISdoMachine2 {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
@@ -1115,6 +1195,26 @@ unsafe impl ::windows::runtime::Interface for ISdoMachine2 {
     type Vtable = ISdoMachine2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368285182, 55502, 20350, [165, 219, 180, 10, 53, 65, 157, 59]);
 }
+impl ::std::convert::From<ISdoMachine2> for ::windows::runtime::IUnknown {
+    fn from(value: ISdoMachine2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISdoMachine2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISdoMachine2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoMachine2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoMachine2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISdoMachine2> for ISdoMachine {
     fn from(value: ISdoMachine2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1197,7 +1297,7 @@ pub struct ISdoMachine2_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoServiceControl(::windows::runtime::IUnknown);
 impl ISdoServiceControl {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
@@ -1221,6 +1321,26 @@ impl ISdoServiceControl {
 unsafe impl ::windows::runtime::Interface for ISdoServiceControl {
     type Vtable = ISdoServiceControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201630836, 18850, 4562, [142, 202, 0, 192, 79, 194, 245, 25]);
+}
+impl ::std::convert::From<ISdoServiceControl> for ::windows::runtime::IUnknown {
+    fn from(value: ISdoServiceControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISdoServiceControl> for ::windows::runtime::IUnknown {
+    fn from(value: &ISdoServiceControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoServiceControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoServiceControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISdoServiceControl> for super::super::System::Ole::Automation::IDispatch {
@@ -1267,7 +1387,7 @@ pub struct ISdoServiceControl_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITemplateSdo(::windows::runtime::IUnknown);
 impl ITemplateSdo {
     #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
@@ -1343,6 +1463,26 @@ impl ITemplateSdo {
 unsafe impl ::windows::runtime::Interface for ITemplateSdo {
     type Vtable = ITemplateSdo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326287106, 53986, 20000, [139, 31, 165, 113, 228, 55, 214, 201]);
+}
+impl ::std::convert::From<ITemplateSdo> for ::windows::runtime::IUnknown {
+    fn from(value: ITemplateSdo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ITemplateSdo> for ::windows::runtime::IUnknown {
+    fn from(value: &ITemplateSdo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITemplateSdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITemplateSdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ITemplateSdo> for ISdo {
     fn from(value: ITemplateSdo) -> Self {

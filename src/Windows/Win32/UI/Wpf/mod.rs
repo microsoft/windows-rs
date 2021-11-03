@@ -7,7 +7,7 @@ pub const CLSID_MILBitmapEffectGroup: ::windows::runtime::GUID = ::windows::runt
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793099741, 32438, 18213, [156, 11, 138, 42, 27, 79, 6, 103]);
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffect(::windows::runtime::IUnknown);
 impl IMILBitmapEffect {
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -31,6 +31,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffect {
     type Vtable = IMILBitmapEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322592545, 51524, 18971, [153, 68, 153, 84, 175, 48, 18, 88]);
 }
+impl ::std::convert::From<IMILBitmapEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffect_abi(
@@ -45,7 +65,7 @@ pub struct IMILBitmapEffect_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnections(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnections {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -63,6 +83,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnections {
     type Vtable = IMILBitmapEffectConnections_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266697313, 39706, 17268, [137, 176, 222, 196, 135, 77, 106, 129]);
 }
+impl ::std::convert::From<IMILBitmapEffectConnections> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectConnections) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectConnections> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectConnections) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectConnections {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectConnections {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnections_abi(
@@ -74,7 +114,7 @@ pub struct IMILBitmapEffectConnections_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnectionsInfo(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnectionsInfo {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -102,6 +142,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnectionsInfo {
     type Vtable = IMILBitmapEffectConnectionsInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1198216074, 51045, 16951, [186, 74, 214, 168, 128, 255, 12, 252]);
 }
+impl ::std::convert::From<IMILBitmapEffectConnectionsInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectConnectionsInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectConnectionsInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectConnectionsInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectConnectionsInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectConnectionsInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnectionsInfo_abi(
@@ -115,7 +175,7 @@ pub struct IMILBitmapEffectConnectionsInfo_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnector {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -153,6 +213,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnector {
     type Vtable = IMILBitmapEffectConnector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120209331, 30401, 19783, [186, 30, 121, 249, 85, 227, 80, 239]);
 }
+impl ::std::convert::From<IMILBitmapEffectConnector> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectConnector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectConnector> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectConnector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IMILBitmapEffectConnector> for IMILBitmapEffectConnectorInfo {
     fn from(value: IMILBitmapEffectConnector) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -188,7 +268,7 @@ pub struct IMILBitmapEffectConnector_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnectorInfo(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnectorInfo {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -216,6 +296,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectConnectorInfo {
     type Vtable = IMILBitmapEffectConnectorInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4134350411, 46187, 17148, [133, 158, 61, 160, 236, 219, 60, 67]);
 }
+impl ::std::convert::From<IMILBitmapEffectConnectorInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectConnectorInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectConnectorInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectConnectorInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectConnectorInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectConnectorInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectConnectorInfo_abi(
@@ -229,7 +329,7 @@ pub struct IMILBitmapEffectConnectorInfo_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectEvents(::windows::runtime::IUnknown);
 impl IMILBitmapEffectEvents {
     #[cfg(feature = "Win32_Foundation")]
@@ -246,6 +346,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectEvents {
     type Vtable = IMILBitmapEffectEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(780668376, 63694, 17787, [129, 153, 214, 11, 179, 215, 239, 152]);
 }
+impl ::std::convert::From<IMILBitmapEffectEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectEvents_abi(
@@ -258,7 +378,7 @@ pub struct IMILBitmapEffectEvents_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectFactory(::windows::runtime::IUnknown);
 impl IMILBitmapEffectFactory {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -281,6 +401,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectFactory {
     type Vtable = IMILBitmapEffectFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866770740, 41987, 20167, [176, 126, 188, 6, 130, 55, 8, 69]);
 }
+impl ::std::convert::From<IMILBitmapEffectFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectFactory_abi(
@@ -293,7 +433,7 @@ pub struct IMILBitmapEffectFactory_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectGroup(::windows::runtime::IUnknown);
 impl IMILBitmapEffectGroup {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -315,6 +455,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectGroup {
     type Vtable = IMILBitmapEffectGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798303072, 27018, 19142, [129, 161, 188, 253, 240, 142, 184, 232]);
 }
+impl ::std::convert::From<IMILBitmapEffectGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectGroup_abi(
@@ -327,7 +487,7 @@ pub struct IMILBitmapEffectGroup_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectGroupImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectGroupImpl {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -349,6 +509,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectGroupImpl {
     type Vtable = IMILBitmapEffectGroupImpl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2029966616, 7420, 18439, [139, 133, 107, 110, 81, 57, 143, 98]);
 }
+impl ::std::convert::From<IMILBitmapEffectGroupImpl> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectGroupImpl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectGroupImpl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectGroupImpl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectGroupImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectGroupImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectGroupImpl_abi(
@@ -361,7 +541,7 @@ pub struct IMILBitmapEffectGroupImpl_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectImpl {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -403,6 +583,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectImpl {
     type Vtable = IMILBitmapEffectImpl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424938226, 39222, 18366, [180, 175, 6, 181, 223, 93, 188, 187]);
 }
+impl ::std::convert::From<IMILBitmapEffectImpl> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectImpl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectImpl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectImpl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectImpl_abi(
@@ -422,7 +622,7 @@ pub struct IMILBitmapEffectImpl_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectInputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectInputConnector {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -468,6 +668,26 @@ impl IMILBitmapEffectInputConnector {
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectInputConnector {
     type Vtable = IMILBitmapEffectInputConnector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847206570, 31292, 17895, [133, 115, 244, 184, 27, 96, 221, 108]);
+}
+impl ::std::convert::From<IMILBitmapEffectInputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectInputConnector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectInputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectInputConnector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectInputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectInputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IMILBitmapEffectInputConnector> for IMILBitmapEffectConnector {
     fn from(value: IMILBitmapEffectInputConnector) -> Self {
@@ -526,7 +746,7 @@ pub struct IMILBitmapEffectInputConnector_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectInteriorInputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectInteriorInputConnector {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -539,6 +759,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectInteriorInputConne
     type Vtable = IMILBitmapEffectInteriorInputConnector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539524766, 34466, 19989, [149, 61, 235, 20, 56, 165, 184, 66]);
 }
+impl ::std::convert::From<IMILBitmapEffectInteriorInputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectInteriorInputConnector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectInteriorInputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectInteriorInputConnector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectInteriorInputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectInteriorInputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorInputConnector_abi(
@@ -549,7 +789,7 @@ pub struct IMILBitmapEffectInteriorInputConnector_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectInteriorOutputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectInteriorOutputConnector {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -562,6 +802,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectInteriorOutputConn
     type Vtable = IMILBitmapEffectInteriorOutputConnector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(12302044, 44233, 19452, [179, 68, 139, 238, 56, 61, 254, 250]);
 }
+impl ::std::convert::From<IMILBitmapEffectInteriorOutputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectInteriorOutputConnector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectInteriorOutputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectInteriorOutputConnector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectInteriorOutputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectInteriorOutputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorOutputConnector_abi(
@@ -572,7 +832,7 @@ pub struct IMILBitmapEffectInteriorOutputConnector_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectOutputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectOutputConnector {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -619,6 +879,26 @@ impl IMILBitmapEffectOutputConnector {
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffectOutputConnector {
     type Vtable = IMILBitmapEffectOutputConnector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459269805, 33819, 18534, [130, 236, 135, 82, 70, 139, 7, 253]);
+}
+impl ::std::convert::From<IMILBitmapEffectOutputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectOutputConnector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectOutputConnector> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectOutputConnector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectOutputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectOutputConnector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnector {
     fn from(value: IMILBitmapEffectOutputConnector) -> Self {
@@ -677,7 +957,7 @@ pub struct IMILBitmapEffectOutputConnector_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectOutputConnectorImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectOutputConnectorImpl {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -693,6 +973,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectOutputConnectorImp
     type Vtable = IMILBitmapEffectOutputConnectorImpl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(570091383, 35641, 19450, [159, 45, 243, 148, 30, 211, 105, 19]);
 }
+impl ::std::convert::From<IMILBitmapEffectOutputConnectorImpl> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectOutputConnectorImpl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectOutputConnectorImpl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectOutputConnectorImpl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectOutputConnectorImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectOutputConnectorImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectOutputConnectorImpl_abi(
@@ -704,7 +1004,7 @@ pub struct IMILBitmapEffectOutputConnectorImpl_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectPrimitive(::windows::runtime::IUnknown);
 impl IMILBitmapEffectPrimitive {
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -740,6 +1040,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectPrimitive {
     type Vtable = IMILBitmapEffectPrimitive_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1742934053, 12433, 19964, [152, 214, 221, 73, 69, 81, 70, 29]);
 }
+impl ::std::convert::From<IMILBitmapEffectPrimitive> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectPrimitive) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectPrimitive> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectPrimitive) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectPrimitive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectPrimitive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectPrimitive_abi(
@@ -757,7 +1077,7 @@ pub struct IMILBitmapEffectPrimitive_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectPrimitiveImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -775,6 +1095,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectPrimitiveImpl {
     type Vtable = IMILBitmapEffectPrimitiveImpl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3460423691, 61350, 17639, [176, 7, 221, 4, 46, 58, 225, 38]);
 }
+impl ::std::convert::From<IMILBitmapEffectPrimitiveImpl> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectPrimitiveImpl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectPrimitiveImpl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectPrimitiveImpl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectPrimitiveImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectPrimitiveImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectPrimitiveImpl_abi(
@@ -786,7 +1126,7 @@ pub struct IMILBitmapEffectPrimitiveImpl_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectRenderContext(::windows::runtime::IUnknown);
 impl IMILBitmapEffectRenderContext {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -828,6 +1168,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectRenderContext {
     type Vtable = IMILBitmapEffectRenderContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312667262, 11571, 17586, [179, 52, 26, 187, 120, 70, 227, 144]);
 }
+impl ::std::convert::From<IMILBitmapEffectRenderContext> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectRenderContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectRenderContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectRenderContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectRenderContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectRenderContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectRenderContext_abi(
@@ -845,7 +1205,7 @@ pub struct IMILBitmapEffectRenderContext_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectRenderContextImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectRenderContextImpl {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -874,6 +1234,26 @@ unsafe impl ::windows::runtime::Interface for IMILBitmapEffectRenderContextImpl 
     type Vtable = IMILBitmapEffectRenderContextImpl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294314699, 31101, 20434, [177, 40, 223, 254, 255, 132, 252, 195]);
 }
+impl ::std::convert::From<IMILBitmapEffectRenderContextImpl> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffectRenderContextImpl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffectRenderContextImpl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffectRenderContextImpl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffectRenderContextImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffectRenderContextImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectRenderContextImpl_abi(
@@ -888,7 +1268,7 @@ pub struct IMILBitmapEffectRenderContextImpl_abi(
 );
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffects(::windows::runtime::IUnknown);
 impl IMILBitmapEffects {
     #[doc = "*Required features: `Win32_UI_Wpf`*"]
@@ -915,6 +1295,26 @@ impl IMILBitmapEffects {
 unsafe impl ::windows::runtime::Interface for IMILBitmapEffects {
     type Vtable = IMILBitmapEffects_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1370242510, 26565, 17547, [145, 128, 173, 62, 171, 221, 213, 221]);
+}
+impl ::std::convert::From<IMILBitmapEffects> for ::windows::runtime::IUnknown {
+    fn from(value: IMILBitmapEffects) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMILBitmapEffects> for ::windows::runtime::IUnknown {
+    fn from(value: &IMILBitmapEffects) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMILBitmapEffects {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMILBitmapEffects {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

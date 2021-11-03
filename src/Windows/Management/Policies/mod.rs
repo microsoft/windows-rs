@@ -81,7 +81,7 @@ impl ::windows::runtime::RuntimeName for NamedPolicy {
 }
 #[doc = "*Required features: `Management_Policies`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NamedPolicyData(::windows::runtime::IInspectable);
 impl NamedPolicyData {
     #[doc = "*Required features: `Management_Policies`*"]
@@ -199,6 +199,46 @@ unsafe impl ::windows::runtime::Interface for NamedPolicyData {
 }
 impl ::windows::runtime::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";
+}
+impl ::std::convert::From<NamedPolicyData> for ::windows::runtime::IUnknown {
+    fn from(value: NamedPolicyData) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&NamedPolicyData> for ::windows::runtime::IUnknown {
+    fn from(value: &NamedPolicyData) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NamedPolicyData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NamedPolicyData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<NamedPolicyData> for ::windows::runtime::IInspectable {
+    fn from(value: NamedPolicyData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NamedPolicyData> for ::windows::runtime::IInspectable {
+    fn from(value: &NamedPolicyData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NamedPolicyData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NamedPolicyData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for NamedPolicyData {}
 unsafe impl ::std::marker::Sync for NamedPolicyData {}

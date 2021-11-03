@@ -3,7 +3,7 @@
 pub mod Core;
 #[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationConnection(::windows::runtime::IInspectable);
 impl AutomationConnection {
     #[doc = "*Required features: `UI_UIAutomation`*"]
@@ -41,11 +41,51 @@ unsafe impl ::windows::runtime::Interface for AutomationConnection {
 impl ::windows::runtime::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
 }
+impl ::std::convert::From<AutomationConnection> for ::windows::runtime::IUnknown {
+    fn from(value: AutomationConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AutomationConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &AutomationConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AutomationConnection> for ::windows::runtime::IInspectable {
+    fn from(value: AutomationConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AutomationConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &AutomationConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AutomationConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AutomationConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AutomationConnection {}
 unsafe impl ::std::marker::Sync for AutomationConnection {}
 #[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationConnectionBoundObject(::windows::runtime::IInspectable);
 impl AutomationConnectionBoundObject {
     #[doc = "*Required features: `UI_UIAutomation`*"]
@@ -67,11 +107,51 @@ unsafe impl ::windows::runtime::Interface for AutomationConnectionBoundObject {
 impl ::windows::runtime::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
 }
+impl ::std::convert::From<AutomationConnectionBoundObject> for ::windows::runtime::IUnknown {
+    fn from(value: AutomationConnectionBoundObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AutomationConnectionBoundObject> for ::windows::runtime::IUnknown {
+    fn from(value: &AutomationConnectionBoundObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationConnectionBoundObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationConnectionBoundObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AutomationConnectionBoundObject> for ::windows::runtime::IInspectable {
+    fn from(value: AutomationConnectionBoundObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AutomationConnectionBoundObject> for ::windows::runtime::IInspectable {
+    fn from(value: &AutomationConnectionBoundObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AutomationConnectionBoundObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AutomationConnectionBoundObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::std::marker::Sync for AutomationConnectionBoundObject {}
 #[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationElement(::windows::runtime::IInspectable);
 impl AutomationElement {
     #[doc = "*Required features: `UI_UIAutomation`*"]
@@ -109,11 +189,51 @@ unsafe impl ::windows::runtime::Interface for AutomationElement {
 impl ::windows::runtime::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
 }
+impl ::std::convert::From<AutomationElement> for ::windows::runtime::IUnknown {
+    fn from(value: AutomationElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AutomationElement> for ::windows::runtime::IUnknown {
+    fn from(value: &AutomationElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AutomationElement> for ::windows::runtime::IInspectable {
+    fn from(value: AutomationElement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AutomationElement> for ::windows::runtime::IInspectable {
+    fn from(value: &AutomationElement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AutomationElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AutomationElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AutomationElement {}
 unsafe impl ::std::marker::Sync for AutomationElement {}
 #[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationTextRange(::windows::runtime::IInspectable);
 impl AutomationTextRange {}
 unsafe impl ::windows::runtime::RuntimeType for AutomationTextRange {
@@ -125,6 +245,46 @@ unsafe impl ::windows::runtime::Interface for AutomationTextRange {
 }
 impl ::windows::runtime::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";
+}
+impl ::std::convert::From<AutomationTextRange> for ::windows::runtime::IUnknown {
+    fn from(value: AutomationTextRange) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AutomationTextRange> for ::windows::runtime::IUnknown {
+    fn from(value: &AutomationTextRange) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationTextRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationTextRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AutomationTextRange> for ::windows::runtime::IInspectable {
+    fn from(value: AutomationTextRange) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AutomationTextRange> for ::windows::runtime::IInspectable {
+    fn from(value: &AutomationTextRange) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AutomationTextRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AutomationTextRange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AutomationTextRange {}
 unsafe impl ::std::marker::Sync for AutomationTextRange {}

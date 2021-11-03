@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIApplication(::windows::runtime::IUnknown);
 impl IUIApplication {
     #[doc = "*Required features: `Win32_UI_Ribbon`*"]
@@ -22,6 +22,26 @@ unsafe impl ::windows::runtime::Interface for IUIApplication {
     type Vtable = IUIApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559428156, 29338, 18717, [145, 13, 104, 42, 8, 255, 37, 34]);
 }
+impl ::std::convert::From<IUIApplication> for ::windows::runtime::IUnknown {
+    fn from(value: IUIApplication) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIApplication> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIApplication) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIApplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIApplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIApplication_abi(
@@ -34,7 +54,7 @@ pub struct IUIApplication_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUICollection(::windows::runtime::IUnknown);
 impl IUICollection {
     #[doc = "*Required features: `Win32_UI_Ribbon`*"]
@@ -72,6 +92,26 @@ unsafe impl ::windows::runtime::Interface for IUICollection {
     type Vtable = IUICollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3746514367, 28573, 19927, [157, 104, 216, 249, 205, 24, 196, 219]);
 }
+impl ::std::convert::From<IUICollection> for ::windows::runtime::IUnknown {
+    fn from(value: IUICollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUICollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IUICollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUICollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUICollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUICollection_abi(
@@ -88,7 +128,7 @@ pub struct IUICollection_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUICollectionChangedEvent(::windows::runtime::IUnknown);
 impl IUICollectionChangedEvent {
     #[doc = "*Required features: `Win32_UI_Ribbon`*"]
@@ -100,6 +140,26 @@ unsafe impl ::windows::runtime::Interface for IUICollectionChangedEvent {
     type Vtable = IUICollectionChangedEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694674577, 41293, 17589, [187, 208, 98, 170, 204, 88, 29, 82]);
 }
+impl ::std::convert::From<IUICollectionChangedEvent> for ::windows::runtime::IUnknown {
+    fn from(value: IUICollectionChangedEvent) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUICollectionChangedEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &IUICollectionChangedEvent) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUICollectionChangedEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUICollectionChangedEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUICollectionChangedEvent_abi(
@@ -110,7 +170,7 @@ pub struct IUICollectionChangedEvent_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUICommandHandler(::windows::runtime::IUnknown);
 impl IUICommandHandler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
@@ -129,6 +189,26 @@ unsafe impl ::windows::runtime::Interface for IUICommandHandler {
     type Vtable = IUICommandHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974340141, 56323, 19615, [136, 131, 6, 150, 96, 208, 190, 182]);
 }
+impl ::std::convert::From<IUICommandHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IUICommandHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUICommandHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IUICommandHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUICommandHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUICommandHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUICommandHandler_abi(
@@ -144,7 +224,7 @@ pub struct IUICommandHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIContextualUI(::windows::runtime::IUnknown);
 impl IUIContextualUI {
     #[doc = "*Required features: `Win32_UI_Ribbon`*"]
@@ -156,6 +236,26 @@ unsafe impl ::windows::runtime::Interface for IUIContextualUI {
     type Vtable = IUIContextualUI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003536695, 31814, 17276, [142, 85, 181, 33, 34, 178, 146, 147]);
 }
+impl ::std::convert::From<IUIContextualUI> for ::windows::runtime::IUnknown {
+    fn from(value: IUIContextualUI) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIContextualUI> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIContextualUI) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIContextualUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIContextualUI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContextualUI_abi(
@@ -166,7 +266,7 @@ pub struct IUIContextualUI_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIEventLogger(::windows::runtime::IUnknown);
 impl IUIEventLogger {
     #[cfg(feature = "Win32_Foundation")]
@@ -179,6 +279,26 @@ unsafe impl ::windows::runtime::Interface for IUIEventLogger {
     type Vtable = IUIEventLogger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3963490356, 56308, 16801, [149, 213, 3, 224, 241, 2, 110, 5]);
 }
+impl ::std::convert::From<IUIEventLogger> for ::windows::runtime::IUnknown {
+    fn from(value: IUIEventLogger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIEventLogger> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIEventLogger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIEventLogger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIEventLogger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIEventLogger_abi(
@@ -190,7 +310,7 @@ pub struct IUIEventLogger_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIEventingManager(::windows::runtime::IUnknown);
 impl IUIEventingManager {
     #[doc = "*Required features: `Win32_UI_Ribbon`*"]
@@ -202,6 +322,26 @@ unsafe impl ::windows::runtime::Interface for IUIEventingManager {
     type Vtable = IUIEventingManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1004989055, 39579, 16792, [147, 104, 155, 15, 146, 59, 213, 52]);
 }
+impl ::std::convert::From<IUIEventingManager> for ::windows::runtime::IUnknown {
+    fn from(value: IUIEventingManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIEventingManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIEventingManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIEventingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIEventingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIEventingManager_abi(
@@ -212,7 +352,7 @@ pub struct IUIEventingManager_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIFramework(::windows::runtime::IUnknown);
 impl IUIFramework {
     #[cfg(feature = "Win32_Foundation")]
@@ -262,6 +402,26 @@ unsafe impl ::windows::runtime::Interface for IUIFramework {
     type Vtable = IUIFramework_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4109383773, 26738, 17320, [173, 9, 76, 51, 156, 179, 245, 197]);
 }
+impl ::std::convert::From<IUIFramework> for ::windows::runtime::IUnknown {
+    fn from(value: IUIFramework) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIFramework> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIFramework) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIFramework {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIFramework {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIFramework_abi(
@@ -285,7 +445,7 @@ pub struct IUIFramework_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIImage(::windows::runtime::IUnknown);
 impl IUIImage {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -299,6 +459,26 @@ unsafe impl ::windows::runtime::Interface for IUIImage {
     type Vtable = IUIImage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(600361016, 19942, 17259, [171, 1, 85, 84, 187, 124, 48, 221]);
 }
+impl ::std::convert::From<IUIImage> for ::windows::runtime::IUnknown {
+    fn from(value: IUIImage) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIImage> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIImage) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIImage_abi(
@@ -310,7 +490,7 @@ pub struct IUIImage_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIImageFromBitmap(::windows::runtime::IUnknown);
 impl IUIImageFromBitmap {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -324,6 +504,26 @@ unsafe impl ::windows::runtime::Interface for IUIImageFromBitmap {
     type Vtable = IUIImageFromBitmap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(413902835, 19484, 19362, [191, 108, 245, 195, 50, 111, 168, 22]);
 }
+impl ::std::convert::From<IUIImageFromBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: IUIImageFromBitmap) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIImageFromBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIImageFromBitmap) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIImageFromBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIImageFromBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIImageFromBitmap_abi(
@@ -335,7 +535,7 @@ pub struct IUIImageFromBitmap_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIRibbon(::windows::runtime::IUnknown);
 impl IUIRibbon {
     #[doc = "*Required features: `Win32_UI_Ribbon`*"]
@@ -358,6 +558,26 @@ unsafe impl ::windows::runtime::Interface for IUIRibbon {
     type Vtable = IUIRibbon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151252651, 14090, 20350, [169, 231, 135, 132, 3, 106, 110, 38]);
 }
+impl ::std::convert::From<IUIRibbon> for ::windows::runtime::IUnknown {
+    fn from(value: IUIRibbon) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUIRibbon> for ::windows::runtime::IUnknown {
+    fn from(value: &IUIRibbon) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIRibbon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIRibbon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIRibbon_abi(
@@ -372,7 +592,7 @@ pub struct IUIRibbon_abi(
 );
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUISimplePropertySet(::windows::runtime::IUnknown);
 impl IUISimplePropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
@@ -385,6 +605,26 @@ impl IUISimplePropertySet {
 unsafe impl ::windows::runtime::Interface for IUISimplePropertySet {
     type Vtable = IUISimplePropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3255155528, 23324, 16921, [161, 6, 21, 189, 10, 95, 36, 226]);
+}
+impl ::std::convert::From<IUISimplePropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: IUISimplePropertySet) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IUISimplePropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &IUISimplePropertySet) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUISimplePropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUISimplePropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

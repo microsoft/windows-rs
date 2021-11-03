@@ -16,7 +16,7 @@ unsafe impl ::windows::runtime::Abi for ACCOUNT_STATE {
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIAssociatedIdentityProvider(::windows::runtime::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -53,6 +53,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIAssociatedIdentityProvider {
     type Vtable = AsyncIAssociatedIdentityProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(674551533, 10622, 20082, [138, 81, 150, 30, 134, 240, 81, 82]);
 }
+impl ::std::convert::From<AsyncIAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIAssociatedIdentityProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIAssociatedIdentityProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIAssociatedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIAssociatedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIAssociatedIdentityProvider_abi(
@@ -72,7 +92,7 @@ pub struct AsyncIAssociatedIdentityProvider_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIConnectedIdentityProvider(::windows::runtime::IUnknown);
 impl AsyncIConnectedIdentityProvider {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
@@ -125,6 +145,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIConnectedIdentityProvider {
     type Vtable = AsyncIConnectedIdentityProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2632274241, 48361, 19989, [130, 77, 67, 215, 159, 81, 47, 147]);
 }
+impl ::std::convert::From<AsyncIConnectedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIConnectedIdentityProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIConnectedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIConnectedIdentityProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIConnectedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIConnectedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIConnectedIdentityProvider_abi(
@@ -147,7 +187,7 @@ pub struct AsyncIConnectedIdentityProvider_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIIdentityAdvise(::windows::runtime::IUnknown);
 impl AsyncIIdentityAdvise {
     #[cfg(feature = "Win32_Foundation")]
@@ -164,6 +204,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityAdvise {
     type Vtable = AsyncIIdentityAdvise_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(984926426, 53304, 18480, [141, 217, 50, 83, 197, 90, 18, 127]);
 }
+impl ::std::convert::From<AsyncIIdentityAdvise> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIIdentityAdvise) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIIdentityAdvise> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIIdentityAdvise) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityAdvise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityAdvise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityAdvise_abi(
@@ -176,7 +236,7 @@ pub struct AsyncIIdentityAdvise_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIIdentityAuthentication(::windows::runtime::IUnknown);
 impl AsyncIIdentityAuthentication {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
@@ -202,6 +262,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityAuthentication {
     type Vtable = AsyncIIdentityAuthentication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4188207384, 65226, 20124, [150, 51, 97, 203, 241, 62, 211, 77]);
 }
+impl ::std::convert::From<AsyncIIdentityAuthentication> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIIdentityAuthentication) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIIdentityAuthentication> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIIdentityAuthentication) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityAuthentication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityAuthentication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityAuthentication_abi(
@@ -217,7 +297,7 @@ pub struct AsyncIIdentityAuthentication_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIIdentityProvider(::windows::runtime::IUnknown);
 impl AsyncIIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
@@ -303,6 +383,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityProvider {
     type Vtable = AsyncIIdentityProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338443009, 50227, 17990, [143, 72, 78, 70, 135, 170, 226, 160]);
 }
+impl ::std::convert::From<AsyncIIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIIdentityProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIIdentityProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityProvider_abi(
@@ -338,7 +438,7 @@ pub struct AsyncIIdentityProvider_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIIdentityStore(::windows::runtime::IUnknown);
 impl AsyncIIdentityStore {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
@@ -400,6 +500,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityStore {
     type Vtable = AsyncIIdentityStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009367062, 18654, 18546, [170, 100, 110, 98, 6, 83, 90, 81]);
 }
+impl ::std::convert::From<AsyncIIdentityStore> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIIdentityStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIIdentityStore> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIIdentityStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityStore_abi(
@@ -426,7 +546,7 @@ pub struct AsyncIIdentityStore_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsyncIIdentityStoreEx(::windows::runtime::IUnknown);
 impl AsyncIIdentityStoreEx {
     #[cfg(feature = "Win32_Foundation")]
@@ -452,6 +572,26 @@ unsafe impl ::windows::runtime::Interface for AsyncIIdentityStoreEx {
     type Vtable = AsyncIIdentityStoreEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4238585754, 35335, 20142, [134, 50, 236, 61, 230, 88, 163, 106]);
 }
+impl ::std::convert::From<AsyncIIdentityStoreEx> for ::windows::runtime::IUnknown {
+    fn from(value: AsyncIIdentityStoreEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsyncIIdentityStoreEx> for ::windows::runtime::IUnknown {
+    fn from(value: &AsyncIIdentityStoreEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsyncIIdentityStoreEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsyncIIdentityStoreEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIIdentityStoreEx_abi(
@@ -469,7 +609,7 @@ pub const CIdentityProfileHandler: ::windows::runtime::GUID = ::windows::runtime
 pub const CoClassIdentityStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819237446, 53783, 18015, [176, 11, 172, 157, 221, 101, 46, 183]);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAssociatedIdentityProvider(::windows::runtime::IUnknown);
 impl IAssociatedIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
@@ -493,6 +633,26 @@ unsafe impl ::windows::runtime::Interface for IAssociatedIdentityProvider {
     type Vtable = IAssociatedIdentityProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(720398003, 19643, 19642, [167, 152, 32, 75, 106, 246, 140, 192]);
 }
+impl ::std::convert::From<IAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IAssociatedIdentityProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAssociatedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IAssociatedIdentityProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAssociatedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAssociatedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAssociatedIdentityProvider_abi(
@@ -508,7 +668,7 @@ pub struct IAssociatedIdentityProvider_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IConnectedIdentityProvider(::windows::runtime::IUnknown);
 impl IConnectedIdentityProvider {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
@@ -539,6 +699,26 @@ impl IConnectedIdentityProvider {
 unsafe impl ::windows::runtime::Interface for IConnectedIdentityProvider {
     type Vtable = IConnectedIdentityProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3074521940, 57484, 17051, [150, 200, 103, 141, 19, 105, 236, 177]);
+}
+impl ::std::convert::From<IConnectedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IConnectedIdentityProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IConnectedIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IConnectedIdentityProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IConnectedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IConnectedIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -589,7 +769,7 @@ unsafe impl ::windows::runtime::Abi for IDENTITY_URL {
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IIdentityAdvise(::windows::runtime::IUnknown);
 impl IIdentityAdvise {
     #[cfg(feature = "Win32_Foundation")]
@@ -602,6 +782,26 @@ unsafe impl ::windows::runtime::Interface for IIdentityAdvise {
     type Vtable = IIdentityAdvise_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318596589, 53579, 17420, [184, 214, 187, 56, 100, 83, 211, 134]);
 }
+impl ::std::convert::From<IIdentityAdvise> for ::windows::runtime::IUnknown {
+    fn from(value: IIdentityAdvise) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IIdentityAdvise> for ::windows::runtime::IUnknown {
+    fn from(value: &IIdentityAdvise) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityAdvise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityAdvise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityAdvise_abi(
@@ -613,7 +813,7 @@ pub struct IIdentityAdvise_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IIdentityAuthentication(::windows::runtime::IUnknown);
 impl IIdentityAuthentication {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
@@ -630,6 +830,26 @@ unsafe impl ::windows::runtime::Interface for IIdentityAuthentication {
     type Vtable = IIdentityAuthentication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585377876, 38815, 17333, [183, 78, 6, 228, 235, 125, 240, 249]);
 }
+impl ::std::convert::From<IIdentityAuthentication> for ::windows::runtime::IUnknown {
+    fn from(value: IIdentityAuthentication) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IIdentityAuthentication> for ::windows::runtime::IUnknown {
+    fn from(value: &IIdentityAuthentication) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityAuthentication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityAuthentication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityAuthentication_abi(
@@ -642,7 +862,7 @@ pub struct IIdentityAuthentication_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IIdentityProvider(::windows::runtime::IUnknown);
 impl IIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
@@ -692,6 +912,26 @@ unsafe impl ::windows::runtime::Interface for IIdentityProvider {
     type Vtable = IIdentityProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(219913740, 59578, 20309, [168, 27, 188, 233, 52, 185, 72, 245]);
 }
+impl ::std::convert::From<IIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IIdentityProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IIdentityProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IIdentityProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityProvider_abi(
@@ -717,7 +957,7 @@ pub struct IIdentityProvider_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IIdentityStore(::windows::runtime::IUnknown);
 impl IIdentityStore {
     #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
@@ -754,6 +994,26 @@ unsafe impl ::windows::runtime::Interface for IIdentityStore {
     type Vtable = IIdentityStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3747114917, 28469, 17649, [178, 9, 179, 142, 22, 151, 114, 235]);
 }
+impl ::std::convert::From<IIdentityStore> for ::windows::runtime::IUnknown {
+    fn from(value: IIdentityStore) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IIdentityStore> for ::windows::runtime::IUnknown {
+    fn from(value: &IIdentityStore) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIdentityStore_abi(
@@ -773,7 +1033,7 @@ pub struct IIdentityStore_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IIdentityStoreEx(::windows::runtime::IUnknown);
 impl IIdentityStoreEx {
     #[cfg(feature = "Win32_Foundation")]
@@ -790,6 +1050,26 @@ impl IIdentityStoreEx {
 unsafe impl ::windows::runtime::Interface for IIdentityStoreEx {
     type Vtable = IIdentityStoreEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4193905560, 36735, 20024, [149, 119, 105, 128, 17, 76, 227, 43]);
+}
+impl ::std::convert::From<IIdentityStoreEx> for ::windows::runtime::IUnknown {
+    fn from(value: IIdentityStoreEx) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IIdentityStoreEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IIdentityStoreEx) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdentityStoreEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdentityStoreEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

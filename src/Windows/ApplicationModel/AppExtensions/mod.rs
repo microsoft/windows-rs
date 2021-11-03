@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtension(::windows::runtime::IInspectable);
 impl AppExtension {
     #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
@@ -81,11 +81,51 @@ unsafe impl ::windows::runtime::Interface for AppExtension {
 impl ::windows::runtime::RuntimeName for AppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtension";
 }
+impl ::std::convert::From<AppExtension> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtension) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtension> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtension) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtension> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtension) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtension> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtension) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppExtension {}
 unsafe impl ::std::marker::Sync for AppExtension {}
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtensionCatalog(::windows::runtime::IInspectable);
 impl AppExtensionCatalog {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -203,9 +243,49 @@ unsafe impl ::windows::runtime::Interface for AppExtensionCatalog {
 impl ::windows::runtime::RuntimeName for AppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog";
 }
+impl ::std::convert::From<AppExtensionCatalog> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtensionCatalog) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtensionCatalog> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtensionCatalog) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtensionCatalog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtensionCatalog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtensionCatalog> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtensionCatalog) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtensionCatalog> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtensionCatalog) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtensionCatalog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtensionCatalog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtensionPackageInstalledEventArgs(::windows::runtime::IInspectable);
 impl AppExtensionPackageInstalledEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
@@ -244,11 +324,51 @@ unsafe impl ::windows::runtime::Interface for AppExtensionPackageInstalledEventA
 impl ::windows::runtime::RuntimeName for AppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs";
 }
+impl ::std::convert::From<AppExtensionPackageInstalledEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtensionPackageInstalledEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageInstalledEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtensionPackageInstalledEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtensionPackageInstalledEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtensionPackageInstalledEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtensionPackageInstalledEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtensionPackageInstalledEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageInstalledEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtensionPackageInstalledEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtensionPackageInstalledEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtensionPackageInstalledEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppExtensionPackageInstalledEventArgs {}
 unsafe impl ::std::marker::Sync for AppExtensionPackageInstalledEventArgs {}
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtensionPackageStatusChangedEventArgs(::windows::runtime::IInspectable);
 impl AppExtensionPackageStatusChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
@@ -278,11 +398,51 @@ unsafe impl ::windows::runtime::Interface for AppExtensionPackageStatusChangedEv
 impl ::windows::runtime::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs";
 }
+impl ::std::convert::From<AppExtensionPackageStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtensionPackageStatusChangedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtensionPackageStatusChangedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtensionPackageStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtensionPackageStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtensionPackageStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtensionPackageStatusChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtensionPackageStatusChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtensionPackageStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtensionPackageStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppExtensionPackageStatusChangedEventArgs {}
 unsafe impl ::std::marker::Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtensionPackageUninstallingEventArgs(::windows::runtime::IInspectable);
 impl AppExtensionPackageUninstallingEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
@@ -312,11 +472,51 @@ unsafe impl ::windows::runtime::Interface for AppExtensionPackageUninstallingEve
 impl ::windows::runtime::RuntimeName for AppExtensionPackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs";
 }
+impl ::std::convert::From<AppExtensionPackageUninstallingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtensionPackageUninstallingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageUninstallingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtensionPackageUninstallingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtensionPackageUninstallingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtensionPackageUninstallingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtensionPackageUninstallingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtensionPackageUninstallingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageUninstallingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtensionPackageUninstallingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtensionPackageUninstallingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtensionPackageUninstallingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppExtensionPackageUninstallingEventArgs {}
 unsafe impl ::std::marker::Sync for AppExtensionPackageUninstallingEventArgs {}
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtensionPackageUpdatedEventArgs(::windows::runtime::IInspectable);
 impl AppExtensionPackageUpdatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
@@ -355,11 +555,51 @@ unsafe impl ::windows::runtime::Interface for AppExtensionPackageUpdatedEventArg
 impl ::windows::runtime::RuntimeName for AppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs";
 }
+impl ::std::convert::From<AppExtensionPackageUpdatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtensionPackageUpdatedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageUpdatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtensionPackageUpdatedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtensionPackageUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtensionPackageUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtensionPackageUpdatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtensionPackageUpdatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageUpdatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtensionPackageUpdatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtensionPackageUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtensionPackageUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppExtensionPackageUpdatedEventArgs {}
 unsafe impl ::std::marker::Sync for AppExtensionPackageUpdatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppExtensionPackageUpdatingEventArgs(::windows::runtime::IInspectable);
 impl AppExtensionPackageUpdatingEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
@@ -388,6 +628,46 @@ unsafe impl ::windows::runtime::Interface for AppExtensionPackageUpdatingEventAr
 }
 impl ::windows::runtime::RuntimeName for AppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs";
+}
+impl ::std::convert::From<AppExtensionPackageUpdatingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: AppExtensionPackageUpdatingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageUpdatingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &AppExtensionPackageUpdatingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppExtensionPackageUpdatingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppExtensionPackageUpdatingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppExtensionPackageUpdatingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: AppExtensionPackageUpdatingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppExtensionPackageUpdatingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &AppExtensionPackageUpdatingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppExtensionPackageUpdatingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppExtensionPackageUpdatingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AppExtensionPackageUpdatingEventArgs {}
 unsafe impl ::std::marker::Sync for AppExtensionPackageUpdatingEventArgs {}

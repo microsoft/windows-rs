@@ -122,7 +122,7 @@ unsafe impl ::windows::runtime::Abi for DtdProcessing {
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXmlReader(::windows::runtime::IUnknown);
 impl IXmlReader {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
@@ -240,6 +240,26 @@ unsafe impl ::windows::runtime::Interface for IXmlReader {
     type Vtable = IXmlReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597121, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
 }
+impl ::std::convert::From<IXmlReader> for ::windows::runtime::IUnknown {
+    fn from(value: IXmlReader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXmlReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IXmlReader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlReader_abi(
@@ -283,7 +303,7 @@ pub struct IXmlReader_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXmlResolver(::windows::runtime::IUnknown);
 impl IXmlResolver {
     #[cfg(feature = "Win32_Foundation")]
@@ -297,6 +317,26 @@ unsafe impl ::windows::runtime::Interface for IXmlResolver {
     type Vtable = IXmlResolver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597122, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
 }
+impl ::std::convert::From<IXmlResolver> for ::windows::runtime::IUnknown {
+    fn from(value: IXmlResolver) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXmlResolver> for ::windows::runtime::IUnknown {
+    fn from(value: &IXmlResolver) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlResolver_abi(
@@ -308,7 +348,7 @@ pub struct IXmlResolver_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXmlWriter(::windows::runtime::IUnknown);
 impl IXmlWriter {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
@@ -464,6 +504,26 @@ unsafe impl ::windows::runtime::Interface for IXmlWriter {
     type Vtable = IXmlWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597128, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
 }
+impl ::std::convert::From<IXmlWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IXmlWriter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXmlWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IXmlWriter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlWriter_abi(
@@ -521,7 +581,7 @@ pub struct IXmlWriter_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXmlWriterLite(::windows::runtime::IUnknown);
 impl IXmlWriterLite {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
@@ -661,6 +721,26 @@ impl IXmlWriterLite {
 unsafe impl ::windows::runtime::Interface for IXmlWriterLite {
     type Vtable = IXmlWriterLite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2250544326, 4880, 19117, [179, 205, 45, 190, 235, 246, 112, 211]);
+}
+impl ::std::convert::From<IXmlWriterLite> for ::windows::runtime::IUnknown {
+    fn from(value: IXmlWriterLite) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXmlWriterLite> for ::windows::runtime::IUnknown {
+    fn from(value: &IXmlWriterLite) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlWriterLite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlWriterLite {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

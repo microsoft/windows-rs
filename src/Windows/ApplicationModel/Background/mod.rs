@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ActivitySensorTrigger(::windows::runtime::IInspectable);
 impl ActivitySensorTrigger {
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
@@ -59,6 +59,46 @@ unsafe impl ::windows::runtime::Interface for ActivitySensorTrigger {
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
+}
+impl ::std::convert::From<ActivitySensorTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ActivitySensorTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ActivitySensorTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ActivitySensorTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ActivitySensorTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ActivitySensorTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ActivitySensorTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ActivitySensorTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivitySensorTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivitySensorTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<ActivitySensorTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -136,7 +176,7 @@ impl ::windows::runtime::RuntimeName for AlarmApplicationManager {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppBroadcastTrigger(::windows::runtime::IInspectable);
 impl AppBroadcastTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -174,6 +214,46 @@ unsafe impl ::windows::runtime::Interface for AppBroadcastTrigger {
 impl ::windows::runtime::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
 }
+impl ::std::convert::From<AppBroadcastTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: AppBroadcastTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppBroadcastTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &AppBroadcastTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppBroadcastTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppBroadcastTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppBroadcastTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: AppBroadcastTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppBroadcastTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &AppBroadcastTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppBroadcastTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppBroadcastTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<AppBroadcastTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AppBroadcastTrigger) -> ::windows::runtime::Result<Self> {
@@ -200,7 +280,7 @@ unsafe impl ::std::marker::Send for AppBroadcastTrigger {}
 unsafe impl ::std::marker::Sync for AppBroadcastTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppBroadcastTriggerProviderInfo(::windows::runtime::IInspectable);
 impl AppBroadcastTriggerProviderInfo {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -294,11 +374,51 @@ unsafe impl ::windows::runtime::Interface for AppBroadcastTriggerProviderInfo {
 impl ::windows::runtime::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
 }
+impl ::std::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: AppBroadcastTriggerProviderInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppBroadcastTriggerProviderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppBroadcastTriggerProviderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::runtime::IInspectable {
+    fn from(value: AppBroadcastTriggerProviderInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppBroadcastTriggerProviderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppBroadcastTriggerProviderInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AppBroadcastTriggerProviderInfo {}
 unsafe impl ::std::marker::Sync for AppBroadcastTriggerProviderInfo {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ApplicationTrigger(::windows::runtime::IInspectable);
 impl ApplicationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -337,6 +457,46 @@ unsafe impl ::windows::runtime::Interface for ApplicationTrigger {
 impl ::windows::runtime::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
 }
+impl ::std::convert::From<ApplicationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ApplicationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ApplicationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ApplicationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ApplicationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ApplicationTrigger) -> ::windows::runtime::Result<Self> {
@@ -363,7 +523,7 @@ unsafe impl ::std::marker::Send for ApplicationTrigger {}
 unsafe impl ::std::marker::Sync for ApplicationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ApplicationTriggerDetails(::windows::runtime::IInspectable);
 impl ApplicationTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
@@ -385,6 +545,46 @@ unsafe impl ::windows::runtime::Interface for ApplicationTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
+}
+impl ::std::convert::From<ApplicationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationTriggerDetails) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ApplicationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationTriggerDetails) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ApplicationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ApplicationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ApplicationTriggerDetails {}
 unsafe impl ::std::marker::Sync for ApplicationTriggerDetails {}
@@ -414,7 +614,7 @@ impl ::windows::runtime::DefaultType for ApplicationTriggerResult {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppointmentStoreNotificationTrigger(::windows::runtime::IInspectable);
 impl AppointmentStoreNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -434,6 +634,46 @@ unsafe impl ::windows::runtime::Interface for AppointmentStoreNotificationTrigge
 }
 impl ::windows::runtime::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
+}
+impl ::std::convert::From<AppointmentStoreNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: AppointmentStoreNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AppointmentStoreNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: AppointmentStoreNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppointmentStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppointmentStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<AppointmentStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -601,7 +841,7 @@ impl ::windows::runtime::RuntimeName for BackgroundExecutionManager {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackgroundTaskBuilder(::windows::runtime::IInspectable);
 impl BackgroundTaskBuilder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -710,6 +950,46 @@ unsafe impl ::windows::runtime::Interface for BackgroundTaskBuilder {
 impl ::windows::runtime::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
 }
+impl ::std::convert::From<BackgroundTaskBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundTaskBuilder) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BackgroundTaskBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundTaskBuilder) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTaskBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTaskBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BackgroundTaskBuilder> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundTaskBuilder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundTaskBuilder> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundTaskBuilder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTaskBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTaskBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
@@ -817,7 +1097,7 @@ impl ::windows::runtime::DefaultType for BackgroundTaskCancellationReason {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackgroundTaskCompletedEventArgs(::windows::runtime::IInspectable);
 impl BackgroundTaskCompletedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -843,6 +1123,46 @@ unsafe impl ::windows::runtime::Interface for BackgroundTaskCompletedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
+}
+impl ::std::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundTaskCompletedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTaskCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTaskCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundTaskCompletedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTaskCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTaskCompletedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for BackgroundTaskCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for BackgroundTaskCompletedEventArgs {}
@@ -925,7 +1245,7 @@ impl<F: FnMut(&::std::option::Option<BackgroundTaskRegistration>, &::std::option
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackgroundTaskDeferral(::windows::runtime::IInspectable);
 impl BackgroundTaskDeferral {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -944,11 +1264,51 @@ unsafe impl ::windows::runtime::Interface for BackgroundTaskDeferral {
 impl ::windows::runtime::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
 }
+impl ::std::convert::From<BackgroundTaskDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundTaskDeferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BackgroundTaskDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundTaskDeferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTaskDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTaskDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BackgroundTaskDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundTaskDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundTaskDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundTaskDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTaskDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTaskDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BackgroundTaskDeferral {}
 unsafe impl ::std::marker::Sync for BackgroundTaskDeferral {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackgroundTaskProgressEventArgs(::windows::runtime::IInspectable);
 impl BackgroundTaskProgressEventArgs {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -977,6 +1337,46 @@ unsafe impl ::windows::runtime::Interface for BackgroundTaskProgressEventArgs {
 }
 impl ::windows::runtime::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
+}
+impl ::std::convert::From<BackgroundTaskProgressEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundTaskProgressEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTaskProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTaskProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BackgroundTaskProgressEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundTaskProgressEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTaskProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTaskProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for BackgroundTaskProgressEventArgs {}
 unsafe impl ::std::marker::Sync for BackgroundTaskProgressEventArgs {}
@@ -1059,7 +1459,7 @@ impl<F: FnMut(&::std::option::Option<BackgroundTaskRegistration>, &::std::option
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackgroundTaskRegistration(::windows::runtime::IInspectable);
 impl BackgroundTaskRegistration {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -1171,6 +1571,46 @@ unsafe impl ::windows::runtime::Interface for BackgroundTaskRegistration {
 impl ::windows::runtime::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
 }
+impl ::std::convert::From<BackgroundTaskRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundTaskRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BackgroundTaskRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundTaskRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BackgroundTaskRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundTaskRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundTaskRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundTaskRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<BackgroundTaskRegistration> for IBackgroundTaskRegistration {
     fn from(value: BackgroundTaskRegistration) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1239,7 +1679,7 @@ unsafe impl ::std::marker::Send for BackgroundTaskRegistration {}
 unsafe impl ::std::marker::Sync for BackgroundTaskRegistration {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackgroundTaskRegistrationGroup(::windows::runtime::IInspectable);
 impl BackgroundTaskRegistrationGroup {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -1311,6 +1751,46 @@ unsafe impl ::windows::runtime::Interface for BackgroundTaskRegistrationGroup {
 impl ::windows::runtime::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
 }
+impl ::std::convert::From<BackgroundTaskRegistrationGroup> for ::windows::runtime::IUnknown {
+    fn from(value: BackgroundTaskRegistrationGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTaskRegistrationGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTaskRegistrationGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BackgroundTaskRegistrationGroup> for ::windows::runtime::IInspectable {
+    fn from(value: BackgroundTaskRegistrationGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::runtime::IInspectable {
+    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTaskRegistrationGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTaskRegistrationGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BackgroundTaskRegistrationGroup {}
 unsafe impl ::std::marker::Sync for BackgroundTaskRegistrationGroup {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -1379,7 +1859,7 @@ impl ::windows::runtime::DefaultType for BackgroundWorkCostValue {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1463,6 +1943,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementPublisherT
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementPublisherTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementPublisherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEAdvertisementPublisherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementPublisherTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementPublisherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementPublisherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<BluetoothLEAdvertisementPublisherTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BluetoothLEAdvertisementPublisherTrigger) -> ::windows::runtime::Result<Self> {
@@ -1489,7 +2009,7 @@ unsafe impl ::std::marker::Send for BluetoothLEAdvertisementPublisherTrigger {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementPublisherTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEAdvertisementWatcherTrigger(::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1589,6 +2109,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementWatcherTri
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementWatcherTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BluetoothLEAdvertisementWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementWatcherTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<BluetoothLEAdvertisementWatcherTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BluetoothLEAdvertisementWatcherTrigger) -> ::windows::runtime::Result<Self> {
@@ -1615,7 +2175,7 @@ unsafe impl ::std::marker::Send for BluetoothLEAdvertisementWatcherTrigger {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementWatcherTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CachedFileUpdaterTrigger(::windows::runtime::IInspectable);
 impl CachedFileUpdaterTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1635,6 +2195,46 @@ unsafe impl ::windows::runtime::Interface for CachedFileUpdaterTrigger {
 }
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
+}
+impl ::std::convert::From<CachedFileUpdaterTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: CachedFileUpdaterTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CachedFileUpdaterTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &CachedFileUpdaterTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CachedFileUpdaterTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CachedFileUpdaterTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CachedFileUpdaterTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: CachedFileUpdaterTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CachedFileUpdaterTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &CachedFileUpdaterTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CachedFileUpdaterTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CachedFileUpdaterTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<CachedFileUpdaterTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -1662,7 +2262,7 @@ unsafe impl ::std::marker::Send for CachedFileUpdaterTrigger {}
 unsafe impl ::std::marker::Sync for CachedFileUpdaterTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CachedFileUpdaterTriggerDetails(::windows::runtime::IInspectable);
 impl CachedFileUpdaterTriggerDetails {
     #[cfg(feature = "Storage_Provider")]
@@ -1702,11 +2302,51 @@ unsafe impl ::windows::runtime::Interface for CachedFileUpdaterTriggerDetails {
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
 }
+impl ::std::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: CachedFileUpdaterTriggerDetails) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CachedFileUpdaterTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CachedFileUpdaterTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: CachedFileUpdaterTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CachedFileUpdaterTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CachedFileUpdaterTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CachedFileUpdaterTriggerDetails {}
 unsafe impl ::std::marker::Sync for CachedFileUpdaterTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ChatMessageNotificationTrigger(::windows::runtime::IInspectable);
 impl ChatMessageNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1726,6 +2366,46 @@ unsafe impl ::windows::runtime::Interface for ChatMessageNotificationTrigger {
 }
 impl ::windows::runtime::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
+}
+impl ::std::convert::From<ChatMessageNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ChatMessageNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ChatMessageNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ChatMessageNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ChatMessageNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ChatMessageNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ChatMessageNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ChatMessageNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<ChatMessageNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -1753,7 +2433,7 @@ unsafe impl ::std::marker::Send for ChatMessageNotificationTrigger {}
 unsafe impl ::std::marker::Sync for ChatMessageNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ChatMessageReceivedNotificationTrigger(::windows::runtime::IInspectable);
 impl ChatMessageReceivedNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1773,6 +2453,46 @@ unsafe impl ::windows::runtime::Interface for ChatMessageReceivedNotificationTri
 }
 impl ::windows::runtime::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
+}
+impl ::std::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ChatMessageReceivedNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ChatMessageReceivedNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageReceivedNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageReceivedNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ChatMessageReceivedNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ChatMessageReceivedNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageReceivedNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageReceivedNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<ChatMessageReceivedNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -1800,7 +2520,7 @@ unsafe impl ::std::marker::Send for ChatMessageReceivedNotificationTrigger {}
 unsafe impl ::std::marker::Sync for ChatMessageReceivedNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CommunicationBlockingAppSetAsActiveTrigger(::windows::runtime::IInspectable);
 impl CommunicationBlockingAppSetAsActiveTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1820,6 +2540,46 @@ unsafe impl ::windows::runtime::Interface for CommunicationBlockingAppSetAsActiv
 }
 impl ::windows::runtime::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
+}
+impl ::std::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: CommunicationBlockingAppSetAsActiveTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CommunicationBlockingAppSetAsActiveTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CommunicationBlockingAppSetAsActiveTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: CommunicationBlockingAppSetAsActiveTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CommunicationBlockingAppSetAsActiveTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CommunicationBlockingAppSetAsActiveTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<CommunicationBlockingAppSetAsActiveTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -1847,7 +2607,7 @@ unsafe impl ::std::marker::Send for CommunicationBlockingAppSetAsActiveTrigger {
 unsafe impl ::std::marker::Sync for CommunicationBlockingAppSetAsActiveTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactStoreNotificationTrigger(::windows::runtime::IInspectable);
 impl ContactStoreNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1867,6 +2627,46 @@ unsafe impl ::windows::runtime::Interface for ContactStoreNotificationTrigger {
 }
 impl ::windows::runtime::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
+}
+impl ::std::convert::From<ContactStoreNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ContactStoreNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ContactStoreNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ContactStoreNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ContactStoreNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ContactStoreNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ContactStoreNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ContactStoreNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<ContactStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -1894,7 +2694,7 @@ unsafe impl ::std::marker::Send for ContactStoreNotificationTrigger {}
 unsafe impl ::std::marker::Sync for ContactStoreNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentPrefetchTrigger(::windows::runtime::IInspectable);
 impl ContentPrefetchTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1936,6 +2736,46 @@ unsafe impl ::windows::runtime::Interface for ContentPrefetchTrigger {
 impl ::windows::runtime::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
 }
+impl ::std::convert::From<ContentPrefetchTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ContentPrefetchTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ContentPrefetchTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ContentPrefetchTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentPrefetchTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentPrefetchTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ContentPrefetchTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ContentPrefetchTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ContentPrefetchTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ContentPrefetchTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentPrefetchTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentPrefetchTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ContentPrefetchTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ContentPrefetchTrigger) -> ::windows::runtime::Result<Self> {
@@ -1960,7 +2800,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &ContentPrefe
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ConversationalAgentTrigger(::windows::runtime::IInspectable);
 impl ConversationalAgentTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1980,6 +2820,46 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentTrigger {
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
+}
+impl ::std::convert::From<ConversationalAgentTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ConversationalAgentTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ConversationalAgentTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ConversationalAgentTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ConversationalAgentTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ConversationalAgentTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ConversationalAgentTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ConversationalAgentTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<ConversationalAgentTrigger> for IBackgroundTrigger {
     fn from(value: ConversationalAgentTrigger) -> Self {
@@ -2003,7 +2883,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &Conversation
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CustomSystemEventTrigger(::windows::runtime::IInspectable);
 impl CustomSystemEventTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -2043,6 +2923,46 @@ unsafe impl ::windows::runtime::Interface for CustomSystemEventTrigger {
 }
 impl ::windows::runtime::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
+}
+impl ::std::convert::From<CustomSystemEventTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: CustomSystemEventTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CustomSystemEventTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &CustomSystemEventTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomSystemEventTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CustomSystemEventTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CustomSystemEventTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: CustomSystemEventTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CustomSystemEventTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &CustomSystemEventTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CustomSystemEventTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CustomSystemEventTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<CustomSystemEventTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -2090,7 +3010,7 @@ impl ::windows::runtime::DefaultType for CustomSystemEventTriggerRecurrence {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceConnectionChangeTrigger(::windows::runtime::IInspectable);
 impl DeviceConnectionChangeTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -2145,6 +3065,46 @@ unsafe impl ::windows::runtime::Interface for DeviceConnectionChangeTrigger {
 impl ::windows::runtime::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
 }
+impl ::std::convert::From<DeviceConnectionChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: DeviceConnectionChangeTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DeviceConnectionChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceConnectionChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceConnectionChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DeviceConnectionChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: DeviceConnectionChangeTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DeviceConnectionChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceConnectionChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceConnectionChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<DeviceConnectionChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceConnectionChangeTrigger) -> ::windows::runtime::Result<Self> {
@@ -2171,7 +3131,7 @@ unsafe impl ::std::marker::Send for DeviceConnectionChangeTrigger {}
 unsafe impl ::std::marker::Sync for DeviceConnectionChangeTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceManufacturerNotificationTrigger(::windows::runtime::IInspectable);
 impl DeviceManufacturerNotificationTrigger {
     #[cfg(feature = "deprecated")]
@@ -2215,6 +3175,46 @@ unsafe impl ::windows::runtime::Interface for DeviceManufacturerNotificationTrig
 impl ::windows::runtime::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
 }
+impl ::std::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceManufacturerNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceManufacturerNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceManufacturerNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceManufacturerNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<DeviceManufacturerNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceManufacturerNotificationTrigger) -> ::windows::runtime::Result<Self> {
@@ -2239,7 +3239,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &DeviceManufa
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceServicingTrigger(::windows::runtime::IInspectable);
 impl DeviceServicingTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2277,6 +3277,46 @@ unsafe impl ::windows::runtime::Interface for DeviceServicingTrigger {
 }
 impl ::windows::runtime::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
+}
+impl ::std::convert::From<DeviceServicingTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: DeviceServicingTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DeviceServicingTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &DeviceServicingTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceServicingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceServicingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DeviceServicingTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: DeviceServicingTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DeviceServicingTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &DeviceServicingTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceServicingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceServicingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<DeviceServicingTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -2328,7 +3368,7 @@ impl ::windows::runtime::DefaultType for DeviceTriggerResult {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceUseTrigger(::windows::runtime::IInspectable);
 impl DeviceUseTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2367,6 +3407,46 @@ unsafe impl ::windows::runtime::Interface for DeviceUseTrigger {
 impl ::windows::runtime::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
 }
+impl ::std::convert::From<DeviceUseTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: DeviceUseTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DeviceUseTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &DeviceUseTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceUseTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceUseTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DeviceUseTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: DeviceUseTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DeviceUseTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &DeviceUseTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceUseTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceUseTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<DeviceUseTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceUseTrigger) -> ::windows::runtime::Result<Self> {
@@ -2393,7 +3473,7 @@ unsafe impl ::std::marker::Send for DeviceUseTrigger {}
 unsafe impl ::std::marker::Sync for DeviceUseTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceWatcherTrigger(::windows::runtime::IInspectable);
 impl DeviceWatcherTrigger {}
 unsafe impl ::windows::runtime::RuntimeType for DeviceWatcherTrigger {
@@ -2405,6 +3485,46 @@ unsafe impl ::windows::runtime::Interface for DeviceWatcherTrigger {
 }
 impl ::windows::runtime::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
+}
+impl ::std::convert::From<DeviceWatcherTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: DeviceWatcherTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DeviceWatcherTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &DeviceWatcherTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DeviceWatcherTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: DeviceWatcherTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DeviceWatcherTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &DeviceWatcherTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceWatcherTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<DeviceWatcherTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -2430,7 +3550,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &DeviceWatche
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailStoreNotificationTrigger(::windows::runtime::IInspectable);
 impl EmailStoreNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2450,6 +3570,46 @@ unsafe impl ::windows::runtime::Interface for EmailStoreNotificationTrigger {
 }
 impl ::windows::runtime::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
+}
+impl ::std::convert::From<EmailStoreNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: EmailStoreNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&EmailStoreNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailStoreNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EmailStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<EmailStoreNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: EmailStoreNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailStoreNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailStoreNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailStoreNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<EmailStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -2477,7 +3637,7 @@ unsafe impl ::std::marker::Send for EmailStoreNotificationTrigger {}
 unsafe impl ::std::marker::Sync for EmailStoreNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattCharacteristicNotificationTrigger(::windows::runtime::IInspectable);
 impl GattCharacteristicNotificationTrigger {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
@@ -2533,6 +3693,46 @@ unsafe impl ::windows::runtime::Interface for GattCharacteristicNotificationTrig
 impl ::windows::runtime::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
 }
+impl ::std::convert::From<GattCharacteristicNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: GattCharacteristicNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattCharacteristicNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattCharacteristicNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattCharacteristicNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattCharacteristicNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: GattCharacteristicNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattCharacteristicNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattCharacteristicNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattCharacteristicNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<GattCharacteristicNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GattCharacteristicNotificationTrigger) -> ::windows::runtime::Result<Self> {
@@ -2559,7 +3759,7 @@ unsafe impl ::std::marker::Send for GattCharacteristicNotificationTrigger {}
 unsafe impl ::std::marker::Sync for GattCharacteristicNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderTrigger(::windows::runtime::IInspectable);
 impl GattServiceProviderTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -2617,6 +3817,46 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderTrigger {
 impl ::windows::runtime::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
 }
+impl ::std::convert::From<GattServiceProviderTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattServiceProviderTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattServiceProviderTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattServiceProviderTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<GattServiceProviderTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GattServiceProviderTrigger) -> ::windows::runtime::Result<Self> {
@@ -2643,7 +3883,7 @@ unsafe impl ::std::marker::Send for GattServiceProviderTrigger {}
 unsafe impl ::std::marker::Sync for GattServiceProviderTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderTriggerResult(::windows::runtime::IInspectable);
 impl GattServiceProviderTriggerResult {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -2674,11 +3914,51 @@ unsafe impl ::windows::runtime::Interface for GattServiceProviderTriggerResult {
 impl ::windows::runtime::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
 }
+impl ::std::convert::From<GattServiceProviderTriggerResult> for ::windows::runtime::IUnknown {
+    fn from(value: GattServiceProviderTriggerResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GattServiceProviderTriggerResult> for ::windows::runtime::IUnknown {
+    fn from(value: &GattServiceProviderTriggerResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GattServiceProviderTriggerResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GattServiceProviderTriggerResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GattServiceProviderTriggerResult> for ::windows::runtime::IInspectable {
+    fn from(value: GattServiceProviderTriggerResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GattServiceProviderTriggerResult> for ::windows::runtime::IInspectable {
+    fn from(value: &GattServiceProviderTriggerResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GattServiceProviderTriggerResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GattServiceProviderTriggerResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GattServiceProviderTriggerResult {}
 unsafe impl ::std::marker::Sync for GattServiceProviderTriggerResult {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GeovisitTrigger(::windows::runtime::IInspectable);
 impl GeovisitTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2713,6 +3993,46 @@ unsafe impl ::windows::runtime::Interface for GeovisitTrigger {
 }
 impl ::windows::runtime::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
+}
+impl ::std::convert::From<GeovisitTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: GeovisitTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GeovisitTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &GeovisitTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeovisitTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeovisitTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GeovisitTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: GeovisitTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GeovisitTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &GeovisitTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeovisitTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeovisitTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<GeovisitTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -2925,7 +4245,7 @@ pub struct IAppointmentStoreNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundCondition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundCondition {
@@ -2935,6 +4255,46 @@ unsafe impl ::windows::runtime::Interface for IBackgroundCondition {
 impl IBackgroundCondition {}
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundCondition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
+}
+impl ::std::convert::From<IBackgroundCondition> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundCondition> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundCondition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundCondition> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundCondition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3012,7 +4372,7 @@ pub struct IBackgroundExecutionManagerStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTask {
@@ -3028,6 +4388,46 @@ impl IBackgroundTask {
 }
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTask {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
+}
+impl ::std::convert::From<IBackgroundTask> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTask) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTask> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTask) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTask> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTask) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTask> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTask) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3177,7 +4577,7 @@ pub struct IBackgroundTaskDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTaskInstance(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskInstance {
@@ -3257,6 +4657,46 @@ impl IBackgroundTaskInstance {
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTaskInstance {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
 }
+impl ::std::convert::From<IBackgroundTaskInstance> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTaskInstance) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskInstance> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTaskInstance) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTaskInstance> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTaskInstance) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskInstance> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTaskInstance) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskInstance_abi(
@@ -3279,7 +4719,7 @@ pub struct IBackgroundTaskInstance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTaskInstance2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskInstance2 {
@@ -3367,6 +4807,46 @@ impl IBackgroundTaskInstance2 {
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTaskInstance2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
 }
+impl ::std::convert::From<IBackgroundTaskInstance2> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTaskInstance2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskInstance2> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTaskInstance2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTaskInstance2> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTaskInstance2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskInstance2> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTaskInstance2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<IBackgroundTaskInstance2> for IBackgroundTaskInstance {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IBackgroundTaskInstance2) -> ::windows::runtime::Result<Self> {
@@ -3401,7 +4881,7 @@ pub struct IBackgroundTaskInstance2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTaskInstance4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskInstance4 {
@@ -3490,6 +4970,46 @@ impl IBackgroundTaskInstance4 {
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTaskInstance4 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
 }
+impl ::std::convert::From<IBackgroundTaskInstance4> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTaskInstance4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskInstance4> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTaskInstance4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTaskInstance4> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTaskInstance4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskInstance4> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTaskInstance4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<IBackgroundTaskInstance4> for IBackgroundTaskInstance {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IBackgroundTaskInstance4) -> ::windows::runtime::Result<Self> {
@@ -3544,7 +5064,7 @@ pub struct IBackgroundTaskProgressEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTaskRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistration {
@@ -3607,6 +5127,46 @@ impl IBackgroundTaskRegistration {
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTaskRegistration {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
 }
+impl ::std::convert::From<IBackgroundTaskRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTaskRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTaskRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTaskRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTaskRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTaskRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration_abi(
@@ -3629,7 +5189,7 @@ pub struct IBackgroundTaskRegistration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, canceltask: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTaskRegistration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistration2 {
@@ -3700,6 +5260,46 @@ impl IBackgroundTaskRegistration2 {
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTaskRegistration2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
 }
+impl ::std::convert::From<IBackgroundTaskRegistration2> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTaskRegistration2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskRegistration2> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTaskRegistration2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTaskRegistration2> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTaskRegistration2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskRegistration2> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTaskRegistration2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<IBackgroundTaskRegistration2> for IBackgroundTaskRegistration {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IBackgroundTaskRegistration2) -> ::windows::runtime::Result<Self> {
@@ -3734,7 +5334,7 @@ pub struct IBackgroundTaskRegistration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTaskRegistration3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistration3 {
@@ -3804,6 +5404,46 @@ impl IBackgroundTaskRegistration3 {
 }
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTaskRegistration3 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
+}
+impl ::std::convert::From<IBackgroundTaskRegistration3> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTaskRegistration3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskRegistration3> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTaskRegistration3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTaskRegistration3> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTaskRegistration3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTaskRegistration3> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTaskRegistration3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<IBackgroundTaskRegistration3> for IBackgroundTaskRegistration {
     type Error = ::windows::runtime::Error;
@@ -3922,7 +5562,7 @@ pub struct IBackgroundTaskRegistrationStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, groupid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 pub struct IBackgroundTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTrigger {
@@ -3932,6 +5572,46 @@ unsafe impl ::windows::runtime::Interface for IBackgroundTrigger {
 impl IBackgroundTrigger {}
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTrigger {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
+}
+impl ::std::convert::From<IBackgroundTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: IBackgroundTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBackgroundTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &IBackgroundTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBackgroundTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: IBackgroundTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBackgroundTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &IBackgroundTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5158,7 +6838,7 @@ pub struct IUserNotificationChangedTriggerFactory_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LocationTrigger(::windows::runtime::IInspectable);
 impl LocationTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5190,6 +6870,46 @@ unsafe impl ::windows::runtime::Interface for LocationTrigger {
 }
 impl ::windows::runtime::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
+}
+impl ::std::convert::From<LocationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: LocationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&LocationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &LocationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LocationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<LocationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: LocationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LocationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &LocationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LocationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LocationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<LocationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -5238,7 +6958,7 @@ impl ::windows::runtime::DefaultType for LocationTriggerType {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MaintenanceTrigger(::windows::runtime::IInspectable);
 impl MaintenanceTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5279,6 +6999,46 @@ unsafe impl ::windows::runtime::Interface for MaintenanceTrigger {
 impl ::windows::runtime::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
 }
+impl ::std::convert::From<MaintenanceTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MaintenanceTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MaintenanceTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MaintenanceTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MaintenanceTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MaintenanceTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MaintenanceTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MaintenanceTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MaintenanceTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MaintenanceTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MaintenanceTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MaintenanceTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<MaintenanceTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MaintenanceTrigger) -> ::windows::runtime::Result<Self> {
@@ -5303,7 +7063,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &MaintenanceT
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaProcessingTrigger(::windows::runtime::IInspectable);
 impl MediaProcessingTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5341,6 +7101,46 @@ unsafe impl ::windows::runtime::Interface for MediaProcessingTrigger {
 }
 impl ::windows::runtime::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
+}
+impl ::std::convert::From<MediaProcessingTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MediaProcessingTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MediaProcessingTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MediaProcessingTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaProcessingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaProcessingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MediaProcessingTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MediaProcessingTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MediaProcessingTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MediaProcessingTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaProcessingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaProcessingTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<MediaProcessingTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -5390,7 +7190,7 @@ impl ::windows::runtime::DefaultType for MediaProcessingTriggerResult {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5410,6 +7210,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceNotifi
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MobileBroadbandDeviceServiceNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
     fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
@@ -5435,7 +7275,7 @@ unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceNotificationTrig
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MobileBroadbandPcoDataChangeTrigger(::windows::runtime::IInspectable);
 impl MobileBroadbandPcoDataChangeTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5455,6 +7295,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPcoDataChangeTrigge
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
+}
+impl ::std::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPcoDataChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MobileBroadbandPcoDataChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPcoDataChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPcoDataChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
     fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
@@ -5480,7 +7360,7 @@ unsafe impl ::std::marker::Send for MobileBroadbandPcoDataChangeTrigger {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPcoDataChangeTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(::windows::runtime::IInspectable);
 impl MobileBroadbandPinLockStateChangeTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5500,6 +7380,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPinLockStateChangeT
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
+}
+impl ::std::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPinLockStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MobileBroadbandPinLockStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPinLockStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPinLockStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
     fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
@@ -5525,7 +7445,7 @@ unsafe impl ::std::marker::Send for MobileBroadbandPinLockStateChangeTrigger {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPinLockStateChangeTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MobileBroadbandRadioStateChangeTrigger(::windows::runtime::IInspectable);
 impl MobileBroadbandRadioStateChangeTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5545,6 +7465,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandRadioStateChangeTri
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
+}
+impl ::std::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandRadioStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MobileBroadbandRadioStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandRadioStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandRadioStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
     fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
@@ -5570,7 +7530,7 @@ unsafe impl ::std::marker::Send for MobileBroadbandRadioStateChangeTrigger {}
 unsafe impl ::std::marker::Sync for MobileBroadbandRadioStateChangeTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(::windows::runtime::IInspectable);
 impl MobileBroadbandRegistrationStateChangeTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5590,6 +7550,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandRegistrationStateCh
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
+}
+impl ::std::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandRegistrationStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MobileBroadbandRegistrationStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandRegistrationStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandRegistrationStateChangeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
     fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
@@ -5615,7 +7615,7 @@ unsafe impl ::std::marker::Send for MobileBroadbandRegistrationStateChangeTrigge
 unsafe impl ::std::marker::Sync for MobileBroadbandRegistrationStateChangeTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NetworkOperatorDataUsageTrigger(::windows::runtime::IInspectable);
 impl NetworkOperatorDataUsageTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5635,6 +7635,46 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorDataUsageTrigger {
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
+}
+impl ::std::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorDataUsageTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NetworkOperatorDataUsageTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorDataUsageTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorDataUsageTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
     fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
@@ -5660,7 +7700,7 @@ unsafe impl ::std::marker::Send for NetworkOperatorDataUsageTrigger {}
 unsafe impl ::std::marker::Sync for NetworkOperatorDataUsageTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NetworkOperatorHotspotAuthenticationTrigger(::windows::runtime::IInspectable);
 impl NetworkOperatorHotspotAuthenticationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5680,6 +7720,46 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorHotspotAuthenticati
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
+}
+impl ::std::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorHotspotAuthenticationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorHotspotAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NetworkOperatorHotspotAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorHotspotAuthenticationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorHotspotAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorHotspotAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<NetworkOperatorHotspotAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -5705,7 +7785,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &NetworkOpera
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NetworkOperatorNotificationTrigger(::windows::runtime::IInspectable);
 impl NetworkOperatorNotificationTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5738,6 +7818,46 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorNotificationTrigger
 impl ::windows::runtime::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
 }
+impl ::std::convert::From<NetworkOperatorNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NetworkOperatorNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<NetworkOperatorNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<NetworkOperatorNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: NetworkOperatorNotificationTrigger) -> ::windows::runtime::Result<Self> {
@@ -5762,7 +7882,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &NetworkOpera
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PaymentAppCanMakePaymentTrigger(::windows::runtime::IInspectable);
 impl PaymentAppCanMakePaymentTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5782,6 +7902,46 @@ unsafe impl ::windows::runtime::Interface for PaymentAppCanMakePaymentTrigger {
 }
 impl ::windows::runtime::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
+}
+impl ::std::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentAppCanMakePaymentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaymentAppCanMakePaymentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PaymentAppCanMakePaymentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PaymentAppCanMakePaymentTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
     fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
@@ -5807,7 +7967,7 @@ unsafe impl ::std::marker::Send for PaymentAppCanMakePaymentTrigger {}
 unsafe impl ::std::marker::Sync for PaymentAppCanMakePaymentTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneTrigger(::windows::runtime::IInspectable);
 impl PhoneTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -5850,6 +8010,46 @@ unsafe impl ::windows::runtime::Interface for PhoneTrigger {
 impl ::windows::runtime::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
 }
+impl ::std::convert::From<PhoneTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: PhoneTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PhoneTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &PhoneTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PhoneTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: PhoneTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PhoneTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &PhoneTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<PhoneTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PhoneTrigger) -> ::windows::runtime::Result<Self> {
@@ -5876,7 +8076,7 @@ unsafe impl ::std::marker::Send for PhoneTrigger {}
 unsafe impl ::std::marker::Sync for PhoneTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PushNotificationTrigger(::windows::runtime::IInspectable);
 impl PushNotificationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5908,6 +8108,46 @@ unsafe impl ::windows::runtime::Interface for PushNotificationTrigger {
 impl ::windows::runtime::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
 }
+impl ::std::convert::From<PushNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: PushNotificationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PushNotificationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &PushNotificationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PushNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PushNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PushNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: PushNotificationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PushNotificationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &PushNotificationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PushNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PushNotificationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<PushNotificationTrigger> for IBackgroundTrigger {
     fn from(value: PushNotificationTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5932,7 +8172,7 @@ unsafe impl ::std::marker::Send for PushNotificationTrigger {}
 unsafe impl ::std::marker::Sync for PushNotificationTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RcsEndUserMessageAvailableTrigger(::windows::runtime::IInspectable);
 impl RcsEndUserMessageAvailableTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5952,6 +8192,46 @@ unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAvailableTrigger 
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
+}
+impl ::std::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: RcsEndUserMessageAvailableTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsEndUserMessageAvailableTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsEndUserMessageAvailableTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: RcsEndUserMessageAvailableTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsEndUserMessageAvailableTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsEndUserMessageAvailableTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<RcsEndUserMessageAvailableTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -5979,7 +8259,7 @@ unsafe impl ::std::marker::Send for RcsEndUserMessageAvailableTrigger {}
 unsafe impl ::std::marker::Sync for RcsEndUserMessageAvailableTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommConnectionTrigger(::windows::runtime::IInspectable);
 impl RfcommConnectionTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6061,6 +8341,46 @@ unsafe impl ::windows::runtime::Interface for RfcommConnectionTrigger {
 impl ::windows::runtime::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
 }
+impl ::std::convert::From<RfcommConnectionTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: RfcommConnectionTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RfcommConnectionTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &RfcommConnectionTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RfcommConnectionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RfcommConnectionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RfcommConnectionTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: RfcommConnectionTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RfcommConnectionTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &RfcommConnectionTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RfcommConnectionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RfcommConnectionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<RfcommConnectionTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: RfcommConnectionTrigger) -> ::windows::runtime::Result<Self> {
@@ -6087,7 +8407,7 @@ unsafe impl ::std::marker::Send for RfcommConnectionTrigger {}
 unsafe impl ::std::marker::Sync for RfcommConnectionTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorAuthenticationTrigger(::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6107,6 +8427,46 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthe
 }
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
+}
+impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<SecondaryAuthenticationFactorAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -6132,7 +8492,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &SecondaryAut
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SensorDataThresholdTrigger(::windows::runtime::IInspectable);
 impl SensorDataThresholdTrigger {
     #[cfg(feature = "Devices_Sensors")]
@@ -6157,6 +8517,46 @@ unsafe impl ::windows::runtime::Interface for SensorDataThresholdTrigger {
 }
 impl ::windows::runtime::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
+}
+impl ::std::convert::From<SensorDataThresholdTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: SensorDataThresholdTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SensorDataThresholdTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &SensorDataThresholdTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorDataThresholdTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorDataThresholdTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SensorDataThresholdTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: SensorDataThresholdTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SensorDataThresholdTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &SensorDataThresholdTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SensorDataThresholdTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SensorDataThresholdTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<SensorDataThresholdTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -6184,7 +8584,7 @@ unsafe impl ::std::marker::Send for SensorDataThresholdTrigger {}
 unsafe impl ::std::marker::Sync for SensorDataThresholdTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardTrigger(::windows::runtime::IInspectable);
 impl SmartCardTrigger {
     #[cfg(feature = "Devices_SmartCards")]
@@ -6219,6 +8619,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardTrigger {
 impl ::windows::runtime::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
 }
+impl ::std::convert::From<SmartCardTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<SmartCardTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SmartCardTrigger) -> ::windows::runtime::Result<Self> {
@@ -6243,7 +8683,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &SmartCardTri
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsMessageReceivedTrigger(::windows::runtime::IInspectable);
 impl SmsMessageReceivedTrigger {
     #[cfg(feature = "Devices_Sms")]
@@ -6269,6 +8709,46 @@ unsafe impl ::windows::runtime::Interface for SmsMessageReceivedTrigger {
 impl ::windows::runtime::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
 }
+impl ::std::convert::From<SmsMessageReceivedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: SmsMessageReceivedTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmsMessageReceivedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &SmsMessageReceivedTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmsMessageReceivedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmsMessageReceivedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmsMessageReceivedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: SmsMessageReceivedTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmsMessageReceivedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &SmsMessageReceivedTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmsMessageReceivedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmsMessageReceivedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SmsMessageReceivedTrigger> for IBackgroundTrigger {
     fn from(value: SmsMessageReceivedTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6293,7 +8773,7 @@ unsafe impl ::std::marker::Send for SmsMessageReceivedTrigger {}
 unsafe impl ::std::marker::Sync for SmsMessageReceivedTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SocketActivityTrigger(::windows::runtime::IInspectable);
 impl SocketActivityTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6322,6 +8802,46 @@ unsafe impl ::windows::runtime::Interface for SocketActivityTrigger {
 impl ::windows::runtime::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
 }
+impl ::std::convert::From<SocketActivityTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: SocketActivityTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SocketActivityTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &SocketActivityTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocketActivityTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocketActivityTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SocketActivityTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: SocketActivityTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SocketActivityTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &SocketActivityTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocketActivityTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocketActivityTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SocketActivityTrigger> for IBackgroundTrigger {
     fn from(value: SocketActivityTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6346,7 +8866,7 @@ unsafe impl ::std::marker::Send for SocketActivityTrigger {}
 unsafe impl ::std::marker::Sync for SocketActivityTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageLibraryChangeTrackerTrigger(::windows::runtime::IInspectable);
 impl StorageLibraryChangeTrackerTrigger {
     #[cfg(feature = "Storage")]
@@ -6372,6 +8892,46 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTrackerTrigger
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
 }
+impl ::std::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryChangeTrackerTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryChangeTrackerTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryChangeTrackerTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryChangeTrackerTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
     fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6396,7 +8956,7 @@ unsafe impl ::std::marker::Send for StorageLibraryChangeTrackerTrigger {}
 unsafe impl ::std::marker::Sync for StorageLibraryChangeTrackerTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageLibraryContentChangedTrigger(::windows::runtime::IInspectable);
 impl StorageLibraryContentChangedTrigger {
     #[cfg(feature = "Storage")]
@@ -6430,6 +8990,46 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryContentChangedTrigge
 impl ::windows::runtime::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
 }
+impl ::std::convert::From<StorageLibraryContentChangedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: StorageLibraryContentChangedTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryContentChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryContentChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<StorageLibraryContentChangedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: StorageLibraryContentChangedTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryContentChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryContentChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<StorageLibraryContentChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StorageLibraryContentChangedTrigger) -> ::windows::runtime::Result<Self> {
@@ -6454,7 +9054,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &StorageLibra
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemCondition(::windows::runtime::IInspectable);
 impl SystemCondition {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -6486,6 +9086,46 @@ unsafe impl ::windows::runtime::Interface for SystemCondition {
 }
 impl ::windows::runtime::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
+}
+impl ::std::convert::From<SystemCondition> for ::windows::runtime::IUnknown {
+    fn from(value: SystemCondition) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemCondition> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemCondition) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemCondition> for ::windows::runtime::IInspectable {
+    fn from(value: SystemCondition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemCondition> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemCondition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemCondition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<SystemCondition> for IBackgroundCondition {
     type Error = ::windows::runtime::Error;
@@ -6540,7 +9180,7 @@ impl ::windows::runtime::DefaultType for SystemConditionType {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemTrigger(::windows::runtime::IInspectable);
 impl SystemTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -6580,6 +9220,46 @@ unsafe impl ::windows::runtime::Interface for SystemTrigger {
 }
 impl ::windows::runtime::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
+}
+impl ::std::convert::From<SystemTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: SystemTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: SystemTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<SystemTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
@@ -6641,7 +9321,7 @@ impl ::windows::runtime::DefaultType for SystemTriggerType {
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TetheringEntitlementCheckTrigger(::windows::runtime::IInspectable);
 impl TetheringEntitlementCheckTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6661,6 +9341,46 @@ unsafe impl ::windows::runtime::Interface for TetheringEntitlementCheckTrigger {
 }
 impl ::windows::runtime::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
+}
+impl ::std::convert::From<TetheringEntitlementCheckTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: TetheringEntitlementCheckTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TetheringEntitlementCheckTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TetheringEntitlementCheckTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TetheringEntitlementCheckTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: TetheringEntitlementCheckTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TetheringEntitlementCheckTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TetheringEntitlementCheckTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
     fn from(value: TetheringEntitlementCheckTrigger) -> Self {
@@ -6686,7 +9406,7 @@ unsafe impl ::std::marker::Send for TetheringEntitlementCheckTrigger {}
 unsafe impl ::std::marker::Sync for TetheringEntitlementCheckTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimeTrigger(::windows::runtime::IInspectable);
 impl TimeTrigger {
     #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -6727,6 +9447,46 @@ unsafe impl ::windows::runtime::Interface for TimeTrigger {
 impl ::windows::runtime::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
 }
+impl ::std::convert::From<TimeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: TimeTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&TimeTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &TimeTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<TimeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: TimeTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TimeTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &TimeTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimeTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<TimeTrigger> for IBackgroundTrigger {
     type Error = ::windows::runtime::Error;
     fn try_from(value: TimeTrigger) -> ::windows::runtime::Result<Self> {
@@ -6751,7 +9511,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &TimeTrigger 
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotificationActionTrigger(::windows::runtime::IInspectable);
 impl ToastNotificationActionTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6783,6 +9543,46 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationActionTrigger {
 impl ::windows::runtime::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
 }
+impl ::std::convert::From<ToastNotificationActionTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ToastNotificationActionTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ToastNotificationActionTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ToastNotificationActionTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationActionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationActionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ToastNotificationActionTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ToastNotificationActionTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ToastNotificationActionTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ToastNotificationActionTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationActionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationActionTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ToastNotificationActionTrigger> for IBackgroundTrigger {
     fn from(value: ToastNotificationActionTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6807,7 +9607,7 @@ unsafe impl ::std::marker::Send for ToastNotificationActionTrigger {}
 unsafe impl ::std::marker::Sync for ToastNotificationActionTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotificationHistoryChangedTrigger(::windows::runtime::IInspectable);
 impl ToastNotificationHistoryChangedTrigger {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6839,6 +9639,46 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationHistoryChangedTri
 impl ::windows::runtime::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
 }
+impl ::std::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ToastNotificationHistoryChangedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationHistoryChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationHistoryChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ToastNotificationHistoryChangedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationHistoryChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationHistoryChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
     fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6863,7 +9703,7 @@ unsafe impl ::std::marker::Send for ToastNotificationHistoryChangedTrigger {}
 unsafe impl ::std::marker::Sync for ToastNotificationHistoryChangedTrigger {}
 #[doc = "*Required features: `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserNotificationChangedTrigger(::windows::runtime::IInspectable);
 impl UserNotificationChangedTrigger {
     #[cfg(feature = "UI_Notifications")]
@@ -6888,6 +9728,46 @@ unsafe impl ::windows::runtime::Interface for UserNotificationChangedTrigger {
 }
 impl ::windows::runtime::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
+}
+impl ::std::convert::From<UserNotificationChangedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: UserNotificationChangedTrigger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&UserNotificationChangedTrigger> for ::windows::runtime::IUnknown {
+    fn from(value: &UserNotificationChangedTrigger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserNotificationChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserNotificationChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<UserNotificationChangedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: UserNotificationChangedTrigger) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserNotificationChangedTrigger> for ::windows::runtime::IInspectable {
+    fn from(value: &UserNotificationChangedTrigger) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserNotificationChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserNotificationChangedTrigger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<UserNotificationChangedTrigger> for IBackgroundTrigger {
     fn from(value: UserNotificationChangedTrigger) -> Self {

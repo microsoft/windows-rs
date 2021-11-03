@@ -40,7 +40,7 @@ impl ::windows::runtime::RuntimeName for AnalyticsInfo {
 }
 #[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AnalyticsVersionInfo(::windows::runtime::IInspectable);
 impl AnalyticsVersionInfo {
     #[doc = "*Required features: `System_Profile`*"]
@@ -77,6 +77,46 @@ unsafe impl ::windows::runtime::Interface for AnalyticsVersionInfo {
 }
 impl ::windows::runtime::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
+}
+impl ::std::convert::From<AnalyticsVersionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: AnalyticsVersionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AnalyticsVersionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AnalyticsVersionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AnalyticsVersionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AnalyticsVersionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: AnalyticsVersionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AnalyticsVersionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AnalyticsVersionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AnalyticsVersionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::std::marker::Sync for AnalyticsVersionInfo {}
@@ -138,7 +178,7 @@ impl ::windows::runtime::RuntimeName for HardwareIdentification {
 }
 #[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HardwareToken(::windows::runtime::IInspectable);
 impl HardwareToken {
     #[cfg(feature = "Storage_Streams")]
@@ -178,6 +218,46 @@ unsafe impl ::windows::runtime::Interface for HardwareToken {
 }
 impl ::windows::runtime::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
+}
+impl ::std::convert::From<HardwareToken> for ::windows::runtime::IUnknown {
+    fn from(value: HardwareToken) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HardwareToken> for ::windows::runtime::IUnknown {
+    fn from(value: &HardwareToken) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HardwareToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HardwareToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HardwareToken> for ::windows::runtime::IInspectable {
+    fn from(value: HardwareToken) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HardwareToken> for ::windows::runtime::IInspectable {
+    fn from(value: &HardwareToken) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HardwareToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HardwareToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HardwareToken {}
 unsafe impl ::std::marker::Sync for HardwareToken {}
@@ -876,7 +956,7 @@ impl ::windows::runtime::RuntimeName for SystemIdentification {
 }
 #[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemIdentificationInfo(::windows::runtime::IInspectable);
 impl SystemIdentificationInfo {
     #[cfg(feature = "Storage_Streams")]
@@ -906,6 +986,46 @@ unsafe impl ::windows::runtime::Interface for SystemIdentificationInfo {
 }
 impl ::windows::runtime::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
+}
+impl ::std::convert::From<SystemIdentificationInfo> for ::windows::runtime::IUnknown {
+    fn from(value: SystemIdentificationInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SystemIdentificationInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &SystemIdentificationInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemIdentificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemIdentificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SystemIdentificationInfo> for ::windows::runtime::IInspectable {
+    fn from(value: SystemIdentificationInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SystemIdentificationInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &SystemIdentificationInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemIdentificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemIdentificationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::std::marker::Sync for SystemIdentificationInfo {}
@@ -989,7 +1109,7 @@ impl ::windows::runtime::RuntimeName for SystemSetupInfo {
 }
 #[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UnsupportedAppRequirement(::windows::runtime::IInspectable);
 impl UnsupportedAppRequirement {
     #[doc = "*Required features: `System_Profile`*"]
@@ -1018,6 +1138,46 @@ unsafe impl ::windows::runtime::Interface for UnsupportedAppRequirement {
 }
 impl ::windows::runtime::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";
+}
+impl ::std::convert::From<UnsupportedAppRequirement> for ::windows::runtime::IUnknown {
+    fn from(value: UnsupportedAppRequirement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&UnsupportedAppRequirement> for ::windows::runtime::IUnknown {
+    fn from(value: &UnsupportedAppRequirement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnsupportedAppRequirement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UnsupportedAppRequirement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<UnsupportedAppRequirement> for ::windows::runtime::IInspectable {
+    fn from(value: UnsupportedAppRequirement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UnsupportedAppRequirement> for ::windows::runtime::IInspectable {
+    fn from(value: &UnsupportedAppRequirement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnsupportedAppRequirement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnsupportedAppRequirement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::std::marker::Sync for UnsupportedAppRequirement {}

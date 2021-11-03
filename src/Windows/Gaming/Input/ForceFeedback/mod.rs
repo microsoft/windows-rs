@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ConditionForceEffect(::windows::runtime::IInspectable);
 impl ConditionForceEffect {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
@@ -71,6 +71,46 @@ unsafe impl ::windows::runtime::Interface for ConditionForceEffect {
 impl ::windows::runtime::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
 }
+impl ::std::convert::From<ConditionForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: ConditionForceEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ConditionForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &ConditionForceEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConditionForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConditionForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ConditionForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: ConditionForceEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ConditionForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &ConditionForceEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConditionForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConditionForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ConditionForceEffect> for IForceFeedbackEffect {
     fn from(value: ConditionForceEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -119,7 +159,7 @@ impl ::windows::runtime::DefaultType for ConditionForceEffectKind {
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ConstantForceEffect(::windows::runtime::IInspectable);
 impl ConstantForceEffect {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -193,6 +233,46 @@ unsafe impl ::windows::runtime::Interface for ConstantForceEffect {
 }
 impl ::windows::runtime::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
+}
+impl ::std::convert::From<ConstantForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: ConstantForceEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ConstantForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &ConstantForceEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConstantForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConstantForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ConstantForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: ConstantForceEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ConstantForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &ConstantForceEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConstantForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConstantForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<ConstantForceEffect> for IForceFeedbackEffect {
     fn from(value: ConstantForceEffect) -> Self {
@@ -317,7 +397,7 @@ impl ::windows::runtime::DefaultType for ForceFeedbackLoadEffectResult {
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ForceFeedbackMotor(::windows::runtime::IInspectable);
 impl ForceFeedbackMotor {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
@@ -428,6 +508,46 @@ unsafe impl ::windows::runtime::Interface for ForceFeedbackMotor {
 impl ::windows::runtime::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
 }
+impl ::std::convert::From<ForceFeedbackMotor> for ::windows::runtime::IUnknown {
+    fn from(value: ForceFeedbackMotor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ForceFeedbackMotor> for ::windows::runtime::IUnknown {
+    fn from(value: &ForceFeedbackMotor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ForceFeedbackMotor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ForceFeedbackMotor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ForceFeedbackMotor> for ::windows::runtime::IInspectable {
+    fn from(value: ForceFeedbackMotor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ForceFeedbackMotor> for ::windows::runtime::IInspectable {
+    fn from(value: &ForceFeedbackMotor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ForceFeedbackMotor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ForceFeedbackMotor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ForceFeedbackMotor {}
 unsafe impl ::std::marker::Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
@@ -491,7 +611,7 @@ pub struct IConstantForceEffect_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 pub struct IForceFeedbackEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackEffect {
@@ -533,6 +653,46 @@ impl IForceFeedbackEffect {
 }
 unsafe impl ::windows::runtime::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
+}
+impl ::std::convert::From<IForceFeedbackEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IForceFeedbackEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IForceFeedbackEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IForceFeedbackEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IForceFeedbackEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IForceFeedbackEffect> for ::windows::runtime::IInspectable {
+    fn from(value: IForceFeedbackEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &IForceFeedbackEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IForceFeedbackEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IForceFeedbackEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -675,7 +835,7 @@ pub struct IRampForceEffect_abi(
 );
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PeriodicForceEffect(::windows::runtime::IInspectable);
 impl PeriodicForceEffect {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
@@ -765,6 +925,46 @@ unsafe impl ::windows::runtime::Interface for PeriodicForceEffect {
 impl ::windows::runtime::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
 }
+impl ::std::convert::From<PeriodicForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: PeriodicForceEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PeriodicForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &PeriodicForceEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PeriodicForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PeriodicForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PeriodicForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: PeriodicForceEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PeriodicForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &PeriodicForceEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PeriodicForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PeriodicForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<PeriodicForceEffect> for IForceFeedbackEffect {
     fn from(value: PeriodicForceEffect) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -814,7 +1014,7 @@ impl ::windows::runtime::DefaultType for PeriodicForceEffectKind {
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RampForceEffect(::windows::runtime::IInspectable);
 impl RampForceEffect {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -897,6 +1097,46 @@ unsafe impl ::windows::runtime::Interface for RampForceEffect {
 }
 impl ::windows::runtime::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";
+}
+impl ::std::convert::From<RampForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: RampForceEffect) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RampForceEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &RampForceEffect) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RampForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RampForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RampForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: RampForceEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RampForceEffect> for ::windows::runtime::IInspectable {
+    fn from(value: &RampForceEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RampForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RampForceEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<RampForceEffect> for IForceFeedbackEffect {
     fn from(value: RampForceEffect) -> Self {

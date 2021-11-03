@@ -34,7 +34,7 @@ impl ::windows::runtime::DefaultType for HolographicAdapterId {
 }
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicCamera(::windows::runtime::IInspectable);
 impl HolographicCamera {
     #[cfg(feature = "Foundation")]
@@ -187,11 +187,51 @@ unsafe impl ::windows::runtime::Interface for HolographicCamera {
 impl ::windows::runtime::RuntimeName for HolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCamera";
 }
+impl ::std::convert::From<HolographicCamera> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicCamera) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicCamera> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicCamera) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicCamera {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicCamera {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicCamera> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicCamera) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicCamera> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicCamera) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicCamera {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicCamera {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicCamera {}
 unsafe impl ::std::marker::Sync for HolographicCamera {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicCameraPose(::windows::runtime::IInspectable);
 impl HolographicCameraPose {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -292,11 +332,51 @@ unsafe impl ::windows::runtime::Interface for HolographicCameraPose {
 impl ::windows::runtime::RuntimeName for HolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraPose";
 }
+impl ::std::convert::From<HolographicCameraPose> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicCameraPose) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicCameraPose> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicCameraPose) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicCameraPose {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicCameraPose {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicCameraPose> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicCameraPose) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicCameraPose> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicCameraPose) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicCameraPose {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicCameraPose {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicCameraPose {}
 unsafe impl ::std::marker::Sync for HolographicCameraPose {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicCameraRenderingParameters(::windows::runtime::IInspectable);
 impl HolographicCameraRenderingParameters {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -397,11 +477,51 @@ unsafe impl ::windows::runtime::Interface for HolographicCameraRenderingParamete
 impl ::windows::runtime::RuntimeName for HolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
 }
+impl ::std::convert::From<HolographicCameraRenderingParameters> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicCameraRenderingParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicCameraRenderingParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicCameraRenderingParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicCameraRenderingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicCameraRenderingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicCameraRenderingParameters> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicCameraRenderingParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicCameraRenderingParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicCameraRenderingParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicCameraRenderingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicCameraRenderingParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicCameraRenderingParameters {}
 unsafe impl ::std::marker::Sync for HolographicCameraRenderingParameters {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicCameraViewportParameters(::windows::runtime::IInspectable);
 impl HolographicCameraViewportParameters {
     #[cfg(feature = "Foundation_Numerics")]
@@ -433,6 +553,46 @@ unsafe impl ::windows::runtime::Interface for HolographicCameraViewportParameter
 impl ::windows::runtime::RuntimeName for HolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraViewportParameters";
 }
+impl ::std::convert::From<HolographicCameraViewportParameters> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicCameraViewportParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicCameraViewportParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicCameraViewportParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicCameraViewportParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicCameraViewportParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicCameraViewportParameters> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicCameraViewportParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicCameraViewportParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicCameraViewportParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicCameraViewportParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicCameraViewportParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::std::marker::Sync for HolographicCameraViewportParameters {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -459,7 +619,7 @@ impl ::windows::runtime::DefaultType for HolographicDepthReprojectionMethod {
 }
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicDisplay(::windows::runtime::IInspectable);
 impl HolographicDisplay {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -550,11 +710,51 @@ unsafe impl ::windows::runtime::Interface for HolographicDisplay {
 impl ::windows::runtime::RuntimeName for HolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicDisplay";
 }
+impl ::std::convert::From<HolographicDisplay> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicDisplay) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicDisplay> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicDisplay) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicDisplay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicDisplay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicDisplay> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicDisplay) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicDisplay> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicDisplay) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicDisplay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicDisplay {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicDisplay {}
 unsafe impl ::std::marker::Sync for HolographicDisplay {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFrame(::windows::runtime::IInspectable);
 impl HolographicFrame {
     #[cfg(feature = "Foundation_Collections")]
@@ -653,6 +853,46 @@ unsafe impl ::windows::runtime::Interface for HolographicFrame {
 impl ::windows::runtime::RuntimeName for HolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrame";
 }
+impl ::std::convert::From<HolographicFrame> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFrame) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFrame) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFrame> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicFrame {}
 unsafe impl ::std::marker::Sync for HolographicFrame {}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -689,7 +929,7 @@ impl ::windows::runtime::DefaultType for HolographicFrameId {
 }
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFramePrediction(::windows::runtime::IInspectable);
 impl HolographicFramePrediction {
     #[cfg(feature = "Foundation_Collections")]
@@ -720,6 +960,46 @@ unsafe impl ::windows::runtime::Interface for HolographicFramePrediction {
 }
 impl ::windows::runtime::RuntimeName for HolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePrediction";
+}
+impl ::std::convert::From<HolographicFramePrediction> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFramePrediction) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFramePrediction> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFramePrediction) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFramePrediction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFramePrediction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFramePrediction> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFramePrediction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFramePrediction> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFramePrediction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFramePrediction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFramePrediction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HolographicFramePrediction {}
 unsafe impl ::std::marker::Sync for HolographicFramePrediction {}
@@ -769,7 +1049,7 @@ impl ::windows::runtime::DefaultType for HolographicFramePresentWaitBehavior {
 }
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFramePresentationMonitor(::windows::runtime::IInspectable);
 impl HolographicFramePresentationMonitor {
     #[cfg(feature = "Foundation")]
@@ -798,6 +1078,46 @@ unsafe impl ::windows::runtime::Interface for HolographicFramePresentationMonito
 }
 impl ::windows::runtime::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
+}
+impl ::std::convert::From<HolographicFramePresentationMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFramePresentationMonitor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFramePresentationMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFramePresentationMonitor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFramePresentationMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFramePresentationMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFramePresentationMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFramePresentationMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFramePresentationMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFramePresentationMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFramePresentationMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFramePresentationMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HolographicFramePresentationMonitor> for super::super::Foundation::IClosable {
@@ -829,7 +1149,7 @@ unsafe impl ::std::marker::Send for HolographicFramePresentationMonitor {}
 unsafe impl ::std::marker::Sync for HolographicFramePresentationMonitor {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFramePresentationReport(::windows::runtime::IInspectable);
 impl HolographicFramePresentationReport {
     #[cfg(feature = "deprecated")]
@@ -891,11 +1211,51 @@ unsafe impl ::windows::runtime::Interface for HolographicFramePresentationReport
 impl ::windows::runtime::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
 }
+impl ::std::convert::From<HolographicFramePresentationReport> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFramePresentationReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFramePresentationReport> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFramePresentationReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFramePresentationReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFramePresentationReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFramePresentationReport> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFramePresentationReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFramePresentationReport> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFramePresentationReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFramePresentationReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFramePresentationReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicFramePresentationReport {}
 unsafe impl ::std::marker::Sync for HolographicFramePresentationReport {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFrameRenderingReport(::windows::runtime::IInspectable);
 impl HolographicFrameRenderingReport {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -952,11 +1312,51 @@ unsafe impl ::windows::runtime::Interface for HolographicFrameRenderingReport {
 impl ::windows::runtime::RuntimeName for HolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameRenderingReport";
 }
+impl ::std::convert::From<HolographicFrameRenderingReport> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFrameRenderingReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFrameRenderingReport> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFrameRenderingReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFrameRenderingReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFrameRenderingReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFrameRenderingReport> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFrameRenderingReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFrameRenderingReport> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFrameRenderingReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFrameRenderingReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFrameRenderingReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicFrameRenderingReport {}
 unsafe impl ::std::marker::Sync for HolographicFrameRenderingReport {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFrameScanoutMonitor(::windows::runtime::IInspectable);
 impl HolographicFrameScanoutMonitor {
     #[cfg(feature = "Foundation")]
@@ -984,6 +1384,46 @@ unsafe impl ::windows::runtime::Interface for HolographicFrameScanoutMonitor {
 }
 impl ::windows::runtime::RuntimeName for HolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
+}
+impl ::std::convert::From<HolographicFrameScanoutMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFrameScanoutMonitor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFrameScanoutMonitor> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFrameScanoutMonitor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFrameScanoutMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFrameScanoutMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFrameScanoutMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFrameScanoutMonitor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFrameScanoutMonitor> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFrameScanoutMonitor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFrameScanoutMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFrameScanoutMonitor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HolographicFrameScanoutMonitor> for super::super::Foundation::IClosable {
@@ -1015,7 +1455,7 @@ unsafe impl ::std::marker::Send for HolographicFrameScanoutMonitor {}
 unsafe impl ::std::marker::Sync for HolographicFrameScanoutMonitor {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicFrameScanoutReport(::windows::runtime::IInspectable);
 impl HolographicFrameScanoutReport {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -1072,11 +1512,51 @@ unsafe impl ::windows::runtime::Interface for HolographicFrameScanoutReport {
 impl ::windows::runtime::RuntimeName for HolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutReport";
 }
+impl ::std::convert::From<HolographicFrameScanoutReport> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicFrameScanoutReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicFrameScanoutReport> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicFrameScanoutReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicFrameScanoutReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicFrameScanoutReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicFrameScanoutReport> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicFrameScanoutReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicFrameScanoutReport> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicFrameScanoutReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicFrameScanoutReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicFrameScanoutReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicFrameScanoutReport {}
 unsafe impl ::std::marker::Sync for HolographicFrameScanoutReport {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicQuadLayer(::windows::runtime::IInspectable);
 impl HolographicQuadLayer {
     #[cfg(feature = "Foundation")]
@@ -1134,6 +1614,46 @@ unsafe impl ::windows::runtime::Interface for HolographicQuadLayer {
 impl ::windows::runtime::RuntimeName for HolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayer";
 }
+impl ::std::convert::From<HolographicQuadLayer> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicQuadLayer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicQuadLayer> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicQuadLayer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicQuadLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicQuadLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicQuadLayer> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicQuadLayer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicQuadLayer> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicQuadLayer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicQuadLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicQuadLayer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HolographicQuadLayer> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1164,7 +1684,7 @@ unsafe impl ::std::marker::Send for HolographicQuadLayer {}
 unsafe impl ::std::marker::Sync for HolographicQuadLayer {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicQuadLayerUpdateParameters(::windows::runtime::IInspectable);
 impl HolographicQuadLayerUpdateParameters {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1233,6 +1753,46 @@ unsafe impl ::windows::runtime::Interface for HolographicQuadLayerUpdateParamete
 impl ::windows::runtime::RuntimeName for HolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
 }
+impl ::std::convert::From<HolographicQuadLayerUpdateParameters> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicQuadLayerUpdateParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicQuadLayerUpdateParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicQuadLayerUpdateParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicQuadLayerUpdateParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicQuadLayerUpdateParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicQuadLayerUpdateParameters> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicQuadLayerUpdateParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicQuadLayerUpdateParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicQuadLayerUpdateParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicQuadLayerUpdateParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicQuadLayerUpdateParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::std::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -1260,7 +1820,7 @@ impl ::windows::runtime::DefaultType for HolographicReprojectionMode {
 }
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicSpace(::windows::runtime::IInspectable);
 impl HolographicSpace {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -1431,11 +1991,51 @@ unsafe impl ::windows::runtime::Interface for HolographicSpace {
 impl ::windows::runtime::RuntimeName for HolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpace";
 }
+impl ::std::convert::From<HolographicSpace> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicSpace) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicSpace> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicSpace) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicSpace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicSpace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicSpace> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicSpace) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicSpace> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicSpace) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicSpace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicSpace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicSpace {}
 unsafe impl ::std::marker::Sync for HolographicSpace {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicSpaceCameraAddedEventArgs(::windows::runtime::IInspectable);
 impl HolographicSpaceCameraAddedEventArgs {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -1466,11 +2066,51 @@ unsafe impl ::windows::runtime::Interface for HolographicSpaceCameraAddedEventAr
 impl ::windows::runtime::RuntimeName for HolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
 }
+impl ::std::convert::From<HolographicSpaceCameraAddedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicSpaceCameraAddedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicSpaceCameraAddedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicSpaceCameraAddedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicSpaceCameraAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicSpaceCameraAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicSpaceCameraAddedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicSpaceCameraAddedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicSpaceCameraAddedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicSpaceCameraAddedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicSpaceCameraAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicSpaceCameraAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl ::std::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicSpaceCameraRemovedEventArgs(::windows::runtime::IInspectable);
 impl HolographicSpaceCameraRemovedEventArgs {
     #[doc = "*Required features: `Graphics_Holographic`*"]
@@ -1491,6 +2131,46 @@ unsafe impl ::windows::runtime::Interface for HolographicSpaceCameraRemovedEvent
 }
 impl ::windows::runtime::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
+}
+impl ::std::convert::From<HolographicSpaceCameraRemovedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicSpaceCameraRemovedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicSpaceCameraRemovedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicSpaceCameraRemovedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicSpaceCameraRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicSpaceCameraRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicSpaceCameraRemovedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicSpaceCameraRemovedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicSpaceCameraRemovedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicSpaceCameraRemovedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicSpaceCameraRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicSpaceCameraRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
@@ -1561,7 +2241,7 @@ impl ::windows::runtime::DefaultType for HolographicStereoTransform {
 }
 #[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HolographicViewConfiguration(::windows::runtime::IInspectable);
 impl HolographicViewConfiguration {
     #[cfg(feature = "Foundation")]
@@ -1679,6 +2359,46 @@ unsafe impl ::windows::runtime::Interface for HolographicViewConfiguration {
 }
 impl ::windows::runtime::RuntimeName for HolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicViewConfiguration";
+}
+impl ::std::convert::From<HolographicViewConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: HolographicViewConfiguration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HolographicViewConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &HolographicViewConfiguration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HolographicViewConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HolographicViewConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HolographicViewConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: HolographicViewConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HolographicViewConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: &HolographicViewConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HolographicViewConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HolographicViewConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::std::marker::Sync for HolographicViewConfiguration {}

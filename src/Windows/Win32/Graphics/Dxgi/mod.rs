@@ -2908,7 +2908,7 @@ pub const DXGI_USAGE_SHARED: u32 = 128u32;
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIAdapter(::windows::runtime::IUnknown);
 impl IDXGIAdapter {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -2949,6 +2949,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(605153249, 4780, 19663, [189, 20, 151, 152, 232, 83, 77, 192]);
 }
+impl ::std::convert::From<IDXGIAdapter> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIAdapter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIAdapter> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIAdapter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIAdapter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIAdapter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIAdapter> for IDXGIObject {
     fn from(value: IDXGIAdapter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2986,7 +3006,7 @@ pub struct IDXGIAdapter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIAdapter1(::windows::runtime::IUnknown);
 impl IDXGIAdapter1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3032,6 +3052,26 @@ impl IDXGIAdapter1 {
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688099169, 14393, 17958, [145, 253, 8, 104, 121, 1, 26, 5]);
+}
+impl ::std::convert::From<IDXGIAdapter1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIAdapter1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIAdapter1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIAdapter1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIAdapter1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIAdapter1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIAdapter1> for IDXGIAdapter {
     fn from(value: IDXGIAdapter1) -> Self {
@@ -3092,7 +3132,7 @@ pub struct IDXGIAdapter1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIAdapter2(::windows::runtime::IUnknown);
 impl IDXGIAdapter2 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3144,6 +3184,26 @@ impl IDXGIAdapter2 {
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178368010, 64014, 19332, [134, 68, 224, 95, 248, 229, 172, 181]);
+}
+impl ::std::convert::From<IDXGIAdapter2> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIAdapter2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIAdapter2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIAdapter2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIAdapter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIAdapter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIAdapter2> for IDXGIAdapter1 {
     fn from(value: IDXGIAdapter2) -> Self {
@@ -3226,7 +3286,7 @@ pub struct IDXGIAdapter2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIAdapter3(::windows::runtime::IUnknown);
 impl IDXGIAdapter3 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3307,6 +3367,26 @@ impl IDXGIAdapter3 {
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1683580836, 5010, 17168, [167, 152, 128, 83, 206, 62, 147, 253]);
+}
+impl ::std::convert::From<IDXGIAdapter3> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIAdapter3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIAdapter3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIAdapter3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIAdapter3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIAdapter3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIAdapter3> for IDXGIAdapter2 {
     fn from(value: IDXGIAdapter3) -> Self {
@@ -3417,7 +3497,7 @@ pub struct IDXGIAdapter3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIAdapter4(::windows::runtime::IUnknown);
 impl IDXGIAdapter4 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3504,6 +3584,26 @@ impl IDXGIAdapter4 {
 unsafe impl ::windows::runtime::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1015912913, 20415, 16769, [168, 44, 175, 102, 191, 123, 210, 78]);
+}
+impl ::std::convert::From<IDXGIAdapter4> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIAdapter4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIAdapter4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIAdapter4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIAdapter4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIAdapter4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIAdapter4> for IDXGIAdapter3 {
     fn from(value: IDXGIAdapter4) -> Self {
@@ -3636,7 +3736,7 @@ pub struct IDXGIAdapter4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDebug(::windows::runtime::IUnknown);
 impl IDXGIDebug {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3648,6 +3748,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIDebug {
     type Vtable = IDXGIDebug_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(295597138, 56990, 16638, [136, 6, 136, 249, 12, 18, 180, 65]);
 }
+impl ::std::convert::From<IDXGIDebug> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDebug) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDebug> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDebug) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDebug_abi(
@@ -3658,7 +3778,7 @@ pub struct IDXGIDebug_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDebug1(::windows::runtime::IUnknown);
 impl IDXGIDebug1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3682,6 +3802,26 @@ impl IDXGIDebug1 {
 unsafe impl ::windows::runtime::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3315621644, 5874, 19167, [159, 77, 168, 196, 213, 138, 197, 80]);
+}
+impl ::std::convert::From<IDXGIDebug1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDebug1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDebug1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDebug1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDebug1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDebug1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIDebug1> for IDXGIDebug {
     fn from(value: IDXGIDebug1) -> Self {
@@ -3717,7 +3857,7 @@ pub struct IDXGIDebug1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDecodeSwapChain(::windows::runtime::IUnknown);
 impl IDXGIDecodeSwapChain {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3767,6 +3907,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640878187, 17684, 19578, [143, 216, 18, 234, 152, 5, 157, 24]);
 }
+impl ::std::convert::From<IDXGIDecodeSwapChain> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDecodeSwapChain) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDecodeSwapChain> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDecodeSwapChain) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDecodeSwapChain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDecodeSwapChain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDecodeSwapChain_abi(
@@ -3789,7 +3949,7 @@ pub struct IDXGIDecodeSwapChain_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDevice(::windows::runtime::IUnknown);
 impl IDXGIDevice {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3837,6 +3997,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIDevice {
     type Vtable = IDXGIDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1424783354, 4983, 17638, [140, 50, 136, 253, 95, 68, 200, 76]);
 }
+impl ::std::convert::From<IDXGIDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDevice) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDevice) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIDevice> for IDXGIObject {
     fn from(value: IDXGIDevice) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3876,7 +4056,7 @@ pub struct IDXGIDevice_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDevice1(::windows::runtime::IUnknown);
 impl IDXGIDevice1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -3932,6 +4112,26 @@ impl IDXGIDevice1 {
 unsafe impl ::windows::runtime::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010879759, 25206, 18618, [186, 40, 7, 1, 67, 180, 57, 44]);
+}
+impl ::std::convert::From<IDXGIDevice1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDevice1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDevice1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDevice1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDevice1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDevice1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIDevice1> for IDXGIDevice {
     fn from(value: IDXGIDevice1) -> Self {
@@ -3994,7 +4194,7 @@ pub struct IDXGIDevice1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDevice2(::windows::runtime::IUnknown);
 impl IDXGIDevice2 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4065,6 +4265,26 @@ impl IDXGIDevice2 {
 unsafe impl ::windows::runtime::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(83920407, 64509, 16465, [167, 144, 20, 72, 132, 180, 246, 169]);
+}
+impl ::std::convert::From<IDXGIDevice2> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDevice2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDevice2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDevice2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDevice2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIDevice2> for IDXGIDevice1 {
     fn from(value: IDXGIDevice2) -> Self {
@@ -4152,7 +4372,7 @@ pub struct IDXGIDevice2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDevice3(::windows::runtime::IUnknown);
 impl IDXGIDevice3 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4227,6 +4447,26 @@ impl IDXGIDevice3 {
 unsafe impl ::windows::runtime::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1611106668, 12868, 19197, [191, 24, 166, 211, 190, 218, 80, 35]);
+}
+impl ::std::convert::From<IDXGIDevice3> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDevice3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDevice3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDevice3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDevice3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDevice3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIDevice3> for IDXGIDevice2 {
     fn from(value: IDXGIDevice3) -> Self {
@@ -4335,7 +4575,7 @@ pub struct IDXGIDevice3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDevice4(::windows::runtime::IUnknown);
 impl IDXGIDevice4 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4419,6 +4659,26 @@ impl IDXGIDevice4 {
 unsafe impl ::windows::runtime::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2511665503, 55514, 19620, [158, 230, 59, 118, 213, 150, 138, 16]);
+}
+impl ::std::convert::From<IDXGIDevice4> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDevice4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDevice4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDevice4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDevice4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDevice4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIDevice4> for IDXGIDevice3 {
     fn from(value: IDXGIDevice4) -> Self {
@@ -4549,7 +4809,7 @@ pub struct IDXGIDevice4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDeviceSubObject(::windows::runtime::IUnknown);
 impl IDXGIDeviceSubObject {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4578,6 +4838,26 @@ impl IDXGIDeviceSubObject {
 unsafe impl ::windows::runtime::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027474297, 63966, 19800, [187, 108, 24, 214, 41, 146, 241, 166]);
+}
+impl ::std::convert::From<IDXGIDeviceSubObject> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDeviceSubObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDeviceSubObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDeviceSubObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDeviceSubObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDeviceSubObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIDeviceSubObject> for IDXGIObject {
     fn from(value: IDXGIDeviceSubObject) -> Self {
@@ -4613,7 +4893,7 @@ pub struct IDXGIDeviceSubObject_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIDisplayControl(::windows::runtime::IUnknown);
 impl IDXGIDisplayControl {
     #[cfg(feature = "Win32_Foundation")]
@@ -4631,6 +4911,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3936206618, 51342, 17542, [133, 74, 152, 170, 1, 56, 243, 12]);
 }
+impl ::std::convert::From<IDXGIDisplayControl> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIDisplayControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIDisplayControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIDisplayControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIDisplayControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIDisplayControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDisplayControl_abi(
@@ -4644,7 +4944,7 @@ pub struct IDXGIDisplayControl_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory(::windows::runtime::IUnknown);
 impl IDXGIFactory {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4697,6 +4997,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIFactory {
     type Vtable = IDXGIFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071029484, 8647, 17582, [178, 26, 201, 174, 50, 26, 227, 105]);
 }
+impl ::std::convert::From<IDXGIFactory> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIFactory> for IDXGIObject {
     fn from(value: IDXGIFactory) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4739,7 +5059,7 @@ pub struct IDXGIFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory1(::windows::runtime::IUnknown);
 impl IDXGIFactory1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4801,6 +5121,26 @@ impl IDXGIFactory1 {
 unsafe impl ::windows::runtime::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1997188728, 62063, 19898, [168, 41, 37, 60, 131, 209, 179, 135]);
+}
+impl ::std::convert::From<IDXGIFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIFactory1> for IDXGIFactory {
     fn from(value: IDXGIFactory1) -> Self {
@@ -4867,7 +5207,7 @@ pub struct IDXGIFactory1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory2(::windows::runtime::IUnknown);
 impl IDXGIFactory2 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -4991,6 +5331,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355299356, 57458, 19528, [135, 176, 54, 48, 250, 54, 166, 208]);
 }
+impl ::std::convert::From<IDXGIFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIFactory2> for IDXGIFactory1 {
     fn from(value: IDXGIFactory2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5096,7 +5456,7 @@ pub struct IDXGIFactory2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory3(::windows::runtime::IUnknown);
 impl IDXGIFactory3 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -5224,6 +5584,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(625489955, 52550, 19581, [134, 202, 71, 170, 149, 184, 55, 189]);
 }
+impl ::std::convert::From<IDXGIFactory3> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIFactory3> for IDXGIFactory2 {
     fn from(value: IDXGIFactory3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5350,7 +5730,7 @@ pub struct IDXGIFactory3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory4(::windows::runtime::IUnknown);
 impl IDXGIFactory4 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -5488,6 +5868,26 @@ impl IDXGIFactory4 {
 unsafe impl ::windows::runtime::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(466020866, 61238, 17999, [191, 12, 33, 202, 57, 229, 22, 138]);
+}
+impl ::std::convert::From<IDXGIFactory4> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIFactory4> for IDXGIFactory3 {
     fn from(value: IDXGIFactory4) -> Self {
@@ -5638,7 +6038,7 @@ pub struct IDXGIFactory4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory5(::windows::runtime::IUnknown);
 impl IDXGIFactory5 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -5780,6 +6180,26 @@ impl IDXGIFactory5 {
 unsafe impl ::windows::runtime::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1983046133, 61029, 19914, [135, 253, 132, 205, 117, 248, 131, 141]);
+}
+impl ::std::convert::From<IDXGIFactory5> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory5) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory5> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory5) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIFactory5> for IDXGIFactory4 {
     fn from(value: IDXGIFactory5) -> Self {
@@ -5951,7 +6371,7 @@ pub struct IDXGIFactory5_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory6(::windows::runtime::IUnknown);
 impl IDXGIFactory6 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -6098,6 +6518,26 @@ impl IDXGIFactory6 {
 unsafe impl ::windows::runtime::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3249957199, 65289, 17577, [176, 60, 119, 144, 10, 10, 29, 23]);
+}
+impl ::std::convert::From<IDXGIFactory6> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory6) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory6> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory6) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIFactory5 {
     fn from(value: IDXGIFactory6) -> Self {
@@ -6290,7 +6730,7 @@ pub struct IDXGIFactory6_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactory7(::windows::runtime::IUnknown);
 impl IDXGIFactory7 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -6447,6 +6887,26 @@ impl IDXGIFactory7 {
 unsafe impl ::windows::runtime::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2761322221, 30427, 17626, [132, 193, 238, 154, 122, 251, 32, 168]);
+}
+impl ::std::convert::From<IDXGIFactory7> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactory7) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactory7> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactory7) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactory7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactory7 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory6 {
     fn from(value: IDXGIFactory7) -> Self {
@@ -6662,7 +7122,7 @@ pub struct IDXGIFactory7_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIFactoryMedia(::windows::runtime::IUnknown);
 impl IDXGIFactoryMedia {
     #[cfg(feature = "Win32_Foundation")]
@@ -6689,6 +7149,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMedia_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105711602, 42385, 20347, [162, 229, 250, 156, 132, 62, 28, 18]);
 }
+impl ::std::convert::From<IDXGIFactoryMedia> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIFactoryMedia) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIFactoryMedia> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIFactoryMedia) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIFactoryMedia {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIFactoryMedia {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactoryMedia_abi(
@@ -6702,7 +7182,7 @@ pub struct IDXGIFactoryMedia_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIInfoQueue(::windows::runtime::IUnknown);
 impl IDXGIInfoQueue {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -6868,6 +7348,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597943239, 26410, 18287, [158, 130, 205, 85, 180, 73, 73, 206]);
 }
+impl ::std::convert::From<IDXGIInfoQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIInfoQueue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIInfoQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIInfoQueue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIInfoQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIInfoQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIInfoQueue_abi(
@@ -6924,7 +7424,7 @@ pub struct IDXGIInfoQueue_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIKeyedMutex(::windows::runtime::IUnknown);
 impl IDXGIKeyedMutex {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -6961,6 +7461,26 @@ impl IDXGIKeyedMutex {
 unsafe impl ::windows::runtime::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutex_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2643333769, 55219, 18015, [129, 38, 37, 14, 52, 154, 248, 93]);
+}
+impl ::std::convert::From<IDXGIKeyedMutex> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIKeyedMutex) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIKeyedMutex> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIKeyedMutex) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIKeyedMutex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIKeyedMutex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIKeyedMutex> for IDXGIDeviceSubObject {
     fn from(value: IDXGIKeyedMutex) -> Self {
@@ -7018,7 +7538,7 @@ pub struct IDXGIKeyedMutex_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIObject(::windows::runtime::IUnknown);
 impl IDXGIObject {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7043,6 +7563,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIObject {
     type Vtable = IDXGIObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931961784, 30451, 17977, [155, 224, 40, 235, 67, 166, 122, 46]);
 }
+impl ::std::convert::From<IDXGIObject> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIObject_abi(
@@ -7056,7 +7596,7 @@ pub struct IDXGIObject_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput(::windows::runtime::IUnknown);
 impl IDXGIOutput {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7136,6 +7676,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIOutput {
     type Vtable = IDXGIOutput_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919427803, 50997, 18064, [141, 82, 90, 141, 194, 2, 19, 170]);
 }
+impl ::std::convert::From<IDXGIOutput> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIOutput> for IDXGIObject {
     fn from(value: IDXGIOutput) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7184,7 +7744,7 @@ pub struct IDXGIOutput_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput1(::windows::runtime::IUnknown);
 impl IDXGIOutput1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7283,6 +7843,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(13491880, 37787, 19331, [163, 64, 166, 133, 34, 102, 102, 204]);
 }
+impl ::std::convert::From<IDXGIOutput1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIOutput1> for IDXGIOutput {
     fn from(value: IDXGIOutput1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7357,7 +7937,7 @@ pub struct IDXGIOutput1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput2(::windows::runtime::IUnknown);
 impl IDXGIOutput2 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7461,6 +8041,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499347409, 10020, 18019, [153, 177, 218, 150, 157, 226, 131, 100]);
 }
+impl ::std::convert::From<IDXGIOutput2> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIOutput2> for IDXGIOutput1 {
     fn from(value: IDXGIOutput2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7557,7 +8157,7 @@ pub struct IDXGIOutput2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput3(::windows::runtime::IUnknown);
 impl IDXGIOutput3 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7665,6 +8265,26 @@ impl IDXGIOutput3 {
 unsafe impl ::windows::runtime::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322313985, 32382, 16884, [168, 224, 91, 50, 247, 249, 155, 24]);
+}
+impl ::std::convert::From<IDXGIOutput3> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIOutput3> for IDXGIOutput2 {
     fn from(value: IDXGIOutput3) -> Self {
@@ -7783,7 +8403,7 @@ pub struct IDXGIOutput3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput4(::windows::runtime::IUnknown);
 impl IDXGIOutput4 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7896,6 +8516,26 @@ impl IDXGIOutput4 {
 unsafe impl ::windows::runtime::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3699231285, 8598, 16717, [159, 83, 97, 120, 132, 3, 42, 96]);
+}
+impl ::std::convert::From<IDXGIOutput4> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIOutput4> for IDXGIOutput3 {
     fn from(value: IDXGIOutput4) -> Self {
@@ -8035,7 +8675,7 @@ pub struct IDXGIOutput4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput5(::windows::runtime::IUnknown);
 impl IDXGIOutput5 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8153,6 +8793,26 @@ impl IDXGIOutput5 {
 unsafe impl ::windows::runtime::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2157999140, 43858, 17131, [131, 60, 12, 66, 253, 40, 45, 152]);
+}
+impl ::std::convert::From<IDXGIOutput5> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput5) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput5> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput5) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput5 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIOutput5> for IDXGIOutput4 {
     fn from(value: IDXGIOutput5) -> Self {
@@ -8313,7 +8973,7 @@ pub struct IDXGIOutput5_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutput6(::windows::runtime::IUnknown);
 impl IDXGIOutput6 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8442,6 +9102,26 @@ impl IDXGIOutput6 {
 unsafe impl ::windows::runtime::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(109266664, 43756, 19332, [173, 215, 19, 127, 81, 63, 119, 161]);
+}
+impl ::std::convert::From<IDXGIOutput6> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutput6) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutput6> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutput6) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutput6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutput6 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIOutput5 {
     fn from(value: IDXGIOutput6) -> Self {
@@ -8625,7 +9305,7 @@ pub struct IDXGIOutput6_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIOutputDuplication(::windows::runtime::IUnknown);
 impl IDXGIOutputDuplication {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8688,6 +9368,26 @@ unsafe impl ::windows::runtime::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(421329603, 41793, 18189, [178, 110, 168, 100, 244, 40, 49, 156]);
 }
+impl ::std::convert::From<IDXGIOutputDuplication> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIOutputDuplication) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIOutputDuplication> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIOutputDuplication) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIOutputDuplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIOutputDuplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGIOutputDuplication> for IDXGIObject {
     fn from(value: IDXGIOutputDuplication) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8734,7 +9434,7 @@ pub struct IDXGIOutputDuplication_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIResource(::windows::runtime::IUnknown);
 impl IDXGIResource {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8783,6 +9483,26 @@ impl IDXGIResource {
 unsafe impl ::windows::runtime::Interface for IDXGIResource {
     type Vtable = IDXGIResource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56572596, 18478, 20048, [180, 31, 138, 127, 139, 216, 150, 11]);
+}
+impl ::std::convert::From<IDXGIResource> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIResource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIResource> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIResource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIResource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIResource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIResource> for IDXGIDeviceSubObject {
     fn from(value: IDXGIResource) -> Self {
@@ -8843,7 +9563,7 @@ pub struct IDXGIResource_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGIResource1(::windows::runtime::IUnknown);
 impl IDXGIResource1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8903,6 +9623,26 @@ impl IDXGIResource1 {
 unsafe impl ::windows::runtime::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(815141753, 17929, 19009, [153, 142, 84, 254, 86, 126, 224, 193]);
+}
+impl ::std::convert::From<IDXGIResource1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGIResource1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGIResource1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGIResource1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGIResource1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGIResource1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGIResource1> for IDXGIResource {
     fn from(value: IDXGIResource1) -> Self {
@@ -8986,7 +9726,7 @@ pub struct IDXGIResource1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISurface(::windows::runtime::IUnknown);
 impl IDXGISurface {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9028,6 +9768,26 @@ impl IDXGISurface {
 unsafe impl ::windows::runtime::Interface for IDXGISurface {
     type Vtable = IDXGISurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405559148, 27331, 18569, [191, 71, 158, 35, 187, 210, 96, 236]);
+}
+impl ::std::convert::From<IDXGISurface> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISurface) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISurface> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISurface) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISurface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGISurface> for IDXGIDeviceSubObject {
     fn from(value: IDXGISurface) -> Self {
@@ -9086,7 +9846,7 @@ pub struct IDXGISurface_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISurface1(::windows::runtime::IUnknown);
 impl IDXGISurface1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9139,6 +9899,26 @@ impl IDXGISurface1 {
 unsafe impl ::windows::runtime::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1256599698, 25383, 19483, [128, 174, 191, 225, 46, 163, 43, 134]);
+}
+impl ::std::convert::From<IDXGISurface1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISurface1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISurface1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISurface1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISurface1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISurface1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGISurface1> for IDXGISurface {
     fn from(value: IDXGISurface1) -> Self {
@@ -9221,7 +10001,7 @@ pub struct IDXGISurface1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISurface2(::windows::runtime::IUnknown);
 impl IDXGISurface2 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9278,6 +10058,26 @@ impl IDXGISurface2 {
 unsafe impl ::windows::runtime::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2879690461, 46615, 19640, [168, 102, 188, 68, 215, 235, 31, 162]);
+}
+impl ::std::convert::From<IDXGISurface2> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISurface2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISurface2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISurface2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISurface2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISurface2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IDXGISurface2> for IDXGISurface1 {
     fn from(value: IDXGISurface2) -> Self {
@@ -9381,7 +10181,7 @@ pub struct IDXGISurface2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISwapChain(::windows::runtime::IUnknown);
 impl IDXGISwapChain {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9459,6 +10259,26 @@ unsafe impl ::windows::runtime::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822949536, 53991, 19466, [170, 4, 106, 157, 35, 184, 136, 106]);
 }
+impl ::std::convert::From<IDXGISwapChain> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISwapChain) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISwapChain> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISwapChain) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISwapChain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISwapChain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGISwapChain> for IDXGIDeviceSubObject {
     fn from(value: IDXGISwapChain) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9526,7 +10346,7 @@ pub struct IDXGISwapChain_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISwapChain1(::windows::runtime::IUnknown);
 impl IDXGISwapChain1 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9660,6 +10480,26 @@ unsafe impl ::windows::runtime::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2030716407, 3394, 18550, [152, 58, 10, 85, 207, 230, 244, 170]);
 }
+impl ::std::convert::From<IDXGISwapChain1> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISwapChain1) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISwapChain1> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISwapChain1) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISwapChain1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISwapChain1 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGISwapChain1> for IDXGISwapChain {
     fn from(value: IDXGISwapChain1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9763,7 +10603,7 @@ pub struct IDXGISwapChain1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISwapChain2(::windows::runtime::IUnknown);
 impl IDXGISwapChain2 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9928,6 +10768,26 @@ unsafe impl ::windows::runtime::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2831035076, 6559, 18758, [179, 49, 121, 89, 159, 185, 141, 231]);
 }
+impl ::std::convert::From<IDXGISwapChain2> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISwapChain2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISwapChain2> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISwapChain2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISwapChain2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISwapChain2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGISwapChain2> for IDXGISwapChain1 {
     fn from(value: IDXGISwapChain2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10059,7 +10919,7 @@ pub struct IDXGISwapChain2_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISwapChain3(::windows::runtime::IUnknown);
 impl IDXGISwapChain3 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10241,6 +11101,26 @@ unsafe impl ::windows::runtime::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2497289179, 61944, 19120, [178, 54, 125, 160, 23, 14, 218, 177]);
 }
+impl ::std::convert::From<IDXGISwapChain3> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISwapChain3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISwapChain3> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISwapChain3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISwapChain3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISwapChain3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGISwapChain3> for IDXGISwapChain2 {
     fn from(value: IDXGISwapChain3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10396,7 +11276,7 @@ pub struct IDXGISwapChain3_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISwapChain4(::windows::runtime::IUnknown);
 impl IDXGISwapChain4 {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10582,6 +11462,26 @@ unsafe impl ::windows::runtime::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029201242, 48458, 18590, [177, 244, 61, 188, 182, 69, 47, 251]);
 }
+impl ::std::convert::From<IDXGISwapChain4> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISwapChain4) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISwapChain4> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISwapChain4) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISwapChain4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISwapChain4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IDXGISwapChain4> for IDXGISwapChain3 {
     fn from(value: IDXGISwapChain4) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10758,7 +11658,7 @@ pub struct IDXGISwapChain4_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGISwapChainMedia(::windows::runtime::IUnknown);
 impl IDXGISwapChainMedia {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10779,6 +11679,26 @@ unsafe impl ::windows::runtime::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMedia_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3717576971, 61535, 20330, [189, 101, 37, 191, 178, 100, 189, 132]);
 }
+impl ::std::convert::From<IDXGISwapChainMedia> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGISwapChainMedia) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGISwapChainMedia> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGISwapChainMedia) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGISwapChainMedia {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGISwapChainMedia {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChainMedia_abi(
@@ -10791,7 +11711,7 @@ pub struct IDXGISwapChainMedia_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDXGraphicsAnalysis(::windows::runtime::IUnknown);
 impl IDXGraphicsAnalysis {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10806,6 +11726,26 @@ impl IDXGraphicsAnalysis {
 unsafe impl ::windows::runtime::Interface for IDXGraphicsAnalysis {
     type Vtable = IDXGraphicsAnalysis_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2670007572, 40269, 18690, [157, 96, 24, 152, 138, 183, 212, 181]);
+}
+impl ::std::convert::From<IDXGraphicsAnalysis> for ::windows::runtime::IUnknown {
+    fn from(value: IDXGraphicsAnalysis) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDXGraphicsAnalysis> for ::windows::runtime::IUnknown {
+    fn from(value: &IDXGraphicsAnalysis) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDXGraphicsAnalysis {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDXGraphicsAnalysis {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

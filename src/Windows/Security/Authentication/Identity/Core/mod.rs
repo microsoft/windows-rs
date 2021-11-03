@@ -147,7 +147,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_abi(
 );
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
     #[cfg(feature = "Foundation")]
@@ -268,6 +268,46 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorAuthent
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager";
 }
+impl ::std::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IUnknown {
+    fn from(value: MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IUnknown {
+    fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MicrosoftAccountMultiFactorAuthenticationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MicrosoftAccountMultiFactorAuthenticationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IInspectable {
+    fn from(value: MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IInspectable {
+    fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MicrosoftAccountMultiFactorAuthenticationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MicrosoftAccountMultiFactorAuthenticationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
 unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
@@ -294,7 +334,7 @@ impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorAuthenticati
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
     #[cfg(feature = "Foundation_Collections")]
@@ -325,11 +365,51 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorGetSess
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult";
 }
+impl ::std::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IUnknown {
+    fn from(value: MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MicrosoftAccountMultiFactorGetSessionsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MicrosoftAccountMultiFactorGetSessionsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IInspectable {
+    fn from(value: MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MicrosoftAccountMultiFactorGetSessionsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MicrosoftAccountMultiFactorGetSessionsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
 unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
@@ -376,6 +456,46 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorOneTime
 }
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo";
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IUnknown {
+    fn from(value: MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MicrosoftAccountMultiFactorOneTimeCodedInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MicrosoftAccountMultiFactorOneTimeCodedInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IInspectable {
+    fn from(value: MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MicrosoftAccountMultiFactorOneTimeCodedInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MicrosoftAccountMultiFactorOneTimeCodedInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
@@ -468,7 +588,7 @@ impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorSessionAuthe
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorSessionInfo {
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
@@ -540,11 +660,51 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorSession
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo";
 }
+impl ::std::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: MicrosoftAccountMultiFactorSessionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MicrosoftAccountMultiFactorSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MicrosoftAccountMultiFactorSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: MicrosoftAccountMultiFactorSessionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MicrosoftAccountMultiFactorSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MicrosoftAccountMultiFactorSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     #[cfg(feature = "Foundation_Collections")]
@@ -583,6 +743,46 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorUnregis
 }
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}

@@ -330,7 +330,7 @@ pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIApplication(::windows::runtime::IUnknown);
 impl IRDPSRAPIApplication {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -367,6 +367,26 @@ impl IRDPSRAPIApplication {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIApplication {
     type Vtable = IRDPSRAPIApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105698973, 60282, 17262, [147, 93, 120, 12, 162, 98, 131, 36]);
+}
+impl ::std::convert::From<IRDPSRAPIApplication> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIApplication) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIApplication> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIApplication) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIApplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIApplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIApplication> for super::Ole::Automation::IDispatch {
@@ -416,7 +436,7 @@ pub struct IRDPSRAPIApplication_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIApplicationFilter(::windows::runtime::IUnknown);
 impl IRDPSRAPIApplicationFilter {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -442,6 +462,26 @@ impl IRDPSRAPIApplicationFilter {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIApplicationFilter {
     type Vtable = IRDPSRAPIApplicationFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3524202698, 26167, 20230, [177, 213, 39, 126, 167, 229, 22, 13]);
+}
+impl ::std::convert::From<IRDPSRAPIApplicationFilter> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIApplicationFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIApplicationFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIApplicationFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIApplicationFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIApplicationFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIApplicationFilter> for super::Ole::Automation::IDispatch {
@@ -488,7 +528,7 @@ pub struct IRDPSRAPIApplicationFilter_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIApplicationList(::windows::runtime::IUnknown);
 impl IRDPSRAPIApplicationList {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -505,6 +545,26 @@ impl IRDPSRAPIApplicationList {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIApplicationList {
     type Vtable = IRDPSRAPIApplicationList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3568610995, 8924, 18487, [179, 182, 66, 234, 37, 23, 132, 154]);
+}
+impl ::std::convert::From<IRDPSRAPIApplicationList> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIApplicationList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIApplicationList> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIApplicationList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIApplicationList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIApplicationList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIApplicationList> for super::Ole::Automation::IDispatch {
@@ -549,7 +609,7 @@ pub struct IRDPSRAPIApplicationList_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAttendee(::windows::runtime::IUnknown);
 impl IRDPSRAPIAttendee {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -595,6 +655,26 @@ impl IRDPSRAPIAttendee {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAttendee {
     type Vtable = IRDPSRAPIAttendee_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3959845299, 7032, 19328, [164, 100, 145, 50, 36, 117, 67, 227]);
+}
+impl ::std::convert::From<IRDPSRAPIAttendee> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIAttendee) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIAttendee> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIAttendee) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIAttendee {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIAttendee {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIAttendee> for super::Ole::Automation::IDispatch {
@@ -646,7 +726,7 @@ pub struct IRDPSRAPIAttendee_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo(::windows::runtime::IUnknown);
 impl IRDPSRAPIAttendeeDisconnectInfo {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -668,6 +748,26 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAttendeeDisconnectInfo {
     type Vtable = IRDPSRAPIAttendeeDisconnectInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246876831, 17532, 17569, [156, 20, 255, 251, 179, 183, 236, 23]);
+}
+impl ::std::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIAttendeeDisconnectInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIAttendeeDisconnectInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIAttendeeDisconnectInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIAttendeeDisconnectInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIAttendeeDisconnectInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for super::Ole::Automation::IDispatch {
@@ -713,7 +813,7 @@ pub struct IRDPSRAPIAttendeeDisconnectInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAttendeeManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIAttendeeManager {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -730,6 +830,26 @@ impl IRDPSRAPIAttendeeManager {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIAttendeeManager {
     type Vtable = IRDPSRAPIAttendeeManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3124377576, 13274, 18249, [141, 160, 7, 250, 52, 218, 121, 68]);
+}
+impl ::std::convert::From<IRDPSRAPIAttendeeManager> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIAttendeeManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIAttendeeManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIAttendeeManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIAttendeeManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIAttendeeManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIAttendeeManager> for super::Ole::Automation::IDispatch {
@@ -774,7 +894,7 @@ pub struct IRDPSRAPIAttendeeManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAudioStream(::windows::runtime::IUnknown);
 impl IRDPSRAPIAudioStream {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -803,6 +923,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPIAudioStream {
     type Vtable = IRDPSRAPIAudioStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3823308537, 35270, 17729, [186, 59, 25, 51, 106, 198, 211, 28]);
 }
+impl ::std::convert::From<IRDPSRAPIAudioStream> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIAudioStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIAudioStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIAudioStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIAudioStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIAudioStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAudioStream_abi(
@@ -817,7 +957,7 @@ pub struct IRDPSRAPIAudioStream_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIClipboardUseEvents(::windows::runtime::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -831,6 +971,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPIClipboardUseEvents {
     type Vtable = IRDPSRAPIClipboardUseEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579442586, 31271, 16696, [135, 99, 36, 124, 229, 246, 89, 168]);
 }
+impl ::std::convert::From<IRDPSRAPIClipboardUseEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIClipboardUseEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIClipboardUseEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIClipboardUseEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIClipboardUseEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIClipboardUseEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIClipboardUseEvents_abi(
@@ -842,7 +1002,7 @@ pub struct IRDPSRAPIClipboardUseEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIDebug(::windows::runtime::IUnknown);
 impl IRDPSRAPIDebug {
     #[cfg(feature = "Win32_Foundation")]
@@ -861,6 +1021,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPIDebug {
     type Vtable = IRDPSRAPIDebug_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2854109877, 18797, 19620, [166, 144, 52, 141, 203, 46, 196, 173]);
 }
+impl ::std::convert::From<IRDPSRAPIDebug> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIDebug) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIDebug> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIDebug) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIDebug {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIDebug_abi(
@@ -874,7 +1054,7 @@ pub struct IRDPSRAPIDebug_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIFrameBuffer(::windows::runtime::IUnknown);
 impl IRDPSRAPIFrameBuffer {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -902,6 +1082,26 @@ impl IRDPSRAPIFrameBuffer {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIFrameBuffer {
     type Vtable = IRDPSRAPIFrameBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1030219730, 45691, 17550, [129, 179, 198, 17, 14, 216, 180, 190]);
+}
+impl ::std::convert::From<IRDPSRAPIFrameBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIFrameBuffer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIFrameBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIFrameBuffer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIFrameBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIFrameBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIFrameBuffer> for super::Ole::Automation::IDispatch {
@@ -949,7 +1149,7 @@ pub struct IRDPSRAPIFrameBuffer_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIInvitation(::windows::runtime::IUnknown);
 impl IRDPSRAPIInvitation {
     #[cfg(feature = "Win32_Foundation")]
@@ -992,6 +1192,26 @@ impl IRDPSRAPIInvitation {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIInvitation {
     type Vtable = IRDPSRAPIInvitation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1336679747, 64593, 17851, [177, 180, 43, 83, 170, 86, 47, 163]);
+}
+impl ::std::convert::From<IRDPSRAPIInvitation> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIInvitation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIInvitation> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIInvitation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIInvitation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIInvitation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIInvitation> for super::Ole::Automation::IDispatch {
@@ -1044,7 +1264,7 @@ pub struct IRDPSRAPIInvitation_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIInvitationManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIInvitationManager {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1073,6 +1293,26 @@ impl IRDPSRAPIInvitationManager {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIInvitationManager {
     type Vtable = IRDPSRAPIInvitationManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1193455689, 37571, 19501, [138, 101, 247, 52, 143, 100, 77, 207]);
+}
+impl ::std::convert::From<IRDPSRAPIInvitationManager> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIInvitationManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIInvitationManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIInvitationManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIInvitationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIInvitationManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIInvitationManager> for super::Ole::Automation::IDispatch {
@@ -1121,7 +1361,7 @@ pub struct IRDPSRAPIInvitationManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIPerfCounterLogger(::windows::runtime::IUnknown);
 impl IRDPSRAPIPerfCounterLogger {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1133,6 +1373,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPIPerfCounterLogger {
     type Vtable = IRDPSRAPIPerfCounterLogger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(119285043, 4004, 20111, [174, 131, 156, 16, 180, 48, 90, 181]);
 }
+impl ::std::convert::From<IRDPSRAPIPerfCounterLogger> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIPerfCounterLogger) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIPerfCounterLogger> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIPerfCounterLogger) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIPerfCounterLogger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIPerfCounterLogger {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLogger_abi(
@@ -1143,7 +1403,7 @@ pub struct IRDPSRAPIPerfCounterLogger_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIPerfCounterLoggingManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -1157,6 +1417,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPIPerfCounterLoggingManager
     type Vtable = IRDPSRAPIPerfCounterLoggingManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589011078, 44142, 19086, [177, 164, 252, 239, 54, 63, 110, 100]);
 }
+impl ::std::convert::From<IRDPSRAPIPerfCounterLoggingManager> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIPerfCounterLoggingManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIPerfCounterLoggingManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIPerfCounterLoggingManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIPerfCounterLoggingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIPerfCounterLoggingManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLoggingManager_abi(
@@ -1168,7 +1448,7 @@ pub struct IRDPSRAPIPerfCounterLoggingManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPISessionProperties(::windows::runtime::IUnknown);
 impl IRDPSRAPISessionProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -1186,6 +1466,26 @@ impl IRDPSRAPISessionProperties {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPISessionProperties {
     type Vtable = IRDPSRAPISessionProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(865805554, 39872, 20246, [154, 172, 241, 101, 67, 61, 19, 212]);
+}
+impl ::std::convert::From<IRDPSRAPISessionProperties> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPISessionProperties) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPISessionProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPISessionProperties) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPISessionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPISessionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPISessionProperties> for super::Ole::Automation::IDispatch {
@@ -1232,7 +1532,7 @@ pub struct IRDPSRAPISessionProperties_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPISharingSession(::windows::runtime::IUnknown);
 impl IRDPSRAPISharingSession {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1303,6 +1603,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPISharingSession {
     type Vtable = IRDPSRAPISharingSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004644998, 58480, 19702, [132, 43, 39, 57, 192, 236, 92, 251]);
 }
+impl ::std::convert::From<IRDPSRAPISharingSession> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPISharingSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPISharingSession> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPISharingSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPISharingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPISharingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPISharingSession> for super::Ole::Automation::IDispatch {
     fn from(value: IRDPSRAPISharingSession) -> Self {
@@ -1359,7 +1679,7 @@ pub struct IRDPSRAPISharingSession_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPISharingSession2(::windows::runtime::IUnknown);
 impl IRDPSRAPISharingSession2 {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1465,6 +1785,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPISharingSession2 {
     type Vtable = IRDPSRAPISharingSession2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276416087, 58344, 16901, [143, 176, 143, 209, 208, 103, 92, 33]);
 }
+impl ::std::convert::From<IRDPSRAPISharingSession2> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPISharingSession2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPISharingSession2> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPISharingSession2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPISharingSession2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPISharingSession2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IRDPSRAPISharingSession2> for IRDPSRAPISharingSession {
     fn from(value: IRDPSRAPISharingSession2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1545,7 +1885,7 @@ pub struct IRDPSRAPISharingSession2_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITcpConnectionInfo(::windows::runtime::IUnknown);
 impl IRDPSRAPITcpConnectionInfo {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1579,6 +1919,26 @@ impl IRDPSRAPITcpConnectionInfo {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPITcpConnectionInfo {
     type Vtable = IRDPSRAPITcpConnectionInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148185508, 15622, 16424, [129, 147, 10, 140, 41, 188, 36, 82]);
+}
+impl ::std::convert::From<IRDPSRAPITcpConnectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPITcpConnectionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPITcpConnectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPITcpConnectionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPITcpConnectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPITcpConnectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPITcpConnectionInfo> for super::Ole::Automation::IDispatch {
@@ -1628,7 +1988,7 @@ pub struct IRDPSRAPITcpConnectionInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITransportStream(::windows::runtime::IUnknown);
 impl IRDPSRAPITransportStream {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1661,6 +2021,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPITransportStream {
     type Vtable = IRDPSRAPITransportStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(919576677, 17339, 20215, [174, 215, 155, 136, 165, 5, 48, 54]);
 }
+impl ::std::convert::From<IRDPSRAPITransportStream> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPITransportStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPITransportStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPITransportStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPITransportStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPITransportStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStream_abi(
@@ -1676,7 +2056,7 @@ pub struct IRDPSRAPITransportStream_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITransportStreamBuffer(::windows::runtime::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1730,6 +2110,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPITransportStreamBuffer {
     type Vtable = IRDPSRAPITransportStreamBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177368720, 20613, 17584, [180, 96, 248, 101, 195, 156, 180, 169]);
 }
+impl ::std::convert::From<IRDPSRAPITransportStreamBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPITransportStreamBuffer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPITransportStreamBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPITransportStreamBuffer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPITransportStreamBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPITransportStreamBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamBuffer_abi(
@@ -1749,7 +2149,7 @@ pub struct IRDPSRAPITransportStreamBuffer_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITransportStreamEvents(::windows::runtime::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -1769,6 +2169,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPITransportStreamEvents {
     type Vtable = IRDPSRAPITransportStreamEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3934372436, 62895, 20032, [152, 46, 62, 99, 187, 89, 82, 118]);
 }
+impl ::std::convert::From<IRDPSRAPITransportStreamEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPITransportStreamEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPITransportStreamEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPITransportStreamEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPITransportStreamEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPITransportStreamEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamEvents_abi(
@@ -1781,7 +2201,7 @@ pub struct IRDPSRAPITransportStreamEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIViewer(::windows::runtime::IUnknown);
 impl IRDPSRAPIViewer {
     #[cfg(feature = "Win32_Foundation")]
@@ -1857,6 +2277,26 @@ unsafe impl ::windows::runtime::Interface for IRDPSRAPIViewer {
     type Vtable = IRDPSRAPIViewer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3334458680, 36073, 16461, [138, 232, 243, 29, 0, 198, 92, 181]);
 }
+impl ::std::convert::From<IRDPSRAPIViewer> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIViewer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIViewer> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIViewer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIViewer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIViewer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIViewer> for super::Ole::Automation::IDispatch {
     fn from(value: IRDPSRAPIViewer) -> Self {
@@ -1916,7 +2356,7 @@ pub struct IRDPSRAPIViewer_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIVirtualChannel(::windows::runtime::IUnknown);
 impl IRDPSRAPIVirtualChannel {
     #[cfg(feature = "Win32_Foundation")]
@@ -1948,6 +2388,26 @@ impl IRDPSRAPIVirtualChannel {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIVirtualChannel {
     type Vtable = IRDPSRAPIVirtualChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98643861, 10419, 19610, [135, 128, 208, 36, 133, 116, 161, 224]);
+}
+impl ::std::convert::From<IRDPSRAPIVirtualChannel> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIVirtualChannel) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIVirtualChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIVirtualChannel) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIVirtualChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIVirtualChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIVirtualChannel> for super::Ole::Automation::IDispatch {
@@ -1997,7 +2457,7 @@ pub struct IRDPSRAPIVirtualChannel_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIVirtualChannelManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIVirtualChannelManager {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -2021,6 +2481,26 @@ impl IRDPSRAPIVirtualChannelManager {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIVirtualChannelManager {
     type Vtable = IRDPSRAPIVirtualChannelManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(219268705, 23821, 20196, [137, 223, 33, 102, 174, 31, 223, 237]);
+}
+impl ::std::convert::From<IRDPSRAPIVirtualChannelManager> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIVirtualChannelManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIVirtualChannelManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIVirtualChannelManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIVirtualChannelManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIVirtualChannelManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIVirtualChannelManager> for super::Ole::Automation::IDispatch {
@@ -2068,7 +2548,7 @@ pub struct IRDPSRAPIVirtualChannelManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIWindow(::windows::runtime::IUnknown);
 impl IRDPSRAPIWindow {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -2109,6 +2589,26 @@ impl IRDPSRAPIWindow {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIWindow {
     type Vtable = IRDPSRAPIWindow_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199197433, 51067, 18739, [186, 159, 162, 76, 221, 204, 39, 207]);
+}
+impl ::std::convert::From<IRDPSRAPIWindow> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIWindow) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIWindow> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIWindow) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIWindow {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIWindow {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIWindow> for super::Ole::Automation::IDispatch {
@@ -2159,7 +2659,7 @@ pub struct IRDPSRAPIWindow_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIWindowList(::windows::runtime::IUnknown);
 impl IRDPSRAPIWindowList {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -2176,6 +2676,26 @@ impl IRDPSRAPIWindowList {
 unsafe impl ::windows::runtime::Interface for IRDPSRAPIWindowList {
     type Vtable = IRDPSRAPIWindowList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315636292, 29018, 16662, [161, 137, 161, 24, 243, 10, 7, 189]);
+}
+impl ::std::convert::From<IRDPSRAPIWindowList> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPSRAPIWindowList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPSRAPIWindowList> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPSRAPIWindowList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPSRAPIWindowList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPSRAPIWindowList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRDPSRAPIWindowList> for super::Ole::Automation::IDispatch {
@@ -2220,7 +2740,7 @@ pub struct IRDPSRAPIWindowList_abi(
 );
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPViewerInputSink(::windows::runtime::IUnknown);
 impl IRDPViewerInputSink {
     #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -2259,6 +2779,26 @@ impl IRDPViewerInputSink {
 unsafe impl ::windows::runtime::Interface for IRDPViewerInputSink {
     type Vtable = IRDPViewerInputSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143174227, 42693, 19067, [141, 212, 118, 182, 158, 234, 18, 213]);
+}
+impl ::std::convert::From<IRDPViewerInputSink> for ::windows::runtime::IUnknown {
+    fn from(value: IRDPViewerInputSink) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRDPViewerInputSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IRDPViewerInputSink) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRDPViewerInputSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRDPViewerInputSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2381,12 +2921,32 @@ pub const RDPTransportStreamEvents: ::windows::runtime::GUID = ::windows::runtim
 pub const RDPViewer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(851336914, 23686, 18447, [169, 20, 15, 248, 136, 90, 27, 63]);
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct _IRDPSessionEvents(::windows::runtime::IUnknown);
 impl _IRDPSessionEvents {}
 unsafe impl ::windows::runtime::Interface for _IRDPSessionEvents {
     type Vtable = _IRDPSessionEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561241154, 26264, 16617, [142, 253, 179, 32, 9, 144, 0, 75]);
+}
+impl ::std::convert::From<_IRDPSessionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IRDPSessionEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IRDPSessionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IRDPSessionEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IRDPSessionEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IRDPSessionEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_IRDPSessionEvents> for super::Ole::Automation::IDispatch {

@@ -1,12 +1,32 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDummyMBNUCMExt(::windows::runtime::IUnknown);
 impl IDummyMBNUCMExt {}
 unsafe impl ::windows::runtime::Interface for IDummyMBNUCMExt {
     type Vtable = IDummyMBNUCMExt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 65535, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+}
+impl ::std::convert::From<IDummyMBNUCMExt> for ::windows::runtime::IUnknown {
+    fn from(value: IDummyMBNUCMExt) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDummyMBNUCMExt> for ::windows::runtime::IUnknown {
+    fn from(value: &IDummyMBNUCMExt) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDummyMBNUCMExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDummyMBNUCMExt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDummyMBNUCMExt> for super::super::System::Ole::Automation::IDispatch {
@@ -49,7 +69,7 @@ pub struct IDummyMBNUCMExt_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnection(::windows::runtime::IUnknown);
 impl IMbnConnection {
     #[cfg(feature = "Win32_Foundation")]
@@ -95,6 +115,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnection {
     type Vtable = IMbnConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8205, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnection> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnection_abi(
@@ -115,7 +155,7 @@ pub struct IMbnConnection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionContext(::windows::runtime::IUnknown);
 impl IMbnConnectionContext {
     #[cfg(feature = "Win32_System_Com")]
@@ -135,6 +175,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionContext {
     type Vtable = IMbnConnectionContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8203, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionContext> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionContext_abi(
@@ -148,7 +208,7 @@ pub struct IMbnConnectionContext_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionContextEvents(::windows::runtime::IUnknown);
 impl IMbnConnectionContextEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -164,6 +224,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionContextEvents {
     type Vtable = IMbnConnectionContextEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8204, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionContextEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionContextEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionContextEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionContextEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionContextEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionContextEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionContextEvents_abi(
@@ -175,7 +255,7 @@ pub struct IMbnConnectionContextEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionEvents(::windows::runtime::IUnknown);
 impl IMbnConnectionEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -199,6 +279,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionEvents {
     type Vtable = IMbnConnectionEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8206, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionEvents_abi(
@@ -212,7 +312,7 @@ pub struct IMbnConnectionEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionManager(::windows::runtime::IUnknown);
 impl IMbnConnectionManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -232,6 +332,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionManager {
     type Vtable = IMbnConnectionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8221, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionManager> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionManager_abi(
@@ -245,7 +365,7 @@ pub struct IMbnConnectionManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionManagerEvents(::windows::runtime::IUnknown);
 impl IMbnConnectionManagerEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -261,6 +381,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionManagerEvents {
     type Vtable = IMbnConnectionManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8222, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionManagerEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionManagerEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionManagerEvents_abi(
@@ -272,7 +412,7 @@ pub struct IMbnConnectionManagerEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionProfile(::windows::runtime::IUnknown);
 impl IMbnConnectionProfile {
     #[cfg(feature = "Win32_Foundation")]
@@ -295,6 +435,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionProfile {
     type Vtable = IMbnConnectionProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8208, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionProfile> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionProfile) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionProfile> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionProfile) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfile_abi(
@@ -309,7 +469,7 @@ pub struct IMbnConnectionProfile_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionProfileEvents(::windows::runtime::IUnknown);
 impl IMbnConnectionProfileEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -321,6 +481,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionProfileEvents {
     type Vtable = IMbnConnectionProfileEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8209, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionProfileEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionProfileEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionProfileEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionProfileEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionProfileEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionProfileEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileEvents_abi(
@@ -331,7 +511,7 @@ pub struct IMbnConnectionProfileEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionProfileManager(::windows::runtime::IUnknown);
 impl IMbnConnectionProfileManager {
     #[cfg(feature = "Win32_System_Com")]
@@ -356,6 +536,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionProfileManager {
     type Vtable = IMbnConnectionProfileManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8207, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionProfileManager> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionProfileManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionProfileManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionProfileManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionProfileManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionProfileManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileManager_abi(
@@ -371,7 +571,7 @@ pub struct IMbnConnectionProfileManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnConnectionProfileManagerEvents(::windows::runtime::IUnknown);
 impl IMbnConnectionProfileManagerEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -387,6 +587,26 @@ unsafe impl ::windows::runtime::Interface for IMbnConnectionProfileManagerEvents
     type Vtable = IMbnConnectionProfileManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8223, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnConnectionProfileManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnConnectionProfileManagerEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnConnectionProfileManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnConnectionProfileManagerEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnConnectionProfileManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnConnectionProfileManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileManagerEvents_abi(
@@ -398,7 +618,7 @@ pub struct IMbnConnectionProfileManagerEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnDeviceService(::windows::runtime::IUnknown);
 impl IMbnDeviceService {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -473,6 +693,26 @@ unsafe impl ::windows::runtime::Interface for IMbnDeviceService {
     type Vtable = IMbnDeviceService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015416433, 56432, 19433, [164, 218, 120, 134, 174, 139, 25, 27]);
 }
+impl ::std::convert::From<IMbnDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnDeviceService) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnDeviceService) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceService_abi(
@@ -501,7 +741,7 @@ pub struct IMbnDeviceService_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnDeviceServiceStateEvents(::windows::runtime::IUnknown);
 impl IMbnDeviceServiceStateEvents {
     #[cfg(feature = "Win32_Foundation")]
@@ -514,6 +754,26 @@ unsafe impl ::windows::runtime::Interface for IMbnDeviceServiceStateEvents {
     type Vtable = IMbnDeviceServiceStateEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1564471702, 35310, 18904, [139, 96, 51, 255, 221, 255, 197, 141]);
 }
+impl ::std::convert::From<IMbnDeviceServiceStateEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnDeviceServiceStateEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnDeviceServiceStateEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnDeviceServiceStateEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnDeviceServiceStateEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnDeviceServiceStateEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServiceStateEvents_abi(
@@ -525,7 +785,7 @@ pub struct IMbnDeviceServiceStateEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnDeviceServicesContext(::windows::runtime::IUnknown);
 impl IMbnDeviceServicesContext {
     #[cfg(feature = "Win32_System_Com")]
@@ -555,6 +815,26 @@ unsafe impl ::windows::runtime::Interface for IMbnDeviceServicesContext {
     type Vtable = IMbnDeviceServicesContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233806663, 5522, 16488, [128, 187, 106, 87, 88, 1, 80, 216]);
 }
+impl ::std::convert::From<IMbnDeviceServicesContext> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnDeviceServicesContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnDeviceServicesContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnDeviceServicesContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnDeviceServicesContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnDeviceServicesContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesContext_abi(
@@ -570,7 +850,7 @@ pub struct IMbnDeviceServicesContext_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnDeviceServicesEvents(::windows::runtime::IUnknown);
 impl IMbnDeviceServicesEvents {
     #[cfg(feature = "Win32_System_Com")]
@@ -628,6 +908,26 @@ unsafe impl ::windows::runtime::Interface for IMbnDeviceServicesEvents {
     type Vtable = IMbnDeviceServicesEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(177212441, 26660, 20119, [183, 110, 207, 35, 157, 12, 166, 66]);
 }
+impl ::std::convert::From<IMbnDeviceServicesEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnDeviceServicesEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnDeviceServicesEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnDeviceServicesEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnDeviceServicesEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnDeviceServicesEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesEvents_abi(
@@ -654,7 +954,7 @@ pub struct IMbnDeviceServicesEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnDeviceServicesManager(::windows::runtime::IUnknown);
 impl IMbnDeviceServicesManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -668,6 +968,26 @@ unsafe impl ::windows::runtime::Interface for IMbnDeviceServicesManager {
     type Vtable = IMbnDeviceServicesManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(547512920, 26641, 17528, [172, 29, 19, 50, 78, 69, 228, 28]);
 }
+impl ::std::convert::From<IMbnDeviceServicesManager> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnDeviceServicesManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnDeviceServicesManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnDeviceServicesManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnDeviceServicesManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnDeviceServicesManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesManager_abi(
@@ -679,7 +999,7 @@ pub struct IMbnDeviceServicesManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnInterface(::windows::runtime::IUnknown);
 impl IMbnInterface {
     #[cfg(feature = "Win32_Foundation")]
@@ -747,6 +1067,26 @@ unsafe impl ::windows::runtime::Interface for IMbnInterface {
     type Vtable = IMbnInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8193, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnInterface> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnInterface) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnInterface> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnInterface) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterface_abi(
@@ -773,7 +1113,7 @@ pub struct IMbnInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnInterfaceEvents(::windows::runtime::IUnknown);
 impl IMbnInterfaceEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -813,6 +1153,26 @@ unsafe impl ::windows::runtime::Interface for IMbnInterfaceEvents {
     type Vtable = IMbnInterfaceEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8194, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnInterfaceEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnInterfaceEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnInterfaceEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnInterfaceEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnInterfaceEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnInterfaceEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceEvents_abi(
@@ -830,7 +1190,7 @@ pub struct IMbnInterfaceEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnInterfaceManager(::windows::runtime::IUnknown);
 impl IMbnInterfaceManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -850,6 +1210,26 @@ unsafe impl ::windows::runtime::Interface for IMbnInterfaceManager {
     type Vtable = IMbnInterfaceManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8219, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnInterfaceManager> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnInterfaceManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnInterfaceManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnInterfaceManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnInterfaceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnInterfaceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceManager_abi(
@@ -863,7 +1243,7 @@ pub struct IMbnInterfaceManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnInterfaceManagerEvents(::windows::runtime::IUnknown);
 impl IMbnInterfaceManagerEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -879,6 +1259,26 @@ unsafe impl ::windows::runtime::Interface for IMbnInterfaceManagerEvents {
     type Vtable = IMbnInterfaceManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8220, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnInterfaceManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnInterfaceManagerEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnInterfaceManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnInterfaceManagerEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnInterfaceManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnInterfaceManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceManagerEvents_abi(
@@ -890,7 +1290,7 @@ pub struct IMbnInterfaceManagerEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnMultiCarrier(::windows::runtime::IUnknown);
 impl IMbnMultiCarrier {
     #[cfg(feature = "Win32_Foundation")]
@@ -931,6 +1331,26 @@ unsafe impl ::windows::runtime::Interface for IMbnMultiCarrier {
     type Vtable = IMbnMultiCarrier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8224, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnMultiCarrier> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnMultiCarrier) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnMultiCarrier> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnMultiCarrier) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnMultiCarrier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnMultiCarrier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnMultiCarrier_abi(
@@ -950,7 +1370,7 @@ pub struct IMbnMultiCarrier_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnMultiCarrierEvents(::windows::runtime::IUnknown);
 impl IMbnMultiCarrierEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -978,6 +1398,26 @@ unsafe impl ::windows::runtime::Interface for IMbnMultiCarrierEvents {
     type Vtable = IMbnMultiCarrierEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705526966, 8225, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnMultiCarrierEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnMultiCarrierEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnMultiCarrierEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnMultiCarrierEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnMultiCarrierEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnMultiCarrierEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnMultiCarrierEvents_abi(
@@ -992,7 +1432,7 @@ pub struct IMbnMultiCarrierEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnPin(::windows::runtime::IUnknown);
 impl IMbnPin {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1060,6 +1500,26 @@ unsafe impl ::windows::runtime::Interface for IMbnPin {
     type Vtable = IMbnPin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8199, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnPin> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnPin) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnPin> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnPin) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnPin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnPin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPin_abi(
@@ -1085,7 +1545,7 @@ pub struct IMbnPin_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnPinEvents(::windows::runtime::IUnknown);
 impl IMbnPinEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1113,6 +1573,26 @@ unsafe impl ::windows::runtime::Interface for IMbnPinEvents {
     type Vtable = IMbnPinEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8200, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnPinEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnPinEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnPinEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnPinEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnPinEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnPinEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinEvents_abi(
@@ -1127,7 +1607,7 @@ pub struct IMbnPinEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnPinManager(::windows::runtime::IUnknown);
 impl IMbnPinManager {
     #[cfg(feature = "Win32_System_Com")]
@@ -1151,6 +1631,26 @@ unsafe impl ::windows::runtime::Interface for IMbnPinManager {
     type Vtable = IMbnPinManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8197, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnPinManager> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnPinManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnPinManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnPinManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnPinManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnPinManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinManager_abi(
@@ -1164,7 +1664,7 @@ pub struct IMbnPinManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnPinManagerEvents(::windows::runtime::IUnknown);
 impl IMbnPinManagerEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1180,6 +1680,26 @@ unsafe impl ::windows::runtime::Interface for IMbnPinManagerEvents {
     type Vtable = IMbnPinManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8198, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnPinManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnPinManagerEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnPinManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnPinManagerEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnPinManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnPinManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinManagerEvents_abi(
@@ -1191,7 +1711,7 @@ pub struct IMbnPinManagerEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnRadio(::windows::runtime::IUnknown);
 impl IMbnRadio {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1214,6 +1734,26 @@ unsafe impl ::windows::runtime::Interface for IMbnRadio {
     type Vtable = IMbnRadio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704408758, 8223, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnRadio> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnRadio) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnRadio> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnRadio) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnRadio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnRadio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRadio_abi(
@@ -1226,7 +1766,7 @@ pub struct IMbnRadio_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnRadioEvents(::windows::runtime::IUnknown);
 impl IMbnRadioEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1242,6 +1782,26 @@ unsafe impl ::windows::runtime::Interface for IMbnRadioEvents {
     type Vtable = IMbnRadioEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705526966, 8223, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnRadioEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnRadioEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnRadioEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnRadioEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnRadioEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnRadioEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRadioEvents_abi(
@@ -1253,7 +1813,7 @@ pub struct IMbnRadioEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnRegistration(::windows::runtime::IUnknown);
 impl IMbnRegistration {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1315,6 +1875,26 @@ unsafe impl ::windows::runtime::Interface for IMbnRegistration {
     type Vtable = IMbnRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8201, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRegistration_abi(
@@ -1338,7 +1918,7 @@ pub struct IMbnRegistration_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnRegistrationEvents(::windows::runtime::IUnknown);
 impl IMbnRegistrationEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1362,6 +1942,26 @@ unsafe impl ::windows::runtime::Interface for IMbnRegistrationEvents {
     type Vtable = IMbnRegistrationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8202, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnRegistrationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnRegistrationEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnRegistrationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnRegistrationEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnRegistrationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnRegistrationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRegistrationEvents_abi(
@@ -1375,7 +1975,7 @@ pub struct IMbnRegistrationEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnServiceActivation(::windows::runtime::IUnknown);
 impl IMbnServiceActivation {
     #[cfg(feature = "Win32_System_Com")]
@@ -1389,6 +1989,26 @@ unsafe impl ::windows::runtime::Interface for IMbnServiceActivation {
     type Vtable = IMbnServiceActivation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8215, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnServiceActivation> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnServiceActivation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnServiceActivation> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnServiceActivation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnServiceActivation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnServiceActivation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnServiceActivation_abi(
@@ -1400,7 +2020,7 @@ pub struct IMbnServiceActivation_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnServiceActivationEvents(::windows::runtime::IUnknown);
 impl IMbnServiceActivationEvents {
     #[cfg(feature = "Win32_System_Com")]
@@ -1413,6 +2033,26 @@ unsafe impl ::windows::runtime::Interface for IMbnServiceActivationEvents {
     type Vtable = IMbnServiceActivationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8216, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnServiceActivationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnServiceActivationEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnServiceActivationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnServiceActivationEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnServiceActivationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnServiceActivationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnServiceActivationEvents_abi(
@@ -1424,7 +2064,7 @@ pub struct IMbnServiceActivationEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSignal(::windows::runtime::IUnknown);
 impl IMbnSignal {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1442,6 +2082,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSignal {
     type Vtable = IMbnSignal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8195, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSignal> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSignal) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSignal> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSignal) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSignal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSignal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSignal_abi(
@@ -1453,7 +2113,7 @@ pub struct IMbnSignal_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSignalEvents(::windows::runtime::IUnknown);
 impl IMbnSignalEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1465,6 +2125,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSignalEvents {
     type Vtable = IMbnSignalEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8196, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSignalEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSignalEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSignalEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSignalEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSignalEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSignalEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSignalEvents_abi(
@@ -1475,7 +2155,7 @@ pub struct IMbnSignalEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSms(::windows::runtime::IUnknown);
 impl IMbnSms {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1526,6 +2206,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSms {
     type Vtable = IMbnSms_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8213, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSms> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSms) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSms> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSms) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSms {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSms {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSms_abi(
@@ -1546,7 +2246,7 @@ pub struct IMbnSms_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSmsConfiguration(::windows::runtime::IUnknown);
 impl IMbnSmsConfiguration {
     #[cfg(feature = "Win32_Foundation")]
@@ -1584,6 +2284,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSmsConfiguration {
     type Vtable = IMbnSmsConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8210, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSmsConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSmsConfiguration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSmsConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSmsConfiguration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSmsConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSmsConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsConfiguration_abi(
@@ -1601,7 +2321,7 @@ pub struct IMbnSmsConfiguration_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSmsEvents(::windows::runtime::IUnknown);
 impl IMbnSmsEvents {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1639,6 +2359,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSmsEvents {
     type Vtable = IMbnSmsEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8214, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSmsEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSmsEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSmsEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSmsEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSmsEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSmsEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsEvents_abi(
@@ -1657,7 +2397,7 @@ pub struct IMbnSmsEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSmsReadMsgPdu(::windows::runtime::IUnknown);
 impl IMbnSmsReadMsgPdu {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1687,6 +2427,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSmsReadMsgPdu {
     type Vtable = IMbnSmsReadMsgPdu_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8211, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSmsReadMsgPdu> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSmsReadMsgPdu) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSmsReadMsgPdu> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSmsReadMsgPdu) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSmsReadMsgPdu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSmsReadMsgPdu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsReadMsgPdu_abi(
@@ -1702,7 +2462,7 @@ pub struct IMbnSmsReadMsgPdu_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSmsReadMsgTextCdma(::windows::runtime::IUnknown);
 impl IMbnSmsReadMsgTextCdma {
     #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
@@ -1753,6 +2513,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSmsReadMsgTextCdma {
     type Vtable = IMbnSmsReadMsgTextCdma_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8212, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnSmsReadMsgTextCdma> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSmsReadMsgTextCdma) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSmsReadMsgTextCdma> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSmsReadMsgTextCdma) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSmsReadMsgTextCdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSmsReadMsgTextCdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsReadMsgTextCdma_abi(
@@ -1773,7 +2553,7 @@ pub struct IMbnSmsReadMsgTextCdma_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnSubscriberInformation(::windows::runtime::IUnknown);
 impl IMbnSubscriberInformation {
     #[cfg(feature = "Win32_Foundation")]
@@ -1799,6 +2579,26 @@ unsafe impl ::windows::runtime::Interface for IMbnSubscriberInformation {
     type Vtable = IMbnSubscriberInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168034883, 48373, 4572, [168, 168, 0, 19, 33, 241, 64, 95]);
 }
+impl ::std::convert::From<IMbnSubscriberInformation> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnSubscriberInformation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnSubscriberInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnSubscriberInformation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnSubscriberInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnSubscriberInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSubscriberInformation_abi(
@@ -1814,7 +2614,7 @@ pub struct IMbnSubscriberInformation_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnVendorSpecificEvents(::windows::runtime::IUnknown);
 impl IMbnVendorSpecificEvents {
     #[cfg(feature = "Win32_System_Com")]
@@ -1832,6 +2632,26 @@ unsafe impl ::windows::runtime::Interface for IMbnVendorSpecificEvents {
     type Vtable = IMbnVendorSpecificEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8218, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
 }
+impl ::std::convert::From<IMbnVendorSpecificEvents> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnVendorSpecificEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnVendorSpecificEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnVendorSpecificEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnVendorSpecificEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnVendorSpecificEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnVendorSpecificEvents_abi(
@@ -1845,7 +2665,7 @@ pub struct IMbnVendorSpecificEvents_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMbnVendorSpecificOperation(::windows::runtime::IUnknown);
 impl IMbnVendorSpecificOperation {
     #[cfg(feature = "Win32_System_Com")]
@@ -1858,6 +2678,26 @@ impl IMbnVendorSpecificOperation {
 unsafe impl ::windows::runtime::Interface for IMbnVendorSpecificOperation {
     type Vtable = IMbnVendorSpecificOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703290550, 8217, 19387, [170, 238, 51, 142, 54, 138, 246, 250]);
+}
+impl ::std::convert::From<IMbnVendorSpecificOperation> for ::windows::runtime::IUnknown {
+    fn from(value: IMbnVendorSpecificOperation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMbnVendorSpecificOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &IMbnVendorSpecificOperation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMbnVendorSpecificOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMbnVendorSpecificOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

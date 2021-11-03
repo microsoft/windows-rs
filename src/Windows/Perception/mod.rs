@@ -85,7 +85,7 @@ pub struct IPerceptionTimestampHelperStatics2_abi(
 );
 #[doc = "*Required features: `Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PerceptionTimestamp(::windows::runtime::IInspectable);
 impl PerceptionTimestamp {
     #[cfg(feature = "Foundation")]
@@ -125,6 +125,46 @@ unsafe impl ::windows::runtime::Interface for PerceptionTimestamp {
 }
 impl ::windows::runtime::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
+}
+impl ::std::convert::From<PerceptionTimestamp> for ::windows::runtime::IUnknown {
+    fn from(value: PerceptionTimestamp) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&PerceptionTimestamp> for ::windows::runtime::IUnknown {
+    fn from(value: &PerceptionTimestamp) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionTimestamp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionTimestamp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<PerceptionTimestamp> for ::windows::runtime::IInspectable {
+    fn from(value: PerceptionTimestamp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PerceptionTimestamp> for ::windows::runtime::IInspectable {
+    fn from(value: &PerceptionTimestamp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionTimestamp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionTimestamp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PerceptionTimestamp {}
 unsafe impl ::std::marker::Sync for PerceptionTimestamp {}

@@ -2559,7 +2559,7 @@ pub const GUID_EapHost_Repair_User_GetNewCert: ::windows::runtime::GUID = ::wind
 pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517826663, 24912, 16905, [168, 94, 168, 216, 0, 0, 0, 27]);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccountingProviderConfig(::windows::runtime::IUnknown);
 impl IAccountingProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
@@ -2590,6 +2590,26 @@ unsafe impl ::windows::runtime::Interface for IAccountingProviderConfig {
     type Vtable = IAccountingProviderConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948952, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
 }
+impl ::std::convert::From<IAccountingProviderConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IAccountingProviderConfig) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAccountingProviderConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IAccountingProviderConfig) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAccountingProviderConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAccountingProviderConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountingProviderConfig_abi(
@@ -2606,7 +2626,7 @@ pub struct IAccountingProviderConfig_abi(
 );
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAuthenticationProviderConfig(::windows::runtime::IUnknown);
 impl IAuthenticationProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
@@ -2637,6 +2657,26 @@ unsafe impl ::windows::runtime::Interface for IAuthenticationProviderConfig {
     type Vtable = IAuthenticationProviderConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948951, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
 }
+impl ::std::convert::From<IAuthenticationProviderConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IAuthenticationProviderConfig) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAuthenticationProviderConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IAuthenticationProviderConfig) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAuthenticationProviderConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAuthenticationProviderConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAuthenticationProviderConfig_abi(
@@ -2653,7 +2693,7 @@ pub struct IAuthenticationProviderConfig_abi(
 );
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEAPProviderConfig(::windows::runtime::IUnknown);
 impl IEAPProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
@@ -2710,6 +2750,26 @@ unsafe impl ::windows::runtime::Interface for IEAPProviderConfig {
     type Vtable = IEAPProviderConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948953, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
 }
+impl ::std::convert::From<IEAPProviderConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IEAPProviderConfig) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEAPProviderConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IEAPProviderConfig) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEAPProviderConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEAPProviderConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig_abi(
@@ -2728,7 +2788,7 @@ pub struct IEAPProviderConfig_abi(
 );
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEAPProviderConfig2(::windows::runtime::IUnknown);
 impl IEAPProviderConfig2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -2804,6 +2864,26 @@ unsafe impl ::windows::runtime::Interface for IEAPProviderConfig2 {
     type Vtable = IEAPProviderConfig2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3580203386, 34244, 17510, [133, 110, 103, 28, 55, 66, 234, 154]);
 }
+impl ::std::convert::From<IEAPProviderConfig2> for ::windows::runtime::IUnknown {
+    fn from(value: IEAPProviderConfig2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEAPProviderConfig2> for ::windows::runtime::IUnknown {
+    fn from(value: &IEAPProviderConfig2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEAPProviderConfig2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEAPProviderConfig2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IEAPProviderConfig2> for IEAPProviderConfig {
     fn from(value: IEAPProviderConfig2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2845,7 +2925,7 @@ pub struct IEAPProviderConfig2_abi(
 );
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEAPProviderConfig3(::windows::runtime::IUnknown);
 impl IEAPProviderConfig3 {
     #[cfg(feature = "Win32_Foundation")]
@@ -2937,6 +3017,26 @@ unsafe impl ::windows::runtime::Interface for IEAPProviderConfig3 {
     type Vtable = IEAPProviderConfig3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3079589138, 26811, 20358, [155, 240, 132, 56, 221, 59, 233, 130]);
 }
+impl ::std::convert::From<IEAPProviderConfig3> for ::windows::runtime::IUnknown {
+    fn from(value: IEAPProviderConfig3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IEAPProviderConfig3> for ::windows::runtime::IUnknown {
+    fn from(value: &IEAPProviderConfig3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEAPProviderConfig3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEAPProviderConfig3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IEAPProviderConfig3> for IEAPProviderConfig2 {
     fn from(value: IEAPProviderConfig3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3000,7 +3100,7 @@ pub struct IEAPProviderConfig3_abi(
 );
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRouterProtocolConfig(::windows::runtime::IUnknown);
 impl IRouterProtocolConfig {
     #[cfg(feature = "Win32_Foundation")]
@@ -3017,6 +3117,26 @@ impl IRouterProtocolConfig {
 unsafe impl ::windows::runtime::Interface for IRouterProtocolConfig {
     type Vtable = IRouterProtocolConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1721948950, 55046, 4560, [163, 123, 0, 192, 79, 201, 218, 4]);
+}
+impl ::std::convert::From<IRouterProtocolConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IRouterProtocolConfig) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRouterProtocolConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IRouterProtocolConfig) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRouterProtocolConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRouterProtocolConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

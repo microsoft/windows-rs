@@ -1131,7 +1131,7 @@ pub const FreeThreadedDOMDocument60: ::windows::runtime::GUID = ::windows::runti
 pub const FreeThreadedXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949833, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXAttributes(::windows::runtime::IUnknown);
 impl IMXAttributes {
     #[cfg(feature = "Win32_Foundation")]
@@ -1207,6 +1207,26 @@ unsafe impl ::windows::runtime::Interface for IMXAttributes {
     type Vtable = IMXAttributes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4044171212, 16064, 16732, [142, 216, 119, 171, 28, 94, 114, 98]);
 }
+impl ::std::convert::From<IMXAttributes> for ::windows::runtime::IUnknown {
+    fn from(value: IMXAttributes) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXAttributes> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXAttributes) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXAttributes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXAttributes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMXAttributes> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IMXAttributes) -> Self {
@@ -1270,7 +1290,7 @@ pub struct IMXAttributes_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXNamespaceManager(::windows::runtime::IUnknown);
 impl IMXNamespaceManager {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -1323,6 +1343,26 @@ unsafe impl ::windows::runtime::Interface for IMXNamespaceManager {
     type Vtable = IMXNamespaceManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438262, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
 }
+impl ::std::convert::From<IMXNamespaceManager> for ::windows::runtime::IUnknown {
+    fn from(value: IMXNamespaceManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXNamespaceManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXNamespaceManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXNamespaceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXNamespaceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXNamespaceManager_abi(
@@ -1346,7 +1386,7 @@ pub struct IMXNamespaceManager_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXNamespacePrefixes(::windows::runtime::IUnknown);
 impl IMXNamespacePrefixes {
     #[cfg(feature = "Win32_Foundation")]
@@ -1369,6 +1409,26 @@ impl IMXNamespacePrefixes {
 unsafe impl ::windows::runtime::Interface for IMXNamespacePrefixes {
     type Vtable = IMXNamespacePrefixes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438260, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
+}
+impl ::std::convert::From<IMXNamespacePrefixes> for ::windows::runtime::IUnknown {
+    fn from(value: IMXNamespacePrefixes) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXNamespacePrefixes> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXNamespacePrefixes) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXNamespacePrefixes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXNamespacePrefixes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMXNamespacePrefixes> for super::super::super::System::Ole::Automation::IDispatch {
@@ -1415,7 +1475,7 @@ pub struct IMXNamespacePrefixes_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXReaderControl(::windows::runtime::IUnknown);
 impl IMXReaderControl {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -1434,6 +1494,26 @@ impl IMXReaderControl {
 unsafe impl ::windows::runtime::Interface for IMXReaderControl {
     type Vtable = IMXReaderControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2156875317, 36186, 20414, [132, 102, 51, 164, 18, 121, 237, 48]);
+}
+impl ::std::convert::From<IMXReaderControl> for ::windows::runtime::IUnknown {
+    fn from(value: IMXReaderControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXReaderControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXReaderControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXReaderControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXReaderControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMXReaderControl> for super::super::super::System::Ole::Automation::IDispatch {
@@ -1479,7 +1559,7 @@ pub struct IMXReaderControl_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXSchemaDeclHandler(::windows::runtime::IUnknown);
 impl IMXSchemaDeclHandler {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -1490,6 +1570,26 @@ impl IMXSchemaDeclHandler {
 unsafe impl ::windows::runtime::Interface for IMXSchemaDeclHandler {
     type Vtable = IMXSchemaDeclHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199265164, 64249, 19658, [147, 2, 209, 221, 15, 229, 32, 219]);
+}
+impl ::std::convert::From<IMXSchemaDeclHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IMXSchemaDeclHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXSchemaDeclHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXSchemaDeclHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXSchemaDeclHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXSchemaDeclHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMXSchemaDeclHandler> for super::super::super::System::Ole::Automation::IDispatch {
@@ -1533,7 +1633,7 @@ pub struct IMXSchemaDeclHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXWriter(::windows::runtime::IUnknown);
 impl IMXWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -1623,6 +1723,26 @@ unsafe impl ::windows::runtime::Interface for IMXWriter {
     type Vtable = IMXWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1300231354, 5477, 20136, [148, 225, 110, 114, 74, 70, 249, 141]);
 }
+impl ::std::convert::From<IMXWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IMXWriter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXWriter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMXWriter> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IMXWriter) -> Self {
@@ -1687,7 +1807,7 @@ pub struct IMXWriter_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXXMLFilter(::windows::runtime::IUnknown);
 impl IMXXMLFilter {
     #[cfg(feature = "Win32_Foundation")]
@@ -1753,6 +1873,26 @@ unsafe impl ::windows::runtime::Interface for IMXXMLFilter {
     type Vtable = IMXXMLFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438263, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
 }
+impl ::std::convert::From<IMXXMLFilter> for ::windows::runtime::IUnknown {
+    fn from(value: IMXXMLFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMXXMLFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &IMXXMLFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMXXMLFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMXXMLFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMXXMLFilter> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IMXXMLFilter) -> Self {
@@ -1810,7 +1950,7 @@ pub struct IMXXMLFilter_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXAttributes(::windows::runtime::IUnknown);
 impl ISAXAttributes {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -1879,6 +2019,26 @@ unsafe impl ::windows::runtime::Interface for ISAXAttributes {
     type Vtable = ISAXAttributes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4034440161, 17874, 18482, [145, 234, 68, 102, 206, 47, 37, 201]);
 }
+impl ::std::convert::From<ISAXAttributes> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXAttributes) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXAttributes> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXAttributes) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXAttributes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXAttributes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXAttributes_abi(
@@ -1907,7 +2067,7 @@ pub struct ISAXAttributes_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXContentHandler(::windows::runtime::IUnknown);
 impl ISAXContentHandler {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -1976,6 +2136,26 @@ unsafe impl ::windows::runtime::Interface for ISAXContentHandler {
     type Vtable = ISAXContentHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(356896250, 40526, 17559, [168, 164, 43, 247, 208, 17, 44, 68]);
 }
+impl ::std::convert::From<ISAXContentHandler> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXContentHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXContentHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXContentHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXContentHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXContentHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXContentHandler_abi(
@@ -2004,7 +2184,7 @@ pub struct ISAXContentHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXDTDHandler(::windows::runtime::IUnknown);
 impl ISAXDTDHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -2043,6 +2223,26 @@ unsafe impl ::windows::runtime::Interface for ISAXDTDHandler {
     type Vtable = ISAXDTDHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3780909999, 44979, 19808, [140, 54, 25, 168, 196, 93, 239, 237]);
 }
+impl ::std::convert::From<ISAXDTDHandler> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXDTDHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXDTDHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXDTDHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXDTDHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXDTDHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDTDHandler_abi(
@@ -2056,7 +2256,7 @@ pub struct ISAXDTDHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXDeclHandler(::windows::runtime::IUnknown);
 impl ISAXDeclHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -2109,6 +2309,26 @@ unsafe impl ::windows::runtime::Interface for ISAXDeclHandler {
     type Vtable = ISAXDeclHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2250647980, 30490, 18354, [131, 55, 78, 104, 67, 193, 190, 144]);
 }
+impl ::std::convert::From<ISAXDeclHandler> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXDeclHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXDeclHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXDeclHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXDeclHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXDeclHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDeclHandler_abi(
@@ -2127,7 +2347,7 @@ pub struct ISAXDeclHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXEntityResolver(::windows::runtime::IUnknown);
 impl ISAXEntityResolver {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -2141,6 +2361,26 @@ unsafe impl ::windows::runtime::Interface for ISAXEntityResolver {
     type Vtable = ISAXEntityResolver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2579277757, 59588, 19807, [160, 207, 109, 144, 121, 1, 255, 7]);
 }
+impl ::std::convert::From<ISAXEntityResolver> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXEntityResolver) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXEntityResolver> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXEntityResolver) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXEntityResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXEntityResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXEntityResolver_abi(
@@ -2152,7 +2392,7 @@ pub struct ISAXEntityResolver_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXErrorHandler(::windows::runtime::IUnknown);
 impl ISAXErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -2175,6 +2415,26 @@ unsafe impl ::windows::runtime::Interface for ISAXErrorHandler {
     type Vtable = ISAXErrorHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2785350084, 52469, 18334, [152, 163, 220, 141, 197, 69, 183, 208]);
 }
+impl ::std::convert::From<ISAXErrorHandler> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXErrorHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXErrorHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXErrorHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXErrorHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXErrorHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXErrorHandler_abi(
@@ -2190,7 +2450,7 @@ pub struct ISAXErrorHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXLexicalHandler(::windows::runtime::IUnknown);
 impl ISAXLexicalHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -2230,6 +2490,26 @@ unsafe impl ::windows::runtime::Interface for ISAXLexicalHandler {
     type Vtable = ISAXLexicalHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139477493, 18344, 17559, [189, 165, 132, 186, 4, 129, 158, 166]);
 }
+impl ::std::convert::From<ISAXLexicalHandler> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXLexicalHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXLexicalHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXLexicalHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXLexicalHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXLexicalHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLexicalHandler_abi(
@@ -2250,7 +2530,7 @@ pub struct ISAXLexicalHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXLocator(::windows::runtime::IUnknown);
 impl ISAXLocator {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -2278,6 +2558,26 @@ unsafe impl ::windows::runtime::Interface for ISAXLocator {
     type Vtable = ISAXLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608744234, 3556, 17984, [191, 243, 132, 211, 138, 5, 28, 49]);
 }
+impl ::std::convert::From<ISAXLocator> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXLocator) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXLocator> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXLocator) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLocator_abi(
@@ -2291,7 +2591,7 @@ pub struct ISAXLocator_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXXMLFilter(::windows::runtime::IUnknown);
 impl ISAXXMLFilter {
     #[cfg(feature = "Win32_Foundation")]
@@ -2396,6 +2696,26 @@ unsafe impl ::windows::runtime::Interface for ISAXXMLFilter {
     type Vtable = ISAXXMLFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1883279906, 51721, 17525, [172, 184, 64, 49, 47, 232, 209, 69]);
 }
+impl ::std::convert::From<ISAXXMLFilter> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXXMLFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXXMLFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXXMLFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXXMLFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXXMLFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISAXXMLFilter> for ISAXXMLReader {
     fn from(value: ISAXXMLFilter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2453,7 +2773,7 @@ pub struct ISAXXMLFilter_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXXMLReader(::windows::runtime::IUnknown);
 impl ISAXXMLReader {
     #[cfg(feature = "Win32_Foundation")]
@@ -2549,6 +2869,26 @@ unsafe impl ::windows::runtime::Interface for ISAXXMLReader {
     type Vtable = ISAXXMLReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2767810256, 63529, 18286, [129, 192, 205, 199, 189, 42, 8, 2]);
 }
+impl ::std::convert::From<ISAXXMLReader> for ::windows::runtime::IUnknown {
+    fn from(value: ISAXXMLReader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISAXXMLReader> for ::windows::runtime::IUnknown {
+    fn from(value: &ISAXXMLReader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISAXXMLReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISAXXMLReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXXMLReader_abi(
@@ -2584,7 +2924,7 @@ pub struct ISAXXMLReader_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchema(::windows::runtime::IUnknown);
 impl ISchema {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -2698,6 +3038,26 @@ unsafe impl ::windows::runtime::Interface for ISchema {
     type Vtable = ISchema_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514932, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchema> for ::windows::runtime::IUnknown {
+    fn from(value: ISchema) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchema> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchema) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchema {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchema {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchema> for ISchemaItem {
     fn from(value: ISchema) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2780,7 +3140,7 @@ pub struct ISchema_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaAny(::windows::runtime::IUnknown);
 impl ISchemaAny {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -2868,6 +3228,26 @@ impl ISchemaAny {
 unsafe impl ::windows::runtime::Interface for ISchemaAny {
     type Vtable = ISchemaAny_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514940, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+}
+impl ::std::convert::From<ISchemaAny> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaAny) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaAny> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaAny) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaAny {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaAny {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ISchemaAny> for ISchemaParticle {
     fn from(value: ISchemaAny) -> Self {
@@ -2966,7 +3346,7 @@ pub struct ISchemaAny_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaAttribute(::windows::runtime::IUnknown);
 impl ISchemaAttribute {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -3065,6 +3445,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaAttribute {
     type Vtable = ISchemaAttribute_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514934, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaAttribute) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaAttribute) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaAttribute> for ISchemaItem {
     fn from(value: ISchemaAttribute) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3144,7 +3544,7 @@ pub struct ISchemaAttribute_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaAttributeGroup(::windows::runtime::IUnknown);
 impl ISchemaAttributeGroup {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -3221,6 +3621,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaAttributeGroup {
     type Vtable = ISchemaAttributeGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514938, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaAttributeGroup> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaAttributeGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaAttributeGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaAttributeGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaAttributeGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaAttributeGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaAttributeGroup> for ISchemaItem {
     fn from(value: ISchemaAttributeGroup) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3294,7 +3714,7 @@ pub struct ISchemaAttributeGroup_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaComplexType(::windows::runtime::IUnknown);
 impl ISchemaComplexType {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -3486,6 +3906,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaComplexType {
     type Vtable = ISchemaComplexType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514937, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaComplexType> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaComplexType) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaComplexType> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaComplexType) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaComplexType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaComplexType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaComplexType> for ISchemaType {
     fn from(value: ISchemaComplexType) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3610,7 +4050,7 @@ pub struct ISchemaComplexType_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaElement(::windows::runtime::IUnknown);
 impl ISchemaElement {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -3746,6 +4186,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaElement {
     type Vtable = ISchemaElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514935, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaElement> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaElement> for ISchemaParticle {
     fn from(value: ISchemaElement) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3854,7 +4314,7 @@ pub struct ISchemaElement_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaIdentityConstraint(::windows::runtime::IUnknown);
 impl ISchemaIdentityConstraint {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -3937,6 +4397,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaIdentityConstraint {
     type Vtable = ISchemaIdentityConstraint_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514941, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaIdentityConstraint> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaIdentityConstraint) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaIdentityConstraint> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaIdentityConstraint) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaIdentityConstraint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaIdentityConstraint {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaIdentityConstraint> for ISchemaItem {
     fn from(value: ISchemaIdentityConstraint) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4012,7 +4492,7 @@ pub struct ISchemaIdentityConstraint_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaItem(::windows::runtime::IUnknown);
 impl ISchemaItem {
     #[cfg(feature = "Win32_Foundation")]
@@ -4057,6 +4537,26 @@ impl ISchemaItem {
 unsafe impl ::windows::runtime::Interface for ISchemaItem {
     type Vtable = ISchemaItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514931, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+}
+impl ::std::convert::From<ISchemaItem> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISchemaItem> for super::super::super::System::Ole::Automation::IDispatch {
@@ -4109,7 +4609,7 @@ pub struct ISchemaItem_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaItemCollection(::windows::runtime::IUnknown);
 impl ISchemaItemCollection {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -4143,6 +4643,26 @@ impl ISchemaItemCollection {
 unsafe impl ::windows::runtime::Interface for ISchemaItemCollection {
     type Vtable = ISchemaItemCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514930, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+}
+impl ::std::convert::From<ISchemaItemCollection> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaItemCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaItemCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaItemCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaItemCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaItemCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISchemaItemCollection> for super::super::super::System::Ole::Automation::IDispatch {
@@ -4192,7 +4712,7 @@ pub struct ISchemaItemCollection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaModelGroup(::windows::runtime::IUnknown);
 impl ISchemaModelGroup {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -4275,6 +4795,26 @@ impl ISchemaModelGroup {
 unsafe impl ::windows::runtime::Interface for ISchemaModelGroup {
     type Vtable = ISchemaModelGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514939, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+}
+impl ::std::convert::From<ISchemaModelGroup> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaModelGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaModelGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaModelGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaModelGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaModelGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ISchemaModelGroup> for ISchemaParticle {
     fn from(value: ISchemaModelGroup) -> Self {
@@ -4372,7 +4912,7 @@ pub struct ISchemaModelGroup_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaNotation(::windows::runtime::IUnknown);
 impl ISchemaNotation {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -4451,6 +4991,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaNotation {
     type Vtable = ISchemaNotation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514942, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaNotation> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaNotation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaNotation> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaNotation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaNotation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaNotation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaNotation> for ISchemaItem {
     fn from(value: ISchemaNotation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4526,7 +5086,7 @@ pub struct ISchemaNotation_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaParticle(::windows::runtime::IUnknown);
 impl ISchemaParticle {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -4605,6 +5165,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaParticle {
     type Vtable = ISchemaParticle_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514933, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaParticle> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaParticle) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaParticle> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaParticle) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaParticle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaParticle {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaParticle> for ISchemaItem {
     fn from(value: ISchemaParticle) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4680,7 +5260,7 @@ pub struct ISchemaParticle_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaStringCollection(::windows::runtime::IUnknown);
 impl ISchemaStringCollection {
     #[cfg(feature = "Win32_Foundation")]
@@ -4703,6 +5283,26 @@ impl ISchemaStringCollection {
 unsafe impl ::windows::runtime::Interface for ISchemaStringCollection {
     type Vtable = ISchemaStringCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514929, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
+}
+impl ::std::convert::From<ISchemaStringCollection> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaStringCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaStringCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaStringCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaStringCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaStringCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISchemaStringCollection> for super::super::super::System::Ole::Automation::IDispatch {
@@ -4749,7 +5349,7 @@ pub struct ISchemaStringCollection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaType(::windows::runtime::IUnknown);
 impl ISchemaType {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -4911,6 +5511,26 @@ unsafe impl ::windows::runtime::Interface for ISchemaType {
     type Vtable = ISchemaType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514936, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<ISchemaType> for ::windows::runtime::IUnknown {
+    fn from(value: ISchemaType) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISchemaType> for ::windows::runtime::IUnknown {
+    fn from(value: &ISchemaType) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISchemaType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISchemaType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ISchemaType> for ISchemaItem {
     fn from(value: ISchemaType) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5009,7 +5629,7 @@ pub struct ISchemaType_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IServerXMLHTTPRequest(::windows::runtime::IUnknown);
 impl IServerXMLHTTPRequest {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -5142,6 +5762,26 @@ unsafe impl ::windows::runtime::Interface for IServerXMLHTTPRequest {
     type Vtable = IServerXMLHTTPRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(781293247, 5050, 19924, [145, 202, 108, 87, 31, 40, 20, 149]);
 }
+impl ::std::convert::From<IServerXMLHTTPRequest> for ::windows::runtime::IUnknown {
+    fn from(value: IServerXMLHTTPRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IServerXMLHTTPRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &IServerXMLHTTPRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IServerXMLHTTPRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IServerXMLHTTPRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IServerXMLHTTPRequest> for IXMLHTTPRequest {
     fn from(value: IServerXMLHTTPRequest) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5236,7 +5876,7 @@ pub struct IServerXMLHTTPRequest_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IServerXMLHTTPRequest2(::windows::runtime::IUnknown);
 impl IServerXMLHTTPRequest2 {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -5379,6 +6019,26 @@ unsafe impl ::windows::runtime::Interface for IServerXMLHTTPRequest2 {
     type Vtable = IServerXMLHTTPRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771830043, 49954, 19210, [189, 119, 185, 12, 253, 200, 220, 231]);
 }
+impl ::std::convert::From<IServerXMLHTTPRequest2> for ::windows::runtime::IUnknown {
+    fn from(value: IServerXMLHTTPRequest2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IServerXMLHTTPRequest2> for ::windows::runtime::IUnknown {
+    fn from(value: &IServerXMLHTTPRequest2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IServerXMLHTTPRequest2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IServerXMLHTTPRequest2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IServerXMLHTTPRequest2> for IServerXMLHTTPRequest {
     fn from(value: IServerXMLHTTPRequest2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5497,7 +6157,7 @@ pub struct IServerXMLHTTPRequest2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBMXNamespaceManager(::windows::runtime::IUnknown);
 impl IVBMXNamespaceManager {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -5558,6 +6218,26 @@ unsafe impl ::windows::runtime::Interface for IVBMXNamespaceManager {
     type Vtable = IVBMXNamespaceManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372438261, 25660, 20412, [187, 35, 233, 150, 235, 45, 81, 253]);
 }
+impl ::std::convert::From<IVBMXNamespaceManager> for ::windows::runtime::IUnknown {
+    fn from(value: IVBMXNamespaceManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBMXNamespaceManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBMXNamespaceManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBMXNamespaceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBMXNamespaceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBMXNamespaceManager> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IVBMXNamespaceManager) -> Self {
@@ -5614,7 +6294,7 @@ pub struct IVBMXNamespaceManager_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXAttributes(::windows::runtime::IUnknown);
 impl IVBSAXAttributes {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -5693,6 +6373,26 @@ unsafe impl ::windows::runtime::Interface for IVBSAXAttributes {
     type Vtable = IVBSAXAttributes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(282854790, 4907, 19628, [139, 179, 219, 0, 172, 139, 126, 224]);
 }
+impl ::std::convert::From<IVBSAXAttributes> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXAttributes) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXAttributes> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXAttributes) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXAttributes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXAttributes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXAttributes> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IVBSAXAttributes) -> Self {
@@ -5757,7 +6457,7 @@ pub struct IVBSAXAttributes_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXContentHandler(::windows::runtime::IUnknown);
 impl IVBSAXContentHandler {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -5816,6 +6516,26 @@ impl IVBSAXContentHandler {
 unsafe impl ::windows::runtime::Interface for IVBSAXContentHandler {
     type Vtable = IVBSAXContentHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(785852682, 19925, 19270, [187, 38, 78, 65, 85, 231, 127, 170]);
+}
+impl ::std::convert::From<IVBSAXContentHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXContentHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXContentHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXContentHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXContentHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXContentHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXContentHandler> for super::super::super::System::Ole::Automation::IDispatch {
@@ -5877,7 +6597,7 @@ pub struct IVBSAXContentHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXDTDHandler(::windows::runtime::IUnknown);
 impl IVBSAXDTDHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -5894,6 +6614,26 @@ impl IVBSAXDTDHandler {
 unsafe impl ::windows::runtime::Interface for IVBSAXDTDHandler {
     type Vtable = IVBSAXDTDHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(620442263, 12333, 17952, [186, 57, 58, 115, 45, 133, 5, 88]);
+}
+impl ::std::convert::From<IVBSAXDTDHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXDTDHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXDTDHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXDTDHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXDTDHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXDTDHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXDTDHandler> for super::super::super::System::Ole::Automation::IDispatch {
@@ -5940,7 +6680,7 @@ pub struct IVBSAXDTDHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXDeclHandler(::windows::runtime::IUnknown);
 impl IVBSAXDeclHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -5967,6 +6707,26 @@ impl IVBSAXDeclHandler {
 unsafe impl ::windows::runtime::Interface for IVBSAXDeclHandler {
     type Vtable = IVBSAXDeclHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3901846112, 30073, 19425, [181, 221, 122, 251, 250, 111, 7, 123]);
+}
+impl ::std::convert::From<IVBSAXDeclHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXDeclHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXDeclHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXDeclHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXDeclHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXDeclHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXDeclHandler> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6025,7 +6785,7 @@ pub struct IVBSAXDeclHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXEntityResolver(::windows::runtime::IUnknown);
 impl IVBSAXEntityResolver {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -6037,6 +6797,26 @@ impl IVBSAXEntityResolver {
 unsafe impl ::windows::runtime::Interface for IVBSAXEntityResolver {
     type Vtable = IVBSAXEntityResolver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201707670, 62555, 19146, [173, 26, 170, 11, 194, 85, 24, 220]);
+}
+impl ::std::convert::From<IVBSAXEntityResolver> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXEntityResolver) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXEntityResolver> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXEntityResolver) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXEntityResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXEntityResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXEntityResolver> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6081,7 +6861,7 @@ pub struct IVBSAXEntityResolver_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXErrorHandler(::windows::runtime::IUnknown);
 impl IVBSAXErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -6103,6 +6883,26 @@ impl IVBSAXErrorHandler {
 unsafe impl ::windows::runtime::Interface for IVBSAXErrorHandler {
     type Vtable = IVBSAXErrorHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647198206, 5948, 18530, [144, 149, 185, 47, 102, 153, 95, 82]);
+}
+impl ::std::convert::From<IVBSAXErrorHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXErrorHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXErrorHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXErrorHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXErrorHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXErrorHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXErrorHandler> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6151,7 +6951,7 @@ pub struct IVBSAXErrorHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXLexicalHandler(::windows::runtime::IUnknown);
 impl IVBSAXLexicalHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -6190,6 +6990,26 @@ impl IVBSAXLexicalHandler {
 unsafe impl ::windows::runtime::Interface for IVBSAXLexicalHandler {
     type Vtable = IVBSAXLexicalHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(53128245, 35854, 19869, [151, 159, 227, 183, 2, 147, 85, 118]);
+}
+impl ::std::convert::From<IVBSAXLexicalHandler> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXLexicalHandler) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXLexicalHandler> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXLexicalHandler) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXLexicalHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXLexicalHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXLexicalHandler> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6243,7 +7063,7 @@ pub struct IVBSAXLexicalHandler_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXLocator(::windows::runtime::IUnknown);
 impl IVBSAXLocator {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -6272,6 +7092,26 @@ impl IVBSAXLocator {
 unsafe impl ::windows::runtime::Interface for IVBSAXLocator {
     type Vtable = IVBSAXLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037283525, 23202, 20223, [172, 173, 63, 170, 240, 26, 50, 136]);
+}
+impl ::std::convert::From<IVBSAXLocator> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXLocator) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXLocator> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXLocator) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXLocator> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6320,7 +7160,7 @@ pub struct IVBSAXLocator_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXXMLFilter(::windows::runtime::IUnknown);
 impl IVBSAXXMLFilter {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -6336,6 +7176,26 @@ impl IVBSAXXMLFilter {
 unsafe impl ::windows::runtime::Interface for IVBSAXXMLFilter {
     type Vtable = IVBSAXXMLFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312077083, 23432, 17214, [130, 222, 130, 202, 117, 173, 78, 4]);
+}
+impl ::std::convert::From<IVBSAXXMLFilter> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXXMLFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXXMLFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXXMLFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXXMLFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXXMLFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXXMLFilter> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6380,7 +7240,7 @@ pub struct IVBSAXXMLFilter_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXXMLReader(::windows::runtime::IUnknown);
 impl IVBSAXXMLReader {
     #[cfg(feature = "Win32_Foundation")]
@@ -6478,6 +7338,26 @@ unsafe impl ::windows::runtime::Interface for IVBSAXXMLReader {
     type Vtable = IVBSAXXMLReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349022378, 27862, 20339, [183, 40, 69, 49, 175, 116, 148, 95]);
 }
+impl ::std::convert::From<IVBSAXXMLReader> for ::windows::runtime::IUnknown {
+    fn from(value: IVBSAXXMLReader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IVBSAXXMLReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IVBSAXXMLReader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVBSAXXMLReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVBSAXXMLReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IVBSAXXMLReader> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IVBSAXXMLReader) -> Self {
@@ -6547,7 +7427,7 @@ pub struct IVBSAXXMLReader_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLAttribute(::windows::runtime::IUnknown);
 impl IXMLAttribute {
     #[cfg(feature = "Win32_Foundation")]
@@ -6566,6 +7446,26 @@ impl IXMLAttribute {
 unsafe impl ::windows::runtime::Interface for IXMLAttribute {
     type Vtable = IXMLAttribute_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3570704636, 15219, 4561, [178, 180, 0, 192, 79, 185, 37, 150]);
+}
+impl ::std::convert::From<IXMLAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLAttribute) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLAttribute) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLAttribute> for super::super::super::System::Ole::Automation::IDispatch {
@@ -6612,7 +7512,7 @@ pub struct IXMLAttribute_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMAttribute(::windows::runtime::IUnknown);
 impl IXMLDOMAttribute {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -6835,6 +7735,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMAttribute {
     type Vtable = IXMLDOMAttribute_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257221, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMAttribute) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMAttribute> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMAttribute) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMAttribute {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMAttribute> for IXMLDOMNode {
     fn from(value: IXMLDOMAttribute) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6957,7 +7877,7 @@ pub struct IXMLDOMAttribute_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMCDATASection(::windows::runtime::IUnknown);
 impl IXMLDOMCDATASection {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -7208,6 +8128,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMCDATASection {
     type Vtable = IXMLDOMCDATASection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257226, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMCDATASection> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMCDATASection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMCDATASection> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMCDATASection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMCDATASection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMCDATASection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMCDATASection> for IXMLDOMText {
     fn from(value: IXMLDOMCDATASection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7379,7 +8319,7 @@ pub struct IXMLDOMCDATASection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMCharacterData(::windows::runtime::IUnknown);
 impl IXMLDOMCharacterData {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -7625,6 +8565,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMCharacterData {
     type Vtable = IXMLDOMCharacterData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257220, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMCharacterData> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMCharacterData) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMCharacterData> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMCharacterData) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMCharacterData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMCharacterData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMCharacterData> for IXMLDOMNode {
     fn from(value: IXMLDOMCharacterData) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7755,7 +8715,7 @@ pub struct IXMLDOMCharacterData_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMComment(::windows::runtime::IUnknown);
 impl IXMLDOMComment {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -8001,6 +8961,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMComment {
     type Vtable = IXMLDOMComment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257224, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMComment> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMComment) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMComment> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMComment) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMComment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMComment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMComment> for IXMLDOMCharacterData {
     fn from(value: IXMLDOMComment) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8151,7 +9131,7 @@ pub struct IXMLDOMComment_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocument(::windows::runtime::IUnknown);
 impl IXMLDOMDocument {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -8523,6 +9503,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMDocument {
     type Vtable = IXMLDOMDocument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257217, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMDocument> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMDocument) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMDocument> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMDocument) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMDocument> for IXMLDOMNode {
     fn from(value: IXMLDOMDocument) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8689,7 +9689,7 @@ pub struct IXMLDOMDocument_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocument2(::windows::runtime::IUnknown);
 impl IXMLDOMDocument2 {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -9093,6 +10093,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMDocument2 {
     type Vtable = IXMLDOMDocument2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257237, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMDocument2> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMDocument2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMDocument2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMDocument2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMDocument2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMDocument2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMDocument2> for IXMLDOMDocument {
     fn from(value: IXMLDOMDocument2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9289,7 +10309,7 @@ pub struct IXMLDOMDocument2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocument3(::windows::runtime::IUnknown);
 impl IXMLDOMDocument3 {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -9703,6 +10723,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMDocument3 {
     type Vtable = IXMLDOMDocument3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257238, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMDocument3> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMDocument3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMDocument3> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMDocument3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMDocument3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMDocument3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMDocument3> for IXMLDOMDocument2 {
     fn from(value: IXMLDOMDocument3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9921,7 +10961,7 @@ pub struct IXMLDOMDocument3_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocumentFragment(::windows::runtime::IUnknown);
 impl IXMLDOMDocumentFragment {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -10129,6 +11169,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMDocumentFragment {
     type Vtable = IXMLDOMDocumentFragment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613395, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
 }
+impl ::std::convert::From<IXMLDOMDocumentFragment> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMDocumentFragment) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMDocumentFragment> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMDocumentFragment) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMDocumentFragment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMDocumentFragment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMDocumentFragment> for IXMLDOMNode {
     fn from(value: IXMLDOMDocumentFragment) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10245,7 +11305,7 @@ pub struct IXMLDOMDocumentFragment_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocumentType(::windows::runtime::IUnknown);
 impl IXMLDOMDocumentType {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -10468,6 +11528,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMDocumentType {
     type Vtable = IXMLDOMDocumentType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257227, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMDocumentType> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMDocumentType) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMDocumentType> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMDocumentType) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMDocumentType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMDocumentType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMDocumentType> for IXMLDOMNode {
     fn from(value: IXMLDOMDocumentType) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10588,7 +11668,7 @@ pub struct IXMLDOMDocumentType_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMElement(::windows::runtime::IUnknown);
 impl IXMLDOMElement {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -10842,6 +11922,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMElement {
     type Vtable = IXMLDOMElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257222, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMElement> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMElement> for IXMLDOMNode {
     fn from(value: IXMLDOMElement) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10973,7 +12073,7 @@ pub struct IXMLDOMElement_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMEntity(::windows::runtime::IUnknown);
 impl IXMLDOMEntity {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -11196,6 +12296,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMEntity {
     type Vtable = IXMLDOMEntity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257229, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMEntity> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMEntity) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMEntity> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMEntity) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMEntity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMEntity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMEntity> for IXMLDOMNode {
     fn from(value: IXMLDOMEntity) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11318,7 +12438,7 @@ pub struct IXMLDOMEntity_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMEntityReference(::windows::runtime::IUnknown);
 impl IXMLDOMEntityReference {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -11526,6 +12646,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMEntityReference {
     type Vtable = IXMLDOMEntityReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257230, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMEntityReference> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMEntityReference) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMEntityReference> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMEntityReference) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMEntityReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMEntityReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMEntityReference> for IXMLDOMNode {
     fn from(value: IXMLDOMEntityReference) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11642,7 +12782,7 @@ pub struct IXMLDOMEntityReference_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMImplementation(::windows::runtime::IUnknown);
 impl IXMLDOMImplementation {
     #[cfg(feature = "Win32_Foundation")]
@@ -11654,6 +12794,26 @@ impl IXMLDOMImplementation {
 unsafe impl ::windows::runtime::Interface for IXMLDOMImplementation {
     type Vtable = IXMLDOMImplementation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257231, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+}
+impl ::std::convert::From<IXMLDOMImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMImplementation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMImplementation> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMImplementation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMImplementation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMImplementation> for super::super::super::System::Ole::Automation::IDispatch {
@@ -11698,7 +12858,7 @@ pub struct IXMLDOMImplementation_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNamedNodeMap(::windows::runtime::IUnknown);
 impl IXMLDOMNamedNodeMap {
     #[cfg(feature = "Win32_Foundation")]
@@ -11758,6 +12918,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMNamedNodeMap {
     type Vtable = IXMLDOMNamedNodeMap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257219, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMNamedNodeMap> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMNamedNodeMap) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMNamedNodeMap> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMNamedNodeMap) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMNamedNodeMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMNamedNodeMap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMNamedNodeMap> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLDOMNamedNodeMap) -> Self {
@@ -11813,7 +12993,7 @@ pub struct IXMLDOMNamedNodeMap_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNode(::windows::runtime::IUnknown);
 impl IXMLDOMNode {
     #[cfg(feature = "Win32_Foundation")]
@@ -12000,6 +13180,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMNode {
     type Vtable = IXMLDOMNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257216, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMNode> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMNode) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMNode> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMNode) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMNode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMNode> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLDOMNode) -> Self {
@@ -12096,7 +13296,7 @@ pub struct IXMLDOMNode_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNodeList(::windows::runtime::IUnknown);
 impl IXMLDOMNodeList {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -12126,6 +13326,26 @@ impl IXMLDOMNodeList {
 unsafe impl ::windows::runtime::Interface for IXMLDOMNodeList {
     type Vtable = IXMLDOMNodeList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257218, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+}
+impl ::std::convert::From<IXMLDOMNodeList> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMNodeList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMNodeList> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMNodeList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMNodeList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMNodeList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMNodeList> for super::super::super::System::Ole::Automation::IDispatch {
@@ -12173,7 +13393,7 @@ pub struct IXMLDOMNodeList_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNotation(::windows::runtime::IUnknown);
 impl IXMLDOMNotation {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -12391,6 +13611,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMNotation {
     type Vtable = IXMLDOMNotation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257228, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMNotation> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMNotation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMNotation> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMNotation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMNotation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMNotation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMNotation> for IXMLDOMNode {
     fn from(value: IXMLDOMNotation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12511,7 +13751,7 @@ pub struct IXMLDOMNotation_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMParseError(::windows::runtime::IUnknown);
 impl IXMLDOMParseError {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -12549,6 +13789,26 @@ impl IXMLDOMParseError {
 unsafe impl ::windows::runtime::Interface for IXMLDOMParseError {
     type Vtable = IXMLDOMParseError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613414, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+}
+impl ::std::convert::From<IXMLDOMParseError> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMParseError) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMParseError> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMParseError) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMParseError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMParseError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMParseError> for super::super::super::System::Ole::Automation::IDispatch {
@@ -12601,7 +13861,7 @@ pub struct IXMLDOMParseError_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMParseError2(::windows::runtime::IUnknown);
 impl IXMLDOMParseError2 {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -12683,6 +13943,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMParseError2 {
     type Vtable = IXMLDOMParseError2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613416, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
 }
+impl ::std::convert::From<IXMLDOMParseError2> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMParseError2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMParseError2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMParseError2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMParseError2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMParseError2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMParseError2> for IXMLDOMParseError {
     fn from(value: IXMLDOMParseError2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12760,7 +14040,7 @@ pub struct IXMLDOMParseError2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMParseErrorCollection(::windows::runtime::IUnknown);
 impl IXMLDOMParseErrorCollection {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -12791,6 +14071,26 @@ impl IXMLDOMParseErrorCollection {
 unsafe impl ::windows::runtime::Interface for IXMLDOMParseErrorCollection {
     type Vtable = IXMLDOMParseErrorCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613417, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+}
+impl ::std::convert::From<IXMLDOMParseErrorCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMParseErrorCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMParseErrorCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMParseErrorCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMParseErrorCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMParseErrorCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMParseErrorCollection> for super::super::super::System::Ole::Automation::IDispatch {
@@ -12838,7 +14138,7 @@ pub struct IXMLDOMParseErrorCollection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMProcessingInstruction(::windows::runtime::IUnknown);
 impl IXMLDOMProcessingInstruction {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -13061,6 +14361,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMProcessingInstruction {
     type Vtable = IXMLDOMProcessingInstruction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257225, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMProcessingInstruction> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMProcessingInstruction) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMProcessingInstruction> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMProcessingInstruction) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMProcessingInstruction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMProcessingInstruction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMProcessingInstruction> for IXMLDOMNode {
     fn from(value: IXMLDOMProcessingInstruction) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13183,7 +14503,7 @@ pub struct IXMLDOMProcessingInstruction_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMSchemaCollection(::windows::runtime::IUnknown);
 impl IXMLDOMSchemaCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -13226,6 +14546,26 @@ impl IXMLDOMSchemaCollection {
 unsafe impl ::windows::runtime::Interface for IXMLDOMSchemaCollection {
     type Vtable = IXMLDOMSchemaCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(926516424, 47173, 17563, [145, 231, 69, 172, 131, 3, 106, 222]);
+}
+impl ::std::convert::From<IXMLDOMSchemaCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMSchemaCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMSchemaCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMSchemaCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMSchemaCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMSchemaCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDOMSchemaCollection> for super::super::super::System::Ole::Automation::IDispatch {
@@ -13279,7 +14619,7 @@ pub struct IXMLDOMSchemaCollection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMSchemaCollection2(::windows::runtime::IUnknown);
 impl IXMLDOMSchemaCollection2 {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -13368,6 +14708,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMSchemaCollection2 {
     type Vtable = IXMLDOMSchemaCollection2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357514928, 56603, 18020, [154, 80, 194, 244, 15, 75, 215, 154]);
 }
+impl ::std::convert::From<IXMLDOMSchemaCollection2> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMSchemaCollection2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMSchemaCollection2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMSchemaCollection2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMSchemaCollection2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMSchemaCollection2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMSchemaCollection2> for IXMLDOMSchemaCollection {
     fn from(value: IXMLDOMSchemaCollection2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13446,7 +14806,7 @@ pub struct IXMLDOMSchemaCollection2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMSelection(::windows::runtime::IUnknown);
 impl IXMLDOMSelection {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -13553,6 +14913,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMSelection {
     type Vtable = IXMLDOMSelection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2858635207, 22664, 17575, [162, 87, 58, 71, 21, 13, 58, 14]);
 }
+impl ::std::convert::From<IXMLDOMSelection> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMSelection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMSelection> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMSelection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMSelection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMSelection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMSelection> for IXMLDOMNodeList {
     fn from(value: IXMLDOMSelection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13634,7 +15014,7 @@ pub struct IXMLDOMSelection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMText(::windows::runtime::IUnknown);
 impl IXMLDOMText {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -13885,6 +15265,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDOMText {
     type Vtable = IXMLDOMText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257223, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXMLDOMText> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDOMText) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDOMText> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDOMText) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDOMText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDOMText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLDOMText> for IXMLDOMCharacterData {
     fn from(value: IXMLDOMText) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14036,7 +15436,7 @@ pub struct IXMLDOMText_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDSOControl(::windows::runtime::IUnknown);
 impl IXMLDSOControl {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -14066,6 +15466,26 @@ impl IXMLDSOControl {
 unsafe impl ::windows::runtime::Interface for IXMLDSOControl {
     type Vtable = IXMLDSOControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822803042, 1397, 4562, [156, 169, 0, 96, 176, 236, 61, 57]);
+}
+impl ::std::convert::From<IXMLDSOControl> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDSOControl) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDSOControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDSOControl) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDSOControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDSOControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDSOControl> for super::super::super::System::Ole::Automation::IDispatch {
@@ -14115,7 +15535,7 @@ pub struct IXMLDSOControl_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDocument(::windows::runtime::IUnknown);
 impl IXMLDocument {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -14203,6 +15623,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDocument {
     type Vtable = IXMLDocument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4113443681, 6305, 4561, [177, 5, 0, 128, 95, 73, 145, 107]);
 }
+impl ::std::convert::From<IXMLDocument> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDocument) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDocument> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDocument) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDocument> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLDocument) -> Self {
@@ -14270,7 +15710,7 @@ pub struct IXMLDocument_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDocument2(::windows::runtime::IUnknown);
 impl IXMLDocument2 {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -14367,6 +15807,26 @@ unsafe impl ::windows::runtime::Interface for IXMLDocument2 {
     type Vtable = IXMLDocument2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730718974, 36141, 4561, [178, 252, 0, 192, 79, 217, 21, 169]);
 }
+impl ::std::convert::From<IXMLDocument2> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLDocument2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLDocument2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLDocument2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLDocument2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLDocument2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLDocument2> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLDocument2) -> Self {
@@ -14436,7 +15896,7 @@ pub struct IXMLDocument2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLElement(::windows::runtime::IUnknown);
 impl IXMLElement {
     #[cfg(feature = "Win32_Foundation")]
@@ -14505,6 +15965,26 @@ unsafe impl ::windows::runtime::Interface for IXMLElement {
     type Vtable = IXMLElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1065300396, 57695, 4560, [156, 37, 0, 192, 79, 201, 156, 142]);
 }
+impl ::std::convert::From<IXMLElement> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLElement) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLElement> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLElement) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLElement> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLElement) -> Self {
@@ -14565,7 +16045,7 @@ pub struct IXMLElement_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLElement2(::windows::runtime::IUnknown);
 impl IXMLElement2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -14639,6 +16119,26 @@ unsafe impl ::windows::runtime::Interface for IXMLElement2 {
     type Vtable = IXMLElement2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730718975, 36141, 4561, [178, 252, 0, 192, 79, 217, 21, 169]);
 }
+impl ::std::convert::From<IXMLElement2> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLElement2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLElement2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLElement2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLElement2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLElement2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLElement2> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLElement2) -> Self {
@@ -14700,7 +16200,7 @@ pub struct IXMLElement2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLElementCollection(::windows::runtime::IUnknown);
 impl IXMLElementCollection {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -14727,6 +16227,26 @@ impl IXMLElementCollection {
 unsafe impl ::windows::runtime::Interface for IXMLElementCollection {
     type Vtable = IXMLElementCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701991808, 39773, 4560, [155, 254, 0, 192, 79, 201, 156, 142]);
+}
+impl ::std::convert::From<IXMLElementCollection> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLElementCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLElementCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLElementCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLElementCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLElementCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLElementCollection> for super::super::super::System::Ole::Automation::IDispatch {
@@ -14774,7 +16294,7 @@ pub struct IXMLElementCollection_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLError(::windows::runtime::IUnknown);
 impl IXMLError {
     #[cfg(feature = "Win32_Foundation")]
@@ -14787,6 +16307,26 @@ unsafe impl ::windows::runtime::Interface for IXMLError {
     type Vtable = IXMLError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2492226259, 50573, 4560, [156, 11, 0, 192, 79, 201, 156, 142]);
 }
+impl ::std::convert::From<IXMLError> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLError) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLError> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLError) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLError_abi(
@@ -14798,7 +16338,7 @@ pub struct IXMLError_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -14889,6 +16429,26 @@ unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest {
     type Vtable = IXMLHTTPRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985379469, 17225, 4562, [145, 164, 0, 192, 79, 121, 105, 232]);
 }
+impl ::std::convert::From<IXMLHTTPRequest> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLHTTPRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLHTTPRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLHTTPRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLHTTPRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLHTTPRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLHTTPRequest> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLHTTPRequest) -> Self {
@@ -14956,7 +16516,7 @@ pub struct IXMLHTTPRequest_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest2(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -15032,6 +16592,26 @@ unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest2 {
     type Vtable = IXMLHTTPRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3855842752, 21802, 19794, [156, 192, 161, 77, 84, 111, 189, 4]);
 }
+impl ::std::convert::From<IXMLHTTPRequest2> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLHTTPRequest2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLHTTPRequest2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLHTTPRequest2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLHTTPRequest2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLHTTPRequest2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2_abi(
@@ -15059,7 +16639,7 @@ pub struct IXMLHTTPRequest2_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest2Callback(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest2Callback {
     #[cfg(feature = "Win32_Foundation")]
@@ -15091,6 +16671,26 @@ unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest2Callback {
     type Vtable = IXMLHTTPRequest2Callback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2756350617, 58145, 16606, [136, 102, 52, 27, 65, 102, 145, 98]);
 }
+impl ::std::convert::From<IXMLHTTPRequest2Callback> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLHTTPRequest2Callback) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLHTTPRequest2Callback> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLHTTPRequest2Callback) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLHTTPRequest2Callback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLHTTPRequest2Callback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2Callback_abi(
@@ -15109,7 +16709,7 @@ pub struct IXMLHTTPRequest2Callback_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest3(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest3 {
     #[cfg(feature = "Win32_Foundation")]
@@ -15190,6 +16790,26 @@ unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest3 {
     type Vtable = IXMLHTTPRequest3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2714369774, 1559, 20259, [157, 88, 137, 97, 234, 67, 86, 124]);
 }
+impl ::std::convert::From<IXMLHTTPRequest3> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLHTTPRequest3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLHTTPRequest3> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLHTTPRequest3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLHTTPRequest3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLHTTPRequest3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IXMLHTTPRequest3> for IXMLHTTPRequest2 {
     fn from(value: IXMLHTTPRequest3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15239,7 +16859,7 @@ pub struct IXMLHTTPRequest3_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest3Callback(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest3Callback {
     #[cfg(feature = "Win32_Foundation")]
@@ -15278,6 +16898,26 @@ impl IXMLHTTPRequest3Callback {
 unsafe impl ::windows::runtime::Interface for IXMLHTTPRequest3Callback {
     type Vtable = IXMLHTTPRequest3Callback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118823472, 35948, 19055, [156, 19, 71, 119, 43, 176, 71, 187]);
+}
+impl ::std::convert::From<IXMLHTTPRequest3Callback> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLHTTPRequest3Callback) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLHTTPRequest3Callback> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLHTTPRequest3Callback) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLHTTPRequest3Callback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLHTTPRequest3Callback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IXMLHTTPRequest3Callback> for IXMLHTTPRequest2Callback {
     fn from(value: IXMLHTTPRequest3Callback) -> Self {
@@ -15319,7 +16959,7 @@ pub struct IXMLHTTPRequest3Callback_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHttpRequest(::windows::runtime::IUnknown);
 impl IXMLHttpRequest {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -15410,6 +17050,26 @@ unsafe impl ::windows::runtime::Interface for IXMLHttpRequest {
     type Vtable = IXMLHttpRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985379469, 17225, 4562, [145, 164, 0, 192, 79, 121, 105, 232]);
 }
+impl ::std::convert::From<IXMLHttpRequest> for ::windows::runtime::IUnknown {
+    fn from(value: IXMLHttpRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXMLHttpRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &IXMLHttpRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXMLHttpRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXMLHttpRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXMLHttpRequest> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXMLHttpRequest) -> Self {
@@ -15477,7 +17137,7 @@ pub struct IXMLHttpRequest_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXSLProcessor(::windows::runtime::IUnknown);
 impl IXSLProcessor {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -15558,6 +17218,26 @@ unsafe impl ::windows::runtime::Interface for IXSLProcessor {
     type Vtable = IXSLProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257234, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 }
+impl ::std::convert::From<IXSLProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: IXSLProcessor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXSLProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &IXSLProcessor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXSLProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXSLProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXSLProcessor> for super::super::super::System::Ole::Automation::IDispatch {
     fn from(value: IXSLProcessor) -> Self {
@@ -15622,7 +17302,7 @@ pub struct IXSLProcessor_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXSLTemplate(::windows::runtime::IUnknown);
 impl IXSLTemplate {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -15643,6 +17323,26 @@ impl IXSLTemplate {
 unsafe impl ::windows::runtime::Interface for IXSLTemplate {
     type Vtable = IXSLTemplate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257235, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+}
+impl ::std::convert::From<IXSLTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: IXSLTemplate) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXSLTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: &IXSLTemplate) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXSLTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXSLTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IXSLTemplate> for super::super::super::System::Ole::Automation::IDispatch {
@@ -15688,7 +17388,7 @@ pub struct IXSLTemplate_abi(
 );
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXTLRuntime(::windows::runtime::IUnknown);
 impl IXTLRuntime {
     #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -15936,6 +17636,26 @@ impl IXTLRuntime {
 unsafe impl ::windows::runtime::Interface for IXTLRuntime {
     type Vtable = IXTLRuntime_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613413, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+}
+impl ::std::convert::From<IXTLRuntime> for ::windows::runtime::IUnknown {
+    fn from(value: IXTLRuntime) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IXTLRuntime> for ::windows::runtime::IUnknown {
+    fn from(value: &IXTLRuntime) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXTLRuntime {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXTLRuntime {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IXTLRuntime> for IXMLDOMNode {
     fn from(value: IXTLRuntime) -> Self {
@@ -16564,12 +18284,32 @@ pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XMLDOMDocumentEvents(::windows::runtime::IUnknown);
 impl XMLDOMDocumentEvents {}
 unsafe impl ::windows::runtime::Interface for XMLDOMDocumentEvents {
     type Vtable = XMLDOMDocumentEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056613415, 10031, 4562, [131, 111, 0, 0, 248, 122, 119, 130]);
+}
+impl ::std::convert::From<XMLDOMDocumentEvents> for ::windows::runtime::IUnknown {
+    fn from(value: XMLDOMDocumentEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&XMLDOMDocumentEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &XMLDOMDocumentEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<XMLDOMDocumentEvents> for super::super::super::System::Ole::Automation::IDispatch {

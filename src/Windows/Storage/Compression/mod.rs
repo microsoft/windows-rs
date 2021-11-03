@@ -27,7 +27,7 @@ impl ::windows::runtime::DefaultType for CompressAlgorithm {
 }
 #[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Compressor(::windows::runtime::IInspectable);
 impl Compressor {
     #[cfg(feature = "Foundation")]
@@ -103,6 +103,46 @@ unsafe impl ::windows::runtime::Interface for Compressor {
 impl ::windows::runtime::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
 }
+impl ::std::convert::From<Compressor> for ::windows::runtime::IUnknown {
+    fn from(value: Compressor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Compressor> for ::windows::runtime::IUnknown {
+    fn from(value: &Compressor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Compressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Compressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Compressor> for ::windows::runtime::IInspectable {
+    fn from(value: Compressor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Compressor> for ::windows::runtime::IInspectable {
+    fn from(value: &Compressor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Compressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Compressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Compressor> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -159,7 +199,7 @@ unsafe impl ::std::marker::Send for Compressor {}
 unsafe impl ::std::marker::Sync for Compressor {}
 #[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Decompressor(::windows::runtime::IInspectable);
 impl Decompressor {
     #[cfg(feature = "Storage_Streams")]
@@ -208,6 +248,46 @@ unsafe impl ::windows::runtime::Interface for Decompressor {
 }
 impl ::windows::runtime::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
+}
+impl ::std::convert::From<Decompressor> for ::windows::runtime::IUnknown {
+    fn from(value: Decompressor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Decompressor> for ::windows::runtime::IUnknown {
+    fn from(value: &Decompressor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Decompressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Decompressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Decompressor> for ::windows::runtime::IInspectable {
+    fn from(value: Decompressor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Decompressor> for ::windows::runtime::IInspectable {
+    fn from(value: &Decompressor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Decompressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Decompressor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Decompressor> for super::super::Foundation::IClosable {

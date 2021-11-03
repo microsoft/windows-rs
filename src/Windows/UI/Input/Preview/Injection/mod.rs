@@ -277,7 +277,7 @@ impl ::windows::runtime::DefaultType for InjectedInputButtonChangeKind {
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputGamepadInfo(::windows::runtime::IInspectable);
 impl InjectedInputGamepadInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -403,6 +403,46 @@ unsafe impl ::windows::runtime::Interface for InjectedInputGamepadInfo {
 impl ::windows::runtime::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
 }
+impl ::std::convert::From<InjectedInputGamepadInfo> for ::windows::runtime::IUnknown {
+    fn from(value: InjectedInputGamepadInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InjectedInputGamepadInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &InjectedInputGamepadInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InjectedInputGamepadInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InjectedInputGamepadInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InjectedInputGamepadInfo> for ::windows::runtime::IInspectable {
+    fn from(value: InjectedInputGamepadInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InjectedInputGamepadInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &InjectedInputGamepadInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InjectedInputGamepadInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InjectedInputGamepadInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -458,7 +498,7 @@ impl ::std::ops::Not for InjectedInputKeyOptions {
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputKeyboardInfo(::windows::runtime::IInspectable);
 impl InjectedInputKeyboardInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -518,9 +558,49 @@ unsafe impl ::windows::runtime::Interface for InjectedInputKeyboardInfo {
 impl ::windows::runtime::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
 }
+impl ::std::convert::From<InjectedInputKeyboardInfo> for ::windows::runtime::IUnknown {
+    fn from(value: InjectedInputKeyboardInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InjectedInputKeyboardInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &InjectedInputKeyboardInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InjectedInputKeyboardInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InjectedInputKeyboardInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InjectedInputKeyboardInfo> for ::windows::runtime::IInspectable {
+    fn from(value: InjectedInputKeyboardInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InjectedInputKeyboardInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &InjectedInputKeyboardInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InjectedInputKeyboardInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InjectedInputKeyboardInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputMouseInfo(::windows::runtime::IInspectable);
 impl InjectedInputMouseInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -605,6 +685,46 @@ unsafe impl ::windows::runtime::Interface for InjectedInputMouseInfo {
 }
 impl ::windows::runtime::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
+}
+impl ::std::convert::From<InjectedInputMouseInfo> for ::windows::runtime::IUnknown {
+    fn from(value: InjectedInputMouseInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InjectedInputMouseInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &InjectedInputMouseInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InjectedInputMouseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InjectedInputMouseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InjectedInputMouseInfo> for ::windows::runtime::IInspectable {
+    fn from(value: InjectedInputMouseInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InjectedInputMouseInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &InjectedInputMouseInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InjectedInputMouseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InjectedInputMouseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -723,7 +843,7 @@ impl ::std::ops::Not for InjectedInputPenButtons {
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputPenInfo(::windows::runtime::IInspectable);
 impl InjectedInputPenInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -834,6 +954,46 @@ unsafe impl ::windows::runtime::Interface for InjectedInputPenInfo {
 }
 impl ::windows::runtime::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
+}
+impl ::std::convert::From<InjectedInputPenInfo> for ::windows::runtime::IUnknown {
+    fn from(value: InjectedInputPenInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InjectedInputPenInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &InjectedInputPenInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InjectedInputPenInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InjectedInputPenInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InjectedInputPenInfo> for ::windows::runtime::IInspectable {
+    fn from(value: InjectedInputPenInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InjectedInputPenInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &InjectedInputPenInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InjectedInputPenInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InjectedInputPenInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1078,7 +1238,7 @@ impl ::windows::runtime::DefaultType for InjectedInputShortcut {
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputTouchInfo(::windows::runtime::IInspectable);
 impl InjectedInputTouchInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1164,6 +1324,46 @@ unsafe impl ::windows::runtime::Interface for InjectedInputTouchInfo {
 impl ::windows::runtime::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
 }
+impl ::std::convert::From<InjectedInputTouchInfo> for ::windows::runtime::IUnknown {
+    fn from(value: InjectedInputTouchInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InjectedInputTouchInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &InjectedInputTouchInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InjectedInputTouchInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InjectedInputTouchInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InjectedInputTouchInfo> for ::windows::runtime::IInspectable {
+    fn from(value: InjectedInputTouchInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InjectedInputTouchInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &InjectedInputTouchInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InjectedInputTouchInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InjectedInputTouchInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1241,7 +1441,7 @@ impl ::windows::runtime::DefaultType for InjectedInputVisualizationMode {
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InputInjector(::windows::runtime::IInspectable);
 impl InputInjector {
     #[cfg(feature = "Foundation_Collections")]
@@ -1339,4 +1539,44 @@ unsafe impl ::windows::runtime::Interface for InputInjector {
 }
 impl ::windows::runtime::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";
+}
+impl ::std::convert::From<InputInjector> for ::windows::runtime::IUnknown {
+    fn from(value: InputInjector) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InputInjector> for ::windows::runtime::IUnknown {
+    fn from(value: &InputInjector) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InputInjector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InputInjector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InputInjector> for ::windows::runtime::IInspectable {
+    fn from(value: InputInjector) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InputInjector> for ::windows::runtime::IInspectable {
+    fn from(value: &InputInjector) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InputInjector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InputInjector {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }

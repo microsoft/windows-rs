@@ -41,7 +41,7 @@ pub struct IRemoteTextConnectionFactory_abi(
 );
 #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteTextConnection(::windows::runtime::IInspectable);
 impl RemoteTextConnection {
     #[cfg(feature = "Foundation")]
@@ -99,6 +99,46 @@ unsafe impl ::windows::runtime::Interface for RemoteTextConnection {
 }
 impl ::windows::runtime::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";
+}
+impl ::std::convert::From<RemoteTextConnection> for ::windows::runtime::IUnknown {
+    fn from(value: RemoteTextConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RemoteTextConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &RemoteTextConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteTextConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteTextConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RemoteTextConnection> for ::windows::runtime::IInspectable {
+    fn from(value: RemoteTextConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RemoteTextConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &RemoteTextConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoteTextConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoteTextConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<RemoteTextConnection> for super::super::super::Foundation::IClosable {

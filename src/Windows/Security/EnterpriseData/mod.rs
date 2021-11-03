@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BufferProtectUnprotectResult(::windows::runtime::IInspectable);
 impl BufferProtectUnprotectResult {
     #[cfg(feature = "Storage_Streams")]
@@ -32,11 +32,51 @@ unsafe impl ::windows::runtime::Interface for BufferProtectUnprotectResult {
 impl ::windows::runtime::RuntimeName for BufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.BufferProtectUnprotectResult";
 }
+impl ::std::convert::From<BufferProtectUnprotectResult> for ::windows::runtime::IUnknown {
+    fn from(value: BufferProtectUnprotectResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&BufferProtectUnprotectResult> for ::windows::runtime::IUnknown {
+    fn from(value: &BufferProtectUnprotectResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BufferProtectUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BufferProtectUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<BufferProtectUnprotectResult> for ::windows::runtime::IInspectable {
+    fn from(value: BufferProtectUnprotectResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BufferProtectUnprotectResult> for ::windows::runtime::IInspectable {
+    fn from(value: &BufferProtectUnprotectResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BufferProtectUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BufferProtectUnprotectResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BufferProtectUnprotectResult {}
 unsafe impl ::std::marker::Sync for BufferProtectUnprotectResult {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DataProtectionInfo(::windows::runtime::IInspectable);
 impl DataProtectionInfo {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -65,6 +105,46 @@ unsafe impl ::windows::runtime::Interface for DataProtectionInfo {
 }
 impl ::windows::runtime::RuntimeName for DataProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionInfo";
+}
+impl ::std::convert::From<DataProtectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: DataProtectionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DataProtectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &DataProtectionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DataProtectionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: DataProtectionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DataProtectionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &DataProtectionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for DataProtectionInfo {}
 unsafe impl ::std::marker::Sync for DataProtectionInfo {}
@@ -182,7 +262,7 @@ impl ::windows::runtime::DefaultType for EnforcementLevel {
 pub struct EnterpriseDataContract(pub u8);
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileProtectionInfo(::windows::runtime::IInspectable);
 impl FileProtectionInfo {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -227,6 +307,46 @@ unsafe impl ::windows::runtime::Interface for FileProtectionInfo {
 }
 impl ::windows::runtime::RuntimeName for FileProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionInfo";
+}
+impl ::std::convert::From<FileProtectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: FileProtectionInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FileProtectionInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &FileProtectionInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FileProtectionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: FileProtectionInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileProtectionInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &FileProtectionInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileProtectionInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for FileProtectionInfo {}
 unsafe impl ::std::marker::Sync for FileProtectionInfo {}
@@ -422,7 +542,7 @@ impl ::windows::runtime::RuntimeName for FileRevocationManager {
 }
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileUnprotectOptions(::windows::runtime::IInspectable);
 impl FileUnprotectOptions {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -459,6 +579,46 @@ unsafe impl ::windows::runtime::Interface for FileUnprotectOptions {
 }
 impl ::windows::runtime::RuntimeName for FileUnprotectOptions {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileUnprotectOptions";
+}
+impl ::std::convert::From<FileUnprotectOptions> for ::windows::runtime::IUnknown {
+    fn from(value: FileUnprotectOptions) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FileUnprotectOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &FileUnprotectOptions) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileUnprotectOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileUnprotectOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FileUnprotectOptions> for ::windows::runtime::IInspectable {
+    fn from(value: FileUnprotectOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileUnprotectOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &FileUnprotectOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileUnprotectOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileUnprotectOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for FileUnprotectOptions {}
 unsafe impl ::std::marker::Sync for FileUnprotectOptions {}
@@ -1061,7 +1221,7 @@ pub struct IThreadNetworkContext_abi(
 );
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectedAccessResumedEventArgs(::windows::runtime::IInspectable);
 impl ProtectedAccessResumedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -1084,11 +1244,51 @@ unsafe impl ::windows::runtime::Interface for ProtectedAccessResumedEventArgs {
 impl ::windows::runtime::RuntimeName for ProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs";
 }
+impl ::std::convert::From<ProtectedAccessResumedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectedAccessResumedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectedAccessResumedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectedAccessResumedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectedAccessResumedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectedAccessResumedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectedAccessResumedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectedAccessResumedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectedAccessResumedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectedAccessResumedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectedAccessResumedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectedAccessResumedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectedAccessResumedEventArgs {}
 unsafe impl ::std::marker::Sync for ProtectedAccessResumedEventArgs {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectedAccessSuspendingEventArgs(::windows::runtime::IInspectable);
 impl ProtectedAccessSuspendingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -1129,11 +1329,51 @@ unsafe impl ::windows::runtime::Interface for ProtectedAccessSuspendingEventArgs
 impl ::windows::runtime::RuntimeName for ProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs";
 }
+impl ::std::convert::From<ProtectedAccessSuspendingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectedAccessSuspendingEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectedAccessSuspendingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectedAccessSuspendingEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectedAccessSuspendingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectedAccessSuspendingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectedAccessSuspendingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectedAccessSuspendingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectedAccessSuspendingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectedAccessSuspendingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectedAccessSuspendingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectedAccessSuspendingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl ::std::marker::Sync for ProtectedAccessSuspendingEventArgs {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectedContainerExportResult(::windows::runtime::IInspectable);
 impl ProtectedContainerExportResult {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -1164,11 +1404,51 @@ unsafe impl ::windows::runtime::Interface for ProtectedContainerExportResult {
 impl ::windows::runtime::RuntimeName for ProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerExportResult";
 }
+impl ::std::convert::From<ProtectedContainerExportResult> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectedContainerExportResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectedContainerExportResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectedContainerExportResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectedContainerExportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectedContainerExportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectedContainerExportResult> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectedContainerExportResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectedContainerExportResult> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectedContainerExportResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectedContainerExportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectedContainerExportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectedContainerExportResult {}
 unsafe impl ::std::marker::Sync for ProtectedContainerExportResult {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectedContainerImportResult(::windows::runtime::IInspectable);
 impl ProtectedContainerImportResult {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -1199,11 +1479,51 @@ unsafe impl ::windows::runtime::Interface for ProtectedContainerImportResult {
 impl ::windows::runtime::RuntimeName for ProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerImportResult";
 }
+impl ::std::convert::From<ProtectedContainerImportResult> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectedContainerImportResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectedContainerImportResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectedContainerImportResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectedContainerImportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectedContainerImportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectedContainerImportResult> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectedContainerImportResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectedContainerImportResult> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectedContainerImportResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectedContainerImportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectedContainerImportResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectedContainerImportResult {}
 unsafe impl ::std::marker::Sync for ProtectedContainerImportResult {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectedContentRevokedEventArgs(::windows::runtime::IInspectable);
 impl ProtectedContentRevokedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -1226,11 +1546,51 @@ unsafe impl ::windows::runtime::Interface for ProtectedContentRevokedEventArgs {
 impl ::windows::runtime::RuntimeName for ProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs";
 }
+impl ::std::convert::From<ProtectedContentRevokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectedContentRevokedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectedContentRevokedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectedContentRevokedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectedContentRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectedContentRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectedContentRevokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectedContentRevokedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectedContentRevokedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectedContentRevokedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectedContentRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectedContentRevokedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectedContentRevokedEventArgs {}
 unsafe impl ::std::marker::Sync for ProtectedContentRevokedEventArgs {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectedFileCreateResult(::windows::runtime::IInspectable);
 impl ProtectedFileCreateResult {
     #[cfg(feature = "Storage")]
@@ -1269,6 +1629,46 @@ unsafe impl ::windows::runtime::Interface for ProtectedFileCreateResult {
 }
 impl ::windows::runtime::RuntimeName for ProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedFileCreateResult";
+}
+impl ::std::convert::From<ProtectedFileCreateResult> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectedFileCreateResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectedFileCreateResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectedFileCreateResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectedFileCreateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectedFileCreateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectedFileCreateResult> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectedFileCreateResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectedFileCreateResult> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectedFileCreateResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectedFileCreateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectedFileCreateResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::std::marker::Sync for ProtectedFileCreateResult {}
@@ -1326,7 +1726,7 @@ impl ::windows::runtime::DefaultType for ProtectionPolicyAuditAction {
 }
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectionPolicyAuditInfo(::windows::runtime::IInspectable);
 impl ProtectionPolicyAuditInfo {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -1410,6 +1810,46 @@ unsafe impl ::windows::runtime::Interface for ProtectionPolicyAuditInfo {
 impl ::windows::runtime::RuntimeName for ProtectionPolicyAuditInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo";
 }
+impl ::std::convert::From<ProtectionPolicyAuditInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectionPolicyAuditInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectionPolicyAuditInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectionPolicyAuditInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectionPolicyAuditInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectionPolicyAuditInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectionPolicyAuditInfo> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectionPolicyAuditInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectionPolicyAuditInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectionPolicyAuditInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectionPolicyAuditInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectionPolicyAuditInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::std::marker::Sync for ProtectionPolicyAuditInfo {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -1437,7 +1877,7 @@ impl ::windows::runtime::DefaultType for ProtectionPolicyEvaluationResult {
 }
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProtectionPolicyManager(::windows::runtime::IInspectable);
 impl ProtectionPolicyManager {
     #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -1810,6 +2250,46 @@ unsafe impl ::windows::runtime::Interface for ProtectionPolicyManager {
 impl ::windows::runtime::RuntimeName for ProtectionPolicyManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyManager";
 }
+impl ::std::convert::From<ProtectionPolicyManager> for ::windows::runtime::IUnknown {
+    fn from(value: ProtectionPolicyManager) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ProtectionPolicyManager> for ::windows::runtime::IUnknown {
+    fn from(value: &ProtectionPolicyManager) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtectionPolicyManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtectionPolicyManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ProtectionPolicyManager> for ::windows::runtime::IInspectable {
+    fn from(value: ProtectionPolicyManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProtectionPolicyManager> for ::windows::runtime::IInspectable {
+    fn from(value: &ProtectionPolicyManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtectionPolicyManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtectionPolicyManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::std::marker::Sync for ProtectionPolicyManager {}
 #[doc = "*Required features: `Security_EnterpriseData`*"]
@@ -1836,7 +2316,7 @@ impl ::windows::runtime::DefaultType for ProtectionPolicyRequestAccessBehavior {
 }
 #[doc = "*Required features: `Security_EnterpriseData`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ThreadNetworkContext(::windows::runtime::IInspectable);
 impl ThreadNetworkContext {
     #[cfg(feature = "Foundation")]
@@ -1855,6 +2335,46 @@ unsafe impl ::windows::runtime::Interface for ThreadNetworkContext {
 }
 impl ::windows::runtime::RuntimeName for ThreadNetworkContext {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ThreadNetworkContext";
+}
+impl ::std::convert::From<ThreadNetworkContext> for ::windows::runtime::IUnknown {
+    fn from(value: ThreadNetworkContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ThreadNetworkContext> for ::windows::runtime::IUnknown {
+    fn from(value: &ThreadNetworkContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ThreadNetworkContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ThreadNetworkContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ThreadNetworkContext> for ::windows::runtime::IInspectable {
+    fn from(value: ThreadNetworkContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ThreadNetworkContext> for ::windows::runtime::IInspectable {
+    fn from(value: &ThreadNetworkContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ThreadNetworkContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ThreadNetworkContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ThreadNetworkContext> for super::super::Foundation::IClosable {

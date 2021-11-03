@@ -163,7 +163,7 @@ impl ::windows::runtime::RuntimeName for AsymmetricAlgorithmNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AsymmetricKeyAlgorithmProvider(::windows::runtime::IInspectable);
 impl AsymmetricKeyAlgorithmProvider {
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -255,6 +255,46 @@ unsafe impl ::windows::runtime::Interface for AsymmetricKeyAlgorithmProvider {
 }
 impl ::windows::runtime::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
+}
+impl ::std::convert::From<AsymmetricKeyAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: AsymmetricKeyAlgorithmProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AsymmetricKeyAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AsymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AsymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AsymmetricKeyAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: AsymmetricKeyAlgorithmProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AsymmetricKeyAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AsymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AsymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::std::marker::Sync for AsymmetricKeyAlgorithmProvider {}
@@ -404,7 +444,7 @@ impl ::windows::runtime::RuntimeName for CryptographicEngine {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CryptographicHash(::windows::runtime::IInspectable);
 impl CryptographicHash {
     #[cfg(feature = "Storage_Streams")]
@@ -433,11 +473,51 @@ unsafe impl ::windows::runtime::Interface for CryptographicHash {
 impl ::windows::runtime::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
 }
+impl ::std::convert::From<CryptographicHash> for ::windows::runtime::IUnknown {
+    fn from(value: CryptographicHash) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CryptographicHash> for ::windows::runtime::IUnknown {
+    fn from(value: &CryptographicHash) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CryptographicHash {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CryptographicHash {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CryptographicHash> for ::windows::runtime::IInspectable {
+    fn from(value: CryptographicHash) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CryptographicHash> for ::windows::runtime::IInspectable {
+    fn from(value: &CryptographicHash) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CryptographicHash {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CryptographicHash {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CryptographicHash {}
 unsafe impl ::std::marker::Sync for CryptographicHash {}
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CryptographicKey(::windows::runtime::IInspectable);
 impl CryptographicKey {
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -494,6 +574,46 @@ unsafe impl ::windows::runtime::Interface for CryptographicKey {
 }
 impl ::windows::runtime::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
+}
+impl ::std::convert::From<CryptographicKey> for ::windows::runtime::IUnknown {
+    fn from(value: CryptographicKey) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CryptographicKey> for ::windows::runtime::IUnknown {
+    fn from(value: &CryptographicKey) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CryptographicKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CryptographicKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CryptographicKey> for ::windows::runtime::IInspectable {
+    fn from(value: CryptographicKey) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CryptographicKey> for ::windows::runtime::IInspectable {
+    fn from(value: &CryptographicKey) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CryptographicKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CryptographicKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CryptographicKey {}
 unsafe impl ::std::marker::Sync for CryptographicKey {}
@@ -907,7 +1027,7 @@ impl ::windows::runtime::RuntimeName for EccCurveNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EncryptedAndAuthenticatedData(::windows::runtime::IInspectable);
 impl EncryptedAndAuthenticatedData {
     #[cfg(feature = "Storage_Streams")]
@@ -938,6 +1058,46 @@ unsafe impl ::windows::runtime::Interface for EncryptedAndAuthenticatedData {
 }
 impl ::windows::runtime::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
+}
+impl ::std::convert::From<EncryptedAndAuthenticatedData> for ::windows::runtime::IUnknown {
+    fn from(value: EncryptedAndAuthenticatedData) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&EncryptedAndAuthenticatedData> for ::windows::runtime::IUnknown {
+    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EncryptedAndAuthenticatedData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EncryptedAndAuthenticatedData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<EncryptedAndAuthenticatedData> for ::windows::runtime::IInspectable {
+    fn from(value: EncryptedAndAuthenticatedData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EncryptedAndAuthenticatedData> for ::windows::runtime::IInspectable {
+    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EncryptedAndAuthenticatedData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EncryptedAndAuthenticatedData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EncryptedAndAuthenticatedData {}
 unsafe impl ::std::marker::Sync for EncryptedAndAuthenticatedData {}
@@ -989,7 +1149,7 @@ impl ::windows::runtime::RuntimeName for HashAlgorithmNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HashAlgorithmProvider(::windows::runtime::IInspectable);
 impl HashAlgorithmProvider {
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -1046,6 +1206,46 @@ unsafe impl ::windows::runtime::Interface for HashAlgorithmProvider {
 }
 impl ::windows::runtime::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
+}
+impl ::std::convert::From<HashAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: HashAlgorithmProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&HashAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &HashAlgorithmProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HashAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HashAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<HashAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: HashAlgorithmProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HashAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &HashAlgorithmProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HashAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HashAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for HashAlgorithmProvider {}
 unsafe impl ::std::marker::Sync for HashAlgorithmProvider {}
@@ -1928,7 +2128,7 @@ impl ::windows::runtime::RuntimeName for KeyDerivationAlgorithmNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct KeyDerivationAlgorithmProvider(::windows::runtime::IInspectable);
 impl KeyDerivationAlgorithmProvider {
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -1970,11 +2170,51 @@ unsafe impl ::windows::runtime::Interface for KeyDerivationAlgorithmProvider {
 impl ::windows::runtime::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
 }
+impl ::std::convert::From<KeyDerivationAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: KeyDerivationAlgorithmProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&KeyDerivationAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyDerivationAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &KeyDerivationAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<KeyDerivationAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: KeyDerivationAlgorithmProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&KeyDerivationAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyDerivationAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyDerivationAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::std::marker::Sync for KeyDerivationAlgorithmProvider {}
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct KeyDerivationParameters(::windows::runtime::IInspectable);
 impl KeyDerivationParameters {
     #[cfg(feature = "Storage_Streams")]
@@ -2069,6 +2309,46 @@ unsafe impl ::windows::runtime::Interface for KeyDerivationParameters {
 impl ::windows::runtime::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
 }
+impl ::std::convert::From<KeyDerivationParameters> for ::windows::runtime::IUnknown {
+    fn from(value: KeyDerivationParameters) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&KeyDerivationParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &KeyDerivationParameters) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyDerivationParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &KeyDerivationParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<KeyDerivationParameters> for ::windows::runtime::IInspectable {
+    fn from(value: KeyDerivationParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&KeyDerivationParameters> for ::windows::runtime::IInspectable {
+    fn from(value: &KeyDerivationParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyDerivationParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyDerivationParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for KeyDerivationParameters {}
 unsafe impl ::std::marker::Sync for KeyDerivationParameters {}
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -2126,7 +2406,7 @@ impl ::windows::runtime::RuntimeName for MacAlgorithmNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MacAlgorithmProvider(::windows::runtime::IInspectable);
 impl MacAlgorithmProvider {
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -2184,6 +2464,46 @@ unsafe impl ::windows::runtime::Interface for MacAlgorithmProvider {
 }
 impl ::windows::runtime::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
+}
+impl ::std::convert::From<MacAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: MacAlgorithmProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MacAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &MacAlgorithmProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MacAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MacAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MacAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: MacAlgorithmProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MacAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &MacAlgorithmProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MacAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MacAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::std::marker::Sync for MacAlgorithmProvider {}
@@ -2360,7 +2680,7 @@ impl ::windows::runtime::RuntimeName for SymmetricAlgorithmNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SymmetricKeyAlgorithmProvider(::windows::runtime::IInspectable);
 impl SymmetricKeyAlgorithmProvider {
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
@@ -2409,6 +2729,46 @@ unsafe impl ::windows::runtime::Interface for SymmetricKeyAlgorithmProvider {
 }
 impl ::windows::runtime::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
+}
+impl ::std::convert::From<SymmetricKeyAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: SymmetricKeyAlgorithmProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SymmetricKeyAlgorithmProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SymmetricKeyAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: SymmetricKeyAlgorithmProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SymmetricKeyAlgorithmProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SymmetricKeyAlgorithmProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::std::marker::Sync for SymmetricKeyAlgorithmProvider {}

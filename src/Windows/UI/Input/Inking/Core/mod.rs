@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreIncrementalInkStroke(::windows::runtime::IInspectable);
 impl CoreIncrementalInkStroke {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -70,11 +70,51 @@ unsafe impl ::windows::runtime::Interface for CoreIncrementalInkStroke {
 impl ::windows::runtime::RuntimeName for CoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke";
 }
+impl ::std::convert::From<CoreIncrementalInkStroke> for ::windows::runtime::IUnknown {
+    fn from(value: CoreIncrementalInkStroke) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreIncrementalInkStroke> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreIncrementalInkStroke) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreIncrementalInkStroke {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreIncrementalInkStroke {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreIncrementalInkStroke> for ::windows::runtime::IInspectable {
+    fn from(value: CoreIncrementalInkStroke) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreIncrementalInkStroke> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreIncrementalInkStroke) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreIncrementalInkStroke {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreIncrementalInkStroke {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CoreIncrementalInkStroke {}
 unsafe impl ::std::marker::Sync for CoreIncrementalInkStroke {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInkIndependentInputSource(::windows::runtime::IInspectable);
 impl CoreInkIndependentInputSource {
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -227,11 +267,51 @@ unsafe impl ::windows::runtime::Interface for CoreInkIndependentInputSource {
 impl ::windows::runtime::RuntimeName for CoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource";
 }
+impl ::std::convert::From<CoreInkIndependentInputSource> for ::windows::runtime::IUnknown {
+    fn from(value: CoreInkIndependentInputSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreInkIndependentInputSource> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreInkIndependentInputSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInkIndependentInputSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInkIndependentInputSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreInkIndependentInputSource> for ::windows::runtime::IInspectable {
+    fn from(value: CoreInkIndependentInputSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreInkIndependentInputSource> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreInkIndependentInputSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInkIndependentInputSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInkIndependentInputSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CoreInkIndependentInputSource {}
 unsafe impl ::std::marker::Sync for CoreInkIndependentInputSource {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInkPresenterHost(::windows::runtime::IInspectable);
 impl CoreInkPresenterHost {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -275,6 +355,46 @@ unsafe impl ::windows::runtime::Interface for CoreInkPresenterHost {
 impl ::windows::runtime::RuntimeName for CoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkPresenterHost";
 }
+impl ::std::convert::From<CoreInkPresenterHost> for ::windows::runtime::IUnknown {
+    fn from(value: CoreInkPresenterHost) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreInkPresenterHost> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreInkPresenterHost) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInkPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInkPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreInkPresenterHost> for ::windows::runtime::IInspectable {
+    fn from(value: CoreInkPresenterHost) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreInkPresenterHost> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreInkPresenterHost) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInkPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInkPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CoreInkPresenterHost {}
 unsafe impl ::std::marker::Sync for CoreInkPresenterHost {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
@@ -302,7 +422,7 @@ impl ::windows::runtime::DefaultType for CoreWetStrokeDisposition {
 }
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreWetStrokeUpdateEventArgs(::windows::runtime::IInspectable);
 impl CoreWetStrokeUpdateEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -346,11 +466,51 @@ unsafe impl ::windows::runtime::Interface for CoreWetStrokeUpdateEventArgs {
 impl ::windows::runtime::RuntimeName for CoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs";
 }
+impl ::std::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CoreWetStrokeUpdateEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreWetStrokeUpdateEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreWetStrokeUpdateEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CoreWetStrokeUpdateEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreWetStrokeUpdateEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreWetStrokeUpdateEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CoreWetStrokeUpdateEventArgs {}
 unsafe impl ::std::marker::Sync for CoreWetStrokeUpdateEventArgs {}
 #[doc = "*Required features: `UI_Input_Inking_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreWetStrokeUpdateSource(::windows::runtime::IInspectable);
 impl CoreWetStrokeUpdateSource {
     #[cfg(feature = "Foundation")]
@@ -457,6 +617,46 @@ unsafe impl ::windows::runtime::Interface for CoreWetStrokeUpdateSource {
 }
 impl ::windows::runtime::RuntimeName for CoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource";
+}
+impl ::std::convert::From<CoreWetStrokeUpdateSource> for ::windows::runtime::IUnknown {
+    fn from(value: CoreWetStrokeUpdateSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreWetStrokeUpdateSource> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreWetStrokeUpdateSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreWetStrokeUpdateSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreWetStrokeUpdateSource> for ::windows::runtime::IInspectable {
+    fn from(value: CoreWetStrokeUpdateSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreWetStrokeUpdateSource> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreWetStrokeUpdateSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreWetStrokeUpdateSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CoreWetStrokeUpdateSource {}
 unsafe impl ::std::marker::Sync for CoreWetStrokeUpdateSource {}

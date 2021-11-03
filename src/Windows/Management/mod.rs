@@ -92,7 +92,7 @@ pub struct IMdmSessionManagerStatics_abi(
 );
 #[doc = "*Required features: `Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MdmAlert(::windows::runtime::IInspectable);
 impl MdmAlert {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -199,6 +199,46 @@ unsafe impl ::windows::runtime::Interface for MdmAlert {
 impl ::windows::runtime::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
 }
+impl ::std::convert::From<MdmAlert> for ::windows::runtime::IUnknown {
+    fn from(value: MdmAlert) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MdmAlert> for ::windows::runtime::IUnknown {
+    fn from(value: &MdmAlert) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MdmAlert {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MdmAlert {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MdmAlert> for ::windows::runtime::IInspectable {
+    fn from(value: MdmAlert) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MdmAlert> for ::windows::runtime::IInspectable {
+    fn from(value: &MdmAlert) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MdmAlert {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MdmAlert {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -250,7 +290,7 @@ impl ::windows::runtime::DefaultType for MdmAlertMark {
 }
 #[doc = "*Required features: `Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MdmSession(::windows::runtime::IInspectable);
 impl MdmSession {
     #[cfg(feature = "Foundation_Collections")]
@@ -328,6 +368,46 @@ unsafe impl ::windows::runtime::Interface for MdmSession {
 }
 impl ::windows::runtime::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";
+}
+impl ::std::convert::From<MdmSession> for ::windows::runtime::IUnknown {
+    fn from(value: MdmSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&MdmSession> for ::windows::runtime::IUnknown {
+    fn from(value: &MdmSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MdmSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MdmSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<MdmSession> for ::windows::runtime::IInspectable {
+    fn from(value: MdmSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MdmSession> for ::windows::runtime::IInspectable {
+    fn from(value: &MdmSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MdmSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MdmSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Management`*"]
 pub struct MdmSessionManager {}

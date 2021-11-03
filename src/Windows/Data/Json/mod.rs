@@ -125,7 +125,7 @@ pub struct IJsonObjectWithDefaultValues_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, defaultvalue: bool, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Data_Json`*"]
 pub struct IJsonValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonValue {
@@ -193,6 +193,46 @@ impl IJsonValue {
 unsafe impl ::windows::runtime::RuntimeType for IJsonValue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e}");
 }
+impl ::std::convert::From<IJsonValue> for ::windows::runtime::IUnknown {
+    fn from(value: IJsonValue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IJsonValue> for ::windows::runtime::IUnknown {
+    fn from(value: &IJsonValue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IJsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IJsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IJsonValue> for ::windows::runtime::IInspectable {
+    fn from(value: IJsonValue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IJsonValue> for ::windows::runtime::IInspectable {
+    fn from(value: &IJsonValue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IJsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IJsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonValue_abi(
@@ -252,7 +292,7 @@ pub struct IJsonValueStatics2_abi(
 );
 #[doc = "*Required features: `Data_Json`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct JsonArray(::windows::runtime::IInspectable);
 impl JsonArray {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -492,6 +532,46 @@ unsafe impl ::windows::runtime::Interface for JsonArray {
 impl ::windows::runtime::RuntimeName for JsonArray {
     const NAME: &'static str = "Windows.Data.Json.JsonArray";
 }
+impl ::std::convert::From<JsonArray> for ::windows::runtime::IUnknown {
+    fn from(value: JsonArray) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&JsonArray> for ::windows::runtime::IUnknown {
+    fn from(value: &JsonArray) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JsonArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JsonArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<JsonArray> for ::windows::runtime::IInspectable {
+    fn from(value: JsonArray) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&JsonArray> for ::windows::runtime::IInspectable {
+    fn from(value: &JsonArray) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for JsonArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a JsonArray {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<JsonArray> for IJsonValue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: JsonArray) -> ::windows::runtime::Result<Self> {
@@ -655,7 +735,7 @@ impl ::windows::runtime::DefaultType for JsonErrorStatus {
 }
 #[doc = "*Required features: `Data_Json`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct JsonObject(::windows::runtime::IInspectable);
 impl JsonObject {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -926,6 +1006,46 @@ unsafe impl ::windows::runtime::Interface for JsonObject {
 impl ::windows::runtime::RuntimeName for JsonObject {
     const NAME: &'static str = "Windows.Data.Json.JsonObject";
 }
+impl ::std::convert::From<JsonObject> for ::windows::runtime::IUnknown {
+    fn from(value: JsonObject) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&JsonObject> for ::windows::runtime::IUnknown {
+    fn from(value: &JsonObject) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JsonObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JsonObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<JsonObject> for ::windows::runtime::IInspectable {
+    fn from(value: JsonObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&JsonObject> for ::windows::runtime::IInspectable {
+    fn from(value: &JsonObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for JsonObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a JsonObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<JsonObject> for IJsonValue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: JsonObject) -> ::windows::runtime::Result<Self> {
@@ -1046,7 +1166,7 @@ impl ::std::iter::IntoIterator for &JsonObject {
 }
 #[doc = "*Required features: `Data_Json`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct JsonValue(::windows::runtime::IInspectable);
 impl JsonValue {
     #[doc = "*Required features: `Data_Json`*"]
@@ -1174,6 +1294,46 @@ unsafe impl ::windows::runtime::Interface for JsonValue {
 }
 impl ::windows::runtime::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";
+}
+impl ::std::convert::From<JsonValue> for ::windows::runtime::IUnknown {
+    fn from(value: JsonValue) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&JsonValue> for ::windows::runtime::IUnknown {
+    fn from(value: &JsonValue) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<JsonValue> for ::windows::runtime::IInspectable {
+    fn from(value: JsonValue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&JsonValue> for ::windows::runtime::IInspectable {
+    fn from(value: &JsonValue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for JsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a JsonValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<JsonValue> for IJsonValue {
     fn from(value: JsonValue) -> Self {

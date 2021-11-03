@@ -4223,7 +4223,7 @@ unsafe impl ::windows::runtime::Abi for HWAVEOUT {
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIEditStream(::windows::runtime::IUnknown);
 impl IAVIEditStream {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -4253,6 +4253,26 @@ unsafe impl ::windows::runtime::Interface for IAVIEditStream {
     type Vtable = IAVIEditStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131108, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IAVIEditStream> for ::windows::runtime::IUnknown {
+    fn from(value: IAVIEditStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAVIEditStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IAVIEditStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIEditStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIEditStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIEditStream_abi(
@@ -4268,7 +4288,7 @@ pub struct IAVIEditStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIFile(::windows::runtime::IUnknown);
 impl IAVIFile {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -4305,6 +4325,26 @@ unsafe impl ::windows::runtime::Interface for IAVIFile {
     type Vtable = IAVIFile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131104, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IAVIFile> for ::windows::runtime::IUnknown {
+    fn from(value: IAVIFile) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAVIFile> for ::windows::runtime::IUnknown {
+    fn from(value: &IAVIFile) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIFile_abi(
@@ -4322,7 +4362,7 @@ pub struct IAVIFile_abi(
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIPersistFile(::windows::runtime::IUnknown);
 impl IAVIPersistFile {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -4363,6 +4403,26 @@ impl IAVIPersistFile {
 unsafe impl ::windows::runtime::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131109, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+}
+impl ::std::convert::From<IAVIPersistFile> for ::windows::runtime::IUnknown {
+    fn from(value: IAVIPersistFile) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAVIPersistFile> for ::windows::runtime::IUnknown {
+    fn from(value: &IAVIPersistFile) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIPersistFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIPersistFile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IAVIPersistFile> for super::super::System::Com::IPersistFile {
@@ -4432,7 +4492,7 @@ pub struct IAVIPersistFile_abi(
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIStream(::windows::runtime::IUnknown);
 impl IAVIStream {
     #[cfg(feature = "Win32_Foundation")]
@@ -4487,6 +4547,26 @@ unsafe impl ::windows::runtime::Interface for IAVIStream {
     type Vtable = IAVIStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131105, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IAVIStream> for ::windows::runtime::IUnknown {
+    fn from(value: IAVIStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAVIStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IAVIStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIStream_abi(
@@ -4510,7 +4590,7 @@ pub struct IAVIStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIStreaming(::windows::runtime::IUnknown);
 impl IAVIStreaming {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -4525,6 +4605,26 @@ impl IAVIStreaming {
 unsafe impl ::windows::runtime::Interface for IAVIStreaming {
     type Vtable = IAVIStreaming_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131106, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+}
+impl ::std::convert::From<IAVIStreaming> for ::windows::runtime::IUnknown {
+    fn from(value: IAVIStreaming) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IAVIStreaming> for ::windows::runtime::IUnknown {
+    fn from(value: &IAVIStreaming) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIStreaming {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIStreaming {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5826,7 +5926,7 @@ pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGetFrame(::windows::runtime::IUnknown);
 impl IGetFrame {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -5850,6 +5950,26 @@ impl IGetFrame {
 unsafe impl ::windows::runtime::Interface for IGetFrame {
     type Vtable = IGetFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131107, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+}
+impl ::std::convert::From<IGetFrame> for ::windows::runtime::IUnknown {
+    fn from(value: IGetFrame) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IGetFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &IGetFrame) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

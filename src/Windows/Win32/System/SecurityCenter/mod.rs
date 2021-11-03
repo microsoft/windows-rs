@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWSCDefaultProduct(::windows::runtime::IUnknown);
 impl IWSCDefaultProduct {
     #[cfg(feature = "Win32_Foundation")]
@@ -13,6 +13,26 @@ impl IWSCDefaultProduct {
 unsafe impl ::windows::runtime::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProduct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74897052, 61978, 4581, [156, 233, 94, 85, 23, 80, 124, 102]);
+}
+impl ::std::convert::From<IWSCDefaultProduct> for ::windows::runtime::IUnknown {
+    fn from(value: IWSCDefaultProduct) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWSCDefaultProduct> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSCDefaultProduct) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSCDefaultProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSCDefaultProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSCDefaultProduct> for super::Ole::Automation::IDispatch {
@@ -57,7 +77,7 @@ pub struct IWSCDefaultProduct_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWSCProductList(::windows::runtime::IUnknown);
 impl IWSCProductList {
     #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
@@ -78,6 +98,26 @@ impl IWSCProductList {
 unsafe impl ::windows::runtime::Interface for IWSCProductList {
     type Vtable = IWSCProductList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1915368332, 28302, 20082, [172, 39, 20, 23, 251, 12, 129, 194]);
+}
+impl ::std::convert::From<IWSCProductList> for ::windows::runtime::IUnknown {
+    fn from(value: IWSCProductList) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWSCProductList> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSCProductList) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSCProductList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWSCProductList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSCProductList> for super::Ole::Automation::IDispatch {
@@ -123,7 +163,7 @@ pub struct IWSCProductList_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWscProduct(::windows::runtime::IUnknown);
 impl IWscProduct {
     #[cfg(feature = "Win32_Foundation")]
@@ -170,6 +210,26 @@ impl IWscProduct {
 unsafe impl ::windows::runtime::Interface for IWscProduct {
     type Vtable = IWscProduct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2352489262, 14917, 18983, [146, 176, 26, 22, 169, 117, 246, 105]);
+}
+impl ::std::convert::From<IWscProduct> for ::windows::runtime::IUnknown {
+    fn from(value: IWscProduct) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWscProduct> for ::windows::runtime::IUnknown {
+    fn from(value: &IWscProduct) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWscProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWscProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWscProduct> for super::Ole::Automation::IDispatch {
@@ -224,7 +284,7 @@ pub struct IWscProduct_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWscProduct2(::windows::runtime::IUnknown);
 impl IWscProduct2 {
     #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
@@ -323,6 +383,26 @@ unsafe impl ::windows::runtime::Interface for IWscProduct2 {
     type Vtable = IWscProduct2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4170631764, 65033, 17411, [134, 212, 35, 203, 72, 141, 129, 216]);
 }
+impl ::std::convert::From<IWscProduct2> for ::windows::runtime::IUnknown {
+    fn from(value: IWscProduct2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWscProduct2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWscProduct2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWscProduct2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWscProduct2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<IWscProduct2> for IWscProduct {
     fn from(value: IWscProduct2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -402,7 +482,7 @@ pub struct IWscProduct2_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWscProduct3(::windows::runtime::IUnknown);
 impl IWscProduct3 {
     #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
@@ -505,6 +585,26 @@ impl IWscProduct3 {
 unsafe impl ::windows::runtime::Interface for IWscProduct3 {
     type Vtable = IWscProduct3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431528740, 53713, 18214, [140, 124, 4, 153, 106, 25, 4, 231]);
+}
+impl ::std::convert::From<IWscProduct3> for ::windows::runtime::IUnknown {
+    fn from(value: IWscProduct3) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IWscProduct3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWscProduct3) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWscProduct3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWscProduct3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<IWscProduct3> for IWscProduct2 {
     fn from(value: IWscProduct3) -> Self {

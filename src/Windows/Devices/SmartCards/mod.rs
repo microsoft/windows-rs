@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CardAddedEventArgs(::windows::runtime::IInspectable);
 impl CardAddedEventArgs {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -23,11 +23,51 @@ unsafe impl ::windows::runtime::Interface for CardAddedEventArgs {
 impl ::windows::runtime::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
 }
+impl ::std::convert::From<CardAddedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CardAddedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CardAddedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CardAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CardAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CardAddedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CardAddedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CardAddedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CardAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CardAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CardAddedEventArgs {}
 unsafe impl ::std::marker::Sync for CardAddedEventArgs {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CardRemovedEventArgs(::windows::runtime::IInspectable);
 impl CardRemovedEventArgs {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -48,6 +88,46 @@ unsafe impl ::windows::runtime::Interface for CardRemovedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
+}
+impl ::std::convert::From<CardRemovedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CardRemovedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CardRemovedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CardRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CardRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CardRemovedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CardRemovedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CardRemovedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CardRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CardRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for CardRemovedEventArgs {}
@@ -1285,7 +1365,7 @@ impl ::windows::runtime::RuntimeName for KnownSmartCardAppletIds {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCard(::windows::runtime::IInspectable);
 impl SmartCard {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -1334,6 +1414,46 @@ unsafe impl ::windows::runtime::Interface for SmartCard {
 impl ::windows::runtime::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
 }
+impl ::std::convert::From<SmartCard> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCard) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCard> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCard) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCard> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCard) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCard> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCard) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCard {}
 unsafe impl ::std::marker::Sync for SmartCard {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -1360,7 +1480,7 @@ impl ::windows::runtime::DefaultType for SmartCardActivationPolicyChangeResult {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardAppletIdGroup(::windows::runtime::IInspectable);
 impl SmartCardAppletIdGroup {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1515,6 +1635,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardAppletIdGroup {
 impl ::windows::runtime::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
 }
+impl ::std::convert::From<SmartCardAppletIdGroup> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardAppletIdGroup) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardAppletIdGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardAppletIdGroup) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardAppletIdGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardAppletIdGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardAppletIdGroup> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardAppletIdGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardAppletIdGroup> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardAppletIdGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardAppletIdGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardAppletIdGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::std::marker::Sync for SmartCardAppletIdGroup {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -1542,7 +1702,7 @@ impl ::windows::runtime::DefaultType for SmartCardAppletIdGroupActivationPolicy 
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardAppletIdGroupRegistration(::windows::runtime::IInspectable);
 impl SmartCardAppletIdGroupRegistration {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -1615,11 +1775,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardAppletIdGroupRegistration
 impl ::windows::runtime::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
 }
+impl ::std::convert::From<SmartCardAppletIdGroupRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardAppletIdGroupRegistration) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardAppletIdGroupRegistration> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardAppletIdGroupRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardAppletIdGroupRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardAppletIdGroupRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardAppletIdGroupRegistration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardAppletIdGroupRegistration> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardAppletIdGroupRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardAppletIdGroupRegistration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl ::std::marker::Sync for SmartCardAppletIdGroupRegistration {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardAutomaticResponseApdu(::windows::runtime::IInspectable);
 impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
@@ -1761,6 +1961,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardAutomaticResponseApdu {
 impl ::windows::runtime::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
 }
+impl ::std::convert::From<SmartCardAutomaticResponseApdu> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardAutomaticResponseApdu) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardAutomaticResponseApdu> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardAutomaticResponseApdu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardAutomaticResponseApdu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardAutomaticResponseApdu> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardAutomaticResponseApdu) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardAutomaticResponseApdu> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardAutomaticResponseApdu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardAutomaticResponseApdu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::std::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -1791,7 +2031,7 @@ impl ::windows::runtime::DefaultType for SmartCardAutomaticResponseStatus {
 pub struct SmartCardBackgroundTriggerContract(pub u8);
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardChallengeContext(::windows::runtime::IInspectable);
 impl SmartCardChallengeContext {
     #[cfg(feature = "Storage_Streams")]
@@ -1856,6 +2096,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardChallengeContext {
 impl ::windows::runtime::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
 }
+impl ::std::convert::From<SmartCardChallengeContext> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardChallengeContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardChallengeContext> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardChallengeContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardChallengeContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardChallengeContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardChallengeContext> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardChallengeContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardChallengeContext> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardChallengeContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardChallengeContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardChallengeContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SmartCardChallengeContext> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1886,7 +2166,7 @@ unsafe impl ::std::marker::Send for SmartCardChallengeContext {}
 unsafe impl ::std::marker::Sync for SmartCardChallengeContext {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardConnection(::windows::runtime::IInspectable);
 impl SmartCardConnection {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -1914,6 +2194,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardConnection {
 }
 impl ::windows::runtime::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
+}
+impl ::std::convert::From<SmartCardConnection> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardConnection> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SmartCardConnection> for super::super::Foundation::IClosable {
@@ -1974,7 +2294,7 @@ impl ::windows::runtime::DefaultType for SmartCardCryptogramAlgorithm {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramGenerator(::windows::runtime::IInspectable);
 impl SmartCardCryptogramGenerator {
     #[cfg(feature = "Foundation_Collections")]
@@ -2177,6 +2497,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGenerator {
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
 }
+impl ::std::convert::From<SmartCardCryptogramGenerator> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramGenerator) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGenerator> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramGenerator) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramGenerator> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramGenerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGenerator> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramGenerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramGenerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramGenerator {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -2215,7 +2575,7 @@ impl ::windows::runtime::DefaultType for SmartCardCryptogramGeneratorOperationSt
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::runtime::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2253,11 +2613,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGetAllCryptogra
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
+impl ::std::convert::From<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::runtime::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2295,11 +2695,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGetAllCryptogra
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
+impl ::std::convert::From<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::runtime::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2337,11 +2777,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramGetAllCryptogra
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
+impl ::std::convert::From<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramMaterialCharacteristics(::windows::runtime::IInspectable);
 impl SmartCardCryptogramMaterialCharacteristics {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2429,11 +2909,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramMaterialCharact
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
 }
+impl ::std::convert::From<SmartCardCryptogramMaterialCharacteristics> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramMaterialCharacteristics) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramMaterialCharacteristics> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramMaterialCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramMaterialCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramMaterialCharacteristics> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramMaterialCharacteristics) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramMaterialCharacteristics> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramMaterialCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramMaterialCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(::windows::runtime::IInspectable);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2487,6 +3007,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramMaterialPackage
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
 }
+impl ::std::convert::From<SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramMaterialPackageCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramMaterialPackageCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramMaterialPackageCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramMaterialPackageCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -2535,7 +3095,7 @@ impl ::windows::runtime::DefaultType for SmartCardCryptogramMaterialPackageForma
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramMaterialPossessionProof(::windows::runtime::IInspectable);
 impl SmartCardCryptogramMaterialPossessionProof {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -2565,6 +3125,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramMaterialPossess
 }
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
+}
+impl ::std::convert::From<SmartCardCryptogramMaterialPossessionProof> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramMaterialPossessionProof) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramMaterialPossessionProof> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramMaterialPossessionProof {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramMaterialPossessionProof {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramMaterialPossessionProof> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramMaterialPossessionProof) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramMaterialPossessionProof> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramMaterialPossessionProof {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramMaterialPossessionProof {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
@@ -2668,7 +3268,7 @@ impl ::std::ops::Not for SmartCardCryptogramPlacementOptions {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramPlacementStep(::windows::runtime::IInspectable);
 impl SmartCardCryptogramPlacementStep {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2808,6 +3408,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramPlacementStep {
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
 }
+impl ::std::convert::From<SmartCardCryptogramPlacementStep> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramPlacementStep) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramPlacementStep> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramPlacementStep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramPlacementStep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramPlacementStep> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramPlacementStep) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramPlacementStep> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramPlacementStep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramPlacementStep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -2885,7 +3525,7 @@ impl ::std::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(::windows::runtime::IInspectable);
 impl SmartCardCryptogramStorageKeyCharacteristics {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2939,11 +3579,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramStorageKeyChara
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
 }
+impl ::std::convert::From<SmartCardCryptogramStorageKeyCharacteristics> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramStorageKeyCharacteristics) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramStorageKeyCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramStorageKeyCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramStorageKeyCharacteristics> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramStorageKeyCharacteristics) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramStorageKeyCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramStorageKeyCharacteristics {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardCryptogramStorageKeyInfo(::windows::runtime::IInspectable);
 impl SmartCardCryptogramStorageKeyInfo {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3025,6 +3705,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardCryptogramStorageKeyInfo 
 impl ::windows::runtime::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
 }
+impl ::std::convert::From<SmartCardCryptogramStorageKeyInfo> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardCryptogramStorageKeyInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramStorageKeyInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardCryptogramStorageKeyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardCryptogramStorageKeyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardCryptogramStorageKeyInfo> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardCryptogramStorageKeyInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardCryptogramStorageKeyInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardCryptogramStorageKeyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardCryptogramStorageKeyInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::std::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3102,7 +3822,7 @@ impl ::windows::runtime::DefaultType for SmartCardEmulationType {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardEmulator(::windows::runtime::IInspectable);
 impl SmartCardEmulator {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3225,11 +3945,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardEmulator {
 impl ::windows::runtime::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
 }
+impl ::std::convert::From<SmartCardEmulator> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardEmulator) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardEmulator> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardEmulator) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardEmulator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardEmulator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardEmulator> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardEmulator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardEmulator> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardEmulator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardEmulator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardEmulator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardEmulator {}
 unsafe impl ::std::marker::Sync for SmartCardEmulator {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(::windows::runtime::IInspectable);
 impl SmartCardEmulatorApduReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
@@ -3317,11 +4077,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardEmulatorApduReceivedEvent
 impl ::windows::runtime::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
 }
+impl ::std::convert::From<SmartCardEmulatorApduReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardEmulatorApduReceivedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardEmulatorApduReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardEmulatorApduReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardEmulatorApduReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardEmulatorApduReceivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardEmulatorApduReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardEmulatorApduReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(::windows::runtime::IInspectable);
 impl SmartCardEmulatorConnectionDeactivatedEventArgs {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3351,6 +4151,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardEmulatorConnectionDeactiv
 impl ::windows::runtime::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
 }
+impl ::std::convert::From<SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardEmulatorConnectionDeactivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardEmulatorConnectionDeactivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardEmulatorConnectionDeactivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardEmulatorConnectionDeactivatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl ::std::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3377,7 +4217,7 @@ impl ::windows::runtime::DefaultType for SmartCardEmulatorConnectionDeactivatedR
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardEmulatorConnectionProperties(::windows::runtime::IInspectable);
 impl SmartCardEmulatorConnectionProperties {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3406,6 +4246,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardEmulatorConnectionPropert
 }
 impl ::windows::runtime::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
+}
+impl ::std::convert::From<SmartCardEmulatorConnectionProperties> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardEmulatorConnectionProperties) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardEmulatorConnectionProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardEmulatorConnectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardEmulatorConnectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardEmulatorConnectionProperties> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardEmulatorConnectionProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardEmulatorConnectionProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardEmulatorConnectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardEmulatorConnectionProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::std::marker::Sync for SmartCardEmulatorConnectionProperties {}
@@ -3505,7 +4385,7 @@ impl ::windows::runtime::DefaultType for SmartCardPinCharacterPolicyOption {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardPinPolicy(::windows::runtime::IInspectable);
 impl SmartCardPinPolicy {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3604,11 +4484,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardPinPolicy {
 impl ::windows::runtime::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
 }
+impl ::std::convert::From<SmartCardPinPolicy> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardPinPolicy) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardPinPolicy> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardPinPolicy) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardPinPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardPinPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardPinPolicy> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardPinPolicy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardPinPolicy> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardPinPolicy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardPinPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardPinPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardPinPolicy {}
 unsafe impl ::std::marker::Sync for SmartCardPinPolicy {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardPinResetDeferral(::windows::runtime::IInspectable);
 impl SmartCardPinResetDeferral {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3626,6 +4546,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardPinResetDeferral {
 }
 impl ::windows::runtime::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
+}
+impl ::std::convert::From<SmartCardPinResetDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardPinResetDeferral) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardPinResetDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardPinResetDeferral) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardPinResetDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardPinResetDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardPinResetDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardPinResetDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardPinResetDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardPinResetDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardPinResetDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardPinResetDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::std::marker::Sync for SmartCardPinResetDeferral {}
@@ -3708,7 +4668,7 @@ impl<F: FnMut(&::std::option::Option<SmartCardProvisioning>, &::std::option::Opt
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardPinResetRequest(::windows::runtime::IInspectable);
 impl SmartCardPinResetRequest {
     #[cfg(feature = "Storage_Streams")]
@@ -3754,11 +4714,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardPinResetRequest {
 impl ::windows::runtime::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
 }
+impl ::std::convert::From<SmartCardPinResetRequest> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardPinResetRequest) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardPinResetRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardPinResetRequest) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardPinResetRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardPinResetRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardPinResetRequest> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardPinResetRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardPinResetRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardPinResetRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardPinResetRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardPinResetRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardPinResetRequest {}
 unsafe impl ::std::marker::Sync for SmartCardPinResetRequest {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardProvisioning(::windows::runtime::IInspectable);
 impl SmartCardProvisioning {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -3900,11 +4900,51 @@ unsafe impl ::windows::runtime::Interface for SmartCardProvisioning {
 impl ::windows::runtime::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
 }
+impl ::std::convert::From<SmartCardProvisioning> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardProvisioning) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardProvisioning> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardProvisioning) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardProvisioning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardProvisioning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardProvisioning> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardProvisioning) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardProvisioning> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardProvisioning) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardProvisioning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardProvisioning {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardProvisioning {}
 unsafe impl ::std::marker::Sync for SmartCardProvisioning {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardReader(::windows::runtime::IInspectable);
 impl SmartCardReader {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -4016,6 +5056,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardReader {
 impl ::windows::runtime::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
 }
+impl ::std::convert::From<SmartCardReader> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardReader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardReader> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardReader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardReader> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardReader> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SmartCardReader {}
 unsafe impl ::std::marker::Sync for SmartCardReader {}
 #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -4094,7 +5174,7 @@ impl ::windows::runtime::DefaultType for SmartCardStatus {
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmartCardTriggerDetails(::windows::runtime::IInspectable);
 impl SmartCardTriggerDetails {
     #[doc = "*Required features: `Devices_SmartCards`*"]
@@ -4167,6 +5247,46 @@ unsafe impl ::windows::runtime::Interface for SmartCardTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";
+}
+impl ::std::convert::From<SmartCardTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: SmartCardTriggerDetails) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&SmartCardTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &SmartCardTriggerDetails) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SmartCardTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SmartCardTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<SmartCardTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: SmartCardTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SmartCardTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &SmartCardTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SmartCardTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SmartCardTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::std::marker::Sync for SmartCardTriggerDetails {}

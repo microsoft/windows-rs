@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISceSvcAttachmentData(::windows::runtime::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
@@ -25,6 +25,26 @@ unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(398680030, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
 }
+impl ::std::convert::From<ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
+    fn from(value: ISceSvcAttachmentData) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
+    fn from(value: &ISceSvcAttachmentData) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISceSvcAttachmentData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentData_abi(
@@ -38,7 +58,7 @@ pub struct ISceSvcAttachmentData_abi(
 );
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISceSvcAttachmentPersistInfo(::windows::runtime::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -58,6 +78,26 @@ impl ISceSvcAttachmentPersistInfo {
 unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1838211280, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
+}
+impl ::std::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ISceSvcAttachmentPersistInfo) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentPersistInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISceSvcAttachmentPersistInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

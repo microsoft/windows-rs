@@ -58,7 +58,7 @@ pub struct IXsltProcessorFactory_abi(
 );
 #[doc = "*Required features: `Data_Xml_Xsl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XsltProcessor(::windows::runtime::IInspectable);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -101,6 +101,46 @@ unsafe impl ::windows::runtime::Interface for XsltProcessor {
 }
 impl ::windows::runtime::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
+}
+impl ::std::convert::From<XsltProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: XsltProcessor) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&XsltProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &XsltProcessor) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<XsltProcessor> for ::windows::runtime::IInspectable {
+    fn from(value: XsltProcessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&XsltProcessor> for ::windows::runtime::IInspectable {
+    fn from(value: &XsltProcessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XsltProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for XsltProcessor {}
 unsafe impl ::std::marker::Sync for XsltProcessor {}

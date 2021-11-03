@@ -65,7 +65,7 @@ impl ::windows::runtime::DefaultType for AutomationRemoteOperationOperandId {
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationRemoteOperationResult(::windows::runtime::IInspectable);
 impl AutomationRemoteOperationResult {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -119,6 +119,46 @@ unsafe impl ::windows::runtime::Interface for AutomationRemoteOperationResult {
 impl ::windows::runtime::RuntimeName for AutomationRemoteOperationResult {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
 }
+impl ::std::convert::From<AutomationRemoteOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: AutomationRemoteOperationResult) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AutomationRemoteOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &AutomationRemoteOperationResult) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AutomationRemoteOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AutomationRemoteOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AutomationRemoteOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: AutomationRemoteOperationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AutomationRemoteOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &AutomationRemoteOperationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AutomationRemoteOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AutomationRemoteOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AutomationRemoteOperationResult {}
 unsafe impl ::std::marker::Sync for AutomationRemoteOperationResult {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -170,7 +210,7 @@ impl ::windows::runtime::RuntimeName for CoreAutomationRegistrar {
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreAutomationRemoteOperation(::windows::runtime::IInspectable);
 impl CoreAutomationRemoteOperation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -227,11 +267,51 @@ unsafe impl ::windows::runtime::Interface for CoreAutomationRemoteOperation {
 impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperation {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
 }
+impl ::std::convert::From<CoreAutomationRemoteOperation> for ::windows::runtime::IUnknown {
+    fn from(value: CoreAutomationRemoteOperation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreAutomationRemoteOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreAutomationRemoteOperation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreAutomationRemoteOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreAutomationRemoteOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreAutomationRemoteOperation> for ::windows::runtime::IInspectable {
+    fn from(value: CoreAutomationRemoteOperation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreAutomationRemoteOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreAutomationRemoteOperation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreAutomationRemoteOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreAutomationRemoteOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CoreAutomationRemoteOperation {}
 unsafe impl ::std::marker::Sync for CoreAutomationRemoteOperation {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreAutomationRemoteOperationContext(::windows::runtime::IInspectable);
 impl CoreAutomationRemoteOperationContext {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -263,6 +343,46 @@ unsafe impl ::windows::runtime::Interface for CoreAutomationRemoteOperationConte
 impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperationContext {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
 }
+impl ::std::convert::From<CoreAutomationRemoteOperationContext> for ::windows::runtime::IUnknown {
+    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreAutomationRemoteOperationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreAutomationRemoteOperationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CoreAutomationRemoteOperationContext> for ::windows::runtime::IInspectable {
+    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreAutomationRemoteOperationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreAutomationRemoteOperationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CoreAutomationRemoteOperationContext {}
 unsafe impl ::std::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[repr(transparent)]
@@ -288,7 +408,7 @@ pub struct IAutomationRemoteOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operandid: AutomationRemoteOperationOperandId, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct ICoreAutomationConnectionBoundObjectProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationConnectionBoundObjectProvider {
@@ -307,6 +427,46 @@ impl ICoreAutomationConnectionBoundObjectProvider {
 }
 unsafe impl ::windows::runtime::RuntimeType for ICoreAutomationConnectionBoundObjectProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0620bb64-9616-5593-be3a-eb8e6daeb3fa}");
+}
+impl ::std::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ICoreAutomationConnectionBoundObjectProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ICoreAutomationConnectionBoundObjectProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoreAutomationConnectionBoundObjectProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICoreAutomationConnectionBoundObjectProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IInspectable {
+    fn from(value: ICoreAutomationConnectionBoundObjectProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &ICoreAutomationConnectionBoundObjectProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICoreAutomationConnectionBoundObjectProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICoreAutomationConnectionBoundObjectProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,7 +559,7 @@ pub struct ICoreAutomationRemoteOperationContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: AutomationRemoteOperationOperandId, operand: ::windows::runtime::RawPtr, operandinterfaceid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct ICoreAutomationRemoteOperationExtensionProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperationExtensionProvider {
@@ -423,6 +583,46 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
 }
 unsafe impl ::windows::runtime::RuntimeType for ICoreAutomationRemoteOperationExtensionProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{88f53e67-dc69-553b-a0aa-70477e724da8}");
+}
+impl ::std::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IUnknown {
+    fn from(value: ICoreAutomationRemoteOperationExtensionProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &ICoreAutomationRemoteOperationExtensionProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoreAutomationRemoteOperationExtensionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICoreAutomationRemoteOperationExtensionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IInspectable {
+    fn from(value: ICoreAutomationRemoteOperationExtensionProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &ICoreAutomationRemoteOperationExtensionProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICoreAutomationRemoteOperationExtensionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICoreAutomationRemoteOperationExtensionProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -562,7 +762,7 @@ pub struct IRemoteAutomationWindow_abi(
 );
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteAutomationClientSession(::windows::runtime::IInspectable);
 impl RemoteAutomationClientSession {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -651,11 +851,51 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationClientSession {
 impl ::windows::runtime::RuntimeName for RemoteAutomationClientSession {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationClientSession";
 }
+impl ::std::convert::From<RemoteAutomationClientSession> for ::windows::runtime::IUnknown {
+    fn from(value: RemoteAutomationClientSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RemoteAutomationClientSession> for ::windows::runtime::IUnknown {
+    fn from(value: &RemoteAutomationClientSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteAutomationClientSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteAutomationClientSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RemoteAutomationClientSession> for ::windows::runtime::IInspectable {
+    fn from(value: RemoteAutomationClientSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RemoteAutomationClientSession> for ::windows::runtime::IInspectable {
+    fn from(value: &RemoteAutomationClientSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoteAutomationClientSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoteAutomationClientSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RemoteAutomationClientSession {}
 unsafe impl ::std::marker::Sync for RemoteAutomationClientSession {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteAutomationConnectionRequestedEventArgs(::windows::runtime::IInspectable);
 impl RemoteAutomationConnectionRequestedEventArgs {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -685,11 +925,51 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationConnectionRequeste
 impl ::windows::runtime::RuntimeName for RemoteAutomationConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs";
 }
+impl ::std::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: RemoteAutomationConnectionRequestedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteAutomationConnectionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteAutomationConnectionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: RemoteAutomationConnectionRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoteAutomationConnectionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoteAutomationConnectionRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RemoteAutomationConnectionRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for RemoteAutomationConnectionRequestedEventArgs {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteAutomationDisconnectedEventArgs(::windows::runtime::IInspectable);
 impl RemoteAutomationDisconnectedEventArgs {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -711,6 +991,46 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationDisconnectedEventA
 impl ::windows::runtime::RuntimeName for RemoteAutomationDisconnectedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs";
 }
+impl ::std::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: RemoteAutomationDisconnectedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteAutomationDisconnectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteAutomationDisconnectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: RemoteAutomationDisconnectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoteAutomationDisconnectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoteAutomationDisconnectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for RemoteAutomationDisconnectedEventArgs {}
 unsafe impl ::std::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -730,7 +1050,7 @@ impl ::windows::runtime::RuntimeName for RemoteAutomationServer {
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteAutomationWindow(::windows::runtime::IInspectable);
 impl RemoteAutomationWindow {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
@@ -760,6 +1080,46 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationWindow {
 }
 impl ::windows::runtime::RuntimeName for RemoteAutomationWindow {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationWindow";
+}
+impl ::std::convert::From<RemoteAutomationWindow> for ::windows::runtime::IUnknown {
+    fn from(value: RemoteAutomationWindow) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RemoteAutomationWindow> for ::windows::runtime::IUnknown {
+    fn from(value: &RemoteAutomationWindow) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteAutomationWindow {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteAutomationWindow {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RemoteAutomationWindow> for ::windows::runtime::IInspectable {
+    fn from(value: RemoteAutomationWindow) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RemoteAutomationWindow> for ::windows::runtime::IInspectable {
+    fn from(value: &RemoteAutomationWindow) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoteAutomationWindow {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoteAutomationWindow {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for RemoteAutomationWindow {}
 unsafe impl ::std::marker::Sync for RemoteAutomationWindow {}

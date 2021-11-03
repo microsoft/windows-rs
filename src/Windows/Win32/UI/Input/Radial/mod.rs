@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRadialControllerConfigurationInterop(::windows::runtime::IUnknown);
 impl IRadialControllerConfigurationInterop {
     #[cfg(feature = "Win32_Foundation")]
@@ -14,6 +14,26 @@ impl IRadialControllerConfigurationInterop {
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationInterop {
     type Vtable = IRadialControllerConfigurationInterop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2021448364, 12678, 18285, [135, 228, 185, 55, 74, 123, 153, 112]);
+}
+impl ::std::convert::From<IRadialControllerConfigurationInterop> for ::windows::runtime::IUnknown {
+    fn from(value: IRadialControllerConfigurationInterop) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRadialControllerConfigurationInterop> for ::windows::runtime::IUnknown {
+    fn from(value: &IRadialControllerConfigurationInterop) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadialControllerConfigurationInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadialControllerConfigurationInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,7 +49,7 @@ pub struct IRadialControllerConfigurationInterop_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRadialControllerIndependentInputSourceInterop(::windows::runtime::IUnknown);
 impl IRadialControllerIndependentInputSourceInterop {
     #[cfg(feature = "Win32_Foundation")]
@@ -42,6 +62,26 @@ impl IRadialControllerIndependentInputSourceInterop {
 unsafe impl ::windows::runtime::Interface for IRadialControllerIndependentInputSourceInterop {
     type Vtable = IRadialControllerIndependentInputSourceInterop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029144319, 19694, 4582, [181, 53, 0, 27, 220, 6, 171, 59]);
+}
+impl ::std::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::runtime::IUnknown {
+    fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRadialControllerIndependentInputSourceInterop> for ::windows::runtime::IUnknown {
+    fn from(value: &IRadialControllerIndependentInputSourceInterop) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadialControllerIndependentInputSourceInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadialControllerIndependentInputSourceInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -57,7 +97,7 @@ pub struct IRadialControllerIndependentInputSourceInterop_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRadialControllerInterop(::windows::runtime::IUnknown);
 impl IRadialControllerInterop {
     #[cfg(feature = "Win32_Foundation")]
@@ -70,6 +110,26 @@ impl IRadialControllerInterop {
 unsafe impl ::windows::runtime::Interface for IRadialControllerInterop {
     type Vtable = IRadialControllerInterop_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(453326281, 22445, 17857, [157, 121, 173, 92, 52, 54, 5, 19]);
+}
+impl ::std::convert::From<IRadialControllerInterop> for ::windows::runtime::IUnknown {
+    fn from(value: IRadialControllerInterop) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRadialControllerInterop> for ::windows::runtime::IUnknown {
+    fn from(value: &IRadialControllerInterop) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRadialControllerInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRadialControllerInterop {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

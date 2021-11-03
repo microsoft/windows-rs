@@ -2418,7 +2418,7 @@ unsafe impl ::windows::runtime::Abi for GNSS_V2UPL_NI_INFO {
 pub const GUID_DEVINTERFACE_GNSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859235812, 394, 18025, [132, 197, 189, 5, 243, 189, 54, 139]);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICivicAddressReport(::windows::runtime::IUnknown);
 impl ICivicAddressReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2484,6 +2484,26 @@ unsafe impl ::windows::runtime::Interface for ICivicAddressReport {
     type Vtable = ICivicAddressReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232866160, 19167, 17501, [135, 242, 202, 216, 253, 113, 23, 146]);
 }
+impl ::std::convert::From<ICivicAddressReport> for ::windows::runtime::IUnknown {
+    fn from(value: ICivicAddressReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICivicAddressReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ICivicAddressReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICivicAddressReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICivicAddressReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ICivicAddressReport> for ILocationReport {
     fn from(value: ICivicAddressReport) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2531,7 +2551,7 @@ pub struct ICivicAddressReport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICivicAddressReportFactory(::windows::runtime::IUnknown);
 impl ICivicAddressReportFactory {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2599,6 +2619,26 @@ impl ICivicAddressReportFactory {
 unsafe impl ::windows::runtime::Interface for ICivicAddressReportFactory {
     type Vtable = ICivicAddressReportFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212262291, 50767, 19438, [190, 178, 103, 192, 184, 223, 102, 224]);
+}
+impl ::std::convert::From<ICivicAddressReportFactory> for ::windows::runtime::IUnknown {
+    fn from(value: ICivicAddressReportFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ICivicAddressReportFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &ICivicAddressReportFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICivicAddressReportFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ICivicAddressReportFactory> for ILocationReportFactory {
     fn from(value: ICivicAddressReportFactory) -> Self {
@@ -2670,7 +2710,7 @@ pub struct ICivicAddressReportFactory_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDefaultLocation(::windows::runtime::IUnknown);
 impl IDefaultLocation {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2687,6 +2727,26 @@ unsafe impl ::windows::runtime::Interface for IDefaultLocation {
     type Vtable = IDefaultLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2790979454, 38554, 18990, [138, 202, 51, 187, 124, 187, 18, 53]);
 }
+impl ::std::convert::From<IDefaultLocation> for ::windows::runtime::IUnknown {
+    fn from(value: IDefaultLocation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDefaultLocation> for ::windows::runtime::IUnknown {
+    fn from(value: &IDefaultLocation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDefaultLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDefaultLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultLocation_abi(
@@ -2698,7 +2758,7 @@ pub struct IDefaultLocation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDispCivicAddressReport(::windows::runtime::IUnknown);
 impl IDispCivicAddressReport {
     #[cfg(feature = "Win32_Foundation")]
@@ -2751,6 +2811,26 @@ impl IDispCivicAddressReport {
 unsafe impl ::windows::runtime::Interface for IDispCivicAddressReport {
     type Vtable = IDispCivicAddressReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(385817140, 40496, 17091, [180, 77, 226, 37, 19, 181, 118, 122]);
+}
+impl ::std::convert::From<IDispCivicAddressReport> for ::windows::runtime::IUnknown {
+    fn from(value: IDispCivicAddressReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDispCivicAddressReport> for ::windows::runtime::IUnknown {
+    fn from(value: &IDispCivicAddressReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDispCivicAddressReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDispCivicAddressReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDispCivicAddressReport> for super::super::System::Ole::Automation::IDispatch {
@@ -2807,7 +2887,7 @@ pub struct IDispCivicAddressReport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDispLatLongReport(::windows::runtime::IUnknown);
 impl IDispLatLongReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2844,6 +2924,26 @@ impl IDispLatLongReport {
 unsafe impl ::windows::runtime::Interface for IDispLatLongReport {
     type Vtable = IDispLatLongReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2330142499, 14491, 18961, [153, 87, 91, 221, 72, 252, 150, 23]);
+}
+impl ::std::convert::From<IDispLatLongReport> for ::windows::runtime::IUnknown {
+    fn from(value: IDispLatLongReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDispLatLongReport> for ::windows::runtime::IUnknown {
+    fn from(value: &IDispLatLongReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDispLatLongReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDispLatLongReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDispLatLongReport> for super::super::System::Ole::Automation::IDispatch {
@@ -2892,7 +2992,7 @@ pub struct IDispLatLongReport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILatLongReport(::windows::runtime::IUnknown);
 impl ILatLongReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -2942,6 +3042,26 @@ unsafe impl ::windows::runtime::Interface for ILatLongReport {
     type Vtable = ILatLongReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2146271341, 3832, 20231, [128, 172, 54, 160, 190, 174, 49, 52]);
 }
+impl ::std::convert::From<ILatLongReport> for ::windows::runtime::IUnknown {
+    fn from(value: ILatLongReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILatLongReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ILatLongReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILatLongReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILatLongReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 impl ::std::convert::From<ILatLongReport> for ILocationReport {
     fn from(value: ILatLongReport) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2981,7 +3101,7 @@ pub struct ILatLongReport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILatLongReportFactory(::windows::runtime::IUnknown);
 impl ILatLongReportFactory {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3049,6 +3169,26 @@ impl ILatLongReportFactory {
 unsafe impl ::windows::runtime::Interface for ILatLongReportFactory {
     type Vtable = ILatLongReportFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057490123, 45332, 17533, [131, 221, 57, 1, 116, 235, 176, 130]);
+}
+impl ::std::convert::From<ILatLongReportFactory> for ::windows::runtime::IUnknown {
+    fn from(value: ILatLongReportFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILatLongReportFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &ILatLongReportFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILatLongReportFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILatLongReportFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 impl ::std::convert::From<ILatLongReportFactory> for ILocationReportFactory {
     fn from(value: ILatLongReportFactory) -> Self {
@@ -3120,7 +3260,7 @@ pub struct ILatLongReportFactory_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILocation(::windows::runtime::IUnknown);
 impl ILocation {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3171,6 +3311,26 @@ unsafe impl ::windows::runtime::Interface for ILocation {
     type Vtable = ILocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2871971433, 22233, 20264, [181, 37, 222, 27, 14, 228, 66, 55]);
 }
+impl ::std::convert::From<ILocation> for ::windows::runtime::IUnknown {
+    fn from(value: ILocation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILocation> for ::windows::runtime::IUnknown {
+    fn from(value: &ILocation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocation_abi(
@@ -3192,7 +3352,7 @@ pub struct ILocation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILocationEvents(::windows::runtime::IUnknown);
 impl ILocationEvents {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3208,6 +3368,26 @@ unsafe impl ::windows::runtime::Interface for ILocationEvents {
     type Vtable = ILocationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3403688895, 31115, 17672, [162, 7, 53, 167, 144, 109, 199, 61]);
 }
+impl ::std::convert::From<ILocationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: ILocationEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILocationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &ILocationEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILocationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationEvents_abi(
@@ -3219,7 +3399,7 @@ pub struct ILocationEvents_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILocationPower(::windows::runtime::IUnknown);
 impl ILocationPower {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3235,6 +3415,26 @@ unsafe impl ::windows::runtime::Interface for ILocationPower {
     type Vtable = ILocationPower_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423524137, 43883, 19218, [134, 23, 117, 150, 225, 187, 25, 28]);
 }
+impl ::std::convert::From<ILocationPower> for ::windows::runtime::IUnknown {
+    fn from(value: ILocationPower) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILocationPower> for ::windows::runtime::IUnknown {
+    fn from(value: &ILocationPower) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationPower {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILocationPower {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationPower_abi(
@@ -3246,7 +3446,7 @@ pub struct ILocationPower_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILocationReport(::windows::runtime::IUnknown);
 impl ILocationReport {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3271,6 +3471,26 @@ unsafe impl ::windows::runtime::Interface for ILocationReport {
     type Vtable = ILocationReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367499758, 30160, 19897, [182, 45, 122, 15, 54, 156, 164, 86]);
 }
+impl ::std::convert::From<ILocationReport> for ::windows::runtime::IUnknown {
+    fn from(value: ILocationReport) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILocationReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ILocationReport) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILocationReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationReport_abi(
@@ -3285,7 +3505,7 @@ pub struct ILocationReport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILocationReportFactory(::windows::runtime::IUnknown);
 impl ILocationReportFactory {
     #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3327,6 +3547,26 @@ impl ILocationReportFactory {
 unsafe impl ::windows::runtime::Interface for ILocationReportFactory {
     type Vtable = ILocationReportFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(766427938, 37042, 18404, [187, 8, 13, 168, 65, 147, 90, 107]);
+}
+impl ::std::convert::From<ILocationReportFactory> for ::windows::runtime::IUnknown {
+    fn from(value: ILocationReportFactory) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ILocationReportFactory> for ::windows::runtime::IUnknown {
+    fn from(value: &ILocationReportFactory) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationReportFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILocationReportFactory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ILocationReportFactory> for super::super::System::Ole::Automation::IDispatch {
@@ -3461,12 +3701,32 @@ pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct _ICivicAddressReportFactoryEvents(::windows::runtime::IUnknown);
 impl _ICivicAddressReportFactoryEvents {}
 unsafe impl ::windows::runtime::Interface for _ICivicAddressReportFactoryEvents {
     type Vtable = _ICivicAddressReportFactoryEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378526719, 29420, 17943, [137, 189, 132, 216, 139, 237, 199, 34]);
+}
+impl ::std::convert::From<_ICivicAddressReportFactoryEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _ICivicAddressReportFactoryEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_ICivicAddressReportFactoryEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_ICivicAddressReportFactoryEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ICivicAddressReportFactoryEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_ICivicAddressReportFactoryEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_ICivicAddressReportFactoryEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -3509,12 +3769,32 @@ pub struct _ICivicAddressReportFactoryEvents_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct _ILatLongReportFactoryEvents(::windows::runtime::IUnknown);
 impl _ILatLongReportFactoryEvents {}
 unsafe impl ::windows::runtime::Interface for _ILatLongReportFactoryEvents {
     type Vtable = _ILatLongReportFactoryEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(384724151, 43836, 16971, [132, 159, 38, 155, 229, 81, 252, 188]);
+}
+impl ::std::convert::From<_ILatLongReportFactoryEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _ILatLongReportFactoryEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_ILatLongReportFactoryEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_ILatLongReportFactoryEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ILatLongReportFactoryEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_ILatLongReportFactoryEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_ILatLongReportFactoryEvents> for super::super::System::Ole::Automation::IDispatch {

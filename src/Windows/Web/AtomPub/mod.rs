@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AtomPubClient(::windows::runtime::IInspectable);
 impl AtomPubClient {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -225,6 +225,46 @@ unsafe impl ::windows::runtime::Interface for AtomPubClient {
 impl ::windows::runtime::RuntimeName for AtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.AtomPubClient";
 }
+impl ::std::convert::From<AtomPubClient> for ::windows::runtime::IUnknown {
+    fn from(value: AtomPubClient) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AtomPubClient> for ::windows::runtime::IUnknown {
+    fn from(value: &AtomPubClient) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AtomPubClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AtomPubClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AtomPubClient> for ::windows::runtime::IInspectable {
+    fn from(value: AtomPubClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AtomPubClient> for ::windows::runtime::IInspectable {
+    fn from(value: &AtomPubClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AtomPubClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AtomPubClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Web_Syndication")]
 impl ::std::convert::TryFrom<AtomPubClient> for super::Syndication::ISyndicationClient {
     type Error = ::windows::runtime::Error;
@@ -377,7 +417,7 @@ pub struct IWorkspace_abi(
 );
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceCollection(::windows::runtime::IInspectable);
 impl ResourceCollection {
     #[cfg(feature = "Web_Syndication")]
@@ -529,6 +569,46 @@ unsafe impl ::windows::runtime::Interface for ResourceCollection {
 impl ::windows::runtime::RuntimeName for ResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.ResourceCollection";
 }
+impl ::std::convert::From<ResourceCollection> for ::windows::runtime::IUnknown {
+    fn from(value: ResourceCollection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ResourceCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &ResourceCollection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResourceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ResourceCollection> for ::windows::runtime::IInspectable {
+    fn from(value: ResourceCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ResourceCollection> for ::windows::runtime::IInspectable {
+    fn from(value: &ResourceCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ResourceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ResourceCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Web_Syndication")]
 impl ::std::convert::TryFrom<ResourceCollection> for super::Syndication::ISyndicationNode {
     type Error = ::windows::runtime::Error;
@@ -559,7 +639,7 @@ unsafe impl ::std::marker::Send for ResourceCollection {}
 unsafe impl ::std::marker::Sync for ResourceCollection {}
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ServiceDocument(::windows::runtime::IInspectable);
 impl ServiceDocument {
     #[cfg(feature = "Foundation_Collections")]
@@ -684,6 +764,46 @@ unsafe impl ::windows::runtime::Interface for ServiceDocument {
 impl ::windows::runtime::RuntimeName for ServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.ServiceDocument";
 }
+impl ::std::convert::From<ServiceDocument> for ::windows::runtime::IUnknown {
+    fn from(value: ServiceDocument) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ServiceDocument> for ::windows::runtime::IUnknown {
+    fn from(value: &ServiceDocument) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServiceDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServiceDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<ServiceDocument> for ::windows::runtime::IInspectable {
+    fn from(value: ServiceDocument) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ServiceDocument> for ::windows::runtime::IInspectable {
+    fn from(value: &ServiceDocument) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ServiceDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ServiceDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Web_Syndication")]
 impl ::std::convert::TryFrom<ServiceDocument> for super::Syndication::ISyndicationNode {
     type Error = ::windows::runtime::Error;
@@ -714,7 +834,7 @@ unsafe impl ::std::marker::Send for ServiceDocument {}
 unsafe impl ::std::marker::Sync for ServiceDocument {}
 #[doc = "*Required features: `Web_AtomPub`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Workspace(::windows::runtime::IInspectable);
 impl Workspace {
     #[cfg(feature = "Web_Syndication")]
@@ -847,6 +967,46 @@ unsafe impl ::windows::runtime::Interface for Workspace {
 }
 impl ::windows::runtime::RuntimeName for Workspace {
     const NAME: &'static str = "Windows.Web.AtomPub.Workspace";
+}
+impl ::std::convert::From<Workspace> for ::windows::runtime::IUnknown {
+    fn from(value: Workspace) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Workspace> for ::windows::runtime::IUnknown {
+    fn from(value: &Workspace) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Workspace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Workspace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Workspace> for ::windows::runtime::IInspectable {
+    fn from(value: Workspace) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Workspace> for ::windows::runtime::IInspectable {
+    fn from(value: &Workspace) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Workspace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Workspace {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Web_Syndication")]
 impl ::std::convert::TryFrom<Workspace> for super::Syndication::ISyndicationNode {

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingConnection(::windows::runtime::IInspectable);
 impl CastingConnection {
     #[doc = "*Required features: `Media_Casting`*"]
@@ -98,6 +98,46 @@ unsafe impl ::windows::runtime::Interface for CastingConnection {
 impl ::windows::runtime::RuntimeName for CastingConnection {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnection";
 }
+impl ::std::convert::From<CastingConnection> for ::windows::runtime::IUnknown {
+    fn from(value: CastingConnection) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingConnection) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingConnection> for ::windows::runtime::IInspectable {
+    fn from(value: CastingConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CastingConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -128,7 +168,7 @@ unsafe impl ::std::marker::Send for CastingConnection {}
 unsafe impl ::std::marker::Sync for CastingConnection {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingConnectionErrorOccurredEventArgs(::windows::runtime::IInspectable);
 impl CastingConnectionErrorOccurredEventArgs {
     #[doc = "*Required features: `Media_Casting`*"]
@@ -157,6 +197,46 @@ unsafe impl ::windows::runtime::Interface for CastingConnectionErrorOccurredEven
 }
 impl ::windows::runtime::RuntimeName for CastingConnectionErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
+}
+impl ::std::convert::From<CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CastingConnectionErrorOccurredEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingConnectionErrorOccurredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingConnectionErrorOccurredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CastingConnectionErrorOccurredEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingConnectionErrorOccurredEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingConnectionErrorOccurredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingConnectionErrorOccurredEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::std::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
@@ -214,7 +294,7 @@ impl ::windows::runtime::DefaultType for CastingConnectionState {
 }
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDevice(::windows::runtime::IInspectable);
 impl CastingDevice {
     #[doc = "*Required features: `Media_Casting`*"]
@@ -305,11 +385,51 @@ unsafe impl ::windows::runtime::Interface for CastingDevice {
 impl ::windows::runtime::RuntimeName for CastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevice";
 }
+impl ::std::convert::From<CastingDevice> for ::windows::runtime::IUnknown {
+    fn from(value: CastingDevice) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingDevice) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingDevice> for ::windows::runtime::IInspectable {
+    fn from(value: CastingDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CastingDevice {}
 unsafe impl ::std::marker::Sync for CastingDevice {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDevicePicker(::windows::runtime::IInspectable);
 impl CastingDevicePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -394,11 +514,51 @@ unsafe impl ::windows::runtime::Interface for CastingDevicePicker {
 impl ::windows::runtime::RuntimeName for CastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePicker";
 }
+impl ::std::convert::From<CastingDevicePicker> for ::windows::runtime::IUnknown {
+    fn from(value: CastingDevicePicker) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingDevicePicker> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingDevicePicker) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDevicePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDevicePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingDevicePicker> for ::windows::runtime::IInspectable {
+    fn from(value: CastingDevicePicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingDevicePicker> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingDevicePicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingDevicePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingDevicePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CastingDevicePicker {}
 unsafe impl ::std::marker::Sync for CastingDevicePicker {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDevicePickerFilter(::windows::runtime::IInspectable);
 impl CastingDevicePickerFilter {
     #[doc = "*Required features: `Media_Casting`*"]
@@ -460,11 +620,51 @@ unsafe impl ::windows::runtime::Interface for CastingDevicePickerFilter {
 impl ::windows::runtime::RuntimeName for CastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePickerFilter";
 }
+impl ::std::convert::From<CastingDevicePickerFilter> for ::windows::runtime::IUnknown {
+    fn from(value: CastingDevicePickerFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingDevicePickerFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingDevicePickerFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDevicePickerFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDevicePickerFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingDevicePickerFilter> for ::windows::runtime::IInspectable {
+    fn from(value: CastingDevicePickerFilter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingDevicePickerFilter> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingDevicePickerFilter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingDevicePickerFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingDevicePickerFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CastingDevicePickerFilter {}
 unsafe impl ::std::marker::Sync for CastingDevicePickerFilter {}
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 impl CastingDeviceSelectedEventArgs {
     #[doc = "*Required features: `Media_Casting`*"]
@@ -485,6 +685,46 @@ unsafe impl ::windows::runtime::Interface for CastingDeviceSelectedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for CastingDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingDeviceSelectedEventArgs";
+}
+impl ::std::convert::From<CastingDeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: CastingDeviceSelectedEventArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingDeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingDeviceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingDeviceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingDeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: CastingDeviceSelectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingDeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingDeviceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingDeviceSelectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::std::marker::Sync for CastingDeviceSelectedEventArgs {}
@@ -542,7 +782,7 @@ impl ::std::ops::Not for CastingPlaybackTypes {
 }
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingSource(::windows::runtime::IInspectable);
 impl CastingSource {
     #[cfg(feature = "Foundation")]
@@ -570,6 +810,46 @@ unsafe impl ::windows::runtime::Interface for CastingSource {
 }
 impl ::windows::runtime::RuntimeName for CastingSource {
     const NAME: &'static str = "Windows.Media.Casting.CastingSource";
+}
+impl ::std::convert::From<CastingSource> for ::windows::runtime::IUnknown {
+    fn from(value: CastingSource) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&CastingSource> for ::windows::runtime::IUnknown {
+    fn from(value: &CastingSource) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CastingSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CastingSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<CastingSource> for ::windows::runtime::IInspectable {
+    fn from(value: CastingSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CastingSource> for ::windows::runtime::IInspectable {
+    fn from(value: &CastingSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CastingSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CastingSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for CastingSource {}
 unsafe impl ::std::marker::Sync for CastingSource {}

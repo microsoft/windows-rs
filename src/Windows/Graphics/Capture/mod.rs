@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Direct3D11CaptureFrame(::windows::runtime::IInspectable);
 impl Direct3D11CaptureFrame {
     #[cfg(feature = "Foundation")]
@@ -47,6 +47,46 @@ unsafe impl ::windows::runtime::Interface for Direct3D11CaptureFrame {
 impl ::windows::runtime::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
 }
+impl ::std::convert::From<Direct3D11CaptureFrame> for ::windows::runtime::IUnknown {
+    fn from(value: Direct3D11CaptureFrame) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &Direct3D11CaptureFrame) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Direct3D11CaptureFrame> for ::windows::runtime::IInspectable {
+    fn from(value: Direct3D11CaptureFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &Direct3D11CaptureFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Direct3D11CaptureFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Direct3D11CaptureFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -77,7 +117,7 @@ unsafe impl ::std::marker::Send for Direct3D11CaptureFrame {}
 unsafe impl ::std::marker::Sync for Direct3D11CaptureFrame {}
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Direct3D11CaptureFramePool(::windows::runtime::IInspectable);
 impl Direct3D11CaptureFramePool {
     #[cfg(feature = "Foundation")]
@@ -167,6 +207,46 @@ unsafe impl ::windows::runtime::Interface for Direct3D11CaptureFramePool {
 impl ::windows::runtime::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
 }
+impl ::std::convert::From<Direct3D11CaptureFramePool> for ::windows::runtime::IUnknown {
+    fn from(value: Direct3D11CaptureFramePool) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFramePool> for ::windows::runtime::IUnknown {
+    fn from(value: &Direct3D11CaptureFramePool) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Direct3D11CaptureFramePool> for ::windows::runtime::IInspectable {
+    fn from(value: Direct3D11CaptureFramePool) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Direct3D11CaptureFramePool> for ::windows::runtime::IInspectable {
+    fn from(value: &Direct3D11CaptureFramePool) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Direct3D11CaptureFramePool {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Direct3D11CaptureFramePool> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -238,7 +318,7 @@ impl ::windows::runtime::DefaultType for GraphicsCaptureAccessKind {
 }
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GraphicsCaptureItem(::windows::runtime::IInspectable);
 impl GraphicsCaptureItem {
     #[doc = "*Required features: `Graphics_Capture`*"]
@@ -314,11 +394,51 @@ unsafe impl ::windows::runtime::Interface for GraphicsCaptureItem {
 impl ::windows::runtime::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
 }
+impl ::std::convert::From<GraphicsCaptureItem> for ::windows::runtime::IUnknown {
+    fn from(value: GraphicsCaptureItem) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureItem> for ::windows::runtime::IUnknown {
+    fn from(value: &GraphicsCaptureItem) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GraphicsCaptureItem> for ::windows::runtime::IInspectable {
+    fn from(value: GraphicsCaptureItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureItem> for ::windows::runtime::IInspectable {
+    fn from(value: &GraphicsCaptureItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GraphicsCaptureItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::std::marker::Sync for GraphicsCaptureItem {}
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GraphicsCapturePicker(::windows::runtime::IInspectable);
 impl GraphicsCapturePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -348,11 +468,51 @@ unsafe impl ::windows::runtime::Interface for GraphicsCapturePicker {
 impl ::windows::runtime::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
 }
+impl ::std::convert::From<GraphicsCapturePicker> for ::windows::runtime::IUnknown {
+    fn from(value: GraphicsCapturePicker) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GraphicsCapturePicker> for ::windows::runtime::IUnknown {
+    fn from(value: &GraphicsCapturePicker) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GraphicsCapturePicker> for ::windows::runtime::IInspectable {
+    fn from(value: GraphicsCapturePicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GraphicsCapturePicker> for ::windows::runtime::IInspectable {
+    fn from(value: &GraphicsCapturePicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GraphicsCapturePicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::std::marker::Sync for GraphicsCapturePicker {}
 #[doc = "*Required features: `Graphics_Capture`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GraphicsCaptureSession(::windows::runtime::IInspectable);
 impl GraphicsCaptureSession {
     #[cfg(feature = "Foundation")]
@@ -413,6 +573,46 @@ unsafe impl ::windows::runtime::Interface for GraphicsCaptureSession {
 }
 impl ::windows::runtime::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";
+}
+impl ::std::convert::From<GraphicsCaptureSession> for ::windows::runtime::IUnknown {
+    fn from(value: GraphicsCaptureSession) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureSession> for ::windows::runtime::IUnknown {
+    fn from(value: &GraphicsCaptureSession) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<GraphicsCaptureSession> for ::windows::runtime::IInspectable {
+    fn from(value: GraphicsCaptureSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&GraphicsCaptureSession> for ::windows::runtime::IInspectable {
+    fn from(value: &GraphicsCaptureSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GraphicsCaptureSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<GraphicsCaptureSession> for super::super::Foundation::IClosable {

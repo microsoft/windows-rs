@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Buffer(::windows::runtime::IInspectable);
 impl Buffer {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -67,6 +67,46 @@ unsafe impl ::windows::runtime::Interface for Buffer {
 impl ::windows::runtime::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
 }
+impl ::std::convert::From<Buffer> for ::windows::runtime::IUnknown {
+    fn from(value: Buffer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&Buffer> for ::windows::runtime::IUnknown {
+    fn from(value: &Buffer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Buffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Buffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<Buffer> for ::windows::runtime::IInspectable {
+    fn from(value: Buffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Buffer> for ::windows::runtime::IInspectable {
+    fn from(value: &Buffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Buffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Buffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<Buffer> for IBuffer {
     fn from(value: Buffer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -113,7 +153,7 @@ impl ::windows::runtime::DefaultType for ByteOrder {
 }
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DataReader(::windows::runtime::IInspectable);
 impl DataReader {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -354,6 +394,46 @@ unsafe impl ::windows::runtime::Interface for DataReader {
 impl ::windows::runtime::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
 }
+impl ::std::convert::From<DataReader> for ::windows::runtime::IUnknown {
+    fn from(value: DataReader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DataReader> for ::windows::runtime::IUnknown {
+    fn from(value: &DataReader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DataReader> for ::windows::runtime::IInspectable {
+    fn from(value: DataReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DataReader> for ::windows::runtime::IInspectable {
+    fn from(value: &DataReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<DataReader> for IDataReader {
     fn from(value: DataReader) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -405,7 +485,7 @@ unsafe impl ::std::marker::Sync for DataReader {}
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Storage_Streams`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DataReaderLoadOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl DataReaderLoadOperation {
@@ -514,6 +594,54 @@ impl ::std::future::Future for DataReaderLoadOperation {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::std::convert::From<DataReaderLoadOperation> for ::windows::runtime::IUnknown {
+    fn from(value: DataReaderLoadOperation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DataReaderLoadOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &DataReaderLoadOperation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataReaderLoadOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataReaderLoadOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<DataReaderLoadOperation> for ::windows::runtime::IInspectable {
+    fn from(value: DataReaderLoadOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DataReaderLoadOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &DataReaderLoadOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataReaderLoadOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataReaderLoadOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
 impl ::std::convert::From<DataReaderLoadOperation> for super::super::Foundation::IAsyncOperation<u32> {
     fn from(value: DataReaderLoadOperation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -569,7 +697,7 @@ unsafe impl ::std::marker::Send for DataReaderLoadOperation {}
 unsafe impl ::std::marker::Sync for DataReaderLoadOperation {}
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DataWriter(::windows::runtime::IInspectable);
 impl DataWriter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -773,6 +901,46 @@ unsafe impl ::windows::runtime::Interface for DataWriter {
 impl ::windows::runtime::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
 }
+impl ::std::convert::From<DataWriter> for ::windows::runtime::IUnknown {
+    fn from(value: DataWriter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DataWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &DataWriter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<DataWriter> for ::windows::runtime::IInspectable {
+    fn from(value: DataWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DataWriter> for ::windows::runtime::IInspectable {
+    fn from(value: &DataWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<DataWriter> for IDataWriter {
     fn from(value: DataWriter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -824,7 +992,7 @@ unsafe impl ::std::marker::Sync for DataWriter {}
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Storage_Streams`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DataWriterStoreOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl DataWriterStoreOperation {
@@ -933,6 +1101,54 @@ impl ::std::future::Future for DataWriterStoreOperation {
     }
 }
 #[cfg(feature = "Foundation")]
+impl ::std::convert::From<DataWriterStoreOperation> for ::windows::runtime::IUnknown {
+    fn from(value: DataWriterStoreOperation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DataWriterStoreOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &DataWriterStoreOperation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataWriterStoreOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataWriterStoreOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<DataWriterStoreOperation> for ::windows::runtime::IInspectable {
+    fn from(value: DataWriterStoreOperation) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::std::convert::From<&DataWriterStoreOperation> for ::windows::runtime::IInspectable {
+    fn from(value: &DataWriterStoreOperation) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataWriterStoreOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataWriterStoreOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Foundation")]
 impl ::std::convert::From<DataWriterStoreOperation> for super::super::Foundation::IAsyncOperation<u32> {
     fn from(value: DataWriterStoreOperation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -988,7 +1204,7 @@ unsafe impl ::std::marker::Send for DataWriterStoreOperation {}
 unsafe impl ::std::marker::Sync for DataWriterStoreOperation {}
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileInputStream(::windows::runtime::IInspectable);
 impl FileInputStream {
     #[cfg(feature = "Foundation")]
@@ -1016,6 +1232,46 @@ unsafe impl ::windows::runtime::Interface for FileInputStream {
 }
 impl ::windows::runtime::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
+}
+impl ::std::convert::From<FileInputStream> for ::windows::runtime::IUnknown {
+    fn from(value: FileInputStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FileInputStream> for ::windows::runtime::IUnknown {
+    fn from(value: &FileInputStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FileInputStream> for ::windows::runtime::IInspectable {
+    fn from(value: FileInputStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileInputStream> for ::windows::runtime::IInspectable {
+    fn from(value: &FileInputStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<FileInputStream> for IInputStream {
     fn from(value: FileInputStream) -> Self {
@@ -1092,7 +1348,7 @@ impl ::windows::runtime::DefaultType for FileOpenDisposition {
 }
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileOutputStream(::windows::runtime::IInspectable);
 impl FileOutputStream {
     #[cfg(feature = "Foundation")]
@@ -1129,6 +1385,46 @@ unsafe impl ::windows::runtime::Interface for FileOutputStream {
 }
 impl ::windows::runtime::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
+}
+impl ::std::convert::From<FileOutputStream> for ::windows::runtime::IUnknown {
+    fn from(value: FileOutputStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FileOutputStream> for ::windows::runtime::IUnknown {
+    fn from(value: &FileOutputStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FileOutputStream> for ::windows::runtime::IInspectable {
+    fn from(value: FileOutputStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileOutputStream> for ::windows::runtime::IInspectable {
+    fn from(value: &FileOutputStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<FileOutputStream> for IOutputStream {
     fn from(value: FileOutputStream) -> Self {
@@ -1180,7 +1476,7 @@ unsafe impl ::std::marker::Send for FileOutputStream {}
 unsafe impl ::std::marker::Sync for FileOutputStream {}
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileRandomAccessStream(::windows::runtime::IInspectable);
 impl FileRandomAccessStream {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -1361,6 +1657,46 @@ unsafe impl ::windows::runtime::Interface for FileRandomAccessStream {
 impl ::windows::runtime::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
 }
+impl ::std::convert::From<FileRandomAccessStream> for ::windows::runtime::IUnknown {
+    fn from(value: FileRandomAccessStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&FileRandomAccessStream> for ::windows::runtime::IUnknown {
+    fn from(value: &FileRandomAccessStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<FileRandomAccessStream> for ::windows::runtime::IInspectable {
+    fn from(value: FileRandomAccessStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileRandomAccessStream> for ::windows::runtime::IInspectable {
+    fn from(value: &FileRandomAccessStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<FileRandomAccessStream> for IRandomAccessStream {
     fn from(value: FileRandomAccessStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1454,7 +1790,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IOutputStream> for &FileRandomAccessS
 unsafe impl ::std::marker::Send for FileRandomAccessStream {}
 unsafe impl ::std::marker::Sync for FileRandomAccessStream {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBuffer {
@@ -1486,6 +1822,46 @@ impl IBuffer {
 }
 unsafe impl ::windows::runtime::RuntimeType for IBuffer {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
+}
+impl ::std::convert::From<IBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: IBuffer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IBuffer> for ::windows::runtime::IUnknown {
+    fn from(value: &IBuffer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IBuffer> for ::windows::runtime::IInspectable {
+    fn from(value: IBuffer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IBuffer> for ::windows::runtime::IInspectable {
+    fn from(value: &IBuffer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBuffer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1540,7 +1916,7 @@ pub struct IBufferStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IContentTypeProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentTypeProvider {
@@ -1560,6 +1936,46 @@ impl IContentTypeProvider {
 unsafe impl ::windows::runtime::RuntimeType for IContentTypeProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{97d098a5-3b99-4de9-88a5-e11d2f50c795}");
 }
+impl ::std::convert::From<IContentTypeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IContentTypeProvider) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IContentTypeProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IContentTypeProvider) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContentTypeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContentTypeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IContentTypeProvider> for ::windows::runtime::IInspectable {
+    fn from(value: IContentTypeProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IContentTypeProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &IContentTypeProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IContentTypeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IContentTypeProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentTypeProvider_abi(
@@ -1572,7 +1988,7 @@ pub struct IContentTypeProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IDataReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataReader {
@@ -1783,6 +2199,46 @@ impl IDataReader {
 unsafe impl ::windows::runtime::RuntimeType for IDataReader {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e2b50029-b4c1-4314-a4b8-fb813a2f275e}");
 }
+impl ::std::convert::From<IDataReader> for ::windows::runtime::IUnknown {
+    fn from(value: IDataReader) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDataReader> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataReader) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IDataReader> for ::windows::runtime::IInspectable {
+    fn from(value: IDataReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataReader> for ::windows::runtime::IInspectable {
+    fn from(value: &IDataReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IDataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IDataReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReader_abi(
@@ -1859,7 +2315,7 @@ pub struct IDataReaderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffer: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IDataWriter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataWriter {
@@ -2037,6 +2493,46 @@ impl IDataWriter {
 unsafe impl ::windows::runtime::RuntimeType for IDataWriter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
 }
+impl ::std::convert::From<IDataWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IDataWriter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDataWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IDataWriter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IDataWriter> for ::windows::runtime::IInspectable {
+    fn from(value: IDataWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDataWriter> for ::windows::runtime::IInspectable {
+    fn from(value: &IDataWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IDataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IDataWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriter_abi(
@@ -2130,7 +2626,7 @@ pub struct IFileRandomAccessStreamStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IInputStream(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputStream {
@@ -2156,6 +2652,46 @@ impl IInputStream {
 }
 unsafe impl ::windows::runtime::RuntimeType for IInputStream {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
+}
+impl ::std::convert::From<IInputStream> for ::windows::runtime::IUnknown {
+    fn from(value: IInputStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInputStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IInputStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IInputStream> for ::windows::runtime::IInspectable {
+    fn from(value: IInputStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInputStream> for ::windows::runtime::IInspectable {
+    fn from(value: &IInputStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IInputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IInputStream> for super::super::Foundation::IClosable {
@@ -2196,7 +2732,7 @@ pub struct IInputStream_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IInputStreamReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputStreamReference {
@@ -2217,6 +2753,46 @@ impl IInputStreamReference {
 unsafe impl ::windows::runtime::RuntimeType for IInputStreamReference {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{43929d18-5ec9-4b5a-919c-4205b0c804b6}");
 }
+impl ::std::convert::From<IInputStreamReference> for ::windows::runtime::IUnknown {
+    fn from(value: IInputStreamReference) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInputStreamReference> for ::windows::runtime::IUnknown {
+    fn from(value: &IInputStreamReference) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInputStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInputStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IInputStreamReference> for ::windows::runtime::IInspectable {
+    fn from(value: IInputStreamReference) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInputStreamReference> for ::windows::runtime::IInspectable {
+    fn from(value: &IInputStreamReference) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IInputStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IInputStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputStreamReference_abi(
@@ -2230,7 +2806,7 @@ pub struct IInputStreamReference_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IOutputStream(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOutputStream {
@@ -2265,6 +2841,46 @@ impl IOutputStream {
 }
 unsafe impl ::windows::runtime::RuntimeType for IOutputStream {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
+}
+impl ::std::convert::From<IOutputStream> for ::windows::runtime::IUnknown {
+    fn from(value: IOutputStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IOutputStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IOutputStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IOutputStream> for ::windows::runtime::IInspectable {
+    fn from(value: IOutputStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IOutputStream> for ::windows::runtime::IInspectable {
+    fn from(value: &IOutputStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IOutputStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IOutputStream> for super::super::Foundation::IClosable {
@@ -2307,7 +2923,7 @@ pub struct IOutputStream_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IPropertySetSerializer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertySetSerializer {
@@ -2334,6 +2950,46 @@ impl IPropertySetSerializer {
 unsafe impl ::windows::runtime::RuntimeType for IPropertySetSerializer {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6e8ebf1c-ef3d-4376-b20e-5be638aeac77}");
 }
+impl ::std::convert::From<IPropertySetSerializer> for ::windows::runtime::IUnknown {
+    fn from(value: IPropertySetSerializer) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IPropertySetSerializer> for ::windows::runtime::IUnknown {
+    fn from(value: &IPropertySetSerializer) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertySetSerializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertySetSerializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IPropertySetSerializer> for ::windows::runtime::IInspectable {
+    fn from(value: IPropertySetSerializer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IPropertySetSerializer> for ::windows::runtime::IInspectable {
+    fn from(value: &IPropertySetSerializer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPropertySetSerializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPropertySetSerializer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySetSerializer_abi(
@@ -2349,7 +3005,7 @@ pub struct IPropertySetSerializer_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IRandomAccessStream(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStream {
@@ -2460,6 +3116,46 @@ impl IRandomAccessStream {
 unsafe impl ::windows::runtime::RuntimeType for IRandomAccessStream {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
 }
+impl ::std::convert::From<IRandomAccessStream> for ::windows::runtime::IUnknown {
+    fn from(value: IRandomAccessStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRandomAccessStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IRandomAccessStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IRandomAccessStream> for ::windows::runtime::IInspectable {
+    fn from(value: IRandomAccessStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRandomAccessStream> for ::windows::runtime::IInspectable {
+    fn from(value: &IRandomAccessStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2550,7 +3246,7 @@ pub struct IRandomAccessStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IRandomAccessStreamReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamReference {
@@ -2570,6 +3266,46 @@ impl IRandomAccessStreamReference {
 }
 unsafe impl ::windows::runtime::RuntimeType for IRandomAccessStreamReference {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{33ee3134-1dd6-4e3a-8067-d1c162e8642b}");
+}
+impl ::std::convert::From<IRandomAccessStreamReference> for ::windows::runtime::IUnknown {
+    fn from(value: IRandomAccessStreamReference) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRandomAccessStreamReference> for ::windows::runtime::IUnknown {
+    fn from(value: &IRandomAccessStreamReference) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IRandomAccessStreamReference> for ::windows::runtime::IInspectable {
+    fn from(value: IRandomAccessStreamReference) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRandomAccessStreamReference> for ::windows::runtime::IInspectable {
+    fn from(value: &IRandomAccessStreamReference) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IRandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IRandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2628,7 +3364,7 @@ pub struct IRandomAccessStreamStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_Streams`*"]
 pub struct IRandomAccessStreamWithContentType(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamWithContentType {
@@ -2746,6 +3482,46 @@ impl IRandomAccessStreamWithContentType {
 }
 unsafe impl ::windows::runtime::RuntimeType for IRandomAccessStreamWithContentType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
+}
+impl ::std::convert::From<IRandomAccessStreamWithContentType> for ::windows::runtime::IUnknown {
+    fn from(value: IRandomAccessStreamWithContentType) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRandomAccessStreamWithContentType> for ::windows::runtime::IUnknown {
+    fn from(value: &IRandomAccessStreamWithContentType) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<IRandomAccessStreamWithContentType> for ::windows::runtime::IInspectable {
+    fn from(value: IRandomAccessStreamWithContentType) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IRandomAccessStreamWithContentType> for ::windows::runtime::IInspectable {
+    fn from(value: &IRandomAccessStreamWithContentType) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IRandomAccessStreamWithContentType> for super::super::Foundation::IClosable {
@@ -2873,7 +3649,7 @@ pub struct IRandomAccessStreamWithContentType_abi(
 );
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InMemoryRandomAccessStream(::windows::runtime::IInspectable);
 impl InMemoryRandomAccessStream {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2992,6 +3768,46 @@ unsafe impl ::windows::runtime::Interface for InMemoryRandomAccessStream {
 }
 impl ::windows::runtime::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
+}
+impl ::std::convert::From<InMemoryRandomAccessStream> for ::windows::runtime::IUnknown {
+    fn from(value: InMemoryRandomAccessStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InMemoryRandomAccessStream> for ::windows::runtime::IUnknown {
+    fn from(value: &InMemoryRandomAccessStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InMemoryRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InMemoryRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InMemoryRandomAccessStream> for ::windows::runtime::IInspectable {
+    fn from(value: InMemoryRandomAccessStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InMemoryRandomAccessStream> for ::windows::runtime::IInspectable {
+    fn from(value: &InMemoryRandomAccessStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InMemoryRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InMemoryRandomAccessStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<InMemoryRandomAccessStream> for IRandomAccessStream {
     fn from(value: InMemoryRandomAccessStream) -> Self {
@@ -3138,7 +3954,7 @@ impl ::std::ops::Not for InputStreamOptions {
 }
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InputStreamOverStream(::windows::runtime::IInspectable);
 impl InputStreamOverStream {
     #[cfg(feature = "Foundation")]
@@ -3166,6 +3982,46 @@ unsafe impl ::windows::runtime::Interface for InputStreamOverStream {
 }
 impl ::windows::runtime::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
+}
+impl ::std::convert::From<InputStreamOverStream> for ::windows::runtime::IUnknown {
+    fn from(value: InputStreamOverStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&InputStreamOverStream> for ::windows::runtime::IUnknown {
+    fn from(value: &InputStreamOverStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<InputStreamOverStream> for ::windows::runtime::IInspectable {
+    fn from(value: InputStreamOverStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InputStreamOverStream> for ::windows::runtime::IInspectable {
+    fn from(value: &InputStreamOverStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<InputStreamOverStream> for IInputStream {
     fn from(value: InputStreamOverStream) -> Self {
@@ -3217,7 +4073,7 @@ unsafe impl ::std::marker::Send for InputStreamOverStream {}
 unsafe impl ::std::marker::Sync for InputStreamOverStream {}
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OutputStreamOverStream(::windows::runtime::IInspectable);
 impl OutputStreamOverStream {
     #[cfg(feature = "Foundation")]
@@ -3254,6 +4110,46 @@ unsafe impl ::windows::runtime::Interface for OutputStreamOverStream {
 }
 impl ::windows::runtime::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
+}
+impl ::std::convert::From<OutputStreamOverStream> for ::windows::runtime::IUnknown {
+    fn from(value: OutputStreamOverStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&OutputStreamOverStream> for ::windows::runtime::IUnknown {
+    fn from(value: &OutputStreamOverStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OutputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OutputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<OutputStreamOverStream> for ::windows::runtime::IInspectable {
+    fn from(value: OutputStreamOverStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&OutputStreamOverStream> for ::windows::runtime::IInspectable {
+    fn from(value: &OutputStreamOverStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OutputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OutputStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<OutputStreamOverStream> for IOutputStream {
     fn from(value: OutputStreamOverStream) -> Self {
@@ -3340,7 +4236,7 @@ impl ::windows::runtime::RuntimeName for RandomAccessStream {
 }
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RandomAccessStreamOverStream(::windows::runtime::IInspectable);
 impl RandomAccessStreamOverStream {
     #[doc = "*Required features: `Storage_Streams`*"]
@@ -3453,6 +4349,46 @@ unsafe impl ::windows::runtime::Interface for RandomAccessStreamOverStream {
 impl ::windows::runtime::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
 }
+impl ::std::convert::From<RandomAccessStreamOverStream> for ::windows::runtime::IUnknown {
+    fn from(value: RandomAccessStreamOverStream) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RandomAccessStreamOverStream> for ::windows::runtime::IUnknown {
+    fn from(value: &RandomAccessStreamOverStream) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RandomAccessStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RandomAccessStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RandomAccessStreamOverStream> for ::windows::runtime::IInspectable {
+    fn from(value: RandomAccessStreamOverStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RandomAccessStreamOverStream> for ::windows::runtime::IInspectable {
+    fn from(value: &RandomAccessStreamOverStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RandomAccessStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RandomAccessStreamOverStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<RandomAccessStreamOverStream> for IRandomAccessStream {
     fn from(value: RandomAccessStreamOverStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3547,7 +4483,7 @@ unsafe impl ::std::marker::Send for RandomAccessStreamOverStream {}
 unsafe impl ::std::marker::Sync for RandomAccessStreamOverStream {}
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RandomAccessStreamReference(::windows::runtime::IInspectable);
 impl RandomAccessStreamReference {
     #[cfg(feature = "Foundation")]
@@ -3595,6 +4531,46 @@ unsafe impl ::windows::runtime::Interface for RandomAccessStreamReference {
 }
 impl ::windows::runtime::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";
+}
+impl ::std::convert::From<RandomAccessStreamReference> for ::windows::runtime::IUnknown {
+    fn from(value: RandomAccessStreamReference) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&RandomAccessStreamReference> for ::windows::runtime::IUnknown {
+    fn from(value: &RandomAccessStreamReference) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<RandomAccessStreamReference> for ::windows::runtime::IInspectable {
+    fn from(value: RandomAccessStreamReference) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RandomAccessStreamReference> for ::windows::runtime::IInspectable {
+    fn from(value: &RandomAccessStreamReference) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RandomAccessStreamReference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<RandomAccessStreamReference> for IRandomAccessStreamReference {
     fn from(value: RandomAccessStreamReference) -> Self {

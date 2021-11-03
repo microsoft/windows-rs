@@ -3,7 +3,7 @@
 pub mod Provider;
 #[doc = "*Required features: `Devices_Adc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AdcChannel(::windows::runtime::IInspectable);
 impl AdcChannel {
     #[doc = "*Required features: `Devices_Adc`*"]
@@ -46,6 +46,46 @@ unsafe impl ::windows::runtime::Interface for AdcChannel {
 }
 impl ::windows::runtime::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
+}
+impl ::std::convert::From<AdcChannel> for ::windows::runtime::IUnknown {
+    fn from(value: AdcChannel) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AdcChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &AdcChannel) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AdcChannel> for ::windows::runtime::IInspectable {
+    fn from(value: AdcChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AdcChannel> for ::windows::runtime::IInspectable {
+    fn from(value: &AdcChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdcChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<AdcChannel> for super::super::Foundation::IClosable {
@@ -99,7 +139,7 @@ impl ::windows::runtime::DefaultType for AdcChannelMode {
 }
 #[doc = "*Required features: `Devices_Adc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AdcController(::windows::runtime::IInspectable);
 impl AdcController {
     #[doc = "*Required features: `Devices_Adc`*"]
@@ -197,6 +237,46 @@ unsafe impl ::windows::runtime::Interface for AdcController {
 }
 impl ::windows::runtime::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
+}
+impl ::std::convert::From<AdcController> for ::windows::runtime::IUnknown {
+    fn from(value: AdcController) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&AdcController> for ::windows::runtime::IUnknown {
+    fn from(value: &AdcController) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+    }
+}
+impl ::std::convert::From<AdcController> for ::windows::runtime::IInspectable {
+    fn from(value: AdcController) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AdcController> for ::windows::runtime::IInspectable {
+    fn from(value: &AdcController) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdcController {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AdcController {}
 unsafe impl ::std::marker::Sync for AdcController {}
