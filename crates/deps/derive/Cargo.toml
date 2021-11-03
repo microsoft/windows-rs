@@ -10,5 +10,5 @@ description = "Macros for the windows crate"
 proc-macro = true
 
 [dependencies]
-syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] } # trim down?
+syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "derive"] }
 quote = { package = "windows_quote", path = "../quote", version = "0.24.0" }
