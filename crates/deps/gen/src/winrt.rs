@@ -96,9 +96,9 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         if param.signature.kind.is_primitive() {
             quote! { #name }
         } else if param.signature.is_const {
-            quote! { &*(#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::Abi>::DefaultType) }
+            quote! { &*(#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::DefaultType>::DefaultType) }
         } else {
-            quote! { &*(&#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::Abi>::DefaultType) }
+            quote! { &*(&#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::DefaultType>::DefaultType) }
         }
     } else {
         quote! { ::std::mem::transmute_copy(&#name) }
@@ -115,11 +115,11 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
             if param.signature.is_array {
                 if param.param.is_input() {
-                    quote! { #name: &[<#tokens as ::windows::runtime::Abi>::DefaultType], }
+                    quote! { #name: &[<#tokens as ::windows::runtime::DefaultType>::DefaultType], }
                 } else if param.signature.by_ref {
                     quote! { #name: &mut ::windows::runtime::Array<#tokens>, }
                 } else {
-                    quote! { #name: &mut [<#tokens as ::windows::runtime::Abi>::DefaultType], }
+                    quote! { #name: &mut [<#tokens as ::windows::runtime::DefaultType>::DefaultType], }
                 }
             } else if param.param.is_input() {
                 if param.is_convertible() {
@@ -131,7 +131,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else if param.signature.kind.is_nullable() {
                 quote! { #name: &mut ::std::option::Option<#tokens>, }
             } else if let ElementType::GenericParam(_) = param.signature.kind {
-                quote! { &mut <#tokens as ::windows::runtime::Abi>::DefaultType, }
+                quote! { &mut <#tokens as ::windows::runtime::DefaultType>::DefaultType, }
             } else if param.signature.pointers > 0 {
                 let tokens = gen_abi_sig(&param.signature, gen);
                 quote! { #name: #tokens, }
@@ -317,15 +317,15 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 
     if param.signature.is_array {
         if param.param.is_input() {
-            quote! { &[<#tokens as ::windows::runtime::Abi>::DefaultType] }
+            quote! { &[<#tokens as ::windows::runtime::DefaultType>::DefaultType] }
         } else if param.signature.by_ref {
             quote! { &mut ::windows::runtime::Array<#tokens> }
         } else {
-            quote! { &mut [<#tokens as ::windows::runtime::Abi>::DefaultType] }
+            quote! { &mut [<#tokens as ::windows::runtime::DefaultType>::DefaultType] }
         }
     } else if param.param.is_input() {
         if let ElementType::GenericParam(_) = param.signature.kind {
-            quote! { &<#tokens as ::windows::runtime::Abi>::DefaultType }
+            quote! { &<#tokens as ::windows::runtime::DefaultType>::DefaultType }
         } else if param.signature.kind.is_primitive() {
             quote! { #tokens }
         } else if param.signature.kind.is_nullable() {

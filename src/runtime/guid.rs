@@ -50,11 +50,14 @@ impl GUID {
 
 unsafe impl Abi for GUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 
 unsafe impl RuntimeType for GUID {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
+}
+
+impl ::windows::runtime::DefaultType for GUID {
+    type DefaultType = Self;
 }
 
 impl std::fmt::Debug for GUID {

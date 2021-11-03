@@ -135,7 +135,6 @@ pub fn gen_bstr() -> TokenStream {
         }
         unsafe impl ::windows::runtime::Abi for BSTR {
             type Abi = ::std::mem::ManuallyDrop<Self>;
-            type DefaultType = Self;
         }
         pub type BSTR_abi = *mut u16;
         impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {

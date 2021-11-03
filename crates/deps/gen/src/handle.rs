@@ -20,7 +20,6 @@ pub fn gen_handle() -> TokenStream {
         }
         unsafe impl ::windows::runtime::Abi for HANDLE {
             type Abi = Self;
-            type DefaultType = Self;
         }
     }
 }

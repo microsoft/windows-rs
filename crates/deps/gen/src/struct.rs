@@ -50,7 +50,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             unsafe impl ::windows::runtime::Handle for #name {}
             unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = Self;
-                type DefaultType = Self;
             }
             #convertible
         };
@@ -117,6 +116,9 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             unsafe impl ::windows::runtime::RuntimeType for #name {
                 const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#signature);
             }
+            impl ::windows::runtime::DefaultType for #name {
+                type DefaultType = Self;
+            }
         }
     } else {
         quote! {}
@@ -167,7 +169,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             #cfg
             unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = Self;
-                type DefaultType = Self;
             }
         }
     } else {
@@ -175,7 +176,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             #cfg
             unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = ::std::mem::ManuallyDrop<Self>;
-                type DefaultType = Self;
             }
         }
     };

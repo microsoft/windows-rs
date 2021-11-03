@@ -99,11 +99,14 @@ impl HSTRING {
 
 unsafe impl Abi for HSTRING {
     type Abi = std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 
 unsafe impl RuntimeType for HSTRING {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
+}
+
+impl ::windows::runtime::DefaultType for HSTRING {
+    type DefaultType = Self;
 }
 
 impl Default for HSTRING {

@@ -108,6 +108,9 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
             unsafe impl ::windows::runtime::RuntimeType for #name {
                 const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#signature);
             }
+            impl ::windows::runtime::DefaultType for #name {
+                type DefaultType = Self;
+            }
         }
     } else {
         quote! {}
@@ -129,7 +132,6 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
         }
         unsafe impl ::windows::runtime::Abi for #name {
             type Abi = Self;
-            type DefaultType = Self;
         }
         #runtime_type
         #bitwise

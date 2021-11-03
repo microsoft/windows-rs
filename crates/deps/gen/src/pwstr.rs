@@ -17,7 +17,6 @@ pub fn gen_pwstr() -> TokenStream {
         }
         unsafe impl ::windows::runtime::Abi for PWSTR {
             type Abi = Self;
-            type DefaultType = Self;
 
             unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                 if let ::windows::runtime::Param::Boxed(value) = param {
