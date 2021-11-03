@@ -25624,6 +25624,7 @@ unsafe impl ::windows::runtime::Abi for InkTrailPoint {
 unsafe impl ::windows::runtime::RuntimeType for InkTrailPoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Composition.InkTrailPoint;struct(Windows.Foundation.Point;f4;f4);f4)");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for InkTrailPoint {
     type DefaultType = Self;
 }

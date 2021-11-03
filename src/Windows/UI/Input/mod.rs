@@ -2977,6 +2977,7 @@ unsafe impl ::windows::runtime::Abi for ManipulationDelta {
 unsafe impl ::windows::runtime::RuntimeType for ManipulationDelta {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for ManipulationDelta {
     type DefaultType = Self;
 }
@@ -3216,6 +3217,7 @@ unsafe impl ::windows::runtime::Abi for ManipulationVelocities {
 unsafe impl ::windows::runtime::RuntimeType for ManipulationVelocities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for ManipulationVelocities {
     type DefaultType = Self;
 }

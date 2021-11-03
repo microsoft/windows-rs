@@ -11060,6 +11060,7 @@ unsafe impl ::windows::runtime::Abi for KeyTime {
 unsafe impl ::windows::runtime::RuntimeType for KeyTime {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Media.Animation.KeyTime;struct(Windows.Foundation.TimeSpan;i8))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for KeyTime {
     type DefaultType = Self;
 }
@@ -15367,6 +15368,7 @@ unsafe impl ::windows::runtime::Abi for RepeatBehavior {
 unsafe impl ::windows::runtime::RuntimeType for RepeatBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Media.Animation.RepeatBehavior;f8;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.UI.Xaml.Media.Animation.RepeatBehaviorType;i4))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for RepeatBehavior {
     type DefaultType = Self;
 }

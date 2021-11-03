@@ -1555,6 +1555,7 @@ unsafe impl ::windows::runtime::Abi for HolographicStereoTransform {
 unsafe impl ::windows::runtime::RuntimeType for HolographicStereoTransform {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for HolographicStereoTransform {
     type DefaultType = Self;
 }

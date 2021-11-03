@@ -7717,6 +7717,7 @@ unsafe impl ::windows::runtime::Abi for ProfileUsage {
 unsafe impl ::windows::runtime::RuntimeType for ProfileUsage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for ProfileUsage {
     type DefaultType = Self;
 }

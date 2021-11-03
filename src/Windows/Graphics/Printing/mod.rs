@@ -1310,6 +1310,7 @@ unsafe impl ::windows::runtime::Abi for PrintPageDescription {
 unsafe impl ::windows::runtime::RuntimeType for PrintPageDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for PrintPageDescription {
     type DefaultType = Self;
 }

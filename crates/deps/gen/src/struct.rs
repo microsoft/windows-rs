@@ -116,6 +116,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             unsafe impl ::windows::runtime::RuntimeType for #name {
                 const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#signature);
             }
+            #cfg
             impl ::windows::runtime::DefaultType for #name {
                 type DefaultType = Self;
             }

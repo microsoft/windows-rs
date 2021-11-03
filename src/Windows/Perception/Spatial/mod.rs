@@ -1036,6 +1036,7 @@ unsafe impl ::windows::runtime::Abi for SpatialBoundingBox {
 unsafe impl ::windows::runtime::RuntimeType for SpatialBoundingBox {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for SpatialBoundingBox {
     type DefaultType = Self;
 }
@@ -1081,6 +1082,7 @@ unsafe impl ::windows::runtime::Abi for SpatialBoundingFrustum {
 unsafe impl ::windows::runtime::RuntimeType for SpatialBoundingFrustum {
     const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))" ) ;
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for SpatialBoundingFrustum {
     type DefaultType = Self;
 }
@@ -1123,6 +1125,7 @@ unsafe impl ::windows::runtime::Abi for SpatialBoundingOrientedBox {
 unsafe impl ::windows::runtime::RuntimeType for SpatialBoundingOrientedBox {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for SpatialBoundingOrientedBox {
     type DefaultType = Self;
 }
@@ -1164,6 +1167,7 @@ unsafe impl ::windows::runtime::Abi for SpatialBoundingSphere {
 unsafe impl ::windows::runtime::RuntimeType for SpatialBoundingSphere {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for SpatialBoundingSphere {
     type DefaultType = Self;
 }
@@ -2042,6 +2046,7 @@ unsafe impl ::windows::runtime::Abi for SpatialRay {
 unsafe impl ::windows::runtime::RuntimeType for SpatialRay {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialRay;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for SpatialRay {
     type DefaultType = Self;
 }

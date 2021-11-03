@@ -39,6 +39,7 @@ unsafe impl ::windows::runtime::Abi for GpioChangeCount {
 unsafe impl ::windows::runtime::RuntimeType for GpioChangeCount {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for GpioChangeCount {
     type DefaultType = Self;
 }
@@ -385,6 +386,7 @@ unsafe impl ::windows::runtime::Abi for GpioChangeRecord {
 unsafe impl ::windows::runtime::RuntimeType for GpioChangeRecord {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for GpioChangeRecord {
     type DefaultType = Self;
 }
