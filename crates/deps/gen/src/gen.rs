@@ -124,11 +124,7 @@ impl Gen {
                 continue;
             }
 
-            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') {
-                &feature[self.root.len() + 1..]
-            } else {
-                &feature
-            };
+            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
 
             let feature = &feature.strip_prefix(format!("{}.", self.root).as_str()).unwrap_or(feature);
             tokens.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
