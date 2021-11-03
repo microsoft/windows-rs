@@ -4,14 +4,14 @@ use super::*;
 pub struct Class(pub TypeDef);
 
 impl Class {
-    pub fn interfaces(&self) -> Vec<InterfaceInfo> {
+    fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &TypeDef, is_base: bool) {
             for child in parent.interface_impls() {
                 if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
                     let kind = if !is_base && child.is_default() {
                         InterfaceKind::Default
                     } else if child.is_overridable() {
-                        InterfaceKind::Overridable
+                        continue;
                     } else {
                         InterfaceKind::NonDefault
                     };

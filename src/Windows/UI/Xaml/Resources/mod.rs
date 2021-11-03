@@ -5,14 +5,6 @@
 pub struct CustomXamlResourceLoader(::windows::runtime::IInspectable);
 impl CustomXamlResourceLoader {
     #[doc = "*Required features: `UI_Xaml_Resources`*"]
-    pub fn GetResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, resourceid: Param0, objecttype: Param1, propertyname: Param2, propertytype: Param3) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
-        let this = &::windows::runtime::Interface::cast::<ICustomXamlResourceLoaderOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), resourceid.into_param().abi(), objecttype.into_param().abi(), propertyname.into_param().abi(), propertytype.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn Current() -> ::windows::runtime::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

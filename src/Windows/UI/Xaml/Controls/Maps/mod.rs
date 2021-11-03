@@ -6913,204 +6913,6 @@ impl MapControl {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), childname.into_param().abi(), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation`*"]
-    pub fn MeasureOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Size>>(&self, availablesize: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::Size> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IFrameworkElementOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), availablesize.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation`*"]
-    pub fn ArrangeOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Size>>(&self, finalsize: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::Size> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IFrameworkElementOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), finalsize.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnApplyTemplate(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IFrameworkElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn GoToElementStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, statename: Param0, usetransitions: bool) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IFrameworkElementOverrides2>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), statename.into_param().abi(), usetransitions, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Automation_Peers")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Automation_Peers`*"]
-    pub fn OnCreateAutomationPeer(&self) -> ::windows::runtime::Result<super::super::Automation::Peers::AutomationPeer> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Automation::Peers::AutomationPeer>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation`, `Foundation_Collections`*"]
-    pub fn FindSubElementsForTouchTargeting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Point>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>>(&self, point: Param0, boundingrect: Param1) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Foundation::Point>>> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), point.into_param().abi(), boundingrect.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Foundation::Point>>>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerEntered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerMoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerCaptureLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPointerWheelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::TappedRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnDoubleTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::DoubleTappedRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnHolding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::HoldingRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnRightTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::RightTappedRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnManipulationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::ManipulationStartingRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnManipulationInertiaStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::ManipulationInertiaStartingRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::ManipulationStartedRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnManipulationDelta<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::ManipulationDeltaRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::ManipulationCompletedRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::KeyRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::KeyRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnGotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::RoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnLostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::RoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnDragEnter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DragEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnDragLeave<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DragEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnDragOver<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DragEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DragEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::IFrameworkElement4>(self)?;
@@ -7808,39 +7610,6 @@ impl MapControl {
         let this = &::windows::runtime::Interface::cast::<super::super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation_Collections`*"]
-    pub fn GetChildrenInTabFocusOrder(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IIterable<super::super::DependencyObject>> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides7>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IIterable<super::super::DependencyObject>>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnProcessKeyboardAccelerators<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::ProcessKeyboardAcceleratorEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides7>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPreviewKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::KeyRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides6>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnPreviewKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::KeyRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides6>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnCharacterReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::CharacterReceivedRoutedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IControlOverrides6>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
-    }
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
     pub fn KeyTipTarget(&self) -> ::windows::runtime::Result<super::super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<super::super::IUIElement8>(self)?;
@@ -7896,17 +7665,6 @@ impl MapControl {
     pub fn RemoveBringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IUIElement8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Xaml_Input`*"]
-    pub fn OnKeyboardAcceleratorInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::KeyboardAcceleratorInvokedEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides8>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`*"]
-    pub fn OnBringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::BringIntoViewRequestedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides8>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Composition`*"]
@@ -8132,12 +7890,6 @@ impl MapControl {
     pub fn SetCornerRadius<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::CornerRadius>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IControl7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::super::IUIElementOverrides9>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `UI_Xaml_Controls_Maps`, `Foundation_Numerics`*"]

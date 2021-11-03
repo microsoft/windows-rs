@@ -877,14 +877,6 @@ pub struct IXamlType2_abi(
 pub struct MarkupExtension(::windows::runtime::IInspectable);
 impl MarkupExtension {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
-    pub fn ProvideValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
-        let this = &::windows::runtime::Interface::cast::<IMarkupExtensionOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Markup`*"]
     pub fn new() -> ::windows::runtime::Result<MarkupExtension> {
         Self::IMarkupExtensionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

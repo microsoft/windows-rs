@@ -284,27 +284,11 @@ impl AcrylicBrush {
         let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseProtected>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnConnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnDisconnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
     #[cfg(feature = "UI_Composition")]
     #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn IAcrylicBrushStatics<R, F: FnOnce(&IAcrylicBrushStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<AcrylicBrush, IAcrylicBrushStatics> = ::windows::runtime::FactoryCache::new();
@@ -1122,12 +1106,6 @@ impl Brush {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
-    }
     #[doc = "*Required features: `UI_Xaml_Media`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
@@ -1858,32 +1836,6 @@ impl CompositeTransform {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
     pub fn ICompositeTransformStatics<R, F: FnOnce(&ICompositeTransformStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<CompositeTransform, ICompositeTransformStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2577,32 +2529,6 @@ impl GeneralTransform {
         unsafe {
             let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `UI_Xaml_Media`*"]
@@ -3405,12 +3331,6 @@ impl GradientBrush {
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn IGradientBrushStatics<R, F: FnOnce(&IGradientBrushStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<GradientBrush, IGradientBrushStatics> = ::windows::runtime::FactoryCache::new();
@@ -6889,12 +6809,6 @@ impl ImageBrush {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
-    }
     pub fn IImageBrushStatics<R, F: FnOnce(&IImageBrushStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<ImageBrush, IImageBrushStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -7649,12 +7563,6 @@ impl LinearGradientBrush {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
-    }
     pub fn ILinearGradientBrushFactory<R, F: FnOnce(&ILinearGradientBrushFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<LinearGradientBrush, ILinearGradientBrushFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -8318,32 +8226,6 @@ impl MatrixTransform {
         unsafe {
             let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     pub fn IMatrixTransformStatics<R, F: FnOnce(&IMatrixTransformStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -11214,16 +11096,6 @@ impl RevealBackgroundBrush {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnConnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnDisconnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::Color> {
         let this = &::windows::runtime::Interface::cast::<IRevealBrush>(self)?;
         unsafe {
@@ -11267,12 +11139,6 @@ impl RevealBackgroundBrush {
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn IRevealBackgroundBrushFactory<R, F: FnOnce(&IRevealBackgroundBrushFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<RevealBackgroundBrush, IRevealBackgroundBrushFactory> = ::windows::runtime::FactoryCache::new();
@@ -11533,16 +11399,6 @@ impl RevealBorderBrush {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnConnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnDisconnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::Color> {
         let this = &::windows::runtime::Interface::cast::<IRevealBrush>(self)?;
         unsafe {
@@ -11586,12 +11442,6 @@ impl RevealBorderBrush {
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn IRevealBorderBrushFactory<R, F: FnOnce(&IRevealBorderBrushFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<RevealBorderBrush, IRevealBorderBrushFactory> = ::windows::runtime::FactoryCache::new();
@@ -11922,27 +11772,11 @@ impl RevealBrush {
         let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseProtected>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnConnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnDisconnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
     #[cfg(feature = "UI_Composition")]
     #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn IRevealBrushStatics<R, F: FnOnce(&IRevealBrushStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<RevealBrush, IRevealBrushStatics> = ::windows::runtime::FactoryCache::new();
@@ -12231,32 +12065,6 @@ impl RotateTransform {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
     pub fn IRotateTransformStatics<R, F: FnOnce(&IRotateTransformStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<RotateTransform, IRotateTransformStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12515,32 +12323,6 @@ impl ScaleTransform {
         unsafe {
             let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     pub fn IScaleTransformStatics<R, F: FnOnce(&IScaleTransformStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -12897,32 +12679,6 @@ impl SkewTransform {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
     pub fn ISkewTransformStatics<R, F: FnOnce(&ISkewTransformStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<SkewTransform, ISkewTransformStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13139,12 +12895,6 @@ impl SolidColorBrush {
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn ISolidColorBrushFactory<R, F: FnOnce(&ISolidColorBrushFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<SolidColorBrush, ISolidColorBrushFactory> = ::windows::runtime::FactoryCache::new();
@@ -13636,12 +13386,6 @@ impl TileBrush {
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     pub fn ITileBrushStatics<R, F: FnOnce(&ITileBrushStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<TileBrush, ITileBrushStatics> = ::windows::runtime::FactoryCache::new();
@@ -14326,32 +14070,6 @@ impl Transform {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
 }
 unsafe impl ::windows::runtime::RuntimeType for Transform {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Transform;{4df74078-bfd6-4ed1-9682-d2fd8bf2fe6f})");
@@ -14732,32 +14450,6 @@ impl TransformGroup {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
     pub fn ITransformGroupStatics<R, F: FnOnce(&ITransformGroupStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<TransformGroup, ITransformGroupStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14978,32 +14670,6 @@ impl TranslateTransform {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn InverseCore(&self) -> ::windows::runtime::Result<GeneralTransform> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeneralTransform>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TryTransformCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, inpoint: Param0, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inpoint.into_param().abi(), outpoint, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `Foundation`*"]
-    pub fn TransformBoundsCore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, rect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::runtime::Interface::cast::<IGeneralTransformOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), rect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
-        }
-    }
     pub fn ITranslateTransformStatics<R, F: FnOnce(&ITranslateTransformStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<TranslateTransform, ITranslateTransformStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15218,16 +14884,6 @@ impl XamlCompositionBrushBase {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnConnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnDisconnected(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlCompositionBrushBaseOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
     pub fn FallbackColorProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IXamlCompositionBrushBaseStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -15335,12 +14991,6 @@ impl XamlCompositionBrushBase {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IBrushOverrides2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
-    }
     pub fn IXamlCompositionBrushBaseStatics<R, F: FnOnce(&IXamlCompositionBrushBaseStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<XamlCompositionBrushBase, IXamlCompositionBrushBaseStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15443,24 +15093,6 @@ impl XamlLight {
     pub fn SetCompositionLight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Composition::CompositionLight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXamlLightProtected>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn GetId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<IXamlLightOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnConnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(&self, newelement: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlLightOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), newelement.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media`*"]
-    pub fn OnDisconnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(&self, oldelement: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlLightOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), oldelement.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Media`*"]
     pub fn AddTargetElement<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::UIElement>>(lightid: Param0, element: Param1) -> ::windows::runtime::Result<()> {

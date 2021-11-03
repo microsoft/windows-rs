@@ -2469,14 +2469,7 @@ unsafe impl ::std::marker::Sync for WriteableBitmap {}
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XamlRenderingBackgroundTask(::windows::runtime::IInspectable);
-impl XamlRenderingBackgroundTask {
-    #[cfg(feature = "ApplicationModel_Background")]
-    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `ApplicationModel_Background`*"]
-    pub fn OnRun<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance>>(&self, taskinstance: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<IXamlRenderingBackgroundTaskOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), taskinstance.into_param().abi()).ok() }
-    }
-}
+impl XamlRenderingBackgroundTask {}
 unsafe impl ::windows::runtime::RuntimeType for XamlRenderingBackgroundTask {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask;{5d5fe9aa-533e-44b8-a975-fc5f1e3bff52})");
 }

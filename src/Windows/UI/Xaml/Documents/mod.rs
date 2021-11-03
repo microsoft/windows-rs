@@ -336,11 +336,6 @@ impl Block {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1024,11 +1019,6 @@ impl Bold {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
@@ -2020,11 +2010,6 @@ impl ContentLink {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
@@ -4035,60 +4020,6 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), pointerpoint.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackageOperation>>(result__)
         }
     }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
-    pub fn MeasureOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(&self, availablesize: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
-        let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), availablesize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
-    pub fn ArrangeOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(&self, finalsize: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
-        let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), finalsize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnApplyTemplate(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn GoToElementStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, statename: Param0, usetransitions: bool) -> ::windows::runtime::Result<bool> {
-        let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides2>(self)?;
-        unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), statename.into_param().abi(), usetransitions, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Automation_Peers")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Automation_Peers`*"]
-    pub fn OnCreateAutomationPeer(&self) -> ::windows::runtime::Result<super::Automation::Peers::AutomationPeer> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Automation::Peers::AutomationPeer>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `Foundation_Collections`*"]
-    pub fn FindSubElementsForTouchTargeting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, point: Param0, boundingrect: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), point.into_param().abi(), boundingrect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>>(result__)
-        }
-    }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
@@ -4632,21 +4563,6 @@ impl Glyphs {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn GetChildrenInTabFocusOrder(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterable<super::DependencyObject>> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides7>(self)?;
-        unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::DependencyObject>>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
-    pub fn OnProcessKeyboardAccelerators<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ProcessKeyboardAcceleratorEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides7>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
-    }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipTarget(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
@@ -4702,17 +4618,6 @@ impl Glyphs {
     pub fn RemoveBringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
-    pub fn OnKeyboardAcceleratorInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::KeyboardAcceleratorInvokedEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides8>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnBringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::BringIntoViewRequestedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides8>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Composition`*"]
@@ -4912,12 +4817,6 @@ impl Glyphs {
     pub fn StopAnimation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), animation.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Composition`*"]
-    pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides9>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
@@ -5701,11 +5600,6 @@ impl Hyperlink {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
@@ -7809,11 +7703,6 @@ impl Inline {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8489,11 +8378,6 @@ impl InlineUIContainer {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9002,11 +8886,6 @@ impl Italic {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
@@ -9522,11 +9401,6 @@ impl LineBreak {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
@@ -10123,11 +9997,6 @@ impl Paragraph {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
@@ -10796,11 +10665,6 @@ impl Run {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -11315,11 +11179,6 @@ impl Span {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -11754,11 +11613,6 @@ impl TextElement {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSizeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
@@ -13501,11 +13355,6 @@ impl Underline {
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Documents`*"]
-    pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {

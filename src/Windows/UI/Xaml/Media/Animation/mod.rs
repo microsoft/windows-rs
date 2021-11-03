@@ -1852,19 +1852,6 @@ impl CommonNavigationTransitionInfo {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
-    }
     pub fn ICommonNavigationTransitionInfoStatics<R, F: FnOnce(&ICommonNavigationTransitionInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<CommonNavigationTransitionInfo, ICommonNavigationTransitionInfoStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2431,19 +2418,6 @@ impl ContinuumNavigationTransitionInfo {
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
     }
     pub fn IContinuumNavigationTransitionInfoStatics<R, F: FnOnce(&IContinuumNavigationTransitionInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<ContinuumNavigationTransitionInfo, IContinuumNavigationTransitionInfoStatics> = ::windows::runtime::FactoryCache::new();
@@ -4806,19 +4780,6 @@ impl DrillInNavigationTransitionInfo {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
-    }
 }
 unsafe impl ::windows::runtime::RuntimeType for DrillInNavigationTransitionInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo;{3b86201a-45d3-463b-939e-c8595f439bcc})");
@@ -6810,19 +6771,6 @@ impl EntranceNavigationTransitionInfo {
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
     }
     pub fn IEntranceNavigationTransitionInfoStatics<R, F: FnOnce(&IEntranceNavigationTransitionInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<EntranceNavigationTransitionInfo, IEntranceNavigationTransitionInfoStatics> = ::windows::runtime::FactoryCache::new();
@@ -11890,19 +11838,6 @@ unsafe impl ::std::marker::Sync for NavigationThemeTransition {}
 pub struct NavigationTransitionInfo(::windows::runtime::IInspectable);
 impl NavigationTransitionInfo {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16349,19 +16284,6 @@ impl SlideNavigationTransitionInfo {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
-    }
     pub fn ISlideNavigationTransitionInfoStatics2<R, F: FnOnce(&ISlideNavigationTransitionInfoStatics2) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<SlideNavigationTransitionInfo, ISlideNavigationTransitionInfoStatics2> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18226,19 +18148,6 @@ impl SuppressNavigationTransitionInfo {
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn GetNavigationStateCore(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
-    pub fn SetNavigationStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, navigationstate: Param0) -> ::windows::runtime::Result<()> {
-        let this = &::windows::runtime::Interface::cast::<INavigationTransitionInfoOverrides>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), navigationstate.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SuppressNavigationTransitionInfo {
