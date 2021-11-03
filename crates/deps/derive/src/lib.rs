@@ -4,8 +4,7 @@ use syn::*;
 #[proc_macro_derive(DeriveInterface)]
 pub fn derive_interface(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
-    let name: TokenStream = input.ident.to_string().into();
-    let mut name = quote! { #name };
+    let mut name: TokenStream = input.ident.to_string().into();
     let mut base = None;
 
     if let Data::Struct(data) = input.data {
