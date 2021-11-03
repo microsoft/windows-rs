@@ -1,11 +1,9 @@
 use super::*;
 
-// TODO: remove Clone constraint
-
 #[doc(hidden)]
-pub unsafe trait Abi: Sized + Clone {
+pub unsafe trait Abi: Sized {
     type Abi;
-    type DefaultType: Sized + Clone + PartialEq;
+    type DefaultType: Sized;
 
     /// # Safety
     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
