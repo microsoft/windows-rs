@@ -48,7 +48,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let methods = method_bases.rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_method(base_offset + vtable_offset, &method, &mut method_names, gen));
 
-        let mut conversions = TokenStream::with_capacity();
+        let mut conversions = gen_unknown(&name, &TokenStream::new(), &TokenStream::new());
 
         for base in &bases {
             let into = gen_type_name(base, gen);
@@ -108,7 +108,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
         quote! {
             #doc
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)]
+            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::runtime::IUnknown);
             impl #name {
                 #(#methods)*

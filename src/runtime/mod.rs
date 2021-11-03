@@ -86,9 +86,6 @@ pub type RawPtr = *mut std::ffi::c_void;
 #[cfg(feature = "build")]
 pub use windows_macros::{build, generate, implement, include_bindings};
 
-#[doc(hidden)]
-pub use windows_derive::DeriveInterface;
-
 // TODO: remove this
 #[cfg(feature = "build")]
 pub use windows_reader::workspace_dir;
