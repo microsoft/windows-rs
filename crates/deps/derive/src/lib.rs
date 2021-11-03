@@ -29,7 +29,7 @@ pub fn derive_interface(input: proc_macro::TokenStream) -> proc_macro::TokenStre
                     if let Some(ident) = path.path.get_ident() {
                         let name = format_token!("{}", ident.to_string());
                         constraints.combine(&quote! {
-                            #name: ::windows::runtime::RuntimeType + 'static, 
+                            #name: ::windows::runtime::RuntimeType + 'static,
                         });
                         generics.combine(&quote! {
                             #name,
